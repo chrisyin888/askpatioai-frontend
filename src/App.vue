@@ -201,7 +201,7 @@
 
                 <div
                   v-for="(msg, index) in messages"
-                  :key="index"
+                  :key="msg.id || index"
                 >
                   <div
                     :class="[
@@ -535,6 +535,69 @@
                 </select>
               </div>
 
+              <div class="form-upload-section">
+                <label class="details-label upload-field-label" for="appointment-photos">
+                  Upload photos for a more accurate quote (optional)
+                </label>
+                <p class="upload-field-hint">
+                  Image files only (e.g. PNG, JPG). Up to 8 files, 8MB each.
+                </p>
+                <div class="form-field form-field-upload upload-control">
+                  <input
+                    id="appointment-photos"
+                    ref="appointmentPhotoInput"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    class="upload-input-hidden"
+                    aria-describedby="upload-status-text"
+                    @change="onAppointmentPhotosChange"
+                  />
+                  <div class="upload-actions">
+                    <button
+                      type="button"
+                      class="upload-choose-btn"
+                      @click="openAppointmentPhotoPicker"
+                    >
+                      Choose Files
+                    </button>
+                    <p
+                      id="upload-status-text"
+                      class="upload-status"
+                      aria-live="polite"
+                    >
+                      {{ appointmentPhotoStatusText }}
+                    </p>
+                  </div>
+                </div>
+                <ul
+                  v-if="appointmentPhotoPreviews.length"
+                  class="photo-preview-list"
+                >
+                  <li
+                    v-for="(p, idx) in appointmentPhotoPreviews"
+                    :key="p.key"
+                    class="photo-preview-item"
+                  >
+                    <img
+                      class="photo-preview-thumb"
+                      :src="p.url"
+                      alt=""
+                    />
+                    <div class="photo-preview-meta">
+                      <span class="photo-preview-name">{{ p.name }}</span>
+                      <button
+                        type="button"
+                        class="photo-preview-remove"
+                        @click="removeAppointmentPhoto(idx)"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
               <h3 class="details-label">Project Details (Optional)</h3>
               <div class="form-field form-field-textarea">
                 <textarea
@@ -584,6 +647,18 @@
 
 <script>
 import siteData from './data/siteData.json';
+
+// Frontend-only intros for hero service cards (no backend / no pricing on first tap).
+const SERVICE_CARD_INTRO_BY_NAME = {
+  'Glass Patio Covers':
+    'Glass patio covers are a premium option with a clean, modern look and strong weather protection. Clear and tinted glass options are both available, and tempered glass is durable, safe, and low maintenance. Enter your city and approximate size whenever you want a rough quote.',
+  'Aluminum Patio Covers':
+    'Aluminum patio covers are one of the most practical and popular options because they are durable, low maintenance, and cost-effective. They work well for everyday rain and sun protection and are available in different styles and finishes. Enter your city and approximate size whenever you want a rough quote.',
+  'Skyline Combo Covers':
+    'Skyline combo covers combine strong structure with a more modern open-look design. They are a popular choice for homeowners who want both protection and a cleaner architectural style. Enter your city and approximate size whenever you want a rough quote.',
+  Sunrooms:
+    'Sunrooms create a brighter, more enclosed space that can be enjoyed through more seasons of the year. They are a great option for homeowners who want extra comfort, weather protection, and a more finished extension of the home. Enter your city and approximate size whenever you want a rough quote.',
+};
 
 export default {
   name: 'App',
@@ -656,6 +731,8 @@ export default {
       formSubmitting: false,
       formSuccess: false,
       formError: '',
+      appointmentPhotos: [],
+      appointmentPhotoPreviews: [],
       projectInfo: {
         city: '',
         project_type: '',
@@ -681,6 +758,12 @@ export default {
         return true;
       });
     },
+    appointmentPhotoStatusText() {
+      if (!this.appointmentPhotos.length) {
+        return 'No files selected';
+      }
+      return this.appointmentPhotos.map((f) => f.name).join(', ');
+    },
   },
   created() {
     const d = siteData;
@@ -705,14 +788,37 @@ export default {
     toggleFaq(idx) {
       this.faqOpenIndex = this.faqOpenIndex === idx ? null : idx;
     },
+    generateMessageId() {
+      return `m_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+    },
+    replaceMessageById(messageId, fields) {
+      const msg = this.messages.find((m) => m.id === messageId);
+      if (!msg) return;
+      Object.assign(msg, fields);
+    },
     async sendMessage() {
       const text = this.userInput.trim();
       if (!text) return;
 
       this.updateProjectInfoFromText(text);
 
-      this.messages.push({ type: 'user', text });
+      // Push the user's message first, then immediately show a temp assistant reply.
+      this.messages.push({
+        id: this.generateMessageId(),
+        type: 'user',
+        text,
+      });
       this.userInput = '';
+      this.$nextTick(() => this.scrollToBottom());
+
+      const placeholderId = this.generateMessageId();
+      this.messages.push({
+        id: placeholderId,
+        type: 'bot',
+        text: 'Got it — calculating your estimate...',
+        showCta: false,
+        isPlaceholder: true,
+      });
       this.$nextTick(() => this.scrollToBottom());
 
       const siteMeasurementIntent = this.isSiteMeasurementRequest(text);
@@ -720,8 +826,7 @@ export default {
 
       // If user clearly requests on-site measurement, handle intent locally
       if (siteMeasurementIntent) {
-        this.isTyping = false;
-        this.handleSiteMeasurementBotReply();
+        this.handleSiteMeasurementBotReply(placeholderId);
         this.$nextTick(() => this.scrollToBottom());
         return;
       }
@@ -729,48 +834,76 @@ export default {
       // Pricing guardrail: do not call backend AI for patio cover pricing
       // until the user explicitly confirms material type (aluminum vs glass).
       if (this.shouldAskMaterialTypeForPatioPricing(text)) {
-        this.isTyping = false;
-        this.messages.push({
+        this.replaceMessageById(placeholderId, {
           type: 'bot',
           text: 'To give you an accurate estimate, is this for an aluminum patio cover or a glass patio cover?',
           showCta: false,
+          isPlaceholder: false,
         });
         this.$nextTick(() => this.scrollToBottom());
         return;
       }
 
-      this.isTyping = true;
-      this.$nextTick(() => this.scrollToBottom());
-
       try {
         const res = await fetch(this.cfg.chatApiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question: text }),
+          body: JSON.stringify({
+            question: text,
+            project_type: (this.projectInfo && this.projectInfo.project_type) || '',
+            city: (this.projectInfo && this.projectInfo.city) || '',
+            email: (this.form && this.form.email) || '',
+            phone: (this.form && this.form.phone) || '',
+          }),
         });
         const data = await res.json();
-        this.isTyping = false;
         const answer = data.answer || 'Sorry, something went wrong.';
         const isPrice = this.isPriceResponse(answer);
-        this.messages.push({
+
+        this.replaceMessageById(placeholderId, {
           type: 'bot',
           text: answer,
           isPrice,
           showCta: bookingIntent,
+          isPlaceholder: false,
         });
       } catch {
-        this.isTyping = false;
-        this.messages.push({
+        this.replaceMessageById(placeholderId, {
           type: 'bot',
           text: 'Unable to connect. Please try again later.',
+          showCta: false,
+          isPlaceholder: false,
         });
       }
 
       this.$nextTick(() => this.scrollToBottom());
     },
     selectService(service) {
-      this.userInput = `I'm interested in ${service.name}`;
-      this.sendMessage();
+      const name = (service && service.name) || '';
+      if (!name) return;
+
+      this.updateProjectInfoFromText(name);
+
+      this.messages.push({
+        id: this.generateMessageId(),
+        type: 'user',
+        text: name,
+      });
+
+      const intro =
+        SERVICE_CARD_INTRO_BY_NAME[name] ||
+        `${name}: here is a quick overview. Strong weather protection and several style options are available. Enter your city and approximate size whenever you want a rough quote.`;
+
+      this.messages.push({
+        id: this.generateMessageId(),
+        type: 'bot',
+        text: intro,
+        showCta: false,
+        isPlaceholder: false,
+      });
+
+      this.userInput = '';
+      this.$nextTick(() => this.scrollToBottom());
     },
     scrollToBottom() {
       const el = this.$refs.chatMessages;
@@ -919,7 +1052,7 @@ export default {
         }
       }
     },
-    handleSiteMeasurementBotReply() {
+    handleSiteMeasurementBotReply(replaceMessageId) {
       const responses = [
         'Free site measurement can be arranged. Please book the appointment form and the team can confirm the final quote on site.',
         'Can arrange on-site measurement. Please submit the appointment form and the team will contact you.',
@@ -928,12 +1061,6 @@ export default {
       const text =
         responses[Math.floor(Math.random() * responses.length)];
 
-      this.messages.push({
-        type: 'bot',
-        text,
-        showCta: true,
-      });
-
       const note = 'User requested on-site measurement. Size not provided.';
       if (!this.form.details) {
         this.form.details = note;
@@ -941,6 +1068,23 @@ export default {
         this.form.details = `${this.form.details}${
           this.form.details.endsWith('\n') ? '' : '\n'
         }${note}`;
+      }
+
+      // Replace the pending assistant message if we have an id; otherwise fall back to pushing.
+      if (replaceMessageId) {
+        this.replaceMessageById(replaceMessageId, {
+          type: 'bot',
+          text,
+          showCta: true,
+          isPlaceholder: false,
+        });
+      } else {
+        this.messages.push({
+          id: this.generateMessageId(),
+          type: 'bot',
+          text,
+          showCta: true,
+        });
       }
     },
     handleChatCtaClick() {
@@ -1086,6 +1230,70 @@ export default {
         return project;
       });
     },
+    openAppointmentPhotoPicker() {
+      const el = this.$refs.appointmentPhotoInput;
+      if (el) el.click();
+    },
+    revokeAppointmentPhotoUrls() {
+      this.appointmentPhotoPreviews.forEach((p) => {
+        if (p && p.url) URL.revokeObjectURL(p.url);
+      });
+    },
+    clearAppointmentPhotos() {
+      this.revokeAppointmentPhotoUrls();
+      this.appointmentPhotos = [];
+      this.appointmentPhotoPreviews = [];
+    },
+    onAppointmentPhotosChange(event) {
+      const input = event && event.target;
+      if (!input || !input.files) return;
+
+      const picked = Array.from(input.files);
+      const maxFiles = 8;
+      const maxBytes = 8 * 1024 * 1024;
+
+      for (let i = 0; i < picked.length; i += 1) {
+        const file = picked[i];
+        if (!file.type || !file.type.startsWith('image/')) {
+          this.formError = 'Please choose image files only.';
+          setTimeout(() => {
+            this.formError = '';
+          }, 5000);
+          input.value = '';
+          return;
+        }
+        if (file.size > maxBytes) {
+          this.formError = 'Each image must be 8MB or smaller.';
+          setTimeout(() => {
+            this.formError = '';
+          }, 5000);
+          input.value = '';
+          return;
+        }
+      }
+
+      for (const file of picked) {
+        if (this.appointmentPhotos.length >= maxFiles) break;
+        if (!file.type || !file.type.startsWith('image/')) continue;
+        if (file.size > maxBytes) continue;
+        this.appointmentPhotos.push(file);
+      }
+
+      this.revokeAppointmentPhotoUrls();
+      this.appointmentPhotoPreviews = this.appointmentPhotos.map((f, i) => ({
+        key: `preview-${i}-${f.name}-${f.size}`,
+        name: f.name,
+        url: URL.createObjectURL(f),
+      }));
+
+      input.value = '';
+    },
+    removeAppointmentPhoto(index) {
+      const p = this.appointmentPhotoPreviews[index];
+      if (p && p.url) URL.revokeObjectURL(p.url);
+      this.appointmentPhotos.splice(index, 1);
+      this.appointmentPhotoPreviews.splice(index, 1);
+    },
     async submitAppointment() {
       this.formSubmitting = true;
       this.formSuccess = false;
@@ -1102,32 +1310,37 @@ export default {
       } = this.form;
 
       try {
+        const messageBody = [
+          preferred_time
+            ? `Preferred contact time: ${preferred_time}`
+            : '',
+          details || '',
+        ]
+          .filter(Boolean)
+          .join('\n')
+          .trim();
+
+        const fd = new FormData();
+        fd.append('source', 'website_appointment_form');
+        fd.append('name', name);
+        fd.append('phone', phone);
+        fd.append('email', email);
+        fd.append('city', city);
+        fd.append('project_type', project_type);
+        fd.append(
+          'size',
+          this.projectInfo && this.projectInfo.size
+            ? this.projectInfo.size
+            : '',
+        );
+        fd.append('message', messageBody);
+        this.appointmentPhotos.forEach((file) => {
+          fd.append('photos', file, file.name);
+        });
+
         const res = await fetch(this.cfg.emailApiUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            // required by backend
-            source: 'website_appointment_form',
-            name,
-            phone,
-            email,
-            city,
-            project_type,
-            // size: prefer parsed size from chat, else try to leave blank
-            size: this.projectInfo && this.projectInfo.size
-              ? this.projectInfo.size
-              : '',
-            // message: include preferred time + freeform details
-            message: [
-              preferred_time
-                ? `Preferred contact time: ${preferred_time}`
-                : '',
-              details || '',
-            ]
-              .filter(Boolean)
-              .join('\n')
-              .trim(),
-          }),
+          body: fd,
         });
 
         if (!res.ok) {
@@ -1135,10 +1348,22 @@ export default {
           // Log exact response for debugging
           // eslint-disable-next-line no-console
           console.error('Appointment submit failed:', res.status, text);
-          throw new Error(`Server responded with ${res.status}`);
+          let detail = `Server responded with ${res.status}`;
+          try {
+            const j = JSON.parse(text);
+            if (typeof j.detail === 'string') {
+              detail = j.detail;
+            } else if (Array.isArray(j.detail)) {
+              detail = j.detail.map((d) => d.msg || d).join(' ');
+            }
+          } catch {
+            /* ignore */
+          }
+          throw new Error(detail);
         }
 
         this.formSuccess = true;
+        this.clearAppointmentPhotos();
         this.form = {
           name: '',
           email: '',
@@ -1155,6 +1380,7 @@ export default {
         // eslint-disable-next-line no-console
         console.error('submitAppointment error:', err);
         this.formError =
+          (err && err.message) ||
           'Failed to send. Please try again or contact us directly.';
         setTimeout(() => {
           this.formError = '';
@@ -1996,7 +2222,7 @@ body {
   color: #e5e7eb;
 }
 
-/* Chat block - right side, same row as content (左右并排) */
+/* Chat block - right side, same row as content */
 .hero-chat-block {
   flex: 1 1 0;
   min-width: 0;
@@ -2700,6 +2926,157 @@ body {
   color: #1a1a2e;
   margin-top: 6px;
   margin-bottom: -4px;
+}
+
+.form-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.upload-field-label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.upload-field-hint {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.form-field-upload {
+  align-items: stretch;
+  padding: 12px 14px;
+}
+
+/* Native file input hidden — custom English UI only */
+.upload-input-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.upload-control {
+  position: relative;
+}
+
+.upload-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (min-width: 520px) {
+  .upload-actions {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+}
+
+.upload-choose-btn {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #5a7fb0, #3d5a80);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(45, 80, 134, 0.25);
+  transition: transform 0.12s, box-shadow 0.12s, opacity 0.2s;
+}
+
+.upload-choose-btn:hover {
+  box-shadow: 0 3px 12px rgba(45, 80, 134, 0.32);
+}
+
+.upload-choose-btn:active {
+  transform: scale(0.98);
+}
+
+.upload-status {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.45;
+  word-break: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+.photo-preview-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.photo-preview-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(200, 210, 225, 0.55);
+  border-radius: 10px;
+}
+
+.photo-preview-thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.photo-preview-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.photo-preview-name {
+  font-size: 13px;
+  color: #333;
+  word-break: break-word;
+  line-height: 1.35;
+}
+
+.photo-preview-remove {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2d5086;
+  background: rgba(45, 80, 134, 0.08);
+  border: 1px solid rgba(45, 80, 134, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.photo-preview-remove:hover {
+  background: rgba(45, 80, 134, 0.14);
 }
 
 .form-field-textarea {
