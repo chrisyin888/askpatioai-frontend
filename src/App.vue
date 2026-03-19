@@ -77,10 +77,17 @@
             <div class="chat-container">
               <div class="chat-messages" ref="chatMessages">
                 <div class="message bot-message">
-                  <div class="bot-avatar">
-                    <span class="avatar-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    </span>
+                  <div class="bot-avatar-wrap">
+                    <div class="bot-avatar" aria-hidden="true">
+                      <span class="avatar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                      </span>
+                    </div>
+                    <span
+                      class="bot-avatar-status"
+                      role="status"
+                      aria-label="Assistant online"
+                    ></span>
                   </div>
                   <div class="message-bubble bot-bubble">
                     <p
@@ -209,10 +216,17 @@
                       msg.type === 'user' ? 'user-message' : 'bot-message',
                     ]"
                   >
-                    <div v-if="msg.type === 'bot'" class="bot-avatar">
-                      <span class="avatar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                      </span>
+                    <div v-if="msg.type === 'bot'" class="bot-avatar-wrap">
+                      <div class="bot-avatar" aria-hidden="true">
+                        <span class="avatar-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </span>
+                      </div>
+                      <span
+                        class="bot-avatar-status"
+                        role="status"
+                        aria-label="Assistant online"
+                      ></span>
                     </div>
                     <div
                       :class="[
@@ -246,10 +260,17 @@
                 </div>
 
                 <div v-if="isTyping" class="message bot-message">
-                  <div class="bot-avatar">
-                    <span class="avatar-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    </span>
+                  <div class="bot-avatar-wrap">
+                    <div class="bot-avatar" aria-hidden="true">
+                      <span class="avatar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                      </span>
+                    </div>
+                    <span
+                      class="bot-avatar-status"
+                      role="status"
+                      aria-label="Assistant online"
+                    ></span>
                   </div>
                   <div class="message-bubble bot-bubble typing-bubble">
                     <span class="dot"></span>
@@ -1761,7 +1782,7 @@ body {
 /* Messages */
 .message {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: flex-start;
   max-width: 95%;
 }
@@ -1775,31 +1796,100 @@ body {
   justify-content: flex-end;
 }
 
+/* Bot avatar: AI-style teal/cyan orb + lightning, with online indicator */
+.bot-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(44px, 10.5vw, 52px);
+  height: clamp(44px, 10.5vw, 52px);
+  align-self: flex-start;
+  cursor: default;
+}
+
 .bot-avatar {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
-  min-height: 32px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 50%;
+  /* Soft teal → cyan → deep blue: reads as a single “AI agent” orb */
+  background: linear-gradient(
+    145deg,
+    #5eead4 0%,
+    #2dd4bf 22%,
+    #22d3ee 55%,
+    #0ea5e9 78%,
+    #0369a1 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(14, 165, 233, 0.25),
+    0 4px 18px rgba(14, 165, 233, 0.38),
+    0 2px 10px rgba(13, 148, 136, 0.28),
+    0 1px 3px rgba(15, 23, 42, 0.12),
+    inset 0 2px 5px rgba(255, 255, 255, 0.45),
+    inset 0 -3px 10px rgba(3, 105, 161, 0.35);
 }
 
 .avatar-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.98);
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.25))
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
 }
 
 .avatar-icon svg {
-  width: 16px;
-  height: 16px;
-  stroke-width: 2;
+  width: clamp(20px, 48%, 24px);
+  height: clamp(20px, 48%, 24px);
+  stroke-width: 2.1;
+}
+
+/* Online dot: bottom-right, white ring, soft pulse */
+.bot-avatar-status {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: clamp(10px, 2.5vw, 12px);
+  height: clamp(10px, 2.5vw, 12px);
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid #fff;
+  box-sizing: content-box;
+  box-shadow:
+    0 0 0 1px rgba(34, 197, 94, 0.2),
+    0 1px 4px rgba(15, 23, 42, 0.12);
+  z-index: 2;
+  pointer-events: none;
+  animation: bot-avatar-status-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes bot-avatar-status-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(34, 197, 94, 0.28),
+      0 0 0 0 rgba(34, 197, 94, 0),
+      0 1px 4px rgba(15, 23, 42, 0.12);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(34, 197, 94, 0.12),
+      0 0 10px rgba(34, 197, 94, 0.18),
+      0 1px 4px rgba(15, 23, 42, 0.1);
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bot-avatar-status {
+    animation: none;
+  }
 }
 
 .message-bubble {
