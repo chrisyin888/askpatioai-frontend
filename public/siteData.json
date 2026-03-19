@@ -1,0 +1,144 @@
+{
+  "site": {
+    "heroBackground": "/house/p1.jpg",
+    "appointmentBackground": "/house/p39.jpg",
+    "appointmentDecoImage": "/house/p20.jpg",
+    "targetEmail": "info@example.com",
+    "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
+    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email"
+  },
+  "section1": {
+    "title": "Get an Instant Quote in 60 Seconds",
+    "subtitle": "Ask our AI Chatbot for a quick price estimate on your project.",
+    "botAvatar": "🤿",
+    "welcomeMessages": [
+      "Hi there! <strong>Ready to get a quick quote?</strong> 😊",
+      "Tell me the city you'll install a patio cover or sunroom, and roughly how many square feet of patio space you have"
+    ]
+  },
+  "services": [
+    {
+      "name": "Patio Covers",
+      "description": "Enhance your backyard with a stylish cover",
+      "icon": "🏠",
+      "image": "/house/p3.jpg"
+    },
+    {
+      "name": "Sunrooms",
+      "description": "Enjoy a beautiful sunroom with full glass walls",
+      "icon": "🏘️",
+      "image": "/house/p7.jpg"
+    },
+    {
+      "name": "Roofing",
+      "description": "Get a new, durable and weatherproof roof",
+      "icon": "🏡",
+      "image": "/house/p15.jpg"
+    },
+    {
+      "name": "Deck & Fence",
+      "description": "Add a custom deck or fence to your home",
+      "icon": "🏗️",
+      "image": "/house/p22.jpg"
+    }
+  ],
+  "section2": {
+    "title": "Our Projects & Testimonials",
+    "subtitle": "See our recent patio cover and sunroom projects in Vancouver and surrounding areas.",
+    "sectionHeading": "Our Recent Projects",
+    "cities": ["Vancouver", "Richmond", "Burnaby"]
+  },
+  "projects": [
+    {
+      "name": "Vancouver Patio Cover",
+      "city": "Vancouver",
+      "sqft": 220,
+      "price": 6500,
+      "icon": "🏠",
+      "image": "/house/p5.jpg"
+    },
+    {
+      "name": "Vancouver Modern Pergola",
+      "city": "Vancouver",
+      "sqft": 180,
+      "price": 5800,
+      "icon": "🏠",
+      "image": "/house/p9.jpg"
+    },
+    {
+      "name": "Vancouver Sunroom Deluxe",
+      "city": "Vancouver",
+      "sqft": 300,
+      "price": 42000,
+      "icon": "🏘️",
+      "image": "/house/p14.jpg"
+    },
+    {
+      "name": "Richmond Sunroom",
+      "city": "Richmond",
+      "sqft": 240,
+      "price": 32000,
+      "icon": "🏘️",
+      "image": "/house/p18.jpg"
+    },
+        {
+      "name": "Richmond Sunroom",
+      "city": "Richmond",
+      "sqft": 240,
+      "price": 32000,
+      "icon": "🏘️",
+      "image": "/house/p18.jpg"
+    },
+    {
+      "name": "Richmond Deck Build",
+      "city": "Richmond",
+      "sqft": 150,
+      "price": 4800,
+      "icon": "🏗️",
+      "image": "/house/p25.jpg"
+    },
+    {
+      "name": "Burnaby Aluminum Cover",
+      "city": "Burnaby",
+      "sqft": 180,
+      "price": 5200,
+      "icon": "🏗️",
+      "image": "/house/p30.jpg"
+    },
+    {
+      "name": "Burnaby Aluminum Cover",
+      "city": "Burnaby",
+      "sqft": 180,
+      "price": 5200,
+      "icon": "🏗️",
+      "image": "/house/p37.jpg"
+    },
+    {
+      "name": "Burnaby Patio Roof",
+      "city": "Burnaby",
+      "sqft": 200,
+      "price": 7200,
+      "icon": "🏠",
+      "image": "/house/p36.jpg"
+    }
+  ],
+  "features": [
+    { "icon": "📐", "text": "Experienced Vancouver-based team" },
+    { "icon": "🏆", "text": "Quality craftsmanship and materials" },
+    { "icon": "✅", "text": "Permits and design assistance" },
+    { "icon": "✅", "text": "Fast and reliable installation first." }
+  ],
+  "benefits": [
+    "Free no-obligation consultation",
+    "Custom plans tailored to your needs",
+    "Experienced Vancouver-based team",
+    "Fast and reliable installations"
+  ],
+  "section3": {
+    "title": "Book an Appointment",
+    "subtitle": "Schedule a consultation for your patio cover or sunroom project in Vancouver.",
+    "formTitle": "Request Your Free Quote",
+    "formSubtitle": "Fill out the form below to get in touch with our team and schedule a free, no-obligation consultation.",
+    "submitText": "Request Appointment"
+  }
+}

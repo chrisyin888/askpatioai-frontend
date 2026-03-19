@@ -1,0 +1,810 @@
+{
+  "site": {
+    "heroBackground": "/house/sunrooms/sunroom1.jpeg",
+    "appointmentBackground": "/house/p23.jpg",
+    "appointmentDecoImage": "/house/p26.jpg",
+    "targetEmail": "info@example.com",
+    "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
+    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email"
+  },
+  "section1": {
+    "title": "Get Your Patio Cover or Sunroom Price in Under a Minute",
+    "subtitle": "Share your city and rough size—our AI gives you a ballpark estimate right away. No forms, no wait.",
+    "botAvatar": "🤿",
+    "welcomeMessages": [
+      "Hi — I can give you a quick price estimate.<br>Just tell me your city and approx size (sq ft).",
+      "Just tell me where you’re located in Greater Vancouver and about how big the area is (in sq ft). I’ll come back with a typical project range."
+    ],
+    "chatPlaceholder": "Type your project details (city + size)...",
+    "inputHelperExample": "Richmond, 200 sq ft glass patio cover"
+  },
+  "services": [
+    {
+      "name": "Glass Patio Covers",
+      "description": "Built with tempered glass for a clean look, better natural light, and improved durability.",
+      "icon": "🏠",
+      "image": "/house/glass/glass4.jpeg",
+      "examplePrice": 2600
+    },
+    {
+      "name": "Aluminum Patio Covers",
+      "description": "Durable aluminum patio covers with low maintenance and strong weather resistance for Greater Vancouver homes.",
+      "icon": "🏗️",
+      "image": "/house/098026E6-9DFE-4881-BB0B-ED5D1EFB72E3_4_5005_c.jpeg",
+      "examplePrice": 3000
+    },
+    {
+      "name": "Skyline Combo Covers",
+      "description": "A premium combination of tempered glass and V-panels for balanced light, shade, and modern style.",
+      "icon": "🌤️",
+      "image": "/house/skyline/F17A4E77-5EBF-4DCB-9609-7CFE3C20B8CC_4_5005_c.jpeg",
+      "examplePrice": 4500
+    },
+    {
+      "name": "Sunrooms",
+      "description": "Built with thermal-break aluminum, glass, and insulation board for a brighter, more comfortable year-round space.",
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom3.jpeg",
+      "examplePrice": 13500
+    }
+  ],
+  "section2": {
+  "title": "Our Projects & Testimonials",
+  "subtitle": "See our recent patio cover and sunroom projects across Greater Vancouver.",
+  "sectionHeading": "Our Recent Projects",
+  "cities": ["Vancouver", "Richmond", "Burnaby", "Surrey", "Delta", "Coquitlam", "Langley"]
+  },
+  "projects": [
+    {
+      "name": "Vancouver Modern Pergola",
+      "city": "Vancouver",
+      "sqft": 180,
+      "price": 4200,
+      "icon": "🏠",
+      "image": "/house/p9.jpg"
+    },
+    {
+      "name": "Richmond Deck Build",
+      "city": "Richmond",
+      "sqft": 150,
+      "price": 4800,
+      "icon": "🏗️",
+      "image": "/house/p25.jpg"
+    },
+    {
+      "name": "Burnaby Patio Roof",
+      "city": "Burnaby",
+      "sqft": 200,
+      "price": 7200,
+      "icon": "🏠",
+      "image": "/house/p36.jpg"
+    },
+    {
+      "name": "Coquitlam Hillside Cover",
+      "city": "Coquitlam",
+      "sqft": 230,
+      "price": 6900,
+      "icon": "🏠",
+      "image": "/house/p22.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 1",
+      "city": "Vancouver",
+      "sqft": 230,
+      "price": 3000,
+      "icon": "🏠",
+      "image": "/house/Aluminum/p12.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 2",
+      "city": "Richmond",
+      "sqft": 210,
+      "price": 3000,
+      "icon": "🏗️",
+      "image": "/house/Aluminum/7CA6633E-4BC6-4AEB-AB46-4A44927A1406_4_5005_c.jpeg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 3",
+      "city": "Burnaby",
+      "sqft": 240,
+      "price": 2800,
+      "icon": "🏠",
+      "image": "/house/Aluminum/p10.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 4",
+      "city": "Surrey",
+      "sqft": 260,
+      "price": 2000,
+      "icon": "🏠",
+      "image": "/house/Aluminum/p13.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 5",
+      "city": "Delta",
+      "sqft": 220,
+      "price": 2800,
+      "icon": "🏗️",
+      "image": "/house/Aluminum/p23.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Freestand Project 6",
+      "city": "Coquitlam",
+      "sqft": 230,
+      "price": 5500,
+      "icon": "🏠",
+      "image": "/house/Aluminum/p26.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 7",
+      "city": "Langley",
+      "sqft": 210,
+      "price": 2600,
+      "icon": "🏗️",
+      "image": "/house/Aluminum/p27.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 8",
+      "city": "Vancouver",
+      "sqft": 280,
+      "price": 2200,
+      "icon": "🏠",
+      "image": "/house/Aluminum/p28.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 9",
+      "city": "Richmond",
+      "sqft": 250,
+      "price": 3500,
+      "icon": "🏗️",
+      "image": "/house/Aluminum/p3.jpg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 10",
+      "city": "Vancouver",
+      "sqft": 260,
+      "price": 3500,
+      "icon": "🏠",
+      "image": "/house/Aluminum/098026E6-9DFE-4881-BB0B-ED5D1EFB72E3_4_5005_c.jpeg"
+    },
+    {
+      "name": "Aluminum VPanel Patio Cover Project 11",
+      "city": "Coquitlam",
+      "sqft": 300,
+      "price": 5500,
+      "icon": "🏠",
+      "image": "/house/Aluminum/CCE34662-7420-46AE-A419-A93ACB1D262E_4_5005_c.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 1",
+      "city": "Greater Vancouver",
+      "sqft": 120,
+      "price": 1800,
+      "icon": "🏠",
+      "image": "/house/glass/B36FB15A-1267-42D1-BF4E-AD93AC00279A_4_5005_c.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 2",
+      "city": "Greater Vancouver",
+      "sqft": 290,
+      "price": 4400,
+      "icon": "🏠",
+      "image": "/house/glass/glass1.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 3",
+      "city": "Greater Vancouver",
+      "sqft": 440,
+      "price": 6600,
+      "icon": "🏠",
+      "image": "/house/glass/glass2.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 4",
+      "city": "Greater Vancouver",
+      "sqft": 190,
+      "price": 2800,
+      "icon": "🏠",
+      "image": "/house/glass/glass3.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 6",
+      "city": "Greater Vancouver",
+      "sqft": 440,
+      "price": 6600,
+      "icon": "🏠",
+      "image": "/house/glass/glass5.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 7",
+      "city": "Greater Vancouver",
+      "sqft": 170,
+      "price": 2600,
+      "icon": "🏠",
+      "image": "/house/glass/glass6.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 8",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass7.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 10",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass9.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 11",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass10.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 12",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass11.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 13",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass12.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 14",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass13.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 15",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass14.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 16",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass15.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 17",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass16.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 18",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass17.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 19",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass18.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 20",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass19.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 25",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass24.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 26",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass25.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 27",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass26.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 28",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass27.jpg"
+    },
+    {
+      "name": "Glass Patio Cover Project 29",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass28.jpg"
+    },
+    {
+      "name": "A-Type Patio Cover Project 1",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/Atype/p22.jpg"
+    },
+    {
+      "name": "A-Type Patio Cover Project 3",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/Atype/p14.jpg"
+    },
+    {
+      "name": "A-Type Patio Cover Project 4",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/Atype/p9.jpg"
+    },
+    {
+      "name": "A-Type Patio Cover Project 5",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/Atype/D28FC224-5282-4622-A61C-9C0CAA0D10F7_4_5005_c.jpeg"
+    },
+    {
+      "name": "A-Type Patio Cover Project 7",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/Atype/44B231A4-20D8-4279-81B3-D143FC2226B9_4_5005_c.jpeg"
+    },
+    {
+      "name": "A-Type Patio Cover Project 6",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/Atype/95F71EDA-7C09-4134-A1EB-346C9E7650C9_4_5005_c.jpeg"
+    },
+    {
+      "name": "A-Type Patio Cover Project 6",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/glass/glass8.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 1",
+      "city": "Greater Vancouver",
+      "sqft": 320,
+      "price": 4500,
+      "icon": "🌤️",
+      "image": "/house/skyline/5F659D77-A34F-4E0E-A45F-6D02AC6F515E_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 2",
+      "city": "Greater Vancouver",
+      "sqft": 270,
+      "price": 3800,
+      "icon": "🌤️",
+      "image": "/house/skyline/6E6F2EE2-6EBA-43FB-BEAC-F3278959722A_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 3",
+      "city": "Greater Vancouver",
+      "sqft": 200,
+      "price": 2800,
+      "icon": "🌤️",
+      "image": "/house/skyline/14B84CA8-0D55-4DD3-B403-FF0F153C32AE_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 4",
+      "city": "Greater Vancouver",
+      "sqft": 230,
+      "price": 3200,
+      "icon": "🌤️",
+      "image": "/house/skyline/283A2C31-13C5-4C2D-AC18-070D08A64BEE_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 5",
+      "city": "Greater Vancouver",
+      "sqft": 140,
+      "price": 2000,
+      "icon": "🌤️",
+      "image": "/house/skyline/B5D5D3A9-9894-4964-B75F-72CEEF9AD1D6_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 6",
+      "city": "Greater Vancouver",
+      "sqft": 170,
+      "price": 2400,
+      "icon": "🌤️",
+      "image": "/house/skyline/BA3D27B3-76E2-4D19-8E1A-CA0396C86495_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 7",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/E5A0CDFB-F151-49A1-A3DE-4F0F67A4E2D0_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 8",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/F17A4E77-5EBF-4DCB-9609-7CFE3C20B8CC_4_5005_c.jpeg"
+    },
+    {
+      "name": "Skyline Combo Project 9",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p5.jpg"
+    },
+    {
+      "name": "Skyline Combo Project 10",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p6.jpg"
+    },
+    {
+      "name": "Skyline Combo Project 11",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p17.jpg"
+    },
+    {
+      "name": "Skyline Combo Project 12",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p25.jpg"
+    },
+    {
+      "name": "Skyline Combo Project 13",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p32.jpg"
+    },
+    {
+      "name": "Skyline Combo Project 14",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p33.jpg"
+    },
+    {
+      "name": "Skyline Combo Project 15",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p38.jpg"
+    },
+    {
+      "name": "Skyline Combo Project 16",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🌤️",
+      "image": "/house/skyline/p40.jpg"
+    },
+    {
+      "name": "Sunroom Project 1",
+      "city": "Greater Vancouver",
+      "sqft": 360,
+      "price": 13500,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom24.jpeg"
+    },
+    {
+      "name": "Sunroom Project 2",
+      "city": "Greater Vancouver",
+      "sqft": 230,
+      "price": 8800,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/p37.jpg"
+    },
+    {
+      "name": "Sunroom Project 4",
+      "city": "Greater Vancouver",
+      "sqft": 210,
+      "price": 7800,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom2.jpeg"
+    },
+    {
+      "name": "Sunroom Project 5",
+      "city": "Greater Vancouver",
+      "sqft": 370,
+      "price": 14000,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom3.jpeg"
+    },
+    {
+      "name": "Sunroom Project 6",
+      "city": "Greater Vancouver",
+      "sqft": 240,
+      "price": 9000,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom5.jpeg"
+    },
+    {
+      "name": "Sunroom Project 7",
+      "city": "Greater Vancouver",
+      "sqft": 550,
+      "price": 21000,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom4.jpeg"
+    },
+    {
+      "name": "Sunroom Project 8",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom6.jpeg"
+    },
+    {
+      "name": "Sunroom Project 9",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom7.jpeg"
+    },
+    {
+      "name": "Sunroom Project 10",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom8.jpeg"
+    },
+    {
+      "name": "Sunroom Project 11",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom9.jpeg"
+    },
+    {
+      "name": "Sunroom Project 12",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom10.jpeg"
+    },
+    {
+      "name": "Sunroom Project 13",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom11.jpeg"
+    },
+    {
+      "name": "Sunroom Project 14",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom12.jpeg"
+    },
+    {
+      "name": "Sunroom Project 15",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom13.jpeg"
+    },
+    {
+      "name": "Sunroom Project 16",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom14.jpeg"
+    },
+    {
+      "name": "Sunroom Project 17",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom16.jpeg"
+    },
+    {
+      "name": "Sunroom Project 18",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom15.jpeg"
+    },
+    {
+      "name": "Glass Patio Cover Project 30",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏠",
+      "image": "/house/sunrooms/sunroom17.jpeg"
+    },
+    {
+      "name": "Sunroom Project 20",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom18.jpeg"
+    },
+    {
+      "name": "Sunroom Project 21",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom19.jpeg"
+    },
+    {
+      "name": "Sunroom Project 22",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom20.jpeg"
+    },
+    {
+      "name": "Sunroom Project 23",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom21.jpeg"
+    },
+    {
+      "name": "Sunroom Project 24",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom22.jpeg"
+    },
+    {
+      "name": "Sunroom Project 25",
+      "city": "Greater Vancouver",
+      "sqft": null,
+      "price": null,
+      "isCustom": true,
+      "icon": "🏘️",
+      "image": "/house/sunrooms/sunroom23.jpeg"
+    }
+  ],
+  "features": [
+    { "icon": "📐", "text": "Experienced Vancouver-based team" },
+    { "icon": "🏆", "text": "Quality craftsmanship and materials" },
+    { "icon": "✅", "text": "Permits and design assistance" },
+    { "icon": "✅", "text": "Fast and reliable installation first." }
+  ],
+  "benefits": [
+    "Free no-obligation consultation",
+    "Custom plans tailored to your needs",
+    "Experienced Vancouver-based team",
+    "Fast and reliable installations"
+  ],
+  "section3": {
+    "title": "Confirm Your Final Quote",
+    "subtitle": "Book a free on-site measurement for your patio cover or sunroom project. Final pricing can be confirmed after the site visit.",
+    "formTitle": "Book Your Free On‑Site Measurement",
+    "formSubtitle": "Share a few details and our team will contact you to schedule a free on‑site measurement and confirm your final quote.",
+    "submitText": "Book Free Measurement"
+  }
+}
