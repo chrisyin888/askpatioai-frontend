@@ -656,7 +656,32 @@
                 </div>
               </div>
               <div class="appt-deco-image">
-                <img :src="cfg.appointmentDecoImage" alt="Patio project" />
+                <figure class="appt-deco-figure">
+                  <div class="appt-deco-image-inner">
+                    <img
+                      :key="appointmentDecoImageKey"
+                      :src="appointmentDecoDisplaySrc"
+                      alt="Patio cover project — Greater Vancouver area"
+                      class="appt-deco-img"
+                      @error="onAppointmentDecoImageError"
+                    />
+                    <div
+                      v-if="appointmentDecoShowProjectOverlay"
+                      class="appt-deco-overlay"
+                      aria-hidden="true"
+                    >
+                      <span class="appt-deco-overlay-title">Recent Project</span>
+                      <span class="appt-deco-overlay-location">Vancouver, BC</span>
+                    </div>
+                    <div
+                      v-else
+                      class="appt-deco-overlay appt-deco-overlay--user"
+                      aria-hidden="true"
+                    >
+                      <span class="appt-deco-overlay-title">Your photo</span>
+                    </div>
+                  </div>
+                </figure>
               </div>
             </div>
           </div>
@@ -784,6 +809,25 @@ export default {
         return 'No files selected';
       }
       return this.appointmentPhotos.map((f) => f.name).join(', ');
+    },
+    /** Booking form side panel: user’s first upload, else default showcase project photo */
+    appointmentDecoDisplaySrc() {
+      if (this.appointmentPhotoPreviews && this.appointmentPhotoPreviews.length > 0) {
+        return this.appointmentPhotoPreviews[0].url;
+      }
+      const primary =
+        (this.cfg && (this.cfg.appointmentShowcaseImage || this.cfg.appointmentDecoImage)) ||
+        '/house/Aluminum/p12.jpg';
+      return primary;
+    },
+    appointmentDecoShowProjectOverlay() {
+      return !this.appointmentPhotoPreviews || this.appointmentPhotoPreviews.length === 0;
+    },
+    appointmentDecoImageKey() {
+      if (this.appointmentPhotoPreviews && this.appointmentPhotoPreviews.length > 0) {
+        return this.appointmentPhotoPreviews[0].key;
+      }
+      return `showcase-${this.appointmentDecoDisplaySrc}`;
     },
   },
   created() {
@@ -1254,6 +1298,23 @@ export default {
     openAppointmentPhotoPicker() {
       const el = this.$refs.appointmentPhotoInput;
       if (el) el.click();
+    },
+    onAppointmentDecoImageError(event) {
+      const img = event && event.target;
+      if (!img || (img.src && String(img.src).startsWith('blob:'))) return;
+      const raw = [
+        this.cfg && this.cfg.appointmentShowcaseFallback,
+        this.cfg && this.cfg.appointmentDecoImage,
+        '/house/Aluminum/p12.jpg',
+        '/house/p23.jpg',
+        '/house/sunrooms/sunroom3.jpeg',
+      ].filter((u) => !!u);
+      const chain = [...new Set(raw)];
+      let step = Number(img.dataset.decoFallbackStep || 0);
+      if (step >= chain.length) return;
+      const next = chain[step];
+      img.dataset.decoFallbackStep = String(step + 1);
+      img.src = next;
     },
     revokeAppointmentPhotoUrls() {
       this.appointmentPhotoPreviews.forEach((p) => {
@@ -3267,21 +3328,84 @@ body {
   flex-shrink: 0;
 }
 
-/* Decorative image bottom-right */
+/* Booking form: project showcase (default or first uploaded photo) */
 .appt-deco-image {
-  width: 210px;
+  width: min(100%, 240px);
   flex-shrink: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.appt-deco-image img {
+.appt-deco-figure {
+  margin: 0;
+}
+
+.appt-deco-image-inner {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
   width: 100%;
-  height: 220px;
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.14),
+    0 2px 8px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(145deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.appt-deco-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+}
+
+.appt-deco-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 14px 14px 12px;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.72) 0%,
+    rgba(15, 23, 42, 0.35) 45%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.appt-deco-overlay-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.appt-deco-overlay-location {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.appt-deco-overlay--user {
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.55) 0%,
+    transparent 55%
+  );
+}
+
+.appt-deco-overlay--user .appt-deco-overlay-title {
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 /* Responsive */
@@ -3338,10 +3462,11 @@ body {
 
   .appt-deco-image {
     width: 100%;
+    max-width: none;
   }
 
-  .appt-deco-image img {
-    height: 160px;
+  .appt-deco-image-inner {
+    aspect-ratio: 16 / 10;
   }
 }
 </style>
