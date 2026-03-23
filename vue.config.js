@@ -8,7 +8,7 @@ module.exports = defineConfig({
       entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'Patio Covers & Sunrooms — Free Estimate',
+      title: 'LoomiHome — Patio Covers & Sunrooms',
     },
   },
 })

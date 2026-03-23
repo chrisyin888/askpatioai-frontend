@@ -1,18 +1,15 @@
 <template>
-  <div class="app">
+  <div
+    class="app"
+    :class="{ 'app--service-modal-open': serviceModalService }"
+  >
     <!-- Loading screen -->
     <div v-if="!siteLoaded" class="site-loading">
       <div class="site-loading-spinner"></div>
     </div>
 
-    <!-- Full Background -->
-    <div
-      v-show="siteLoaded"
-      class="hero-bg"
-      :style="{ backgroundImage: `url(${cfg.heroBackground})` }"
-    >
-      <div class="hero-overlay"></div>
-    </div>
+    <!-- Full Background (plain) -->
+    <div v-show="siteLoaded" class="hero-bg" aria-hidden="true"></div>
 
     <!-- Scrollable Content -->
     <div v-show="siteLoaded" class="scroll-container">
@@ -20,35 +17,126 @@
       <section class="section section-hero">
         <div class="content-wrapper glass-panel">
           <div class="header hero-header">
-            <div class="hero-text-group">
-              <h1 class="title hero-title">{{ s1.title }}</h1>
-              <p class="subtitle hero-subtitle">{{ s1.subtitle }}</p>
-              <button class="primary-cta">Get My Price</button>
+            <div class="hero-top-row">
+              <div class="hero-brand-block">
+                <h1 v-if="cfg.brandName" class="site-brand">
+                  <span class="site-brand-name">{{ cfg.brandName }}</span>
+                  <span
+                    v-if="cfg.brandSuffix"
+                    class="site-brand-suffix"
+                  >{{ cfg.brandSuffix }}</span>
+                </h1>
+                <p class="subtitle hero-subtitle">{{ s1.subtitle }}</p>
+              </div>
             </div>
+            <nav class="hero-subnav" aria-label="Site sections">
+              <a
+                href="#our-products"
+                class="hero-subnav__link hero-subnav__link--emphasized"
+                @click.prevent="scrollToSection('#our-products')"
+              >Our products</a>
+              <a
+                href="#past-projects"
+                class="hero-subnav__link hero-subnav__link--emphasized"
+                @click.prevent="scrollToSection('#past-projects')"
+              >Past projects</a>
+              <a
+                href="#why-us"
+                class="hero-subnav__link hero-subnav__link--emphasized"
+                @click.prevent="scrollToSection('#why-us')"
+              >Why us?</a>
+              <a
+                href="#confirm-final-quote"
+                class="hero-subnav__link hero-subnav__link--inverse"
+                @click.prevent="scrollToGetQuote()"
+              >Get quote</a>
+            </nav>
           </div>
 
-          <div class="body-section body-section-cards-only">
+          <div id="our-products" class="body-section body-section-cards-only">
             <div class="services-section">
               <div class="services-grid">
                 <div
                   v-for="service in services"
                   :key="service.name"
-                  class="service-card"
-                  @click="selectService(service)"
+                  :class="[
+                    'service-card',
+                    {
+                      'service-card--with-points':
+                        service.bullets && service.bullets.length,
+                    },
+                  ]"
                 >
-                  <div class="card-image">
-                    <img :src="service.image" :alt="service.name" />
-                    <div class="card-image-overlay"></div>
-                  </div>
-                  <div class="card-info">
-                    <h3>{{ service.name }}</h3>
-                    <p
-                      v-if="typeof service.examplePrice === 'number'"
-                      class="card-price"
+                  <div
+                    :class="[
+                      'service-card-layout',
+                      service.bullets && service.bullets.length
+                        ? 'service-card-layout--split'
+                        : '',
+                    ]"
+                  >
+                    <div
+                      class="card-image"
+                      :class="{
+                        'card-image--modal-trigger': hasServiceModal(service),
+                      }"
+                      role="button"
+                      :tabindex="hasServiceModal(service) ? 0 : -1"
+                      @click="openServiceModal(service)"
+                      @keydown.enter.prevent="openServiceModal(service)"
+                      @keydown.space.prevent="openServiceModal(service)"
                     >
-                      From ${{ service.examplePrice.toLocaleString() }}
-                    </p>
-                    <span class="service-cta-link">Learn more</span>
+                      <img :src="service.image" :alt="service.name" />
+                      <div class="card-image-overlay"></div>
+                    </div>
+                    <div class="card-info">
+                      <h3
+                        :class="{
+                          'card-info-heading--modal-trigger': hasServiceModal(
+                            service
+                          ),
+                        }"
+                        role="button"
+                        :tabindex="hasServiceModal(service) ? 0 : -1"
+                        @click="openServiceModal(service)"
+                        @keydown.enter.prevent="openServiceModal(service)"
+                        @keydown.space.prevent="openServiceModal(service)"
+                      >
+                        {{ service.name }}
+                      </h3>
+                      <ul
+                        v-if="service.bullets && service.bullets.length"
+                        class="service-card-bullets"
+                      >
+                        <li
+                          v-for="(pt, i) in service.bullets"
+                          :key="i"
+                        >
+                          {{ pt }}
+                        </li>
+                      </ul>
+                      <p
+                        v-if="service.bestFor"
+                        class="service-card-best-for"
+                      >
+                        <span class="service-card-best-label">Best for:</span>
+                        {{ service.bestFor }}
+                      </p>
+                      <p
+                        v-if="typeof service.examplePrice === 'number'"
+                        class="card-price"
+                        :class="{
+                          'card-price--modal-trigger': hasServiceModal(service),
+                        }"
+                        role="button"
+                        :tabindex="hasServiceModal(service) ? 0 : -1"
+                        @click="openServiceModal(service)"
+                        @keydown.enter.prevent="openServiceModal(service)"
+                        @keydown.space.prevent="openServiceModal(service)"
+                      >
+                        From ${{ service.examplePrice.toLocaleString() }}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,255 +158,18 @@
             </div>
           </div>
         </div>
-
-        <!-- Chat moved below hero: Get your quote here -->
-        <div class="hero-chat-block">
-          <div class="chat-section">
-            <div class="chat-container">
-              <div class="chat-messages" ref="chatMessages">
-                <div class="message bot-message">
-                  <div class="bot-avatar-wrap">
-                    <div class="bot-avatar" aria-hidden="true">
-                      <span class="avatar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                      </span>
-                    </div>
-                    <span
-                      class="bot-avatar-status"
-                      role="status"
-                      aria-label="Assistant online"
-                    ></span>
-                  </div>
-                  <div class="message-bubble bot-bubble">
-                    <p
-                      v-for="(line, i) in s1.welcomeMessages"
-                      :key="i"
-                      v-html="line"
-                    ></p>
-                  </div>
-                </div>
-
-                <!-- Popular Questions (frontend-only accordion) -->
-                <div class="faq-accordion" aria-label="Popular Questions">
-                  <div class="faq-title">Popular Questions</div>
-                  <div
-                    v-for="(item, idx) in faqItems"
-                    :key="item.q"
-                    class="faq-item"
-                  >
-                    <button
-                      type="button"
-                      class="faq-question"
-                      @click="toggleFaq(idx)"
-                      :aria-expanded="faqOpenIndex === idx"
-                    >
-                      <span class="faq-q-text">{{ item.q }}</span>
-                      <span class="faq-icon" aria-hidden="true">
-                        {{ faqOpenIndex === idx ? '−' : '+' }}
-                      </span>
-                    </button>
-                    <div
-                      v-show="faqOpenIndex === idx"
-                      class="faq-answer"
-                    >
-                      <div class="faq-answer-text">
-                        {{ item.a }}
-                      </div>
-                      <a
-                        v-if="item.ctaHref"
-                        :href="item.ctaHref"
-                        class="faq-cta-link"
-                      >
-                        {{ item.ctaLabel || 'Book appointment' }}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="why-choose-us-mini" aria-label="Why Choose Us">
-                  <div class="why-choose-title">Why Choose Us</div>
-                  <div class="why-choose-mini-grid">
-                    <div
-                      v-for="(item, idx) in whyChooseItems"
-                      :key="item.title"
-                      class="why-choose-mini-item"
-                    >
-                      <div class="why-choose-icon" aria-hidden="true">
-                        <svg
-                          v-if="idx === 0"
-                          viewBox="0 0 24 24"
-                          width="18"
-                          height="18"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                        </svg>
-                        <svg
-                          v-else-if="idx === 1"
-                          viewBox="0 0 24 24"
-                          width="18"
-                          height="18"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="M12 1v22" />
-                          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
-                        </svg>
-                        <svg
-                          v-else-if="idx === 2"
-                          viewBox="0 0 24 24"
-                          width="18"
-                          height="18"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" />
-                        </svg>
-                        <svg
-                          v-else
-                          viewBox="0 0 24 24"
-                          width="18"
-                          height="18"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="M22 12h-4l-2 2-4-4-2 2H2" />
-                          <path d="M2 19h20" />
-                        </svg>
-                      </div>
-                      <div class="why-choose-mini-text">
-                        {{ item.title }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  v-for="(msg, index) in messages"
-                  :key="msg.id || index"
-                >
-                  <div
-                    :class="[
-                      'message',
-                      msg.type === 'user' ? 'user-message' : 'bot-message',
-                    ]"
-                  >
-                    <div v-if="msg.type === 'bot'" class="bot-avatar-wrap">
-                      <div class="bot-avatar" aria-hidden="true">
-                        <span class="avatar-icon" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                        </span>
-                      </div>
-                      <span
-                        class="bot-avatar-status"
-                        role="status"
-                        aria-label="Assistant online"
-                      ></span>
-                    </div>
-                    <div
-                      :class="[
-                        'message-bubble',
-                        msg.type === 'user' ? 'user-bubble' : 'bot-bubble',
-                      ]"
-                    >
-                      <p v-html="msg.text"></p>
-                    </div>
-                  </div>
-
-                  <!-- Booking CTA (only for booking-related intents) -->
-                  <div
-                    v-if="msg.type === 'bot' && msg.showCta"
-                    class="chat-cta-card"
-                  >
-                    <h4 class="chat-cta-title">Confirm Final Quote</h4>
-                    <p class="chat-cta-text">
-                      Free site measurement available. Final quote confirmed on site.
-                    </p>
-                    <div class="chat-cta-actions">
-                      <button
-                        type="button"
-                        class="chat-cta-btn primary"
-                        @click="handleChatCtaClick()"
-                      >
-                        Book Free Measurement
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div v-if="isTyping" class="message bot-message">
-                  <div class="bot-avatar-wrap">
-                    <div class="bot-avatar" aria-hidden="true">
-                      <span class="avatar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                      </span>
-                    </div>
-                    <span
-                      class="bot-avatar-status"
-                      role="status"
-                      aria-label="Assistant online"
-                    ></span>
-                  </div>
-                  <div class="message-bubble bot-bubble typing-bubble">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="chat-input-wrap">
-                <p v-if="s1.inputHelperExample" class="chat-input-helper">Example: {{ s1.inputHelperExample }}</p>
-                <div class="chat-input">
-                  <input
-                    v-model="userInput"
-                    type="text"
-                    :placeholder="s1.chatPlaceholder || 'Type your project details (city + size)...'"
-                    @keyup.enter="sendMessage"
-                  />
-                  <button class="send-btn" @click="sendMessage">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="white"
-                  >
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                  </svg>
-                </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- Section 2: Projects & Testimonials -->
       <section class="section section-projects">
         <div class="content-wrapper glass-panel">
           <div class="header">
-            <h1 class="title">{{ s2.title }}</h1>
+            <h1 id="past-projects" class="title">{{ s2.title }}</h1>
             <p class="subtitle">{{ s2.subtitle }}</p>
           </div>
 
           <div class="projects-body">
-            <!-- Our Recent Projects -->
             <div class="projects-area">
-              <h2 class="section-heading">{{ s2.sectionHeading }}</h2>
-
               <!-- City Tabs -->
               <div class="city-tabs">
                 <button
@@ -343,7 +194,10 @@
                   </div>
                   <div class="project-info">
                     <h3>
-                      <span class="project-icon">{{ project.icon }}</span>
+                      <span
+                        v-if="project.icon"
+                        class="project-icon"
+                      >{{ project.icon }}</span>
                       {{ project.name }}
                     </h3>
                     <p v-if="project.city" class="project-city">
@@ -364,26 +218,13 @@
                         From ${{ project.price.toLocaleString() }}
                       </span>
                     </p>
-                    <button
-                      type="button"
-                      class="project-photos-btn"
-                      @click="openProjectPhoto(project)"
-                    >
-                      View photos
-                    </button>
                   </div>
                 </div>
               </div>
-
-              <!-- See More Button -->
-              <button class="see-more-btn" type="button">
-                <span>See more projects & photos</span>
-                <span class="see-more-arrow">↗</span>
-              </button>
             </div>
 
             <!-- Why Choose Us -->
-            <div class="why-choose-us">
+            <div id="why-us" class="why-choose-us">
               <h2 class="section-heading">Why Choose Us</h2>
               <div class="features-grid">
                 <div
@@ -391,7 +232,10 @@
                   :key="feature.text"
                   class="feature-item"
                 >
-                  <span class="feature-icon">{{ feature.icon }}</span>
+                  <span
+                    v-if="feature.icon"
+                    class="feature-icon"
+                  >{{ feature.icon }}</span>
                   <span class="feature-text">{{ feature.text }}</span>
                 </div>
               </div>
@@ -400,33 +244,25 @@
         </div>
       </section>
 
-      <!-- Section 3: Book an Appointment -->
+      <!-- Section 3: Confirm Final Quote -->
       <section
         class="section section-appointment"
         id="book-measurement"
         ref="appointmentSection"
       >
-        <!-- Full-screen background image (same layer as title) -->
-        <div class="appt-bg">
-          <img :src="cfg.appointmentBackground" alt="" />
-          <div class="appt-bg-overlay"></div>
-        </div>
+        <div class="appt-layout" :class="{ 'appt-layout--highlight': appointmentHighlight }">
+          <!-- Left column: info -->
+          <div class="appt-info-col">
+            <div id="confirm-final-quote" class="appt-info-header">
+              <h1 class="appt-main-title">{{ s3.title }}</h1>
+              <p class="appt-main-subtitle">{{ s3.subtitle }}</p>
+            </div>
+          </div>
 
-        <!-- Title text - positioned top-left over the background -->
-        <div class="appt-title-area">
-          <h1 class="appt-main-title">{{ s3.title }}</h1>
-          <p class="appt-main-subtitle">{{ s3.subtitle }}</p>
-        </div>
-
-        <!-- Floating form card -->
-        <div class="appt-form-card" :class="{ 'appt-form-card--highlight': appointmentHighlight }">
-          <!-- Oil-painting cloud background -->
-          <div class="appt-card-bg"></div>
-
-          <div class="appt-card-content">
+          <!-- Right column: form card -->
+          <div class="appt-form-col">
             <h2 class="appt-form-title">{{ s3.formTitle }}</h2>
             <p class="appt-form-subtitle">{{ s3.formSubtitle }}</p>
-
             <form class="appt-form" @submit.prevent="submitAppointment">
               <div class="form-field">
                 <span class="field-icon">
@@ -466,7 +302,6 @@
                   v-model="form.email"
                   type="email"
                   placeholder="Email Address"
-                  required
                 />
               </div>
 
@@ -487,7 +322,6 @@
                   v-model="form.phone"
                   type="tel"
                   placeholder="Phone Number"
-                  required
                 />
               </div>
 
@@ -642,69 +476,208 @@
               </p>
               <p v-if="formError" class="form-error-msg">{{ formError }}</p>
             </form>
-
-            <!-- Bottom row: benefits left + deco image right -->
-            <div class="appt-bottom-row">
-              <div class="benefits-list">
-                <div
-                  v-for="benefit in benefits"
-                  :key="benefit"
-                  class="benefit-item"
-                >
-                  <span class="benefit-check">✅</span>
-                  <span>{{ benefit }}</span>
-                </div>
-              </div>
-              <div class="appt-deco-image">
-                <figure class="appt-deco-figure">
-                  <div class="appt-deco-image-inner">
-                    <img
-                      :key="appointmentDecoImageKey"
-                      :src="appointmentDecoDisplaySrc"
-                      alt="Patio cover project — Greater Vancouver area"
-                      class="appt-deco-img"
-                      @error="onAppointmentDecoImageError"
-                    />
-                    <div
-                      v-if="appointmentDecoShowProjectOverlay"
-                      class="appt-deco-overlay"
-                      aria-hidden="true"
-                    >
-                      <span class="appt-deco-overlay-title">Recent Project</span>
-                      <span class="appt-deco-overlay-location">Vancouver, BC</span>
-                    </div>
-                    <div
-                      v-else
-                      class="appt-deco-overlay appt-deco-overlay--user"
-                      aria-hidden="true"
-                    >
-                      <span class="appt-deco-overlay-title">Your photo</span>
-                    </div>
-                  </div>
-                </figure>
-              </div>
-            </div>
           </div>
         </div>
       </section>
     </div>
+
+    <!-- Fixed bottom-right chat -->
+    <div v-show="siteLoaded" class="chat-widget-dock">
+      <div
+        class="chat-widget-panel chat-widget-panel--embed"
+        role="dialog"
+        aria-modal="false"
+        :aria-label="(cfg.chatWidgetTitle || 'Chat') + ' assistant'"
+      >
+        <div class="chat-widget-header">
+          <span class="chat-widget-header-title">{{
+            cfg.chatWidgetTitle || 'Chat'
+          }}</span>
+        </div>
+        <div class="chat-section chat-widget-section">
+          <div class="chat-container">
+            <div class="chat-messages" ref="chatMessages">
+              <div class="message bot-message">
+                <div class="bot-avatar">
+                  <span class="avatar-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="message-bubble bot-bubble">
+                  <p
+                    v-for="(line, i) in s1.welcomeMessages"
+                    :key="i"
+                    v-html="line"
+                  ></p>
+                </div>
+              </div>
+
+              <div
+                v-for="(msg, index) in messages"
+                :key="msg.id || index"
+              >
+                <div
+                  :class="[
+                    'message',
+                    msg.type === 'user' ? 'user-message' : 'bot-message',
+                  ]"
+                >
+                  <div v-if="msg.type === 'bot'" class="bot-avatar">
+                    <span class="avatar-icon" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    :class="[
+                      'message-bubble',
+                      msg.type === 'user' ? 'user-bubble' : 'bot-bubble',
+                    ]"
+                  >
+                    <p v-html="msg.text"></p>
+                  </div>
+                </div>
+
+                <div
+                  v-if="msg.type === 'bot' && msg.showCta"
+                  class="chat-cta-card"
+                >
+                  <h4 class="chat-cta-title">Confirm Final Quote</h4>
+                  <p class="chat-cta-text">
+                    Free site measurement available. Final quote confirmed on site.
+                  </p>
+                  <div class="chat-cta-actions">
+                    <button
+                      type="button"
+                      class="chat-cta-btn primary"
+                      @click="handleChatCtaClick()"
+                    >
+                      Book Free Measurement
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div v-if="isTyping" class="message bot-message">
+                <div class="bot-avatar">
+                  <span class="avatar-icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="message-bubble bot-bubble typing-bubble">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-input-wrap">
+              <p
+                v-if="s1.inputHelperExample"
+                class="chat-input-helper"
+              >
+                Example: {{ s1.inputHelperExample }}
+              </p>
+              <div class="chat-input">
+                <input
+                  ref="chatInput"
+                  v-model="userInput"
+                  type="text"
+                  :placeholder="
+                    s1.chatPlaceholder ||
+                    'Type your project details (city + size)...'
+                  "
+                  @keyup.enter="sendMessage"
+                />
+                <button class="send-btn" type="button" @click="sendMessage">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="white"
+                  >
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Teleport to="body">
+      <div
+        v-if="serviceModalService"
+        class="service-modal-overlay"
+        @click.self="closeServiceModal"
+      >
+        <div
+          class="service-modal-dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="service-modal-title"
+        >
+          <button
+            type="button"
+            class="service-modal-close"
+            aria-label="Close"
+            @click="closeServiceModal"
+          >
+            ×
+          </button>
+          <h2 id="service-modal-title" class="service-modal-title">
+            {{ serviceModalService.name }}
+          </h2>
+          <ul class="service-modal-list">
+            <li
+              v-for="(line, i) in serviceModalService.modalBullets"
+              :key="i"
+            >
+              {{ line }}
+            </li>
+          </ul>
+          <p
+            v-if="serviceModalService.modalBestFor"
+            class="service-modal-best"
+          >
+            Best for: {{ serviceModalService.modalBestFor }}
+          </p>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
 
 <script>
 import siteData from './data/siteData.json';
-
-// Frontend-only intros for hero service cards (no backend / no pricing on first tap).
-const SERVICE_CARD_INTRO_BY_NAME = {
-  'Glass Patio Covers':
-    'Glass patio covers are a premium option with a clean, modern look and strong weather protection. Clear and tinted glass options are both available, and tempered glass is durable, safe, and low maintenance. Enter your city and approximate size whenever you want a rough quote.',
-  'Aluminum Patio Covers':
-    'Aluminum patio covers are one of the most practical and popular options because they are durable, low maintenance, and cost-effective. They work well for everyday rain and sun protection and are available in different styles and finishes. Enter your city and approximate size whenever you want a rough quote.',
-  'Skyline Combo Covers':
-    'Skyline combo covers combine strong structure with a more modern open-look design. They are a popular choice for homeowners who want both protection and a cleaner architectural style. Enter your city and approximate size whenever you want a rough quote.',
-  Sunrooms:
-    'Sunrooms create a brighter, more enclosed space that can be enjoyed through more seasons of the year. They are a great option for homeowners who want extra comfort, weather protection, and a more finished extension of the home. Enter your city and approximate size whenever you want a rough quote.',
-};
 
 export default {
   name: 'App',
@@ -725,46 +698,6 @@ export default {
       activeCity: '',
       activeProjectType: 'Aluminum',
       projectTypes: ['Aluminum', 'Glass', 'A-Type', 'Skyline', 'Sunroom'],
-      faqOpenIndex: null,
-      faqItems: [
-        {
-          q: 'How much does a patio cover cost?',
-          a: 'Pricing depends on size, materials, roof type, and site conditions. We can provide a rough estimate first.',
-        },
-        {
-          q: 'How long does installation take?',
-          a: 'Installation is typically completed in one day for most standard projects. Larger or more complex projects may require additional time depending on the design and site conditions.',
-        },
-        {
-          q: 'How do I get a final quote?',
-          a: 'Book a quick appointment and we’ll review your project details to provide a more accurate estimate.',
-          // Page 3: appointment section
-          ctaHref: '#book-measurement',
-          ctaLabel: 'Get final quote',
-        },
-        {
-          q: 'Is the patio cover safe?',
-          a: 'Our patio covers are built with strong, durable materials and installed following proper construction practices. They are designed to be safe, stable, and reliable for everyday use.',
-        },
-      ],
-      whyChooseItems: [
-        {
-          title: 'Fast Installation',
-          text: 'Most standard projects are completed in as little as one day.',
-        },
-        {
-          title: 'Transparent Pricing',
-          text: 'Get a quick estimate upfront before committing to anything.',
-        },
-        {
-          title: 'Experienced Team',
-          text: 'Years of hands-on experience with patio covers and sunrooms.',
-        },
-        {
-          title: 'Simple Process',
-          text: 'From estimate to installation, everything is straightforward and efficient.',
-        },
-      ],
       form: {
         name: '',
         email: '',
@@ -786,6 +719,7 @@ export default {
         material_type: '',
       },
       appointmentHighlight: false,
+      serviceModalService: null,
     };
   },
   computed: {
@@ -844,15 +778,18 @@ export default {
     this.activeCity = d.section2.cities[0];
     this.siteLoaded = true;
   },
-  methods: {
-    openProjectPhoto(project) {
-      if (project && project.image) {
-        window.open(project.image, '_blank', 'noopener');
+  mounted() {
+    this._onServiceModalEscape = (e) => {
+      if (e.key === 'Escape' && this.serviceModalService) {
+        this.closeServiceModal();
       }
-    },
-    toggleFaq(idx) {
-      this.faqOpenIndex = this.faqOpenIndex === idx ? null : idx;
-    },
+    };
+    window.addEventListener('keydown', this._onServiceModalEscape);
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this._onServiceModalEscape);
+  },
+  methods: {
     generateMessageId() {
       return `m_${Date.now()}_${Math.random().toString(16).slice(2)}`;
     },
@@ -941,33 +878,6 @@ export default {
         });
       }
 
-      this.$nextTick(() => this.scrollToBottom());
-    },
-    selectService(service) {
-      const name = (service && service.name) || '';
-      if (!name) return;
-
-      this.updateProjectInfoFromText(name);
-
-      this.messages.push({
-        id: this.generateMessageId(),
-        type: 'user',
-        text: name,
-      });
-
-      const intro =
-        SERVICE_CARD_INTRO_BY_NAME[name] ||
-        `${name}: here is a quick overview. Strong weather protection and several style options are available. Enter your city and approximate size whenever you want a rough quote.`;
-
-      this.messages.push({
-        id: this.generateMessageId(),
-        type: 'bot',
-        text: intro,
-        showCta: false,
-        isPlaceholder: false,
-      });
-
-      this.userInput = '';
       this.$nextTick(() => this.scrollToBottom());
     },
     scrollToBottom() {
@@ -1199,6 +1109,34 @@ export default {
         this.appointmentHighlight = false;
       }, 1500);
     },
+    scrollToGetQuote() {
+      this.scrollToSection('#confirm-final-quote');
+      this.appointmentHighlight = true;
+      setTimeout(() => {
+        this.appointmentHighlight = false;
+      }, 1500);
+    },
+    scrollToSection(selector) {
+      const scroller = this.$el.querySelector('.scroll-container');
+      const target = this.$el.querySelector(selector);
+      if (!scroller || !target) return;
+      const rect = target.getBoundingClientRect();
+      const scRect = scroller.getBoundingClientRect();
+      const top = scroller.scrollTop + rect.top - scRect.top - 16;
+      scroller.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    },
+    hasServiceModal(service) {
+      return (
+        Array.isArray(service?.modalBullets) && service.modalBullets.length > 0
+      );
+    },
+    openServiceModal(service) {
+      if (!this.hasServiceModal(service)) return;
+      this.serviceModalService = service;
+    },
+    closeServiceModal() {
+      this.serviceModalService = null;
+    },
     randomizeProjects() {
       if (!Array.isArray(this.projects)) return;
 
@@ -1391,6 +1329,12 @@ export default {
         preferred_time,
       } = this.form;
 
+      if (!email.trim() && !phone.trim()) {
+        this.formError = 'Please provide at least an email address or a phone number.';
+        this.formSubmitting = false;
+        return;
+      }
+
       try {
         const messageBody = [
           preferred_time
@@ -1504,7 +1448,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #dce5ef;
+  background: #ffffff;
 }
 
 .site-loading-spinner {
@@ -1522,32 +1466,16 @@ body {
   }
 }
 
-/* Full Background - fixed behind everything */
+/* Full Background - fixed behind everything (blank / solid) */
 .hero-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: #ffffff;
   background-image: none;
-  background-size: cover;
-  background-position: center;
-  background-color: #1a1f2e;
   z-index: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(248, 250, 252, 0.4) 50%,
-    rgba(241, 245, 249, 0.55) 100%
-  );
 }
 
 /* Scrollable Container */
@@ -1570,36 +1498,151 @@ body {
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(15, 23, 42, 0.18);
   border-radius: 3px;
 }
 
-/* Sections */
+.app--service-modal-open .scroll-container {
+  overflow: hidden;
+}
+
+/* Service detail popup (e.g. Glass Patio Covers) */
+.service-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10060;
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+
+.service-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 28px 28px 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.28),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.service-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #64748b;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.service-modal-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.service-modal-title {
+  margin: 0 36px 16px 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.service-modal-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.service-modal-list li + li {
+  margin-top: 0.35em;
+}
+
+.service-modal-best {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.45;
+}
+
+/* Sections — full width of viewport (respect safe areas) */
 .section {
   min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px 24px;
+  padding: 28px max(16px, env(safe-area-inset-left)) 28px
+    max(16px, env(safe-area-inset-right));
   scroll-snap-align: start;
+  box-sizing: border-box;
 }
 
 .section-hero {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px 24px;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 20px max(12px, env(safe-area-inset-left)) 24px
+    max(12px, env(safe-area-inset-right));
   min-height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
+  max-height: none;
+  overflow-x: hidden;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
 .section-projects {
-  align-items: center;
-  padding: 40px 20px;
+  align-items: stretch;
+  padding: 40px max(12px, env(safe-area-inset-left)) 40px
+    max(12px, env(safe-area-inset-right));
+  box-sizing: border-box;
+}
+
+.section-projects .content-wrapper.glass-panel {
+  border-radius: 0;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: #ffffff;
+}
+
+.section-projects .content-wrapper.glass-panel::before {
+  background: #ffffff;
+}
+
+.section-projects .header {
+  border-bottom: none;
+}
+
+.section-projects .why-choose-us {
+  border-top: none;
 }
 
 /* Hero content panel - premium card over background */
@@ -1640,7 +1683,7 @@ body {
 
 .content-wrapper {
   width: 100%;
-  max-width: 1100px;
+  max-width: none;
   border-radius: 24px;
   overflow: hidden;
   display: flex;
@@ -1648,15 +1691,30 @@ body {
 }
 
 .section-hero .content-wrapper {
-  flex: 1 1 0;
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: none;
   min-width: 0;
   min-height: 0;
-  max-width: 50%;
-  padding: 8px;
+  padding: 0;
   padding-bottom: 12px;
-  overflow: auto;
+  overflow: visible;
   display: flex;
   flex-direction: column;
+  border-radius: 0;
+}
+
+/* Hero: outer container blends with page — no border, shadow, or grey edge */
+.section-hero .content-wrapper.glass-panel {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: #ffffff;
+  background: #ffffff;
+}
+
+.section-hero .content-wrapper.glass-panel::before {
+  background: #ffffff;
 }
 
 .section-hero .body-section {
@@ -1676,8 +1734,10 @@ body {
 .section-hero .body-section-cards-only .services-section {
   flex: none;
   width: 100%;
-  padding: 20px 28px 16px;
+  padding: 20px max(16px, env(safe-area-inset-left)) 16px
+    max(16px, env(safe-area-inset-right));
   overflow: visible;
+  background-color: #ffffff;
 }
 
 /* Header */
@@ -1690,21 +1750,55 @@ body {
 
 .section-hero .header {
   padding: 24px 28px 20px;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  border-bottom: none;
 }
 
 .hero-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
+  width: 100%;
 }
 
-.hero-text-group {
-  max-width: 520px;
+/* Brand (LoomiHome) + subtitle */
+.hero-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px 32px;
+  width: 100%;
+}
+
+.hero-brand-block {
+  flex: 1 1 260px;
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
+}
+
+/* Company name — primary headline (suffix e.g. “Patios” is smaller) */
+.site-brand {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.28em 0.4em;
+  line-height: 1.08;
+}
+
+.site-brand-name {
+  font-size: clamp(2.5rem, 7vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+}
+
+.site-brand-suffix {
+  /* Same font as .app; +4 size steps from base “Patios” scale */
+  font-size: clamp(1.95rem, 3.15vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #64748b;
 }
 
 .title {
@@ -1721,12 +1815,13 @@ body {
   font-weight: 400;
 }
 
+/* Tagline under brand */
 .hero-title {
-  font-size: 34px;
-  line-height: 1.18;
-  color: #0f172a;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+  line-height: 1.35;
+  color: #334155;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
@@ -1736,33 +1831,122 @@ body {
   line-height: 1.5;
 }
 
-.primary-cta {
+/* Horizontal nav under hero heading */
+.hero-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 32px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  width: 100%;
+}
+
+.hero-subnav__link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-subnav__link:hover {
+  color: #334155;
+  border-bottom-color: #0f172a;
+}
+
+.hero-subnav__link:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.hero-subnav__link--emphasized {
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.hero-subnav__link--inverse {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 32px;
-  border-radius: 12px;
-  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
   background: #0f172a;
-  color: #fff;
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 0.01em;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  align-self: flex-start;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  border-bottom: none;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.18);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.primary-cta:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.28);
+.hero-subnav__link--inverse:hover {
+  color: #ffffff;
+  border-bottom-color: transparent;
   background: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.22);
 }
 
-.primary-cta:active {
-  transform: translateY(0) scale(1);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+.hero-subnav__link--inverse:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 3px;
+}
+
+#our-products {
+  scroll-margin-top: 24px;
+}
+
+#past-projects {
+  scroll-margin-top: 24px;
+}
+
+#confirm-final-quote {
+  scroll-margin-top: 24px;
+}
+
+#why-us {
+  scroll-margin-top: 24px;
+}
+
+/* Floating chat — fixed bottom-right */
+.chat-widget-dock {
+  position: fixed;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  right: max(12px, env(safe-area-inset-right));
+  left: auto;
+  z-index: 10050;
+  width: min(100vw - 24px, 400px);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.chat-widget-dock .chat-widget-panel--embed {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 400px;
+  min-height: min(360px, 48vh);
+  max-height: min(520px, 72vh);
+  flex: 1 1 auto;
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.chat-widget-dock .chat-widget-header {
+  padding: 12px 16px;
+}
+
+.chat-widget-dock .chat-widget-header-title {
+  font-size: 1.125rem;
 }
 
 .hero-trust {
@@ -2020,96 +2204,6 @@ body {
   }
 }
 
-/* Popular Questions (FAQ) */
-.faq-accordion {
-  align-self: flex-start;
-  width: 100%;
-  max-width: 95%;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  padding: 12px 14px;
-  margin-top: 0;
-  margin-bottom: 6px;
-}
-
-.faq-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: #334155;
-  margin: 0 0 10px 0;
-  letter-spacing: 0.2px;
-}
-
-.faq-item {
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-  padding: 10px 0;
-}
-
-.faq-item:first-of-type {
-  border-top: none;
-  padding-top: 0;
-}
-
-.faq-question {
-  width: 100%;
-  border: none;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.faq-q-text {
-  text-align: left;
-  font-size: 14px;
-  font-weight: 650;
-  color: #0f172a;
-  line-height: 1.35;
-}
-
-.faq-icon {
-  flex-shrink: 0;
-  color: #64748b;
-  font-size: 18px;
-  line-height: 1;
-  padding-top: 2px;
-}
-
-.faq-answer {
-  margin-top: 8px;
-  font-size: 13px;
-  color: #334155;
-  line-height: 1.5;
-}
-
-.faq-answer-text {
-  margin-bottom: 8px;
-}
-
-.faq-cta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 12px;
-  background: #0f172a;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 650;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
-}
-
-.faq-cta-link:active {
-  transform: translateY(0);
-}
-
 /* Why Choose Us (compact trust signals) */
 .why-choose-us-mini {
   align-self: flex-start;
@@ -2256,13 +2350,39 @@ body {
   padding: 0;
 }
 
+/* Hero: all four patio products in one row on wide screens */
+.section-hero .services-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 1200px) {
+  .section-hero .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .section-hero .service-card .card-info {
+    padding: 10px 8px 12px;
+  }
+
+  .section-hero .card-info h3 {
+    font-size: 16px;
+  }
+
+  .section-hero .card-price {
+    font-size: 15px;
+  }
+}
+
 .service-card {
   display: flex;
   flex-direction: column;
   border-radius: 16px;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -2271,8 +2391,104 @@ body {
 }
 
 .service-card:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Hero patio cards: flush with white page — no card chrome */
+.section-hero .service-card {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: #ffffff;
+  background-color: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.section-hero .service-card:hover {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Bullet cards: two per row on desktop (e.g. Glass | Aluminum) */
+.service-card-layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Patio split row: image left, text column left-aligned */
+.service-card-layout--split {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.service-card-layout--split .card-image {
+  flex: 0 0 42%;
+  max-width: 42%;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.service-card-layout--split .card-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 16px 18px 16px 12px;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: left;
+}
+
+.service-card-layout--split .card-info h3 {
+  text-align: left;
+  align-self: stretch;
+  width: 100%;
+}
+
+.service-card-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-card-bullets li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #000000;
+}
+
+.service-card-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.service-card-best-for {
+  margin: 4px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.4);
+  font-size: 12px;
+  line-height: 1.45;
+  color: #000000;
+}
+
+.service-card-best-label {
+  font-weight: 600;
+  color: #000000;
+  margin-right: 0.35em;
 }
 
 .card-image {
@@ -2289,10 +2505,6 @@ body {
   transition: transform 0.35s ease;
 }
 
-.service-card:hover .card-image img {
-  transform: scale(1.04);
-}
-
 .card-image-overlay {
   position: absolute;
   bottom: 0;
@@ -2300,6 +2512,31 @@ body {
   right: 0;
   height: 30%;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.04));
+}
+
+/* Hero product cards: identical image frames; full image inside (letterbox if needed) */
+.section-hero .service-card .card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.section-hero .service-card .card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.section-hero .service-card .card-image .card-image-overlay {
+  position: absolute;
+  z-index: 1;
 }
 
 .card-info {
@@ -2312,33 +2549,43 @@ body {
 }
 
 .card-info h3 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
-  color: #0f172a;
+  color: #000000;
   margin: 0;
   letter-spacing: -0.02em;
   line-height: 1.3;
 }
 
 .card-price {
-  font-size: 14px;
-  font-weight: 500;
-  color: #64748b;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
   margin: 0;
 }
 
-.service-cta-link {
-  align-self: flex-start;
-  margin-top: 6px;
-  font-size: 12px;
-  color: #94a3b8;
-  text-decoration: none;
+.card-image--modal-trigger {
   cursor: pointer;
-  transition: color 0.2s ease;
 }
 
-.service-cta-link:hover {
-  color: #64748b;
+.card-image--modal-trigger:hover img {
+  transform: scale(1.03);
+}
+
+.card-info-heading--modal-trigger {
+  cursor: pointer;
+}
+
+.card-info-heading--modal-trigger:hover {
+  color: #334155;
+}
+
+.card-price--modal-trigger {
+  cursor: pointer;
+}
+
+.card-price--modal-trigger:hover {
+  opacity: 0.85;
 }
 
 .trust-strip {
@@ -2352,6 +2599,10 @@ body {
     rgba(15, 23, 42, 0.85),
     rgba(15, 23, 42, 0.95)
   );
+}
+
+.section-hero .trust-strip {
+  border-top: none;
 }
 
 .trust-item {
@@ -2373,39 +2624,142 @@ body {
   color: #e5e7eb;
 }
 
-/* Chat block - right side, same row as content */
-.hero-chat-block {
-  flex: 1 1 0;
-  min-width: 0;
-  min-height: 0;
-  padding: 0 0 0 4px;
+.chat-widget-panel {
   display: flex;
   flex-direction: column;
+  width: min(100vw - 24px, 300px);
+  max-height: min(58vh, 400px);
+  border-radius: 16px;
   overflow: hidden;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
-.hero-chat-block .chat-section {
+.chat-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.95);
+}
+
+.chat-widget-header-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.chat-widget-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #64748b;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-widget-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.chat-widget-dock .chat-section {
   border: none;
   padding: 0;
-  flex: 1 1 0;
+  flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
-.hero-chat-block .chat-container {
-  margin: 0 auto;
+.chat-widget-dock .chat-container {
+  margin: 0;
   max-width: 100%;
   width: 100%;
-  flex: 1;
-  min-height: 200px;
+  min-height: 160px;
   max-height: none;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
   background: #fafbfc;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.chat-widget-dock .chat-messages {
+  padding: 14px 14px 10px;
+  gap: 12px;
+  max-height: min(360px, 48vh);
+  min-height: 220px;
+}
+
+.chat-widget-dock .message-bubble {
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.chat-widget-dock .message-bubble p + p {
+  margin-top: 6px;
+}
+
+.chat-widget-dock .bot-avatar {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 8px;
+}
+
+.chat-widget-dock .avatar-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.chat-widget-dock .chat-input-wrap {
+  padding: 8px 10px 10px;
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  background: #fff;
+}
+
+.chat-widget-dock .chat-input-helper {
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+.chat-widget-dock .chat-input input {
+  font-size: 13px;
+  padding: 8px 10px;
+}
+
+.chat-widget-dock .send-btn {
+  width: 36px;
+  height: 36px;
+}
+
+.chat-widget-dock .typing-bubble {
+  padding: 10px 14px;
+}
+
+.chat-widget-dock .chat-cta-card {
+  margin: 4px 0 0 36px;
+  padding: 10px 12px;
+}
+
+.chat-widget-dock .chat-cta-title {
+  font-size: 12px;
+}
+
+.chat-widget-dock .chat-cta-text {
+  font-size: 11px;
 }
 
 /* Chat CTA card under price responses */
@@ -2472,8 +2826,8 @@ body {
 
 @media (max-width: 900px) {
   .section-hero {
-    flex-direction: column;
-    padding: 12px 16px 16px;
+    padding: 12px max(12px, env(safe-area-inset-left)) 16px
+      max(12px, env(safe-area-inset-right));
   }
 
   .section-hero .content-wrapper {
@@ -2481,20 +2835,14 @@ body {
     padding-bottom: 10px;
   }
 
-  .hero-chat-block {
-    padding: 6px 0 0;
-    min-height: 0;
-  }
-
-  .hero-chat-block .chat-container {
-    min-height: 180px;
-    max-height: 42vh;
-  }
-
-  .hero-header {
+  .hero-top-row {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .hero-brand-block {
+    max-width: 100%;
   }
 
   .hero-trust {
@@ -2509,10 +2857,6 @@ body {
     padding: 12px 18px 18px;
   }
 
-  .hero-chat-block .chat-section {
-    padding: 0;
-  }
-
   .services-section {
     padding: 12px 18px 18px;
   }
@@ -2522,6 +2866,10 @@ body {
   }
 
   .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-hero .services-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2537,21 +2885,67 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .service-card-layout--split {
+    flex-direction: column;
+  }
+
+  .service-card-layout--split .card-image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .service-card-layout--split .card-info {
+    flex: 1 1 auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 14px 16px 16px;
+  }
+}
+
 @media (max-width: 600px) {
   .section {
-    padding: 16px 12px;
+    padding: 16px max(10px, env(safe-area-inset-left)) 16px
+      max(10px, env(safe-area-inset-right));
   }
 
   .header {
     padding: 16px 16px 10px;
   }
 
+  .site-brand-name {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+
+  .site-brand-suffix {
+    font-size: clamp(1.8rem, 3.75vw, 2rem);
+  }
+
   .hero-title {
-    font-size: 24px;
+    font-size: 1.15rem;
   }
 
   .hero-subtitle {
     font-size: 14px;
+  }
+
+  .hero-top-row {
+    flex-direction: column;
+  }
+
+  /* Full-width chat dock on narrow viewports */
+  .chat-widget-dock {
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    width: auto;
+    max-width: none;
+  }
+
+  .chat-widget-dock .chat-widget-panel--embed {
+    max-width: 100%;
+    min-height: min(280px, 42vh);
+    max-height: min(420px, 50vh);
   }
 
   .scroll-container {
@@ -2578,7 +2972,8 @@ body {
 .projects-body {
   position: relative;
   z-index: 1;
-  padding: 28px 36px 32px;
+  padding: 28px max(16px, env(safe-area-inset-left)) 32px
+    max(16px, env(safe-area-inset-right));
 }
 
 .section-heading {
@@ -2625,11 +3020,11 @@ body {
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.26);
 }
 
-/* Project Cards */
+/* Project Cards — four per row */
 .project-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
   margin-bottom: 24px;
 }
 
@@ -2641,18 +3036,12 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  background: rgba(255, 255, 255, 0.6);
 }
 
 .project-image {
-  height: 180px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
@@ -2660,11 +3049,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.04);
 }
 
 .project-info {
@@ -2725,279 +3109,130 @@ body {
   margin-left: 4px;
 }
 
-/* See More Button */
-.see-more-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  background: rgba(15, 23, 42, 0.02);
-  color: #111827;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.18s ease, color 0.18s ease,
-    border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-  margin-bottom: 36px;
-}
-
-.see-more-btn:hover {
-  background: #111827;
-  color: #f9fafb;
-  border-color: #111827;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.25);
-  transform: translateY(-1px);
-}
-
-.see-more-arrow {
-  font-size: 14px;
-}
-
-.project-photos-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  background: #f9fafb;
-  color: #111827;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.18s ease, color 0.18s ease,
-    border-color 0.18s ease, transform 0.18s ease;
-}
-
-.project-photos-btn:hover {
-  background: #111827;
-  color: #f9fafb;
-  border-color: #111827;
-  transform: translateY(-1px);
-}
-
 /* Why Choose Us */
 .why-choose-us {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
-  padding-top: 28px;
+  padding-top: 36px;
+}
+
+.why-choose-us .section-heading {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 24px;
 }
 
 .features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px 32px;
+  gap: 20px 40px;
 }
 
 .feature-item {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 14px;
-  color: #1f2933;
+  align-items: center;
+  gap: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 18px 20px;
 }
 
 .feature-icon {
-  font-size: 18px;
+  font-size: 22px;
   flex-shrink: 0;
-  width: 24px;
+  width: 28px;
   text-align: center;
 }
 
 .feature-text {
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 /* ============================
-   Section 3: Book an Appointment
+   Section 3: Confirm Final Quote
    ============================ */
 
 .section-appointment {
-  min-height: 100vh;
   position: relative;
-  padding: 0;
+  padding: 64px 24px 72px;
   scroll-snap-align: start;
-  overflow: hidden;
+  background: #f7f8fa;
+}
+
+.appt-layout {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
-/* Full-screen background (same layer as Book an Appointment title) */
-.appt-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.appt-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.appt-bg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(190, 210, 228, 0.15) 0%,
-    rgba(200, 215, 230, 0.25) 40%,
-    rgba(210, 222, 235, 0.4) 100%
-  );
-}
-
-/* Title positioned absolute top-left on the background */
-.appt-title-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  padding: 48px 48px 24px;
-  max-width: 680px;
-}
-
-.appt-main-title {
-  font-size: 44px;
-  font-weight: 700;
-  color: #1a1a2e;
-  margin-bottom: 10px;
-  letter-spacing: -0.3px;
-  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.35);
-}
-
-.appt-main-subtitle {
-  font-size: 25px;
-  color: #3a3a4a;
-  line-height: 1.55;
-}
-
-/* Floating form card */
-.appt-form-card {
-  position: relative;
-  z-index: 2;
-  width: calc(100% - 80px);
-  max-width: 660px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-.appt-form-card--highlight {
+.appt-layout--highlight .appt-form-col {
   box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.8),
-    0 16px 48px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    0 12px 40px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.4s ease;
 }
 
-/* Oil painting cloud background for form card */
-.appt-card-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background: radial-gradient(
-      ellipse 110% 70% at 10% 15%,
-      rgba(255, 255, 255, 0.8) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse 90% 55% at 85% 10%,
-      rgba(235, 242, 252, 0.85) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse 80% 60% at 50% 90%,
-      rgba(255, 255, 255, 0.6) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse 130% 45% at 25% 50%,
-      rgba(210, 225, 242, 0.5) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse 70% 80% at 80% 60%,
-      rgba(230, 238, 250, 0.65) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse 55% 35% at 60% 25%,
-      rgba(245, 248, 255, 0.7) 0%,
-      transparent 40%
-    ),
-    linear-gradient(
-      170deg,
-      #c5d5e8 0%,
-      #d0dced 15%,
-      #dae4f0 30%,
-      #e2ebf4 45%,
-      #dce5ef 60%,
-      #cddaea 75%,
-      #c2d2e3 100%
-    );
-  filter: contrast(0.93) brightness(1.02);
+/* ---- Info column (left) ---- */
+
+.appt-info-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 12px;
 }
 
-.appt-card-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-      ellipse 50% 35% at 15% 20%,
-      rgba(255, 255, 255, 0.55) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 45% 30% at 75% 15%,
-      rgba(245, 250, 255, 0.5) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 60% 25% at 40% 80%,
-      rgba(255, 255, 255, 0.4) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 35% 40% at 90% 50%,
-      rgba(240, 246, 255, 0.45) 0%,
-      transparent 100%
-    );
-  filter: blur(10px);
+.appt-info-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.appt-card-content {
-  position: relative;
-  z-index: 1;
-  padding: 32px 36px 36px;
+.appt-main-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.appt-main-subtitle {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.65;
+}
+
+
+
+/* ---- Form column (right) ---- */
+
+.appt-form-col {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 32px 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
 }
 
 .appt-form-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  color: #1a1a2e;
+  color: #0f172a;
   margin-bottom: 6px;
 }
 
 .appt-form-subtitle {
-  font-size: 13.5px;
-  color: #555;
+  font-size: 14px;
+  color: #64748b;
   line-height: 1.55;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 /* Form */
@@ -3011,17 +3246,17 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(200, 210, 225, 0.6);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 0 14px;
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .form-field:focus-within {
-  border-color: #4a8fd4;
-  box-shadow: 0 0 0 3px rgba(74, 143, 212, 0.12);
-  background: rgba(255, 255, 255, 0.82);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: #fff;
 }
 
 .field-icon {
@@ -3066,7 +3301,7 @@ body {
 .form-field-select::after {
   content: '▾';
   font-size: 14px;
-  color: #7a8ba0;
+  color: #94a3b8;
   pointer-events: none;
   flex-shrink: 0;
 }
@@ -3074,7 +3309,7 @@ body {
 .details-label {
   font-size: 15px;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #0f172a;
   margin-top: 6px;
   margin-bottom: -4px;
 }
@@ -3140,20 +3375,20 @@ body {
 .upload-choose-btn {
   flex-shrink: 0;
   padding: 10px 20px;
-  border: none;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
-  background: linear-gradient(135deg, #5a7fb0, #3d5a80);
-  color: #fff;
+  background: #fff;
+  color: #1e293b;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  box-shadow: 0 2px 8px rgba(45, 80, 134, 0.25);
-  transition: transform 0.12s, box-shadow 0.12s, opacity 0.2s;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .upload-choose-btn:hover {
-  box-shadow: 0 3px 12px rgba(45, 80, 134, 0.32);
+  background: #f1f5f9;
+  border-color: #94a3b8;
 }
 
 .upload-choose-btn:active {
@@ -3184,8 +3419,8 @@ body {
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(200, 210, 225, 0.55);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
 }
 
@@ -3255,23 +3490,23 @@ body {
 /* Submit Button */
 .submit-btn {
   margin-top: 8px;
-  padding: 14px 44px;
+  padding: 14px 0;
+  width: 100%;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(135deg, #4a6fa5, #2d5086);
+  background: #0f172a;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
-  box-shadow: 0 4px 16px rgba(45, 80, 134, 0.35);
-  align-self: center;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
   letter-spacing: 0.2px;
 }
 
 .submit-btn:hover {
+  background: #1e293b;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(45, 80, 134, 0.45);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
 }
 
 .submit-btn:active {
@@ -3279,7 +3514,7 @@ body {
 }
 
 .submit-btn:disabled {
-  opacity: 0.65;
+  opacity: 0.55;
   cursor: not-allowed;
   transform: none;
 }
@@ -3300,113 +3535,6 @@ body {
   margin-top: 4px;
 }
 
-/* Bottom row: benefits left + deco image right */
-.appt-bottom-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 20px;
-  margin-top: 24px;
-}
-
-.benefits-list {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.benefit-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14.5px;
-  color: #333;
-}
-
-.benefit-check {
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-/* Booking form: project showcase (default or first uploaded photo) */
-.appt-deco-image {
-  width: min(100%, 240px);
-  flex-shrink: 0;
-}
-
-.appt-deco-figure {
-  margin: 0;
-}
-
-.appt-deco-image-inner {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  width: 100%;
-  box-shadow:
-    0 10px 28px rgba(15, 23, 42, 0.14),
-    0 2px 8px rgba(15, 23, 42, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: linear-gradient(145deg, #e2e8f0 0%, #cbd5e1 100%);
-}
-
-.appt-deco-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.appt-deco-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 14px 14px 12px;
-  background: linear-gradient(
-    to top,
-    rgba(15, 23, 42, 0.72) 0%,
-    rgba(15, 23, 42, 0.35) 45%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-.appt-deco-overlay-title {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.98);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-}
-
-.appt-deco-overlay-location {
-  margin-top: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.88);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.appt-deco-overlay--user {
-  background: linear-gradient(
-    to top,
-    rgba(15, 23, 42, 0.55) 0%,
-    transparent 55%
-  );
-}
-
-.appt-deco-overlay--user .appt-deco-overlay-title {
-  text-transform: none;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -3439,34 +3567,17 @@ body {
     padding: 20px;
   }
 
-  .appt-title-area {
-    padding: 28px 20px 14px;
+  .appt-layout {
+    flex-direction: column;
+    gap: 32px;
   }
 
   .appt-main-title {
-    font-size: 24px;
+    font-size: 26px;
   }
 
-  .appt-form-card {
-    width: calc(100% - 32px);
-  }
-
-  .appt-card-content {
-    padding: 24px 20px;
-  }
-
-  .appt-bottom-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .appt-deco-image {
-    width: 100%;
-    max-width: none;
-  }
-
-  .appt-deco-image-inner {
-    aspect-ratio: 16 / 10;
+  .appt-form-col {
+    padding: 28px 20px 32px;
   }
 }
 </style>

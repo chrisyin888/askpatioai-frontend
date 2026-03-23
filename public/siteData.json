@@ -10,9 +10,9 @@
   "section1": {
     "title": "Get an Instant Quote in 60 Seconds",
     "subtitle": "Ask our AI Chatbot for a quick price estimate on your project.",
-    "botAvatar": "🤿",
+    "botAvatar": "",
     "welcomeMessages": [
-      "Hi there! <strong>Ready to get a quick quote?</strong> 😊",
+      "Hi there! <strong>Ready to get a quick quote?</strong>",
       "Tell me the city you'll install a patio cover or sunroom, and roughly how many square feet of patio space you have"
     ]
   },
@@ -20,33 +20,36 @@
     {
       "name": "Patio Covers",
       "description": "Enhance your backyard with a stylish cover",
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/p3.jpg"
     },
     {
       "name": "Sunrooms",
       "description": "Enjoy a beautiful sunroom with full glass walls",
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/p7.jpg"
     },
     {
       "name": "Roofing",
       "description": "Get a new, durable and weatherproof roof",
-      "icon": "🏡",
+      "icon": "",
       "image": "/house/p15.jpg"
     },
     {
       "name": "Deck & Fence",
       "description": "Add a custom deck or fence to your home",
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/p22.jpg"
     }
   ],
   "section2": {
     "title": "Our Projects & Testimonials",
     "subtitle": "See our recent patio cover and sunroom projects in Vancouver and surrounding areas.",
-    "sectionHeading": "Our Recent Projects",
-    "cities": ["Vancouver", "Richmond", "Burnaby"]
+    "cities": [
+      "Vancouver",
+      "Richmond",
+      "Burnaby"
+    ]
   },
   "projects": [
     {
@@ -54,7 +57,7 @@
       "city": "Vancouver",
       "sqft": 220,
       "price": 6500,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/p5.jpg"
     },
     {
@@ -62,7 +65,7 @@
       "city": "Vancouver",
       "sqft": 180,
       "price": 5800,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/p9.jpg"
     },
     {
@@ -70,7 +73,7 @@
       "city": "Vancouver",
       "sqft": 300,
       "price": 42000,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/p14.jpg"
     },
     {
@@ -78,15 +81,15 @@
       "city": "Richmond",
       "sqft": 240,
       "price": 32000,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/p18.jpg"
     },
-        {
+    {
       "name": "Richmond Sunroom",
       "city": "Richmond",
       "sqft": 240,
       "price": 32000,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/p18.jpg"
     },
     {
@@ -94,7 +97,7 @@
       "city": "Richmond",
       "sqft": 150,
       "price": 4800,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/p25.jpg"
     },
     {
@@ -102,7 +105,7 @@
       "city": "Burnaby",
       "sqft": 180,
       "price": 5200,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/p30.jpg"
     },
     {
@@ -110,7 +113,7 @@
       "city": "Burnaby",
       "sqft": 180,
       "price": 5200,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/p37.jpg"
     },
     {
@@ -118,15 +121,27 @@
       "city": "Burnaby",
       "sqft": 200,
       "price": 7200,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/p36.jpg"
     }
   ],
   "features": [
-    { "icon": "📐", "text": "Experienced Vancouver-based team" },
-    { "icon": "🏆", "text": "Quality craftsmanship and materials" },
-    { "icon": "✅", "text": "Permits and design assistance" },
-    { "icon": "✅", "text": "Fast and reliable installation first." }
+    {
+      "icon": "",
+      "text": "Experienced Vancouver-based team"
+    },
+    {
+      "icon": "",
+      "text": "Quality craftsmanship and materials"
+    },
+    {
+      "icon": "",
+      "text": "Permits and design assistance"
+    },
+    {
+      "icon": "",
+      "text": "Fast and reliable installation first."
+    }
   ],
   "benefits": [
     "Free no-obligation consultation",

@@ -1,5 +1,7 @@
 {
   "site": {
+    "brandName": "LoomiHome",
+    "brandSuffix": "Patios",
     "heroBackground": "/house/sunrooms/sunroom1.jpeg",
     "appointmentBackground": "/house/p23.jpg",
     "appointmentDecoImage": "/house/p26.jpg",
@@ -7,15 +9,14 @@
     "appointmentShowcaseFallback": "/house/p23.jpg",
     "targetEmail": "info@example.com",
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
-    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email"
+    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
+    "chatWidgetTitle": "Ask Loona"
   },
   "section1": {
-    "title": "Get Your Patio Cover or Sunroom Price in Under a Minute",
-    "subtitle": "Share your city and rough size—our AI gives you a ballpark estimate right away. No forms, no wait.",
-    "botAvatar": "🤿",
+    "subtitle": "Simple, fast, and built around your home.",
+    "botAvatar": "",
     "welcomeMessages": [
-      "Hi — I can give you a quick price estimate.<br>Just tell me your city and approx size (sq ft).",
-      "Just tell me where you’re located in Greater Vancouver and about how big the area is (in sq ft). I’ll come back with a typical project range."
+      "Hi, how can I help you today?"
     ],
     "chatPlaceholder": "Type your project details (city + size)...",
     "inputHelperExample": "Richmond, 200 sq ft glass patio cover"
@@ -24,37 +25,72 @@
     {
       "name": "Glass Patio Covers",
       "description": "Built with tempered glass for a clean look, better natural light, and improved durability.",
-      "icon": "🏠",
-      "image": "/house/glass/glass4.jpeg",
-      "examplePrice": 2600
+      "icon": "",
+      "image": "/house/glass/glass-patio-cover-hero.png",
+      "examplePrice": 2600,
+      "modalBullets": [
+        "Bright & modern look",
+        "Keeps natural light",
+        "Strong tempered glass",
+        "Premium feel"
+      ],
+      "modalBestFor": "open, stylish outdoor spaces"
     },
     {
       "name": "Aluminum Patio Covers",
       "description": "Durable aluminum patio covers with low maintenance and strong weather resistance for Greater Vancouver homes.",
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/Aluminum/p12.jpg",
-      "examplePrice": 3000
+      "examplePrice": 3000,
+      "modalBullets": [
+        "Durable & low maintenance",
+        "Full rain & sun protection",
+        "Cost-effective option",
+        "Clean, simple design"
+      ],
+      "modalBestFor": "everyday practical use"
     },
     {
       "name": "Skyline Combo Covers",
       "description": "A premium combination of tempered glass and V-panels for balanced light, shade, and modern style.",
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/F17A4E77-5EBF-4DCB-9609-7CFE3C20B8CC_4_5005_c.jpeg",
-      "examplePrice": 4500
+      "examplePrice": 4500,
+      "modalBullets": [
+        "Open, airy design",
+        "Modern architectural style",
+        "Balanced shade & light",
+        "Unique visual upgrade"
+      ],
+      "modalBestFor": "design-focused homes"
     },
     {
       "name": "Sunrooms",
       "description": "Built with thermal-break aluminum, glass, and insulation board for a brighter, more comfortable year-round space.",
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom3.jpeg",
-      "examplePrice": 13500
+      "examplePrice": 13500,
+      "modalBullets": [
+        "Enclosed living space",
+        "Use in more seasons",
+        "Adds usable home area",
+        "Comfortable & protected"
+      ],
+      "modalBestFor": "extending indoor living"
     }
   ],
   "section2": {
-  "title": "Our Projects & Testimonials",
-  "subtitle": "See our recent patio cover and sunroom projects across Greater Vancouver.",
-  "sectionHeading": "Our Recent Projects",
-  "cities": ["Vancouver", "Richmond", "Burnaby", "Surrey", "Delta", "Coquitlam", "Langley"]
+    "title": "Our Projects & Testimonials",
+    "subtitle": "See our recent patio cover and sunroom projects across Greater Vancouver.",
+    "cities": [
+      "Vancouver",
+      "Richmond",
+      "Burnaby",
+      "Surrey",
+      "Delta",
+      "Coquitlam",
+      "Langley"
+    ]
   },
   "projects": [
     {
@@ -62,7 +98,7 @@
       "city": "Vancouver",
       "sqft": 180,
       "price": 4200,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/p9.jpg"
     },
     {
@@ -70,7 +106,7 @@
       "city": "Richmond",
       "sqft": 150,
       "price": 4800,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/p25.jpg"
     },
     {
@@ -78,7 +114,7 @@
       "city": "Burnaby",
       "sqft": 200,
       "price": 7200,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/p36.jpg"
     },
     {
@@ -86,7 +122,7 @@
       "city": "Coquitlam",
       "sqft": 230,
       "price": 6900,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/p22.jpg"
     },
     {
@@ -94,7 +130,7 @@
       "city": "Vancouver",
       "sqft": 230,
       "price": 3000,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Aluminum/p12.jpg"
     },
     {
@@ -102,7 +138,7 @@
       "city": "Richmond",
       "sqft": 210,
       "price": 3000,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/Aluminum/7CA6633E-4BC6-4AEB-AB46-4A44927A1406_4_5005_c.jpeg"
     },
     {
@@ -110,7 +146,7 @@
       "city": "Burnaby",
       "sqft": 240,
       "price": 2800,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Aluminum/p10.jpg"
     },
     {
@@ -118,7 +154,7 @@
       "city": "Surrey",
       "sqft": 260,
       "price": 2000,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Aluminum/p13.jpg"
     },
     {
@@ -126,7 +162,7 @@
       "city": "Delta",
       "sqft": 220,
       "price": 2800,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/Aluminum/p23.jpg"
     },
     {
@@ -134,7 +170,7 @@
       "city": "Coquitlam",
       "sqft": 230,
       "price": 5500,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Aluminum/p26.jpg"
     },
     {
@@ -142,7 +178,7 @@
       "city": "Langley",
       "sqft": 210,
       "price": 2600,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/Aluminum/p27.jpg"
     },
     {
@@ -150,7 +186,7 @@
       "city": "Vancouver",
       "sqft": 280,
       "price": 2200,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Aluminum/p28.jpg"
     },
     {
@@ -158,7 +194,7 @@
       "city": "Richmond",
       "sqft": 250,
       "price": 3500,
-      "icon": "🏗️",
+      "icon": "",
       "image": "/house/Aluminum/p3.jpg"
     },
     {
@@ -166,7 +202,7 @@
       "city": "Vancouver",
       "sqft": 260,
       "price": 3500,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Aluminum/098026E6-9DFE-4881-BB0B-ED5D1EFB72E3_4_5005_c.jpeg"
     },
     {
@@ -174,7 +210,7 @@
       "city": "Coquitlam",
       "sqft": 300,
       "price": 5500,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Aluminum/CCE34662-7420-46AE-A419-A93ACB1D262E_4_5005_c.jpeg"
     },
     {
@@ -182,7 +218,7 @@
       "city": "Greater Vancouver",
       "sqft": 120,
       "price": 1800,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/B36FB15A-1267-42D1-BF4E-AD93AC00279A_4_5005_c.jpeg"
     },
     {
@@ -190,7 +226,7 @@
       "city": "Greater Vancouver",
       "sqft": 290,
       "price": 4400,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass1.jpeg"
     },
     {
@@ -198,7 +234,7 @@
       "city": "Greater Vancouver",
       "sqft": 440,
       "price": 6600,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass2.jpeg"
     },
     {
@@ -206,7 +242,7 @@
       "city": "Greater Vancouver",
       "sqft": 190,
       "price": 2800,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass3.jpeg"
     },
     {
@@ -214,7 +250,7 @@
       "city": "Greater Vancouver",
       "sqft": 440,
       "price": 6600,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass5.jpeg"
     },
     {
@@ -222,7 +258,7 @@
       "city": "Greater Vancouver",
       "sqft": 170,
       "price": 2600,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass6.jpeg"
     },
     {
@@ -231,7 +267,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass7.jpeg"
     },
     {
@@ -240,7 +276,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass9.jpeg"
     },
     {
@@ -249,7 +285,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass10.jpeg"
     },
     {
@@ -258,7 +294,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass11.jpg"
     },
     {
@@ -267,7 +303,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass12.jpg"
     },
     {
@@ -276,7 +312,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass13.jpg"
     },
     {
@@ -285,7 +321,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass14.jpg"
     },
     {
@@ -294,7 +330,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass15.jpg"
     },
     {
@@ -303,7 +339,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass16.jpg"
     },
     {
@@ -312,7 +348,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass17.jpg"
     },
     {
@@ -321,7 +357,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass18.jpg"
     },
     {
@@ -330,7 +366,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass19.jpg"
     },
     {
@@ -339,7 +375,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass24.jpg"
     },
     {
@@ -348,7 +384,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass25.jpg"
     },
     {
@@ -357,7 +393,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass26.jpg"
     },
     {
@@ -366,7 +402,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass27.jpg"
     },
     {
@@ -375,7 +411,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass28.jpg"
     },
     {
@@ -384,7 +420,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Atype/p22.jpg"
     },
     {
@@ -393,7 +429,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Atype/p14.jpg"
     },
     {
@@ -402,7 +438,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Atype/p9.jpg"
     },
     {
@@ -411,7 +447,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Atype/D28FC224-5282-4622-A61C-9C0CAA0D10F7_4_5005_c.jpeg"
     },
     {
@@ -420,7 +456,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Atype/44B231A4-20D8-4279-81B3-D143FC2226B9_4_5005_c.jpeg"
     },
     {
@@ -429,7 +465,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/Atype/95F71EDA-7C09-4134-A1EB-346C9E7650C9_4_5005_c.jpeg"
     },
     {
@@ -438,7 +474,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/glass/glass8.jpeg"
     },
     {
@@ -446,7 +482,7 @@
       "city": "Greater Vancouver",
       "sqft": 320,
       "price": 4500,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/5F659D77-A34F-4E0E-A45F-6D02AC6F515E_4_5005_c.jpeg"
     },
     {
@@ -454,7 +490,7 @@
       "city": "Greater Vancouver",
       "sqft": 270,
       "price": 3800,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/6E6F2EE2-6EBA-43FB-BEAC-F3278959722A_4_5005_c.jpeg"
     },
     {
@@ -462,7 +498,7 @@
       "city": "Greater Vancouver",
       "sqft": 200,
       "price": 2800,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/14B84CA8-0D55-4DD3-B403-FF0F153C32AE_4_5005_c.jpeg"
     },
     {
@@ -470,7 +506,7 @@
       "city": "Greater Vancouver",
       "sqft": 230,
       "price": 3200,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/283A2C31-13C5-4C2D-AC18-070D08A64BEE_4_5005_c.jpeg"
     },
     {
@@ -478,7 +514,7 @@
       "city": "Greater Vancouver",
       "sqft": 140,
       "price": 2000,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/B5D5D3A9-9894-4964-B75F-72CEEF9AD1D6_4_5005_c.jpeg"
     },
     {
@@ -486,7 +522,7 @@
       "city": "Greater Vancouver",
       "sqft": 170,
       "price": 2400,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/BA3D27B3-76E2-4D19-8E1A-CA0396C86495_4_5005_c.jpeg"
     },
     {
@@ -495,7 +531,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/E5A0CDFB-F151-49A1-A3DE-4F0F67A4E2D0_4_5005_c.jpeg"
     },
     {
@@ -504,7 +540,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/F17A4E77-5EBF-4DCB-9609-7CFE3C20B8CC_4_5005_c.jpeg"
     },
     {
@@ -513,7 +549,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p5.jpg"
     },
     {
@@ -522,7 +558,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p6.jpg"
     },
     {
@@ -531,7 +567,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p17.jpg"
     },
     {
@@ -540,7 +576,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p25.jpg"
     },
     {
@@ -549,7 +585,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p32.jpg"
     },
     {
@@ -558,7 +594,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p33.jpg"
     },
     {
@@ -567,7 +603,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p38.jpg"
     },
     {
@@ -576,7 +612,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🌤️",
+      "icon": "",
       "image": "/house/skyline/p40.jpg"
     },
     {
@@ -584,7 +620,7 @@
       "city": "Greater Vancouver",
       "sqft": 360,
       "price": 13500,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom24.jpeg"
     },
     {
@@ -592,7 +628,7 @@
       "city": "Greater Vancouver",
       "sqft": 230,
       "price": 8800,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/p37.jpg"
     },
     {
@@ -600,7 +636,7 @@
       "city": "Greater Vancouver",
       "sqft": 210,
       "price": 7800,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom2.jpeg"
     },
     {
@@ -608,7 +644,7 @@
       "city": "Greater Vancouver",
       "sqft": 370,
       "price": 14000,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom3.jpeg"
     },
     {
@@ -616,7 +652,7 @@
       "city": "Greater Vancouver",
       "sqft": 240,
       "price": 9000,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom5.jpeg"
     },
     {
@@ -624,7 +660,7 @@
       "city": "Greater Vancouver",
       "sqft": 550,
       "price": 21000,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom4.jpeg"
     },
     {
@@ -633,7 +669,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom6.jpeg"
     },
     {
@@ -642,7 +678,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom7.jpeg"
     },
     {
@@ -651,7 +687,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom8.jpeg"
     },
     {
@@ -660,7 +696,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom9.jpeg"
     },
     {
@@ -669,7 +705,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom10.jpeg"
     },
     {
@@ -678,7 +714,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom11.jpeg"
     },
     {
@@ -687,7 +723,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom12.jpeg"
     },
     {
@@ -696,7 +732,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom13.jpeg"
     },
     {
@@ -705,7 +741,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom14.jpeg"
     },
     {
@@ -714,7 +750,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom16.jpeg"
     },
     {
@@ -723,7 +759,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom15.jpeg"
     },
     {
@@ -732,7 +768,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏠",
+      "icon": "",
       "image": "/house/sunrooms/sunroom17.jpeg"
     },
     {
@@ -741,7 +777,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom18.jpeg"
     },
     {
@@ -750,7 +786,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom19.jpeg"
     },
     {
@@ -759,7 +795,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom20.jpeg"
     },
     {
@@ -768,7 +804,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom21.jpeg"
     },
     {
@@ -777,7 +813,7 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom22.jpeg"
     },
     {
@@ -786,15 +822,27 @@
       "sqft": null,
       "price": null,
       "isCustom": true,
-      "icon": "🏘️",
+      "icon": "",
       "image": "/house/sunrooms/sunroom23.jpeg"
     }
   ],
   "features": [
-    { "icon": "📐", "text": "Experienced Vancouver-based team" },
-    { "icon": "🏆", "text": "Quality craftsmanship and materials" },
-    { "icon": "✅", "text": "Permits and design assistance" },
-    { "icon": "✅", "text": "Fast and reliable installation first." }
+    {
+      "icon": "",
+      "text": "Free, no-obligation consultation"
+    },
+    {
+      "icon": "",
+      "text": "Custom solutions tailored to your home"
+    },
+    {
+      "icon": "",
+      "text": "Experienced Vancouver-based team"
+    },
+    {
+      "icon": "",
+      "text": "Competitive pricing, exceptional quality"
+    }
   ],
   "benefits": [
     "Free no-obligation consultation",
