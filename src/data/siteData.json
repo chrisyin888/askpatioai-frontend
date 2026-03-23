@@ -10,7 +10,7 @@
     "targetEmail": "info@example.com",
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
-    "chatWidgetTitle": "Ask Loona"
+    "chatWidgetTitle": "Ask Loomia"
   },
   "section1": {
     "subtitle": "Simple, fast, and built around your home.",
