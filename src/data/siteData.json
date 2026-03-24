@@ -10,6 +10,7 @@
     "targetEmail": "info@example.com",
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
+    "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
     "chatWidgetTitle": "Ask Loomia"
   },
   "section1": {
@@ -26,7 +27,7 @@
       "name": "Glass Patio Covers",
       "description": "Built with tempered glass for a clean look, better natural light, and improved durability.",
       "icon": "",
-      "image": "/house/glass/glass-patio-cover-hero.png",
+      "image": "/house/glass/glass-hero.png",
       "examplePrice": 2600,
       "modalBullets": [
         "Bright & modern look",
@@ -40,8 +41,8 @@
       "name": "Aluminum Patio Covers",
       "description": "Durable aluminum patio covers with low maintenance and strong weather resistance for Greater Vancouver homes.",
       "icon": "",
-      "image": "/house/Aluminum/p12.jpg",
-      "examplePrice": 3000,
+      "image": "/house/Aluminum/aluminum-hero.png",
+      "examplePrice": 1500,
       "modalBullets": [
         "Durable & low maintenance",
         "Full rain & sun protection",
@@ -54,8 +55,8 @@
       "name": "Skyline Combo Covers",
       "description": "A premium combination of tempered glass and V-panels for balanced light, shade, and modern style.",
       "icon": "",
-      "image": "/house/skyline/F17A4E77-5EBF-4DCB-9609-7CFE3C20B8CC_4_5005_c.jpeg",
-      "examplePrice": 4500,
+      "image": "/house/skyline/skyline-hero.png",
+      "examplePrice": 2400,
       "modalBullets": [
         "Open, airy design",
         "Modern architectural style",
@@ -68,8 +69,8 @@
       "name": "Sunrooms",
       "description": "Built with thermal-break aluminum, glass, and insulation board for a brighter, more comfortable year-round space.",
       "icon": "",
-      "image": "/house/sunrooms/sunroom3.jpeg",
-      "examplePrice": 13500,
+      "image": "/house/sunrooms/sunroom-hero.png",
+      "examplePrice": 5000,
       "modalBullets": [
         "Enclosed living space",
         "Use in more seasons",

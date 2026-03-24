@@ -488,7 +488,15 @@
         role="dialog"
         aria-modal="false"
         :aria-label="(cfg.chatWidgetTitle || 'Chat') + ' assistant'"
+        :style="chatPanelStyle"
       >
+        <div
+          class="chat-resize-handle"
+          @mousedown="startChatResize"
+          @touchstart.prevent="startChatResize"
+        >
+          <span class="chat-resize-bar" aria-hidden="true"></span>
+        </div>
         <div class="chat-widget-header">
           <span class="chat-widget-header-title">{{
             cfg.chatWidgetTitle || 'Chat'
@@ -555,23 +563,78 @@
                   </div>
                 </div>
 
+                <!-- CTA: scroll to full form -->
                 <div
-                  v-if="msg.type === 'bot' && msg.showCta"
+                  v-if="msg.type === 'bot' && msg.showCta && !chatBookingForm.success"
                   class="chat-cta-card"
                 >
-                  <h4 class="chat-cta-title">Confirm Final Quote</h4>
+                  <h4 class="chat-cta-title">Want to confirm your final quote?</h4>
                   <p class="chat-cta-text">
-                    Free site measurement available. Final quote confirmed on site.
+                    Book a free on-site measurement. Final pricing confirmed after the visit.
                   </p>
                   <div class="chat-cta-actions">
                     <button
                       type="button"
                       class="chat-cta-btn primary"
-                      @click="handleChatCtaClick()"
+                      @click="showChatBookingForm(); scrollToBottom();"
                     >
                       Book Free Measurement
                     </button>
                   </div>
+                </div>
+
+                <!-- Mini booking form inline -->
+                <div
+                  v-if="msg.type === 'bot' && msg.showBookingForm && chatBookingForm.visible && !chatBookingForm.success"
+                  class="chat-booking-card"
+                >
+                  <h4 class="chat-booking-title">Book Free Measurement</h4>
+                  <form class="chat-booking-form" @submit.prevent="submitChatBookingForm">
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.name"
+                        type="text"
+                        placeholder="Full Name *"
+                        autocomplete="name"
+                      />
+                      <span v-if="chatBookingForm.errors.name" class="chat-booking-err">{{ chatBookingForm.errors.name }}</span>
+                    </div>
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.phone"
+                        type="tel"
+                        placeholder="Phone Number *"
+                        autocomplete="tel"
+                      />
+                      <span v-if="chatBookingForm.errors.phone" class="chat-booking-err">{{ chatBookingForm.errors.phone }}</span>
+                    </div>
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.email"
+                        type="email"
+                        placeholder="Email for confirmation"
+                        autocomplete="email"
+                      />
+                    </div>
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.city"
+                        type="text"
+                        placeholder="City / Address *"
+                        autocomplete="address-level2"
+                      />
+                      <span v-if="chatBookingForm.errors.city" class="chat-booking-err">{{ chatBookingForm.errors.city }}</span>
+                    </div>
+                    <button
+                      type="submit"
+                      class="chat-booking-submit"
+                      :disabled="chatBookingForm.submitting"
+                    >
+                      {{ chatBookingForm.submitting ? 'Submitting...' : 'Submit Request' }}
+                    </button>
+                    <p v-if="chatBookingForm.error" class="chat-booking-form-err">{{ chatBookingForm.error }}</p>
+                  </form>
+                  <p class="chat-booking-hint">Final pricing will be confirmed after the site visit.</p>
                 </div>
               </div>
 
@@ -720,6 +783,20 @@ export default {
       },
       appointmentHighlight: false,
       serviceModalService: null,
+      chatResizeHeight: null,
+      chatResizeStartY: 0,
+      chatResizeStartH: 0,
+      chatBookingForm: {
+        visible: false,
+        name: '',
+        phone: '',
+        email: '',
+        city: '',
+        submitting: false,
+        success: false,
+        error: '',
+        errors: {},
+      },
     };
   },
   computed: {
@@ -762,6 +839,12 @@ export default {
         return this.appointmentPhotoPreviews[0].key;
       }
       return `showcase-${this.appointmentDecoDisplaySrc}`;
+    },
+    chatPanelStyle() {
+      if (this.chatResizeHeight) {
+        return { height: this.chatResizeHeight + 'px' };
+      }
+      return {};
     },
   },
   created() {
@@ -826,15 +909,19 @@ export default {
       const siteMeasurementIntent = this.isSiteMeasurementRequest(text);
       const bookingIntent = this.isBookingIntent(text) || siteMeasurementIntent;
 
-      // If user clearly requests on-site measurement, handle intent locally
-      if (siteMeasurementIntent) {
-        this.handleSiteMeasurementBotReply(placeholderId);
+      if (bookingIntent && !this.chatBookingForm.success) {
+        this.replaceMessageById(placeholderId, {
+          type: 'bot',
+          text: 'Great — let me get a few details to arrange your free on-site measurement.',
+          showCta: false,
+          showBookingForm: true,
+          isPlaceholder: false,
+        });
+        this.showChatBookingForm();
         this.$nextTick(() => this.scrollToBottom());
         return;
       }
 
-      // Pricing guardrail: do not call backend AI for patio cover pricing
-      // until the user explicitly confirms material type (aluminum vs glass).
       if (this.shouldAskMaterialTypeForPatioPricing(text)) {
         this.replaceMessageById(placeholderId, {
           type: 'bot',
@@ -861,14 +948,27 @@ export default {
         const data = await res.json();
         const answer = data.answer || 'Sorry, something went wrong.';
         const isPrice = this.isPriceResponse(answer);
+        const aiAsksForDetails = this.aiAsksForContactDetails(answer);
 
-        this.replaceMessageById(placeholderId, {
-          type: 'bot',
-          text: answer,
-          isPrice,
-          showCta: bookingIntent,
-          isPlaceholder: false,
-        });
+        if (aiAsksForDetails && !this.chatBookingForm.success) {
+          this.replaceMessageById(placeholderId, {
+            type: 'bot',
+            text: answer,
+            isPrice,
+            showCta: false,
+            showBookingForm: true,
+            isPlaceholder: false,
+          });
+          this.showChatBookingForm();
+        } else {
+          this.replaceMessageById(placeholderId, {
+            type: 'bot',
+            text: answer,
+            isPrice,
+            showCta: isPrice && !this.chatBookingForm.success,
+            isPlaceholder: false,
+          });
+        }
       } catch {
         this.replaceMessageById(placeholderId, {
           type: 'bot',
@@ -886,26 +986,26 @@ export default {
     },
     isBookingIntent(text) {
       if (!text) return false;
-      const lower = text.toLowerCase();
+      const lower = text.toLowerCase().trim();
+
+      const exactMatch = [
+        'yes', 'yeah', 'sure', 'ok', 'okay', 'yep', 'yup',
+        'sounds good', 'book it', "let's do it", 'lets do it',
+        'go ahead', 'do it',
+      ];
+      if (exactMatch.some((p) => lower === p || lower === p + '!')) return true;
 
       const phrases = [
-        'how to book',
-        'how do i book',
-        'how can i book',
-        'book free measurement',
-        'book measurement',
-        'book an appointment',
-        'book appointment',
-        'want to book',
-        'next step',
-        'what next',
-        'what is next',
-        'schedule a visit',
-        'schedule visit',
-        'schedule measurement',
-        'make an appointment',
-        'set up an appointment',
-        'appointment',
+        'how to book', 'how do i book', 'how can i book',
+        'book free measurement', 'book measurement',
+        'book an appointment', 'book appointment',
+        'want to book', 'i want to book',
+        'next step', 'what next', 'what is next',
+        'schedule a visit', 'schedule visit', 'schedule measurement',
+        'make an appointment', 'set up an appointment', 'appointment',
+        'free measurement', 'i want exact quote',
+        'not sure about size', 'no idea about size',
+        'can someone measure', 'can someone come measure',
       ];
 
       return phrases.some((p) => lower.includes(p));
@@ -1136,6 +1236,117 @@ export default {
     },
     closeServiceModal() {
       this.serviceModalService = null;
+    },
+    aiAsksForContactDetails(text) {
+      if (!text) return false;
+      const lower = text.toLowerCase();
+      const cues = [
+        'your name', 'your phone', 'your email', 'your contact',
+        'your address', 'contact info', 'contact details',
+        'reach you', 'get in touch', 'provide your',
+        'share your name', 'share your phone',
+      ];
+      return cues.some((c) => lower.includes(c));
+    },
+    showChatBookingForm() {
+      if (this.chatBookingForm.success) return;
+      this.chatBookingForm.visible = true;
+      if (this.projectInfo.city) {
+        this.chatBookingForm.city = this.projectInfo.city;
+      }
+    },
+    inferProjectType() {
+      const { project_type, material_type } = this.projectInfo;
+      if (project_type === 'Sunroom') return 'Sunroom';
+      if (material_type === 'Glass') return 'Glass Patio Cover';
+      if (material_type === 'Aluminum') return 'Aluminum Patio Cover';
+      if (project_type === 'Patio Cover') return 'Patio Cover';
+
+      const allText = this.messages.map((m) => m.text || '').join(' ').toLowerCase();
+      if (allText.includes('sunroom')) return 'Sunroom';
+      if (allText.includes('glass')) return 'Glass Patio Cover';
+      if (allText.includes('aluminum') || allText.includes('aluminium')) return 'Aluminum Patio Cover';
+      if (allText.includes('skyline')) return 'Skyline Combo Cover';
+      return 'Patio Cover / Sunroom';
+    },
+    validateChatBookingForm() {
+      const errs = {};
+      if (!this.chatBookingForm.name.trim()) errs.name = 'Name is required';
+      if (!this.chatBookingForm.phone.trim()) errs.phone = 'Phone is required';
+      if (!this.chatBookingForm.city.trim()) errs.city = 'City is required';
+      this.chatBookingForm.errors = errs;
+      return Object.keys(errs).length === 0;
+    },
+    async submitChatBookingForm() {
+      if (!this.validateChatBookingForm()) return;
+
+      this.chatBookingForm.submitting = true;
+      this.chatBookingForm.error = '';
+
+      const payload = {
+        source: 'website_chat',
+        name: this.chatBookingForm.name.trim(),
+        phone: this.chatBookingForm.phone.trim(),
+        email: this.chatBookingForm.email.trim(),
+        city: this.chatBookingForm.city.trim(),
+        address: '',
+        project_type: this.inferProjectType(),
+        size: (this.projectInfo && this.projectInfo.size) || '',
+        preferred_contact_time: '',
+        message: 'User requested free on-site measurement from chat.',
+        notes: 'Lead submitted from chat mini booking form.',
+      };
+
+      try {
+        const url = this.cfg.leadApiUrl || 'https://fastapi-0bcw.onrender.com/lead';
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const text = await res.text().catch(() => '');
+          throw new Error(text || `Server responded with ${res.status}`);
+        }
+
+        this.chatBookingForm.success = true;
+        this.chatBookingForm.visible = false;
+
+        this.messages.push({
+          id: this.generateMessageId(),
+          type: 'bot',
+          text: 'Got it 👍 Request received. A follow-up will be arranged shortly to confirm your free on-site measurement.',
+          showCta: false,
+        });
+        this.$nextTick(() => this.scrollToBottom());
+      } catch {
+        this.chatBookingForm.error = 'Something went wrong. Please try again or use the booking form below.';
+      } finally {
+        this.chatBookingForm.submitting = false;
+      }
+    },
+    startChatResize(e) {
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      const panel = this.$el.querySelector('.chat-widget-panel--embed');
+      this.chatResizeStartY = clientY;
+      this.chatResizeStartH = panel.offsetHeight;
+      const onMove = (ev) => {
+        const y = ev.touches ? ev.touches[0].clientY : ev.clientY;
+        const delta = this.chatResizeStartY - y;
+        const newH = Math.min(Math.max(this.chatResizeStartH + delta, 200), window.innerHeight - 40);
+        this.chatResizeHeight = newH;
+      };
+      const onEnd = () => {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onEnd);
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('touchend', onEnd);
+      };
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onEnd);
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onEnd);
     },
     randomizeProjects() {
       if (!Array.isArray(this.projects)) return;
@@ -1935,10 +2146,33 @@ body {
   pointer-events: auto;
   width: 100%;
   max-width: 400px;
-  min-height: min(360px, 48vh);
-  max-height: min(520px, 72vh);
-  flex: 1 1 auto;
+  min-height: 200px;
+  max-height: calc(100vh - 40px);
+  height: min(520px, 72vh);
+  flex: 0 0 auto;
   box-shadow: 0 24px 56px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.chat-resize-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0 2px;
+  cursor: ns-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.chat-resize-bar {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: #cbd5e1;
+  transition: background 0.15s;
+}
+
+.chat-resize-handle:hover .chat-resize-bar {
+  background: #94a3b8;
 }
 
 .chat-widget-dock .chat-widget-header {
@@ -2697,8 +2931,9 @@ body {
 .chat-widget-dock .chat-messages {
   padding: 14px 14px 10px;
   gap: 12px;
-  max-height: min(360px, 48vh);
-  min-height: 220px;
+  max-height: none;
+  min-height: 0;
+  flex: 1;
 }
 
 .chat-widget-dock .message-bubble {
@@ -2822,6 +3057,120 @@ body {
 
 .chat-cta-btn.secondary:hover {
   background: #e5e7eb;
+}
+
+/* Mini booking form inside chat */
+.chat-booking-card {
+  margin: 6px 0 0 36px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.chat-booking-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+}
+
+.chat-booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chat-booking-field input {
+  padding: 9px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #1e293b;
+  background: #f8fafc;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.chat-booking-field input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  background: #fff;
+}
+
+.chat-booking-field input::placeholder {
+  color: #94a3b8;
+}
+
+.chat-booking-err {
+  font-size: 11px;
+  color: #dc2626;
+  padding-left: 2px;
+}
+
+.chat-booking-submit {
+  margin-top: 4px;
+  padding: 10px 0;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.chat-booking-submit:hover {
+  background: #1e293b;
+}
+
+.chat-booking-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.chat-booking-form-err {
+  font-size: 11px;
+  color: #dc2626;
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+.chat-booking-hint {
+  font-size: 11px;
+  color: #64748b;
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.chat-widget-dock .chat-booking-card {
+  margin: 4px 0 0 36px;
+  padding: 12px;
+}
+
+.chat-widget-dock .chat-booking-title {
+  font-size: 12px;
+}
+
+.chat-widget-dock .chat-booking-field input {
+  padding: 8px 9px;
+  font-size: 12px;
+}
+
+.chat-widget-dock .chat-booking-submit {
+  padding: 8px 0;
+  font-size: 12px;
 }
 
 @media (max-width: 900px) {
