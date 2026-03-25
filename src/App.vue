@@ -563,12 +563,27 @@
                   </div>
                 </div>
 
-                <!-- Product card (shown when user asks about a specific product) -->
+                <!-- Product card with gallery thumbnails -->
                 <div v-if="msg.productCard" class="chat-product-card">
-                  <img :src="msg.productCard.image" :alt="msg.productCard.name" class="chat-product-img" />
+                  <img
+                    :src="msg.productCard.image"
+                    :alt="msg.productCard.name"
+                    class="chat-product-img"
+                    @click="chatLightboxImage = msg.productCard.image"
+                  />
                   <div class="chat-product-info">
                     <h4 class="chat-product-name">{{ msg.productCard.name }}</h4>
                     <p class="chat-product-desc">{{ msg.productCard.description }}</p>
+                  </div>
+                  <div v-if="msg.productCard.gallery && msg.productCard.gallery.length" class="chat-product-gallery">
+                    <img
+                      v-for="(img, gi) in msg.productCard.gallery"
+                      :key="gi"
+                      :src="img"
+                      :alt="msg.productCard.name + ' project ' + (gi + 1)"
+                      class="chat-gallery-thumb"
+                      @click="chatLightboxImage = img"
+                    />
                   </div>
                 </div>
 
@@ -685,6 +700,17 @@
         </div>
       </div>
     </Teleport>
+
+    <Teleport to="body">
+      <div
+        v-if="chatLightboxImage"
+        class="chat-lightbox-overlay"
+        @click="chatLightboxImage = null"
+      >
+        <button class="chat-lightbox-close" @click.stop="chatLightboxImage = null">&times;</button>
+        <img :src="chatLightboxImage" class="chat-lightbox-img" @click.stop />
+      </div>
+    </Teleport>
   </div>
 </template>
 
@@ -735,6 +761,7 @@ export default {
       chatResizeHeight: null,
       chatResizeStartY: 0,
       chatResizeStartH: 0,
+      chatLightboxImage: null,
       chatBookingForm: {
         visible: false,
         name: '',
@@ -910,7 +937,7 @@ export default {
           text: answer,
           isPrice,
           showCta: showBookBtn,
-          productCard: productInquiry ? { name: productInquiry.name, image: productInquiry.image, description: productInquiry.description } : null,
+          productCard: productInquiry ? { name: productInquiry.name, image: productInquiry.image, description: productInquiry.description, gallery: productInquiry.gallery || [] } : null,
           isPlaceholder: false,
         });
       } catch {
@@ -932,23 +959,27 @@ export default {
       if (!text) return null;
       const lower = text.toLowerCase();
       const services = this.cfg.services || [];
+      const projects = this.cfg.projects || [];
 
       const productKeywords = [
-        { keys: ['glass patio', 'glass cover', 'glass roof'], match: 'Glass Patio Covers' },
-        { keys: ['aluminum patio', 'aluminum cover', 'aluminium patio', 'aluminium cover', 'vpanel', 'v-panel', 'v panel'], match: 'Aluminum Patio Covers' },
-        { keys: ['skyline', 'combo cover', 'combo patio'], match: 'Skyline Combo Covers' },
-        { keys: ['sunroom', 'sun room', 'four season', '4 season'], match: 'Sunrooms' },
+        { keys: ['glass patio', 'glass cover', 'glass roof'], match: 'Glass Patio Covers', projectPrefix: 'Glass Patio Cover' },
+        { keys: ['aluminum patio', 'aluminum cover', 'aluminium patio', 'aluminium cover', 'vpanel', 'v-panel', 'v panel'], match: 'Aluminum Patio Covers', projectPrefix: 'Aluminum' },
+        { keys: ['skyline', 'combo cover', 'combo patio'], match: 'Skyline Combo Covers', projectPrefix: 'Skyline' },
+        { keys: ['sunroom', 'sun room', 'four season', '4 season'], match: 'Sunrooms', projectPrefix: 'Sunroom' },
       ];
 
       for (const pk of productKeywords) {
         if (pk.keys.some((k) => lower.includes(k))) {
-          return services.find((s) => s.name === pk.match) || null;
-        }
-      }
+          const service = services.find((s) => s.name === pk.match);
+          if (!service) return null;
 
-      const genericPatio = lower.includes('patio cover') || lower.includes('patio');
-      if (genericPatio && !lower.includes('how much') && !lower.includes('price') && !lower.includes('cost')) {
-        return null;
+          const gallery = projects
+            .filter((p) => (p.name || '').toLowerCase().includes(pk.projectPrefix.toLowerCase()))
+            .map((p) => p.image)
+            .slice(0, 6);
+
+          return { ...service, gallery };
+        }
       }
 
       return null;
@@ -2970,6 +3001,7 @@ body {
   height: 120px;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
 .chat-product-info {
@@ -3004,6 +3036,73 @@ body {
 
 .chat-widget-dock .chat-product-desc {
   font-size: 11px;
+}
+
+/* Gallery thumbnails inside product card */
+.chat-product-gallery {
+  display: flex;
+  gap: 6px;
+  padding: 0 10px 10px;
+  overflow-x: auto;
+}
+
+.chat-gallery-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  flex-shrink: 0;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.chat-gallery-thumb:hover {
+  transform: scale(1.08);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+}
+
+.chat-widget-dock .chat-gallery-thumb {
+  width: 50px;
+  height: 50px;
+}
+
+/* Lightbox overlay */
+.chat-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.chat-lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+.chat-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.chat-lightbox-close:hover {
+  opacity: 1;
 }
 
 /* Chat CTA card under price responses */
