@@ -751,8 +751,8 @@
                     <button
                       type="button"
                       class="chat-booking-close"
-                      aria-label="Close Quick Book"
-                      title="Close"
+                      aria-label="Minimize Quick Book"
+                      title="Minimize — use Quick Book button below to open again"
                       @click="closeChatQuickBook"
                     >
                       <svg
@@ -1165,9 +1165,10 @@ export default {
       return `m_${Date.now()}_${Math.random().toString(16).slice(2)}`;
     },
     replaceMessageById(messageId, fields) {
-      const msg = this.messages.find((m) => m.id === messageId);
-      if (!msg) return;
-      Object.assign(msg, fields);
+      const idx = this.messages.findIndex((m) => m.id === messageId);
+      if (idx === -1) return;
+      const prev = this.messages[idx];
+      this.messages.splice(idx, 1, { ...prev, ...fields });
     },
     async sendMessage() {
       const text = this.userInput.trim();
@@ -1205,6 +1206,7 @@ export default {
           showQuickBookForm: true,
           isPlaceholder: false,
         });
+        this.openChatPanel();
         this.showChatBookingForm();
         this.$nextTick(() => this.scrollToBottom());
         return;
@@ -1263,15 +1265,22 @@ export default {
             productCard = { name: productInquiry.name, image: productInquiry.image, description: productInquiry.description, gallery: productInquiry.gallery || [] };
           }
         }
+        const forceQuickBook = this.aiAnswerShouldOpenQuickBook(answer, text);
+
         this.replaceMessageById(placeholderId, {
           type: 'bot',
           text: answer,
           isPrice,
-          showCta: showBookBtn,
+          showCta: forceQuickBook ? false : showBookBtn,
+          showQuickBookForm: !!forceQuickBook,
           productCard,
           productCards,
           isPlaceholder: false,
         });
+        if (forceQuickBook) {
+          this.openChatPanel();
+          this.showChatBookingForm();
+        }
       } catch {
         this.replaceMessageById(placeholderId, {
           type: 'bot',
@@ -1378,6 +1387,8 @@ export default {
         );
       if (zhStrong) return true;
 
+      if (/\b(book|books|booking)\b/i.test(lower)) return true;
+
       const enStrong = [
         'book now',
         'quick book',
@@ -1428,6 +1439,20 @@ export default {
       if (soft.has(norm) && this.recentBotSuggestedBooking()) return true;
 
       return false;
+    },
+    /**
+     * If the API still answered with “use the quick form in the chat” but local intent was missed,
+     * open the real Quick Book UI so the user is not stuck on text-only.
+     */
+    aiAnswerShouldOpenQuickBook(answer, userText) {
+      if (!answer || typeof answer !== 'string' || !userText) return false;
+      const a = answer.toLowerCase();
+      const mentionsInChatForm =
+        /quick form|in the chat|use the quick|fill in the quick|chat to get booked|quick book form|in-chat|快速表单|聊天窗口|填写.*表单/.test(
+          a,
+        );
+      if (!mentionsInChatForm) return false;
+      return this.shouldOpenQuickBookFromChat(userText);
     },
     isSiteMeasurementRequest(text) {
       if (!text) return false;
@@ -1655,9 +1680,24 @@ export default {
       ];
       return cues.some((c) => lower.includes(c));
     },
+    /** Latest bot message that carries the in-chat Quick Book (still active). */
+    latestQuickBookHostMessage() {
+      for (let i = this.messages.length - 1; i >= 0; i--) {
+        const m = this.messages[i];
+        if (m.type === 'bot' && m.showQuickBookForm && !this.chatBookingForm.success) {
+          return m;
+        }
+      }
+      return null;
+    },
     showChatBookingForm() {
       if (this.chatBookingForm.success) return;
+      this.openChatPanel();
       this.chatBookingForm.visible = true;
+      const host = this.latestQuickBookHostMessage();
+      if (host) {
+        host.showCta = false;
+      }
       if (this.projectInfo.city) {
         this.chatBookingForm.city = this.projectInfo.city;
       }
@@ -1666,8 +1706,20 @@ export default {
       this.chatBookingForm.visible = false;
       this.chatBookingForm.errors = {};
       this.chatBookingForm.error = '';
+      const host = this.latestQuickBookHostMessage();
+      if (host) {
+        host.showCta = true;
+      }
+      this.$nextTick(() => this.scrollToBottom());
     },
     triggerQuickBook() {
+      const host = this.latestQuickBookHostMessage();
+      if (host) {
+        host.showCta = false;
+        this.showChatBookingForm();
+        this.$nextTick(() => this.scrollToBottom());
+        return;
+      }
       this.messages.push({
         id: this.generateMessageId(),
         type: 'bot',
