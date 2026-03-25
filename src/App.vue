@@ -914,12 +914,18 @@ export default {
         ? `[Customer is asking about ${productInquiry.name}. Introduce this product briefly and naturally, then ask for their preferred size to give a quote.] ${text}`
         : text;
 
+      const history = this.messages
+        .filter((m) => !m.isPlaceholder && m.text)
+        .slice(-12)
+        .map((m) => ({ role: m.type === 'user' ? 'user' : 'assistant', content: m.text }));
+
       try {
         const res = await fetch(this.cfg.chatApiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             question: questionForAI,
+            history,
             project_type: (this.projectInfo && this.projectInfo.project_type) || '',
             city: (this.projectInfo && this.projectInfo.city) || '',
             email: (this.form && this.form.email) || '',
