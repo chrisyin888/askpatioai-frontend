@@ -563,86 +563,33 @@
                   </div>
                 </div>
 
-                <!-- CTA: scroll to full form -->
+                <!-- Product card (shown when user asks about a specific product) -->
+                <div v-if="msg.productCard" class="chat-product-card">
+                  <img :src="msg.productCard.image" :alt="msg.productCard.name" class="chat-product-img" />
+                  <div class="chat-product-info">
+                    <h4 class="chat-product-name">{{ msg.productCard.name }}</h4>
+                    <p class="chat-product-desc">{{ msg.productCard.description }}</p>
+                  </div>
+                </div>
+
+                <!-- CTA: scroll to full booking form -->
                 <div
-                  v-if="msg.type === 'bot' && msg.showCta && !chatBookingForm.success"
+                  v-if="msg.type === 'bot' && msg.showCta"
                   class="chat-cta-card"
                 >
-                  <h4 class="chat-cta-title">Want to confirm your final quote?</h4>
+                  <h4 class="chat-cta-title">Ready to book?</h4>
                   <p class="chat-cta-text">
-                    Book a free on-site measurement. Final pricing confirmed after the visit.
+                    Use the full booking form to submit your request and upload photos of your space.
                   </p>
                   <div class="chat-cta-actions">
                     <button
                       type="button"
                       class="chat-cta-btn primary"
-                      @click="triggerChatBookingFromCta()"
+                      @click="scrollToAppointmentFromChat()"
                     >
-                      Book Free Measurement
+                      Go to Booking Form
                     </button>
                   </div>
-                </div>
-
-                <!-- Mini booking form inline -->
-                <div
-                  v-if="msg.type === 'bot' && msg.showBookingForm && chatBookingForm.visible && !chatBookingForm.success"
-                  class="chat-booking-card"
-                >
-                  <h4 class="chat-booking-title">Book Free Measurement</h4>
-                  <form class="chat-booking-form" @submit.prevent="submitChatBookingForm">
-                    <div class="chat-booking-field">
-                      <input
-                        v-model="chatBookingForm.name"
-                        type="text"
-                        placeholder="Full Name *"
-                        autocomplete="name"
-                      />
-                      <span v-if="chatBookingForm.errors.name" class="chat-booking-err">{{ chatBookingForm.errors.name }}</span>
-                    </div>
-                    <div class="chat-booking-field">
-                      <input
-                        v-model="chatBookingForm.phone"
-                        type="tel"
-                        placeholder="Phone Number *"
-                        autocomplete="tel"
-                      />
-                      <span v-if="chatBookingForm.errors.phone" class="chat-booking-err">{{ chatBookingForm.errors.phone }}</span>
-                    </div>
-                    <div class="chat-booking-field">
-                      <input
-                        v-model="chatBookingForm.email"
-                        type="email"
-                        placeholder="Email *"
-                        autocomplete="email"
-                      />
-                      <span v-if="chatBookingForm.errors.email" class="chat-booking-err">{{ chatBookingForm.errors.email }}</span>
-                    </div>
-                    <div class="chat-booking-field">
-                      <input
-                        v-model="chatBookingForm.city"
-                        type="text"
-                        placeholder="Address *"
-                        autocomplete="street-address"
-                      />
-                      <span v-if="chatBookingForm.errors.city" class="chat-booking-err">{{ chatBookingForm.errors.city }}</span>
-                    </div>
-                    <div class="chat-booking-field">
-                      <select v-model="chatBookingForm.projectType" class="chat-booking-select">
-                        <option value="">Type (optional)</option>
-                        <option value="Patio Cover">Patio Cover</option>
-                        <option value="Sunroom">Sunroom</option>
-                      </select>
-                    </div>
-                    <button
-                      type="submit"
-                      class="chat-booking-submit"
-                      :disabled="chatBookingForm.submitting"
-                    >
-                      {{ chatBookingForm.submitting ? 'Sending...' : 'Book Now' }}
-                    </button>
-                    <p v-if="chatBookingForm.error" class="chat-booking-form-err">{{ chatBookingForm.error }}</p>
-                  </form>
-                  <p class="chat-booking-hint">Final pricing will be confirmed after the site visit.</p>
                 </div>
               </div>
 
@@ -899,11 +846,13 @@ export default {
       this.userInput = '';
       this.$nextTick(() => this.scrollToBottom());
 
+      const productInquiry = this.detectProductInquiry(text);
+
       const placeholderId = this.generateMessageId();
       this.messages.push({
         id: placeholderId,
         type: 'bot',
-        text: 'Got it — calculating your estimate...',
+        text: productInquiry ? 'Let me pull up some info on that...' : 'Got it — calculating your estimate...',
         showCta: false,
         isPlaceholder: true,
       });
@@ -912,15 +861,13 @@ export default {
       const siteMeasurementIntent = this.isSiteMeasurementRequest(text);
       const bookingIntent = this.isBookingIntent(text) || siteMeasurementIntent;
 
-      if (bookingIntent && !this.chatBookingForm.success) {
+      if (bookingIntent) {
         this.replaceMessageById(placeholderId, {
           type: 'bot',
-          text: 'Great — let me get a few details to arrange your free on-site measurement.',
-          showCta: false,
-          showBookingForm: true,
+          text: 'Use the full booking form below to submit your details and upload photos of your space.',
+          showCta: true,
           isPlaceholder: false,
         });
-        this.showChatBookingForm();
         this.$nextTick(() => this.scrollToBottom());
         return;
       }
@@ -936,12 +883,16 @@ export default {
         return;
       }
 
+      const questionForAI = productInquiry
+        ? `[Customer is asking about ${productInquiry.name}. Introduce this product briefly and naturally, then ask for their preferred size to give a quote.] ${text}`
+        : text;
+
       try {
         const res = await fetch(this.cfg.chatApiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            question: text,
+            question: questionForAI,
             project_type: (this.projectInfo && this.projectInfo.project_type) || '',
             city: (this.projectInfo && this.projectInfo.city) || '',
             email: (this.form && this.form.email) || '',
@@ -953,25 +904,15 @@ export default {
         const isPrice = this.isPriceResponse(answer);
         const aiAsksForDetails = this.aiAsksForContactDetails(answer);
 
-        if (aiAsksForDetails && !this.chatBookingForm.success) {
-          this.replaceMessageById(placeholderId, {
-            type: 'bot',
-            text: answer,
-            isPrice,
-            showCta: false,
-            showBookingForm: true,
-            isPlaceholder: false,
-          });
-          this.showChatBookingForm();
-        } else {
-          this.replaceMessageById(placeholderId, {
-            type: 'bot',
-            text: answer,
-            isPrice,
-            showCta: isPrice && !this.chatBookingForm.success,
-            isPlaceholder: false,
-          });
-        }
+        const showBookBtn = aiAsksForDetails || isPrice;
+        this.replaceMessageById(placeholderId, {
+          type: 'bot',
+          text: answer,
+          isPrice,
+          showCta: showBookBtn,
+          productCard: productInquiry ? { name: productInquiry.name, image: productInquiry.image, description: productInquiry.description } : null,
+          isPlaceholder: false,
+        });
       } catch {
         this.replaceMessageById(placeholderId, {
           type: 'bot',
@@ -986,6 +927,31 @@ export default {
     scrollToBottom() {
       const el = this.$refs.chatMessages;
       if (el) el.scrollTop = el.scrollHeight;
+    },
+    detectProductInquiry(text) {
+      if (!text) return null;
+      const lower = text.toLowerCase();
+      const services = this.cfg.services || [];
+
+      const productKeywords = [
+        { keys: ['glass patio', 'glass cover', 'glass roof'], match: 'Glass Patio Covers' },
+        { keys: ['aluminum patio', 'aluminum cover', 'aluminium patio', 'aluminium cover', 'vpanel', 'v-panel', 'v panel'], match: 'Aluminum Patio Covers' },
+        { keys: ['skyline', 'combo cover', 'combo patio'], match: 'Skyline Combo Covers' },
+        { keys: ['sunroom', 'sun room', 'four season', '4 season'], match: 'Sunrooms' },
+      ];
+
+      for (const pk of productKeywords) {
+        if (pk.keys.some((k) => lower.includes(k))) {
+          return services.find((s) => s.name === pk.match) || null;
+        }
+      }
+
+      const genericPatio = lower.includes('patio cover') || lower.includes('patio');
+      if (genericPatio && !lower.includes('how much') && !lower.includes('price') && !lower.includes('cost')) {
+        return null;
+      }
+
+      return null;
     },
     isBookingIntent(text) {
       if (!text) return false;
@@ -1003,12 +969,8 @@ export default {
         'book free measurement', 'book measurement',
         'book an appointment', 'book appointment',
         'want to book', 'i want to book',
-        'next step', 'what next', 'what is next',
         'schedule a visit', 'schedule visit', 'schedule measurement',
-        'make an appointment', 'set up an appointment', 'appointment',
-        'free measurement', 'i want exact quote',
-        'not sure about size', 'no idea about size',
-        'can someone measure', 'can someone come measure',
+        'make an appointment', 'set up an appointment',
       ];
 
       return phrases.some((p) => lower.includes(p));
@@ -1018,31 +980,12 @@ export default {
       const lower = text.toLowerCase();
 
       const phrases = [
-        "don't know the size",
-        "dont know the size",
-        "don't know size",
-        'dont know size',
-        "no idea the size",
-        'no idea size',
-        'can someone come measure',
-        'can someone come and measure',
-        'can someone come to my address',
-        'can you come measure',
-        'can you come and measure',
-        'can you come check',
-        'come measure',
-        'come and measure',
-        'come do the measurement',
-        'need on-site measurement',
-        'need onsite measurement',
-        'on site measurement',
-        'on-site measurement',
-        'i need someone to measure',
-        'someone to measure',
         'book measurement',
         'book a measurement',
-        'free measurement',
-        'site measurement',
+        'book free measurement',
+        'need on-site measurement',
+        'need onsite measurement',
+        'i need someone to measure',
       ];
 
       return phrases.some((p) => lower.includes(p));
@@ -1258,17 +1201,14 @@ export default {
         this.chatBookingForm.city = this.projectInfo.city;
       }
     },
-    triggerChatBookingFromCta() {
-      this.messages.push({
-        id: this.generateMessageId(),
-        type: 'bot',
-        text: 'Fill in a few details and we\'ll arrange your free on-site measurement.',
-        showCta: false,
-        showBookingForm: true,
-        isPlaceholder: false,
+    scrollToAppointmentFromChat() {
+      if (this.chatOpen) {
+        this.chatOpen = false;
+      }
+      this.$nextTick(() => {
+        this.handleChatCtaClick();
+        this.scrollToAppointment();
       });
-      this.showChatBookingForm();
-      this.$nextTick(() => this.scrollToBottom());
     },
     inferProjectType() {
       if (this.chatBookingForm.projectType) return this.chatBookingForm.projectType;
@@ -3012,6 +2952,57 @@ body {
 }
 
 .chat-widget-dock .chat-cta-text {
+  font-size: 11px;
+}
+
+/* Product card in chat */
+.chat-product-card {
+  margin: 8px 0 4px 40px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.chat-product-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.chat-product-info {
+  padding: 10px 12px;
+}
+
+.chat-product-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.chat-product-desc {
+  font-size: 11.5px;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.chat-widget-dock .chat-product-card {
+  margin: 4px 0 2px 36px;
+}
+
+.chat-widget-dock .chat-product-img {
+  height: 90px;
+}
+
+.chat-widget-dock .chat-product-name {
+  font-size: 12px;
+}
+
+.chat-widget-dock .chat-product-desc {
   font-size: 11px;
 }
 
