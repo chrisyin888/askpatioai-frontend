@@ -576,7 +576,7 @@
                     <button
                       type="button"
                       class="chat-cta-btn primary"
-                      @click="showChatBookingForm(); scrollToBottom();"
+                      @click="triggerChatBookingFromCta()"
                     >
                       Book Free Measurement
                     </button>
@@ -612,25 +612,33 @@
                       <input
                         v-model="chatBookingForm.email"
                         type="email"
-                        placeholder="Email for confirmation"
+                        placeholder="Email *"
                         autocomplete="email"
                       />
+                      <span v-if="chatBookingForm.errors.email" class="chat-booking-err">{{ chatBookingForm.errors.email }}</span>
                     </div>
                     <div class="chat-booking-field">
                       <input
                         v-model="chatBookingForm.city"
                         type="text"
-                        placeholder="City / Address *"
-                        autocomplete="address-level2"
+                        placeholder="Address *"
+                        autocomplete="street-address"
                       />
                       <span v-if="chatBookingForm.errors.city" class="chat-booking-err">{{ chatBookingForm.errors.city }}</span>
+                    </div>
+                    <div class="chat-booking-field">
+                      <select v-model="chatBookingForm.projectType" class="chat-booking-select">
+                        <option value="">Type (optional)</option>
+                        <option value="Patio Cover">Patio Cover</option>
+                        <option value="Sunroom">Sunroom</option>
+                      </select>
                     </div>
                     <button
                       type="submit"
                       class="chat-booking-submit"
                       :disabled="chatBookingForm.submitting"
                     >
-                      {{ chatBookingForm.submitting ? 'Submitting...' : 'Submit Request' }}
+                      {{ chatBookingForm.submitting ? 'Sending...' : 'Book Now' }}
                     </button>
                     <p v-if="chatBookingForm.error" class="chat-booking-form-err">{{ chatBookingForm.error }}</p>
                   </form>
@@ -662,12 +670,6 @@
             </div>
 
             <div class="chat-input-wrap">
-              <p
-                v-if="s1.inputHelperExample"
-                class="chat-input-helper"
-              >
-                Example: {{ s1.inputHelperExample }}
-              </p>
               <div class="chat-input">
                 <input
                   ref="chatInput"
@@ -792,6 +794,7 @@ export default {
         phone: '',
         email: '',
         city: '',
+        projectType: '',
         submitting: false,
         success: false,
         error: '',
@@ -1255,7 +1258,21 @@ export default {
         this.chatBookingForm.city = this.projectInfo.city;
       }
     },
+    triggerChatBookingFromCta() {
+      this.messages.push({
+        id: this.generateMessageId(),
+        type: 'bot',
+        text: 'Fill in a few details and we\'ll arrange your free on-site measurement.',
+        showCta: false,
+        showBookingForm: true,
+        isPlaceholder: false,
+      });
+      this.showChatBookingForm();
+      this.$nextTick(() => this.scrollToBottom());
+    },
     inferProjectType() {
+      if (this.chatBookingForm.projectType) return this.chatBookingForm.projectType;
+
       const { project_type, material_type } = this.projectInfo;
       if (project_type === 'Sunroom') return 'Sunroom';
       if (material_type === 'Glass') return 'Glass Patio Cover';
@@ -1273,7 +1290,8 @@ export default {
       const errs = {};
       if (!this.chatBookingForm.name.trim()) errs.name = 'Name is required';
       if (!this.chatBookingForm.phone.trim()) errs.phone = 'Phone is required';
-      if (!this.chatBookingForm.city.trim()) errs.city = 'City is required';
+      if (!this.chatBookingForm.email.trim()) errs.email = 'Email is required';
+      if (!this.chatBookingForm.city.trim()) errs.city = 'Address is required';
       this.chatBookingForm.errors = errs;
       return Object.keys(errs).length === 0;
     },
@@ -3116,6 +3134,30 @@ body {
   padding-left: 2px;
 }
 
+.chat-booking-select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #64748b;
+  background: #f8fafc;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.chat-booking-select:focus {
+  border-color: #3b82f6;
+}
+
+.chat-booking-select:has(option:checked:not([value=""])) {
+  color: #1e293b;
+}
+
 .chat-booking-submit {
   margin-top: 4px;
   padding: 10px 0;
@@ -3171,6 +3213,124 @@ body {
 .chat-widget-dock .chat-booking-submit {
   padding: 8px 0;
   font-size: 12px;
+}
+
+/* Persistent mini booking form in chat */
+.chat-quick-book {
+  border-top: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  background: #f8fafc;
+  flex-shrink: 0;
+}
+
+.chat-quick-book--success {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a34a;
+  padding: 12px;
+}
+
+.chat-quick-book-header {
+  margin-bottom: 8px;
+}
+
+.chat-quick-book-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.chat-quick-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chat-quick-book-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.chat-quick-book-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.chat-quick-book-field input,
+.chat-quick-book-field select {
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  color: #1e293b;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.chat-quick-book-field input:focus,
+.chat-quick-book-field select:focus {
+  border-color: #3b82f6;
+}
+
+.chat-quick-book-field input::placeholder {
+  color: #94a3b8;
+}
+
+.chat-quick-book-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.chat-quick-book-field select:has(option:checked:not([value=""])) {
+  color: #1e293b;
+}
+
+.chat-quick-book-btn {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+.chat-quick-book-btn:hover {
+  background: #1e293b;
+}
+
+.chat-quick-book-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chat-quick-book .chat-booking-err {
+  font-size: 10px;
+  color: #dc2626;
+  padding-left: 2px;
+}
+
+.chat-quick-book .chat-booking-form-err {
+  font-size: 11px;
+  color: #dc2626;
+  margin: 2px 0 0;
 }
 
 @media (max-width: 900px) {
