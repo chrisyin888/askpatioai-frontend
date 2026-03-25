@@ -587,24 +587,83 @@
                   </div>
                 </div>
 
-                <!-- CTA: scroll to full booking form -->
+                <!-- Booking options: Quick Book + Full Form -->
                 <div
-                  v-if="msg.type === 'bot' && msg.showCta"
+                  v-if="msg.type === 'bot' && msg.showCta && !chatBookingForm.success"
                   class="chat-cta-card"
                 >
-                  <h4 class="chat-cta-title">Ready to book?</h4>
-                  <p class="chat-cta-text">
-                    Use the full booking form to submit your request and upload photos of your space.
-                  </p>
+                  <h4 class="chat-cta-title">Ready to book a free measurement?</h4>
                   <div class="chat-cta-actions">
                     <button
                       type="button"
                       class="chat-cta-btn primary"
+                      @click="triggerQuickBook()"
+                    >
+                      Quick Book
+                    </button>
+                    <button
+                      type="button"
+                      class="chat-cta-btn secondary"
                       @click="scrollToAppointmentFromChat()"
                     >
-                      Go to Booking Form
+                      Upload Photos &amp; Book
                     </button>
                   </div>
+                </div>
+
+                <!-- Quick Book mini form inline -->
+                <div
+                  v-if="msg.type === 'bot' && msg.showQuickBookForm && chatBookingForm.visible && !chatBookingForm.success"
+                  class="chat-booking-card"
+                >
+                  <h4 class="chat-booking-title">Quick Book</h4>
+                  <form class="chat-booking-form" @submit.prevent="submitChatBookingForm">
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.name"
+                        type="text"
+                        placeholder="Full Name *"
+                        autocomplete="name"
+                      />
+                      <span v-if="chatBookingForm.errors.name" class="chat-booking-err">{{ chatBookingForm.errors.name }}</span>
+                    </div>
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.email"
+                        type="email"
+                        placeholder="Email *"
+                        autocomplete="email"
+                      />
+                      <span v-if="chatBookingForm.errors.email" class="chat-booking-err">{{ chatBookingForm.errors.email }}</span>
+                    </div>
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.phone"
+                        type="tel"
+                        placeholder="Phone Number *"
+                        autocomplete="tel"
+                      />
+                      <span v-if="chatBookingForm.errors.phone" class="chat-booking-err">{{ chatBookingForm.errors.phone }}</span>
+                    </div>
+                    <div class="chat-booking-field">
+                      <input
+                        v-model="chatBookingForm.city"
+                        type="text"
+                        placeholder="Address *"
+                        autocomplete="street-address"
+                      />
+                      <span v-if="chatBookingForm.errors.city" class="chat-booking-err">{{ chatBookingForm.errors.city }}</span>
+                    </div>
+                    <button
+                      type="submit"
+                      class="chat-booking-submit"
+                      :disabled="chatBookingForm.submitting"
+                    >
+                      {{ chatBookingForm.submitting ? 'Sending...' : 'Submit Request' }}
+                    </button>
+                    <p v-if="chatBookingForm.error" class="chat-booking-form-err">{{ chatBookingForm.error }}</p>
+                  </form>
+                  <p class="chat-booking-hint">Final pricing confirmed after the site visit.</p>
                 </div>
               </div>
 
@@ -1237,6 +1296,18 @@ export default {
       if (this.projectInfo.city) {
         this.chatBookingForm.city = this.projectInfo.city;
       }
+    },
+    triggerQuickBook() {
+      this.messages.push({
+        id: this.generateMessageId(),
+        type: 'bot',
+        text: 'Fill in your details below and we\'ll arrange your free on-site measurement.',
+        showCta: false,
+        showQuickBookForm: true,
+        isPlaceholder: false,
+      });
+      this.showChatBookingForm();
+      this.$nextTick(() => this.scrollToBottom());
     },
     scrollToAppointmentFromChat() {
       if (this.chatOpen) {
