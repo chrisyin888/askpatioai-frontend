@@ -7,7 +7,7 @@
     "appointmentDecoImage": "/house/p26.jpg",
     "appointmentShowcaseImage": "/house/Aluminum/p12.jpg",
     "appointmentShowcaseFallback": "/house/p23.jpg",
-    "targetEmail": "info@example.com",
+    "targetEmail": "info@loomihomepatios.ca",
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
