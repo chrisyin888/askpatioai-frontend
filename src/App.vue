@@ -1918,10 +1918,13 @@ body {
 .service-modal-hero {
   width: calc(100% + 56px);
   margin: -28px -28px 18px;
-  height: 200px;
-  object-fit: cover;
+  max-height: 260px;
+  object-fit: contain;
+  object-position: center;
   border-radius: 20px 20px 0 0;
   display: block;
+  background: #f1f5f9;
+  padding: 8px 0;
 }
 
 .service-modal-desc {
