@@ -739,9 +739,16 @@
           >
             ×
           </button>
+          <img
+            v-if="serviceModalService.image"
+            :src="serviceModalService.image"
+            :alt="serviceModalService.name"
+            class="service-modal-hero"
+          />
           <h2 id="service-modal-title" class="service-modal-title">
             {{ serviceModalService.name }}
           </h2>
+          <p class="service-modal-desc">{{ serviceModalService.description }}</p>
           <ul class="service-modal-list">
             <li
               v-for="(line, i) in serviceModalService.modalBullets"
@@ -756,6 +763,23 @@
           >
             Best for: {{ serviceModalService.modalBestFor }}
           </p>
+          <div v-if="serviceModalGallery.length" class="service-modal-gallery">
+            <img
+              v-for="(img, gi) in serviceModalGallery"
+              :key="gi"
+              :src="img"
+              :alt="serviceModalService.name + ' project ' + (gi + 1)"
+              class="service-modal-thumb"
+              @click="chatLightboxImage = img"
+            />
+          </div>
+          <button
+            type="button"
+            class="service-modal-projects-btn"
+            @click="viewAllProjects()"
+          >
+            View All Projects
+          </button>
         </div>
       </div>
     </Teleport>
@@ -881,6 +905,22 @@ export default {
         return { height: this.chatResizeHeight + 'px' };
       }
       return {};
+    },
+    serviceModalGallery() {
+      if (!this.serviceModalService) return [];
+      const name = this.serviceModalService.name || '';
+      const prefixMap = {
+        'Glass Patio Covers': 'glass patio cover',
+        'Aluminum Patio Covers': 'aluminum',
+        'Skyline Combo Covers': 'skyline',
+        'Sunrooms': 'sunroom',
+      };
+      const prefix = prefixMap[name] || '';
+      if (!prefix) return [];
+      return (this.projects || [])
+        .filter((p) => (p.name || '').toLowerCase().includes(prefix))
+        .map((p) => p.image)
+        .slice(0, 6);
     },
   },
   created() {
@@ -1278,6 +1318,13 @@ export default {
     },
     closeServiceModal() {
       this.serviceModalService = null;
+    },
+    viewAllProjects() {
+      this.serviceModalService = null;
+      this.$nextTick(() => {
+        const el = this.$el.querySelector('.section-projects');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     },
     aiAsksForContactDetails(text) {
       if (!text) return false;
@@ -1802,6 +1849,8 @@ body {
   position: relative;
   width: 100%;
   max-width: 440px;
+  max-height: 85vh;
+  overflow-y: auto;
   padding: 28px 28px 24px;
   border-radius: 20px;
   background: #ffffff;
@@ -1813,23 +1862,25 @@ body {
   position: absolute;
   top: 10px;
   right: 12px;
-  width: 40px;
-  height: 40px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
   border: none;
-  border-radius: 10px;
-  background: transparent;
-  color: #64748b;
-  font-size: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #334155;
+  font-size: 22px;
   line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease, color 0.2s ease;
+  backdrop-filter: blur(4px);
 }
 
 .service-modal-close:hover {
-  background: #f1f5f9;
+  background: #fff;
   color: #0f172a;
 }
 
@@ -1862,6 +1913,65 @@ body {
   font-weight: 600;
   color: #0f172a;
   line-height: 1.45;
+}
+
+.service-modal-hero {
+  width: calc(100% + 56px);
+  margin: -28px -28px 18px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  display: block;
+}
+
+.service-modal-desc {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.service-modal-gallery {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.service-modal-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.service-modal-thumb:hover {
+  transform: scale(1.06);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+}
+
+.service-modal-projects-btn {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 12px;
+  background: #111827;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.service-modal-projects-btn:hover {
+  background: #1e293b;
 }
 
 /* Sections — full width of viewport (respect safe areas) */
