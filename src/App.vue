@@ -482,8 +482,37 @@
     </div>
 
     <!-- Fixed bottom-right chat -->
-    <div v-show="siteLoaded" class="chat-widget-dock">
+    <div
+      v-show="siteLoaded"
+      class="chat-widget-dock"
+      :class="{
+        'chat-widget-dock--mobile-bubble': chatLayoutMobile,
+        'chat-widget-dock--panel-open': chatLayoutMobile && chatMobilePanelOpen,
+      }"
+    >
+      <button
+        v-if="chatLayoutMobile"
+        v-show="!chatMobilePanelOpen"
+        type="button"
+        class="chat-mobile-launcher"
+        aria-label="Open chat assistant"
+        @click="openMobileChatPanel"
+      >
+        <span class="chat-mobile-launcher-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </span>
+      </button>
       <div
+        v-show="!chatLayoutMobile || chatMobilePanelOpen"
         class="chat-widget-panel chat-widget-panel--embed"
         role="dialog"
         aria-modal="false"
@@ -501,6 +530,15 @@
           <span class="chat-widget-header-title">{{
             cfg.chatWidgetTitle || 'Chat'
           }}</span>
+          <button
+            v-if="chatLayoutMobile"
+            type="button"
+            class="chat-widget-close"
+            aria-label="Close chat"
+            @click="closeMobileChatPanel"
+          >
+            ×
+          </button>
         </div>
         <div class="chat-section chat-widget-section">
           <div class="chat-container">
@@ -861,6 +899,9 @@ export default {
       chatResizeStartY: 0,
       chatResizeStartH: 0,
       chatLightboxImage: null,
+      /** ≤640px: show FAB first; tap opens panel */
+      chatLayoutMobile: false,
+      chatMobilePanelOpen: false,
       chatBookingForm: {
         visible: false,
         name: '',
@@ -952,19 +993,60 @@ export default {
     this.benefits = d.benefits;
     this.activeCity = d.section2.cities[0];
     this.siteLoaded = true;
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      this.chatLayoutMobile = window.matchMedia('(max-width: 640px)').matches;
+    }
   },
   mounted() {
     this._onServiceModalEscape = (e) => {
       if (e.key === 'Escape' && this.serviceModalService) {
         this.closeServiceModal();
       }
+      if (e.key === 'Escape' && this.chatLayoutMobile && this.chatMobilePanelOpen) {
+        this.closeMobileChatPanel();
+      }
     };
     window.addEventListener('keydown', this._onServiceModalEscape);
+
+    this._mqChatMobile = window.matchMedia('(max-width: 640px)');
+    this._onChatMobileMql = () => {
+      const mobile = this._mqChatMobile.matches;
+      this.chatLayoutMobile = mobile;
+      if (!mobile) {
+        this.chatMobilePanelOpen = false;
+      }
+    };
+    this._onChatMobileMql();
+    if (this._mqChatMobile.addEventListener) {
+      this._mqChatMobile.addEventListener('change', this._onChatMobileMql);
+    } else if (this._mqChatMobile.addListener) {
+      this._mqChatMobile.addListener(this._onChatMobileMql);
+    }
   },
   beforeUnmount() {
     window.removeEventListener('keydown', this._onServiceModalEscape);
+    if (this._mqChatMobile && this._onChatMobileMql) {
+      if (this._mqChatMobile.removeEventListener) {
+        this._mqChatMobile.removeEventListener('change', this._onChatMobileMql);
+      } else if (this._mqChatMobile.removeListener) {
+        this._mqChatMobile.removeListener(this._onChatMobileMql);
+      }
+    }
   },
   methods: {
+    openMobileChatPanel() {
+      this.chatMobilePanelOpen = true;
+      this.$nextTick(() => {
+        const inp = this.$refs.chatInput;
+        if (inp && typeof inp.focus === 'function') {
+          inp.focus();
+        }
+        this.scrollToBottom();
+      });
+    },
+    closeMobileChatPanel() {
+      this.chatMobilePanelOpen = false;
+    },
     generateMessageId() {
       return `m_${Date.now()}_${Math.random().toString(16).slice(2)}`;
     },
@@ -1400,8 +1482,8 @@ export default {
       this.$nextTick(() => this.scrollToBottom());
     },
     scrollToAppointmentFromChat() {
-      if (this.chatOpen) {
-        this.chatOpen = false;
+      if (this.chatLayoutMobile) {
+        this.chatMobilePanelOpen = false;
       }
       this.$nextTick(() => {
         this.handleChatCtaClick();
@@ -2373,6 +2455,62 @@ body {
   height: min(520px, 72vh);
   flex: 0 0 auto;
   box-shadow: 0 24px 56px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile bubble mode (JS adds --mobile-bubble when viewport ≤640px) */
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher {
+  pointer-events: auto;
+  align-self: flex-end;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  color: #f8fafc;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher:hover {
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher:active {
+  transform: scale(0.95);
+}
+
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.chat-widget-dock--mobile-bubble:not(.chat-widget-dock--panel-open) {
+  width: auto;
+  max-width: none;
+  left: auto;
+  align-items: flex-end;
+}
+
+.chat-widget-dock--mobile-bubble .chat-resize-handle {
+  display: none;
+}
+
+.chat-widget-dock--mobile-bubble .chat-widget-panel--embed {
+  width: 100%;
+  max-width: 100%;
 }
 
 .chat-resize-handle {
@@ -4496,6 +4634,433 @@ body {
 
   .appt-form-col {
     padding: 28px 20px 32px;
+  }
+}
+
+/* ===================================================
+   MOBILE-ONLY FIXES (phones ≤ 480px)
+   These do NOT affect desktop (> 480px).
+   =================================================== */
+@media (max-width: 480px) {
+
+  /* --- Hero: remove forced full-viewport height, tighter vertical rhythm --- */
+  .section-hero {
+    min-height: auto;
+    padding: 8px max(8px, env(safe-area-inset-left)) 10px
+      max(8px, env(safe-area-inset-right));
+  }
+
+  .section-hero .content-wrapper {
+    max-height: none;
+    padding-bottom: 4px;
+  }
+
+  .section-hero .header {
+    padding: 12px 14px 8px;
+  }
+
+  .section-hero .body-section {
+    margin-top: 2px;
+  }
+
+  .hero-top-row {
+    gap: 8px 14px;
+  }
+
+  .hero-brand-block {
+    gap: 5px;
+  }
+
+  .section-hero .body-section-cards-only .services-section {
+    padding: 10px 10px 10px;
+  }
+
+  /* --- Subnav: three text links on one row; Get quote full-width below (less crowded) --- */
+  .hero-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 14px;
+    row-gap: 8px;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+  }
+
+  .hero-subnav__link--emphasized {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .hero-subnav__link--inverse {
+    flex-basis: 100%;
+    width: 100%;
+    order: 10;
+    margin-top: 2px;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18);
+  }
+
+  /* --- Chat widget: shorter default panel, lighter chrome --- */
+  .chat-widget-dock {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+  }
+
+  .chat-widget-dock .chat-widget-panel--embed {
+    height: min(300px, 44svh);
+    max-height: min(360px, 50svh);
+    min-height: 160px;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .chat-widget-dock .chat-widget-header {
+    padding: 8px 12px;
+  }
+
+  .chat-widget-dock .chat-widget-header-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .chat-widget-dock .chat-resize-handle {
+    padding: 4px 0 2px;
+  }
+
+  .chat-widget-dock .chat-messages {
+    padding: 8px 10px 6px;
+    gap: 8px;
+  }
+
+  .chat-widget-dock .chat-input-wrap {
+    padding: 6px 8px 8px;
+  }
+
+  .chat-widget-dock .send-btn {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  .chat-widget-dock .chat-cta-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .chat-widget-dock .chat-cta-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 9px 12px;
+    border-radius: 10px;
+  }
+
+  .chat-widget-dock .message-bubble {
+    padding: 7px 9px;
+    font-size: 12.5px;
+    max-width: 88%;
+  }
+
+  .chat-widget-dock .bot-avatar {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+  }
+
+  .chat-widget-dock .bot-avatar .avatar-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Product cards in chat — narrower on phones */
+  .chat-product-card {
+    margin-left: 30px;
+  }
+
+  .chat-product-img {
+    height: 100px;
+  }
+
+  .chat-product-gallery {
+    padding: 0 8px 8px;
+    gap: 5px;
+  }
+
+  .chat-gallery-thumb {
+    width: 46px;
+    height: 46px;
+  }
+
+  /* Multi product option cards in chat */
+  .chat-product-options {
+    margin-left: 30px;
+  }
+
+  .chat-option-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .chat-option-name {
+    font-size: 11px;
+  }
+
+  .chat-option-desc {
+    font-size: 10px;
+  }
+
+  /* Chat CTA card — prevent overflow */
+  .chat-widget-dock .chat-cta-card {
+    margin-left: 30px;
+    padding: 8px 10px;
+  }
+
+  .chat-widget-dock .chat-cta-title {
+    font-size: 11.5px;
+  }
+
+  /* Quick Book form in chat — tighter */
+  .chat-widget-dock .chat-booking-card {
+    margin-left: 30px;
+    padding: 10px;
+  }
+
+  .chat-widget-dock .chat-booking-field input {
+    padding: 8px 10px;
+    font-size: 12.5px;
+  }
+
+  /* Chat input area — compact row */
+  .chat-widget-dock .chat-input-wrap input {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  /* --- Service modal (popup): full-width on phones --- */
+  .service-modal-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .service-modal-dialog {
+    max-width: 100%;
+    max-height: 80vh;
+    padding: 20px 18px 18px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .service-modal-hero {
+    width: calc(100% + 36px);
+    margin: -20px -18px 14px;
+    max-height: 200px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .service-modal-title {
+    font-size: 1.15rem;
+    margin-right: 30px;
+  }
+
+  .service-modal-desc {
+    font-size: 13px;
+  }
+
+  .service-modal-list {
+    font-size: 13px;
+  }
+
+  .service-modal-thumb {
+    width: 56px;
+    height: 56px;
+  }
+
+  .service-modal-projects-btn {
+    font-size: 13px;
+    padding: 10px 0;
+    margin-top: 14px;
+  }
+
+  .service-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  /* --- Hero section: tighter brand + nav --- */
+  .site-brand-name {
+    font-size: clamp(1.75rem, 9vw, 2.25rem);
+  }
+
+  .hero-title {
+    font-size: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  /* --- Service cards on hero: better mobile proportions --- */
+  .section-hero .service-card .card-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card-info h3 {
+    font-size: 16px;
+  }
+
+  .card-price {
+    font-size: 15px;
+  }
+
+  .card-info {
+    padding: 10px 12px 12px;
+  }
+
+  /* --- Project cards: 2-col grid instead of 1 on phones --- */
+  .project-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .project-card {
+    border-radius: 8px;
+  }
+
+  .project-image img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .project-name {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .project-meta {
+    font-size: 11px;
+    padding: 0 8px 6px;
+  }
+
+  /* --- Why Choose Us: clearer hierarchy, less “floating” empty feel --- */
+  .why-choose-us {
+    padding-top: 22px;
+    margin-top: 4px;
+    border-top-color: rgba(226, 232, 240, 0.75);
+  }
+
+  .why-choose-us .section-heading {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+  }
+
+  .section-projects .why-choose-us .features-grid {
+    gap: 10px;
+  }
+
+  .section-projects .why-choose-us .feature-item {
+    padding: 14px 14px;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 600;
+    background: #ffffff;
+    border-color: rgba(226, 232, 240, 0.95);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  }
+
+  .section-projects .why-choose-us .feature-icon {
+    font-size: 18px;
+    width: 26px;
+  }
+
+  /* --- Booking form (section 3): tighter spacing --- */
+  .section-appointment {
+    padding: 40px 12px 48px;
+  }
+
+  .appt-main-title {
+    font-size: 22px;
+  }
+
+  .appt-main-subtitle {
+    font-size: 14px;
+  }
+
+  .appt-form-col {
+    padding: 20px 16px 24px;
+    border-radius: 12px;
+  }
+
+  .appt-form-col input,
+  .appt-form-col select,
+  .appt-form-col textarea {
+    font-size: 14px;
+  }
+
+  .upload-actions {
+    flex-direction: column;
+  }
+
+  /* --- Lightbox: more padding on phones --- */
+  .chat-lightbox-overlay {
+    padding: 12px;
+  }
+
+  .chat-lightbox-img {
+    max-width: 95vw;
+    max-height: 80vh;
+    border-radius: 8px;
+  }
+
+  .chat-lightbox-close {
+    top: 10px;
+    right: 12px;
+    font-size: 28px;
+  }
+}
+
+/* Narrow phones (~400px): single-column project cards (overrides 2-col rule above) */
+@media (max-width: 400px) {
+  .project-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .project-name {
+    font-size: 13px;
+  }
+}
+
+/* Chat bubble dock position: overrides full-bleed .chat-widget-dock rules on small phones */
+@media (max-width: 640px) {
+  .chat-widget-dock.chat-widget-dock--mobile-bubble:not(.chat-widget-dock--panel-open) {
+    left: auto;
+    right: max(8px, env(safe-area-inset-right));
+    bottom: max(8px, env(safe-area-inset-bottom));
+    width: auto;
+    max-width: none;
+  }
+
+  .chat-widget-dock.chat-widget-dock--mobile-bubble.chat-widget-dock--panel-open {
+    left: max(6px, env(safe-area-inset-left));
+    right: max(6px, env(safe-area-inset-right));
+    width: auto;
+    max-width: none;
   }
 }
 </style>
