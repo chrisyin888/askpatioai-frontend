@@ -263,6 +263,21 @@
           <div class="appt-form-col">
             <h2 class="appt-form-title">{{ s3.formTitle }}</h2>
             <p class="appt-form-subtitle">{{ s3.formSubtitle }}</p>
+            <div class="appt-email-card" aria-label="Email us">
+              <p class="appt-email-card__lead">
+                Have photos or approximate dimensions?
+              </p>
+              <p class="appt-email-card__line">
+                Email us at
+                <a
+                  class="appt-email-card__link"
+                  :href="'mailto:' + (cfg.targetEmail || 'info@loomihomepatios.ca')"
+                >{{ cfg.targetEmail || 'info@loomihomepatios.ca' }}</a>
+              </p>
+              <p class="appt-email-card__hint">
+                Send us your photos, dimensions, or questions for a faster estimate.
+              </p>
+            </div>
             <form class="appt-form" @submit.prevent="submitAppointment">
               <div class="form-field">
                 <span class="field-icon">
@@ -4288,7 +4303,52 @@ body {
   font-size: 14px;
   color: #64748b;
   line-height: 1.55;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+.appt-email-card {
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: linear-gradient(165deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.appt-email-card__lead {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.appt-email-card__line {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.appt-email-card__link {
+  display: inline;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.25);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.appt-email-card__link:hover {
+  color: #1e40af;
+  border-bottom-color: rgba(30, 64, 175, 0.45);
+}
+
+.appt-email-card__hint {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.45;
 }
 
 /* Form */
@@ -5004,6 +5064,19 @@ body {
   .appt-form-col {
     padding: 20px 16px 24px;
     border-radius: 12px;
+  }
+
+  .appt-email-card {
+    padding: 12px 14px;
+    margin-bottom: 18px;
+  }
+
+  .appt-email-card__lead {
+    font-size: 12px;
+  }
+
+  .appt-email-card__line {
+    font-size: 12px;
   }
 
   .appt-form-col input,
