@@ -563,7 +563,7 @@
                   </div>
                 </div>
 
-                <!-- Product card with gallery thumbnails -->
+                <!-- Single product card with gallery thumbnails -->
                 <div v-if="msg.productCard" class="chat-product-card">
                   <img
                     :src="msg.productCard.image"
@@ -584,6 +584,22 @@
                       class="chat-gallery-thumb"
                       @click="chatLightboxImage = img"
                     />
+                  </div>
+                </div>
+
+                <!-- Multiple product option cards -->
+                <div v-if="msg.productCards && msg.productCards.length" class="chat-product-options">
+                  <div
+                    v-for="(pc, pi) in msg.productCards"
+                    :key="pi"
+                    class="chat-product-option"
+                    @click="chatLightboxImage = pc.image"
+                  >
+                    <img :src="pc.image" :alt="pc.name" class="chat-option-img" />
+                    <div class="chat-option-info">
+                      <h4 class="chat-option-name">{{ pc.name }}</h4>
+                      <p class="chat-option-desc">{{ pc.description }}</p>
+                    </div>
                   </div>
                 </div>
 
@@ -1009,9 +1025,14 @@ export default {
         return;
       }
 
-      const questionForAI = productInquiry
-        ? `[Customer is asking about ${productInquiry.name}. Introduce this product briefly and naturally, then ask for their preferred size to give a quote.] ${text}`
-        : text;
+      let questionForAI = text;
+      if (productInquiry) {
+        if (productInquiry.isMulti) {
+          questionForAI = `[Customer is asking about patio covers in general. Introduce all three patio cover types (Glass, Aluminum, Skyline Combo) briefly and ask which one interests them.] ${text}`;
+        } else {
+          questionForAI = `[Customer is asking about ${productInquiry.name}. Introduce this product briefly and naturally, then ask for their preferred size to give a quote.] ${text}`;
+        }
+      }
 
       const history = this.messages
         .filter((m) => !m.isPlaceholder && m.text)
@@ -1037,12 +1058,22 @@ export default {
         const aiAsksForDetails = this.aiAsksForContactDetails(answer);
 
         const showBookBtn = aiAsksForDetails || isPrice;
+        let productCard = null;
+        let productCards = null;
+        if (productInquiry) {
+          if (productInquiry.isMulti) {
+            productCards = productInquiry.services.map((s) => ({ name: s.name, image: s.image, description: s.description }));
+          } else {
+            productCard = { name: productInquiry.name, image: productInquiry.image, description: productInquiry.description, gallery: productInquiry.gallery || [] };
+          }
+        }
         this.replaceMessageById(placeholderId, {
           type: 'bot',
           text: answer,
           isPrice,
           showCta: showBookBtn,
-          productCard: productInquiry ? { name: productInquiry.name, image: productInquiry.image, description: productInquiry.description, gallery: productInquiry.gallery || [] } : null,
+          productCard,
+          productCards,
           isPlaceholder: false,
         });
       } catch {
@@ -1083,8 +1114,13 @@ export default {
             .map((p) => p.image)
             .slice(0, 6);
 
-          return { ...service, gallery };
+          return { ...service, gallery, isMulti: false };
         }
+      }
+
+      const genericPatio = lower.includes('patio cover') || lower.includes('patiocover') || lower.includes('patio');
+      if (genericPatio) {
+        return { isMulti: true, services: services.filter((s) => s.name !== 'Sunrooms') };
       }
 
       return null;
@@ -3255,6 +3291,80 @@ body {
 .chat-widget-dock .chat-gallery-thumb {
   width: 50px;
   height: 50px;
+}
+
+/* Multiple product option cards */
+.chat-product-options {
+  margin: 8px 0 4px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-product-option {
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.chat-product-option:hover {
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.12);
+  transform: translateY(-1px);
+}
+
+.chat-option-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.chat-option-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.chat-option-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.chat-option-desc {
+  font-size: 11px;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chat-widget-dock .chat-product-options {
+  margin: 4px 0 2px 36px;
+}
+
+.chat-widget-dock .chat-option-img {
+  width: 52px;
+  height: 52px;
+}
+
+.chat-widget-dock .chat-option-name {
+  font-size: 11.5px;
+}
+
+.chat-widget-dock .chat-option-desc {
+  font-size: 10.5px;
 }
 
 /* Lightbox overlay */
