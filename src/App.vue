@@ -14,7 +14,7 @@
     <!-- Scrollable Content -->
     <div v-show="siteLoaded" class="scroll-container">
       <!-- Section 1: Instant Quote -->
-      <section class="section section-hero">
+      <section id="home" class="section section-hero">
         <div class="content-wrapper glass-panel">
           <div class="header hero-header">
             <div class="hero-top-row">
@@ -263,21 +263,6 @@
           <div class="appt-form-col">
             <h2 class="appt-form-title">{{ s3.formTitle }}</h2>
             <p class="appt-form-subtitle">{{ s3.formSubtitle }}</p>
-            <div class="appt-email-card" aria-label="Email us">
-              <p class="appt-email-card__lead">
-                Have photos or approximate dimensions?
-              </p>
-              <p class="appt-email-card__line">
-                Email us at
-                <a
-                  class="appt-email-card__link"
-                  :href="'mailto:' + (cfg.targetEmail || 'info@loomihomepatios.ca')"
-                >{{ cfg.targetEmail || 'info@loomihomepatios.ca' }}</a>
-              </p>
-              <p class="appt-email-card__hint">
-                Send us your photos, dimensions, or questions for a faster estimate.
-              </p>
-            </div>
             <form class="appt-form" @submit.prevent="submitAppointment">
               <div class="form-field">
                 <span class="field-icon">
@@ -494,6 +479,65 @@
           </div>
         </div>
       </section>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+          <div class="site-footer__brand">
+            <p class="site-footer__name">LoomiHome Patios</p>
+            <p class="site-footer__desc">
+              Custom patio covers and sunrooms for Greater Vancouver — glass,
+              aluminum, and combo designs with clear estimates and expert
+              installation.
+            </p>
+          </div>
+
+          <nav
+            class="site-footer__nav"
+            aria-label="Footer quick links"
+          >
+            <a
+              href="#home"
+              class="site-footer__link"
+              @click.prevent="scrollToSection('#home')"
+            >Home</a>
+            <a
+              href="#our-products"
+              class="site-footer__link"
+              @click.prevent="scrollToSection('#our-products')"
+            >Our Products</a>
+            <a
+              href="#past-projects"
+              class="site-footer__link"
+              @click.prevent="scrollToSection('#past-projects')"
+            >Past Projects</a>
+            <a
+              href="#why-us"
+              class="site-footer__link"
+              @click.prevent="scrollToSection('#why-us')"
+            >Why Choose Us</a>
+            <a
+              href="#confirm-final-quote"
+              class="site-footer__link"
+              @click.prevent="scrollToGetQuote()"
+            >Get a Quote</a>
+          </nav>
+
+          <div class="site-footer__contact">
+            <a
+              class="site-footer__email"
+              :href="'mailto:' + (cfg.targetEmail || 'info@loomihomepatios.ca')"
+            >{{ cfg.targetEmail || 'info@loomihomepatios.ca' }}</a>
+            <p class="site-footer__area">Service area: Greater Vancouver</p>
+          </div>
+
+          <p class="site-footer__cta">
+            Send us your photos or dimensions for a faster estimate.
+          </p>
+          <p class="site-footer__copy">
+            © 2026 LoomiHome Patios. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
 
     <!-- Fixed bottom-right chat -->
@@ -525,6 +569,10 @@
             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
           </svg>
         </span>
+        <span
+          class="bot-avatar-status chat-launcher-online-dot"
+          aria-hidden="true"
+        ></span>
       </button>
       <div
         v-show="chatDockPanelOpen"
@@ -548,8 +596,8 @@
           <button
             type="button"
             class="chat-widget-close"
-            aria-label="Minimize chat"
-            title="Minimize"
+            aria-label="Close chat"
+            title="Close"
             @click="collapseChatPanel"
           >
             <svg
@@ -557,12 +605,12 @@
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
+              stroke-width="2.75"
               stroke-linecap="round"
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <path d="M6 9l6 6 6-6" />
+              <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
         </div>
@@ -583,6 +631,7 @@
                       <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                     </svg>
                   </span>
+                  <span class="bot-avatar-status" aria-hidden="true"></span>
                 </div>
                 <div class="message-bubble bot-bubble">
                   <p
@@ -616,6 +665,7 @@
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                       </svg>
                     </span>
+                    <span class="bot-avatar-status" aria-hidden="true"></span>
                   </div>
                   <div
                     :class="[
@@ -761,6 +811,7 @@
                       <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                     </svg>
                   </span>
+                  <span class="bot-avatar-status" aria-hidden="true"></span>
                 </div>
                 <div class="message-bubble bot-bubble typing-bubble">
                   <span class="dot"></span>
@@ -1665,13 +1716,13 @@ export default {
           return project;
         }
 
-        // Glass: 1,2,3,4,6,7 have fixed price & sqft ($15/sq ft); rest are Custom build, no price/size
+        // Glass: 1,2,3,4,6,7 have fixed price & sqft ($13/sq ft rough model); rest are Custom build, no price/size
         const glassMatch = (project.name || '').match(/Glass Patio Cover Project (\d+)/i);
         if (glassMatch) {
           const num = parseInt(glassMatch[1], 10);
           if ([1, 2, 3, 4, 6, 7].includes(num)) {
             if (typeof project.price === 'number') {
-              project.sqft = Math.round(project.price / 15 / 10) * 10;
+              project.sqft = Math.round(project.price / 13 / 10) * 10;
             }
             return project;
           }
@@ -1686,29 +1737,33 @@ export default {
         project.isCustom = isCustom;
 
         if (!isCustom) {
-          // Base ranges by type
+          // Base ranges by type; sqft derived from same rough $/sq ft as chat pricing model
           let min = 4000;
           let max = 8000;
+          let ratePerSqft = 12.5;
 
           if (name.includes('aluminum') || name.includes('pergola')) {
             min = 4000;
             max = 7000;
+            ratePerSqft = 9;
           } else if (name.includes('glass')) {
             min = 5000;
             max = 8000;
+            ratePerSqft = 13;
           } else if (name.includes('skyline')) {
             min = 5500;
             max = 8000;
+            ratePerSqft = 12.5;
           } else if (name.includes('sunroom')) {
             min = 6000;
             max = 8000;
+            ratePerSqft = 35;
           }
 
           project.price =
             Math.floor(min / 100) * 100 +
             Math.floor(Math.random() * ((max - min) / 100 + 1)) * 100;
-          // sqft from $12/sq ft, rounded to nearest 10 (no single-digit remainder)
-          const rawSqft = project.price / 12;
+          const rawSqft = project.price / ratePerSqft;
           project.sqft = Math.round(rawSqft / 10) * 10;
         } else {
           project.price = null;
@@ -2453,6 +2508,10 @@ body {
   outline-offset: 3px;
 }
 
+#home {
+  scroll-margin-top: 24px;
+}
+
 #our-products {
   scroll-margin-top: 24px;
 }
@@ -2467,6 +2526,166 @@ body {
 
 #why-us {
   scroll-margin-top: 24px;
+}
+
+/* Site footer — light, modern */
+.site-footer {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border-top: 1px solid rgba(148, 163, 184, 0.32);
+  scroll-snap-align: end;
+}
+
+.site-footer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 52px 28px 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 36px 44px;
+  grid-template-areas:
+    'brand nav contact'
+    'cta cta cta'
+    'copy copy copy';
+}
+
+.site-footer__brand {
+  grid-area: brand;
+}
+
+.site-footer__name {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+.site-footer__desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.62;
+  color: #64748b;
+  max-width: 36em;
+}
+
+.site-footer__nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.site-footer__link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-footer__link:hover {
+  color: #0f172a;
+  border-bottom-color: rgba(15, 23, 42, 0.2);
+}
+
+.site-footer__link:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.site-footer__contact {
+  grid-area: contact;
+}
+
+.site-footer__email {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.22);
+  margin-bottom: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-footer__email:hover {
+  color: #1d4ed8;
+  border-bottom-color: rgba(29, 78, 216, 0.45);
+}
+
+.site-footer__email:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.site-footer__area {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.site-footer__cta {
+  grid-area: cta;
+  margin: 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(148, 163, 184, 0.28);
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.site-footer__copy {
+  grid-area: copy;
+  margin: 0;
+  padding-top: 14px;
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'brand'
+      'contact'
+      'nav'
+      'cta'
+      'copy';
+    gap: 26px;
+    padding: 44px 20px 36px;
+  }
+
+  .site-footer__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+  }
+
+  .site-footer__link {
+    border-bottom: none;
+  }
+
+  .site-footer__link:hover {
+    border-bottom: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .site-footer__cta {
+    padding-top: 22px;
+  }
+
+  .site-footer__copy {
+    padding-top: 10px;
+  }
 }
 
 /* Floating chat — fixed bottom-right */
@@ -2499,16 +2718,27 @@ body {
 /* Mobile bubble mode (viewport ≤640px) + desktop minimized: FAB only */
 .chat-widget-dock--mobile-bubble .chat-mobile-launcher,
 .chat-widget-dock--desktop-minimized .chat-mobile-launcher {
+  position: relative;
   pointer-events: auto;
   align-self: flex-end;
   width: 56px;
   height: 56px;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(
+    145deg,
+    #5eead4 0%,
+    #2dd4bf 28%,
+    #22d3ee 58%,
+    #0ea5e9 88%,
+    #0284c7 100%
+  );
   color: #f8fafc;
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.38),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 28px rgba(14, 165, 233, 0.42),
+    0 4px 14px rgba(45, 212, 191, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2519,8 +2749,11 @@ body {
 
 .chat-widget-dock--mobile-bubble .chat-mobile-launcher:hover,
 .chat-widget-dock--desktop-minimized .chat-mobile-launcher:hover {
-  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.42),
-    0 0 0 1px rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 10px 34px rgba(14, 165, 233, 0.48),
+    0 4px 16px rgba(45, 212, 191, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .chat-widget-dock--mobile-bubble .chat-mobile-launcher:active,
@@ -2533,12 +2766,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #4ade80;
+  filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.8))
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
 }
 
 .chat-widget-dock--mobile-bubble .chat-mobile-launcher-icon svg,
 .chat-widget-dock--desktop-minimized .chat-mobile-launcher-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
+  stroke-width: 2.4;
+}
+
+/* Green “online” dot on FAB (bottom-right of lightning) */
+.chat-widget-dock .chat-launcher-online-dot {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  box-sizing: content-box;
+  box-shadow:
+    0 0 0 1px rgba(3, 105, 161, 0.35),
+    0 0 8px rgba(34, 197, 94, 0.7),
+    0 1px 3px rgba(15, 23, 42, 0.2);
+  z-index: 2;
+  pointer-events: none;
+  animation: bot-avatar-status-pulse 2.6s ease-in-out infinite;
 }
 
 .chat-widget-dock--mobile-bubble:not(.chat-widget-dock--panel-open),
@@ -3307,31 +3564,38 @@ body {
 }
 
 .chat-widget-close {
-  min-width: 40px;
-  min-height: 40px;
-  width: 40px;
-  height: 40px;
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: none;
   border-radius: 10px;
-  background: transparent;
-  color: #64748b;
+  background: rgba(241, 245, 249, 0.9);
+  color: #334155;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35);
 }
 
 .chat-widget-close-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .chat-widget-close:hover {
   background: #e2e8f0;
   color: #0f172a;
+  box-shadow: 0 0 0 1px rgba(100, 116, 139, 0.45);
+}
+
+.chat-widget-close:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
 }
 
 .chat-widget-dock .chat-section {
@@ -3374,6 +3638,7 @@ body {
 }
 
 .chat-widget-dock .bot-avatar {
+  position: relative;
   width: 28px;
   height: 28px;
   min-width: 28px;
@@ -3381,9 +3646,30 @@ body {
   border-radius: 8px;
 }
 
+.chat-widget-dock .bot-avatar .bot-avatar-status {
+  right: -2px;
+  bottom: -2px;
+  width: 9px;
+  height: 9px;
+  border-width: 1.5px;
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(34, 197, 94, 0.35),
+    0 0 6px rgba(74, 222, 128, 0.55),
+    0 1px 3px rgba(15, 23, 42, 0.2);
+  animation: bot-avatar-status-pulse 2.6s ease-in-out infinite;
+}
+
+.chat-widget-dock .bot-avatar .avatar-icon {
+  color: #4ade80;
+  filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.9))
+    drop-shadow(0 1px 2px rgba(15, 23, 42, 0.35));
+}
+
 .chat-widget-dock .avatar-icon svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
+  stroke-width: 2.5;
 }
 
 .chat-widget-dock .chat-input-wrap {
@@ -4343,52 +4629,7 @@ body {
   font-size: 14px;
   color: #64748b;
   line-height: 1.55;
-  margin-bottom: 16px;
-}
-
-.appt-email-card {
-  margin-bottom: 22px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: linear-gradient(165deg, #f8fafc 0%, #f1f5f9 100%);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-}
-
-.appt-email-card__lead {
-  margin: 0 0 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #0f172a;
-  letter-spacing: -0.01em;
-}
-
-.appt-email-card__line {
-  margin: 0 0 8px;
-  font-size: 13px;
-  color: #475569;
-  line-height: 1.5;
-}
-
-.appt-email-card__link {
-  display: inline;
-  font-weight: 700;
-  color: #0f172a;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.25);
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.appt-email-card__link:hover {
-  color: #1e40af;
-  border-bottom-color: rgba(30, 64, 175, 0.45);
-}
-
-.appt-email-card__hint {
-  margin: 0;
-  font-size: 12px;
-  color: #64748b;
-  line-height: 1.45;
+  margin-bottom: 20px;
 }
 
 /* Form */
@@ -4882,6 +5123,13 @@ body {
     height: 12px;
   }
 
+  .chat-widget-dock .chat-widget-close {
+    min-width: 42px;
+    min-height: 42px;
+    width: 42px;
+    height: 42px;
+  }
+
   /* Product cards in chat — narrower on phones */
   .chat-product-card {
     margin-left: 30px;
@@ -5104,19 +5352,6 @@ body {
   .appt-form-col {
     padding: 20px 16px 24px;
     border-radius: 12px;
-  }
-
-  .appt-email-card {
-    padding: 12px 14px;
-    margin-bottom: 18px;
-  }
-
-  .appt-email-card__lead {
-    font-size: 12px;
-  }
-
-  .appt-email-card__line {
-    font-size: 12px;
   }
 
   .appt-form-col input,
