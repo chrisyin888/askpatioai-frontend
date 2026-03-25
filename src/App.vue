@@ -559,7 +559,7 @@
                       msg.type === 'user' ? 'user-bubble' : 'bot-bubble',
                     ]"
                   >
-                    <p v-html="msg.text"></p>
+                    <p v-html="highlightProducts(msg.text, msg.type)"></p>
                   </div>
                 </div>
 
@@ -1086,6 +1086,13 @@ export default {
       }
 
       this.$nextTick(() => this.scrollToBottom());
+    },
+    highlightProducts(text, msgType) {
+      if (!text || msgType === 'user') return text;
+      return text.replace(
+        /\b(glass patio cover|aluminum patio cover|skyline combo cover|glass cover|aluminum cover|skyline combo|glass|aluminum|skyline)\b/gi,
+        '<span class="chat-product-tag">$1</span>',
+      );
     },
     scrollToBottom() {
       const el = this.$refs.chatMessages;
@@ -2607,6 +2614,18 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom-left-radius: 6px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.chat-product-tag {
+  display: inline;
+  font-weight: 650;
+  color: #0f172a;
+  background: rgba(15, 23, 42, 0.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  font-size: 0.97em;
+  letter-spacing: -0.01em;
 }
 
 .user-bubble {
