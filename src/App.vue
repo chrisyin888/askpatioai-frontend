@@ -503,15 +503,15 @@
       :class="{
         'chat-widget-dock--mobile-bubble': chatLayoutMobile,
         'chat-widget-dock--panel-open': chatLayoutMobile && chatMobilePanelOpen,
+        'chat-widget-dock--desktop-minimized': !chatLayoutMobile && chatDesktopMinimized,
       }"
     >
       <button
-        v-if="chatLayoutMobile"
-        v-show="!chatMobilePanelOpen"
+        v-show="!chatDockPanelOpen"
         type="button"
         class="chat-mobile-launcher"
         aria-label="Open chat assistant"
-        @click="openMobileChatPanel"
+        @click="openChatPanel"
       >
         <span class="chat-mobile-launcher-icon" aria-hidden="true">
           <svg
@@ -527,7 +527,7 @@
         </span>
       </button>
       <div
-        v-show="!chatLayoutMobile || chatMobilePanelOpen"
+        v-show="chatDockPanelOpen"
         class="chat-widget-panel chat-widget-panel--embed"
         role="dialog"
         aria-modal="false"
@@ -546,13 +546,24 @@
             cfg.chatWidgetTitle || 'Chat'
           }}</span>
           <button
-            v-if="chatLayoutMobile"
             type="button"
             class="chat-widget-close"
-            aria-label="Close chat"
-            @click="closeMobileChatPanel"
+            aria-label="Minimize chat"
+            title="Minimize"
+            @click="collapseChatPanel"
           >
-            ×
+            <svg
+              class="chat-widget-close-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M18 15l-6-6-6 6" />
+            </svg>
           </button>
         </div>
         <div class="chat-section chat-widget-section">
@@ -917,6 +928,8 @@ export default {
       /** ≤640px: show FAB first; tap opens panel */
       chatLayoutMobile: false,
       chatMobilePanelOpen: false,
+      /** Desktop: when true, panel hidden and FAB shown (same as mobile collapsed) */
+      chatDesktopMinimized: false,
       chatBookingForm: {
         visible: false,
         name: '',
@@ -978,6 +991,11 @@ export default {
       }
       return {};
     },
+    /** Chat panel visible: mobile when open; desktop when not minimized */
+    chatDockPanelOpen() {
+      if (this.chatLayoutMobile) return this.chatMobilePanelOpen;
+      return !this.chatDesktopMinimized;
+    },
     serviceModalGallery() {
       if (!this.serviceModalService) return [];
       const name = this.serviceModalService.name || '';
@@ -1017,8 +1035,8 @@ export default {
       if (e.key === 'Escape' && this.serviceModalService) {
         this.closeServiceModal();
       }
-      if (e.key === 'Escape' && this.chatLayoutMobile && this.chatMobilePanelOpen) {
-        this.closeMobileChatPanel();
+      if (e.key === 'Escape' && this.chatDockPanelOpen) {
+        this.collapseChatPanel();
       }
     };
     window.addEventListener('keydown', this._onServiceModalEscape);
@@ -1049,8 +1067,12 @@ export default {
     }
   },
   methods: {
-    openMobileChatPanel() {
-      this.chatMobilePanelOpen = true;
+    openChatPanel() {
+      if (this.chatLayoutMobile) {
+        this.chatMobilePanelOpen = true;
+      } else {
+        this.chatDesktopMinimized = false;
+      }
       this.$nextTick(() => {
         const inp = this.$refs.chatInput;
         if (inp && typeof inp.focus === 'function') {
@@ -1059,8 +1081,12 @@ export default {
         this.scrollToBottom();
       });
     },
-    closeMobileChatPanel() {
-      this.chatMobilePanelOpen = false;
+    collapseChatPanel() {
+      if (this.chatLayoutMobile) {
+        this.chatMobilePanelOpen = false;
+      } else {
+        this.chatDesktopMinimized = true;
+      }
     },
     generateMessageId() {
       return `m_${Date.now()}_${Math.random().toString(16).slice(2)}`;
@@ -1497,9 +1523,7 @@ export default {
       this.$nextTick(() => this.scrollToBottom());
     },
     scrollToAppointmentFromChat() {
-      if (this.chatLayoutMobile) {
-        this.chatMobilePanelOpen = false;
-      }
+      this.collapseChatPanel();
       this.$nextTick(() => {
         this.handleChatCtaClick();
         this.scrollToAppointment();
@@ -2472,8 +2496,9 @@ body {
   box-shadow: 0 24px 56px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-/* Mobile bubble mode (JS adds --mobile-bubble when viewport ≤640px) */
-.chat-widget-dock--mobile-bubble .chat-mobile-launcher {
+/* Mobile bubble mode (viewport ≤640px) + desktop minimized: FAB only */
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher,
+.chat-widget-dock--desktop-minimized .chat-mobile-launcher {
   pointer-events: auto;
   align-self: flex-end;
   width: 56px;
@@ -2492,27 +2517,32 @@ body {
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.chat-widget-dock--mobile-bubble .chat-mobile-launcher:hover {
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher:hover,
+.chat-widget-dock--desktop-minimized .chat-mobile-launcher:hover {
   box-shadow: 0 10px 32px rgba(15, 23, 42, 0.42),
     0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
-.chat-widget-dock--mobile-bubble .chat-mobile-launcher:active {
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher:active,
+.chat-widget-dock--desktop-minimized .chat-mobile-launcher:active {
   transform: scale(0.95);
 }
 
-.chat-widget-dock--mobile-bubble .chat-mobile-launcher-icon {
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher-icon,
+.chat-widget-dock--desktop-minimized .chat-mobile-launcher-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.chat-widget-dock--mobile-bubble .chat-mobile-launcher-icon svg {
+.chat-widget-dock--mobile-bubble .chat-mobile-launcher-icon svg,
+.chat-widget-dock--desktop-minimized .chat-mobile-launcher-icon svg {
   width: 24px;
   height: 24px;
 }
 
-.chat-widget-dock--mobile-bubble:not(.chat-widget-dock--panel-open) {
+.chat-widget-dock--mobile-bubble:not(.chat-widget-dock--panel-open),
+.chat-widget-dock--desktop-minimized {
   width: auto;
   max-width: none;
   left: auto;
@@ -3268,6 +3298,8 @@ body {
 }
 
 .chat-widget-header-title {
+  flex: 1;
+  min-width: 0;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -3275,18 +3307,26 @@ body {
 }
 
 .chat-widget-close {
-  width: 32px;
-  height: 32px;
+  min-width: 40px;
+  min-height: 40px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: transparent;
   color: #64748b;
-  font-size: 20px;
-  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.chat-widget-close-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .chat-widget-close:hover {
