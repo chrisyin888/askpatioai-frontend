@@ -746,7 +746,29 @@
                   v-if="msg.type === 'bot' && msg.showQuickBookForm && chatBookingForm.visible && !chatBookingForm.success"
                   class="chat-booking-card"
                 >
-                  <h4 class="chat-booking-title">Quick Book</h4>
+                  <div class="chat-booking-card__head">
+                    <h4 class="chat-booking-title">Quick Book</h4>
+                    <button
+                      type="button"
+                      class="chat-booking-close"
+                      aria-label="Close Quick Book"
+                      title="Close"
+                      @click="closeChatQuickBook"
+                    >
+                      <svg
+                        class="chat-booking-close-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M18 6L6 18M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
                   <form class="chat-booking-form" @submit.prevent="submitChatBookingForm">
                     <div class="chat-booking-field">
                       <input
@@ -1174,16 +1196,16 @@ export default {
       });
       this.$nextTick(() => this.scrollToBottom());
 
-      const siteMeasurementIntent = this.isSiteMeasurementRequest(text);
-      const bookingIntent = this.isBookingIntent(text) || siteMeasurementIntent;
-
-      if (bookingIntent) {
+      if (this.shouldOpenQuickBookFromChat(text)) {
+        const intro = this.quickBookIntroForUserMessage(text);
         this.replaceMessageById(placeholderId, {
           type: 'bot',
-          text: 'Use the full booking form below to submit your details and upload photos of your space.',
-          showCta: true,
+          text: intro,
+          showCta: false,
+          showQuickBookForm: true,
           isPlaceholder: false,
         });
+        this.showChatBookingForm();
         this.$nextTick(() => this.scrollToBottom());
         return;
       }
@@ -1306,27 +1328,106 @@ export default {
 
       return null;
     },
-    isBookingIntent(text) {
-      if (!text) return false;
-      const lower = text.toLowerCase().trim();
+    /** Last bot turn suggested booking / measurement / CTA — used for short "yes"/"ok" follow-ups */
+    recentBotSuggestedBooking() {
+      const botMsgs = this.messages.filter(
+        (m) =>
+          m.type === 'bot' &&
+          !m.isPlaceholder &&
+          typeof m.text === 'string' &&
+          m.text.trim(),
+      );
+      for (let i = botMsgs.length - 1; i >= 0; i--) {
+        const msg = botMsgs[i];
+        if (msg.showCta || msg.showQuickBookForm) return true;
+        const t = msg.text.toLowerCase();
+        if (
+          /book|booking|measurement|appointment|schedule|on-site|onsite|site visit|free measurement|quick form|get booked|arrange.*visit|上门|预约|测量/.test(
+            t,
+          )
+        ) {
+          return true;
+        }
+      }
+      return false;
+    },
+    quickBookIntroForUserMessage(userText) {
+      if (userText && /[\u4e00-\u9fff]/.test(userText)) {
+        return '好的 — 请填写下面的快速表单，我们会安排免费上门测量。';
+      }
+      return 'Perfect — fill in the quick form below and we\'ll arrange your free on-site measurement.';
+    },
+    /** Strong booking / schedule intent → open in-chat Quick Book (no redirect to section 3) */
+    shouldOpenQuickBookFromChat(text) {
+      if (!text || typeof text !== 'string') return false;
 
-      const exactMatch = [
-        'yes', 'yeah', 'sure', 'ok', 'okay', 'yep', 'yup',
-        'sounds good', 'book it', "let's do it", 'lets do it',
-        'go ahead', 'do it',
+      if (this.isSiteMeasurementRequest(text)) return true;
+
+      const raw = text.trim();
+      const lower = raw.toLowerCase();
+
+      const looksLikeBookingRefusal =
+        /(\bno\b|\bnot\b|\bdon't\b|\bdont\b|\bnever\b|\bcancel\b).{0,32}\b(book|appointment|schedule|预约|测量)|\b(book|appointment|schedule|预约).{0,32}(\bno\b|\bnot\b|\bcancel\b|\bdon't\b|\bdont\b)/i.test(
+          raw,
+        );
+      if (looksLikeBookingRefusal) return false;
+
+      const zhStrong =
+        /预约|预订|想预约|要预约|我要预约|快速预约|预约测量|上门测量|安排测量|免费测量|现在预约|马上预约|订测量|测量预约|想订测量|怎么预约|如何预约/.test(
+          raw,
+        );
+      if (zhStrong) return true;
+
+      const enStrong = [
+        'book now',
+        'quick book',
+        'i want book',
+        'i want to book',
+        'want to book',
+        'need to book',
+        'would like to book',
+        'how to book',
+        'how do i book',
+        'how can i book',
+        'book free measurement',
+        'book measurement',
+        'book an appointment',
+        'book appointment',
+        'book a measurement',
+        'make an appointment',
+        'set up an appointment',
+        'set up appointment',
+        'schedule',
+        'appointment',
+        'schedule a visit',
+        'schedule visit',
+        'schedule measurement',
+        'book it',
+        'go ahead and book',
+        'sign me up',
+        'register me',
       ];
-      if (exactMatch.some((p) => lower === p || lower === p + '!')) return true;
+      if (enStrong.some((p) => lower.includes(p))) return true;
 
-      const phrases = [
-        'how to book', 'how do i book', 'how can i book',
-        'book free measurement', 'book measurement',
-        'book an appointment', 'book appointment',
-        'want to book', 'i want to book',
-        'schedule a visit', 'schedule visit', 'schedule measurement',
-        'make an appointment', 'set up an appointment',
-      ];
+      const soft = new Set([
+        'yes',
+        'yeah',
+        'yep',
+        'yup',
+        'sure',
+        'ok',
+        'okay',
+        'sounds good',
+        'please',
+        'do it',
+        'go ahead',
+        "let's do it",
+        'lets do it',
+      ]);
+      const norm = lower.replace(/[!?.]+$/g, '').trim();
+      if (soft.has(norm) && this.recentBotSuggestedBooking()) return true;
 
-      return phrases.some((p) => lower.includes(p));
+      return false;
     },
     isSiteMeasurementRequest(text) {
       if (!text) return false;
@@ -1561,11 +1662,16 @@ export default {
         this.chatBookingForm.city = this.projectInfo.city;
       }
     },
+    closeChatQuickBook() {
+      this.chatBookingForm.visible = false;
+      this.chatBookingForm.errors = {};
+      this.chatBookingForm.error = '';
+    },
     triggerQuickBook() {
       this.messages.push({
         id: this.generateMessageId(),
         type: 'bot',
-        text: 'Fill in your details below and we\'ll arrange your free on-site measurement.',
+        text: 'Perfect — fill in the quick form below and we\'ll arrange your free on-site measurement.',
         showCta: false,
         showQuickBookForm: true,
         isPlaceholder: false,
@@ -3975,11 +4081,53 @@ body {
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
 }
 
+.chat-booking-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 .chat-booking-title {
   font-size: 13px;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 10px 0;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-booking-close {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(241, 245, 249, 0.95);
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35);
+}
+
+.chat-booking-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.chat-booking-close:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+.chat-booking-close-icon {
+  width: 18px;
+  height: 18px;
 }
 
 .chat-booking-form {
@@ -4091,6 +4239,16 @@ body {
 
 .chat-widget-dock .chat-booking-title {
   font-size: 12px;
+}
+
+.chat-widget-dock .chat-booking-close {
+  width: 36px;
+  height: 36px;
+}
+
+.chat-widget-dock .chat-booking-close-icon {
+  width: 19px;
+  height: 19px;
 }
 
 .chat-widget-dock .chat-booking-field input {
