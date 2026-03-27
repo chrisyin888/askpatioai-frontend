@@ -1003,6 +1003,8 @@ export default {
       chatMobilePanelOpen: false,
       /** Desktop: when true, panel hidden and FAB shown (same as mobile collapsed) */
       chatDesktopMinimized: false,
+      /** Persistent anonymous id for /ask + logging (localStorage) */
+      visitorId: '',
       chatBookingForm: {
         visible: false,
         name: '',
@@ -1102,6 +1104,22 @@ export default {
     if (typeof window !== 'undefined' && window.matchMedia) {
       this.chatLayoutMobile = window.matchMedia('(max-width: 640px)').matches;
     }
+    if (typeof window !== 'undefined') {
+      try {
+        const KEY = 'loomihome_visitor_id';
+        let vid = window.localStorage.getItem(KEY);
+        if (!vid) {
+          vid =
+            window.crypto && typeof window.crypto.randomUUID === 'function'
+              ? window.crypto.randomUUID()
+              : `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
+          window.localStorage.setItem(KEY, vid);
+        }
+        this.visitorId = vid;
+      } catch {
+        this.visitorId = `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
+      }
+    }
   },
   mounted() {
     this._onServiceModalEscape = (e) => {
@@ -1169,6 +1187,27 @@ export default {
       if (idx === -1) return;
       const prev = this.messages[idx];
       this.messages.splice(idx, 1, { ...prev, ...fields });
+    },
+    /** Always returns a non-empty id for /ask (localStorage key: loomihome_visitor_id). */
+    getOrCreateVisitorId() {
+      if (typeof window === 'undefined') return '';
+      const KEY = 'loomihome_visitor_id';
+      try {
+        let id = window.localStorage.getItem(KEY);
+        if (!id) {
+          id =
+            window.crypto && typeof window.crypto.randomUUID === 'function'
+              ? window.crypto.randomUUID()
+              : `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
+          window.localStorage.setItem(KEY, id);
+        }
+        this.visitorId = id;
+        return id;
+      } catch {
+        const fallback = `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
+        this.visitorId = fallback;
+        return fallback;
+      }
     },
     async sendMessage() {
       const text = this.userInput.trim();
@@ -1238,17 +1277,19 @@ export default {
         .map((m) => ({ role: m.type === 'user' ? 'user' : 'assistant', content: m.text }));
 
       try {
+        const askBody = {
+          question: questionForAI,
+          history,
+          project_type: (this.projectInfo && this.projectInfo.project_type) || '',
+          city: (this.projectInfo && this.projectInfo.city) || '',
+          email: (this.form && this.form.email) || '',
+          phone: (this.form && this.form.phone) || '',
+          visitor_id: this.getOrCreateVisitorId(),
+        };
         const res = await fetch(this.cfg.chatApiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            question: questionForAI,
-            history,
-            project_type: (this.projectInfo && this.projectInfo.project_type) || '',
-            city: (this.projectInfo && this.projectInfo.city) || '',
-            email: (this.form && this.form.email) || '',
-            phone: (this.form && this.form.phone) || '',
-          }),
+          body: JSON.stringify(askBody),
         });
         const data = await res.json();
         const answer = data.answer || 'Sorry, something went wrong.';
