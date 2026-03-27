@@ -11,11 +11,12 @@
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
-    "chatWidgetTitle": "Get Your Estimate"
+    "chatWidgetTitle": "Get Your Estimate",
+    "chatWidgetSubtitle": "AI estimate chat — same page, not the booking form."
   },
   "section1": {
     "heroTitle": "Get Your Patio Cover Estimate in 60 Seconds",
-    "subtitle": "Get a fast ballpark estimate, compare cover types, and explore options — no sales visit needed to start. Simple, low-pressure, and easy to use.",
+    "subtitle": "Get a fast ballpark estimate, compare cover types, and explore options — quick start. Simple, low-pressure, and easy to use.",
     "botAvatar": "",
     "welcomeMessages": [
       "Tell me your patio size and city — I’ll help you explore your options and estimate your project."
@@ -25,9 +26,11 @@
     "trustPoints": [
       "✔ Fast estimate",
       "✔ Easy comparison",
-      "✔ No sales visit to start",
+      "✔ Quick start",
       "✔ Simple, low-pressure process"
-    ]
+    ],
+    "productsHeading": "Compare cover types",
+    "productsLead": "Same home page — choose a style below (not the booking section)."
   },
   "services": [
     {

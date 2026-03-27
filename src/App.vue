@@ -32,16 +32,9 @@
                   <button
                     type="button"
                     class="hero-cta hero-cta--primary"
-                    @click="scrollToGetQuote()"
+                    @click="startEstimateFromHero()"
                   >
-                    Get My Estimate
-                  </button>
-                  <button
-                    type="button"
-                    class="hero-cta hero-cta--secondary"
-                    @click.prevent="scrollToSection('#our-products')"
-                  >
-                    See Cover Options
+                    Start My Estimate
                   </button>
                 </div>
               </div>
@@ -66,11 +59,22 @@
                 href="#confirm-final-quote"
                 class="hero-subnav__link hero-subnav__link--inverse"
                 @click.prevent="scrollToGetQuote()"
-              >Get My Estimate</a>
+              >Book a Site Visit</a>
             </nav>
           </div>
 
           <div id="our-products" class="body-section body-section-cards-only">
+            <div class="our-products-intro">
+              <h2 class="our-products-heading">
+                {{ s1.productsHeading || 'Compare cover types' }}
+              </h2>
+              <p class="our-products-lead">
+                {{
+                  s1.productsLead ||
+                    'Same page — pick a cover style below (not the site-visit form).'
+                }}
+              </p>
+            </div>
             <div class="services-section">
               <div class="services-grid">
                 <div
@@ -534,7 +538,7 @@
               href="#confirm-final-quote"
               class="site-footer__link"
               @click.prevent="scrollToGetQuote()"
-            >Get My Estimate</a>
+            >Book a Site Visit</a>
           </nav>
 
           <div class="site-footer__contact">
@@ -558,11 +562,14 @@
     <!-- Fixed bottom-right chat -->
     <div
       v-show="siteLoaded"
+      id="estimate-chat-dock"
+      ref="chatWidgetDock"
       class="chat-widget-dock"
       :class="{
         'chat-widget-dock--mobile-bubble': chatLayoutMobile,
         'chat-widget-dock--panel-open': chatLayoutMobile && chatMobilePanelOpen,
         'chat-widget-dock--desktop-minimized': !chatLayoutMobile && chatDesktopMinimized,
+        'chat-widget-dock--hero-highlight': chatHeroHighlight,
       }"
     >
       <button
@@ -594,7 +601,12 @@
         class="chat-widget-panel chat-widget-panel--embed"
         role="dialog"
         aria-modal="false"
-        :aria-label="(cfg.chatWidgetTitle || 'Get Your Estimate') + ' assistant'"
+        :aria-label="
+          (cfg.chatWidgetTitle || 'Get Your Estimate') +
+          '. ' +
+          (cfg.chatWidgetSubtitle ||
+            'AI estimate chat on this page, not the booking form.')
+        "
         :style="chatPanelStyle"
       >
         <div
@@ -605,9 +617,18 @@
           <span class="chat-resize-bar" aria-hidden="true"></span>
         </div>
         <div class="chat-widget-header">
-          <span class="chat-widget-header-title">{{
-            cfg.chatWidgetTitle || 'Get Your Estimate'
-          }}</span>
+          <div class="chat-widget-header-lead">
+            <span class="chat-widget-ai-badge" title="AI assistant">AI</span>
+            <div class="chat-widget-header-text">
+              <span class="chat-widget-header-title">{{
+                cfg.chatWidgetTitle || 'Get Your Estimate'
+              }}</span>
+              <span class="chat-widget-header-subtitle">{{
+                cfg.chatWidgetSubtitle ||
+                  'Estimate chat — same page, not the site-visit booking section.'
+              }}</span>
+            </div>
+          </div>
           <button
             type="button"
             class="chat-widget-close"
@@ -981,6 +1002,8 @@ export default {
         welcomeMessages: [],
         heroTitle: '',
         trustPoints: [],
+        productsHeading: '',
+        productsLead: '',
       },
       s2: { cities: [] },
       s3: {},
@@ -1022,6 +1045,8 @@ export default {
       chatMobilePanelOpen: false,
       /** Desktop: when true, panel hidden and FAB shown (same as mobile collapsed) */
       chatDesktopMinimized: false,
+      /** Brief attention state after "Start My Estimate" (hero CTA) */
+      chatHeroHighlight: false,
       /** Persistent anonymous id for /ask + logging (localStorage) */
       visitorId: '',
       chatBookingForm: {
@@ -1180,7 +1205,18 @@ export default {
     }
   },
   methods: {
-    openChatPanel() {
+    /** Hero primary CTA — open chat in place (no page scroll; avoids jumping toward booking). */
+    startEstimateFromHero() {
+      this.openChatPanel({ focusPreventScroll: true });
+      this.chatHeroHighlight = true;
+      clearTimeout(this._chatHeroHighlightTimer);
+      this._chatHeroHighlightTimer = setTimeout(() => {
+        this.chatHeroHighlight = false;
+        this._chatHeroHighlightTimer = null;
+      }, 1350);
+    },
+    openChatPanel(options = {}) {
+      const focusPreventScroll = !!options.focusPreventScroll;
       if (this.chatLayoutMobile) {
         this.chatMobilePanelOpen = true;
       } else {
@@ -1189,7 +1225,7 @@ export default {
       this.$nextTick(() => {
         const inp = this.$refs.chatInput;
         if (inp && typeof inp.focus === 'function') {
-          inp.focus();
+          inp.focus(focusPreventScroll ? { preventScroll: true } : undefined);
         }
         this.scrollToBottom();
       });
@@ -1706,13 +1742,9 @@ export default {
       }, 1500);
     },
     scrollToSection(selector) {
-      const scroller = this.$el.querySelector('.scroll-container');
       const target = this.$el.querySelector(selector);
-      if (!scroller || !target) return;
-      const rect = target.getBoundingClientRect();
-      const scRect = scroller.getBoundingClientRect();
-      const top = scroller.scrollTop + rect.top - scRect.top - 16;
-      scroller.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      if (!target || typeof target.scrollIntoView !== 'function') return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
     hasServiceModal(service) {
       return (
@@ -2441,7 +2473,7 @@ body {
   min-height: 100vh;
   max-height: none;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: visible;
   box-sizing: border-box;
 }
 
@@ -2821,7 +2853,32 @@ body {
 }
 
 #our-products {
-  scroll-margin-top: 24px;
+  scroll-margin-top: max(20px, env(safe-area-inset-top));
+}
+
+.our-products-intro {
+  padding: 8px max(16px, env(safe-area-inset-left)) 4px
+    max(16px, env(safe-area-inset-right));
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  margin-top: 4px;
+}
+
+.our-products-heading {
+  margin: 0 0 6px;
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.our-products-lead {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #64748b;
+  font-weight: 500;
+  max-width: 40em;
 }
 
 #past-projects {
@@ -3021,6 +3078,89 @@ body {
   height: min(520px, 72vh);
   flex: 0 0 auto;
   box-shadow: 0 24px 56px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  transform-origin: bottom right;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* Hero CTA "Start My Estimate" — obvious visual feedback */
+@keyframes chat-widget-panel-attention {
+  0% {
+    box-shadow: 0 24px 56px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    transform: scale(1);
+  }
+  18% {
+    box-shadow:
+      0 0 0 3px rgba(14, 165, 233, 0.95),
+      0 0 48px 14px rgba(45, 212, 191, 0.55),
+      0 28px 64px rgba(15, 23, 42, 0.38);
+    transform: scale(1.035);
+  }
+  55% {
+    box-shadow:
+      0 0 0 2px rgba(14, 165, 233, 0.65),
+      0 0 32px 8px rgba(45, 212, 191, 0.4),
+      0 24px 56px rgba(15, 23, 42, 0.32);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 24px 56px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    transform: scale(1);
+  }
+}
+
+@keyframes chat-widget-launcher-attention {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 8px 28px rgba(14, 165, 233, 0.42),
+      0 4px 14px rgba(45, 212, 191, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+  20% {
+    transform: scale(1.12);
+    box-shadow:
+      0 0 0 4px rgba(14, 165, 233, 0.9),
+      0 0 36px 12px rgba(45, 212, 191, 0.65),
+      0 12px 36px rgba(14, 165, 233, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 8px 28px rgba(14, 165, 233, 0.42),
+      0 4px 14px rgba(45, 212, 191, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+}
+
+.chat-widget-dock--hero-highlight .chat-widget-panel--embed {
+  animation: chat-widget-panel-attention 1.25s cubic-bezier(0.34, 1.3, 0.64, 1)
+    forwards;
+}
+
+.chat-widget-dock--hero-highlight.chat-widget-dock--mobile-bubble:not(
+    .chat-widget-dock--panel-open
+  )
+  .chat-mobile-launcher,
+.chat-widget-dock--hero-highlight.chat-widget-dock--desktop-minimized
+  .chat-mobile-launcher {
+  animation: chat-widget-launcher-attention 1.25s cubic-bezier(0.34, 1.3, 0.64, 1)
+    forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-widget-dock--hero-highlight .chat-widget-panel--embed,
+  .chat-widget-dock--hero-highlight.chat-widget-dock--mobile-bubble:not(
+      .chat-widget-dock--panel-open
+    )
+    .chat-mobile-launcher,
+  .chat-widget-dock--hero-highlight.chat-widget-dock--desktop-minimized
+    .chat-mobile-launcher {
+    animation-duration: 0.01ms !important;
+  }
 }
 
 /* Mobile bubble mode (viewport ≤640px) + desktop minimized: FAB only */
@@ -3869,7 +4009,7 @@ body {
 
 .chat-widget-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   padding: 10px 12px;
@@ -3877,13 +4017,50 @@ body {
   border-bottom: 1px solid rgba(226, 232, 240, 0.95);
 }
 
-.chat-widget-header-title {
+.chat-widget-header-lead {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   flex: 1;
   min-width: 0;
+}
+
+.chat-widget-ai-badge {
+  flex-shrink: 0;
+  margin-top: 2px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #fff;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.35);
+}
+
+.chat-widget-header-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.chat-widget-header-title {
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #0f172a;
+  line-height: 1.25;
+}
+
+.chat-widget-header-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #64748b;
+  letter-spacing: -0.01em;
 }
 
 .chat-widget-close {
@@ -5469,6 +5646,16 @@ body {
   .chat-widget-dock .chat-widget-header-title {
     font-size: 0.95rem;
     font-weight: 700;
+  }
+
+  .chat-widget-dock .chat-widget-header-subtitle {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .chat-widget-dock .chat-widget-ai-badge {
+    padding: 3px 6px;
+    font-size: 9px;
   }
 
   .chat-widget-dock .chat-resize-handle {
