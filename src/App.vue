@@ -1119,6 +1119,9 @@ export default {
       } catch {
         this.visitorId = `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
       }
+      if (typeof window !== 'undefined' && window.console) {
+        console.log('VISITOR_DEBUG', window.localStorage.getItem('loomihome_visitor_id'));
+      }
     }
   },
   mounted() {
@@ -1286,6 +1289,7 @@ export default {
           phone: (this.form && this.form.phone) || '',
           visitor_id: this.getOrCreateVisitorId(),
         };
+        console.log('ASK_PAYLOAD_DEBUG', askBody);
         const res = await fetch(this.cfg.chatApiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
