@@ -11,16 +11,23 @@
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
-    "chatWidgetTitle": "Ask Loomia"
+    "chatWidgetTitle": "Get Your Estimate"
   },
   "section1": {
-    "subtitle": "Simple, fast, and built around your home.",
+    "heroTitle": "Get Your Patio Cover Estimate in 60 Seconds",
+    "subtitle": "Get a fast ballpark estimate, compare cover types, and explore options — no sales visit needed to start. Simple, low-pressure, and easy to use.",
     "botAvatar": "",
     "welcomeMessages": [
-      "Hi, how can I help you today?"
+      "Tell me your patio size and city — I’ll help you explore your options and estimate your project."
     ],
-    "chatPlaceholder": "Type your project details (city + size)...",
-    "inputHelperExample": "Richmond, 200 sq ft glass patio cover"
+    "chatPlaceholder": "Example: 12x14 patio in Burnaby",
+    "inputHelperExample": "Richmond, glass patio cover, about 12×14 ft",
+    "trustPoints": [
+      "✔ Fast estimate",
+      "✔ Easy comparison",
+      "✔ No sales visit to start",
+      "✔ Simple, low-pressure process"
+    ]
   },
   "services": [
     {

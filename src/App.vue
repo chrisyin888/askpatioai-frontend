@@ -19,14 +19,31 @@
           <div class="header hero-header">
             <div class="hero-top-row">
               <div class="hero-brand-block">
-                <h1 v-if="cfg.brandName" class="site-brand">
-                  <span class="site-brand-name">{{ cfg.brandName }}</span>
+                <p v-if="cfg.brandName" class="hero-eyebrow">
+                  <span class="hero-eyebrow-name">{{ cfg.brandName }}</span>
                   <span
                     v-if="cfg.brandSuffix"
-                    class="site-brand-suffix"
+                    class="hero-eyebrow-suffix"
                   >{{ cfg.brandSuffix }}</span>
-                </h1>
+                </p>
+                <h1 class="hero-main-title">{{ s1.heroTitle }}</h1>
                 <p class="subtitle hero-subtitle">{{ s1.subtitle }}</p>
+                <div class="hero-cta-row">
+                  <button
+                    type="button"
+                    class="hero-cta hero-cta--primary"
+                    @click="scrollToGetQuote()"
+                  >
+                    Get My Estimate
+                  </button>
+                  <button
+                    type="button"
+                    class="hero-cta hero-cta--secondary"
+                    @click.prevent="scrollToSection('#our-products')"
+                  >
+                    See Cover Options
+                  </button>
+                </div>
               </div>
             </div>
             <nav class="hero-subnav" aria-label="Site sections">
@@ -49,7 +66,7 @@
                 href="#confirm-final-quote"
                 class="hero-subnav__link hero-subnav__link--inverse"
                 @click.prevent="scrollToGetQuote()"
-              >Get quote</a>
+              >Get My Estimate</a>
             </nav>
           </div>
 
@@ -143,18 +160,16 @@
             </div>
           </div>
           <!-- Trust strip under hero content -->
-          <div class="trust-strip">
-            <div class="trust-item">
-              <span class="trust-label">Serving</span>
-              <span class="trust-value">Greater Vancouver</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-label">Instant</span>
-              <span class="trust-value">AI-powered quotes</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-label">Backed by</span>
-              <span class="trust-value">real installation experts</span>
+          <div
+            v-if="s1.trustPoints && s1.trustPoints.length"
+            class="trust-strip trust-strip--points"
+          >
+            <div
+              v-for="(pt, i) in s1.trustPoints"
+              :key="i"
+              class="trust-item trust-item--line"
+            >
+              <span class="trust-line">{{ pt }}</span>
             </div>
           </div>
         </div>
@@ -392,7 +407,7 @@
 
               <div class="form-upload-section">
                 <label class="details-label upload-field-label" for="appointment-photos">
-                  Upload photos for a more accurate quote (optional)
+                  Upload photos for a more accurate estimate (optional)
                 </label>
                 <p class="upload-field-hint">
                   Image files only (e.g. PNG, JPG). Up to 8 files, 8MB each.
@@ -519,7 +534,7 @@
               href="#confirm-final-quote"
               class="site-footer__link"
               @click.prevent="scrollToGetQuote()"
-            >Get a Quote</a>
+            >Get My Estimate</a>
           </nav>
 
           <div class="site-footer__contact">
@@ -579,7 +594,7 @@
         class="chat-widget-panel chat-widget-panel--embed"
         role="dialog"
         aria-modal="false"
-        :aria-label="(cfg.chatWidgetTitle || 'Chat') + ' assistant'"
+        :aria-label="(cfg.chatWidgetTitle || 'Get Your Estimate') + ' assistant'"
         :style="chatPanelStyle"
       >
         <div
@@ -591,7 +606,7 @@
         </div>
         <div class="chat-widget-header">
           <span class="chat-widget-header-title">{{
-            cfg.chatWidgetTitle || 'Chat'
+            cfg.chatWidgetTitle || 'Get Your Estimate'
           }}</span>
           <button
             type="button"
@@ -962,7 +977,11 @@ export default {
       isTyping: false,
       messages: [],
       cfg: {},
-      s1: { welcomeMessages: [] },
+      s1: {
+        welcomeMessages: [],
+        heroTitle: '',
+        trustPoints: [],
+      },
       s2: { cities: [] },
       s3: {},
       services: [],
@@ -1270,7 +1289,7 @@ export default {
         if (productInquiry.isMulti) {
           questionForAI = `[Customer is asking about patio covers in general. Introduce all three patio cover types (Glass, Aluminum, Skyline Combo) briefly and ask which one interests them.] ${text}`;
         } else {
-          questionForAI = `[Customer is asking about ${productInquiry.name}. Introduce this product briefly and naturally, then ask for their preferred size to give a quote.] ${text}`;
+          questionForAI = `[Customer is asking about ${productInquiry.name}. Introduce this product briefly and naturally, then ask for their preferred size to give an estimate.] ${text}`;
         }
       }
 
@@ -1599,7 +1618,7 @@ export default {
     },
     handleSiteMeasurementBotReply(replaceMessageId) {
       const responses = [
-        'Free site measurement can be arranged. Please book the appointment form and the team can confirm the final quote on site.',
+        'Free site measurement can be arranged. Please book the appointment form and the team can confirm final pricing on site.',
         'Can arrange on-site measurement. Please submit the appointment form and the team will contact you.',
         'No problem. Site measurement can be booked first, and final price can be confirmed after the visit.',
       ];
@@ -2641,6 +2660,92 @@ body {
   font-size: 16px;
   color: #334155;
   line-height: 1.5;
+}
+
+.hero-eyebrow {
+  margin: 0 0 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25em 0.35em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.hero-eyebrow-name {
+  color: #0f172a;
+}
+
+.hero-eyebrow-suffix {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.hero-main-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.65rem, 4.5vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: #0f172a;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 16px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-cta--primary {
+  background: #0f172a;
+  color: #fff;
+  border-color: #0f172a;
+}
+
+.hero-cta--primary:hover {
+  background: #1e293b;
+  border-color: #1e293b;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+}
+
+.hero-cta--primary:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 3px;
+}
+
+.hero-cta--secondary {
+  background: #fff;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.hero-cta--secondary:hover {
+  border-color: #0f172a;
+  background: #f8fafc;
+}
+
+.hero-cta--secondary:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 3px;
 }
 
 /* Horizontal nav under hero heading */
@@ -3712,6 +3817,10 @@ body {
   );
 }
 
+.trust-strip--points {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .section-hero .trust-strip {
   border-top: none;
 }
@@ -3720,6 +3829,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.trust-item--line {
+  justify-content: center;
+}
+
+.trust-line {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e5e7eb;
+  line-height: 1.35;
 }
 
 .trust-label {
@@ -4529,6 +4649,16 @@ body {
     grid-template-columns: 1fr;
     padding-inline: 16px;
   }
+
+  .trust-strip--points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-strip--points {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-height: 750px) {
@@ -4580,6 +4710,19 @@ body {
 
   .hero-subtitle {
     font-size: 14px;
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.35rem, 6vw, 1.85rem);
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta {
+    width: 100%;
   }
 
   .hero-top-row {
