@@ -12,7 +12,7 @@
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
     "chatWidgetTitle": "Get Your Estimate",
-    "chatWidgetSubtitle": "AI estimate chat — same page, not the booking form."
+    "chatWidgetSubtitle": "Start here for a fast estimate"
   },
   "section1": {
     "heroTitle": "Get Your Patio Cover Estimate in 60 Seconds",

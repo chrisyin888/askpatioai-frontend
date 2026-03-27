@@ -605,7 +605,7 @@
           (cfg.chatWidgetTitle || 'Get Your Estimate') +
           '. ' +
           (cfg.chatWidgetSubtitle ||
-            'AI estimate chat on this page, not the booking form.')
+            'Start here for a fast estimate')
         "
         :style="chatPanelStyle"
       >
@@ -625,7 +625,7 @@
               }}</span>
               <span class="chat-widget-header-subtitle">{{
                 cfg.chatWidgetSubtitle ||
-                  'Estimate chat — same page, not the site-visit booking section.'
+                  'Start here for a fast estimate'
               }}</span>
             </div>
           </div>
