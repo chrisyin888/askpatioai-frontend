@@ -9,7 +9,6 @@
     "appointmentShowcaseFallback": "/house/p23.jpg",
     "targetEmail": "info@loomihomepatios.ca",
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
-    "chatSource": "loomihome_website",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
     "chatWidgetTitle": "Get Your Estimate",

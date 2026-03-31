@@ -5,9 +5,7 @@
     "appointmentDecoImage": "/house/p20.jpg",
     "targetEmail": "info@example.com",
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
-    "chatSource": "loomihome_website",
-    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
-    "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead"
+    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email"
   },
   "section1": {
     "title": "Get an Instant Quote in 60 Seconds",
