@@ -11,26 +11,48 @@
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
-    "chatWidgetTitle": "Get Your Estimate",
-    "chatWidgetSubtitle": "Start here for a fast estimate"
+    "chatWidgetTitle": "Fast estimate — about 60 seconds",
+    "chatWidgetSubtitle": "Rough patio cover pricing before you book a site visit"
   },
   "section1": {
-    "heroTitle": "Get Your Patio Cover Estimate in 60 Seconds",
-    "subtitle": "Get a fast ballpark estimate, compare cover types, and explore options — quick start. Simple, low-pressure, and easy to use.",
+    "heroTitle": "Get a Patio Cover Estimate in 60 Seconds",
+    "subtitle": "Compare aluminum, glass, skyline combo, and sunroom options with fast ballpark pricing for Vancouver-area homes — no waiting days for a first number.",
     "botAvatar": "",
     "welcomeMessages": [
-      "Tell me your patio size and city — I’ll help you explore your options and estimate your project."
+      "Tell me your patio size and city — get a fast ballpark estimate in about a minute, no obligation."
     ],
     "chatPlaceholder": "Example: 12x14 patio in Burnaby",
     "inputHelperExample": "Richmond, glass patio cover, about 12×14 ft",
     "trustPoints": [
-      "✔ Fast estimate",
-      "✔ Easy comparison",
-      "✔ Quick start",
-      "✔ Simple, low-pressure process"
+      "✔ Instant-style ballpark in chat",
+      "✔ Compare cover types side by side",
+      "✔ Lower Mainland service",
+      "✔ Free on-site measurement when you’re ready"
     ],
-    "productsHeading": "Compare cover types",
-    "productsLead": "Same home page — choose a style below (not the booking section)."
+    "productsHeading": "Compare patio cover types",
+    "productsLead": "Pick a style to learn more — then get a quick rough quote in chat before you book a free measurement.",
+    "seoHeading": "Custom patio covers & sunrooms in Vancouver",
+    "seoBody": "LoomiHome helps homeowners compare aluminum patio covers, glass patio covers, skyline combo designs, and sunroom options with fast ballpark pricing and a clear path to a free on-site measurement. Start online so you understand range and trade-offs first — then we confirm details on site.",
+    "seoServiceArea": "Serving Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, and nearby areas.",
+    "faqTitle": "Quick answers",
+    "faqItems": [
+      {
+        "q": "How fast can I get a rough estimate?",
+        "a": "Usually right in the chat: share your city and approximate size, and you’ll get a ballpark range in about a minute — not days."
+      },
+      {
+        "q": "What types of patio covers do you offer?",
+        "a": "Aluminum covers, glass covers, skyline combo (glass + V-panel), and sunrooms. You can compare all of them on this site and in chat."
+      },
+      {
+        "q": "Do you serve Vancouver and nearby cities?",
+        "a": "Yes — we work across the Lower Mainland, including Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, and surrounding areas."
+      },
+      {
+        "q": "Can I get pricing before booking a measurement?",
+        "a": "Yes. The chat gives a rough total to help you decide. A free on-site visit confirms measurements and final numbers when you want to move forward."
+      }
+    ]
   },
   "services": [
     {
