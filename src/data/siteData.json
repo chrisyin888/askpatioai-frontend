@@ -78,6 +78,82 @@
       }
     ]
   },
+  "beforeAfterProjects": {
+    "heading": "Before & After Patio Cover Projects",
+    "subtitle": "See how common backyard and patio spaces can change with aluminum, glass, skyline combo, and sunroom upgrades — real project-style examples from our Lower Mainland work.",
+    "ctaTitle": "Get a Rough Estimate for a Similar Project",
+    "ctaBody": "Share your patio size and city in chat to get a quick ballpark estimate in about 60 seconds.",
+    "viewMoreLabel": "View more projects",
+    "viewMoreHref": "#past-projects",
+    "items": [
+      {
+        "type": "Aluminum Patio Cover",
+        "size": "Approx. 24' × 20'",
+        "city": "Burnaby",
+        "benefit": "Added shade and rain protection for everyday backyard use.",
+        "beforeSrc": "/house/before-after/burnaby-aluminum-before.png",
+        "afterSrc": "/house/before-after/burnaby-aluminum-after.png",
+        "beforeAlt": "Open asphalt patio and backyard before large aluminum patio cover install, Burnaby",
+        "afterAlt": "Completed approx. 24 by 20 ft aluminum patio cover with black frame and light panels, Burnaby",
+        "hidePairLabels": true
+      },
+      {
+        "type": "Glass Patio Cover",
+        "size": "Approx. 12' × 28'",
+        "city": "Vancouver",
+        "benefit": "Kept the space bright while adding overhead protection.",
+        "beforeSrc": "/house/before-after/vancouver-glass-before.png",
+        "afterSrc": "/house/before-after/vancouver-glass-after.png",
+        "beforeAlt": "Uncovered back patio with aggregate concrete before glass patio cover, Vancouver area",
+        "afterAlt": "Black-framed glass patio cover with integrated gutter, approx. 12 by 28 ft, Vancouver area",
+        "hidePairLabels": true
+      },
+      {
+        "type": "Skyline Combo Cover",
+        "size": "Approx. 12' × 26'",
+        "city": "Surrey",
+        "benefit": "Balanced shade and natural light for a more comfortable patio.",
+        "beforeSrc": "/house/before-after/surrey-skyline-before.png",
+        "afterSrc": "/house/before-after/surrey-skyline-after.png",
+        "beforeAlt": "Open back patio with new concrete slab before skyline combo cover, Surrey",
+        "afterAlt": "Finished skyline combo cover with black frame, V-panel and light panels, wood posts, Surrey",
+        "hidePairLabels": true
+      },
+      {
+        "type": "Aluminum Patio Cover (Carport)",
+        "size": "Approx. 10' × 30'",
+        "city": "Richmond",
+        "benefit": "Turned an open side driveway into a covered carport — dry parking and a cleaner walk to the gate year-round.",
+        "beforeSrc": "/house/before-after/richmond-carport-before.png",
+        "afterSrc": "/house/before-after/richmond-carport-after.png",
+        "beforeAlt": "Narrow brick side driveway at night before aluminum carport cover, Richmond",
+        "afterAlt": "Long aluminum carport with light corrugated roof over side driveway, approx. 10 by 30 ft, Richmond",
+        "hidePairLabels": true
+      },
+      {
+        "type": "Aluminum Patio Cover",
+        "size": "Approx. 11' × 14'",
+        "city": "Delta",
+        "benefit": "Improved backyard usability with a clean, modern aluminum cover.",
+        "beforeSrc": "/house/before-after/delta-aluminum-before.png",
+        "afterSrc": "/house/before-after/delta-aluminum-after.png",
+        "beforeAlt": "Side yard with gravel and unfinished ground before aluminum patio cover, Delta",
+        "afterAlt": "Black-framed aluminum patio cover with light corrugated roof, approx. 11 by 14 ft, Delta",
+        "hidePairLabels": true
+      },
+      {
+        "type": "Glass Patio Cover",
+        "size": "Approx. 12' × 16'",
+        "city": "Coquitlam",
+        "benefit": "Protected the seating area while keeping plenty of natural light.",
+        "beforeSrc": "/house/before-after/coquitlam-glass-before.png",
+        "afterSrc": "/house/before-after/coquitlam-glass-after.png",
+        "beforeAlt": "Open concrete patio and stucco back wall before glass patio cover, Coquitlam",
+        "afterAlt": "Black-framed glass patio cover over rear patio, approx. 12 by 16 ft, Coquitlam",
+        "hidePairLabels": true
+      }
+    ]
+  },
   "services": [
     {
       "name": "Glass Patio Covers",

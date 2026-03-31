@@ -51,6 +51,11 @@
                 @click.prevent="scrollToSection('#our-products')"
               >Our products</a>
               <a
+                href="#before-after-projects"
+                class="hero-subnav__link hero-subnav__link--emphasized"
+                @click.prevent="scrollToSection('#before-after-projects')"
+              >Before &amp; after</a>
+              <a
                 href="#past-projects"
                 class="hero-subnav__link hero-subnav__link--emphasized"
                 @click.prevent="scrollToSection('#past-projects')"
@@ -195,6 +200,107 @@
               <span class="trust-line">{{ pt }}</span>
             </div>
           </div>
+
+          <section
+            v-if="beforeAfter && beforeAfter.items && beforeAfter.items.length"
+            id="before-after-projects"
+            class="home-before-after"
+            aria-labelledby="before-after-heading"
+          >
+            <div class="home-before-after__intro">
+              <h2
+                id="before-after-heading"
+                class="home-before-after__title"
+              >{{ beforeAfter.heading }}</h2>
+              <p class="home-before-after__subtitle">{{ beforeAfter.subtitle }}</p>
+            </div>
+            <div class="home-before-after__grid">
+              <article
+                v-for="(proj, bi) in beforeAfter.items"
+                :key="'ba-' + bi"
+                class="home-before-after__card"
+              >
+                <div class="home-before-after__pair">
+                  <figure class="home-before-after__shot">
+                    <span
+                      v-if="!proj.hidePairLabels"
+                      class="home-before-after__label"
+                    >Before</span>
+                    <div
+                      class="home-before-after__zoom-hit"
+                      role="button"
+                      tabindex="0"
+                      :aria-label="'Enlarge before photo: ' + (proj.beforeAlt || proj.type || 'project')"
+                      @click="openBeforeAfterLightbox(proj.beforeSrc)"
+                      @keydown.enter.prevent="openBeforeAfterLightbox(proj.beforeSrc)"
+                      @keydown.space.prevent="openBeforeAfterLightbox(proj.beforeSrc)"
+                    >
+                      <img
+                        :src="resolvedPublicUrl(proj.beforeSrc)"
+                        :alt="proj.beforeAlt || 'Before patio project photo'"
+                        loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="300"
+                      />
+                    </div>
+                  </figure>
+                  <figure class="home-before-after__shot">
+                    <span
+                      v-if="!proj.hidePairLabels"
+                      class="home-before-after__label"
+                    >After</span>
+                    <div
+                      class="home-before-after__zoom-hit"
+                      role="button"
+                      tabindex="0"
+                      :aria-label="'Enlarge after photo: ' + (proj.afterAlt || proj.type || 'project')"
+                      @click="openBeforeAfterLightbox(proj.afterSrc)"
+                      @keydown.enter.prevent="openBeforeAfterLightbox(proj.afterSrc)"
+                      @keydown.space.prevent="openBeforeAfterLightbox(proj.afterSrc)"
+                    >
+                      <img
+                        :src="resolvedPublicUrl(proj.afterSrc)"
+                        :alt="proj.afterAlt || 'After patio cover project photo'"
+                        loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="300"
+                      />
+                    </div>
+                  </figure>
+                </div>
+                <div class="home-before-after__meta">
+                  <h3 class="home-before-after__type">{{ proj.type }}</h3>
+                  <p class="home-before-after__facts">
+                    <span>{{ proj.size }}</span>
+                    <span
+                      class="home-before-after__sep"
+                      aria-hidden="true"
+                    >·</span>
+                    <span>{{ proj.city }}</span>
+                  </p>
+                  <p class="home-before-after__benefit">{{ proj.benefit }}</p>
+                </div>
+              </article>
+            </div>
+            <div class="home-before-after__cta-block">
+              <button
+                type="button"
+                class="hero-cta hero-cta--primary home-before-after__cta-btn"
+                @click="startEstimateFromHero()"
+              >
+                {{ beforeAfter.ctaTitle }}
+              </button>
+              <p class="home-before-after__cta-note">{{ beforeAfter.ctaBody }}</p>
+              <a
+                v-if="beforeAfter.viewMoreLabel && beforeAfter.viewMoreHref"
+                :href="beforeAfter.viewMoreHref"
+                class="home-before-after__more"
+                @click.prevent="scrollToSection(beforeAfter.viewMoreHref)"
+              >{{ beforeAfter.viewMoreLabel }}</a>
+            </div>
+          </section>
 
           <div
             v-if="s1.seoHeading && s1.seoBody"
@@ -611,6 +717,11 @@
               class="site-footer__link"
               @click.prevent="scrollToSection('#our-products')"
             >Our Products</a>
+            <a
+              href="#before-after-projects"
+              class="site-footer__link"
+              @click.prevent="scrollToSection('#before-after-projects')"
+            >Before &amp; After</a>
             <a
               href="#past-projects"
               class="site-footer__link"
@@ -1062,14 +1173,23 @@
       </div>
     </Teleport>
 
-    <Teleport to="body">
+    <Teleport v-if="chatLightboxDisplaySrc" to="body">
       <div
-        v-if="chatLightboxImage"
         class="chat-lightbox-overlay"
-        @click="chatLightboxImage = null"
+        @click="closeChatLightbox"
       >
-        <button class="chat-lightbox-close" @click.stop="chatLightboxImage = null">&times;</button>
-        <img :src="chatLightboxImage" class="chat-lightbox-img" @click.stop />
+        <button
+          type="button"
+          class="chat-lightbox-close"
+          aria-label="Close image"
+          @click.stop="closeChatLightbox"
+        >&times;</button>
+        <img
+          :src="chatLightboxDisplaySrc"
+          class="chat-lightbox-img"
+          alt=""
+          @click.stop
+        />
       </div>
     </Teleport>
   </div>
@@ -1110,6 +1230,7 @@ export default {
       projects: [],
       features: [],
       benefits: [],
+      beforeAfter: null,
       activeCity: '',
       activeProjectType: 'Aluminum',
       projectTypes: ['Aluminum', 'Glass', 'A-Type', 'Skyline', 'Sunroom'],
@@ -1264,6 +1385,17 @@ export default {
         label: labels[id] || id,
       }));
     },
+    /** Non-empty string only — Teleport + img must never bind null/invalid `is`-like state (Vue 3.2). */
+    chatLightboxDisplaySrc() {
+      const raw = this.chatLightboxImage;
+      if (raw == null) return '';
+      const s = String(raw).trim();
+      if (!s) return '';
+      if (/^https?:\/\//i.test(s)) return s;
+      if (s.startsWith('/')) return s;
+      if (s.startsWith('data:')) return s;
+      return '';
+    },
   },
   created() {
     const d = siteData;
@@ -1272,6 +1404,7 @@ export default {
     this.s2 = d.section2;
     this.s3 = d.section3;
     this.services = d.services;
+    this.beforeAfter = d.beforeAfterProjects || null;
     this.projects = d.projects;
     this.randomizeProjects();
     this.features = d.features;
@@ -1290,6 +1423,10 @@ export default {
   },
   mounted() {
     this._onServiceModalEscape = (e) => {
+      if (e.key === 'Escape' && this.chatLightboxDisplaySrc) {
+        this.closeChatLightbox();
+        return;
+      }
       if (e.key === 'Escape' && this.serviceModalService) {
         this.closeServiceModal();
       }
@@ -1341,6 +1478,27 @@ export default {
   },
   methods: {
     /** Hero primary CTA — open chat in place (no page scroll; avoids jumping toward booking). */
+    /** Absolute URL for public/ assets (helps some hosts + lightbox). */
+    resolvedPublicUrl(path) {
+      if (path == null) return '';
+      if (typeof path !== 'string') return '';
+      const t = path.trim();
+      if (!t) return '';
+      if (/^https?:\/\//i.test(t)) return t;
+      if (typeof window !== 'undefined' && t.startsWith('/')) {
+        return `${window.location.origin}${t}`;
+      }
+      return t;
+    },
+    closeChatLightbox() {
+      this.chatLightboxImage = null;
+    },
+    openBeforeAfterLightbox(path) {
+      const url = this.resolvedPublicUrl(path);
+      if (typeof url === 'string' && url.length > 0) {
+        this.chatLightboxImage = url;
+      }
+    },
     startEstimateFromHero() {
       this.openChatPanel({ focusPreventScroll: true });
       this.chatHeroHighlight = true;
@@ -3037,6 +3195,10 @@ body {
   scroll-margin-top: max(20px, env(safe-area-inset-top));
 }
 
+#before-after-projects {
+  scroll-margin-top: 24px;
+}
+
 .our-products-intro {
   padding: 8px max(16px, env(safe-area-inset-left)) 4px
     max(16px, env(safe-area-inset-right));
@@ -4202,6 +4364,179 @@ body {
   font-weight: 600;
   color: #e5e7eb;
   line-height: 1.35;
+}
+
+/* Before & after project showcase (home) */
+.home-before-after {
+  margin-top: 16px;
+  padding: 22px max(16px, env(safe-area-inset-left)) 24px
+    max(16px, env(safe-area-inset-right));
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.home-before-after__intro {
+  margin-bottom: 18px;
+}
+
+.home-before-after__title {
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.home-before-after__subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #64748b;
+  max-width: 44em;
+}
+
+.home-before-after__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.25rem;
+}
+
+.home-before-after__card {
+  background: #fff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.home-before-after__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.home-before-after__shot {
+  position: relative;
+  margin: 0;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  background: #e2e8f0;
+}
+
+.home-before-after__shot:first-child {
+  border-right: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.home-before-after__zoom-hit {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: zoom-in;
+  background: #e2e8f0;
+  line-height: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-before-after__zoom-hit:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 2px;
+}
+
+.home-before-after__zoom-hit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.home-before-after__label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.78);
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.home-before-after__meta {
+  padding: 14px 14px 16px;
+}
+
+.home-before-after__type {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.home-before-after__facts {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.home-before-after__sep {
+  margin: 0 6px;
+  color: #94a3b8;
+}
+
+.home-before-after__benefit {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.home-before-after__cta-block {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  text-align: center;
+}
+
+.home-before-after__cta-btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-before-after__cta-note {
+  margin: 12px auto 0;
+  max-width: 32rem;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.home-before-after__more {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.home-before-after__more:hover {
+  color: #1e293b;
 }
 
 .trust-label {
