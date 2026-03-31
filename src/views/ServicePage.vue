@@ -22,6 +22,11 @@
             </ul>
           </div>
 
+          <div v-if="page.pricingLine" class="service-page-pricing">
+            <h2 class="service-page-h2">Ballpark pricing</h2>
+            <p class="service-page-pricing-text">{{ page.pricingLine }}</p>
+          </div>
+
           <div class="service-page-cta-block">
             <h2 class="service-page-h2">{{ page.ctaTitle }}</h2>
             <p class="service-page-cta-body">{{ page.ctaBody }}</p>
@@ -42,6 +47,20 @@
             </div>
           </div>
 
+          <div v-if="page.faqs && page.faqs.length" class="service-page-faq">
+            <h2 class="service-page-h2">Common questions</h2>
+            <div class="service-page-faq-list">
+              <details
+                v-for="(item, fi) in page.faqs"
+                :key="'sf-' + fi"
+                class="service-page-faq-item"
+              >
+                <summary class="service-page-faq-q">{{ item.q }}</summary>
+                <p class="service-page-faq-a">{{ item.a }}</p>
+              </details>
+            </div>
+          </div>
+
           <div class="service-page-crosslinks">
             <h2 class="service-page-h2">More patio options in Vancouver</h2>
             <p class="service-page-crosslinks-lead">
@@ -53,6 +72,18 @@
               </li>
               <li>
                 <router-link to="/" class="service-page-crosslinks__a">Home — all services</router-link>
+              </li>
+            </ul>
+            <h3 class="service-page-h3">Service areas</h3>
+            <ul class="service-page-crosslinks-list">
+              <li v-for="c in cityLinks" :key="c.path">
+                <router-link :to="c.path" class="service-page-crosslinks__a">{{ c.label }}</router-link>
+              </li>
+            </ul>
+            <h3 class="service-page-h3">Helpful guides</h3>
+            <ul class="service-page-crosslinks-list">
+              <li v-for="g in guideLinks" :key="g.path">
+                <router-link :to="g.path" class="service-page-crosslinks__a">{{ g.label }}</router-link>
               </li>
             </ul>
           </div>
@@ -70,7 +101,17 @@
 </template>
 
 <script>
+import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
+import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
+import { SITE_ORIGIN, faqPageNode, injectJsonLd, removeJsonLd } from '../utils/seoHead';
+
+const SERVICE_SCHEMA_TYPE = {
+  aluminum: 'Aluminum patio cover installation',
+  glass: 'Glass patio cover installation',
+  skyline: 'Skyline combo patio cover installation',
+  sunrooms: 'Sunroom installation',
+};
 
 const LABELS = {
   aluminum: 'Aluminum patio covers',
@@ -97,6 +138,43 @@ export default {
         label: LABELS[k],
       }));
     },
+    cityLinks() {
+      return CITY_PAGE_ORDER.map((id) => ({
+        path: CITY_PAGES[id].path,
+        label: `Patio covers — ${id.charAt(0).toUpperCase() + id.slice(1)}`,
+      }));
+    },
+    guideLinks() {
+      const labels = {
+        'patio-cover-cost': 'Patio cover cost',
+        'glass-vs-aluminum': 'Glass vs aluminum',
+        permit: 'Permits',
+        rain: 'Rain & weather',
+        'install-timeline': 'Install timeline',
+      };
+      return GUIDE_PAGE_ORDER.map((id) => ({
+        path: GUIDE_PAGES[id].path,
+        label: labels[id] || id,
+      }));
+    },
+  },
+  mounted() {
+    const graph = [];
+    const st = SERVICE_SCHEMA_TYPE[this.serviceKey];
+    if (st) {
+      graph.push({
+        '@type': 'Service',
+        serviceType: st,
+        provider: { '@id': `${SITE_ORIGIN}/#business` },
+        areaServed: { '@type': 'AdministrativeArea', name: 'Lower Mainland, British Columbia' },
+      });
+    }
+    const f = faqPageNode(this.page.faqs);
+    if (f) graph.push(f);
+    if (graph.length) injectJsonLd({ '@context': 'https://schema.org', '@graph': graph });
+  },
+  unmounted() {
+    removeJsonLd();
   },
   methods: {
     goHomeOpenEstimate() {
@@ -166,6 +244,58 @@ export default {
 }
 .service-page-benefits-list li {
   margin-bottom: 0.5rem;
+}
+.service-page-pricing {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1rem 1.15rem;
+  background: rgba(248, 250, 252, 0.95);
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+}
+.service-page-pricing-text {
+  margin: 0;
+  line-height: 1.55;
+  font-size: 15px;
+  color: #334155;
+}
+.service-page-h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.5rem;
+  color: #0f172a;
+}
+.service-page-faq {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+.service-page-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-page-faq-item {
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 10px;
+  padding: 0 12px;
+  background: #fff;
+}
+.service-page-faq-q {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  padding: 12px 4px;
+  cursor: pointer;
+  list-style: none;
+}
+.service-page-faq-q::-webkit-details-marker {
+  display: none;
+}
+.service-page-faq-a {
+  margin: 0 4px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #475569;
 }
 .service-page-cta-block {
   padding: 1.25rem 0 1.5rem;

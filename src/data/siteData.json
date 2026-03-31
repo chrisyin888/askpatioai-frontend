@@ -16,7 +16,7 @@
   },
   "section1": {
     "heroTitle": "Get a Patio Cover Estimate in 60 Seconds",
-    "subtitle": "Compare aluminum, glass, skyline combo, and sunroom options with fast ballpark pricing for Vancouver-area homes — no waiting days for a first number.",
+    "subtitle": "Compare aluminum, glass, skyline combo, and sunroom options for Vancouver-area homes. Get a fast rough estimate in about 60 seconds.",
     "botAvatar": "",
     "welcomeMessages": [
       "Tell me your patio size and city — get a fast ballpark estimate in about a minute, no obligation."
@@ -24,33 +24,57 @@
     "chatPlaceholder": "Example: 12x14 patio in Burnaby",
     "inputHelperExample": "Richmond, glass patio cover, about 12×14 ft",
     "trustPoints": [
-      "✔ Instant-style ballpark in chat",
+      "✔ Fast rough quote in chat (~60 sec)",
       "✔ Compare cover types side by side",
-      "✔ Lower Mainland service",
+      "✔ Lower Mainland team",
       "✔ Free on-site measurement when you’re ready"
     ],
     "productsHeading": "Compare patio cover types",
-    "productsLead": "Pick a style to learn more — then get a quick rough quote in chat before you book a free measurement.",
+    "productsLead": "Compare the main patio cover types, then get a quick rough quote in chat before booking a free on-site measurement.",
     "seoHeading": "Custom patio covers & sunrooms in Vancouver",
-    "seoBody": "LoomiHome helps homeowners compare aluminum patio covers, glass patio covers, skyline combo designs, and sunroom options with fast ballpark pricing and a clear path to a free on-site measurement. Start online so you understand range and trade-offs first — then we confirm details on site.",
+    "seoBody": "Looking for patio covers Vancouver homeowners actually use in the rain? LoomiHome is a Lower Mainland team focused on patio cover estimates and patio cover quotes you can get in about a minute — before anyone books a site visit. Compare aluminum, glass, skyline combo, and sunroom directions with fast rough pricing, then schedule a free on-site measurement when the numbers make sense. Faster than chasing traditional contractor callbacks for a first ballpark.",
     "seoServiceArea": "Serving Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, and nearby areas.",
     "faqTitle": "Quick answers",
     "faqItems": [
       {
         "q": "How fast can I get a rough estimate?",
-        "a": "Usually right in the chat: share your city and approximate size, and you’ll get a ballpark range in about a minute — not days."
+        "a": "Pretty quick — jump into the chat, tell us your city and roughly how big the space is, and we’ll give you a ballpark number in about a minute. No need to wait around for someone to call you back first."
       },
       {
         "q": "What types of patio covers do you offer?",
-        "a": "Aluminum covers, glass covers, skyline combo (glass + V-panel), and sunrooms. You can compare all of them on this site and in chat."
+        "a": "We work with aluminum covers, glass covers, skyline-style combo (glass plus V-panel), and sunrooms. Same team, same process — pick what fits your home and we’ll walk you through it."
       },
       {
         "q": "Do you serve Vancouver and nearby cities?",
-        "a": "Yes — we work across the Lower Mainland, including Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, and surrounding areas."
+        "a": "We’re all over the Lower Mainland day to day — Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, and the surrounding neighbourhoods. If you’re close by, chances are we’ve been on a job near you."
       },
       {
         "q": "Can I get pricing before booking a measurement?",
-        "a": "Yes. The chat gives a rough total to help you decide. A free on-site visit confirms measurements and final numbers when you want to move forward."
+        "a": "That’s the idea. Chat first for a rough range so you know if you’re in the ballpark. If it makes sense, we’ll book a free on-site visit to measure properly and nail down final pricing — only when you’re ready."
+      },
+      {
+        "q": "What’s the difference between glass and aluminum patio covers?",
+        "a": "Aluminum roofs are usually the practical rain-first choice. Glass lets in more light and looks premium — often at a higher price point. We’ll ballpark both so you can decide what fits."
+      },
+      {
+        "q": "Do patio covers help with rain in Vancouver?",
+        "a": "A properly built cover keeps your patio drier and more usable through the wet months. Material and drainage matter — we talk through that in chat and confirm on site."
+      },
+      {
+        "q": "How much does a patio cover usually cost?",
+        "a": "Size and product type move the number a lot. The chat estimate is the fastest way to get a range for your patio; our cost guide page walks through what typically drives price."
+      },
+      {
+        "q": "Are sunrooms more expensive than patio covers?",
+        "a": "Usually yes — more glass, enclosure, and insulation. We can rough-quote both if you’re comparing."
+      },
+      {
+        "q": "Do I need a permit for a patio cover?",
+        "a": "It depends on your municipality and design. Check with your city — we align installation details to what they require. See our permit guide for general homeowner notes."
+      },
+      {
+        "q": "How long does installation usually take?",
+        "a": "Every job differs. After we measure, we’ll give a realistic schedule. Our timeline guide explains typical phases from estimate to completion."
       }
     ]
   },

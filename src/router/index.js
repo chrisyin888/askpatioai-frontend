@@ -1,11 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../HomePage.vue';
 import ServicePage from '../views/ServicePage.vue';
+import SeoContentPage from '../views/SeoContentPage.vue';
+import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
+import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
+import { setCanonicalPath } from '../utils/seoHead';
 
-const DEFAULT_TITLE = 'LoomiHome Patios | Fast Patio Cover Estimates in Vancouver';
+const DEFAULT_TITLE =
+  'Patio Covers Vancouver | Fast Quote in 60 Seconds | Sunrooms | LoomiHome Patios';
 const DEFAULT_DESCRIPTION =
-  'Get a fast patio cover estimate in Vancouver. Compare aluminum, glass, skyline combo, and sunroom options in under 60 seconds. Free quote and on-site measurement available across the Lower Mainland.';
+  'Patio covers Vancouver & Lower Mainland — patio cover estimate and patio cover quote in ~60 seconds in chat. Compare aluminum, glass, skyline combo & sunrooms. Sunroom estimates. Free on-site measurement when ready.';
 
 function setMetaDescription(content) {
   if (typeof document === 'undefined') return;
@@ -32,6 +37,34 @@ const serviceRoutes = SERVICE_PAGE_ORDER.map((key) => {
   };
 });
 
+const cityRoutes = CITY_PAGE_ORDER.map((id) => {
+  const p = CITY_PAGES[id];
+  return {
+    path: p.path,
+    name: `city-${id}`,
+    component: SeoContentPage,
+    props: { kind: 'city', pageId: id },
+    meta: {
+      title: p.metaTitle,
+      description: p.metaDescription,
+    },
+  };
+});
+
+const guideRoutes = GUIDE_PAGE_ORDER.map((id) => {
+  const p = GUIDE_PAGES[id];
+  return {
+    path: p.path,
+    name: `guide-${id}`,
+    component: SeoContentPage,
+    props: { kind: 'guide', pageId: id },
+    meta: {
+      title: p.metaTitle,
+      description: p.metaDescription,
+    },
+  };
+});
+
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
@@ -45,6 +78,8 @@ const router = createRouter({
       },
     },
     ...serviceRoutes,
+    ...cityRoutes,
+    ...guideRoutes,
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
   scrollBehavior(to, from, saved) {
@@ -61,6 +96,7 @@ router.afterEach((to) => {
   const desc = to.meta.description || DEFAULT_DESCRIPTION;
   document.title = title;
   setMetaDescription(desc);
+  setCanonicalPath(to.path);
 });
 
 export default router;

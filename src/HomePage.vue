@@ -40,7 +40,7 @@
                     href="#our-products"
                     class="hero-cta hero-cta--secondary"
                     @click.prevent="scrollToSection('#our-products')"
-                  >View Cover Types</a>
+                  >Compare Cover Types</a>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@
                 href="#confirm-final-quote"
                 class="hero-subnav__link hero-subnav__link--inverse"
                 @click.prevent="scrollToGetQuote()"
-              >Book a Site Visit</a>
+              >Book Free Measurement</a>
             </nav>
           </div>
 
@@ -125,6 +125,7 @@
                     </div>
                     <div class="card-info">
                       <h3
+                        class="card-product-title"
                         :class="{
                           'card-info-heading--modal-trigger': hasServiceModal(
                             service
@@ -156,20 +157,25 @@
                         <span class="service-card-best-label">Best for:</span>
                         {{ service.bestFor }}
                       </p>
-                      <p
+                      <div
                         v-if="typeof service.examplePrice === 'number'"
-                        class="card-price"
-                        :class="{
-                          'card-price--modal-trigger': hasServiceModal(service),
-                        }"
-                        role="button"
-                        :tabindex="hasServiceModal(service) ? 0 : -1"
-                        @click="openServiceModal(service)"
-                        @keydown.enter.prevent="openServiceModal(service)"
-                        @keydown.space.prevent="openServiceModal(service)"
+                        class="card-price-block"
                       >
-                        From ${{ service.examplePrice.toLocaleString() }}
-                      </p>
+                        <span class="card-price-label">Rough ballpark</span>
+                        <p
+                          class="card-price"
+                          :class="{
+                            'card-price--modal-trigger': hasServiceModal(service),
+                          }"
+                          role="button"
+                          :tabindex="hasServiceModal(service) ? 0 : -1"
+                          @click="openServiceModal(service)"
+                          @keydown.enter.prevent="openServiceModal(service)"
+                          @keydown.space.prevent="openServiceModal(service)"
+                        >
+                          From ${{ service.examplePrice.toLocaleString() }}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -218,6 +224,39 @@
               </details>
             </div>
           </div>
+
+          <nav class="home-seo-hub" aria-label="Patio cover resources and local pages">
+            <h2 class="home-seo-hub__title">Explore patio covers by area &amp; topic</h2>
+            <p class="home-seo-hub__lead">
+              Same fast rough estimate (~60 seconds) and free measurement — whether you are in Vancouver, a nearby city, or just researching cost and options.
+            </p>
+            <div class="home-seo-hub__grid">
+              <div class="home-seo-hub__col">
+                <h3 class="home-seo-hub__h3">Lower Mainland cities</h3>
+                <ul class="home-seo-hub__list">
+                  <li v-for="c in cityPageLinks" :key="c.path">
+                    <router-link :to="c.path">{{ c.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
+              <div class="home-seo-hub__col">
+                <h3 class="home-seo-hub__h3">Cover types</h3>
+                <ul class="home-seo-hub__list">
+                  <li v-for="link in serviceNavLinks" :key="'hub-svc-' + link.to">
+                    <router-link :to="link.to">{{ link.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
+              <div class="home-seo-hub__col">
+                <h3 class="home-seo-hub__h3">Guides</h3>
+                <ul class="home-seo-hub__list">
+                  <li v-for="g in guidePageLinks" :key="g.path">
+                    <router-link :to="g.path">{{ g.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
         </div>
       </section>
 
@@ -586,7 +625,7 @@
               href="#confirm-final-quote"
               class="site-footer__link"
               @click.prevent="scrollToGetQuote()"
-            >Book a Site Visit</a>
+            >Book Free Measurement</a>
           </nav>
 
           <div class="site-footer__contact">
@@ -1039,7 +1078,10 @@
 <script>
 import siteData from './data/siteData.json';
 
+import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
+import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
+import { faqPageNode, injectJsonLd, localBusinessNode, removeJsonLd } from './utils/seoHead';
 
 export default {
   name: 'HomePage',
@@ -1203,6 +1245,25 @@ export default {
     faqList() {
       return Array.isArray(this.s1.faqItems) ? this.s1.faqItems : [];
     },
+    cityPageLinks() {
+      return CITY_PAGE_ORDER.map((id) => ({
+        path: CITY_PAGES[id].path,
+        label: `Patio covers — ${id.charAt(0).toUpperCase() + id.slice(1)}`,
+      }));
+    },
+    guidePageLinks() {
+      const labels = {
+        'patio-cover-cost': 'Patio cover cost in Vancouver',
+        'glass-vs-aluminum': 'Glass vs aluminum patio covers',
+        permit: 'Patio cover permits',
+        rain: 'Best cover for rain',
+        'install-timeline': 'How long installation takes',
+      };
+      return GUIDE_PAGE_ORDER.map((id) => ({
+        path: GUIDE_PAGES[id].path,
+        label: labels[id] || id,
+      }));
+    },
   },
   created() {
     const d = siteData;
@@ -1261,8 +1322,14 @@ export default {
     } else if (this._mqChatMobile.addListener) {
       this._mqChatMobile.addListener(this._onChatMobileMql);
     }
+
+    const graph = [localBusinessNode()];
+    const faqNode = faqPageNode(this.faqList);
+    if (faqNode) graph.push(faqNode);
+    injectJsonLd({ '@context': 'https://schema.org', '@graph': graph });
   },
   beforeUnmount() {
+    removeJsonLd();
     window.removeEventListener('keydown', this._onServiceModalEscape);
     if (this._mqChatMobile && this._onChatMobileMql) {
       if (this._mqChatMobile.removeEventListener) {
@@ -3833,17 +3900,58 @@ body {
   }
 }
 
+.section-hero .card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+}
+
+.section-hero .card-product-title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.section-hero .card-price-block {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.section-hero .card-price-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.section-hero .card-price {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
 @media (min-width: 1201px) {
   .section-hero .service-card .card-info {
-    padding: 10px 8px 12px;
+    padding: 12px 10px 14px;
   }
 
-  .section-hero .card-info h3 {
+  .section-hero .card-product-title {
     font-size: 16px;
   }
 
   .section-hero .card-price {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
@@ -4205,6 +4313,67 @@ body {
   font-size: 14px;
   line-height: 1.5;
   color: #475569;
+}
+
+.home-seo-hub {
+  margin-top: 12px;
+  padding: 22px 24px 24px;
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 12px 12px;
+}
+
+.home-seo-hub__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.home-seo-hub__lead {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.home-seo-hub__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem 1.5rem;
+}
+
+.home-seo-hub__h3 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 0 0 10px;
+}
+
+.home-seo-hub__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-seo-hub__list li {
+  margin-bottom: 8px;
+}
+
+.home-seo-hub__list a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.home-seo-hub__list a:hover {
+  color: #1e293b;
 }
 
 .chat-widget-panel {

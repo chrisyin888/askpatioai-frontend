@@ -8,7 +8,7 @@ module.exports = defineConfig({
       entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'LoomiHome Patios | Fast Patio Cover Estimates in Vancouver',
+      title: 'Patio Covers Vancouver | Fast Quote in 60 Seconds | Sunrooms | LoomiHome Patios',
     },
   },
 })
