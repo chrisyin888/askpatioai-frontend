@@ -4,9 +4,10 @@
     "appointmentBackground": "/house/p39.jpg",
     "appointmentDecoImage": "/house/p20.jpg",
     "targetEmail": "info@example.com",
-    "chatApiUrl": "https://askpatio-ai.onrender.com/ask",
+    "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "chatSource": "loomihome_website",
-    "emailApiUrl": "https://askpatio-ai.onrender.com/send-email"
+    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
+    "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead"
   },
   "section1": {
     "title": "Get an Instant Quote in 60 Seconds",

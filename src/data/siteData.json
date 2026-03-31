@@ -8,10 +8,10 @@
     "appointmentShowcaseImage": "/house/Aluminum/p12.jpg",
     "appointmentShowcaseFallback": "/house/p23.jpg",
     "targetEmail": "info@loomihomepatios.ca",
-    "chatApiUrl": "https://askpatio-ai.onrender.com/ask",
+    "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "chatSource": "loomihome_website",
-    "emailApiUrl": "https://askpatio-ai.onrender.com/send-email",
-    "leadApiUrl": "https://askpatio-ai.onrender.com/lead",
+    "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
+    "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
     "chatWidgetTitle": "Get Your Estimate",
     "chatWidgetSubtitle": "Start here for a fast estimate"
   },
