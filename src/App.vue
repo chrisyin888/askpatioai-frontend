@@ -1233,18 +1233,9 @@ export default {
       const prev = this.messages[idx];
       this.messages.splice(idx, 1, { ...prev, ...fields });
     },
-    /** v_ + 6 chars from 0-9a-z; used only when creating a new visitor id. */
-    generateShortVisitorId() {
-      const alphabet = '0123456789abcdefghijklmnopqrstuvwxyz';
-      const bytes = new Uint8Array(6);
-      if (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues) {
-        window.crypto.getRandomValues(bytes);
-      } else {
-        for (let i = 0; i < 6; i += 1) bytes[i] = Math.floor(Math.random() * 256);
-      }
-      let s = 'v_';
-      for (let i = 0; i < 6; i += 1) s += alphabet[bytes[i] % 36];
-      return s;
+    /** v_ + 3 chars from Math.random base36; only when creating a new visitor id. */
+    generateVisitorId() {
+      return `v_${Math.random().toString(36).slice(2, 5)}`;
     },
     /** Always returns a non-empty id for /ask (localStorage key: loomihome_visitor_id). */
     getOrCreateVisitorId() {
@@ -1253,13 +1244,13 @@ export default {
       try {
         let id = window.localStorage.getItem(KEY);
         if (!id) {
-          id = this.generateShortVisitorId();
+          id = this.generateVisitorId();
           window.localStorage.setItem(KEY, id);
         }
         this.visitorId = id;
         return id;
       } catch {
-        const fallback = this.generateShortVisitorId();
+        const fallback = this.generateVisitorId();
         this.visitorId = fallback;
         return fallback;
       }
