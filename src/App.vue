@@ -1255,6 +1255,39 @@ export default {
         return fallback;
       }
     },
+    /** Log a bot/system line to the same Google Sheet as /ask (fire-and-forget). */
+    logChatDisplayToSheet({ question, answer, email, phone } = {}) {
+      if (typeof window === 'undefined' || !this.cfg || !this.cfg.chatApiUrl) return;
+      let url;
+      try {
+        const u = new URL(this.cfg.chatApiUrl);
+        u.pathname = '/log-chat-display';
+        url = u.toString();
+      } catch {
+        return;
+      }
+      const em =
+        email !== undefined && email !== null
+          ? email
+          : (this.chatBookingForm && this.chatBookingForm.email) || (this.form && this.form.email) || '';
+      const ph =
+        phone !== undefined && phone !== null
+          ? phone
+          : (this.chatBookingForm && this.chatBookingForm.phone) || (this.form && this.form.phone) || '';
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          visitor_id: this.getOrCreateVisitorId(),
+          question: String(question || '').slice(0, 4000),
+          answer: String(answer || '').slice(0, 4000),
+          project_type: (this.projectInfo && this.projectInfo.project_type) || '',
+          city: (this.projectInfo && this.projectInfo.city) || '',
+          email: em,
+          phone: ph,
+        }),
+      }).catch(() => {});
+    },
     async sendMessage() {
       const text = this.userInput.trim();
       if (!text) return;
@@ -1291,6 +1324,7 @@ export default {
           showQuickBookForm: true,
           isPlaceholder: false,
         });
+        this.logChatDisplayToSheet({ question: text, answer: intro });
         this.openChatPanel();
         this.showChatBookingForm();
         this.$nextTick(() => this.scrollToBottom());
@@ -1804,14 +1838,17 @@ export default {
         this.$nextTick(() => this.scrollToBottom());
         return;
       }
+      const quickBookIntro =
+        'Perfect — fill in the quick form below and we\'ll arrange your free on-site measurement.';
       this.messages.push({
         id: this.generateMessageId(),
         type: 'bot',
-        text: 'Perfect — fill in the quick form below and we\'ll arrange your free on-site measurement.',
+        text: quickBookIntro,
         showCta: false,
         showQuickBookForm: true,
         isPlaceholder: false,
       });
+      this.logChatDisplayToSheet({ question: '[quick_book:cta]', answer: quickBookIntro });
       this.showChatBookingForm();
       this.$nextTick(() => this.scrollToBottom());
     },
@@ -1883,11 +1920,19 @@ export default {
         this.chatBookingForm.success = true;
         this.chatBookingForm.visible = false;
 
+        const leadThanks =
+          'Got it 👍 Request received. A follow-up will be arranged shortly to confirm your free on-site measurement.';
         this.messages.push({
           id: this.generateMessageId(),
           type: 'bot',
-          text: 'Got it 👍 Request received. A follow-up will be arranged shortly to confirm your free on-site measurement.',
+          text: leadThanks,
           showCta: false,
+        });
+        this.logChatDisplayToSheet({
+          question: '[lead:chat_quick_form]',
+          answer: leadThanks,
+          email: this.chatBookingForm.email.trim(),
+          phone: this.chatBookingForm.phone.trim(),
         });
         this.$nextTick(() => this.scrollToBottom());
       } catch {
