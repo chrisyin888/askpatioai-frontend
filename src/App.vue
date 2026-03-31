@@ -1149,20 +1149,7 @@ export default {
       this.chatLayoutMobile = window.matchMedia('(max-width: 640px)').matches;
     }
     if (typeof window !== 'undefined') {
-      try {
-        const KEY = 'loomihome_visitor_id';
-        let vid = window.localStorage.getItem(KEY);
-        if (!vid) {
-          vid =
-            window.crypto && typeof window.crypto.randomUUID === 'function'
-              ? window.crypto.randomUUID()
-              : `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
-          window.localStorage.setItem(KEY, vid);
-        }
-        this.visitorId = vid;
-      } catch {
-        this.visitorId = `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
-      }
+      this.getOrCreateVisitorId();
       if (typeof window !== 'undefined' && window.console) {
         console.log('VISITOR_DEBUG', window.localStorage.getItem('loomihome_visitor_id'));
       }
@@ -1246,6 +1233,19 @@ export default {
       const prev = this.messages[idx];
       this.messages.splice(idx, 1, { ...prev, ...fields });
     },
+    /** v_ + 6 chars from 0-9a-z; used only when creating a new visitor id. */
+    generateShortVisitorId() {
+      const alphabet = '0123456789abcdefghijklmnopqrstuvwxyz';
+      const bytes = new Uint8Array(6);
+      if (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(bytes);
+      } else {
+        for (let i = 0; i < 6; i += 1) bytes[i] = Math.floor(Math.random() * 256);
+      }
+      let s = 'v_';
+      for (let i = 0; i < 6; i += 1) s += alphabet[bytes[i] % 36];
+      return s;
+    },
     /** Always returns a non-empty id for /ask (localStorage key: loomihome_visitor_id). */
     getOrCreateVisitorId() {
       if (typeof window === 'undefined') return '';
@@ -1253,16 +1253,13 @@ export default {
       try {
         let id = window.localStorage.getItem(KEY);
         if (!id) {
-          id =
-            window.crypto && typeof window.crypto.randomUUID === 'function'
-              ? window.crypto.randomUUID()
-              : `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
+          id = this.generateShortVisitorId();
           window.localStorage.setItem(KEY, id);
         }
         this.visitorId = id;
         return id;
       } catch {
-        const fallback = `v_${Date.now()}_${Math.random().toString(36).slice(2, 14)}`;
+        const fallback = this.generateShortVisitorId();
         this.visitorId = fallback;
         return fallback;
       }
