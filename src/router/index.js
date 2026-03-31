@@ -10,7 +10,7 @@ import { setCanonicalPath } from '../utils/seoHead';
 const DEFAULT_TITLE =
   'Patio Covers Vancouver | Fast Quote in 60 Seconds | Sunrooms | LoomiHome Patios';
 const DEFAULT_DESCRIPTION =
-  'Patio covers Vancouver & Lower Mainland — patio cover estimate and patio cover quote in ~60 seconds in chat. Compare aluminum, glass, skyline combo & sunrooms. Sunroom estimates. Free on-site measurement when ready.';
+  'Patio covers and sunrooms for Vancouver and the Lower Mainland. Compare aluminum, glass, skyline combo, and sunroom options with a fast rough estimate in chat (~60 seconds). Free on-site measurement when you are ready.';
 
 function setMetaDescription(content) {
   if (typeof document === 'undefined') return;

@@ -226,7 +226,7 @@
           </div>
 
           <nav class="home-seo-hub" aria-label="Patio cover resources and local pages">
-            <h2 class="home-seo-hub__title">Explore patio covers by area &amp; topic</h2>
+            <h2 class="home-seo-hub__title">Patio Cover Guides, Service Areas &amp; Cover Types</h2>
             <p class="home-seo-hub__lead">
               Same fast rough estimate (~60 seconds) and free measurement — whether you are in Vancouver, a nearby city, or just researching cost and options.
             </p>
