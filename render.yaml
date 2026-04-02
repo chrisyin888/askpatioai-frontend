@@ -1,7 +1,19 @@
-# Blueprint: deploy FastAPI from this monorepo (Vue frontend is usually on Vercel, etc.).
-# Without rootDir, Render runs build at repo root — there is no requirements.txt there → exit 1.
-# https://render.com/docs/blueprint-spec
+# Render Blueprint — read by Render when this file is at the repo root.
+#
+# PRODUCTION REALITY (loomihomepatios.ca):
+# - HTTP responses include header `rndr-id` → origin is Render, NOT Vercel.
+# - `vercel.json` is ignored by Render; SPA deep links need a Render rewrite:
+#   Source `/*` → Destination `/index.html`, Action **Rewrite** (Dashboard or `routes` below).
+#
+# If you already created the static site manually in the dashboard, either:
+# - Add that same rewrite under that service (Redirects / Rewrites), or
+# - Sync this blueprint and dedupe services (same name = update).
+#
+# https://render.com/docs/redirects-rewrites
+# https://render.com/docs/static-sites
+
 services:
+  # FastAPI (e.g. fastapi-0bcw.onrender.com) — Python app lives in fastapi/
   - type: web
     name: askpatio-ai
     runtime: python
@@ -9,4 +21,16 @@ services:
     rootDir: fastapi
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    autoDeploy: true
+
+  # Vue SPA — custom domain loomihomepatios.ca should attach HERE, not to the API.
+  - type: web
+    name: loomihome-patios
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     autoDeploy: true
