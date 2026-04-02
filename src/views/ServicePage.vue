@@ -292,7 +292,7 @@ export default {
 .service-page-pricing {
   margin-bottom: 1.5rem;
   padding: 1rem 1rem 1.15rem;
-  background: rgba(248, 250, 252, 0.95);
+  background: #ffffff;
   border-radius: 12px;
   border: 1px solid rgba(226, 232, 240, 0.95);
 }
@@ -343,8 +343,8 @@ export default {
 }
 .service-page-cta-block {
   padding: 1.25rem 0 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.95);
   margin-bottom: 2rem;
 }
 .service-page-cta-body {

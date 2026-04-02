@@ -385,7 +385,7 @@ export default {
   margin-left: 0.35rem;
   padding: 0.2em 0.5em;
   border-radius: 6px;
-  background: rgba(241, 245, 249, 0.95);
+  background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
@@ -398,7 +398,7 @@ export default {
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.03);
-  background: #f1f5f9;
+  background: #ffffff;
   min-height: 200px;
 }
 
@@ -463,7 +463,7 @@ export default {
   padding: 14px 16px;
   border-radius: 12px;
   border: 1px solid rgba(226, 232, 240, 0.95);
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background: #ffffff;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -510,7 +510,7 @@ export default {
   border-radius: 14px;
   border: 1px solid rgba(226, 232, 240, 0.95);
   border-left: 4px solid #0f172a;
-  background: linear-gradient(90deg, rgba(248, 250, 252, 0.98) 0%, #ffffff 48%);
+  background: #ffffff;
   box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
 }
 

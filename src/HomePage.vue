@@ -9,12 +9,7 @@
     </div>
 
     <!-- Full Background (plain) -->
-    <div
-      v-show="siteLoaded"
-      class="hero-bg"
-      :style="heroBackdropStyle"
-      aria-hidden="true"
-    ></div>
+    <div v-show="siteLoaded" class="hero-bg" aria-hidden="true"></div>
 
     <!-- Scrollable Content -->
     <div v-show="siteLoaded" class="scroll-container">
@@ -1211,7 +1206,7 @@ import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
 import { faqPageNode, injectJsonLd, localBusinessNode, removeJsonLd } from './utils/seoHead';
-import { cssUrlValue, publicAssetUrl } from './utils/publicAssetUrl';
+import { publicAssetUrl } from './utils/publicAssetUrl';
 
 export default {
   name: 'HomePage',
@@ -1404,16 +1399,6 @@ export default {
       if (/^https?:\/\//i.test(s)) return s;
       if (s.startsWith('data:') || s.startsWith('blob:')) return s;
       return publicAssetUrl(s);
-    },
-    heroBackdropStyle() {
-      const u = cssUrlValue(this.cfg && this.cfg.heroBackground);
-      if (!u) return {};
-      return {
-        backgroundImage: `url("${u}")`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-      };
     },
   },
   created() {
@@ -2585,11 +2570,18 @@ export default {
   box-sizing: border-box;
 }
 
+#app {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: #ffffff;
 }
 
 .app {
@@ -2599,6 +2591,7 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  background: #ffffff;
 }
 
 .site-loading {
@@ -2625,14 +2618,14 @@ body {
   }
 }
 
-/* Full Background — photo from heroBackdropStyle when configured; soft fallback when not */
+/* Full-bleed layer behind scroll content — solid white (no global background image) */
 .hero-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f1f5f9;
+  background: #ffffff;
   background-image: none;
   z-index: 0;
 }
@@ -2646,6 +2639,7 @@ body {
   overflow-y: auto;
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
+  background: #ffffff;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -2822,6 +2816,7 @@ body {
     max(16px, env(safe-area-inset-right));
   scroll-snap-align: start;
   box-sizing: border-box;
+  background: #ffffff;
 }
 
 .section-hero {
@@ -2888,12 +2883,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: linear-gradient(
-      165deg,
-      rgba(255, 255, 255, 0.97) 0%,
-      rgba(248, 250, 252, 0.98) 40%,
-      rgba(241, 245, 249, 0.97) 100%
-    );
+  background: #ffffff;
   filter: none;
 }
 
@@ -2929,24 +2919,17 @@ body {
   border-radius: 0;
 }
 
-/* Hero: let hero-bg photo show through — frosted glass, not a solid white sheet */
+/* Hero: outer panel matches clean white site shell */
 .section-hero .content-wrapper.glass-panel {
   border: none;
   outline: none;
   box-shadow: none;
-  background-color: transparent;
-  background: transparent;
+  background-color: #ffffff;
+  background: #ffffff;
 }
 
 .section-hero .content-wrapper.glass-panel::before {
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.82) 0%,
-    rgba(248, 250, 252, 0.76) 42%,
-    rgba(241, 245, 249, 0.72) 100%
-  );
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: #ffffff;
 }
 
 .section-hero .body-section {
@@ -3266,10 +3249,10 @@ body {
   scroll-margin-top: 24px;
 }
 
-/* Site footer — light, modern */
+/* Site footer */
 .site-footer {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-  border-top: 1px solid rgba(148, 163, 184, 0.32);
+  background: #ffffff;
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
   scroll-snap-align: end;
 }
 
@@ -3677,10 +3660,9 @@ body {
 .hero-badge {
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: #ffffff;
   color: #1f2933;
   border: 1px solid rgba(148, 163, 184, 0.55);
-  backdrop-filter: blur(6px);
 }
 
 /* Body Section */
@@ -3712,7 +3694,7 @@ body {
   max-width: 560px;
   margin: 0 auto;
   overflow: hidden;
-  background: #fafbfc;
+  background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -4153,9 +4135,7 @@ body {
   border-radius: 16px;
   overflow: hidden;
   transition: box-shadow 0.25s ease;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
 }
@@ -4402,7 +4382,7 @@ body {
   padding: 22px max(16px, env(safe-area-inset-left)) 24px
     max(16px, env(safe-area-inset-right));
   border-top: 1px solid rgba(226, 232, 240, 0.95);
-  background: rgba(255, 255, 255, 0.55);
+  background: #ffffff;
 }
 
 .home-before-after__intro {
@@ -4607,7 +4587,7 @@ body {
   margin-top: 20px;
   padding: 20px 24px 22px;
   border-top: 1px solid rgba(226, 232, 240, 0.95);
-  background: rgba(248, 250, 252, 0.65);
+  background: #ffffff;
 }
 
 .home-seo-block__title {
@@ -4684,7 +4664,7 @@ body {
   margin-top: 12px;
   padding: 22px 24px 24px;
   border-top: 1px solid rgba(226, 232, 240, 0.95);
-  background: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
   border-radius: 0 0 12px 12px;
 }
 
@@ -5154,7 +5134,7 @@ body {
   margin: 8px 0 0 40px;
   padding: 12px 14px 12px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.98);
+  background: #ffffff;
   border: 1px solid rgba(148, 163, 184, 0.5);
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
 }
@@ -5713,7 +5693,7 @@ body {
   padding: 6px 16px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.6);
-  background: rgba(255, 255, 255, 0.85);
+  background: #ffffff;
   color: #111827;
   font-size: 13px;
   font-weight: 500;
@@ -5749,10 +5729,8 @@ body {
 .project-card {
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
@@ -5829,7 +5807,7 @@ body {
 
 /* Why Choose Us */
 .why-choose-us {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(226, 232, 240, 0.95);
   padding-top: 36px;
 }
 
@@ -5852,8 +5830,8 @@ body {
   font-size: 18px;
   font-weight: 600;
   color: #0f172a;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 12px;
   padding: 18px 20px;
 }
@@ -6262,7 +6240,7 @@ body {
 
   .chat-section {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.95);
   }
 
   .title {

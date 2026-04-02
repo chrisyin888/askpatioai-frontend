@@ -1,6 +1,5 @@
 {
   "site": {
-    "heroBackground": "/house/p1.jpg",
     "appointmentBackground": "/house/p39.jpg",
     "appointmentDecoImage": "/house/p20.jpg",
     "targetEmail": "info@example.com",
