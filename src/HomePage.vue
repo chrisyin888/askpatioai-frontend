@@ -9,7 +9,12 @@
     </div>
 
     <!-- Full Background (plain) -->
-    <div v-show="siteLoaded" class="hero-bg" aria-hidden="true"></div>
+    <div
+      v-show="siteLoaded"
+      class="hero-bg"
+      :style="heroBackdropStyle"
+      aria-hidden="true"
+    ></div>
 
     <!-- Scrollable Content -->
     <div v-show="siteLoaded" class="scroll-container">
@@ -125,7 +130,7 @@
                       @keydown.enter.prevent="openServiceModal(service)"
                       @keydown.space.prevent="openServiceModal(service)"
                     >
-                      <img :src="service.image" :alt="service.name" />
+                      <img :src="publicAssetUrl(service.image)" :alt="service.name" />
                       <div class="card-image-overlay"></div>
                     </div>
                     <div class="card-info">
@@ -396,7 +401,7 @@
                   class="project-card"
                 >
                   <div class="project-image">
-                    <img :src="project.image" :alt="project.name" />
+                    <img :src="publicAssetUrl(project.image)" :alt="project.name" />
                   </div>
                   <div class="project-info">
                     <h3>
@@ -916,10 +921,10 @@
                 <!-- Single product card with gallery thumbnails -->
                 <div v-if="msg.productCard" class="chat-product-card">
                   <img
-                    :src="msg.productCard.image"
+                    :src="publicAssetUrl(msg.productCard.image)"
                     :alt="msg.productCard.name"
                     class="chat-product-img"
-                    @click="chatLightboxImage = msg.productCard.image"
+                    @click="chatLightboxImage = publicAssetUrl(msg.productCard.image)"
                   />
                   <div class="chat-product-info">
                     <h4 class="chat-product-name">{{ msg.productCard.name }}</h4>
@@ -929,10 +934,10 @@
                     <img
                       v-for="(img, gi) in msg.productCard.gallery"
                       :key="gi"
-                      :src="img"
+                      :src="publicAssetUrl(img)"
                       :alt="msg.productCard.name + ' project ' + (gi + 1)"
                       class="chat-gallery-thumb"
-                      @click="chatLightboxImage = img"
+                      @click="chatLightboxImage = publicAssetUrl(img)"
                     />
                   </div>
                 </div>
@@ -943,9 +948,13 @@
                     v-for="(pc, pi) in msg.productCards"
                     :key="pi"
                     class="chat-product-option"
-                    @click="chatLightboxImage = pc.image"
+                    @click="chatLightboxImage = publicAssetUrl(pc.image)"
                   >
-                    <img :src="pc.image" :alt="pc.name" class="chat-option-img" />
+                    <img
+                      :src="publicAssetUrl(pc.image)"
+                      :alt="pc.name"
+                      class="chat-option-img"
+                    />
                     <div class="chat-option-info">
                       <h4 class="chat-option-name">{{ pc.name }}</h4>
                       <p class="chat-option-desc">{{ pc.description }}</p>
@@ -1130,7 +1139,7 @@
           </button>
           <img
             v-if="serviceModalService.image"
-            :src="serviceModalService.image"
+            :src="publicAssetUrl(serviceModalService.image)"
             :alt="serviceModalService.name"
             class="service-modal-hero"
           />
@@ -1202,6 +1211,7 @@ import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
 import { faqPageNode, injectJsonLd, localBusinessNode, removeJsonLd } from './utils/seoHead';
+import { cssUrlValue, publicAssetUrl } from './utils/publicAssetUrl';
 
 export default {
   name: 'HomePage',
@@ -1313,7 +1323,7 @@ export default {
       const primary =
         (this.cfg && (this.cfg.appointmentShowcaseImage || this.cfg.appointmentDecoImage)) ||
         '/house/Aluminum/p12.jpg';
-      return primary;
+      return publicAssetUrl(primary);
     },
     appointmentDecoShowProjectOverlay() {
       return !this.appointmentPhotoPreviews || this.appointmentPhotoPreviews.length === 0;
@@ -1348,7 +1358,7 @@ export default {
       if (!prefix) return [];
       return (this.projects || [])
         .filter((p) => (p.name || '').toLowerCase().includes(prefix))
-        .map((p) => p.image)
+        .map((p) => publicAssetUrl(p.image))
         .slice(0, 6);
     },
     serviceNavLinks() {
@@ -1392,9 +1402,18 @@ export default {
       const s = String(raw).trim();
       if (!s) return '';
       if (/^https?:\/\//i.test(s)) return s;
-      if (s.startsWith('/')) return s;
-      if (s.startsWith('data:')) return s;
-      return '';
+      if (s.startsWith('data:') || s.startsWith('blob:')) return s;
+      return publicAssetUrl(s);
+    },
+    heroBackdropStyle() {
+      const u = cssUrlValue(this.cfg && this.cfg.heroBackground);
+      if (!u) return {};
+      return {
+        backgroundImage: `url("${u}")`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+      };
     },
   },
   created() {
@@ -1477,14 +1496,18 @@ export default {
     }
   },
   methods: {
+    publicAssetUrl,
     /** Hero primary CTA — open chat in place (no page scroll; avoids jumping toward booking). */
     /** Absolute URL for public/ assets (helps some hosts + lightbox). */
     resolvedPublicUrl(path) {
       if (path == null) return '';
       if (typeof path !== 'string') return '';
-      const t = path.trim();
+      const raw = path.trim();
+      if (!raw) return '';
+      const t = publicAssetUrl(raw);
       if (!t) return '';
       if (/^https?:\/\//i.test(t)) return t;
+      if (t.startsWith('data:') || t.startsWith('blob:')) return t;
       if (typeof window !== 'undefined' && t.startsWith('/')) {
         return `${window.location.origin}${t}`;
       }

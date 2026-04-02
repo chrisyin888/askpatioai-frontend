@@ -12,6 +12,7 @@ export const CITY_PAGES = {
   vancouver: {
     id: 'vancouver',
     path: '/patio-covers-vancouver',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Vancouver | Fast Estimate in ~60 Seconds | LoomiHome Patios',
     metaDescription:
       'Patio covers in Vancouver — get a fast rough quote in about a minute, compare aluminum, glass, skyline combo, and sunrooms, then book a free on-site measurement. Lower Mainland team.',
@@ -50,6 +51,7 @@ export const CITY_PAGES = {
   burnaby: {
     id: 'burnaby',
     path: '/patio-covers-burnaby',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Burnaby | Quick Ballpark Quote | LoomiHome Patios',
     metaDescription:
       'Patio covers in Burnaby — fast rough estimate online, compare cover types, free Lower Mainland measurement. Rain-ready shade for Metrotown-area homes and quieter neighbourhoods alike.',
@@ -88,6 +90,7 @@ export const CITY_PAGES = {
   richmond: {
     id: 'richmond',
     path: '/patio-covers-richmond',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Richmond BC | Fast Rough Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Richmond — compare aluminum, glass, and combo options. Get a fast online ballpark quote, then a free on-site measurement across Richmond and the Lower Mainland.',
@@ -122,6 +125,7 @@ export const CITY_PAGES = {
   surrey: {
     id: 'surrey',
     path: '/patio-covers-surrey',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Surrey | Fast 60-Second Style Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Surrey — quick ballpark pricing online, compare aluminum, glass, skyline combo, and sunrooms. Free on-site measurement. Serving Surrey and the Lower Mainland.',
@@ -156,6 +160,7 @@ export const CITY_PAGES = {
   delta: {
     id: 'delta',
     path: '/patio-covers-delta',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Delta BC | Quick Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Delta — Ladner, Tsawwassen, North Delta. Fast rough quote online, compare cover types, free measurement. Wind and rain ready for Fraser Valley weather.',
@@ -190,6 +195,7 @@ export const CITY_PAGES = {
   coquitlam: {
     id: 'coquitlam',
     path: '/patio-covers-coquitlam',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Coquitlam | Fast Ballpark Pricing | LoomiHome Patios',
     metaDescription:
       'Patio covers in Coquitlam — Burke Mountain, Austin Heights, and surrounding. Quick online estimate, compare aluminum, glass, and combo covers. Free Lower Mainland site measurement.',

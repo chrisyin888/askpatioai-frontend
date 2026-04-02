@@ -3,6 +3,17 @@
     <div class="hero-bg service-page-bg" aria-hidden="true"></div>
     <div class="scroll-container service-page-scroll">
       <section class="section section-hero service-page-section">
+        <figure v-if="heroImageUrl" class="service-hero-banner">
+          <img
+            class="service-hero-banner__img"
+            :src="heroImageUrl"
+            :alt="heroImageAlt"
+            width="1200"
+            height="630"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </figure>
         <div class="content-wrapper glass-panel service-page-panel">
           <nav class="service-page-breadcrumb" aria-label="Breadcrumb">
             <router-link to="/" class="service-page-breadcrumb__link">Home</router-link>
@@ -105,6 +116,7 @@ import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import { SITE_ORIGIN, faqPageNode, injectJsonLd, removeJsonLd } from '../utils/seoHead';
+import { publicAssetUrl } from '../utils/publicAssetUrl';
 
 const SERVICE_SCHEMA_TYPE = {
   aluminum: 'Aluminum patio cover installation',
@@ -157,17 +169,31 @@ export default {
         label: labels[id] || id,
       }));
     },
+    heroImageUrl() {
+      const raw = this.page && this.page.heroImage;
+      return publicAssetUrl(raw);
+    },
+    heroImageAlt() {
+      return (this.page && this.page.h1) || 'Patio cover project photo';
+    },
   },
   mounted() {
     const graph = [];
     const st = SERVICE_SCHEMA_TYPE[this.serviceKey];
     if (st) {
-      graph.push({
+      const node = {
         '@type': 'Service',
         serviceType: st,
         provider: { '@id': `${SITE_ORIGIN}/#business` },
         areaServed: { '@type': 'AdministrativeArea', name: 'Lower Mainland, British Columbia' },
-      });
+      };
+      const hero = publicAssetUrl(this.page.heroImage);
+      if (hero.startsWith('/')) {
+        node.image = `${SITE_ORIGIN}${hero}`;
+      } else if (/^https?:\/\//i.test(hero)) {
+        node.image = hero;
+      }
+      graph.push(node);
     }
     const f = faqPageNode(this.page.faqs);
     if (f) graph.push(f);
@@ -195,6 +221,24 @@ export default {
 }
 .service-page-bg {
   position: fixed;
+}
+.service-hero-banner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 1rem;
+  padding: 0 max(12px, env(safe-area-inset-left)) 0 max(12px, env(safe-area-inset-right));
+  box-sizing: border-box;
+}
+.service-hero-banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(42vh, 320px);
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
 }
 .service-page-scroll {
   position: relative;

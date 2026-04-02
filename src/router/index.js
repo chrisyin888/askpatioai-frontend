@@ -23,13 +23,14 @@ function setMetaDescription(content) {
   el.setAttribute('content', content || '');
 }
 
+/** Function props so each route record passes the right key/id (reliable in all Vue Router builds). */
 const serviceRoutes = SERVICE_PAGE_ORDER.map((key) => {
   const p = SERVICE_PAGES[key];
   return {
     path: p.path,
     name: `svc-${key}`,
     component: ServicePage,
-    props: { serviceKey: key },
+    props: () => ({ serviceKey: key }),
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
@@ -43,7 +44,7 @@ const cityRoutes = CITY_PAGE_ORDER.map((id) => {
     path: p.path,
     name: `city-${id}`,
     component: SeoContentPage,
-    props: { kind: 'city', pageId: id },
+    props: () => ({ kind: 'city', pageId: id }),
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
@@ -57,7 +58,7 @@ const guideRoutes = GUIDE_PAGE_ORDER.map((id) => {
     path: p.path,
     name: `guide-${id}`,
     component: SeoContentPage,
-    props: { kind: 'guide', pageId: id },
+    props: () => ({ kind: 'guide', pageId: id }),
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
