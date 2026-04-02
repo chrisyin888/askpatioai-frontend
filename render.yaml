@@ -1,13 +1,12 @@
-# Render Blueprint — read by Render when this file is at the repo root.
+# Render Blueprint (repo root). Sync in Dashboard or connect this repo to apply.
 #
-# PRODUCTION REALITY (loomihomepatios.ca):
-# - HTTP responses include header `rndr-id` → origin is Render, NOT Vercel.
-# - `vercel.json` is ignored by Render; SPA deep links need a Render rewrite:
-#   Source `/*` → Destination `/index.html`, Action **Rewrite** (Dashboard or `routes` below).
+# Frontend static site (loomihomepatios.ca MUST attach here, NOT on askpatio-ai):
+#   Root Directory:        .     (repo root — same folder as package.json)
+#   Build Command:         npm install && npm run build
+#   Publish Directory:     dist
+#   Rewrite:               /*  →  /index.html  (type: rewrite, not redirect)
 #
-# If you already created the static site manually in the dashboard, either:
-# - Add that same rewrite under that service (Redirects / Rewrites), or
-# - Sync this blueprint and dedupe services (same name = update).
+# Python API: rootDir fastapi only. Do not point the apex domain at that service.
 #
 # https://render.com/docs/redirects-rewrites
 # https://render.com/docs/static-sites
@@ -23,12 +22,13 @@ services:
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     autoDeploy: true
 
-  # Vue SPA — custom domain loomihomepatios.ca should attach HERE, not to the API.
+  # Vue SPA — attach custom domain loomihomepatios.ca only to this static service.
+  # (Dashboard Root Directory: leave empty or "." = repo root, same as package.json.)
   - type: web
     name: loomihome-patios
     runtime: static
     buildCommand: npm install && npm run build
-    staticPublishPath: dist
+    staticPublishPath: ./dist
     routes:
       - type: rewrite
         source: /*
