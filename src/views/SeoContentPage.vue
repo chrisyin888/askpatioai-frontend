@@ -1,124 +1,214 @@
 <template>
-  <div class="app seo-content-root">
-    <div class="hero-bg seo-content-bg" aria-hidden="true"></div>
-    <div class="scroll-container seo-content-scroll">
-      <article class="section section-hero seo-content-section">
-        <figure v-if="heroImageUrl" class="seo-hero-banner">
-          <img
-            class="seo-hero-banner__img"
-            :src="heroImageUrl"
-            :alt="heroImageAlt"
-            width="1200"
-            height="630"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </figure>
-        <div class="content-wrapper glass-panel seo-content-panel">
-          <nav class="seo-breadcrumb" aria-label="Breadcrumb">
-            <router-link to="/" class="seo-breadcrumb__link">Home</router-link>
-            <span class="seo-breadcrumb__sep" aria-hidden="true">/</span>
-            <span class="seo-breadcrumb__current">{{ page.h1 }}</span>
-          </nav>
+  <div class="app seo-page">
+    <div class="hero-bg seo-page__bg" aria-hidden="true"></div>
+    <div class="scroll-container seo-page__scroll">
+      <article class="section section-hero seo-page__article">
+        <div class="content-wrapper glass-panel seo-page__panel">
+          <!-- Hero: matches homepage hierarchy — brand, title, intro, CTAs, image, subnav -->
+          <header class="header hero-header seo-page__hero">
+            <div class="seo-page__hero-grid">
+              <div class="seo-page__hero-copy">
+                <nav class="seo-page__breadcrumb" aria-label="Breadcrumb">
+                  <router-link to="/" class="seo-page__breadcrumb-link">Home</router-link>
+                  <span class="seo-page__breadcrumb-sep" aria-hidden="true">/</span>
+                  <span class="seo-page__breadcrumb-current">{{ page.h1 }}</span>
+                </nav>
 
-          <header class="header seo-content-header">
-            <h1 class="hero-main-title seo-content-h1">{{ page.h1 }}</h1>
-            <p class="subtitle hero-subtitle">{{ page.intro }}</p>
-          </header>
+                <p class="hero-eyebrow">
+                  <span class="hero-eyebrow-name">LoomiHome</span>
+                  <span class="hero-eyebrow-suffix">Patios</span>
+                  <span class="seo-page__eyebrow-tag">{{ heroKindLabel }}</span>
+                </p>
 
-          <section v-if="page.highlights && page.highlights.length" class="seo-block">
-            <h2 class="seo-h2">At a glance</h2>
-            <ul class="seo-list">
-              <li v-for="(h, i) in page.highlights" :key="'h-' + i">{{ h }}</li>
-            </ul>
-          </section>
+                <h1 class="hero-main-title">{{ page.h1 }}</h1>
+                <p class="subtitle hero-subtitle seo-page__intro">{{ page.intro }}</p>
 
-          <section v-if="page.localAngle" class="seo-block">
-            <h2 class="seo-h2">{{ kind === 'city' ? 'Local to your area' : 'What this means for you' }}</h2>
-            <p class="seo-prose">{{ page.localAngle }}</p>
-          </section>
+                <div class="hero-cta-row">
+                  <button
+                    type="button"
+                    class="hero-cta hero-cta--primary"
+                    @click="goHomeOpenEstimate"
+                  >
+                    Get My Fast Estimate
+                  </button>
+                  <router-link
+                    :to="{ path: '/', hash: '#our-products' }"
+                    class="hero-cta hero-cta--secondary"
+                  >
+                    Compare Cover Types
+                  </router-link>
+                </div>
+              </div>
 
-          <section
-            v-for="(sec, si) in page.sections || []"
-            :key="'sec-' + si"
-            class="seo-block"
-          >
-            <h2 class="seo-h2">{{ sec.h2 }}</h2>
-            <p class="seo-prose">{{ sec.body }}</p>
-          </section>
+              <div v-if="heroImageUrl" class="seo-page__hero-visual">
+                <img
+                  class="seo-page__hero-img"
+                  :src="heroImageUrl"
+                  :alt="heroImageAlt"
+                  width="1200"
+                  height="900"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </div>
+            </div>
 
-          <section v-if="page.pricingNote" class="seo-block seo-block--note">
-            <h2 class="seo-h2">Pricing direction</h2>
-            <p class="seo-prose">{{ page.pricingNote }}</p>
-          </section>
-
-          <section class="seo-cta-block">
-            <h2 class="seo-h2">Get a fast rough estimate</h2>
-            <p class="seo-cta-body">
-              About 60 seconds in chat — compare options before you book a free on-site measurement.
-            </p>
-            <div class="hero-cta-row seo-cta-row">
-              <button type="button" class="hero-cta hero-cta--primary" @click="goHomeOpenEstimate">
-                Get My Fast Estimate
-              </button>
+            <nav class="hero-subnav seo-page__subnav" aria-label="Quick navigation">
+              <router-link to="/" class="hero-subnav__link hero-subnav__link--emphasized">
+                Home
+              </router-link>
               <router-link
                 :to="{ path: '/', hash: '#our-products' }"
-                class="hero-cta hero-cta--secondary"
+                class="hero-subnav__link hero-subnav__link--emphasized"
               >
-                Compare Cover Types
+                Our products
               </router-link>
-            </div>
-          </section>
+              <router-link
+                :to="{ path: '/', hash: '#before-after-projects' }"
+                class="hero-subnav__link hero-subnav__link--emphasized"
+              >
+                Before &amp; after
+              </router-link>
+              <router-link
+                :to="{ path: '/', hash: '#home' }"
+                class="hero-subnav__link hero-subnav__link--inverse"
+                @click="primeOpenChat"
+              >
+                Get estimate
+              </router-link>
+            </nav>
+          </header>
 
-          <section v-if="page.faqs && page.faqs.length" class="seo-faq">
-            <h2 class="seo-h2">Questions we hear a lot</h2>
-            <div class="seo-faq-list">
-              <details v-for="(item, fi) in page.faqs" :key="'faq-' + fi" class="seo-faq-item">
-                <summary class="seo-faq-q">{{ item.q }}</summary>
-                <p class="seo-faq-a">{{ item.a }}</p>
-              </details>
-            </div>
-          </section>
+          <!-- Body: same rhythm as homepage sections below hero -->
+          <div class="body-section seo-page__body">
+            <section v-if="page.highlights && page.highlights.length" class="seo-page__section">
+              <div class="our-products-intro seo-page__section-head">
+                <h2 class="our-products-heading">At a glance</h2>
+                <p class="our-products-lead">
+                  Key reasons homeowners start with a fast ballpark, then book a free measurement.
+                </p>
+              </div>
+              <div class="seo-page__highlight-grid">
+                <div
+                  v-for="(h, i) in page.highlights"
+                  :key="'h-' + i"
+                  class="seo-page__highlight-card"
+                >
+                  <span class="seo-page__highlight-icon" aria-hidden="true">✓</span>
+                  <p class="seo-page__highlight-text">{{ h }}</p>
+                </div>
+              </div>
+            </section>
 
-          <section class="seo-crosslinks">
-            <h2 class="seo-h2">Explore more</h2>
-            <div class="seo-crosslinks-grid">
-              <div v-if="serviceLinks.length" class="seo-crosslinks-col">
-                <h3 class="seo-h3">Cover types</h3>
-                <ul>
-                  <li v-for="s in serviceLinks" :key="s.path">
-                    <router-link :to="s.path">{{ s.label }}</router-link>
-                  </li>
-                </ul>
+            <section v-if="page.localAngle" class="seo-page__section">
+              <div class="home-seo-block seo-page__block">
+                <h2 class="home-seo-block__title">
+                  {{ kind === 'city' ? 'Local to your area' : 'What this means for you' }}
+                </h2>
+                <p class="home-seo-block__body">{{ page.localAngle }}</p>
               </div>
-              <div v-if="cityLinks.length" class="seo-crosslinks-col">
-                <h3 class="seo-h3">Service areas</h3>
-                <ul>
-                  <li v-for="c in cityLinks" :key="c.path">
-                    <router-link :to="c.path">{{ c.label }}</router-link>
-                  </li>
-                </ul>
+            </section>
+
+            <section
+              v-for="(sec, si) in page.sections || []"
+              :key="'sec-' + si"
+              class="seo-page__section"
+            >
+              <div class="home-seo-block seo-page__block">
+                <h2 class="home-seo-block__title">{{ sec.h2 }}</h2>
+                <p class="home-seo-block__body">{{ sec.body }}</p>
               </div>
-              <div v-if="guideLinks.length" class="seo-crosslinks-col">
-                <h3 class="seo-h3">Guides</h3>
-                <ul>
-                  <li v-for="g in guideLinks" :key="g.path">
-                    <router-link :to="g.path">{{ g.label }}</router-link>
-                  </li>
-                </ul>
+            </section>
+
+            <section v-if="page.pricingNote" class="seo-page__section">
+              <div class="seo-page__pricing-callout">
+                <h2 class="seo-page__pricing-title">Pricing direction</h2>
+                <p class="seo-page__pricing-body">{{ page.pricingNote }}</p>
               </div>
-            </div>
-            <p class="seo-crosslinks-home">
-              <router-link to="/">← Back to homepage</router-link>
-            </p>
-          </section>
+            </section>
+
+            <section class="seo-page__section seo-page__section--cta">
+              <div class="seo-page__cta-panel">
+                <h2 class="seo-page__cta-title">Get a fast rough estimate</h2>
+                <p class="seo-page__cta-lead">
+                  About 60 seconds in chat — compare options before you book a free on-site
+                  measurement.
+                </p>
+                <div class="hero-cta-row seo-page__cta-row">
+                  <button
+                    type="button"
+                    class="hero-cta hero-cta--primary seo-page__cta-btn-primary"
+                    @click="goHomeOpenEstimate"
+                  >
+                    Get My Fast Estimate
+                  </button>
+                  <router-link
+                    :to="{ path: '/', hash: '#our-products' }"
+                    class="hero-cta hero-cta--secondary seo-page__cta-btn-secondary"
+                  >
+                    Compare Cover Types
+                  </router-link>
+                </div>
+              </div>
+            </section>
+
+            <section v-if="page.faqs && page.faqs.length" class="home-faq seo-page__faq">
+              <h2 class="home-faq__title">Questions we hear a lot</h2>
+              <div class="home-faq__list">
+                <details
+                  v-for="(item, fi) in page.faqs"
+                  :key="'faq-' + fi"
+                  class="home-faq__item seo-page__faq-item"
+                >
+                  <summary class="home-faq__q">{{ item.q }}</summary>
+                  <p class="home-faq__a">{{ item.a }}</p>
+                </details>
+              </div>
+            </section>
+
+            <section class="seo-page__section seo-page__explore">
+              <div class="our-products-intro seo-page__section-head">
+                <h2 class="our-products-heading">Explore more</h2>
+                <p class="our-products-lead">Jump to related services, cities, and guides.</p>
+              </div>
+              <div class="seo-page__explore-grid">
+                <div v-if="serviceLinks.length" class="seo-page__explore-card">
+                  <h3 class="seo-page__explore-card-title">Cover types</h3>
+                  <ul class="seo-page__explore-list">
+                    <li v-for="s in serviceLinks" :key="s.path">
+                      <router-link :to="s.path" class="seo-page__explore-link">{{ s.label }}</router-link>
+                    </li>
+                  </ul>
+                </div>
+                <div v-if="cityLinks.length" class="seo-page__explore-card">
+                  <h3 class="seo-page__explore-card-title">Service areas</h3>
+                  <ul class="seo-page__explore-list">
+                    <li v-for="c in cityLinks" :key="c.path">
+                      <router-link :to="c.path" class="seo-page__explore-link">{{ c.label }}</router-link>
+                    </li>
+                  </ul>
+                </div>
+                <div v-if="guideLinks.length" class="seo-page__explore-card">
+                  <h3 class="seo-page__explore-card-title">Guides</h3>
+                  <ul class="seo-page__explore-list">
+                    <li v-for="g in guideLinks" :key="g.path">
+                      <router-link :to="g.path" class="seo-page__explore-link">{{ g.label }}</router-link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p class="seo-page__back-home">
+                <router-link to="/" class="seo-page__back-home-link">← Back to homepage</router-link>
+              </p>
+            </section>
+          </div>
         </div>
       </article>
 
-      <footer class="site-footer seo-content-footer" role="contentinfo">
+      <footer class="site-footer seo-page__footer" role="contentinfo">
         <div class="site-footer__inner">
           <p class="site-footer__copy">© 2026 LoomiHome Patios · Vancouver &amp; Lower Mainland</p>
-          <router-link to="/" class="seo-footer-link">Home</router-link>
+          <router-link to="/" class="seo-page__footer-link">Home</router-link>
         </div>
       </footer>
     </div>
@@ -157,6 +247,9 @@ export default {
       if (this.kind === 'city') return CITY_PAGES[this.pageId] || CITY_PAGES.vancouver;
       return GUIDE_PAGES[this.pageId] || GUIDE_PAGES['patio-cover-cost'];
     },
+    heroKindLabel() {
+      return this.kind === 'city' ? 'Local page' : 'Guide';
+    },
     serviceLinks() {
       return SERVICE_PAGE_ORDER.map((k) => ({
         path: SERVICE_PAGES[k].path,
@@ -186,7 +279,6 @@ export default {
         }),
       );
     },
-    /** Resolved URL for <img src> — always triggers a real network request (unlike inline background-image on some hosts/CSP). */
     heroImageUrl() {
       const raw = this.page && this.page.heroImage;
       return publicAssetUrl(raw);
@@ -203,12 +295,15 @@ export default {
     removeJsonLd();
   },
   methods: {
-    goHomeOpenEstimate() {
+    primeOpenChat() {
       try {
         sessionStorage.setItem('openChat', '1');
       } catch {
         /* ignore */
       }
+    },
+    goHomeOpenEstimate() {
+      this.primeOpenChat();
       this.$router.push({ path: '/', hash: '#home' });
     },
   },
@@ -216,190 +311,387 @@ export default {
 </script>
 
 <style>
-.seo-content-root {
-  min-height: 100vh;
-}
-.seo-content-bg {
+/* Layout shell (homepage .section-hero / .scroll-container / .hero-bg come from global HomePage.css) */
+.seo-page__bg {
   position: fixed;
 }
-.seo-hero-banner {
+.seo-page__scroll {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto 1rem;
-  padding: 0 max(12px, env(safe-area-inset-left)) 0 max(12px, env(safe-area-inset-right));
-  box-sizing: border-box;
 }
-.seo-hero-banner__img {
+
+.seo-page__panel {
+  width: 100%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero grid: title + image */
+.seo-page__hero .seo-page__hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .seo-page__hero .seo-page__hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 44%);
+    gap: 32px;
+    align-items: stretch;
+  }
+}
+
+.seo-page__hero-copy {
+  min-width: 0;
+}
+
+.seo-page__breadcrumb {
+  font-size: 0.85rem;
+  margin: 0 0 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.seo-page__breadcrumb-link {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.2);
+  transition: border-color 0.15s ease;
+}
+
+.seo-page__breadcrumb-link:hover {
+  border-bottom-color: #0f172a;
+}
+
+.seo-page__breadcrumb-sep {
+  margin: 0 0.35rem;
+  opacity: 0.55;
+}
+
+.seo-page__breadcrumb-current {
+  color: #475569;
+}
+
+.seo-page__eyebrow-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-left: 0.35rem;
+  padding: 0.2em 0.5em;
+  border-radius: 6px;
+  background: rgba(241, 245, 249, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.seo-page__intro {
+  max-width: 40em;
+}
+
+.seo-page__hero-visual {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  background: #f1f5f9;
+  min-height: 200px;
+}
+
+.seo-page__hero-img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: min(42vh, 320px);
+  height: 100%;
+  min-height: 220px;
   object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+  object-position: center;
 }
-.seo-content-scroll {
-  position: relative;
-  z-index: 1;
+
+@media (min-width: 768px) {
+  .seo-page__hero-img {
+    min-height: 280px;
+    aspect-ratio: 4 / 3;
+  }
 }
-.seo-content-panel {
-  padding: 1.5rem 1.25rem 2rem;
-  max-width: 720px;
-  margin: 0 auto;
+
+.seo-page__subnav {
+  margin-top: 20px;
 }
-.seo-breadcrumb {
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-}
-.seo-breadcrumb__link {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.seo-breadcrumb__sep {
-  margin: 0 0.35rem;
-  opacity: 0.6;
-}
-.seo-content-h1 {
-  margin-bottom: 0.65rem;
-}
-.seo-block {
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
+
+/* Body */
+.seo-page__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 12px 0 8px;
   border-top: 1px solid rgba(226, 232, 240, 0.95);
+  margin-top: 4px;
+  background: #ffffff;
 }
-.seo-block--note {
-  background: rgba(248, 250, 252, 0.9);
-  padding: 1rem 1rem 1.25rem;
+
+.seo-page__section {
+  padding: 20px max(16px, env(safe-area-inset-left)) 8px
+    max(16px, env(safe-area-inset-right));
+}
+
+.our-products-intro.seo-page__section-head {
+  margin-bottom: 14px;
+  padding-top: 4px;
+  border-top: none;
+  margin-top: 0;
+}
+
+.seo-page__section:first-of-type .our-products-intro.seo-page__section-head {
+  padding-top: 0;
+}
+
+.seo-page__highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.seo-page__highlight-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
   border-radius: 12px;
   border: 1px solid rgba(226, 232, 240, 0.95);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
-.seo-h2 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 0.65rem;
-  letter-spacing: -0.02em;
+
+.seo-page__highlight-card:hover {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  border-color: rgba(203, 213, 225, 0.95);
 }
-.seo-h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
+
+.seo-page__highlight-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.seo-page__highlight-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
   color: #334155;
-  margin: 0 0 0.5rem;
 }
-.seo-prose {
+
+.seo-page__block.home-seo-block {
+  margin-top: 0;
+  border-top: none;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+.seo-page__pricing-callout {
+  margin: 0;
+  padding: 20px 22px 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-left: 4px solid #0f172a;
+  background: linear-gradient(90deg, rgba(248, 250, 252, 0.98) 0%, #ffffff 48%);
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+}
+
+.seo-page__pricing-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+.seo-page__pricing-body {
   margin: 0;
   font-size: 15px;
   line-height: 1.6;
   color: #334155;
 }
-.seo-list {
-  margin: 0;
-  padding-left: 1.2rem;
-  color: #334155;
+
+/* Dark CTA panel — homepage inverse / trust-strip energy */
+.seo-page__section--cta {
+  padding-top: 24px;
+  padding-bottom: 8px;
+}
+
+.seo-page__cta-panel {
+  margin: 0 max(4px, env(safe-area-inset-left)) 0 max(4px, env(safe-area-inset-right));
+  padding: 28px 24px 30px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #172554 100%);
+  color: #f8fafc;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.seo-page__cta-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.seo-page__cta-lead {
+  margin: 0 0 18px;
+  font-size: 15px;
   line-height: 1.55;
-  font-size: 15px;
+  color: rgba(248, 250, 252, 0.88);
+  max-width: 36em;
 }
-.seo-list li {
-  margin-bottom: 0.4rem;
+
+.seo-page__cta-row {
+  margin-top: 4px;
 }
-.seo-cta-block {
-  margin-top: 1.75rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid rgba(226, 232, 240, 0.95);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.95);
+
+.seo-page__cta-btn-primary {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #ffffff !important;
 }
-.seo-cta-body {
-  margin: 0 0 1rem;
-  font-size: 15px;
-  line-height: 1.55;
-  color: #475569;
+
+.seo-page__cta-btn-primary:hover {
+  background: #f1f5f9 !important;
+  border-color: #f1f5f9 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2) !important;
 }
-.seo-cta-row {
-  flex-wrap: wrap;
-  gap: 0.65rem;
+
+.seo-page__cta-btn-secondary {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
 }
-.seo-faq {
-  margin-top: 1.5rem;
+
+.seo-page__cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
 }
-.seo-faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+
+/* FAQ: reuse home-faq block */
+.seo-page__faq {
+  margin-top: 12px;
 }
-.seo-faq-item {
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  border-radius: 10px;
-  padding: 0 12px;
-  background: #fff;
+
+.seo-page__faq-item {
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
-.seo-faq-q {
-  font-size: 15px;
-  font-weight: 600;
-  color: #0f172a;
-  padding: 12px 4px;
-  cursor: pointer;
-  list-style: none;
+
+/* Explore grid */
+.seo-page__explore {
+  padding-bottom: 28px;
 }
-.seo-faq-q::-webkit-details-marker {
-  display: none;
-}
-.seo-faq-a {
-  margin: 0 4px 14px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #475569;
-}
-.seo-crosslinks {
-  margin-top: 1.75rem;
-}
-.seo-crosslinks-grid {
+
+.seo-page__explore-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.25rem;
-  margin-top: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 14px;
+  margin-top: 4px;
 }
-.seo-crosslinks-col ul {
+
+.seo-page__explore-card {
+  padding: 16px 18px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.seo-page__explore-card-title {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.seo-page__explore-list {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.seo-page__explore-list li {
+  margin-bottom: 8px;
+}
+
+.seo-page__explore-list li:last-child {
+  margin-bottom: 0;
+}
+
+.seo-page__explore-link {
   font-size: 14px;
-}
-.seo-crosslinks-col li {
-  margin-bottom: 0.45rem;
-}
-.seo-crosslinks-col a {
-  color: #0f172a;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: #0f172a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.18);
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
-.seo-crosslinks-home {
-  margin: 1.25rem 0 0;
+
+.seo-page__explore-link:hover {
+  border-bottom-color: #0f172a;
+  color: #334155;
+}
+
+.seo-page__back-home {
+  margin: 20px 0 0;
+  padding-top: 8px;
+}
+
+.seo-page__back-home-link {
   font-size: 14px;
-}
-.seo-crosslinks-home a {
+  font-weight: 700;
   color: #0f172a;
-  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(15, 23, 42, 0.15);
 }
-.seo-content-footer .site-footer__inner {
+
+.seo-page__back-home-link:hover {
+  border-bottom-color: #0f172a;
+}
+
+/* Footer strip — align with compact SEO footer */
+.seo-page__footer .site-footer__inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 1.25rem 1rem;
+  padding: 1.25rem max(16px, env(safe-area-inset-left)) 1.25rem
+    max(16px, env(safe-area-inset-right));
+  max-width: 920px;
 }
-.seo-footer-link {
+
+.seo-page__footer-link {
   color: inherit;
   text-decoration: underline;
   font-size: 0.9rem;
+  font-weight: 600;
 }
+
 @media (max-width: 640px) {
-  .seo-cta-row {
+  .seo-page__cta-row {
     flex-direction: column;
     align-items: stretch;
   }

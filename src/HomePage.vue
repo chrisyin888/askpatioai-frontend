@@ -2625,14 +2625,14 @@ body {
   }
 }
 
-/* Full Background - fixed behind everything (blank / solid) */
+/* Full Background — photo from heroBackdropStyle when configured; soft fallback when not */
 .hero-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #f1f5f9;
   background-image: none;
   z-index: 0;
 }
@@ -2929,17 +2929,24 @@ body {
   border-radius: 0;
 }
 
-/* Hero: outer container blends with page — no border, shadow, or grey edge */
+/* Hero: let hero-bg photo show through — frosted glass, not a solid white sheet */
 .section-hero .content-wrapper.glass-panel {
   border: none;
   outline: none;
   box-shadow: none;
-  background-color: #ffffff;
-  background: #ffffff;
+  background-color: transparent;
+  background: transparent;
 }
 
 .section-hero .content-wrapper.glass-panel::before {
-  background: #ffffff;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(248, 250, 252, 0.76) 42%,
+    rgba(241, 245, 249, 0.72) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .section-hero .body-section {
