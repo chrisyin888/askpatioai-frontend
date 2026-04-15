@@ -2490,32 +2490,44 @@ export default {
           .join('\n')
           .trim();
 
-        const fd = new FormData();
-        fd.append('source', 'website_appointment_form');
-        fd.append('name', name);
-        fd.append('phone', phone);
-        fd.append('email', email);
-        fd.append('city', city);
-        fd.append('project_type', project_type);
-        fd.append(
-          'size',
-          this.projectInfo && this.projectInfo.size
-            ? this.projectInfo.size
-            : '',
-        );
-        fd.append('message', messageBody);
-        this.appointmentPhotos.forEach((file) => {
-          fd.append('photos', file, file.name);
-        });
+        // Use POST /lead (JSON) like Quick Book. The legacy multipart POST to
+        // /send-email can return 5xx without Access-Control-Allow-Origin, so the
+        // browser surfaces a network TypeError ("Failed to fetch") even though
+        // the server responded — /lead always returns JSON 200 when persisted.
+        const photoNote =
+          this.appointmentPhotos.length > 0
+            ? `User selected ${this.appointmentPhotos.length} photo file(s) in the form; files were not attached (use email or follow-up for images).`
+            : '';
+        const notesParts = [
+          'Lead submitted from appointment section form (Book Free Measurement).',
+          photoNote,
+        ].filter(Boolean);
+        const payload = {
+          source: 'website_appointment_form',
+          name: name.trim(),
+          phone: (phone && phone.trim()) || '-',
+          email: email.trim(),
+          city: city.trim(),
+          address: '',
+          project_type: (project_type || '').trim(),
+          size:
+            this.projectInfo && this.projectInfo.size
+              ? this.projectInfo.size
+              : '',
+          preferred_contact_time: (preferred_time || '').trim(),
+          message: messageBody || 'Appointment request from website form.',
+          notes: notesParts.join(' '),
+        };
 
-        const res = await fetch(this.cfg.emailApiUrl, {
+        const url = this.cfg.leadApiUrl || 'https://fastapi-0bcw.onrender.com/lead';
+        const res = await fetch(url, {
           method: 'POST',
-          body: fd,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
         });
 
         if (!res.ok) {
           const text = await res.text().catch(() => '');
-          // Log exact response for debugging
           // eslint-disable-next-line no-console
           console.error('Appointment submit failed:', res.status, text);
           let detail = `Server responded with ${res.status}`;
