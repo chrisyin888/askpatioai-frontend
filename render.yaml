@@ -4,6 +4,7 @@
 #   Root Directory:        .     (repo root — same folder as package.json)
 #   Build Command:         npm install && npm run build
 #   Publish Directory:     dist
+#   Static files:          /sitemap.xml and /robots.txt must be served before SPA fallback
 #   Rewrite:               /*  →  /index.html  (type: rewrite, not redirect)
 #
 # Python API: rootDir fastapi only. Do not point the apex domain at that service.
@@ -30,6 +31,12 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     routes:
+      - type: rewrite
+        source: /sitemap.xml
+        destination: /sitemap.xml
+      - type: rewrite
+        source: /robots.txt
+        destination: /robots.txt
       - type: rewrite
         source: /*
         destination: /index.html

@@ -1226,7 +1226,13 @@ import siteData from './data/siteData.json';
 import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
-import { faqPageNode, injectJsonLd, localBusinessNode, removeJsonLd } from './utils/seoHead';
+import {
+  faqPageNode,
+  injectJsonLd,
+  localBusinessNode,
+  removeJsonLd,
+  webSiteNode,
+} from './utils/seoHead';
 import { publicAssetUrl } from './utils/publicAssetUrl';
 
 export default {
@@ -1486,7 +1492,7 @@ export default {
       this._mqChatMobile.addListener(this._onChatMobileMql);
     }
 
-    const graph = [localBusinessNode()];
+    const graph = [localBusinessNode(), webSiteNode()];
     const faqNode = faqPageNode(this.faqList);
     if (faqNode) graph.push(faqNode);
     injectJsonLd({ '@context': 'https://schema.org', '@graph': graph });

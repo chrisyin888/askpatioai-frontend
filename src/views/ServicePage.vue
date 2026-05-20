@@ -115,7 +115,15 @@
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
-import { SITE_ORIGIN, faqPageNode, injectJsonLd, removeJsonLd } from '../utils/seoHead';
+import {
+  SITE_ORIGIN,
+  breadcrumbNode,
+  faqPageNode,
+  injectJsonLd,
+  localBusinessNode,
+  removeJsonLd,
+  webSiteNode,
+} from '../utils/seoHead';
 import { publicAssetUrl } from '../utils/publicAssetUrl';
 
 const SERVICE_SCHEMA_TYPE = {
@@ -178,13 +186,20 @@ export default {
     },
   },
   mounted() {
-    const graph = [];
+    const graph = [localBusinessNode(), webSiteNode()];
+    const breadcrumb = breadcrumbNode([
+      { name: 'Home', path: '/' },
+      { name: this.page.h1, path: this.page.path },
+    ]);
+    if (breadcrumb) graph.push(breadcrumb);
     const st = SERVICE_SCHEMA_TYPE[this.serviceKey];
     if (st) {
       const node = {
         '@type': 'Service',
+        name: this.page.h1,
         serviceType: st,
         provider: { '@id': `${SITE_ORIGIN}/#business` },
+        url: `${SITE_ORIGIN}${this.page.path}`,
         areaServed: { '@type': 'AdministrativeArea', name: 'Lower Mainland, British Columbia' },
       };
       const hero = publicAssetUrl(this.page.heroImage);

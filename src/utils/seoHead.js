@@ -58,15 +58,40 @@ export function faqPageNode(faqs) {
   };
 }
 
+export function webSiteNode() {
+  return {
+    '@type': 'WebSite',
+    '@id': `${SITE_ORIGIN}/#website`,
+    name: 'LoomiHome Patios',
+    url: SITE_ORIGIN,
+    publisher: { '@id': `${SITE_ORIGIN}/#business` },
+    inLanguage: 'en-CA',
+  };
+}
+
+export function breadcrumbNode(items) {
+  if (!items || items.length < 2) return null;
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_ORIGIN}${item.path === '/' ? '/' : item.path}`,
+    })),
+  };
+}
+
 /** Node for @graph (no duplicate @context on each item). */
 export function localBusinessNode() {
   return {
-    '@type': 'LocalBusiness',
+    '@type': 'HomeAndConstructionBusiness',
     '@id': `${SITE_ORIGIN}/#business`,
     name: 'LoomiHome Patios',
     description:
       'Patio covers and sunrooms in Vancouver and the Lower Mainland. Fast rough estimates in about 60 seconds, then free on-site measurement.',
     url: SITE_ORIGIN,
+    image: `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`,
     areaServed: [
       { '@type': 'City', name: 'Vancouver' },
       { '@type': 'City', name: 'Burnaby' },
@@ -78,5 +103,17 @@ export function localBusinessNode() {
     ],
     priceRange: '$$',
     email: 'mailto:info@loomihomepatios.ca',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: 'info@loomihomepatios.ca',
+      areaServed: 'CA-BC',
+      availableLanguage: ['en'],
+    },
+    makesOffer: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Aluminum patio covers' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass patio covers' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sunrooms' } },
+    ],
   };
 }

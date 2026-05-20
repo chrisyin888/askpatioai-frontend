@@ -219,7 +219,14 @@
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
-import { faqPageNode, injectJsonLd, removeJsonLd } from '../utils/seoHead';
+import {
+  breadcrumbNode,
+  faqPageNode,
+  injectJsonLd,
+  localBusinessNode,
+  removeJsonLd,
+  webSiteNode,
+} from '../utils/seoHead';
 import { publicAssetUrl } from '../utils/publicAssetUrl';
 
 const SERVICE_LABELS = {
@@ -288,8 +295,15 @@ export default {
     },
   },
   mounted() {
+    const graph = [localBusinessNode(), webSiteNode()];
+    const breadcrumb = breadcrumbNode([
+      { name: 'Home', path: '/' },
+      { name: this.page.h1, path: this.page.path },
+    ]);
+    if (breadcrumb) graph.push(breadcrumb);
     const f = faqPageNode(this.page.faqs);
-    if (f) injectJsonLd({ '@context': 'https://schema.org', '@graph': [f] });
+    if (f) graph.push(f);
+    injectJsonLd({ '@context': 'https://schema.org', '@graph': graph });
   },
   unmounted() {
     removeJsonLd();
