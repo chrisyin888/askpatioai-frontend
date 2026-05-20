@@ -486,7 +486,7 @@
                 <input
                   v-model="form.name"
                   type="text"
-                  placeholder="Full Name"
+                  placeholder="Name"
                   required
                 />
               </div>
@@ -548,6 +548,27 @@
                   v-model="form.city"
                   type="text"
                   placeholder="City (e.g. Vancouver)"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <span class="field-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="#7a8ba0"
+                  >
+                    <path
+                      d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                    />
+                  </svg>
+                </span>
+                <input
+                  v-model="form.address"
+                  type="text"
+                  placeholder="Street Address"
                   required
                 />
               </div>
@@ -1014,7 +1035,7 @@
                       <input
                         v-model="chatBookingForm.name"
                         type="text"
-                        placeholder="Full Name *"
+                        placeholder="Name *"
                         autocomplete="name"
                       />
                       <span v-if="chatBookingForm.errors.name" class="chat-booking-err">{{ chatBookingForm.errors.name }}</span>
@@ -1244,6 +1265,7 @@ export default {
         email: '',
         phone: '',
         city: '',
+        address: '',
         project_type: '',
         details: '',
         preferred_time: '',
@@ -2468,6 +2490,7 @@ export default {
         email,
         phone,
         city,
+        address,
         project_type,
         details,
         preferred_time,
@@ -2508,7 +2531,7 @@ export default {
           phone: (phone && phone.trim()) || '-',
           email: email.trim(),
           city: city.trim(),
-          address: '',
+          address: address.trim(),
           project_type: (project_type || '').trim(),
           size:
             this.projectInfo && this.projectInfo.size
@@ -2551,6 +2574,7 @@ export default {
           email: '',
           phone: '',
           city: '',
+          address: '',
           project_type: '',
           details: '',
           preferred_time: '',
