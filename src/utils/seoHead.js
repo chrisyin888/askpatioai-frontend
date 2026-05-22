@@ -127,6 +127,22 @@ export function webPageNode(page) {
   };
 }
 
+export function articleNode(page) {
+  if (!page || !page.path) return null;
+  const image = page.heroImage ? absoluteUrl(page.heroImage) : `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`;
+  return {
+    '@type': 'Article',
+    '@id': `${absoluteUrl(page.path)}#article`,
+    headline: page.h1,
+    description: page.metaDescription || page.intro,
+    image,
+    mainEntityOfPage: { '@id': `${absoluteUrl(page.path)}#webpage` },
+    author: { '@id': `${SITE_ORIGIN}/#business` },
+    publisher: { '@id': `${SITE_ORIGIN}/#business` },
+    inLanguage: 'en-CA',
+  };
+}
+
 export function breadcrumbNode(items) {
   if (!items || items.length < 2) return null;
   return {

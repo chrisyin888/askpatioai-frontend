@@ -4,6 +4,7 @@ import ServicePage from '../views/ServicePage.vue';
 import SeoContentPage from '../views/SeoContentPage.vue';
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
+import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import { setCanonicalPath } from '../utils/seoHead';
 
@@ -66,6 +67,20 @@ const guideRoutes = GUIDE_PAGE_ORDER.map((id) => {
   };
 });
 
+const projectRoutes = PROJECT_PAGE_ORDER.map((id) => {
+  const p = PROJECT_PAGES[id];
+  return {
+    path: p.path,
+    name: `project-${id}`,
+    component: SeoContentPage,
+    props: () => ({ kind: 'project', pageId: id }),
+    meta: {
+      title: p.metaTitle,
+      description: p.metaDescription,
+    },
+  };
+});
+
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
@@ -81,6 +96,7 @@ const router = createRouter({
     ...serviceRoutes,
     ...cityRoutes,
     ...guideRoutes,
+    ...projectRoutes,
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
   scrollBehavior(to, from, saved) {

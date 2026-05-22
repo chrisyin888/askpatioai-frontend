@@ -196,6 +196,14 @@
                     </li>
                   </ul>
                 </div>
+                <div v-if="projectLinks.length" class="seo-page__explore-card">
+                  <h3 class="seo-page__explore-card-title">Project examples</h3>
+                  <ul class="seo-page__explore-list">
+                    <li v-for="p in projectLinks" :key="p.path">
+                      <router-link :to="p.path" class="seo-page__explore-link">{{ p.label }}</router-link>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <p class="seo-page__back-home">
                 <router-link to="/" class="seo-page__back-home-link">← Back to homepage</router-link>
@@ -218,8 +226,10 @@
 <script>
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
+import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import {
+  articleNode,
   breadcrumbNode,
   faqPageNode,
   injectJsonLd,
@@ -243,7 +253,7 @@ export default {
     kind: {
       type: String,
       required: true,
-      validator: (v) => v === 'city' || v === 'guide',
+      validator: (v) => v === 'city' || v === 'guide' || v === 'project',
     },
     pageId: {
       type: String,
@@ -253,10 +263,15 @@ export default {
   computed: {
     page() {
       if (this.kind === 'city') return CITY_PAGES[this.pageId] || CITY_PAGES.vancouver;
+      if (this.kind === 'project') {
+        return PROJECT_PAGES[this.pageId] || PROJECT_PAGES['burnaby-aluminum-patio-cover'];
+      }
       return GUIDE_PAGES[this.pageId] || GUIDE_PAGES['patio-cover-cost'];
     },
     heroKindLabel() {
-      return this.kind === 'city' ? 'Local page' : 'Guide';
+      if (this.kind === 'city') return 'Local page';
+      if (this.kind === 'project') return 'Project';
+      return 'Guide';
     },
     serviceLinks() {
       return SERVICE_PAGE_ORDER.map((k) => ({
@@ -287,6 +302,14 @@ export default {
         }),
       );
     },
+    projectLinks() {
+      return PROJECT_PAGE_ORDER.filter(
+        (id) => !(this.kind === 'project' && id === this.pageId),
+      ).map((id) => ({
+        path: PROJECT_PAGES[id].path,
+        label: PROJECT_PAGES[id].h1.replace(' Project', ''),
+      }));
+    },
     heroImageUrl() {
       const raw = this.page && this.page.heroImage;
       return publicAssetUrl(raw);
@@ -305,6 +328,10 @@ export default {
         { name: this.page.h1, path: this.page.path },
       ]),
     ].filter(Boolean);
+    if (this.kind === 'project') {
+      const article = articleNode(this.page);
+      if (article) graph.push(article);
+    }
     const f = faqPageNode(this.page.faqs);
     if (f) graph.push(f);
     injectJsonLd({ '@context': 'https://schema.org', '@graph': graph });
