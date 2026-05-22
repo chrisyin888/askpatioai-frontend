@@ -31,6 +31,14 @@ export const GUIDE_PAGES = {
         h2: 'Rough quote first, accurate quote second',
         body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
       },
+      {
+        h2: 'Why local pricing is different from online kits',
+        body: 'Online kits can be useful for comparison, but Vancouver-area installs need to account for rain, wind exposure, attachment conditions, access, and finishing details. A local installed price includes more than just panels in a box.',
+      },
+      {
+        h2: 'What to prepare for a better estimate',
+        body: 'A rough width, projection from the house, city, and one or two photos are enough to make the first ballpark more useful. Exact measurements come later during the free site visit.',
+      },
     ],
     pricingNote:
       'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your size and location.',
@@ -72,6 +80,14 @@ export const GUIDE_PAGES = {
         h2: 'Skyline combo — the middle path',
         body: 'Some homeowners want both light and shade panels. Our skyline-style combo blends glass with V-panel sections — worth comparing alongside pure glass or pure aluminum.',
       },
+      {
+        h2: 'Budget and maintenance differences',
+        body: 'Aluminum is usually the simpler, lower-maintenance choice. Glass often costs more and needs occasional cleaning, but it keeps the patio and nearby rooms brighter.',
+      },
+      {
+        h2: 'How to choose for Vancouver weather',
+        body: 'If rain protection is the main goal, start with aluminum or combo. If keeping daylight is just as important, compare glass at the same approximate size so the trade-off is based on numbers instead of guesswork.',
+      },
     ],
     pricingNote:
       'Get two ballparks in one chat session — we can help you compare aluminum vs glass for your approximate size.',
@@ -105,6 +121,14 @@ export const GUIDE_PAGES = {
         h2: 'Why homeowners still start with us first',
         body: 'Most people want to know if the project is financially realistic before spending hours on paperwork. Our fast rough estimate gives you that orientation; permitting runs parallel when you decide to proceed.',
       },
+      {
+        h2: 'Details that can affect permit requirements',
+        body: 'Attachment to the house, projection, height, lot coverage, drainage, and whether the cover is enclosed can all matter. A simple open cover and an enclosed sunroom may be treated very differently.',
+      },
+      {
+        h2: 'How the site visit helps',
+        body: 'During measurement we can document dimensions, attachment points, and site conditions so you have clearer information when speaking with your municipality or reviewing next steps.',
+      },
     ],
     pricingNote:
       'Permit or not, the measurement visit is how we finalize structure details and price accurately.',
@@ -137,6 +161,14 @@ export const GUIDE_PAGES = {
       {
         h2: 'Aluminum vs glass in wet months',
         body: 'Solid aluminum-style roofs are the straightforward rain shield. Glass roofs still shed water when engineered correctly, with the bonus of light. Combo systems split the difference.',
+      },
+      {
+        h2: 'Do not ignore gutters and slope',
+        body: 'A patio cover that looks good but drains poorly can create new problems. We look at where water should move, how it leaves the roof, and whether the house connection is appropriate for the space.',
+      },
+      {
+        h2: 'Best value for most rain-first projects',
+        body: 'For homeowners who mainly want furniture, doors, and walkways drier, aluminum is often the practical starting point. Glass and combo systems are worth comparing when light and appearance are higher priorities.',
       },
     ],
     pricingNote:
@@ -174,6 +206,14 @@ export const GUIDE_PAGES = {
       {
         h2: 'Phase 3 — order & install',
         body: 'Lead times vary by product and season. We communicate scheduling clearly once you approve the quote.',
+      },
+      {
+        h2: 'What can slow the project down',
+        body: 'Custom sizes, material availability, weather windows, permit requirements, and unusual attachment conditions can all affect timing. The earlier we understand the site, the easier it is to give a realistic schedule.',
+      },
+      {
+        h2: 'How to speed up the first step',
+        body: 'Send approximate dimensions, city, product preference, and photos if you have them. That gives us enough context to ballpark quickly before booking a site visit.',
       },
     ],
     pricingNote:

@@ -33,6 +33,15 @@
             </ul>
           </div>
 
+          <div
+            v-for="(sec, si) in page.sections || []"
+            :key="'service-sec-' + si"
+            class="service-page-info"
+          >
+            <h2 class="service-page-h2">{{ sec.h2 }}</h2>
+            <p class="service-page-info-text">{{ sec.body }}</p>
+          </div>
+
           <div v-if="page.pricingLine" class="service-page-pricing">
             <h2 class="service-page-h2">Ballpark pricing</h2>
             <p class="service-page-pricing-text">{{ page.pricingLine }}</p>
@@ -123,6 +132,7 @@ import {
   localBusinessNode,
   removeJsonLd,
   webSiteNode,
+  webPageNode,
 } from '../utils/seoHead';
 import { publicAssetUrl } from '../utils/publicAssetUrl';
 
@@ -186,20 +196,25 @@ export default {
     },
   },
   mounted() {
-    const graph = [localBusinessNode(), webSiteNode()];
-    const breadcrumb = breadcrumbNode([
-      { name: 'Home', path: '/' },
-      { name: this.page.h1, path: this.page.path },
-    ]);
-    if (breadcrumb) graph.push(breadcrumb);
+    const graph = [
+      localBusinessNode(),
+      webSiteNode(),
+      webPageNode(this.page),
+      breadcrumbNode([
+        { name: 'Home', path: '/' },
+        { name: this.page.h1, path: this.page.path },
+      ]),
+    ].filter(Boolean);
     const st = SERVICE_SCHEMA_TYPE[this.serviceKey];
     if (st) {
       const node = {
         '@type': 'Service',
+        '@id': `${SITE_ORIGIN}${this.page.path}#service`,
         name: this.page.h1,
+        description: this.page.metaDescription || this.page.intro,
+        url: `${SITE_ORIGIN}${this.page.path}`,
         serviceType: st,
         provider: { '@id': `${SITE_ORIGIN}/#business` },
-        url: `${SITE_ORIGIN}${this.page.path}`,
         areaServed: { '@type': 'AdministrativeArea', name: 'Lower Mainland, British Columbia' },
       };
       const hero = publicAssetUrl(this.page.heroImage);
@@ -303,6 +318,19 @@ export default {
 }
 .service-page-benefits-list li {
   margin-bottom: 0.5rem;
+}
+.service-page-info {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1rem 1.15rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+}
+.service-page-info-text {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 15px;
+  color: #334155;
 }
 .service-page-pricing {
   margin-bottom: 1.5rem;

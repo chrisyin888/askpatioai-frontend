@@ -226,6 +226,7 @@ import {
   localBusinessNode,
   removeJsonLd,
   webSiteNode,
+  webPageNode,
 } from '../utils/seoHead';
 import { publicAssetUrl } from '../utils/publicAssetUrl';
 
@@ -295,12 +296,15 @@ export default {
     },
   },
   mounted() {
-    const graph = [localBusinessNode(), webSiteNode()];
-    const breadcrumb = breadcrumbNode([
-      { name: 'Home', path: '/' },
-      { name: this.page.h1, path: this.page.path },
-    ]);
-    if (breadcrumb) graph.push(breadcrumb);
+    const graph = [
+      localBusinessNode(),
+      webSiteNode(),
+      webPageNode(this.page),
+      breadcrumbNode([
+        { name: 'Home', path: '/' },
+        { name: this.page.h1, path: this.page.path },
+      ]),
+    ].filter(Boolean);
     const f = faqPageNode(this.page.faqs);
     if (f) graph.push(f);
     injectJsonLd({ '@context': 'https://schema.org', '@graph': graph });

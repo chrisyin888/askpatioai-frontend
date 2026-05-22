@@ -3,10 +3,15 @@ export const SITE_ORIGIN = 'https://loomihomepatios.ca';
 
 let canonicalLinkEl = null;
 
+export function absoluteUrl(pathname) {
+  if (!pathname) return SITE_ORIGIN;
+  if (/^https?:\/\//i.test(pathname)) return pathname;
+  return `${SITE_ORIGIN}${pathname.startsWith('/') ? pathname : `/${pathname}`}`;
+}
+
 export function setCanonicalPath(pathname) {
   if (typeof document === 'undefined') return;
-  const path = pathname === '/' ? '' : pathname;
-  const href = `${SITE_ORIGIN}${path || '/'}`;
+  const href = absoluteUrl(pathname === '/' ? '/' : pathname);
 
   if (!canonicalLinkEl) {
     canonicalLinkEl = document.querySelector('link[rel="canonical"]');
@@ -69,19 +74,6 @@ export function webSiteNode() {
   };
 }
 
-export function breadcrumbNode(items) {
-  if (!items || items.length < 2) return null;
-  return {
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      item: `${SITE_ORIGIN}${item.path === '/' ? '/' : item.path}`,
-    })),
-  };
-}
-
 /** Node for @graph (no duplicate @context on each item). */
 export function localBusinessNode() {
   return {
@@ -115,5 +107,35 @@ export function localBusinessNode() {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass patio covers' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sunrooms' } },
     ],
+  };
+}
+
+export function webPageNode(page) {
+  return {
+    '@type': 'WebPage',
+    '@id': `${absoluteUrl(page.path)}#webpage`,
+    url: absoluteUrl(page.path),
+    name: page.metaTitle || page.h1,
+    description: page.metaDescription || page.intro,
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${SITE_ORIGIN}/#website`,
+      name: 'LoomiHome Patios',
+      url: SITE_ORIGIN,
+    },
+    about: { '@id': `${SITE_ORIGIN}/#business` },
+  };
+}
+
+export function breadcrumbNode(items) {
+  if (!items || items.length < 2) return null;
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
   };
 }
