@@ -143,6 +143,25 @@ export function articleNode(page) {
   };
 }
 
+export function serviceNode(page) {
+  if (!page || !page.serviceType) return null;
+  const node = {
+    '@type': 'Service',
+    '@id': `${absoluteUrl(page.path)}#service`,
+    name: page.h1,
+    description: page.metaDescription || page.intro,
+    url: absoluteUrl(page.path),
+    serviceType: page.serviceType,
+    provider: { '@id': `${SITE_ORIGIN}/#business` },
+    areaServed: {
+      '@type': page.areaServed && page.areaServed.includes(',') ? 'City' : 'AdministrativeArea',
+      name: page.areaServed || 'Lower Mainland, British Columbia',
+    },
+  };
+  if (page.heroImage) node.image = absoluteUrl(page.heroImage);
+  return node;
+}
+
 export function breadcrumbNode(items) {
   if (!items || items.length < 2) return null;
   return {

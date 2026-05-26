@@ -3,6 +3,7 @@ import HomePage from '../HomePage.vue';
 import ServicePage from '../views/ServicePage.vue';
 import SeoContentPage from '../views/SeoContentPage.vue';
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
+import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
@@ -53,6 +54,20 @@ const cityRoutes = CITY_PAGE_ORDER.map((id) => {
   };
 });
 
+const cityServiceRoutes = CITY_SERVICE_PAGE_ORDER.map((id) => {
+  const p = CITY_SERVICE_PAGES[id];
+  return {
+    path: p.path,
+    name: `city-service-${id}`,
+    component: SeoContentPage,
+    props: () => ({ kind: 'cityService', pageId: id }),
+    meta: {
+      title: p.metaTitle,
+      description: p.metaDescription,
+    },
+  };
+});
+
 const guideRoutes = GUIDE_PAGE_ORDER.map((id) => {
   const p = GUIDE_PAGES[id];
   return {
@@ -95,6 +110,7 @@ const router = createRouter({
     },
     ...serviceRoutes,
     ...cityRoutes,
+    ...cityServiceRoutes,
     ...guideRoutes,
     ...projectRoutes,
     { path: '/:pathMatch(.*)*', redirect: '/' },

@@ -196,6 +196,14 @@
                     </li>
                   </ul>
                 </div>
+                <div v-if="cityServiceLinks.length" class="seo-page__explore-card">
+                  <h3 class="seo-page__explore-card-title">City service pages</h3>
+                  <ul class="seo-page__explore-list">
+                    <li v-for="l in cityServiceLinks" :key="l.path">
+                      <router-link :to="l.path" class="seo-page__explore-link">{{ l.label }}</router-link>
+                    </li>
+                  </ul>
+                </div>
                 <div v-if="projectLinks.length" class="seo-page__explore-card">
                   <h3 class="seo-page__explore-card-title">Project examples</h3>
                   <ul class="seo-page__explore-list">
@@ -225,6 +233,7 @@
 
 <script>
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
+import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
@@ -235,6 +244,7 @@ import {
   injectJsonLd,
   localBusinessNode,
   removeJsonLd,
+  serviceNode,
   webSiteNode,
   webPageNode,
 } from '../utils/seoHead';
@@ -253,7 +263,7 @@ export default {
     kind: {
       type: String,
       required: true,
-      validator: (v) => v === 'city' || v === 'guide' || v === 'project',
+      validator: (v) => v === 'city' || v === 'guide' || v === 'project' || v === 'cityService',
     },
     pageId: {
       type: String,
@@ -263,6 +273,9 @@ export default {
   computed: {
     page() {
       if (this.kind === 'city') return CITY_PAGES[this.pageId] || CITY_PAGES.vancouver;
+      if (this.kind === 'cityService') {
+        return CITY_SERVICE_PAGES[this.pageId] || CITY_SERVICE_PAGES['aluminum-burnaby'];
+      }
       if (this.kind === 'project') {
         return PROJECT_PAGES[this.pageId] || PROJECT_PAGES['burnaby-aluminum-patio-cover'];
       }
@@ -270,6 +283,7 @@ export default {
     },
     heroKindLabel() {
       if (this.kind === 'city') return 'Local page';
+      if (this.kind === 'cityService') return 'Local service';
       if (this.kind === 'project') return 'Project';
       return 'Guide';
     },
@@ -302,6 +316,14 @@ export default {
         }),
       );
     },
+    cityServiceLinks() {
+      return CITY_SERVICE_PAGE_ORDER.filter(
+        (id) => !(this.kind === 'cityService' && id === this.pageId),
+      ).map((id) => ({
+        path: CITY_SERVICE_PAGES[id].path,
+        label: CITY_SERVICE_PAGES[id].h1,
+      }));
+    },
     projectLinks() {
       return PROJECT_PAGE_ORDER.filter(
         (id) => !(this.kind === 'project' && id === this.pageId),
@@ -331,6 +353,10 @@ export default {
     if (this.kind === 'project') {
       const article = articleNode(this.page);
       if (article) graph.push(article);
+    }
+    if (this.kind === 'cityService') {
+      const service = serviceNode(this.page);
+      if (service) graph.push(service);
     }
     const f = faqPageNode(this.page.faqs);
     if (f) graph.push(f);

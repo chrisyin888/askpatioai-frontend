@@ -106,6 +106,12 @@
                 <router-link :to="g.path" class="service-page-crosslinks__a">{{ g.label }}</router-link>
               </li>
             </ul>
+            <h3 class="service-page-h3">City service pages</h3>
+            <ul class="service-page-crosslinks-list">
+              <li v-for="l in cityServiceLinks" :key="l.path">
+                <router-link :to="l.path" class="service-page-crosslinks__a">{{ l.label }}</router-link>
+              </li>
+            </ul>
             <h3 class="service-page-h3">Project examples</h3>
             <ul class="service-page-crosslinks-list">
               <li v-for="p in projectLinks" :key="p.path">
@@ -128,6 +134,7 @@
 
 <script>
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
+import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
@@ -192,6 +199,12 @@ export default {
       return GUIDE_PAGE_ORDER.map((id) => ({
         path: GUIDE_PAGES[id].path,
         label: labels[id] || id,
+      }));
+    },
+    cityServiceLinks() {
+      return CITY_SERVICE_PAGE_ORDER.map((id) => ({
+        path: CITY_SERVICE_PAGES[id].path,
+        label: CITY_SERVICE_PAGES[id].h1,
       }));
     },
     projectLinks() {
