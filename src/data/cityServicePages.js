@@ -6,6 +6,12 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'glass-richmond',
   'glass-coquitlam',
   'sunrooms-burnaby',
+  'glass-burnaby',
+  'glass-surrey',
+  'sunrooms-richmond',
+  'sunrooms-surrey',
+  'contractor-vancouver',
+  'installer-richmond',
 ];
 
 export const CITY_SERVICE_PAGES = {
@@ -264,6 +270,264 @@ export const CITY_SERVICE_PAGES = {
       {
         q: 'Can I get a Burnaby sunroom estimate online?',
         a: 'Yes. The online estimate is a rough range first; the free site visit confirms the final quote.',
+      },
+    ],
+  },
+  'glass-burnaby': {
+    id: 'glass-burnaby',
+    path: '/glass-patio-covers-burnaby',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Glass Patio Covers Burnaby | Bright Rain Protection | LoomiHome Patios',
+    metaDescription:
+      'Glass patio covers in Burnaby — bright modern patio roofs for rain protection without losing natural light. Fast rough quote and free measurement.',
+    h1: 'Glass Patio Covers in Burnaby',
+    serviceType: 'Glass patio cover installation',
+    areaServed: 'Burnaby, British Columbia',
+    intro:
+      'Glass patio covers are a strong option in Burnaby when you want rain protection but still care about daylight. They suit patios near kitchens, family rooms, and back doors where a solid roof might feel too dark.',
+    highlights: [
+      'Bright overhead rain protection for Burnaby patios',
+      'Modern glass and black-frame design direction',
+      'Useful comparison against aluminum patio covers',
+      'Free measurement after your first ballpark estimate',
+    ],
+    localAngle:
+      'Burnaby homes can have compact yards and windows close to the patio. Glass helps keep the back of the home brighter while adding a covered outdoor area.',
+    sections: [
+      {
+        h2: 'When glass is worth the upgrade',
+        body: 'Glass usually costs more than a basic aluminum cover, but it keeps the space brighter and can look more premium from inside the home.',
+      },
+      {
+        h2: 'Details we check on site',
+        body: 'Slope, drainage, glass layout, wall attachment, and nearby doors or windows all shape the final design and quote.',
+      },
+    ],
+    pricingNote:
+      'Share your Burnaby location, rough width, and projection. We can compare glass and aluminum so the budget difference is clear.',
+    faqs: [
+      {
+        q: 'Are glass patio covers good for Burnaby homes?',
+        a: 'Yes, especially when natural light is important. Proper slope, drainage, and attachment still need to be confirmed during measurement.',
+      },
+      {
+        q: 'Can I compare glass and aluminum pricing?',
+        a: 'Yes. We can ballpark both from the same approximate dimensions.',
+      },
+    ],
+  },
+  'glass-surrey': {
+    id: 'glass-surrey',
+    path: '/glass-patio-covers-surrey',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Glass Patio Covers Surrey | Modern Patio Roofs | LoomiHome Patios',
+    metaDescription:
+      'Glass patio covers in Surrey — modern bright patio roof options for rain protection and outdoor living. Get a fast estimate and free site measurement.',
+    h1: 'Glass Patio Covers in Surrey',
+    serviceType: 'Glass patio cover installation',
+    areaServed: 'Surrey, British Columbia',
+    intro:
+      'Surrey homeowners often have enough backyard space to make a glass patio cover feel like a real outdoor living upgrade. Glass works best when you want rain protection but still want the patio to feel open.',
+    highlights: [
+      'Bright patio cover options for Surrey backyards',
+      'Premium look compared with basic solid covers',
+      'Compare glass, aluminum, and skyline combo options',
+      'Fast ballpark before a free site measurement',
+    ],
+    localAngle:
+      'From South Surrey to Fleetwood and Cloverdale, patio sizes vary widely. A quick estimate helps compare glass against lower-cost aluminum before a site visit.',
+    sections: [
+      {
+        h2: 'Why choose glass in Surrey',
+        body: 'Glass is useful when the covered area is close to main living spaces and you want to protect the patio without blocking daylight.',
+      },
+      {
+        h2: 'What affects the quote',
+        body: 'Glass size, number of panels, support layout, attachment height, and drainage direction all affect the final number.',
+      },
+    ],
+    pricingNote:
+      'Send rough dimensions and whether you prefer maximum light or a balanced mix of shade. We can compare glass with combo systems too.',
+    faqs: [
+      {
+        q: 'Do glass patio covers work in heavy rain?',
+        a: 'Yes, if the cover is designed with proper slope, guttering, and attachment details.',
+      },
+      {
+        q: 'Do you install glass covers across Surrey?',
+        a: 'Yes, we serve Surrey broadly, including South Surrey, Cloverdale, Newton, Fleetwood, and Guildford.',
+      },
+    ],
+  },
+  'sunrooms-richmond': {
+    id: 'sunrooms-richmond',
+    path: '/sunrooms-richmond',
+    heroImage: '/house/sunrooms/sunroom-hero.png',
+    metaTitle: 'Sunrooms Richmond BC | Patio Enclosure Estimate | LoomiHome Patios',
+    metaDescription:
+      'Sunrooms in Richmond BC — enclosed patio and glass room options. Compare sunroom budget vs patio covers with a fast rough estimate.',
+    h1: 'Sunrooms in Richmond',
+    serviceType: 'Sunroom installation',
+    areaServed: 'Richmond, British Columbia',
+    intro:
+      'A sunroom can make a Richmond patio feel more usable through more of the year. It is a bigger investment than an open cover, so we start with a rough budget range before detailed design.',
+    highlights: [
+      'Enclosed patio and sunroom options in Richmond',
+      'Compare sunroom budget against patio covers',
+      'Good for brighter sitting or transition spaces',
+      'Free measurement after the initial rough estimate',
+    ],
+    localAngle:
+      'Richmond homes often have back patios or side spaces that can become more useful with enclosure. Site conditions, attachment, and drainage need to be reviewed before final pricing.',
+    sections: [
+      {
+        h2: 'When to consider a sunroom',
+        body: 'Choose a sunroom when you want more enclosure and comfort than a roof alone can provide. It can work well for sitting areas, hobby spaces, or protected transitions to the backyard.',
+      },
+      {
+        h2: 'Budget before design',
+        body: 'Because sunrooms can vary widely, the first step is understanding whether the project range makes sense. Final details come after measurement.',
+      },
+    ],
+    pricingNote:
+      'Share the approximate footprint and a few photos. We can compare a sunroom with simpler patio cover options if budget is uncertain.',
+    faqs: [
+      {
+        q: 'Are sunrooms more expensive than patio covers?',
+        a: 'Usually yes. Sunrooms add enclosure, more glass, and more planning than an open patio cover.',
+      },
+      {
+        q: 'Can I get a Richmond sunroom estimate online?',
+        a: 'Yes. The first estimate is a rough planning range, then a free measurement confirms final pricing.',
+      },
+    ],
+  },
+  'sunrooms-surrey': {
+    id: 'sunrooms-surrey',
+    path: '/sunrooms-surrey',
+    heroImage: '/house/sunrooms/sunroom-hero.png',
+    metaTitle: 'Sunrooms Surrey | Patio Enclosures & Fast Estimate | LoomiHome Patios',
+    metaDescription:
+      'Sunrooms in Surrey — enclosed patio options for family spaces and backyard upgrades. Fast rough estimate before free site measurement.',
+    h1: 'Sunrooms in Surrey',
+    serviceType: 'Sunroom installation',
+    areaServed: 'Surrey, British Columbia',
+    intro:
+      'Surrey homes often have larger patio areas that can support a more comfortable enclosed space. A sunroom is worth comparing when you want more than shade and rain protection.',
+    highlights: [
+      'Sunroom and patio enclosure options for Surrey homes',
+      'Useful for larger family backyards',
+      'Compare against open patio covers before deciding',
+      'Fast rough estimate followed by free measurement',
+    ],
+    localAngle:
+      'From South Surrey to Cloverdale and Fleetwood, lot sizes and patio layouts vary. A rough estimate helps decide whether a sunroom or simpler cover is the better next step.',
+    sections: [
+      {
+        h2: 'Sunroom vs open patio cover',
+        body: 'An open cover adds roof protection. A sunroom adds enclosure and a more room-like feel, which usually means a higher budget and more planning.',
+      },
+      {
+        h2: 'What we need to estimate',
+        body: 'Approximate size, photos, existing patio condition, and whether the area already has a cover help us create a more useful starting range.',
+      },
+    ],
+    pricingNote:
+      'Start with the size and how you plan to use the space. We can ballpark sunroom and patio cover directions in one conversation.',
+    faqs: [
+      {
+        q: 'Do you build sunrooms in Surrey?',
+        a: 'Yes, Surrey is part of our Lower Mainland service area.',
+      },
+      {
+        q: 'Should I choose a sunroom or patio cover?',
+        a: 'If you mainly need rain protection, start with a patio cover. If you want more enclosure and comfort, compare a sunroom.',
+      },
+    ],
+  },
+  'contractor-vancouver': {
+    id: 'contractor-vancouver',
+    path: '/patio-cover-contractor-vancouver',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Contractor Vancouver | Fast Quote | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover contractor in Vancouver? Compare aluminum, glass, skyline combo, and sunroom options with a fast rough quote and free measurement.',
+    h1: 'Patio Cover Contractor in Vancouver',
+    serviceType: 'Patio cover contractor',
+    areaServed: 'Vancouver, British Columbia',
+    intro:
+      'If you are searching for a patio cover contractor in Vancouver, you probably want a clear path from rough price to measured final quote. LoomiHome helps you compare cover types first, then book a free on-site measurement when the range makes sense.',
+    highlights: [
+      'Fast rough quote before a sales appointment',
+      'Compare aluminum, glass, skyline combo, and sunroom options',
+      'Local Lower Mainland team for Vancouver-area homes',
+      'Free on-site measurement for final pricing',
+    ],
+    localAngle:
+      'Vancouver homes vary by neighbourhood, lot shape, and attachment conditions. A rough online estimate saves time before a contractor visit.',
+    sections: [
+      {
+        h2: 'What a good contractor quote should clarify',
+        body: 'A useful quote should explain product direction, approximate size, attachment assumptions, drainage, and what still needs to be confirmed on site.',
+      },
+      {
+        h2: 'Why start online',
+        body: 'Starting with a ballpark helps you avoid booking multiple appointments before you know whether the project fits your budget.',
+      },
+    ],
+    pricingNote:
+      'Send your city, rough dimensions, and preferred cover type. We will give a starting range before booking a free measurement.',
+    faqs: [
+      {
+        q: 'Do you provide patio cover quotes in Vancouver?',
+        a: 'Yes. You can start with a fast rough estimate online, then book a free on-site measurement.',
+      },
+      {
+        q: 'What patio cover types can I compare?',
+        a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
+      },
+    ],
+  },
+  'installer-richmond': {
+    id: 'installer-richmond',
+    path: '/patio-cover-installer-richmond',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Installer Richmond BC | LoomiHome Patios',
+    metaDescription:
+      'Patio cover installer in Richmond BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
+    h1: 'Patio Cover Installer in Richmond',
+    serviceType: 'Patio cover installation',
+    areaServed: 'Richmond, British Columbia',
+    intro:
+      'Richmond homeowners looking for a patio cover installer often need practical answers first: what type fits, what it might cost, and whether the site is suitable. We start with a rough estimate, then confirm details during a free measurement.',
+    highlights: [
+      'Patio cover installation options in Richmond',
+      'Compare aluminum, glass, combo, and sunroom paths',
+      'Helpful for back patios, side yards, and carport-style spaces',
+      'Fast ballpark followed by free measurement',
+    ],
+    localAngle:
+      'Richmond homes can have flat lots, side driveways, and coastal weather exposure. Installation details like drainage, clearance, and attachment matter for the final quote.',
+    sections: [
+      {
+        h2: 'What installation details matter',
+        body: 'Post placement, wall attachment, roof slope, gutter direction, access, and clearance all shape a proper patio cover installation.',
+      },
+      {
+        h2: 'Estimate first, install planning second',
+        body: 'The first estimate helps you decide whether the project is worth measuring. The site visit handles the practical installation details.',
+      },
+    ],
+    pricingNote:
+      'Share rough dimensions and one or two photos. We can ballpark the likely product direction before a Richmond site visit.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Richmond?',
+        a: 'Yes, we serve Richmond and nearby Lower Mainland cities.',
+      },
+      {
+        q: 'Can you install glass and aluminum covers?',
+        a: 'We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
     ],
   },
