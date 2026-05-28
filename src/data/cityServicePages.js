@@ -12,6 +12,12 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'sunrooms-surrey',
   'contractor-vancouver',
   'installer-richmond',
+  'aluminum-delta',
+  'aluminum-coquitlam',
+  'glass-delta',
+  'sunrooms-coquitlam',
+  'contractor-burnaby',
+  'installer-surrey',
 ];
 
 export const CITY_SERVICE_PAGES = {
@@ -528,6 +534,264 @@ export const CITY_SERVICE_PAGES = {
       {
         q: 'Can you install glass and aluminum covers?',
         a: 'We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
+      },
+    ],
+  },
+  'aluminum-delta': {
+    id: 'aluminum-delta',
+    path: '/aluminum-patio-covers-delta',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Aluminum Patio Covers Delta BC | Fast Estimate | LoomiHome Patios',
+    metaDescription:
+      'Aluminum patio covers in Delta BC — practical rain protection for patios, side yards, and carport-style spaces. Fast quote and free measurement.',
+    h1: 'Aluminum Patio Covers in Delta',
+    serviceType: 'Aluminum patio cover installation',
+    areaServed: 'Delta, British Columbia',
+    intro:
+      'Delta homeowners often want a durable patio cover that handles rain, wind exposure, and everyday family use. Aluminum is a practical starting point when you want dependable coverage with a clear budget range.',
+    highlights: [
+      'Low-maintenance aluminum patio covers for Delta homes',
+      'Good fit for patios, back doors, and side-yard covers',
+      'Fast rough estimate before a site visit',
+      'Free measurement for final quote details',
+    ],
+    localAngle:
+      'From Ladner to Tsawwassen and North Delta, exposure and lot layout can change the design. Photos and rough dimensions help us prepare a better first estimate.',
+    sections: [
+      {
+        h2: 'Why aluminum is a strong Delta option',
+        body: 'Aluminum offers practical rain protection without the higher cost of full glass. It works well when coverage, drainage, and maintenance matter most.',
+      },
+      {
+        h2: 'What we confirm before final pricing',
+        body: 'Post placement, attachment height, roof projection, gutter direction, and access all affect the final number. The site visit confirms those details.',
+      },
+    ],
+    pricingNote:
+      'Start with rough width, projection, and your Delta neighbourhood. We can also compare aluminum with glass if light is important.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in Delta?',
+        a: 'Yes, Delta is part of our Lower Mainland service area.',
+      },
+      {
+        q: 'Can aluminum work for a side-yard cover?',
+        a: 'Often yes, depending on clearance, drainage, and attachment. We confirm those details during measurement.',
+      },
+    ],
+  },
+  'aluminum-coquitlam': {
+    id: 'aluminum-coquitlam',
+    path: '/aluminum-patio-covers-coquitlam',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Aluminum Patio Covers Coquitlam | Quick Quote | LoomiHome Patios',
+    metaDescription:
+      'Aluminum patio covers in Coquitlam — rain-ready, low-maintenance covers for back patios and family spaces. Fast rough quote and free measurement.',
+    h1: 'Aluminum Patio Covers in Coquitlam',
+    serviceType: 'Aluminum patio cover installation',
+    areaServed: 'Coquitlam, British Columbia',
+    intro:
+      'Coquitlam homes can have sloped lots, raised decks, and varied patio layouts. Aluminum is a dependable first option when you want rain protection and cost control before comparing premium choices.',
+    highlights: [
+      'Practical rain protection for Coquitlam patios',
+      'Lower-maintenance alternative to wood covers',
+      'Compare aluminum, glass, and combo options',
+      'Fast ballpark before free site measurement',
+    ],
+    localAngle:
+      'In areas like Burke Mountain, Maillardville, and Austin Heights, attachment and height can vary. A few photos help shape a realistic first estimate.',
+    sections: [
+      {
+        h2: 'Good fit for everyday outdoor space',
+        body: 'Aluminum covers are usually chosen when the goal is a dry, usable patio with a straightforward design and manageable budget.',
+      },
+      {
+        h2: 'Site details matter in Coquitlam',
+        body: 'Slope, elevation, deck structure, wall attachment, and drainage can all affect the final quote. We use measurement to verify those details.',
+      },
+    ],
+    pricingNote:
+      'Send approximate dimensions and whether the cover is over a patio, deck, or side walkway. That helps make the first range useful.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in Coquitlam?',
+        a: 'Yes, we serve Coquitlam and nearby Tri-Cities areas.',
+      },
+      {
+        q: 'Is aluminum cheaper than glass?',
+        a: 'Usually yes. Aluminum is often the practical starting point when budget and rain protection are the main priorities.',
+      },
+    ],
+  },
+  'glass-delta': {
+    id: 'glass-delta',
+    path: '/glass-patio-covers-delta',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Glass Patio Covers Delta BC | Bright Patio Roofs | LoomiHome Patios',
+    metaDescription:
+      'Glass patio covers in Delta BC — bright, modern rain protection for patios and back doors. Compare glass vs aluminum with a fast estimate.',
+    h1: 'Glass Patio Covers in Delta',
+    serviceType: 'Glass patio cover installation',
+    areaServed: 'Delta, British Columbia',
+    intro:
+      'Glass patio covers are worth comparing in Delta when the covered area sits near main windows or doors. They add rain protection while helping the patio and indoor space stay brighter.',
+    highlights: [
+      'Bright glass patio roof options for Delta homes',
+      'Modern look for back patios and outdoor seating',
+      'Compare glass and aluminum budget ranges',
+      'Free measurement after the first estimate',
+    ],
+    localAngle:
+      'Delta homes can face different exposure depending on neighbourhood and lot position. Proper slope and drainage are important for a glass cover to perform well.',
+    sections: [
+      {
+        h2: 'When glass makes sense',
+        body: 'Glass is usually selected when daylight and appearance matter. It can feel more open than a solid cover, especially near kitchens and family rooms.',
+      },
+      {
+        h2: 'What affects glass pricing',
+        body: 'Panel layout, span, support posts, attachment height, glass type, and drainage direction all affect the final quote.',
+      },
+    ],
+    pricingNote:
+      'Share your rough dimensions and whether you want maximum light. We can compare glass against aluminum before booking a site visit.',
+    faqs: [
+      {
+        q: 'Do glass patio covers work in Delta rain?',
+        a: 'Yes, when designed with proper slope, guttering, and attachment details.',
+      },
+      {
+        q: 'Is glass always the best patio cover choice?',
+        a: 'Not always. Glass is best when light and appearance are priorities; aluminum may be better for a lower budget.',
+      },
+    ],
+  },
+  'sunrooms-coquitlam': {
+    id: 'sunrooms-coquitlam',
+    path: '/sunrooms-coquitlam',
+    heroImage: '/house/sunrooms/sunroom-hero.png',
+    metaTitle: 'Sunrooms Coquitlam | Patio Enclosures & Estimate | LoomiHome Patios',
+    metaDescription:
+      'Sunrooms in Coquitlam — enclosed patio and glass room options for brighter usable space. Fast rough estimate and free measurement.',
+    h1: 'Sunrooms in Coquitlam',
+    serviceType: 'Sunroom installation',
+    areaServed: 'Coquitlam, British Columbia',
+    intro:
+      'A sunroom can make a Coquitlam patio feel more comfortable and usable than an open cover alone. Because site conditions vary, we start with a rough range before deeper planning.',
+    highlights: [
+      'Sunroom and patio enclosure options in Coquitlam',
+      'Compare enclosed space against open patio covers',
+      'Useful for brighter sitting or hobby spaces',
+      'Fast estimate before free site measurement',
+    ],
+    localAngle:
+      'Coquitlam properties may involve slopes, decks, and different attachment heights. A measured visit confirms what type of enclosure is realistic.',
+    sections: [
+      {
+        h2: 'Sunroom planning starts with use',
+        body: 'How you plan to use the space affects the direction. A casual sitting area, hobby room, or enclosed transition space can lead to different budgets.',
+      },
+      {
+        h2: 'Why the first quote is a range',
+        body: 'Sunroom pricing depends heavily on size, enclosure level, glass, existing structure, and site access. The first estimate helps decide whether to continue.',
+      },
+    ],
+    pricingNote:
+      'Send the approximate footprint and photos of the current patio or deck. We can compare sunroom and patio cover options.',
+    faqs: [
+      {
+        q: 'Do you build sunrooms in Coquitlam?',
+        a: 'Yes, Coquitlam is part of our Lower Mainland service area.',
+      },
+      {
+        q: 'Can a sunroom go over an existing patio?',
+        a: 'Sometimes, but the existing surface, attachment, drainage, and structure need to be checked during measurement.',
+      },
+    ],
+  },
+  'contractor-burnaby': {
+    id: 'contractor-burnaby',
+    path: '/patio-cover-contractor-burnaby',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Contractor Burnaby | Fast Quote | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover contractor in Burnaby? Compare aluminum, glass, combo, and sunroom options with a fast quote and free measurement.',
+    h1: 'Patio Cover Contractor in Burnaby',
+    serviceType: 'Patio cover contractor',
+    areaServed: 'Burnaby, British Columbia',
+    intro:
+      'If you are comparing patio cover contractors in Burnaby, the first useful step is a clear budget range. LoomiHome helps you compare material options before booking a free on-site measurement.',
+    highlights: [
+      'Fast rough patio cover quote for Burnaby homes',
+      'Compare aluminum, glass, combo, and sunroom options',
+      'Useful for patios, back doors, and side-yard layouts',
+      'Free measurement for final contractor pricing',
+    ],
+    localAngle:
+      'Burnaby homes range from tight urban patios to larger suburban yards. A few measurements and photos help us make the first contractor estimate more realistic.',
+    sections: [
+      {
+        h2: 'What to ask a patio cover contractor',
+        body: 'Ask how the cover attaches, how rain drains, where posts land, and what assumptions are included in the first price range.',
+      },
+      {
+        h2: 'Why compare options first',
+        body: 'Aluminum, glass, combo, and sunroom projects can have very different budgets. Comparing early keeps the site visit focused.',
+      },
+    ],
+    pricingNote:
+      'Share your Burnaby neighbourhood and rough patio size. We will give a starting range before the measured quote.',
+    faqs: [
+      {
+        q: 'Do you provide patio cover contractor quotes in Burnaby?',
+        a: 'Yes. Start with a rough online quote, then book a free measurement if the range works.',
+      },
+      {
+        q: 'Can I compare different patio cover types?',
+        a: 'Yes. We can compare aluminum, glass, skyline combo, and sunroom directions.',
+      },
+    ],
+  },
+  'installer-surrey': {
+    id: 'installer-surrey',
+    path: '/patio-cover-installer-surrey',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Installer Surrey | Fast Estimate | LoomiHome Patios',
+    metaDescription:
+      'Patio cover installer in Surrey — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
+    h1: 'Patio Cover Installer in Surrey',
+    serviceType: 'Patio cover installation',
+    areaServed: 'Surrey, British Columbia',
+    intro:
+      'Surrey homeowners searching for a patio cover installer often want a practical price range before scheduling a visit. We help compare the main cover types and then confirm installation details on site.',
+    highlights: [
+      'Patio cover installation options across Surrey',
+      'Compare aluminum, glass, combo, and sunroom projects',
+      'Good for larger back patios and family spaces',
+      'Fast rough estimate followed by free measurement',
+    ],
+    localAngle:
+      'Surrey includes compact townhome patios and larger detached-home yards. Installation details like span, post placement, and drainage change with the site.',
+    sections: [
+      {
+        h2: 'Installation details that change the quote',
+        body: 'Width, projection, attachment height, posts, access, drainage, and cover type all shape the final installation price.',
+      },
+      {
+        h2: 'Estimate before site visit',
+        body: 'A first ballpark helps you decide whether aluminum, glass, combo, or a sunroom is the right direction before measuring.',
+      },
+    ],
+    pricingNote:
+      'Send your Surrey area and approximate dimensions. We can give a useful starting range before the free measurement.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Surrey?',
+        a: 'Yes, we serve Surrey broadly, including South Surrey, Cloverdale, Newton, Fleetwood, and Guildford.',
+      },
+      {
+        q: 'Can I get an installation estimate online?',
+        a: 'Yes. The online estimate is a starting range; final installation pricing comes after measurement.',
       },
     ],
   },
