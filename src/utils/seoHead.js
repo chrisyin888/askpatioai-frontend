@@ -81,7 +81,9 @@ export function localBusinessNode() {
     '@id': `${SITE_ORIGIN}/#business`,
     name: 'LoomiHome Patios',
     description:
-      'Patio covers and sunrooms in Vancouver and the Lower Mainland. Fast rough estimates in about 60 seconds, then free on-site measurement.',
+      'Patio covers and sunrooms in Vancouver and the Lower Mainland, with over 10 years of experience and hundreds of completed projects. Fast rough estimates in about 60 seconds, then free on-site measurement.',
+    slogan: '10+ years of experience, hundreds of patio cover and sunroom projects across the Lower Mainland.',
+    foundingDate: '2015',
     url: SITE_ORIGIN,
     image: `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`,
     areaServed: [

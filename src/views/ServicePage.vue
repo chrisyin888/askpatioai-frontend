@@ -24,6 +24,11 @@
           <header class="header service-page-header">
             <h1 class="hero-main-title service-page-h1">{{ page.h1 }}</h1>
             <p class="subtitle hero-subtitle">{{ page.intro }}</p>
+            <p class="service-page-trust">
+              <span class="service-page-trust__badge">10+ years experience</span>
+              <span class="service-page-trust__badge">Hundreds of projects completed</span>
+              <span class="service-page-trust__badge">Lower Mainland team</span>
+            </p>
           </header>
 
           <div class="service-page-benefits">
@@ -327,6 +332,31 @@ export default {
 }
 .service-page-h1 {
   margin-bottom: 0.75rem;
+}
+.service-page-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+}
+.service-page-trust__badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+  background: #f1f5f9;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  border-radius: 999px;
+  padding: 5px 12px;
+  line-height: 1.2;
+}
+.service-page-trust__badge::before {
+  content: "✓";
+  margin-right: 6px;
+  font-weight: 800;
+  color: #16a34a;
 }
 .service-page-benefits {
   margin-bottom: 2rem;

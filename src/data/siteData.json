@@ -23,15 +23,15 @@
     "chatPlaceholder": "Example: 12x14 aluminum patio cover in Burnaby",
     "inputHelperExample": "Richmond, glass patio cover, about 12×14 ft",
     "trustPoints": [
+      "✔ 10+ years experience, hundreds of projects",
       "✔ Fast rough quote in chat (~60 sec)",
       "✔ Compare cover types side by side",
-      "✔ Lower Mainland team",
       "✔ Free on-site measurement when you’re ready"
     ],
     "productsHeading": "Compare patio cover types",
     "productsLead": "Compare the main patio cover types, then get a quick rough quote in chat before booking a free on-site measurement.",
     "seoHeading": "Custom patio covers and sunrooms for Vancouver-area homes.",
-    "seoBody": "LoomiHome helps homeowners compare aluminum patio covers, glass patio covers, skyline combo designs, and sunroom options with fast rough pricing in about a minute. Start with a ballpark estimate first, then book a free on-site measurement when you're ready.",
+    "seoBody": "With over 10 years of experience and hundreds of completed projects across the Lower Mainland, LoomiHome helps homeowners compare aluminum patio covers, glass patio covers, skyline combo designs, and sunroom options with fast rough pricing in about a minute. Start with a ballpark estimate first, then book a free on-site measurement when you're ready.",
     "seoServiceArea": "Serving Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, and nearby areas.",
     "faqTitle": "Quick answers",
     "faqItems": [
@@ -961,6 +961,14 @@
   "features": [
     {
       "icon": "",
+      "text": "10+ years of experience, hundreds of projects completed"
+    },
+    {
+      "icon": "",
+      "text": "Experienced Vancouver-based team"
+    },
+    {
+      "icon": "",
       "text": "Free, no-obligation consultation"
     },
     {
@@ -969,14 +977,11 @@
     },
     {
       "icon": "",
-      "text": "Experienced Vancouver-based team"
-    },
-    {
-      "icon": "",
       "text": "Competitive pricing, exceptional quality"
     }
   ],
   "benefits": [
+    "10+ years of experience, hundreds of projects completed",
     "Free no-obligation consultation",
     "Custom plans tailored to your needs",
     "Experienced Vancouver-based team",
