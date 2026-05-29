@@ -450,6 +450,56 @@
         </div>
       </section>
 
+      <!-- Our Facility & Real Projects (trust / proof) -->
+      <section class="section section-facility">
+        <div class="content-wrapper glass-panel">
+          <div class="header">
+            <h2 class="title">Our Facility &amp; Real Projects</h2>
+            <p class="subtitle">
+              A real local company with our own showroom and warehouse stock — backed by a team with 10+ years of
+              combined experience and hundreds of completed patio cover and sunroom projects across the Lower Mainland.
+            </p>
+          </div>
+
+          <div class="facility-grid">
+            <figure
+              v-for="item in facility"
+              :key="item.image"
+              class="facility-card"
+            >
+              <div class="facility-image">
+                <img
+                  :src="publicAssetUrl(item.image)"
+                  :alt="item.alt"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="facility-caption">{{ item.caption }}</figcaption>
+            </figure>
+          </div>
+
+          <h3 class="facility-subheading">Recent completed projects</h3>
+          <div class="facility-grid facility-grid--projects">
+            <figure
+              v-for="item in realProjects"
+              :key="item.image"
+              class="facility-card"
+            >
+              <div class="facility-image">
+                <img
+                  :src="publicAssetUrl(item.image)"
+                  :alt="item.alt"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="facility-caption">{{ item.caption }}</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <!-- Section 3: Confirm Final Quote -->
       <section
         class="section section-appointment"
@@ -1262,6 +1312,50 @@ export default {
       projects: [],
       features: [],
       benefits: [],
+      facility: [
+        {
+          image: '/house/company/showroom-reception.png',
+          alt: 'LoomiHome Patios showroom and reception',
+          caption: 'Our showroom & office',
+        },
+        {
+          image: '/house/company/warehouse-1.png',
+          alt: 'LoomiHome Patios warehouse with aluminum stock',
+          caption: 'In-house warehouse & material stock',
+        },
+        {
+          image: '/house/company/warehouse-2.png',
+          alt: 'LoomiHome Patios warehouse aluminum profile inventory',
+          caption: 'Aluminum profile inventory',
+        },
+      ],
+      realProjects: [
+        {
+          image: '/house/realprojects/glass-deck-2story.png',
+          alt: 'Glass patio cover over a two-storey deck with glass railing',
+          caption: 'Glass patio cover — two-storey deck',
+        },
+        {
+          image: '/house/realprojects/glass-patio-door.png',
+          alt: 'Glass patio cover over a backyard patio and door',
+          caption: 'Glass patio cover — backyard patio',
+        },
+        {
+          image: '/house/realprojects/glass-balcony.png',
+          alt: 'Glass patio cover over an upper balcony',
+          caption: 'Glass cover — upper balcony',
+        },
+        {
+          image: '/house/realprojects/aluminum-entrance.png',
+          alt: 'Black aluminum patio cover over a back entrance',
+          caption: 'Aluminum cover — back entrance',
+        },
+        {
+          image: '/house/realprojects/sunroom-white.png',
+          alt: 'White sunroom enclosure with stairs',
+          caption: 'Sunroom enclosure',
+        },
+      ],
       beforeAfter: null,
       activeCity: '',
       activeProjectType: 'Aluminum',
@@ -2881,6 +2975,71 @@ body {
   padding: 40px max(12px, env(safe-area-inset-left)) 40px
     max(12px, env(safe-area-inset-right));
   box-sizing: border-box;
+}
+
+/* Our Facility & Real Projects */
+.section-facility {
+  align-items: stretch;
+  padding: 40px max(12px, env(safe-area-inset-left)) 40px
+    max(12px, env(safe-area-inset-right));
+  box-sizing: border-box;
+}
+
+.section-facility .content-wrapper.glass-panel {
+  width: 100%;
+  background: #ffffff;
+}
+
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.facility-grid--projects {
+  margin-top: 12px;
+}
+
+.facility-subheading {
+  margin: 28px 0 4px;
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.facility-card {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.facility-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.facility-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.facility-caption {
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
 }
 
 .section-projects .content-wrapper.glass-panel {
