@@ -10,6 +10,8 @@
     "chatApiUrl": "https://fastapi-0bcw.onrender.com/ask",
     "emailApiUrl": "https://fastapi-0bcw.onrender.com/send-email",
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
+    "contractorSmsNotifyUrl": "https://fastapi-0bcw.onrender.com/notify-contractor-sms",
+    "contractorNotifyWebhookUrl": "",
     "chatWidgetTitle": "Fast estimate — about 60 seconds",
     "chatWidgetSubtitle": "Rough patio cover pricing before you book a site visit"
   },

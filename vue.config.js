@@ -12,4 +12,7 @@ module.exports = defineConfig({
       title: 'Patio Covers Vancouver | Fast Quote in 60 Seconds | Sunrooms | LoomiHome Patios',
     },
   },
+  devServer: {
+    historyApiFallback: true,
+  },
 })

@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../HomePage.vue';
+import ContractorAccount from '../views/ContractorAccount.vue';
+import AdminLogin from '../views/AdminLogin.vue';
+import AdminLeads from '../views/AdminLeads.vue';
+import ContractorDashboard from '../views/ContractorDashboard.vue';
+import ContractorLogin from '../views/ContractorLogin.vue';
 import ServicePage from '../views/ServicePage.vue';
 import SeoContentPage from '../views/SeoContentPage.vue';
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
@@ -106,6 +111,55 @@ const router = createRouter({
       meta: {
         title: DEFAULT_TITLE,
         description: DEFAULT_DESCRIPTION,
+      },
+    },
+    {
+      path: '/contractor-login',
+      name: 'contractor-login',
+      component: ContractorLogin,
+      meta: {
+        title: 'Contractor Login / 承包商登录 | LoomiHome Lead Marketplace',
+        description: 'Contractor login for the LoomiHome lead marketplace lobby. / LoomiHome 承包商 lead marketplace 登录页面。',
+      },
+    },
+    {
+      path: '/admin-login',
+      name: 'admin-login',
+      component: AdminLogin,
+      meta: {
+        title: 'Admin Login / 管理员登录 | LoomiHome Lead Marketplace',
+        description: 'Admin login for lead management and contractor wallets. / LoomiHome 管理员 lead 管理登录页面。',
+      },
+    },
+    {
+      path: '/contractor',
+      redirect: '/lobby',
+    },
+    {
+      path: '/lobby',
+      name: 'contractor-lobby',
+      component: ContractorDashboard,
+      meta: {
+        title: 'Lead Lobby / Lead 大厅 | LoomiHome Lead Marketplace',
+        description: 'Shared contractor lead lobby where all contractors browse and purchase leads. / 所有承包商共享的 Lead 大厅。',
+      },
+    },
+    {
+      path: '/account',
+      name: 'marketplace-account',
+      component: ContractorAccount,
+      meta: {
+        title: 'Account / 账号设置 | LoomiHome Lead Marketplace',
+        description: 'Change marketplace login password. / 修改 marketplace 登录密码。',
+      },
+    },
+    {
+      path: '/admin-leads',
+      name: 'admin-leads',
+      component: AdminLeads,
+      meta: {
+        title: 'Lead Admin / Lead 管理后台 | LoomiHome Lead Marketplace',
+        description: 'Admin lead entry and contractor coin wallet management. / 管理员 lead 录入和 coin 钱包管理后台。',
       },
     },
     ...serviceRoutes,
