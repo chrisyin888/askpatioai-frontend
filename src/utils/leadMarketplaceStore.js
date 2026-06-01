@@ -2,6 +2,8 @@ const STORAGE_KEY = 'loomihome_lead_marketplace_v9';
 const SESSION_KEY = 'loomihome_lead_marketplace_session_v1';
 const RESET_STORAGE_KEY = 'loomihome_marketplace_password_resets_v1';
 
+export const DEFAULT_LEAD_COIN_COST = 100;
+
 import { marketText } from './marketplaceI18n';
 import { LEGACY_LEADS } from '../data/legacyLeads';
 
@@ -71,7 +73,7 @@ function buildLegacySoldLeads() {
       projectType: lead.projectType,
       size: lead.size || '',
       notes: lead.notes || '',
-      coinCost: lead.coinCost || 25,
+      coinCost: lead.coinCost || DEFAULT_LEAD_COIN_COST,
       status: 'sold',
       buyerId,
       createdAt: new Date(base + index * 3600000).toISOString(),
@@ -84,7 +86,7 @@ function buildLegacyPurchases(leads) {
     id: `legacy-purchase-${index + 1}`,
     contractorId: lead.buyerId,
     leadId: lead.id,
-    coinCost: lead.coinCost || 25,
+    coinCost: lead.coinCost || DEFAULT_LEAD_COIN_COST,
     purchasedAt: inferLegacyPurchasedAt(LEGACY_LEADS[index], index),
   }));
 }
@@ -107,12 +109,27 @@ function mergeLegacySoldRecords(state) {
   return state;
 }
 
+function applyStandardCoinCost(state) {
+  if (state.coinCostStandard === DEFAULT_LEAD_COIN_COST) return state;
+
+  state.leads = (state.leads || []).map((lead) => ({
+    ...lead,
+    coinCost: DEFAULT_LEAD_COIN_COST,
+  }));
+  state.purchases = (state.purchases || []).map((purchase) => ({
+    ...purchase,
+    coinCost: DEFAULT_LEAD_COIN_COST,
+  }));
+  state.coinCostStandard = DEFAULT_LEAD_COIN_COST;
+  return state;
+}
+
 function buildSeedLeads() {
   const samples = [
-    { city: 'Surrey', projectType: 'Sunroom', size: '12x16', coinCost: 30 },
-    { city: 'Burnaby', projectType: 'Patio Cover', size: '10x10', coinCost: 25 },
-    { city: 'Richmond', projectType: 'Glass Patio Cover', size: '14x9', coinCost: 30 },
-    { city: 'Coquitlam', projectType: 'Aluminum Patio Cover', size: '16x5', coinCost: 25 },
+    { city: 'Surrey', projectType: 'Sunroom', size: '12x16' },
+    { city: 'Burnaby', projectType: 'Patio Cover', size: '10x10' },
+    { city: 'Richmond', projectType: 'Glass Patio Cover', size: '14x9' },
+    { city: 'Coquitlam', projectType: 'Aluminum Patio Cover', size: '16x5' },
   ];
 
   return samples.map((sample, index) => ({
@@ -124,7 +141,7 @@ function buildSeedLeads() {
     projectType: sample.projectType,
     size: sample.size,
     notes: 'New homeowner inquiry in Greater Vancouver.',
-    coinCost: sample.coinCost,
+    coinCost: DEFAULT_LEAD_COIN_COST,
     status: 'available',
     buyerId: '',
     createdAt: new Date(Date.now() - index * 3600000).toISOString(),
@@ -167,6 +184,7 @@ function defaultState() {
     purchases: buildLegacyPurchases(legacyLeads),
     walletTransactions: [],
     legacySoldImported: true,
+    coinCostStandard: DEFAULT_LEAD_COIN_COST,
   };
 }
 
@@ -192,7 +210,7 @@ function mergeWithDefaults(parsed = {}) {
   const leads = Array.isArray(parsed.leads) && parsed.leads.length ? parsed.leads : defaults.leads;
   const purchases = Array.isArray(parsed.purchases) ? parsed.purchases : defaults.purchases;
 
-  return mergeLegacySoldRecords({
+  return applyStandardCoinCost(mergeLegacySoldRecords({
     ...defaults,
     ...parsed,
     users: [...userMap.values()],
@@ -201,7 +219,7 @@ function mergeWithDefaults(parsed = {}) {
     purchases,
     walletTransactions: Array.isArray(parsed.walletTransactions) ? parsed.walletTransactions : [],
     legacySoldImported: parsed.legacySoldImported === true,
-  });
+  }));
 }
 
 export function loadMarketplaceState() {
@@ -374,7 +392,7 @@ export function adjustWallet(userId, delta, options = {}) {
 }
 
 export function createLead(input) {
-  const coinCost = Math.max(1, Math.round(Number(input.coinCost) || 1));
+  const coinCost = Math.max(1, Math.round(Number(input.coinCost) || DEFAULT_LEAD_COIN_COST));
   const lead = {
     id: makeId('lead'),
     customerName: String(input.customerName || '').trim(),

@@ -182,6 +182,7 @@ import {
   getWalletBalance,
   listContractors,
   listWalletTransactions,
+  DEFAULT_LEAD_COIN_COST,
 } from '../utils/leadMarketplaceStore';
 import { getMarketplaceLang, marketText, setMarketplaceLang } from '../utils/marketplaceI18n';
 import { notifyContractorsNewLead } from '../utils/marketplaceNotify';
@@ -195,7 +196,7 @@ function emptyLeadForm() {
     projectType: 'Patio Cover',
     size: '',
     notes: '',
-    coinCost: 25,
+    coinCost: DEFAULT_LEAD_COIN_COST,
   };
 }
 
