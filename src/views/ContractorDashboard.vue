@@ -6,52 +6,25 @@
         <h1>{{ tr('Lobby', '大厅') }}</h1>
         <p class="market-muted">
           {{
-            isGuest
-              ? tr(
-                  'City and project type are shown. Log in to unlock contact details.',
-                  '显示城市和项目类型。登录后解锁联系方式。',
-                )
-              : tr(
-                  'City and project type are shown until you purchase. Buy with coins to unlock contacts.',
-                  '购买前显示城市和项目类型。用 coin 购买后解锁联系方式。',
-                )
+            tr(
+              'City and project type are shown until you purchase. Buy with coins to unlock contacts.',
+              '购买前显示城市和项目类型。用 coin 购买后解锁联系方式。',
+            )
           }}
         </p>
       </div>
       <div class="market-actions">
         <button type="button" class="market-secondary" @click="toggleLang">{{ langToggleLabel }}</button>
-        <template v-if="isGuest">
-          <router-link class="lobby-login-cta" to="/contractor-login">{{ tr('Login to unlock', '登录解锁') }}</router-link>
-        </template>
-        <template v-else>
-          <router-link to="/account">{{ tr('Account', '账号') }}</router-link>
-          <router-link to="/admin-leads">{{ tr('Admin', '管理员后台') }}</router-link>
-          <button type="button" @click="logout">{{ tr('Logout', '退出登录') }}</button>
-        </template>
+        <router-link to="/account">{{ tr('Account', '账号') }}</router-link>
+        <router-link to="/admin-leads">{{ tr('Admin', '管理员后台') }}</router-link>
+        <button type="button" @click="logout">{{ tr('Logout', '退出登录') }}</button>
       </div>
       <p v-if="alertBanner" class="market-alert-banner">
         {{ tr('New lead in lobby', '大厅有新 Lead') }}: {{ alertBanner }}
       </p>
     </header>
 
-    <section v-if="isGuest" class="market-shell lobby-guest-stats">
-      <article>
-        <span>{{ tr('Available leads', '可抢 leads') }}</span>
-        <strong>{{ availableLeads.length }}</strong>
-        <small>{{ tr('City and project type visible until login.', '登录前可见城市和项目类型。') }}</small>
-      </article>
-      <article>
-        <span>{{ tr('Sold leads', '已成交 leads') }}</span>
-        <strong>{{ soldLeads.length }}</strong>
-        <small>{{ tr('Already purchased by contractors.', '已被承包商购买。') }}</small>
-      </article>
-      <article class="lobby-guest-stats__cta">
-        <span>{{ tr('Contractor login', '承包商登录') }}</span>
-        <router-link to="/contractor-login">{{ tr('Login', '登录') }}</router-link>
-      </article>
-    </section>
-
-    <section v-else class="market-shell market-stats">
+    <section class="market-shell market-stats">
       <article>
         <span>{{ tr('Logged in as', '当前登录') }}</span>
         <strong>{{ user.name }}</strong>
@@ -194,9 +167,7 @@
 
             <p class="lead-date-card__guest-banner">
               {{
-                isGuest
-                  ? tr('Log in to unlock size, notes and contact details.', '登录后解锁尺寸、备注和联系方式。')
-                  : tr('Purchase to unlock size, notes and contact details.', '购买后解锁尺寸、备注和联系方式。')
+                tr('Purchase to unlock size, notes and contact details.', '购买后解锁尺寸、备注和联系方式。')
               }}
             </p>
           </article>
@@ -206,52 +177,10 @@
           <button type="button" class="lead-deck__pass" @click="passLead">
             {{ tr('Skip', '跳过') }}
           </button>
-          <button
-            v-if="isGuest"
-            type="button"
-            class="lead-deck__buy lead-deck__buy--guest"
-            @click="promptLogin"
-          >
-            {{ tr('Login to unlock', '登录解锁') }}
-          </button>
-          <button v-else type="button" class="lead-deck__buy" @click="requestBuyLead(currentLead)">
+          <button type="button" class="lead-deck__buy" @click="requestBuyLead(currentLead)">
             {{ tr('Buy Lead', '购买 Lead') }}
           </button>
         </div>
-      </div>
-
-      <div v-if="loginPromptOpen" class="purchase-confirm" role="dialog" aria-modal="true">
-        <div class="purchase-confirm__backdrop" @click="closeLoginPrompt"></div>
-        <section class="purchase-confirm__card purchase-confirm__card--guest">
-          <p class="purchase-confirm__badge">🔒 {{ tr('Preview mode', '预览模式') }}</p>
-          <h2>{{ tr('Log in to unlock this lead', '登录后解锁此 lead') }}</h2>
-          <p class="purchase-confirm__lead">
-            {{
-              tr(
-                'Sign in to see full lead details and purchase with coins.',
-                '登录后可查看完整 lead 信息并用 coin 购买。',
-              )
-            }}
-          </p>
-          <dl v-if="currentLead" class="purchase-confirm__summary">
-            <div>
-              <dt>{{ tr('Service area', '服务地区') }}</dt>
-              <dd>{{ currentLead.city }}</dd>
-            </div>
-            <div>
-              <dt>{{ tr('Project', '项目') }}</dt>
-              <dd>{{ currentLead.projectType }}</dd>
-            </div>
-          </dl>
-          <div class="purchase-confirm__actions">
-            <button type="button" class="market-secondary" @click="closeLoginPrompt">
-              {{ tr('Keep browsing', '继续浏览') }}
-            </button>
-            <router-link to="/contractor-login" class="lobby-login-cta lobby-login-cta--wide">
-              {{ tr('Sign in now', '立即登录') }}
-            </router-link>
-          </div>
-        </section>
       </div>
 
       <div v-if="pendingPurchaseLead" class="purchase-confirm" role="dialog" aria-modal="true">
@@ -392,14 +321,14 @@
           <span class="lobby-sold-chip__badge">{{ tr('SOLD', '已成交') }}</span>
           <strong>{{ lead.city }}</strong>
           <span class="lobby-sold-chip__project">{{ lead.projectType }}</span>
-          <span v-if="!isGuest" class="lobby-sold-chip__buyer">{{ lead.buyerName }}</span>
+          <span class="lobby-sold-chip__buyer">{{ lead.buyerName }}</span>
           <small>{{ formatSoldDate(lead.purchasedAt) }}</small>
         </article>
       </div>
       <p v-else class="market-empty">{{ tr('No sold leads yet.', '还没有已成交 leads。') }}</p>
     </section>
 
-    <section v-if="!isGuest" class="market-shell">
+    <section class="market-shell">
       <h2>{{ tr('Coin History', 'Coin 记录') }}</h2>
       <div class="market-table-wrap">
         <table class="market-table">
@@ -428,7 +357,7 @@
       <p v-if="!walletTransactions.length" class="market-empty">{{ tr('No coin records yet.', '还没有 coin 记录。') }}</p>
     </section>
 
-    <section v-if="!isGuest" class="market-shell">
+    <section class="market-shell">
       <h2>{{ tr('Your Matches', '已匹配 Leads') }}</h2>
       <div class="market-table-wrap">
         <table class="market-table">
@@ -466,7 +395,6 @@ import {
   getCurrentUser,
   getWalletBalance,
   listLeadsForContractor,
-  listLeadsForGuestPreview,
   listSoldLeadsForLobby,
   sortLeadsByCity,
   listPurchasesForContractor,
@@ -502,7 +430,6 @@ export default {
       touchStartX: 0,
       swipeClass: '',
       lang: getMarketplaceLang(),
-      loginPromptOpen: false,
       soldLeads: [],
       rechargePromptOpen: false,
       rechargePromptLead: null,
@@ -510,9 +437,6 @@ export default {
     };
   },
   computed: {
-    isGuest() {
-      return !this.user?.id || this.user.role !== 'contractor';
-    },
     availableLeads() {
       return sortLeadsByCity(
         this.leads.filter(
@@ -560,17 +484,16 @@ export default {
   },
   created() {
     const user = getCurrentUser();
-    if (user && user.role === 'contractor') {
-      this.user = user;
-      ensureNotificationPermission();
+    if (!user || user.role !== 'contractor') {
+      this.$router.replace('/contractor-login');
+      return;
     }
+    this.user = user;
+    ensureNotificationPermission();
     this.refresh();
-    if (!this.isGuest) {
-      this.knownLeadIds = this.availableLeads.map((lead) => lead.id);
-    }
+    this.knownLeadIds = this.availableLeads.map((lead) => lead.id);
   },
   mounted() {
-    if (this.isGuest) return;
     this.checkNotifications();
     this.pollTimer = window.setInterval(() => this.checkNotifications(), 15000);
     window.addEventListener('storage', this.checkNotifications);
@@ -590,10 +513,6 @@ export default {
     },
     refresh() {
       this.soldLeads = listSoldLeadsForLobby();
-      if (this.isGuest) {
-        this.leads = listLeadsForGuestPreview();
-        return;
-      }
       if (!this.user.id) return;
       this.leads = listLeadsForContractor(this.user.id);
       this.purchases = listPurchasesForContractor(this.user.id);
@@ -706,9 +625,7 @@ export default {
       const delta = endX - this.touchStartX;
       if (delta > 80) {
         this.triggerSwipe('lead-date-card--swipe-right');
-        if (this.isGuest) {
-          this.promptLogin();
-        } else if (this.currentLead) {
+        if (this.currentLead) {
           this.requestBuyLead(this.currentLead);
         }
       } else if (delta < -80) {
@@ -722,10 +639,6 @@ export default {
       }, 220);
     },
     requestBuyLead(lead) {
-      if (this.isGuest) {
-        this.promptLogin();
-        return;
-      }
       this.message = '';
       if (this.walletBalance < Number(lead.coinCost || 0)) {
         this.openRechargePrompt(lead);
@@ -741,12 +654,6 @@ export default {
     closeRechargePrompt() {
       this.rechargePromptOpen = false;
       this.rechargePromptLead = null;
-    },
-    promptLogin() {
-      this.loginPromptOpen = true;
-    },
-    closeLoginPrompt() {
-      this.loginPromptOpen = false;
     },
     cancelPurchase() {
       this.pendingPurchaseLead = null;

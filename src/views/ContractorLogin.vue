@@ -64,9 +64,6 @@
         <p v-if="error" class="market-auth__error">{{ error }}</p>
         <p v-if="success" class="market-auth__success">{{ success }}</p>
         <button type="submit">{{ tr('Login', '登录') }}</button>
-        <router-link class="market-auth__secondary-link" to="/lobby">
-          {{ tr('Browse lobby preview first', '先看看 Lead 大厅') }}
-        </router-link>
         <router-link class="market-auth__secondary-link" to="/admin-login">
           {{ tr('Admin login', '管理员登录') }}
         </router-link>
@@ -192,7 +189,8 @@ export default {
         return;
       }
       this.error = '';
-      this.$router.push('/lobby');
+      const redirect = typeof this.$route.query.redirect === 'string' ? this.$route.query.redirect : '/lobby';
+      this.$router.push(redirect);
     },
     async sendResetCode() {
       this.error = '';

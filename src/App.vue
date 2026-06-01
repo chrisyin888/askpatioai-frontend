@@ -2,10 +2,10 @@
   <router-view />
   <router-link
     v-if="showContractorEnter"
-    to="/lobby"
+    to="/contractor-login"
     class="site-contractor-enter"
   >
-    Contractor Enter
+    Contractor<br />Enter
   </router-link>
 </template>
 
@@ -43,35 +43,43 @@ export default {
 <style>
 .site-contractor-enter {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
   z-index: 1200;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 16px;
+  min-width: 132px;
+  min-height: 132px;
+  padding: 18px 22px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.92);
+  background: linear-gradient(145deg, #0f172a 0%, #334155 100%);
   color: #fff;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-align: center;
   text-decoration: none;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.22);
+  text-transform: uppercase;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.28);
+  border: 3px solid rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
-  transition: transform 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .site-contractor-enter:hover {
-  background: #0f172a;
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.34);
 }
 
 @media (max-width: 640px) {
   .site-contractor-enter {
     top: 12px;
     right: 12px;
-    padding: 9px 13px;
+    min-width: 108px;
+    min-height: 108px;
+    padding: 14px 16px;
     font-size: 12px;
   }
 }

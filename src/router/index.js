@@ -13,6 +13,7 @@ import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import { setCanonicalPath } from '../utils/seoHead';
+import { getCurrentUser } from '../utils/leadMarketplaceStore';
 
 const DEFAULT_TITLE =
   'Patio Covers Vancouver | Fast Quote in 60 Seconds | Sunrooms | LoomiHome Patios';
@@ -176,6 +177,27 @@ const router = createRouter({
     }
     return { top: 0 };
   },
+});
+
+router.beforeEach((to) => {
+  const user = getCurrentUser();
+
+  if (to.path === '/lobby' || to.path === '/account') {
+    if (!user || user.role !== 'contractor') {
+      return {
+        path: '/contractor-login',
+        query: to.fullPath !== '/lobby' ? { redirect: to.fullPath } : {},
+      };
+    }
+  }
+
+  if (to.path === '/admin-leads') {
+    if (!user || user.role !== 'admin') {
+      return { path: '/admin-login' };
+    }
+  }
+
+  return true;
 });
 
 router.afterEach((to) => {
