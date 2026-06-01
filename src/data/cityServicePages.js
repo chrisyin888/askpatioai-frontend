@@ -24,6 +24,12 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'installer-burnaby',
   'installer-coquitlam',
   'sunrooms-delta',
+  'aluminum-langley',
+  'glass-langley',
+  'sunrooms-langley',
+  'contractor-langley',
+  'contractor-delta',
+  'installer-delta',
 ];
 
 export const CITY_SERVICE_PAGES = {
@@ -1056,6 +1062,264 @@ export const CITY_SERVICE_PAGES = {
       {
         q: 'Can I get a Delta sunroom estimate online?',
         a: 'Yes. The first estimate is a rough planning range, then a free measurement confirms final pricing.',
+      },
+    ],
+  },
+  'aluminum-langley': {
+    id: 'aluminum-langley',
+    path: '/aluminum-patio-covers-langley',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Aluminum Patio Covers Langley | Fast Estimate | LoomiHome Patios',
+    metaDescription:
+      'Aluminum patio covers in Langley — durable, low-maintenance rain protection for larger backyards and newer subdivisions. Fast rough quote and free measurement.',
+    h1: 'Aluminum Patio Covers in Langley',
+    serviceType: 'Aluminum patio cover installation',
+    areaServed: 'Langley, British Columbia',
+    intro:
+      'Langley homes often have generous backyards and newer decks that suit a full-size patio cover. Aluminum is usually the first option to compare when you want strong rain protection, low maintenance, and a clear budget range.',
+    highlights: [
+      'Practical rain protection for larger Langley backyards',
+      'Low-maintenance aluminum covers for decks and patios',
+      'Good fit for Willoughby, Walnut Grove, and Brookswood homes',
+      'Fast ballpark before a free on-site measurement',
+    ],
+    localAngle:
+      'From the newer Willoughby and Walnut Grove subdivisions to established Murrayville, Brookswood, and Fort Langley properties, lot sizes and deck setups vary a lot. Rough dimensions and a photo help shape a useful first estimate.',
+    sections: [
+      {
+        h2: 'Why aluminum works well in Langley',
+        body: 'Many Langley backyards are large enough to make a covered outdoor area genuinely useful. Aluminum delivers dependable rain coverage and a clean finish without the higher cost of a full glass roof.',
+      },
+      {
+        h2: 'What changes the final quote',
+        body: 'Width, projection, attachment to the home or deck, post placement, gutter direction, and access all affect the final number. The free measurement confirms those details.',
+      },
+    ],
+    pricingNote:
+      'Share your Langley neighbourhood and rough size. We can compare aluminum against glass or combo if you are unsure which direction fits your backyard.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in Langley?',
+        a: 'Yes, Langley is part of our Lower Mainland service area, including the Township and City of Langley.',
+      },
+      {
+        q: 'Can a cover attach to an existing deck?',
+        a: 'Often yes, depending on the deck structure, attachment, and clearance. We confirm those details during measurement.',
+      },
+    ],
+  },
+  'glass-langley': {
+    id: 'glass-langley',
+    path: '/glass-patio-covers-langley',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Glass Patio Covers Langley | Bright Patio Roofs | LoomiHome Patios',
+    metaDescription:
+      'Glass patio covers in Langley — bright, modern rain protection that keeps backyards and decks full of natural light. Fast estimate and free measurement.',
+    h1: 'Glass Patio Covers in Langley',
+    serviceType: 'Glass patio cover installation',
+    areaServed: 'Langley, British Columbia',
+    intro:
+      'Glass patio covers are worth comparing in Langley when you want rain protection but still want the deck and back of the home to stay bright. They suit newer homes with large windows and walkout decks.',
+    highlights: [
+      'Bright overhead rain protection for Langley decks',
+      'Modern glass and black-frame design direction',
+      'Good fit for newer Willoughby and Walnut Grove homes',
+      'Free measurement after your first ballpark estimate',
+    ],
+    localAngle:
+      'Many newer Langley homes have walkout decks and large rear windows where a solid roof would feel too dark. Glass keeps the space bright while still shedding rain when the slope and drainage are planned correctly.',
+    sections: [
+      {
+        h2: 'When glass is worth the upgrade',
+        body: 'Glass usually costs more than a basic aluminum cover, but it keeps the deck and adjoining rooms brighter and can look more premium from inside the home.',
+      },
+      {
+        h2: 'What affects glass pricing',
+        body: 'Panel layout, span, support posts, attachment height, glass type, and drainage direction all affect the final quote. A quick estimate helps you decide before measuring.',
+      },
+    ],
+    pricingNote:
+      'Send rough dimensions and whether you want maximum light or a balanced mix of shade. We can compare glass and aluminum from the same measurements.',
+    faqs: [
+      {
+        q: 'Are glass patio covers good for Langley homes?',
+        a: 'Yes, especially for newer homes with walkout decks and large windows where keeping natural light matters. Slope and drainage are confirmed on site.',
+      },
+      {
+        q: 'Can I compare glass and aluminum pricing?',
+        a: 'Yes. We can ballpark both from the same approximate dimensions.',
+      },
+    ],
+  },
+  'sunrooms-langley': {
+    id: 'sunrooms-langley',
+    path: '/sunrooms-langley',
+    heroImage: '/house/sunrooms/sunroom-hero.png',
+    metaTitle: 'Sunrooms Langley | Patio Enclosures & Estimate | LoomiHome Patios',
+    metaDescription:
+      'Sunrooms in Langley — enclosed patio and glass room options for brighter, year-round usable space. Fast rough estimate and free site measurement.',
+    h1: 'Sunrooms in Langley',
+    serviceType: 'Sunroom installation',
+    areaServed: 'Langley, British Columbia',
+    intro:
+      'Langley homes often have the backyard space to support a comfortable enclosed sunroom. It is a bigger step than an open cover, so we start with a rough budget range before detailed design.',
+    highlights: [
+      'Enclosed patio and sunroom options in Langley',
+      'Compare sunroom budget against open patio covers',
+      'Good for brighter sitting, hobby, or family spaces',
+      'Free measurement after the initial rough estimate',
+    ],
+    localAngle:
+      'Larger Langley lots in areas like Murrayville, Brookswood, and the Township give room for a real room-like sunroom. Existing deck condition, attachment, and drainage are reviewed before final pricing.',
+    sections: [
+      {
+        h2: 'When to consider a sunroom',
+        body: 'Choose a sunroom when you want more enclosure and comfort than a roof alone provides. It works well for sitting areas, hobby rooms, or a protected transition to a large backyard.',
+      },
+      {
+        h2: 'Budget before design',
+        body: 'Because sunrooms vary widely, the first step is understanding whether the project range makes sense. Final details come after measurement.',
+      },
+    ],
+    pricingNote:
+      'Share the approximate footprint and a few photos. We can compare a sunroom with simpler patio cover options if budget is uncertain.',
+    faqs: [
+      {
+        q: 'Do you build sunrooms in Langley?',
+        a: 'Yes, Langley is part of our Lower Mainland service area.',
+      },
+      {
+        q: 'Should I choose a sunroom or a patio cover?',
+        a: 'If you mainly need rain protection, start with a patio cover. If you want more enclosure and year-round comfort, compare a sunroom.',
+      },
+    ],
+  },
+  'contractor-langley': {
+    id: 'contractor-langley',
+    path: '/patio-cover-contractor-langley',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Contractor Langley | Fast Quote | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover contractor in Langley? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free on-site measurement.',
+    h1: 'Patio Cover Contractor in Langley',
+    serviceType: 'Patio cover contractor',
+    areaServed: 'Langley, British Columbia',
+    intro:
+      'If you are comparing patio cover contractors in Langley, the most useful first step is a clear budget range. LoomiHome helps you compare cover types before booking a free on-site measurement, so you are not guessing on price.',
+    highlights: [
+      'Fast rough patio cover quote for Langley homes',
+      'Compare aluminum, glass, skyline combo, and sunroom options',
+      'Good for larger backyards, decks, and newer subdivisions',
+      'Free on-site measurement for final contractor pricing',
+    ],
+    localAngle:
+      'Langley spans newer Willoughby and Walnut Grove developments and more established areas like Murrayville, Brookswood, and Fort Langley. Lot size and deck setup vary, so a rough online estimate saves time before a contractor visit.',
+    sections: [
+      {
+        h2: 'What a Langley contractor quote should clarify',
+        body: 'A useful quote should explain product direction, approximate size, attachment to the home or deck, drainage, and what still needs to be confirmed on site.',
+      },
+      {
+        h2: 'Why start online',
+        body: 'Starting with a ballpark helps you avoid booking multiple appointments before you know whether the project fits your budget. If the range works, the measured visit handles the rest.',
+      },
+    ],
+    pricingNote:
+      'Send your Langley neighbourhood, rough dimensions, and preferred cover type. We will give a starting range before booking a free measurement.',
+    faqs: [
+      {
+        q: 'Do you provide patio cover quotes in Langley?',
+        a: 'Yes. Start with a fast rough quote online, then book a free on-site measurement if the range works.',
+      },
+      {
+        q: 'What patio cover types can I compare?',
+        a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
+      },
+    ],
+  },
+  'contractor-delta': {
+    id: 'contractor-delta',
+    path: '/patio-cover-contractor-delta',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Contractor Delta BC | Fast Quote | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover contractor in Delta BC? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free measurement.',
+    h1: 'Patio Cover Contractor in Delta',
+    serviceType: 'Patio cover contractor',
+    areaServed: 'Delta, British Columbia',
+    intro:
+      'If you are looking for a patio cover contractor in Delta, coastal exposure and wind make a clear plan important. LoomiHome helps you compare cover types and get a rough budget before a free on-site measurement.',
+    highlights: [
+      'Fast rough patio cover quote for Delta homes',
+      'Compare aluminum, glass, skyline combo, and sunroom options',
+      'Good for Ladner, Tsawwassen, and North Delta properties',
+      'Free on-site measurement for final contractor pricing',
+    ],
+    localAngle:
+      'Delta ranges from Ladner and Tsawwassen near the water to North Delta. Coastal wind and exposure can affect the design, so drainage and attachment are worth confirming early.',
+    sections: [
+      {
+        h2: 'What a Delta contractor quote should clarify',
+        body: 'A useful quote should explain product direction, approximate size, attachment, drainage, and how the design handles wind and coastal exposure where relevant.',
+      },
+      {
+        h2: 'Why start online first',
+        body: 'A rough range helps you decide whether to keep going before booking appointments. If the budget works, the measured visit confirms the details.',
+      },
+    ],
+    pricingNote:
+      'Send your Delta neighbourhood, rough dimensions, and preferred cover type. We will give a starting range before booking a free measurement.',
+    faqs: [
+      {
+        q: 'Do you provide patio cover contractor quotes in Delta?',
+        a: 'Yes. Start with a rough online quote, then book a free measurement if the range works.',
+      },
+      {
+        q: 'Do you serve Ladner and Tsawwassen?',
+        a: 'Yes, we serve Delta broadly, including Ladner, Tsawwassen, and North Delta.',
+      },
+    ],
+  },
+  'installer-delta': {
+    id: 'installer-delta',
+    path: '/patio-cover-installer-delta',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Installer Delta BC | Fast Estimate | LoomiHome Patios',
+    metaDescription:
+      'Patio cover installer in Delta BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
+    h1: 'Patio Cover Installer in Delta',
+    serviceType: 'Patio cover installation',
+    areaServed: 'Delta, British Columbia',
+    intro:
+      'Delta homeowners searching for a patio cover installer often want practical answers first: what type fits, what it might cost, and how it will handle coastal weather. We start with a rough estimate, then confirm details during a free measurement.',
+    highlights: [
+      'Patio cover installation options across Delta',
+      'Compare aluminum, glass, combo, and sunroom paths',
+      'Helpful for Ladner, Tsawwassen, and North Delta homes',
+      'Fast ballpark followed by free measurement',
+    ],
+    localAngle:
+      'Delta exposure varies from breezy waterfront areas in Tsawwassen and Ladner to more sheltered North Delta lots. Wind, drainage, and attachment all matter for a durable installation.',
+    sections: [
+      {
+        h2: 'Installation details that matter in Delta',
+        body: 'Post placement, wall or deck attachment, roof slope, gutter direction, access, and wind exposure all shape a proper patio cover installation and the final quote.',
+      },
+      {
+        h2: 'Estimate first, install planning second',
+        body: 'The first estimate helps you decide whether the project is worth measuring. The site visit handles the practical installation details and confirms pricing.',
+      },
+    ],
+    pricingNote:
+      'Share rough dimensions and one or two photos. We can ballpark the likely product direction before a Delta site visit.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Delta?',
+        a: 'Yes, we serve Delta, including Ladner, Tsawwassen, and North Delta.',
+      },
+      {
+        q: 'Can you install glass and aluminum covers?',
+        a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
     ],
   },
