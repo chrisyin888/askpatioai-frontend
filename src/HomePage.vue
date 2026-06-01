@@ -1778,6 +1778,20 @@ export default {
         return;
       }
 
+      const sunroomEstimate = this.getSunroomEstimate(text);
+      if (sunroomEstimate) {
+        this.replaceMessageById(placeholderId, {
+          type: 'bot',
+          text: sunroomEstimate.answer,
+          isPrice: !!sunroomEstimate.isPrice,
+          showCta: !!sunroomEstimate.showCta,
+          isPlaceholder: false,
+        });
+        this.logChatDisplayToSheet({ question: text, answer: sunroomEstimate.answer });
+        this.$nextTick(() => this.scrollToBottom());
+        return;
+      }
+
       let questionForAI = text;
       if (productInquiry) {
         if (productInquiry.isMulti) {
@@ -2058,13 +2072,141 @@ export default {
 
       return isPatioPricingRequest && !materialConfirmed;
     },
+    isSunroomText(text) {
+      if (!text) return false;
+      return /\b(sun\s*room|sunroom|four\s*season|4\s*season)\b/i.test(text);
+    },
+    hasSunroomFloorIntent(text) {
+      if (!text) return false;
+      return /buildable|floor|floor\s*area|footprint|ground|base|wide.{0,24}long|long.{0,24}wide|地面|占地/i.test(text);
+    },
+    hasSunroomWallIntent(text) {
+      if (!text) return false;
+      return /wall|walls|panel|panels|side|sides|one\s+wall|one\s+side|single\s+wall|一面|墙|墙面|侧面/i.test(text);
+    },
+    parseBuildableSqft(text) {
+      if (!text) return null;
+
+      const sqftMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:sqft|sq\s*ft|sf)\b/i);
+      if (sqftMatch) {
+        const sqft = Number(sqftMatch[1]);
+        return Number.isFinite(sqft) && sqft > 0 ? sqft : null;
+      }
+
+      const dimensionPatterns = [
+        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:wide|width|w)?\s*(?:x|\*|×|by)\s*(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:long|length|l|deep|depth|projection)?/i,
+        /(\d+(?:\.\d+)?)\s*(?:wide|width|w)\b.*?(\d+(?:\.\d+)?)\s*(?:long|length|l|deep|depth|projection)\b/i,
+        /(\d+(?:\.\d+)?)\s*(?:long|length|l)\b.*?(\d+(?:\.\d+)?)\s*(?:wide|width|w)\b/i,
+      ];
+
+      for (const pattern of dimensionPatterns) {
+        const match = text.match(pattern);
+        if (!match) continue;
+        const first = Number(match[1]);
+        const second = Number(match[2]);
+        const sqft = first * second;
+        if (Number.isFinite(sqft) && sqft > 0) return sqft;
+      }
+
+      return null;
+    },
+    parseWallSqft(text) {
+      if (!text) return null;
+
+      const sqftMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:sqft|sq\s*ft|sf)\b/i);
+      if (sqftMatch) {
+        const sqft = Number(sqftMatch[1]);
+        return Number.isFinite(sqft) && sqft > 0 ? sqft : null;
+      }
+
+      const wallPatterns = [
+        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:wide|width|w)?\b.*?(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:high|height|h)\b/i,
+        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:high|height|h)\b.*?(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:wide|width|w)\b/i,
+        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:x|\*|×|by)\s*(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?/i,
+      ];
+
+      for (const pattern of wallPatterns) {
+        const match = text.match(pattern);
+        if (!match) continue;
+        const first = Number(match[1]);
+        const second = Number(match[2]);
+        const sqft = first * second;
+        if (Number.isFinite(sqft) && sqft > 0) return sqft;
+      }
+
+      return null;
+    },
+    getSunroomEstimate(text) {
+      if (!this.isSunroomText(text)) return null;
+
+      const floorIntent = this.hasSunroomFloorIntent(text);
+      const wallIntent = this.hasSunroomWallIntent(text);
+
+      this.projectInfo.project_type = 'Sunroom';
+
+      if (wallIntent && !floorIntent) {
+        const sqft = this.parseWallSqft(text);
+        const rate = 38;
+        if (!sqft) {
+          return {
+            isPrice: true,
+            showCta: false,
+            answer:
+              'For sunroom wall or panel work, rough pricing is CAD $38 per wall sq ft. Please send the wall width and height, or the wall square footage, and I can calculate the rough total.',
+          };
+        }
+
+        const total = Math.round(sqft * rate);
+        this.projectInfo.size = `${sqft} wall sq ft`;
+        return {
+          sqft,
+          total,
+          isPrice: true,
+          showCta: true,
+          answer:
+            `For sunroom wall or panel work, we estimate by wall square footage at CAD $${rate}/sq ft. ` +
+            `${sqft.toLocaleString()} wall sq ft × CAD $${rate}/sq ft = approximately CAD $${total.toLocaleString()} before GST. ` +
+            `Final pricing is confirmed after free on-site measurement and site details.`,
+        };
+      }
+
+      const sqft = this.parseBuildableSqft(text);
+      if (!sqft) return null;
+
+      if (!floorIntent && !wallIntent) {
+        const buildableTotal = Math.round(sqft * 125);
+        const wallTotal = Math.round(sqft * 38);
+        return {
+          isPrice: false,
+          showCta: false,
+          answer:
+            `Just to confirm: is ${sqft.toLocaleString()} sq ft the sunroom floor/buildable area, or wall/panel area? ` +
+            `Floor/buildable area is CAD $125/sq ft (about CAD $${buildableTotal.toLocaleString()} before GST). ` +
+            `Wall/panel area is CAD $38/sq ft (about CAD $${wallTotal.toLocaleString()} before GST).`,
+        };
+      }
+
+      const rate = 125;
+      const total = Math.round(sqft * rate);
+      this.projectInfo.size = `${sqft} buildable sq ft`;
+      return {
+        sqft,
+        total,
+        isPrice: true,
+        showCta: true,
+        answer:
+          `For a sunroom floor/buildable area, we estimate at CAD $${rate}/sq ft. Height is not used for this rough price. ` +
+          `${sqft.toLocaleString()} buildable sq ft × CAD $${rate}/sq ft = approximately CAD $${total.toLocaleString()} before GST. ` +
+          `Final pricing is confirmed after free on-site measurement and site details.`,
+      };
+    },
     updateProjectInfoFromText(text) {
       if (!text) return;
       const lower = text.toLowerCase();
 
       if (lower.includes('patio cover')) {
         this.projectInfo.project_type = 'Patio Cover';
-      } else if (lower.includes('sunroom')) {
+      } else if (this.isSunroomText(text)) {
         this.projectInfo.project_type = 'Sunroom';
       }
 
@@ -2101,7 +2243,7 @@ export default {
         this.projectInfo.size = `${value} ${unit}`;
       } else {
         const sizeDimMatch = text.match(
-          /(\d+(?:\.\d+)?)\s*[x*]\s*(\d+(?:\.\d+)?)/i,
+          /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:wide|width|w)?\s*(?:x|\*|×|by)\s*(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:long|length|l|deep|depth|projection)?/i,
         );
         if (sizeDimMatch) {
           const w = sizeDimMatch[1];
