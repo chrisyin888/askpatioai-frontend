@@ -15,6 +15,7 @@
       </div>
       <div class="market-actions">
         <button type="button" class="market-secondary" @click="toggleLang">{{ langToggleLabel }}</button>
+        <button type="button" class="market-secondary" @click="refresh">{{ tr('Refresh', '刷新') }}</button>
         <router-link to="/account">{{ tr('Account', '账号') }}</router-link>
         <router-link to="/admin-leads">{{ tr('Admin', '管理员后台') }}</router-link>
         <button type="button" @click="logout">{{ tr('Logout', '退出登录') }}</button>
@@ -22,6 +23,7 @@
       <p v-if="alertBanner" class="market-alert-banner">
         {{ tr('New lead in lobby', '大厅有新 Lead') }}: {{ alertBanner }}
       </p>
+      <p v-if="refreshNotice" class="market-refresh-notice">{{ refreshNotice }}</p>
     </header>
 
     <section class="market-shell market-stats">
@@ -67,6 +69,7 @@
         </div>
         <button type="button" class="market-secondary" @click="refresh">{{ tr('Refresh', '刷新') }}</button>
       </div>
+      <p v-if="refreshNotice" class="market-refresh-notice market-refresh-notice--inline">{{ refreshNotice }}</p>
 
       <div v-if="availableLeads.length" class="lead-deck__meta">
         <span class="lead-deck__pool-badge lead-deck__pool-badge--live">
@@ -434,6 +437,8 @@ export default {
       rechargePromptOpen: false,
       rechargePromptLead: null,
       rechargeContact: MARKETPLACE_RECHARGE_CONTACT,
+      refreshNotice: '',
+      refreshNoticeTimer: null,
     };
   },
   computed: {
@@ -490,7 +495,7 @@ export default {
     }
     this.user = user;
     ensureNotificationPermission();
-    this.refresh();
+    this.refresh({ silent: true });
     this.knownLeadIds = this.availableLeads.map((lead) => lead.id);
   },
   mounted() {
@@ -500,6 +505,7 @@ export default {
   },
   beforeUnmount() {
     if (this.pollTimer) window.clearInterval(this.pollTimer);
+    if (this.refreshNoticeTimer) window.clearTimeout(this.refreshNoticeTimer);
     window.removeEventListener('storage', this.checkNotifications);
   },
   methods: {
@@ -509,15 +515,28 @@ export default {
     toggleLang() {
       this.lang = setMarketplaceLang(this.lang === 'zh' ? 'en' : 'zh');
       this.message = '';
-      this.refresh();
+      this.refresh({ silent: true });
     },
-    refresh() {
+    refresh(options = {}) {
       this.soldLeads = listSoldLeadsForLobby();
       if (!this.user.id) return;
       this.leads = listLeadsForContractor(this.user.id);
       this.purchases = listPurchasesForContractor(this.user.id);
       this.walletTransactions = listWalletTransactions({ contractorId: this.user.id, limit: 30 });
       this.walletBalance = getWalletBalance(this.user.id);
+      this.passedLeadIds = [];
+      this.deckIndex = 0;
+      this.knownLeadIds = this.availableLeads.map((lead) => lead.id);
+      if (!options.silent) {
+        this.showRefreshNotice();
+      }
+    },
+    showRefreshNotice() {
+      this.refreshNotice = this.tr('Data refreshed.', '数据已刷新。');
+      if (this.refreshNoticeTimer) window.clearTimeout(this.refreshNoticeTimer);
+      this.refreshNoticeTimer = window.setTimeout(() => {
+        this.refreshNotice = '';
+      }, 2500);
     },
     checkNotifications() {
       if (!this.user.id) return;
@@ -1003,6 +1022,18 @@ export default {
   background: #fef9c3;
   color: #854d0e;
   font-weight: 800;
+}
+.market-refresh-notice {
+  flex: 1 1 100%;
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 800;
+}
+.market-refresh-notice--inline {
+  margin-top: 12px;
 }
 .market-muted,
 .market-section-head p,

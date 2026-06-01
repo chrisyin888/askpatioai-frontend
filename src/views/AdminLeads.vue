@@ -15,10 +15,12 @@
       </div>
       <div class="market-actions">
         <button type="button" class="market-secondary" @click="toggleLang">{{ langToggleLabel }}</button>
+        <button type="button" class="market-secondary" @click="refresh">{{ tr('Refresh', '刷新') }}</button>
         <router-link to="/lobby">{{ tr('Lobby', '大厅') }}</router-link>
         <router-link to="/account">{{ tr('Account', '账号') }}</router-link>
         <button type="button" @click="logout">{{ tr('Logout', '退出登录') }}</button>
       </div>
+      <p v-if="refreshNotice" class="market-refresh-notice">{{ refreshNotice }}</p>
     </header>
 
     <section class="market-shell admin-grid">
@@ -48,7 +50,10 @@
       </form>
 
       <div class="admin-card">
-        <h2>{{ tr('Contractor Wallets', '承包商钱包') }}</h2>
+        <div class="market-section-head">
+          <h2>{{ tr('Contractor Wallets', '承包商钱包') }}</h2>
+          <button type="button" class="market-secondary" @click="refresh">{{ tr('Refresh', '刷新') }}</button>
+        </div>
         <div v-for="contractor in contractors" :key="contractor.id" class="wallet-row">
           <div class="wallet-row__info">
             <strong>{{ contractor.name }}</strong>
@@ -127,7 +132,12 @@
             }}
           </p>
         </div>
-        <button type="button" class="market-secondary" @click="refresh">{{ tr('Refresh', '刷新') }}</button>
+        <div class="market-section-head__actions">
+          <button type="button" class="market-secondary" @click="setAllAvailableCoinCost">
+            {{ tr('Set all available to 100', '全部大厅 lead 设为 100') }}
+          </button>
+          <button type="button" class="market-secondary" @click="refresh">{{ tr('Refresh', '刷新') }}</button>
+        </div>
       </div>
 
       <div class="market-table-wrap">
@@ -140,6 +150,7 @@
               <th>Coins</th>
               <th>{{ tr('Status', '状态') }}</th>
               <th>{{ tr('Buyer', '购买方') }}</th>
+              <th>{{ tr('Actions', '操作') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -150,7 +161,17 @@
                 <span>{{ lead.email || tr('No email', '没有邮箱') }}</span>
               </td>
               <td>{{ lead.projectType }}<br /><small>{{ lead.city }} · {{ lead.size }}</small></td>
-              <td>{{ lead.coinCost }}</td>
+              <td>
+                <input
+                  v-model.number="leadCoinEdits[lead.id]"
+                  type="number"
+                  min="1"
+                  step="1"
+                  class="admin-coin-input"
+                  :disabled="lead.status !== 'available'"
+                  :aria-label="tr('Coin cost', '购买需要 Coin')"
+                />
+              </td>
               <td>
                 <span
                   class="status-pill"
@@ -164,10 +185,24 @@
                 </span>
               </td>
               <td>{{ lead.buyer?.name || '-' }}</td>
+              <td>
+                <button
+                  v-if="lead.status === 'available'"
+                  type="button"
+                  class="admin-save-coin"
+                  @click="saveLeadCoinCost(lead.id)"
+                >
+                  {{ tr('Save', '保存') }}
+                </button>
+                <span v-else class="admin-coin-locked">{{ tr('Locked', '已锁定') }}</span>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
+      <p v-if="leadMessage" class="market-message" :class="{ 'market-message--error': leadError }">
+        {{ leadMessage }}
+      </p>
     </section>
   </main>
 </template>
@@ -175,6 +210,7 @@
 <script>
 import {
   adjustWallet,
+  bulkUpdateAvailableLeadCoinCosts,
   clearCurrentUser,
   createLead,
   getAdminLeadRows,
@@ -182,6 +218,7 @@ import {
   getWalletBalance,
   listContractors,
   listWalletTransactions,
+  updateLeadCoinCost,
   DEFAULT_LEAD_COIN_COST,
 } from '../utils/leadMarketplaceStore';
 import { getMarketplaceLang, marketText, setMarketplaceLang } from '../utils/marketplaceI18n';
@@ -215,6 +252,9 @@ export default {
       walletError: false,
       walletTransactions: [],
       lang: getMarketplaceLang(),
+      refreshNotice: '',
+      refreshNoticeTimer: null,
+      leadCoinEdits: {},
     };
   },
   computed: {
@@ -229,7 +269,10 @@ export default {
       return;
     }
     this.user = user;
-    this.refresh();
+    this.refresh({ silent: true });
+  },
+  beforeUnmount() {
+    if (this.refreshNoticeTimer) window.clearTimeout(this.refreshNoticeTimer);
   },
   methods: {
     tr(en, zh) {
@@ -238,17 +281,50 @@ export default {
     toggleLang() {
       this.lang = setMarketplaceLang(this.lang === 'zh' ? 'en' : 'zh');
       this.leadMessage = '';
-      this.refresh();
+      this.refresh({ silent: true });
     },
-    refresh() {
+    refresh(options = {}) {
       this.contractors = listContractors();
       this.leads = getAdminLeadRows();
       this.walletTransactions = listWalletTransactions();
+      this.leadCoinEdits = Object.fromEntries(this.leads.map((lead) => [lead.id, lead.coinCost]));
       this.contractors.forEach((contractor) => {
         if (!this.walletAdjustments[contractor.id]) {
           this.walletAdjustments[contractor.id] = 50;
         }
       });
+      if (!options.silent) {
+        this.showRefreshNotice();
+      }
+    },
+    saveLeadCoinCost(leadId) {
+      const result = updateLeadCoinCost(leadId, this.leadCoinEdits[leadId]);
+      if (!result.ok) {
+        this.leadMessage = result.error;
+        this.leadError = true;
+        const lead = this.leads.find((item) => item.id === leadId);
+        if (lead) this.leadCoinEdits[leadId] = lead.coinCost;
+        return;
+      }
+      this.refresh({ silent: true });
+      this.leadMessage = this.tr('Coin cost updated.', 'Coin 价格已更新。');
+      this.leadError = false;
+    },
+    setAllAvailableCoinCost() {
+      const result = bulkUpdateAvailableLeadCoinCosts(DEFAULT_LEAD_COIN_COST);
+      this.refresh({ silent: true });
+      this.leadMessage = this.tr(
+        `Updated ${result.count} available leads to ${result.coinCost} coins.`,
+        `已将 ${result.count} 条大厅 lead 设为 ${result.coinCost} coins。`,
+      );
+      this.leadError = false;
+    },
+    showRefreshNotice() {
+      this.refreshNotice = this.tr('Data refreshed.', '数据已刷新。');
+      if (this.refreshNoticeTimer) window.clearTimeout(this.refreshNoticeTimer);
+      this.refreshNoticeTimer = window.setTimeout(() => {
+        this.refreshNotice = '';
+      }, 2500);
     },
     walletBalance(userId) {
       return getWalletBalance(userId);
@@ -480,6 +556,59 @@ export default {
   color: #0f172a;
   font-weight: 800;
   cursor: pointer;
+}
+.market-refresh-notice {
+  flex: 1 1 100%;
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 800;
+}
+.market-section-head__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.admin-coin-input {
+  width: 88px;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 800;
+  background: #fff;
+}
+.admin-coin-input:disabled {
+  background: #f1f5f9;
+  color: #64748b;
+}
+.admin-save-coin {
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: #0f172a;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+.admin-coin-locked {
+  color: #94a3b8;
+  font-weight: 700;
+}
+.market-message {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 700;
+}
+.market-message--error {
+  background: #fee2e2;
+  color: #991b1b;
 }
 @media (max-width: 900px) {
   .admin-grid {

@@ -3,6 +3,7 @@ const SESSION_KEY = 'loomihome_lead_marketplace_session_v1';
 const RESET_STORAGE_KEY = 'loomihome_marketplace_password_resets_v1';
 
 export const DEFAULT_LEAD_COIN_COST = 100;
+const COIN_COST_MIGRATION_VERSION = 1;
 
 import { marketText } from './marketplaceI18n';
 import { LEGACY_LEADS } from '../data/legacyLeads';
@@ -110,7 +111,7 @@ function mergeLegacySoldRecords(state) {
 }
 
 function applyStandardCoinCost(state) {
-  if (state.coinCostStandard === DEFAULT_LEAD_COIN_COST) return state;
+  if (Number(state.coinCostMigrationVersion) >= COIN_COST_MIGRATION_VERSION) return state;
 
   state.leads = (state.leads || []).map((lead) => ({
     ...lead,
@@ -120,7 +121,8 @@ function applyStandardCoinCost(state) {
     ...purchase,
     coinCost: DEFAULT_LEAD_COIN_COST,
   }));
-  state.coinCostStandard = DEFAULT_LEAD_COIN_COST;
+  state.coinCostMigrationVersion = COIN_COST_MIGRATION_VERSION;
+  delete state.coinCostStandard;
   return state;
 }
 
@@ -184,7 +186,7 @@ function defaultState() {
     purchases: buildLegacyPurchases(legacyLeads),
     walletTransactions: [],
     legacySoldImported: true,
-    coinCostStandard: DEFAULT_LEAD_COIN_COST,
+    coinCostMigrationVersion: COIN_COST_MIGRATION_VERSION,
   };
 }
 
@@ -422,6 +424,38 @@ export function createLead(input) {
   state.leads.unshift(lead);
   saveMarketplaceState(state);
   return { ok: true, lead: clone(lead) };
+}
+
+export function updateLeadCoinCost(leadId, coinCost) {
+  const cost = Math.max(1, Math.round(Number(coinCost) || DEFAULT_LEAD_COIN_COST));
+  const state = loadMarketplaceState();
+  const lead = state.leads.find((item) => item.id === leadId);
+  if (!lead) {
+    return { ok: false, error: marketText('Lead not found.', '找不到这个 lead。') };
+  }
+  if (lead.status === 'sold' || lead.buyerId) {
+    return {
+      ok: false,
+      error: marketText('Sold leads cannot be repriced.', '已售出的 lead 不能改价。'),
+    };
+  }
+  lead.coinCost = cost;
+  saveMarketplaceState(state);
+  return { ok: true, lead: clone(lead) };
+}
+
+export function bulkUpdateAvailableLeadCoinCosts(coinCost = DEFAULT_LEAD_COIN_COST) {
+  const cost = Math.max(1, Math.round(Number(coinCost) || DEFAULT_LEAD_COIN_COST));
+  const state = loadMarketplaceState();
+  let count = 0;
+  state.leads.forEach((lead) => {
+    if (lead.status === 'available' && !lead.buyerId) {
+      lead.coinCost = cost;
+      count += 1;
+    }
+  });
+  saveMarketplaceState(state);
+  return { ok: true, count, coinCost: cost };
 }
 
 export function listLeadsForContractor(contractorId) {
