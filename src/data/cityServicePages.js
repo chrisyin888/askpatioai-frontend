@@ -11,6 +11,7 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'sunrooms-richmond',
   'sunrooms-surrey',
   'contractor-vancouver',
+  'installer-vancouver',
   'installer-richmond',
   'aluminum-delta',
   'aluminum-coquitlam',
@@ -503,6 +504,53 @@ export const CITY_SERVICE_PAGES = {
       {
         q: 'What patio cover types can I compare?',
         a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
+      },
+    ],
+  },
+  'installer-vancouver': {
+    id: 'installer-vancouver',
+    path: '/patio-cover-installer-vancouver',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Installer Vancouver BC | Near Me | LoomiHome Patios',
+    metaDescription:
+      'Patio cover installer in Vancouver BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate in ~60 seconds and free on-site measurement across the Lower Mainland.',
+    h1: 'Patio Cover Installer in Vancouver',
+    serviceType: 'Patio cover installation',
+    areaServed: 'Vancouver, British Columbia',
+    intro:
+      'Searching for patio cover installers near you in Vancouver? Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, and sunroom options, then book a free on-site measurement when the range makes sense.',
+    highlights: [
+      'Patio cover installation for Vancouver and nearby cities',
+      'Compare product types before anyone visits your home',
+      'Built for Lower Mainland rain and coastal weather',
+      'Free measurement for final installation pricing',
+    ],
+    localAngle:
+      'From Kitsilano to East Van to the North Shore, Vancouver patios vary in size, slope, and attachment. A ballpark online saves time before an installer visit.',
+    sections: [
+      {
+        h2: 'What affects installation price in Vancouver',
+        body: 'Width, projection, attachment height, posts, drainage, access, and cover type all shape the final installed price. We explain assumptions clearly after your rough estimate.',
+      },
+      {
+        h2: 'Why compare installers with a range first',
+        body: 'A useful starting budget helps you decide whether aluminum, glass, combo, or a sunroom fits before booking multiple contractor appointments.',
+      },
+    ],
+    pricingNote:
+      'Share your Vancouver neighbourhood, approximate dimensions, and preferred cover type. We will give a starting range before the free measurement visit.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Vancouver?',
+        a: 'Yes — Vancouver and the wider Lower Mainland are our primary service area. Start with a fast online estimate, then book a free on-site measurement.',
+      },
+      {
+        q: 'Can I find patio cover installers near me without calling multiple companies?',
+        a: 'Yes. Chat gives a rough range in about a minute. If it fits your budget, we measure on site for free and tighten the quote.',
+      },
+      {
+        q: 'What patio cover types do you install?',
+        a: 'Aluminum, glass, skyline combo, and sunroom directions — we help you compare before finalizing installation details.',
       },
     ],
   },

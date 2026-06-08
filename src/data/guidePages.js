@@ -1,5 +1,6 @@
 /** High-intent SEO guides / blog-style pages. */
 export const GUIDE_PAGE_ORDER = [
+  'contractors-near-me',
   'patio-cover-cost',
   'glass-vs-aluminum',
   'permit',
@@ -8,6 +9,51 @@ export const GUIDE_PAGE_ORDER = [
 ];
 
 export const GUIDE_PAGES = {
+  'contractors-near-me': {
+    id: 'contractors-near-me',
+    path: '/patio-cover-contractors-near-me',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Contractors Near Me | Metro Vancouver BC | LoomiHome Patios',
+    metaDescription:
+      'Looking for patio cover contractors or installers near you in Metro Vancouver? Compare aluminum, glass, combo, and sunroom options with a fast rough estimate in ~60 seconds. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC cities.',
+    h1: 'Patio Cover Contractors Near Me — Metro Vancouver',
+    intro:
+      'If you searched “patio cover contractors near me” or “patio cover installers near me,” you probably want two things: a trustworthy local team and a clear price range before booking visits. LoomiHome serves Metro Vancouver and the Lower Mainland — Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby areas. Start with a fast rough estimate in chat (about 60 seconds), then book a free on-site measurement when the range fits your budget.',
+    sections: [
+      {
+        h2: 'How to compare patio cover contractors without wasting evenings',
+        body: 'Call three contractors and you may get three different formats, timelines, and vague “starting from” numbers. A structured ballpark first — city, approximate size, product type — lets you filter who is worth a site visit.',
+      },
+      {
+        h2: 'What to look for in a local patio cover contractor',
+        body: 'Clear product options (aluminum, glass, combo, sunroom), measured final quotes, drainage and attachment details, and photos of completed local work. For BC homes, rain performance matters as much as looks.',
+      },
+      {
+        h2: 'Cities we serve in Metro Vancouver',
+        body: 'We regularly work in Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, and Pitt Meadows. If you are on the edge of the Lower Mainland, ask in chat — we can usually confirm quickly.',
+      },
+      {
+        h2: 'Installer vs contractor — what homeowners usually mean',
+        body: 'Most people use both terms for the same goal: someone local who can price, supply, and install a patio cover correctly. Our flow covers estimate, measurement, and installation planning in one place.',
+      },
+    ],
+    pricingNote:
+      'Use the homepage chat with your city and rough patio size. You will get a planning range before anyone visits your home.',
+    faqs: [
+      {
+        q: 'Do you serve patio cover searches from Vancouver and nearby cities?',
+        a: 'Yes — Metro Vancouver and the broader Lower Mainland are our primary service area. We are a BC team, not a US contractor listing.',
+      },
+      {
+        q: 'How fast can I get a quote from a patio cover contractor?',
+        a: 'Rough range in about a minute in chat. Firm pricing follows a free on-site measurement.',
+      },
+      {
+        q: 'What patio cover types can I compare?',
+        a: 'Aluminum, glass, skyline combo, and sunroom directions — helpful if you are still deciding product type.',
+      },
+    ],
+  },
   'patio-cover-cost': {
     id: 'patio-cover-cost',
     path: '/patio-cover-cost-vancouver',

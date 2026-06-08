@@ -510,7 +510,7 @@
           <!-- Left column: info -->
           <div class="appt-info-col">
             <div id="confirm-final-quote" class="appt-info-header">
-              <h1 class="appt-main-title">{{ s3.title }}</h1>
+              <h2 class="appt-main-title">{{ s3.title }}</h2>
               <p class="appt-main-subtitle">{{ s3.subtitle }}</p>
             </div>
           </div>
@@ -1283,6 +1283,12 @@ import {
   removeJsonLd,
   webSiteNode,
 } from './utils/seoHead';
+import {
+  CHAT_PRICING,
+  parseSizeSqft,
+  patioCoverMidRateForMaterial,
+  patioCoverQuoteForMaterial,
+} from './utils/chatPricing';
 import { publicAssetUrl } from './utils/publicAssetUrl';
 
 export default {
@@ -1792,6 +1798,20 @@ export default {
         return;
       }
 
+      const patioCoverEstimate = this.getPatioCoverEstimate(text);
+      if (patioCoverEstimate) {
+        this.replaceMessageById(placeholderId, {
+          type: 'bot',
+          text: patioCoverEstimate.answer,
+          isPrice: true,
+          showCta: true,
+          isPlaceholder: false,
+        });
+        this.logChatDisplayToSheet({ question: text, answer: patioCoverEstimate.answer });
+        this.$nextTick(() => this.scrollToBottom());
+        return;
+      }
+
       let questionForAI = text;
       if (productInquiry) {
         if (productInquiry.isMulti) {
@@ -2146,13 +2166,13 @@ export default {
 
       if (wallIntent && !floorIntent) {
         const sqft = this.parseWallSqft(text);
-        const rate = 38;
+        const rate = CHAT_PRICING.sunroomWallPerSqft;
         if (!sqft) {
           return {
             isPrice: true,
             showCta: false,
             answer:
-              'For sunroom wall or panel work, rough pricing is CAD $38 per wall sq ft. Please send the wall width and height, or the wall square footage, and I can calculate the rough total.',
+              `For sunroom wall or panel work, rough pricing is CAD $${rate} per wall sq ft. Please send the wall width and height, or the wall square footage, and I can calculate the rough total.`,
           };
         }
 
@@ -2174,19 +2194,19 @@ export default {
       if (!sqft) return null;
 
       if (!floorIntent && !wallIntent) {
-        const buildableTotal = Math.round(sqft * 125);
-        const wallTotal = Math.round(sqft * 38);
+        const buildableTotal = Math.round(sqft * CHAT_PRICING.sunroomBuildablePerSqft);
+        const wallTotal = Math.round(sqft * CHAT_PRICING.sunroomWallPerSqft);
         return {
           isPrice: false,
           showCta: false,
           answer:
             `Just to confirm: is ${sqft.toLocaleString()} sq ft the sunroom floor/buildable area, or wall/panel area? ` +
-            `Floor/buildable area is CAD $125/sq ft (about CAD $${buildableTotal.toLocaleString()} before GST). ` +
-            `Wall/panel area is CAD $38/sq ft (about CAD $${wallTotal.toLocaleString()} before GST).`,
+            `Floor/buildable area is CAD $${CHAT_PRICING.sunroomBuildablePerSqft}/sq ft (about CAD $${buildableTotal.toLocaleString()} before GST). ` +
+            `Wall/panel area is CAD $${CHAT_PRICING.sunroomWallPerSqft}/sq ft (about CAD $${wallTotal.toLocaleString()} before GST).`,
         };
       }
 
-      const rate = 125;
+      const rate = CHAT_PRICING.sunroomBuildablePerSqft;
       const total = Math.round(sqft * rate);
       this.projectInfo.size = `${sqft} buildable sq ft`;
       return {
@@ -2197,6 +2217,47 @@ export default {
         answer:
           `For a sunroom floor/buildable area, we estimate at CAD $${rate}/sq ft. Height is not used for this rough price. ` +
           `${sqft.toLocaleString()} buildable sq ft × CAD $${rate}/sq ft = approximately CAD $${total.toLocaleString()} before GST. ` +
+          `Final pricing is confirmed after free on-site measurement and site details.`,
+      };
+    },
+    getPatioCoverEstimate(text) {
+      if (this.isSunroomText(text)) return null;
+
+      const lower = String(text || '').toLowerCase();
+      const isPatioRequest =
+        this.projectInfo.project_type === 'Patio Cover' ||
+        lower.includes('patio cover') ||
+        lower.includes('pergola');
+
+      if (!isPatioRequest) return null;
+
+      let material = this.projectInfo.material_type;
+      if (!material) {
+        if (lower.includes('glass')) material = 'Glass';
+        else if (lower.includes('skyline') || lower.includes('combo')) material = 'Skyline Combo';
+        else if (lower.includes('aluminum') || lower.includes('aluminium')) material = 'Aluminum';
+      }
+      if (!material) return null;
+
+      const sqft = parseSizeSqft(text) || parseSizeSqft(this.projectInfo.size);
+      if (!sqft) return null;
+
+      const quote = patioCoverQuoteForMaterial(material, sqft);
+      const materialLabel =
+        material === 'Glass'
+          ? 'glass patio cover'
+          : material === 'Skyline Combo'
+            ? 'skyline combo patio cover'
+            : 'aluminum patio cover';
+
+      this.projectInfo.project_type = 'Patio Cover';
+      this.projectInfo.material_type = material;
+      this.projectInfo.size = `${sqft} sq ft`;
+
+      return {
+        answer:
+          `For a ${materialLabel}, rough pricing is ${quote.rateLabel}/sq ft plus CAD $${quote.baseFee} base fee. ` +
+          `${quote.sqft.toLocaleString()} sq ft with that range plus the base fee comes to approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST. ` +
           `Final pricing is confirmed after free on-site measurement and site details.`,
       };
     },
@@ -2212,6 +2273,8 @@ export default {
 
       if (lower.includes('glass')) {
         this.projectInfo.material_type = 'Glass';
+      } else if (lower.includes('skyline') || lower.includes('combo')) {
+        this.projectInfo.material_type = 'Skyline Combo';
       } else if (lower.includes('aluminum') || lower.includes('aluminium')) {
         this.projectInfo.material_type = 'Aluminum';
       }
@@ -2587,7 +2650,9 @@ export default {
           const num = parseInt(glassMatch[1], 10);
           if ([1, 2, 3, 4, 6, 7].includes(num)) {
             if (typeof project.price === 'number') {
-              project.sqft = Math.round(project.price / 13 / 10) * 10;
+              const rate = patioCoverMidRateForMaterial('Glass');
+              const rawSqft = (project.price - CHAT_PRICING.patioCoverBaseFee) / rate;
+              project.sqft = Math.round(rawSqft / 10) * 10;
             }
             return project;
           }
@@ -2605,30 +2670,30 @@ export default {
           // Base ranges by type; sqft derived from same rough $/sq ft as chat pricing model
           let min = 4000;
           let max = 8000;
-          let ratePerSqft = 12.5;
+          let ratePerSqft = patioCoverMidRateForMaterial('Skyline Combo');
 
           if (name.includes('aluminum') || name.includes('pergola')) {
             min = 4000;
             max = 7000;
-            ratePerSqft = 9;
+            ratePerSqft = patioCoverMidRateForMaterial('Aluminum');
           } else if (name.includes('glass')) {
             min = 5000;
             max = 8000;
-            ratePerSqft = 13;
+            ratePerSqft = patioCoverMidRateForMaterial('Glass');
           } else if (name.includes('skyline')) {
             min = 5500;
             max = 8000;
-            ratePerSqft = 12.5;
+            ratePerSqft = patioCoverMidRateForMaterial('Skyline Combo');
           } else if (name.includes('sunroom')) {
             min = 6000;
             max = 8000;
-            ratePerSqft = 35;
+            ratePerSqft = CHAT_PRICING.sunroomBuildablePerSqft;
           }
 
           project.price =
             Math.floor(min / 100) * 100 +
             Math.floor(Math.random() * ((max - min) / 100 + 1)) * 100;
-          const rawSqft = project.price / ratePerSqft;
+          const rawSqft = (project.price - CHAT_PRICING.patioCoverBaseFee) / ratePerSqft;
           project.sqft = Math.round(rawSqft / 10) * 10;
         } else {
           project.price = null;

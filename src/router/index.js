@@ -12,24 +12,22 @@ import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityService
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
-import { setCanonicalPath } from '../utils/seoHead';
+import { setPageMeta } from '../utils/seoHead';
 import { getCurrentUser } from '../utils/leadMarketplaceStore';
 
 const DEFAULT_TITLE =
-  'Patio Covers Vancouver | Fast Quote in 60 Seconds | Sunrooms | LoomiHome Patios';
+  'Patio Cover Contractors Vancouver BC | Installers Near Me | LoomiHome Patios';
 const DEFAULT_DESCRIPTION =
-  'Patio covers and sunrooms for Vancouver and the Lower Mainland. Compare aluminum, glass, skyline combo, and sunroom options with a fast rough estimate in chat (~60 seconds). Free on-site measurement when you are ready.';
+  'Patio cover contractors and installers in Metro Vancouver and the Lower Mainland. Compare aluminum, glass, skyline combo, and sunrooms with a fast rough estimate in chat (~60 seconds). Free on-site measurement when you are ready.';
 
-function setMetaDescription(content) {
-  if (typeof document === 'undefined') return;
-  let el = document.querySelector('meta[name="description"]');
-  if (!el) {
-    el = document.createElement('meta');
-    el.setAttribute('name', 'description');
-    document.head.appendChild(el);
-  }
-  el.setAttribute('content', content || '');
-}
+const NOINDEX_PATHS = new Set([
+  '/contractor-login',
+  '/admin-login',
+  '/lobby',
+  '/account',
+  '/admin-leads',
+  '/contractor',
+]);
 
 /** Function props so each route record passes the right key/id (reliable in all Vue Router builds). */
 const serviceRoutes = SERVICE_PAGE_ORDER.map((key) => {
@@ -201,11 +199,12 @@ router.beforeEach((to) => {
 });
 
 router.afterEach((to) => {
-  const title = to.meta.title || DEFAULT_TITLE;
-  const desc = to.meta.description || DEFAULT_DESCRIPTION;
-  document.title = title;
-  setMetaDescription(desc);
-  setCanonicalPath(to.path);
+  setPageMeta({
+    title: to.meta.title || DEFAULT_TITLE,
+    description: to.meta.description || DEFAULT_DESCRIPTION,
+    path: to.path,
+    robots: NOINDEX_PATHS.has(to.path) ? 'noindex,nofollow' : 'index,follow',
+  });
 });
 
 export default router;

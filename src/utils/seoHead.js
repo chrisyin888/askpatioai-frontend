@@ -24,6 +24,56 @@ export function setCanonicalPath(pathname) {
   canonicalLinkEl.setAttribute('href', href);
 }
 
+function upsertMetaByName(name, content) {
+  if (typeof document === 'undefined') return;
+  let el = document.querySelector(`meta[name="${name}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute('name', name);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content || '');
+}
+
+function upsertMetaProperty(property, content) {
+  if (typeof document === 'undefined') return;
+  let el = document.querySelector(`meta[property="${property}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute('property', property);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content || '');
+}
+
+/** Per-route title, description, canonical, robots, and social tags for SPA SEO. */
+export function setPageMeta({ title, description, path = '/', robots = 'index,follow', image } = {}) {
+  if (typeof document === 'undefined') return;
+
+  const pageTitle = title || 'LoomiHome Patios';
+  const pageDescription = description || '';
+  const pagePath = path || '/';
+  const pageUrl = absoluteUrl(pagePath);
+  const shareImage = image ? absoluteUrl(image) : `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`;
+
+  document.title = pageTitle;
+  upsertMetaByName('description', pageDescription);
+  upsertMetaByName('robots', robots);
+  setCanonicalPath(pagePath);
+
+  upsertMetaProperty('og:type', 'website');
+  upsertMetaProperty('og:site_name', 'LoomiHome Patios');
+  upsertMetaProperty('og:title', pageTitle);
+  upsertMetaProperty('og:description', pageDescription);
+  upsertMetaProperty('og:url', pageUrl);
+  upsertMetaProperty('og:image', shareImage);
+
+  upsertMetaByName('twitter:card', 'summary_large_image');
+  upsertMetaByName('twitter:title', pageTitle);
+  upsertMetaByName('twitter:description', pageDescription);
+  upsertMetaByName('twitter:image', shareImage);
+}
+
 const JSONLD_ID = 'loomihome-jsonld';
 
 export function removeJsonLd() {
@@ -93,7 +143,14 @@ export function localBusinessNode() {
       { '@type': 'City', name: 'Surrey' },
       { '@type': 'City', name: 'Delta' },
       { '@type': 'City', name: 'Coquitlam' },
+      { '@type': 'City', name: 'Langley' },
+      { '@type': 'City', name: 'North Vancouver' },
+      { '@type': 'City', name: 'West Vancouver' },
+      { '@type': 'City', name: 'New Westminster' },
+      { '@type': 'City', name: 'Maple Ridge' },
+      { '@type': 'City', name: 'Pitt Meadows' },
       { '@type': 'AdministrativeArea', name: 'Lower Mainland' },
+      { '@type': 'AdministrativeArea', name: 'Metro Vancouver' },
     ],
     priceRange: '$$',
     email: 'mailto:info@loomihomepatios.ca',

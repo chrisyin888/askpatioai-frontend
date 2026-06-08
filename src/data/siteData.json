@@ -161,7 +161,7 @@
       "description": "Built with tempered glass for a clean look, better natural light, and improved durability.",
       "icon": "",
       "image": "/house/glass/glass-hero.png",
-      "examplePrice": 2600,
+      "examplePrice": 2200,
       "modalBullets": [
         "Bright & modern look",
         "Keeps natural light",
@@ -175,7 +175,7 @@
       "description": "Durable aluminum patio covers with low maintenance and strong weather resistance for Greater Vancouver homes.",
       "icon": "",
       "image": "/house/Aluminum/aluminum-hero.png",
-      "examplePrice": 1500,
+      "examplePrice": 1900,
       "modalBullets": [
         "Durable & low maintenance",
         "Full rain & sun protection",
@@ -189,7 +189,7 @@
       "description": "A premium combination of tempered glass and V-panels for balanced light, shade, and modern style.",
       "icon": "",
       "image": "/house/skyline/skyline-hero.png",
-      "examplePrice": 2400,
+      "examplePrice": 2200,
       "modalBullets": [
         "Open, airy design",
         "Modern architectural style",
@@ -203,7 +203,7 @@
       "description": "Built with thermal-break aluminum, glass, and insulation board for a brighter, more comfortable year-round space.",
       "icon": "",
       "image": "/house/sunrooms/sunroom-hero.png",
-      "examplePrice": 5000,
+      "examplePrice": 14000,
       "modalBullets": [
         "Enclosed living space",
         "Use in more seasons",

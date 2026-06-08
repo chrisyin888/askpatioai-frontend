@@ -9,7 +9,7 @@ module.exports = defineConfig({
       entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'Patio Covers Vancouver | Fast Quote in 60 Seconds | Sunrooms | LoomiHome Patios',
+      title: 'Patio Cover Contractors Vancouver BC | Installers Near Me | LoomiHome Patios',
     },
   },
   devServer: {

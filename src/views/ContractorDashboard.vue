@@ -7,8 +7,8 @@
         <p class="market-muted">
           {{
             tr(
-              'City and project type are shown until you purchase. Buy with coins to unlock contacts.',
-              '购买前显示城市和项目类型。用 coin 购买后解锁联系方式。',
+              'City and project type are shown before purchase. After buying, contact the homeowner and visit the site to measure dimensions.',
+              '购买前显示城市和项目类型。购买后解锁联系方式，并需上门量尺寸后再报价。',
             )
           }}
         </p>
@@ -61,8 +61,8 @@
           <p>
             {{
               tr(
-                'We publish homeowner leads here for contractors to purchase.',
-                '我们在这里发布 homeowner leads，供承包商购买。',
+                'We publish homeowner leads here. Purchase with coins to unlock contacts, then visit the site to measure dimensions.',
+                '我们在这里发布 homeowner leads。用 coin 购买后解锁联系方式，并需上门量尺寸。',
               )
             }}
           </p>
@@ -145,6 +145,14 @@
             <h3 class="lead-date-card__city">{{ currentLead.city }}</h3>
             <p class="lead-date-card__project">{{ currentLead.projectType }}</p>
 
+            <div class="lead-date-card__measurement">
+              <span class="lead-date-card__measurement-icon" aria-hidden="true">📏</span>
+              <div>
+                <strong>{{ tr('Site visit required', '需上门量尺寸') }}</strong>
+                <p>{{ measurementNotice(currentLead) }}</p>
+              </div>
+            </div>
+
             <div class="lead-date-card__blurred" aria-hidden="true">
               <div class="lead-date-card__top">
                 <strong>{{ displayLead.coinCost }} coins</strong>
@@ -170,7 +178,10 @@
 
             <p class="lead-date-card__guest-banner">
               {{
-                tr('Purchase to unlock size, notes and contact details.', '购买后解锁尺寸、备注和联系方式。')
+                tr(
+                  'Purchase to unlock contact details. Site visit is required to measure dimensions before quoting.',
+                  '购买后解锁联系方式。需上门量尺寸后再联系客户报价。',
+                )
               }}
             </p>
           </article>
@@ -206,6 +217,10 @@
             <div>
               <dt>{{ tr('Project', '项目') }}</dt>
               <dd>{{ pendingPurchaseLead.projectType }}</dd>
+            </div>
+            <div>
+              <dt>{{ tr('Site visit', '上门量尺') }}</dt>
+              <dd>{{ measurementNotice(pendingPurchaseLead) }}</dd>
             </div>
             <div>
               <dt>{{ tr('Cost', '花费') }}</dt>
@@ -601,6 +616,20 @@ export default {
       if (value.includes('aluminum')) return 'lead-date-card--aluminum';
       if (value.includes('skyline')) return 'lead-date-card--skyline';
       return 'lead-date-card--default';
+    },
+    measurementNotice(lead) {
+      const size = String(lead?.size || '').trim();
+      const isTbd = !size || /^tbd$/i.test(size);
+      if (isTbd) {
+        return this.tr(
+          'Dimensions are not confirmed yet. Visit the homeowner to measure before quoting.',
+          '尺寸尚未确认，请先上门量尺寸，再联系客户报价。',
+        );
+      }
+      return this.tr(
+        'Reference size only. Visit the site to confirm measurements before quoting.',
+        '现有尺寸仅供参考，仍需上门复核量尺寸后再报价。',
+      );
     },
     goPrev() {
       if (this.deckIndex > 0) this.deckIndex -= 1;
@@ -1369,6 +1398,31 @@ export default {
   font-weight: 800;
   line-height: 1.4;
   opacity: 0.95;
+}
+.lead-date-card__measurement {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.lead-date-card__measurement-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+.lead-date-card__measurement strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.98rem;
+}
+.lead-date-card__measurement p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  opacity: 0.92;
 }
 .lead-date-card__region-label {
   margin: 0 0 4px;

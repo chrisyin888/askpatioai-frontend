@@ -6,6 +6,12 @@ export const CITY_PAGE_ORDER = [
   'surrey',
   'delta',
   'coquitlam',
+  'langley',
+  'north-vancouver',
+  'west-vancouver',
+  'new-westminster',
+  'maple-ridge',
+  'pitt-meadows',
 ];
 
 export const CITY_PAGES = {
@@ -224,6 +230,196 @@ export const CITY_PAGES = {
       {
         q: 'What if I want a sunroom instead of a cover?',
         a: 'We can discuss both. Many Coquitlam homeowners compare enclosed sunroom vs open cover for budget and use-case.',
+      },
+    ],
+  },
+  langley: {
+    id: 'langley',
+    path: '/patio-covers-langley',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Covers Langley BC | Fast Ballpark Pricing | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in Langley — Willoughby, Walnut Grove, Brookswood, and surrounding. Fast rough quote in chat, compare aluminum, glass, and sunrooms. Free on-site measurement.',
+    h1: 'Patio Covers in Langley',
+    intro:
+      'Langley homeowners often want a patio that works through wet springs and sunny summers without months of quote chasing. Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, or sunroom directions, then book a free on-site measurement when you want exact numbers.',
+    highlights: [
+      'Helpful for larger Langley lots and townhome patios',
+      'Ballpark pricing before anyone visits your home',
+      'Compare cover types in one conversation',
+      'Lower Mainland crew familiar with Fraser Valley weather',
+    ],
+    localAngle:
+      'From Willoughby to Fort Langley, lot sizes and bylaws vary. A few details in chat — city, approximate size, and how you use the patio — sharpen the first range before we measure on site.',
+    pricingNote:
+      'Attachment, height, and finish level change the final number. We explain that clearly after your initial ballpark.',
+    faqs: [
+      {
+        q: 'Do you serve Walnut Grove and Willoughby?',
+        a: 'Yes — we regularly work across Langley, including Walnut Grove, Willoughby, Brookswood, and nearby areas.',
+      },
+      {
+        q: 'How fast is the first patio cover estimate?',
+        a: 'Most homeowners get a useful ballpark in about a minute in chat once we have city and approximate size.',
+      },
+      {
+        q: 'Can I compare a sunroom and a patio cover?',
+        a: 'Absolutely. Many Langley homeowners compare both before booking a free measurement visit.',
+      },
+    ],
+  },
+  'north-vancouver': {
+    id: 'north-vancouver',
+    path: '/patio-covers-north-vancouver',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Covers North Vancouver | Fast Estimate | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in North Vancouver — Lynn Valley, Lower Lonsdale, Edgemont, and nearby. Fast rough quote in chat, compare aluminum, glass, and combo covers. Free measurement.',
+    h1: 'Patio Covers in North Vancouver',
+    intro:
+      'North Vancouver homes often need covers that handle rain, tree debris, and sloped lots. Get a fast rough patio cover estimate in chat, compare aluminum, glass, or combo options, then book a free on-site measurement when you want exact pricing.',
+    highlights: [
+      'Rain-ready covers for North Shore weather',
+      'Helpful on sloped yards and raised decks',
+      'Ballpark pricing before a site visit',
+      'Serving North Van and the wider Lower Mainland',
+    ],
+    localAngle:
+      'From Lower Lonsdale to Lynn Valley and the mountainside, attachment and height vary. Chat narrows product type and budget before we measure.',
+    pricingNote:
+      'Slope, span, and finish level change the final number. We explain that after your initial ballpark.',
+    faqs: [
+      {
+        q: 'Do you install patio covers across North Vancouver?',
+        a: 'Yes — we serve North Vancouver regularly along with Vancouver, Burnaby, and nearby cities.',
+      },
+      {
+        q: 'How fast is the first estimate?',
+        a: 'Usually about a minute in chat once we have your area and approximate patio size.',
+      },
+    ],
+  },
+  'west-vancouver': {
+    id: 'west-vancouver',
+    path: '/patio-covers-west-vancouver',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Patio Covers West Vancouver | Fast Quote | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in West Vancouver — Ambleside, Dundarave, British Properties, and nearby. Compare aluminum, glass, and sunrooms with a fast online estimate and free measurement.',
+    h1: 'Patio Covers in West Vancouver',
+    intro:
+      'West Vancouver patios often prioritize views, rain protection, and a clean modern look. Start with a fast rough estimate, compare glass, aluminum, or combo systems, then schedule a free measurement when the range fits your plans.',
+    highlights: [
+      'Glass and combo options for brighter outdoor spaces',
+      'Engineered for coastal rain and wind exposure',
+      'Rough quote first, free measurement second',
+      'Lower Mainland team familiar with West Van sites',
+    ],
+    localAngle:
+      'Lot grade, view lines, and attachment details matter on the North Shore. A few photos and dimensions in chat sharpen the first range.',
+    pricingNote:
+      'Premium finishes and larger spans can move price. We keep the first ballpark plain and practical.',
+    faqs: [
+      {
+        q: 'Do you serve West Vancouver and North Vancouver?',
+        a: 'Yes — both are regular service areas for our installation team.',
+      },
+      {
+        q: 'Is glass popular in West Vancouver?',
+        a: 'Many homeowners compare glass for light and views versus aluminum for value and rain protection. We walk you through both in chat.',
+      },
+    ],
+  },
+  'new-westminster': {
+    id: 'new-westminster',
+    path: '/patio-covers-new-westminster',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Covers New Westminster | Fast Ballpark | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in New Westminster — Queensborough, Sapperton, Uptown, and nearby. Fast rough estimate, compare cover types, free on-site measurement.',
+    h1: 'Patio Covers in New Westminster',
+    intro:
+      'New Westminster townhomes and detached homes both benefit from covered patios through wet seasons. Get a quick ballpark in chat, compare aluminum, glass, or combo covers, then book a free measurement for firm pricing.',
+    highlights: [
+      'Works for compact patios and larger backyards',
+      'Fast online estimate before scheduling visits',
+      'Rain-ready systems for Metro Vancouver weather',
+      'Serving New West and surrounding cities',
+    ],
+    localAngle:
+      'From Queens Park to the riverfront, patio sizes vary. City and approximate dimensions are enough to start a useful range.',
+    pricingNote:
+      'Attachment and height assumptions are confirmed on site during the free measurement visit.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in New Westminster?',
+        a: 'Yes — New Westminster is part of our regular Metro Vancouver service area.',
+      },
+      {
+        q: 'Can I get pricing before a home visit?',
+        a: 'Yes — that is how our estimate flow is designed.',
+      },
+    ],
+  },
+  'maple-ridge': {
+    id: 'maple-ridge',
+    path: '/patio-covers-maple-ridge',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Covers Maple Ridge BC | Fast Estimate | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in Maple Ridge — Town Centre, Albion, Silver Valley, and nearby. Compare aluminum, glass, and sunrooms with a fast rough quote and free measurement.',
+    h1: 'Patio Covers in Maple Ridge',
+    intro:
+      'Maple Ridge homeowners often want more usable backyard space before summer and through the rainy season. Start with a fast rough estimate in chat, compare cover types, then book a free on-site measurement when you are ready for exact numbers.',
+    highlights: [
+      'Good fit for larger Maple Ridge lots',
+      'Compare aluminum, glass, combo, and sunroom paths',
+      'Ballpark first — no pressure to book immediately',
+      'Lower Mainland crew serving the Fraser Valley edge',
+    ],
+    localAngle:
+      'Silver Valley, Albion, and Hammond areas have different lot sizes and deck setups. Chat helps narrow the right product before we visit.',
+    pricingNote:
+      'Span, posts, and drainage details are confirmed during the free measurement.',
+    faqs: [
+      {
+        q: 'Do you serve Maple Ridge and Pitt Meadows?',
+        a: 'Yes — both are within our Metro Vancouver / Lower Mainland service area.',
+      },
+      {
+        q: 'How do I start a patio cover quote?',
+        a: 'Use the chat on our homepage with your city and approximate patio size — about a minute for a rough range.',
+      },
+    ],
+  },
+  'pitt-meadows': {
+    id: 'pitt-meadows',
+    path: '/patio-covers-pitt-meadows',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Covers Pitt Meadows BC | Fast Quote | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in Pitt Meadows — fast rough estimate online, compare aluminum, glass, and combo options, free on-site measurement across the Lower Mainland.',
+    h1: 'Patio Covers in Pitt Meadows',
+    intro:
+      'Pitt Meadows homeowners looking for patio covers usually want a practical price range first. Get a fast ballpark in chat, compare aluminum, glass, or combo systems, then schedule a free measurement when the numbers make sense.',
+    highlights: [
+      'Rain-ready patio covers for Fraser Valley weather',
+      'Fast estimate without waiting on callbacks',
+      'Free on-site measurement for final pricing',
+      'Serving Pitt Meadows, Maple Ridge, and nearby',
+    ],
+    localAngle:
+      'Many Pitt Meadows homes have room for wider spans. Approximate width and projection in chat make the first estimate more accurate.',
+    pricingNote:
+      'Final pricing always follows an on-site measure — the chat number is for planning.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Pitt Meadows?',
+        a: 'Yes — Pitt Meadows is part of our regular Lower Mainland coverage.',
+      },
+      {
+        q: 'What cover type is best for rainy weather?',
+        a: 'Aluminum and combo covers are popular for solid rain protection; glass works when you want more light. We compare both in chat.',
       },
     ],
   },
