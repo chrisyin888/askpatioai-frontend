@@ -40,6 +40,7 @@ const serviceRoutes = SERVICE_PAGE_ORDER.map((key) => {
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
+      image: p.heroImage,
     },
   };
 });
@@ -54,6 +55,7 @@ const cityRoutes = CITY_PAGE_ORDER.map((id) => {
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
+      image: p.heroImage,
     },
   };
 });
@@ -68,6 +70,7 @@ const cityServiceRoutes = CITY_SERVICE_PAGE_ORDER.map((id) => {
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
+      image: p.heroImage,
     },
   };
 });
@@ -82,6 +85,7 @@ const guideRoutes = GUIDE_PAGE_ORDER.map((id) => {
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
+      image: p.heroImage,
     },
   };
 });
@@ -96,6 +100,7 @@ const projectRoutes = PROJECT_PAGE_ORDER.map((id) => {
     meta: {
       title: p.metaTitle,
       description: p.metaDescription,
+      image: p.heroImage,
     },
   };
 });
@@ -204,6 +209,7 @@ router.afterEach((to) => {
     description: to.meta.description || DEFAULT_DESCRIPTION,
     path: to.path,
     robots: NOINDEX_PATHS.has(to.path) ? 'noindex,nofollow' : 'index,follow',
+    image: to.meta.image,
   });
 });
 

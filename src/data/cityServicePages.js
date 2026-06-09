@@ -1,3 +1,8 @@
+import {
+  CITY_SERVICE_EXPANSION_ORDER,
+  CITY_SERVICE_EXPANSION_PAGES,
+} from './cityServiceExpansion.js';
+
 /** Service + city landing pages for high-intent local searches. */
 export const CITY_SERVICE_PAGE_ORDER = [
   'aluminum-burnaby',
@@ -31,6 +36,7 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'contractor-langley',
   'contractor-delta',
   'installer-delta',
+  ...CITY_SERVICE_EXPANSION_ORDER,
 ];
 
 export const CITY_SERVICE_PAGES = {
@@ -1371,4 +1377,5 @@ export const CITY_SERVICE_PAGES = {
       },
     ],
   },
+  ...CITY_SERVICE_EXPANSION_PAGES,
 };

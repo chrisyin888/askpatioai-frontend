@@ -1502,7 +1502,7 @@ export default {
     cityPageLinks() {
       return CITY_PAGE_ORDER.map((id) => ({
         path: CITY_PAGES[id].path,
-        label: `Patio covers — ${id.charAt(0).toUpperCase() + id.slice(1)}`,
+        label: CITY_PAGES[id].h1.replace(/^Patio Covers in /i, 'Patio covers — '),
       }));
     },
     guidePageLinks() {
@@ -1512,6 +1512,7 @@ export default {
         permit: 'Patio cover permits',
         rain: 'Best cover for rain',
         'install-timeline': 'How long installation takes',
+        'contractors-near-me': 'Patio cover contractors near me',
       };
       return GUIDE_PAGE_ORDER.map((id) => ({
         path: GUIDE_PAGES[id].path,

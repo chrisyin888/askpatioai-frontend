@@ -303,7 +303,7 @@ export default {
       return CITY_PAGE_ORDER.filter((id) => !(this.kind === 'city' && id === this.pageId)).map(
         (id) => ({
           path: CITY_PAGES[id].path,
-          label: `Patio covers — ${id.charAt(0).toUpperCase() + id.slice(1)}`,
+          label: CITY_PAGES[id].h1.replace(/^Patio Covers in /i, 'Patio covers — '),
         }),
       );
     },
@@ -314,6 +314,7 @@ export default {
         permit: 'Permits',
         rain: 'Rain & weather',
         'install-timeline': 'Install timeline',
+        'contractors-near-me': 'Contractors near me',
       };
       return GUIDE_PAGE_ORDER.filter((id) => !(this.kind === 'guide' && id === this.pageId)).map(
         (id) => ({
