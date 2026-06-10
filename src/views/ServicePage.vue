@@ -208,7 +208,7 @@ export default {
       }));
     },
     cityServiceLinks() {
-      return CITY_SERVICE_PAGE_ORDER.filter((id) => id.startsWith('contractor-')).map((id) => ({
+      return CITY_SERVICE_PAGE_ORDER.map((id) => ({
         path: CITY_SERVICE_PAGES[id].path,
         label: CITY_SERVICE_PAGES[id].h1,
       }));

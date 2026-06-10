@@ -125,7 +125,10 @@
                       @keydown.enter.prevent="openServiceModal(service)"
                       @keydown.space.prevent="openServiceModal(service)"
                     >
-                      <img :src="publicAssetUrl(service.image)" :alt="service.name" />
+                      <img
+                        :src="publicAssetUrl(service.image)"
+                        :alt="service.imageAlt || service.name"
+                      />
                       <div class="card-image-overlay"></div>
                     </div>
                     <div class="card-info">
@@ -358,14 +361,6 @@
                 <ul class="home-seo-hub__list">
                   <li v-for="g in guidePageLinks" :key="g.path">
                     <router-link :to="g.path">{{ g.label }}</router-link>
-                  </li>
-                </ul>
-              </div>
-              <div class="home-seo-hub__col">
-                <h3 class="home-seo-hub__h3">Local contractors</h3>
-                <ul class="home-seo-hub__list">
-                  <li v-for="c in contractorPageLinks" :key="c.path">
-                    <router-link :to="c.path">{{ c.label }}</router-link>
                   </li>
                 </ul>
               </div>
@@ -1282,7 +1277,6 @@
 import siteData from './data/siteData.json';
 
 import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
-import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from './data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
 import {
@@ -1304,10 +1298,10 @@ export default {
   name: 'HomePage',
   data() {
     return {
-      siteLoaded: false,
       userInput: '',
       isTyping: false,
       messages: [],
+      siteLoaded: false,
       cfg: {},
       s1: {
         welcomeMessages: [],
@@ -1347,27 +1341,27 @@ export default {
       realProjects: [
         {
           image: '/house/realprojects/glass-deck-2story.png',
-          alt: 'Glass patio cover over a two-storey deck with glass railing',
+          alt: 'Glass patio cover installation in Vancouver',
           caption: 'Glass patio cover — two-storey deck',
         },
         {
           image: '/house/realprojects/glass-patio-door.png',
-          alt: 'Glass patio cover over a backyard patio and door',
+          alt: 'Glass patio cover installation in Vancouver',
           caption: 'Glass patio cover — backyard patio',
         },
         {
           image: '/house/realprojects/glass-balcony.png',
-          alt: 'Glass patio cover over an upper balcony',
+          alt: 'Patio cover project in Metro Vancouver',
           caption: 'Glass cover — upper balcony',
         },
         {
           image: '/house/realprojects/aluminum-entrance.png',
-          alt: 'Black aluminum patio cover over a back entrance',
+          alt: 'Aluminum patio cover installation in Vancouver',
           caption: 'Aluminum cover — back entrance',
         },
         {
           image: '/house/realprojects/sunroom-white.png',
-          alt: 'White sunroom enclosure with stairs',
+          alt: 'Sunroom enclosure installation in Metro Vancouver',
           caption: 'Sunroom enclosure',
         },
       ],
@@ -1526,12 +1520,6 @@ export default {
       return GUIDE_PAGE_ORDER.map((id) => ({
         path: GUIDE_PAGES[id].path,
         label: labels[id] || id,
-      }));
-    },
-    contractorPageLinks() {
-      return CITY_SERVICE_PAGE_ORDER.filter((id) => id.startsWith('contractor-')).map((id) => ({
-        path: CITY_SERVICE_PAGES[id].path,
-        label: CITY_SERVICE_PAGES[id].h1.replace(/^Patio Cover Contractor in /i, 'Contractor — '),
       }));
     },
     /** Non-empty string only — Teleport + img must never bind null/invalid `is`-like state (Vue 3.2). */

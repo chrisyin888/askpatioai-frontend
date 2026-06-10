@@ -16,8 +16,8 @@
     "chatWidgetSubtitle": "Rough patio cover pricing before you book a site visit"
   },
   "section1": {
-    "heroTitle": "Get a Patio Cover Estimate in 60 Seconds",
-    "subtitle": "Compare aluminum, glass, skyline combo, and sunroom options for Vancouver-area homes. Get a fast rough estimate in about 60 seconds.",
+    "heroTitle": "Patio Cover Installation in Vancouver",
+    "subtitle": "Custom aluminum and glass patio cover installation in Metro Vancouver. Get a fast estimate with photos and measurements.",
     "botAvatar": "",
     "welcomeMessages": [
       "Tell me your patio size and city — get a fast ballpark estimate in about a minute, no obligation."
@@ -32,50 +32,38 @@
     ],
     "productsHeading": "Compare patio cover types",
     "productsLead": "Compare the main patio cover types, then get a quick rough quote in chat before booking a free on-site measurement.",
-    "seoHeading": "Custom patio covers and sunrooms for Vancouver-area homes.",
-    "seoBody": "Backed by a team with 10+ years of combined experience and hundreds of completed projects across the Lower Mainland, LoomiHome helps homeowners compare aluminum patio covers, glass patio covers, skyline combo designs, and sunroom options with fast rough pricing in about a minute. Start with a ballpark estimate first, then book a free on-site measurement when you're ready.",
-    "seoServiceArea": "Serving Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and the wider Lower Mainland.",
-    "faqTitle": "Quick answers",
+    "seoHeading": "Patio cover installation in Metro Vancouver",
+    "seoBody": "LoomiHome Patios provides aluminum patio cover installation, glass patio cover installation, skyline combo covers, and sunroom enclosures across Metro Vancouver. Rough pricing: aluminum from about $10–13 per sq ft, glass from about $12.5–15 per sq ft, and sunrooms from about $38–45 per sq ft. Final price depends on size, materials, posts, beams, and on-site measurement.",
+    "seoServiceArea": "Service areas: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Pitt Meadows, and nearby Metro Vancouver communities.",
+    "faqTitle": "Frequently asked questions",
     "faqItems": [
       {
-        "q": "How fast can I get a rough estimate?",
-        "a": "Pretty quick — jump into the chat, tell us your city and roughly how big the space is, and we’ll give you a ballpark number in about a minute. No need to wait around for someone to call you back first."
+        "q": "How much does a patio cover cost in Vancouver?",
+        "a": "Aluminum patio covers usually start from about $10–13 per sq ft. Glass patio covers usually start from about $12.5–15 per sq ft. Final price depends on size, material, posts, beams, and on-site measurement."
       },
       {
-        "q": "What types of patio covers do you offer?",
-        "a": "We work with aluminum covers, glass covers, skyline-style combo (glass plus V-panel), and sunrooms. Same team, same process — pick what fits your home and we’ll walk you through it."
+        "q": "What is the difference between aluminum and glass patio covers?",
+        "a": "Aluminum patio covers offer durable rain protection with low maintenance. Glass patio covers keep more natural light and a premium look but usually cost more. We can ballpark both from the same measurements."
       },
       {
-        "q": "Do you serve Vancouver and nearby cities?",
-        "a": "We’re all over the Lower Mainland day to day — Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, and the surrounding neighbourhoods. If you’re close by, chances are we’ve been on a job near you."
-      },
-      {
-        "q": "Can I get pricing before booking a measurement?",
-        "a": "That’s the idea. Chat first for a rough range so you know if you’re in the ballpark. If it makes sense, we’ll book a free on-site visit to measure properly and nail down final pricing — only when you’re ready."
-      },
-      {
-        "q": "What’s the difference between glass and aluminum patio covers?",
-        "a": "Aluminum roofs are usually the practical rain-first choice. Glass lets in more light and looks premium — often at a higher price point. We’ll ballpark both so you can decide what fits."
-      },
-      {
-        "q": "Do patio covers help with rain in Vancouver?",
-        "a": "A properly built cover keeps your patio drier and more usable through the wet months. Material and drainage matter — we talk through that in chat and confirm on site."
-      },
-      {
-        "q": "How much does a patio cover usually cost?",
-        "a": "Size and product type move the number a lot. The chat estimate is the fastest way to get a range for your patio; our cost guide page walks through what typically drives price."
-      },
-      {
-        "q": "Are sunrooms more expensive than patio covers?",
-        "a": "Usually yes — more glass, enclosure, and insulation. We can rough-quote both if you’re comparing."
-      },
-      {
-        "q": "Do I need a permit for a patio cover?",
-        "a": "It depends on your municipality and design. Check with your city — we align installation details to what they require. See our permit guide for general homeowner notes."
+        "q": "Do you provide onsite measurement?",
+        "a": "Yes. After a fast rough estimate online or in chat, we book a free on-site measurement to confirm size, attachment, drainage, and final installation pricing."
       },
       {
         "q": "How long does installation usually take?",
-        "a": "Every job differs. After we measure, we’ll give a realistic schedule. Our timeline guide explains typical phases from estimate to completion."
+        "a": "Timeline varies by product and site conditions. After measurement, we provide a realistic schedule — most patio cover installations are completed within a few days once materials are ready."
+      },
+      {
+        "q": "What areas do you serve?",
+        "a": "We serve Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Pitt Meadows, and nearby Metro Vancouver communities."
+      },
+      {
+        "q": "Can I get pricing before booking a measurement?",
+        "a": "Yes. Use chat or our online estimate for a rough range first, then book a free on-site visit when you want final installation pricing."
+      },
+      {
+        "q": "Do patio covers help with rain in Vancouver?",
+        "a": "A properly built cover keeps your patio drier through wet months. Material, slope, and drainage are confirmed during measurement."
       }
     ]
   },
@@ -95,7 +83,7 @@
         "beforeSrc": "/house/before-after/burnaby-aluminum-before.png",
         "afterSrc": "/house/before-after/burnaby-aluminum-after.png",
         "beforeAlt": "Open asphalt patio and backyard before large aluminum patio cover install, Burnaby",
-        "afterAlt": "Completed approx. 24 by 20 ft aluminum patio cover with black frame and light panels, Burnaby",
+        "afterAlt": "Aluminum patio cover installation in Metro Vancouver area, Burnaby project",
         "hidePairLabels": true
       },
       {
@@ -105,8 +93,8 @@
         "benefit": "Kept the space bright while adding overhead protection.",
         "beforeSrc": "/house/before-after/vancouver-glass-before.png",
         "afterSrc": "/house/before-after/vancouver-glass-after.png",
-        "beforeAlt": "Uncovered back patio with aggregate concrete before glass patio cover, Vancouver area",
-        "afterAlt": "Black-framed glass patio cover with integrated gutter, approx. 12 by 28 ft, Vancouver area",
+        "beforeAlt": "Back patio before glass patio cover installation in Vancouver",
+        "afterAlt": "Glass patio cover installation in Vancouver with black frame and integrated gutter",
         "hidePairLabels": true
       },
       {
@@ -161,6 +149,7 @@
       "description": "Built with tempered glass for a clean look, better natural light, and improved durability.",
       "icon": "",
       "image": "/house/glass/glass-hero.png",
+      "imageAlt": "Glass patio cover installation in Vancouver",
       "examplePrice": 2200,
       "modalBullets": [
         "Bright & modern look",
@@ -175,6 +164,7 @@
       "description": "Durable aluminum patio covers with low maintenance and strong weather resistance for Greater Vancouver homes.",
       "icon": "",
       "image": "/house/Aluminum/aluminum-hero.png",
+      "imageAlt": "Aluminum patio cover installation in Vancouver",
       "examplePrice": 1900,
       "modalBullets": [
         "Durable & low maintenance",
@@ -189,6 +179,7 @@
       "description": "A premium combination of tempered glass and V-panels for balanced light, shade, and modern style.",
       "icon": "",
       "image": "/house/skyline/skyline-hero.png",
+      "imageAlt": "Patio cover project in Metro Vancouver",
       "examplePrice": 2200,
       "modalBullets": [
         "Open, airy design",
@@ -203,6 +194,7 @@
       "description": "Built with thermal-break aluminum, glass, and insulation board for a brighter, more comfortable year-round space.",
       "icon": "",
       "image": "/house/sunrooms/sunroom-hero.png",
+      "imageAlt": "Sunroom enclosure installation in Metro Vancouver",
       "examplePrice": 14000,
       "modalBullets": [
         "Enclosed living space",

@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://loomihomepatios.ca/sitemap.xml
+
+# LLM / GEO site summary
+# https://loomihomepatios.ca/llms.txt

@@ -15,10 +15,9 @@ import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import { setPageMeta } from '../utils/seoHead';
 import { getCurrentUser } from '../utils/leadMarketplaceStore';
 
-const DEFAULT_TITLE =
-  'Patio Cover Contractors Vancouver BC | Installers Near Me | LoomiHome Patios';
+const DEFAULT_TITLE = 'Patio Cover Installation Vancouver | LoomiHome Patios';
 const DEFAULT_DESCRIPTION =
-  'Patio cover contractors and installers in Metro Vancouver and the Lower Mainland. Compare aluminum, glass, skyline combo, and sunrooms with a fast rough estimate in chat (~60 seconds). Free on-site measurement when you are ready.';
+  'Custom aluminum and glass patio cover installation in Metro Vancouver. Get a fast estimate with photos and measurements.';
 
 const NOINDEX_PATHS = new Set([
   '/contractor-login',

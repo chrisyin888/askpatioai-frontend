@@ -203,7 +203,7 @@
                   </ul>
                 </div>
                 <div v-if="cityServiceLinks.length" class="seo-page__explore-card">
-                  <h3 class="seo-page__explore-card-title">{{ cityServiceLinksTitle }}</h3>
+                  <h3 class="seo-page__explore-card-title">City service pages</h3>
                   <ul class="seo-page__explore-list">
                     <li v-for="l in cityServiceLinks" :key="l.path">
                       <router-link :to="l.path" class="seo-page__explore-link">{{ l.label }}</router-link>
@@ -255,8 +255,6 @@ import {
   webPageNode,
 } from '../utils/seoHead';
 import { publicAssetUrl } from '../utils/publicAssetUrl';
-import { citySlugFromServicePageId } from '../utils/seoCitySlug';
-
 const SERVICE_LABELS = {
   aluminum: 'Aluminum patio covers',
   glass: 'Glass patio covers',
@@ -324,27 +322,10 @@ export default {
         }),
       );
     },
-    relatedCitySlug() {
-      if (this.kind === 'city') return this.pageId;
-      if (this.kind === 'cityService') return citySlugFromServicePageId(this.pageId);
-      return null;
-    },
-    cityServiceLinksTitle() {
-      if (this.relatedCitySlug && CITY_PAGES[this.relatedCitySlug]) {
-        const name = CITY_PAGES[this.relatedCitySlug].h1.replace(/^Patio Covers in /i, '');
-        return `Local services in ${name}`;
-      }
-      if (this.kind === 'guide' || this.kind === 'project') return 'Patio cover contractors';
-      return 'City service pages';
-    },
     cityServiceLinks() {
-      const slug = this.relatedCitySlug;
-      return CITY_SERVICE_PAGE_ORDER.filter((id) => {
-        if (this.kind === 'cityService' && id === this.pageId) return false;
-        if (slug) return citySlugFromServicePageId(id) === slug;
-        if (this.kind === 'guide' || this.kind === 'project') return id.startsWith('contractor-');
-        return true;
-      }).map((id) => ({
+      return CITY_SERVICE_PAGE_ORDER.filter(
+        (id) => !(this.kind === 'cityService' && id === this.pageId),
+      ).map((id) => ({
         path: CITY_SERVICE_PAGES[id].path,
         label: CITY_SERVICE_PAGES[id].h1,
       }));
