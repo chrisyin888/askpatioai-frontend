@@ -34,6 +34,7 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'glass-langley',
   'sunrooms-langley',
   'contractor-langley',
+  'installer-langley',
   'contractor-delta',
   'installer-delta',
   ...CITY_SERVICE_EXPANSION_ORDER,
@@ -44,7 +45,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'aluminum-burnaby',
     path: '/aluminum-patio-covers-burnaby',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Aluminum Patio Covers Burnaby | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Aluminum Patio Covers Burnaby | LoomiHome Patios',
     metaDescription:
       'Aluminum patio covers in Burnaby — rain-ready, low-maintenance backyard covers. Get a fast rough estimate, compare options, then book a free measurement.',
     h1: 'Aluminum Patio Covers in Burnaby',
@@ -87,7 +88,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'aluminum-richmond',
     path: '/aluminum-patio-covers-richmond',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Aluminum Patio Covers Richmond BC | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Aluminum Patio Covers Richmond | LoomiHome Patios',
     metaDescription:
       'Aluminum patio covers in Richmond BC — practical rain and sun protection for patios and side yards. Fast rough quote and free on-site measurement.',
     h1: 'Aluminum Patio Covers in Richmond',
@@ -130,7 +131,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'aluminum-surrey',
     path: '/aluminum-patio-covers-surrey',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Aluminum Patio Covers Surrey | Quick Ballpark Quote | LoomiHome Patios',
+    metaTitle: 'Aluminum Patio Covers Surrey | LoomiHome Patios',
     metaDescription:
       'Aluminum patio covers in Surrey — rain-ready backyard covers for larger patios and family spaces. Quick online estimate and free measurement.',
     h1: 'Aluminum Patio Covers in Surrey',
@@ -173,7 +174,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'glass-richmond',
     path: '/glass-patio-covers-richmond',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Glass Patio Covers Richmond BC | Bright Patio Roofs | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Richmond | LoomiHome Patios',
     metaDescription:
       'Glass patio covers in Richmond BC — bright, modern rain protection for patios. Compare glass vs aluminum with a fast rough estimate.',
     h1: 'Glass Patio Covers in Richmond',
@@ -216,7 +217,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'glass-coquitlam',
     path: '/glass-patio-covers-coquitlam',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Glass Patio Covers Coquitlam | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Coquitlam | LoomiHome Patios',
     metaDescription:
       'Glass patio covers in Coquitlam — bright patio roof options for rain protection and natural light. Get a fast estimate and free measurement.',
     h1: 'Glass Patio Covers in Coquitlam',
@@ -259,7 +260,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'sunrooms-burnaby',
     path: '/sunrooms-burnaby',
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: 'Sunrooms Burnaby | Patio Enclosures & Estimates | LoomiHome Patios',
+    metaTitle: 'Sunrooms Burnaby | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Burnaby — compare enclosed patio options, budget range, and free measurement. Fast rough estimate before a site visit.',
     h1: 'Sunrooms in Burnaby',
@@ -302,7 +303,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'glass-burnaby',
     path: '/glass-patio-covers-burnaby',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Glass Patio Covers Burnaby | Bright Rain Protection | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Burnaby | LoomiHome Patios',
     metaDescription:
       'Glass patio covers in Burnaby — bright modern patio roofs for rain protection without losing natural light. Fast rough quote and free measurement.',
     h1: 'Glass Patio Covers in Burnaby',
@@ -345,7 +346,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'glass-surrey',
     path: '/glass-patio-covers-surrey',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Glass Patio Covers Surrey | Modern Patio Roofs | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Surrey | LoomiHome Patios',
     metaDescription:
       'Glass patio covers in Surrey — modern bright patio roof options for rain protection and outdoor living. Get a fast estimate and free site measurement.',
     h1: 'Glass Patio Covers in Surrey',
@@ -388,7 +389,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'sunrooms-richmond',
     path: '/sunrooms-richmond',
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: 'Sunrooms Richmond BC | Patio Enclosure Estimate | LoomiHome Patios',
+    metaTitle: 'Sunrooms Richmond | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Richmond BC — enclosed patio and glass room options. Compare sunroom budget vs patio covers with a fast rough estimate.',
     h1: 'Sunrooms in Richmond',
@@ -431,7 +432,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'sunrooms-surrey',
     path: '/sunrooms-surrey',
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: 'Sunrooms Surrey | Patio Enclosures & Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Sunrooms Surrey | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Surrey — enclosed patio options for family spaces and backyard upgrades. Fast rough estimate before free site measurement.',
     h1: 'Sunrooms in Surrey',
@@ -474,7 +475,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'contractor-vancouver',
     path: '/patio-cover-contractor-vancouver',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Vancouver | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Vancouver | LoomiHome Patios',
     metaDescription:
       'Looking for a patio cover contractor in Vancouver? Compare aluminum, glass, skyline combo, and sunroom options with a fast rough quote and free measurement.',
     h1: 'Patio Cover Contractor in Vancouver',
@@ -517,7 +518,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'installer-vancouver',
     path: '/patio-cover-installer-vancouver',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Installer Vancouver BC | Near Me | LoomiHome Patios',
+    metaTitle: 'Patio Cover Installer Vancouver | LoomiHome Patios',
     metaDescription:
       'Patio cover installer in Vancouver BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate in ~60 seconds and free on-site measurement across the Lower Mainland.',
     h1: 'Patio Cover Installer in Vancouver',
@@ -564,7 +565,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'installer-richmond',
     path: '/patio-cover-installer-richmond',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Installer Richmond BC | LoomiHome Patios',
+    metaTitle: 'Patio Cover Installer Richmond | LoomiHome Patios',
     metaDescription:
       'Patio cover installer in Richmond BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
     h1: 'Patio Cover Installer in Richmond',
@@ -607,7 +608,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'aluminum-delta',
     path: '/aluminum-patio-covers-delta',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Aluminum Patio Covers Delta BC | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Aluminum Patio Covers Delta | LoomiHome Patios',
     metaDescription:
       'Aluminum patio covers in Delta BC — practical rain protection for patios, side yards, and carport-style spaces. Fast quote and free measurement.',
     h1: 'Aluminum Patio Covers in Delta',
@@ -650,7 +651,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'aluminum-coquitlam',
     path: '/aluminum-patio-covers-coquitlam',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Aluminum Patio Covers Coquitlam | Quick Quote | LoomiHome Patios',
+    metaTitle: 'Aluminum Patio Covers Coquitlam | LoomiHome Patios',
     metaDescription:
       'Aluminum patio covers in Coquitlam — rain-ready, low-maintenance covers for back patios and family spaces. Fast rough quote and free measurement.',
     h1: 'Aluminum Patio Covers in Coquitlam',
@@ -693,7 +694,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'glass-delta',
     path: '/glass-patio-covers-delta',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Glass Patio Covers Delta BC | Bright Patio Roofs | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Delta | LoomiHome Patios',
     metaDescription:
       'Glass patio covers in Delta BC — bright, modern rain protection for patios and back doors. Compare glass vs aluminum with a fast estimate.',
     h1: 'Glass Patio Covers in Delta',
@@ -736,7 +737,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'sunrooms-coquitlam',
     path: '/sunrooms-coquitlam',
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: 'Sunrooms Coquitlam | Patio Enclosures & Estimate | LoomiHome Patios',
+    metaTitle: 'Sunrooms Coquitlam | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Coquitlam — enclosed patio and glass room options for brighter usable space. Fast rough estimate and free measurement.',
     h1: 'Sunrooms in Coquitlam',
@@ -779,7 +780,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'contractor-burnaby',
     path: '/patio-cover-contractor-burnaby',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Burnaby | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Burnaby | LoomiHome Patios',
     metaDescription:
       'Looking for a patio cover contractor in Burnaby? Compare aluminum, glass, combo, and sunroom options with a fast quote and free measurement.',
     h1: 'Patio Cover Contractor in Burnaby',
@@ -822,7 +823,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'installer-surrey',
     path: '/patio-cover-installer-surrey',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Installer Surrey | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Cover Installer Surrey | LoomiHome Patios',
     metaDescription:
       'Patio cover installer in Surrey — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
     h1: 'Patio Cover Installer in Surrey',
@@ -865,7 +866,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'contractor-richmond',
     path: '/patio-cover-contractor-richmond',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Richmond BC | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Richmond | LoomiHome Patios',
     metaDescription:
       'Looking for a patio cover contractor in Richmond BC? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free measurement.',
     h1: 'Patio Cover Contractor in Richmond',
@@ -908,7 +909,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'contractor-surrey',
     path: '/patio-cover-contractor-surrey',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Surrey | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Surrey | LoomiHome Patios',
     metaDescription:
       'Looking for a patio cover contractor in Surrey? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free on-site measurement.',
     h1: 'Patio Cover Contractor in Surrey',
@@ -951,7 +952,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'contractor-coquitlam',
     path: '/patio-cover-contractor-coquitlam',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Coquitlam | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Coquitlam | LoomiHome Patios',
     metaDescription:
       'Looking for a patio cover contractor in Coquitlam? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free measurement.',
     h1: 'Patio Cover Contractor in Coquitlam',
@@ -994,7 +995,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'installer-burnaby',
     path: '/patio-cover-installer-burnaby',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Installer Burnaby | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Cover Installer Burnaby | LoomiHome Patios',
     metaDescription:
       'Patio cover installer in Burnaby — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
     h1: 'Patio Cover Installer in Burnaby',
@@ -1037,7 +1038,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'installer-coquitlam',
     path: '/patio-cover-installer-coquitlam',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Installer Coquitlam | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Cover Installer Coquitlam | LoomiHome Patios',
     metaDescription:
       'Patio cover installer in Coquitlam — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
     h1: 'Patio Cover Installer in Coquitlam',
@@ -1080,7 +1081,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'sunrooms-delta',
     path: '/sunrooms-delta',
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: 'Sunrooms Delta BC | Patio Enclosure Estimate | LoomiHome Patios',
+    metaTitle: 'Sunrooms Delta | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Delta BC — enclosed patio and glass room options for brighter, more usable space. Fast rough estimate and free site measurement.',
     h1: 'Sunrooms in Delta',
@@ -1123,7 +1124,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'aluminum-langley',
     path: '/aluminum-patio-covers-langley',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Aluminum Patio Covers Langley | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Aluminum Patio Covers Langley | LoomiHome Patios',
     metaDescription:
       'Aluminum patio covers in Langley — durable, low-maintenance rain protection for larger backyards and newer subdivisions. Fast rough quote and free measurement.',
     h1: 'Aluminum Patio Covers in Langley',
@@ -1166,7 +1167,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'glass-langley',
     path: '/glass-patio-covers-langley',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Glass Patio Covers Langley | Bright Patio Roofs | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Langley | LoomiHome Patios',
     metaDescription:
       'Glass patio covers in Langley — bright, modern rain protection that keeps backyards and decks full of natural light. Fast estimate and free measurement.',
     h1: 'Glass Patio Covers in Langley',
@@ -1209,7 +1210,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'sunrooms-langley',
     path: '/sunrooms-langley',
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: 'Sunrooms Langley | Patio Enclosures & Estimate | LoomiHome Patios',
+    metaTitle: 'Sunrooms Langley | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Langley — enclosed patio and glass room options for brighter, year-round usable space. Fast rough estimate and free site measurement.',
     h1: 'Sunrooms in Langley',
@@ -1252,7 +1253,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'contractor-langley',
     path: '/patio-cover-contractor-langley',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Langley | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Langley | LoomiHome Patios',
     metaDescription:
       'Looking for a patio cover contractor in Langley? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free on-site measurement.',
     h1: 'Patio Cover Contractor in Langley',
@@ -1291,11 +1292,54 @@ export const CITY_SERVICE_PAGES = {
       },
     ],
   },
+  'installer-langley': {
+    id: 'installer-langley',
+    path: '/patio-cover-installer-langley',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Installer Langley | LoomiHome Patios',
+    metaDescription:
+      'Patio cover installer in Langley — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
+    h1: 'Patio Cover Installer in Langley',
+    serviceType: 'Patio cover installation',
+    areaServed: 'Langley, British Columbia',
+    intro:
+      'Langley homeowners searching for a patio cover installer often want practical answers first: what type fits, what it might cost, and how it will handle local weather. We start with a rough estimate, then confirm details during a free measurement.',
+    highlights: [
+      'Patio cover installation options across Langley',
+      'Compare aluminum, glass, combo, and sunroom paths',
+      'Helpful for Willoughby, Walnut Grove, and Murrayville homes',
+      'Fast ballpark followed by free measurement',
+    ],
+    localAngle:
+      'Langley lots range from newer subdivisions to larger Township properties. Attachment, span, and drainage are confirmed during the free site visit before final installation pricing.',
+    sections: [
+      {
+        h2: 'Installation details that matter in Langley',
+        body: 'Post placement, wall or deck attachment, roof slope, gutter direction, access, and exposure all shape a proper patio cover installation and the final quote.',
+      },
+      {
+        h2: 'Estimate first, install planning second',
+        body: 'The first estimate helps you decide whether the project is worth measuring. The site visit handles practical installation details and confirms pricing.',
+      },
+    ],
+    pricingNote:
+      'Share rough dimensions and one or two photos. We can ballpark the likely product direction before a Langley site visit.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Langley?',
+        a: 'Yes, we serve Langley, including the Township and City of Langley.',
+      },
+      {
+        q: 'Can you install glass and aluminum covers?',
+        a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
+      },
+    ],
+  },
   'contractor-delta': {
     id: 'contractor-delta',
     path: '/patio-cover-contractor-delta',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Delta BC | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Delta | LoomiHome Patios',
     metaDescription:
       'Looking for a patio cover contractor in Delta BC? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free measurement.',
     h1: 'Patio Cover Contractor in Delta',
@@ -1338,7 +1382,7 @@ export const CITY_SERVICE_PAGES = {
     id: 'installer-delta',
     path: '/patio-cover-installer-delta',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Installer Delta BC | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Cover Installer Delta | LoomiHome Patios',
     metaDescription:
       'Patio cover installer in Delta BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.',
     h1: 'Patio Cover Installer in Delta',

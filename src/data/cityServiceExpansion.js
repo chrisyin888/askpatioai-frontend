@@ -43,7 +43,7 @@ function contractorPage(slug, meta) {
     id: `contractor-${slug}`,
     path: `/patio-cover-contractor-${slug}`,
     heroImage: meta.heroImage,
-    metaTitle: `Patio Cover Contractor ${meta.name} | Fast Quote | LoomiHome Patios`,
+    metaTitle: `Patio Cover Contractor ${meta.name} | LoomiHome Patios`,
     metaDescription:
       `Looking for a patio cover contractor in ${meta.name}? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free on-site measurement.`,
     h1: `Patio Cover Contractor in ${meta.name}`,
@@ -91,7 +91,7 @@ function installerPage(slug, meta) {
     id: `installer-${slug}`,
     path: `/patio-cover-installer-${slug}`,
     heroImage: meta.heroImage,
-    metaTitle: `Patio Cover Installer ${meta.name} | Fast Estimate | LoomiHome Patios`,
+    metaTitle: `Patio Cover Installer ${meta.name} | LoomiHome Patios`,
     metaDescription:
       `Patio cover installer in ${meta.name} — aluminum, glass, combo covers, and sunrooms. Fast rough estimate and free on-site measurement.`,
     h1: `Patio Cover Installer in ${meta.name}`,
@@ -139,7 +139,7 @@ function aluminumPage(slug, meta) {
     id: `aluminum-${slug}`,
     path: `/aluminum-patio-covers-${slug}`,
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: `Aluminum Patio Covers ${meta.name} | Fast Quote | LoomiHome Patios`,
+    metaTitle: `Aluminum Patio Covers ${meta.name} | LoomiHome Patios`,
     metaDescription:
       `Aluminum patio covers in ${meta.name} — rain-ready, low-maintenance backyard covers. Get a fast rough estimate, compare options, then book a free measurement.`,
     h1: `Aluminum Patio Covers in ${meta.name}`,
@@ -187,7 +187,7 @@ function glassPage(slug, meta) {
     id: `glass-${slug}`,
     path: `/glass-patio-covers-${slug}`,
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: `Glass Patio Covers ${meta.name} | Bright Patio Roofs | LoomiHome Patios`,
+    metaTitle: `Glass Patio Covers ${meta.name} | LoomiHome Patios`,
     metaDescription:
       `Glass patio covers in ${meta.name} — bright, modern rain protection that keeps decks full of natural light. Fast estimate and free measurement.`,
     h1: `Glass Patio Covers in ${meta.name}`,
@@ -235,7 +235,7 @@ function sunroomPage(slug, meta) {
     id: `sunrooms-${slug}`,
     path: `/sunrooms-${slug}`,
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: `Sunrooms ${meta.name} | Patio Enclosures & Estimate | LoomiHome Patios`,
+    metaTitle: `Sunrooms ${meta.name} | LoomiHome Patios`,
     metaDescription:
       `Sunrooms in ${meta.name} — enclosed patio and glass room options for brighter, year-round usable space. Fast rough estimate and free site measurement.`,
     h1: `Sunrooms in ${meta.name}`,

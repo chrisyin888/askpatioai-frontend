@@ -3,7 +3,7 @@ export const SERVICE_PAGES = {
   aluminum: {
     path: '/aluminum-patio-covers-vancouver',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Aluminum Patio Covers Vancouver | Patio Cover Quote | LoomiHome Patios',
+    metaTitle: 'Aluminum Patio Covers Vancouver | LoomiHome Patios',
     metaDescription:
       'Aluminum patio covers in Vancouver and the Lower Mainland. Fast patio cover estimate in chat (~60 sec), compare options, free on-site measurement. Strong rain protection.',
     h1: 'Aluminum Patio Covers in Vancouver',
@@ -52,7 +52,7 @@ export const SERVICE_PAGES = {
   glass: {
     path: '/glass-patio-covers-vancouver',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Glass Patio Covers Vancouver | Patio Cover Estimate | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Vancouver | LoomiHome Patios',
     metaDescription:
       'Glass patio covers in Vancouver — bright, modern, rain-ready when engineered right. Fast rough quote in chat. Compare vs aluminum & combo. Free Lower Mainland measurement.',
     h1: 'Glass Patio Covers in Vancouver',
@@ -97,7 +97,7 @@ export const SERVICE_PAGES = {
   skyline: {
     path: '/skyline-combo-patio-covers-vancouver',
     heroImage: '/house/skyline/skyline-hero.png',
-    metaTitle: 'Skyline Combo Patio Covers Vancouver | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Skyline Combo Covers Vancouver | LoomiHome Patios',
     metaDescription:
       'Skyline combo patio covers (glass + V-panel) in Vancouver. Quick patio cover estimate, compare with other types, free on-site measurement across the Lower Mainland.',
     h1: 'Skyline Combo Patio Covers in Vancouver',
@@ -142,7 +142,7 @@ export const SERVICE_PAGES = {
   sunrooms: {
     path: '/sunrooms-vancouver',
     heroImage: '/house/sunrooms/sunroom-hero.png',
-    metaTitle: 'Sunrooms Vancouver | Sunroom Estimate | Patio Enclosure | LoomiHome Patios',
+    metaTitle: 'Sunrooms Vancouver | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Vancouver & Lower Mainland. Fast ballpark estimate, compare vs patio covers, free measurement. Enclosed glass living space.',
     h1: 'Sunrooms in Vancouver',

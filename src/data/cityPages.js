@@ -19,7 +19,7 @@ export const CITY_PAGES = {
     id: 'vancouver',
     path: '/patio-covers-vancouver',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Vancouver | Fast Estimate in ~60 Seconds | LoomiHome Patios',
+    metaTitle: 'Patio Covers Vancouver | Fast Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Vancouver — get a fast rough quote in about a minute, compare aluminum, glass, skyline combo, and sunrooms, then book a free on-site measurement. Lower Mainland team.',
     h1: 'Patio Covers in Vancouver',
@@ -58,7 +58,7 @@ export const CITY_PAGES = {
     id: 'burnaby',
     path: '/patio-covers-burnaby',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Burnaby | Quick Ballpark Quote | LoomiHome Patios',
+    metaTitle: 'Patio Covers Burnaby | LoomiHome Patios',
     metaDescription:
       'Patio covers in Burnaby — fast rough estimate online, compare cover types, free Lower Mainland measurement. Rain-ready shade for Metrotown-area homes and quieter neighbourhoods alike.',
     h1: 'Patio Covers in Burnaby',
@@ -97,7 +97,7 @@ export const CITY_PAGES = {
     id: 'richmond',
     path: '/patio-covers-richmond',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Richmond BC | Fast Rough Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Covers Richmond | Fast Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Richmond — compare aluminum, glass, and combo options. Get a fast online ballpark quote, then a free on-site measurement across Richmond and the Lower Mainland.',
     h1: 'Patio Covers in Richmond',
@@ -132,7 +132,7 @@ export const CITY_PAGES = {
     id: 'surrey',
     path: '/patio-covers-surrey',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Surrey | Fast 60-Second Style Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Covers Surrey | Fast Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Surrey — quick ballpark pricing online, compare aluminum, glass, skyline combo, and sunrooms. Free on-site measurement. Serving Surrey and the Lower Mainland.',
     h1: 'Patio Covers in Surrey',
@@ -167,7 +167,7 @@ export const CITY_PAGES = {
     id: 'delta',
     path: '/patio-covers-delta',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Delta BC | Quick Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Covers Delta | Fast Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Delta — Ladner, Tsawwassen, North Delta. Fast rough quote online, compare cover types, free measurement. Wind and rain ready for Fraser Valley weather.',
     h1: 'Patio Covers in Delta',
@@ -202,7 +202,7 @@ export const CITY_PAGES = {
     id: 'coquitlam',
     path: '/patio-covers-coquitlam',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Coquitlam | Fast Ballpark Pricing | LoomiHome Patios',
+    metaTitle: 'Patio Covers Coquitlam | LoomiHome Patios',
     metaDescription:
       'Patio covers in Coquitlam — Burke Mountain, Austin Heights, and surrounding. Quick online estimate, compare aluminum, glass, and combo covers. Free Lower Mainland site measurement.',
     h1: 'Patio Covers in Coquitlam',
@@ -237,7 +237,7 @@ export const CITY_PAGES = {
     id: 'langley',
     path: '/patio-covers-langley',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Langley BC | Fast Ballpark Pricing | LoomiHome Patios',
+    metaTitle: 'Patio Covers Langley | Fast Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Langley — Willoughby, Walnut Grove, Brookswood, and surrounding. Fast rough quote in chat, compare aluminum, glass, and sunrooms. Free on-site measurement.',
     h1: 'Patio Covers in Langley',
@@ -272,7 +272,7 @@ export const CITY_PAGES = {
     id: 'north-vancouver',
     path: '/patio-covers-north-vancouver',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers North Vancouver | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'North Vancouver Patio Covers | LoomiHome Patios',
     metaDescription:
       'Patio covers in North Vancouver — Lynn Valley, Lower Lonsdale, Edgemont, and nearby. Fast rough quote in chat, compare aluminum, glass, and combo covers. Free measurement.',
     h1: 'Patio Covers in North Vancouver',
@@ -303,7 +303,7 @@ export const CITY_PAGES = {
     id: 'west-vancouver',
     path: '/patio-covers-west-vancouver',
     heroImage: '/house/glass/glass-hero.png',
-    metaTitle: 'Patio Covers West Vancouver | Fast Quote | LoomiHome Patios',
+    metaTitle: 'West Vancouver Patio Covers | LoomiHome Patios',
     metaDescription:
       'Patio covers in West Vancouver — Ambleside, Dundarave, British Properties, and nearby. Compare aluminum, glass, and sunrooms with a fast online estimate and free measurement.',
     h1: 'Patio Covers in West Vancouver',
@@ -334,7 +334,7 @@ export const CITY_PAGES = {
     id: 'new-westminster',
     path: '/patio-covers-new-westminster',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers New Westminster | Fast Ballpark | LoomiHome Patios',
+    metaTitle: 'New Westminster Patio Covers | LoomiHome Patios',
     metaDescription:
       'Patio covers in New Westminster — Queensborough, Sapperton, Uptown, and nearby. Fast rough estimate, compare cover types, free on-site measurement.',
     h1: 'Patio Covers in New Westminster',
@@ -365,7 +365,7 @@ export const CITY_PAGES = {
     id: 'maple-ridge',
     path: '/patio-covers-maple-ridge',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Maple Ridge BC | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Covers Maple Ridge | Fast Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Maple Ridge — Town Centre, Albion, Silver Valley, and nearby. Compare aluminum, glass, and sunrooms with a fast rough quote and free measurement.',
     h1: 'Patio Covers in Maple Ridge',
@@ -396,7 +396,7 @@ export const CITY_PAGES = {
     id: 'pitt-meadows',
     path: '/patio-covers-pitt-meadows',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Pitt Meadows BC | Fast Quote | LoomiHome Patios',
+    metaTitle: 'Patio Covers Pitt Meadows | Fast Estimate | LoomiHome Patios',
     metaDescription:
       'Patio covers in Pitt Meadows — fast rough estimate online, compare aluminum, glass, and combo options, free on-site measurement across the Lower Mainland.',
     h1: 'Patio Covers in Pitt Meadows',
