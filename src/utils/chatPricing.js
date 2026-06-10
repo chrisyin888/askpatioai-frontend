@@ -1,4 +1,4 @@
-/** Rough chat estimate rates (CAD, before GST). */
+/** Rough chat estimate rates (CAD, before GST). Keep in sync with public/llms.txt. */
 export const CHAT_PRICING = {
   patioCoverBaseFee: 500,
   aluminumPatioCoverPerSqft: { min: 8, max: 10 },
@@ -52,6 +52,8 @@ export function parseSizeSqft(textOrSize) {
     /(\d+(?:\.\d+)?)\s*(?:wide|width|w)\b.*?(\d+(?:\.\d+)?)\s*(?:long|length|l|deep|depth|projection)\b/i,
     /(\d+(?:\.\d+)?)\s*(?:long|length|l)\b.*?(\d+(?:\.\d+)?)\s*(?:wide|width|w)\b/i,
     /(\d+(?:\.\d+)?)\s*x\s*(\d+(?:\.\d+)?)/i,
+    /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:by)\s*(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?/i,
+    /size\s*[:=]?\s*(\d+(?:\.\d+)?)\s*x\s*(\d+(?:\.\d+)?)/i,
   ];
 
   for (const pattern of dimensionPatterns) {

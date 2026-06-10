@@ -1835,6 +1835,8 @@ export default {
           question: questionForAI,
           history,
           project_type: (this.projectInfo && this.projectInfo.project_type) || '',
+          material_type: (this.projectInfo && this.projectInfo.material_type) || '',
+          size: (this.projectInfo && this.projectInfo.size) || '',
           city: (this.projectInfo && this.projectInfo.city) || '',
           email: (this.form && this.form.email) || '',
           phone: (this.form && this.form.phone) || '',
@@ -2226,25 +2228,30 @@ export default {
     },
     getPatioCoverEstimate(text) {
       if (this.isSunroomText(text)) return null;
+      if (this.projectInfo.project_type === 'Sunroom') return null;
 
       const lower = String(text || '').toLowerCase();
       const isPatioRequest =
         this.projectInfo.project_type === 'Patio Cover' ||
         lower.includes('patio cover') ||
-        lower.includes('pergola');
-
-      if (!isPatioRequest) return null;
+        lower.includes('pergola') ||
+        lower.includes('patio') ||
+        lower.includes('cover') ||
+        lower.includes('installation');
 
       let material = this.projectInfo.material_type;
       if (!material) {
         if (lower.includes('glass')) material = 'Glass';
         else if (lower.includes('skyline') || lower.includes('combo')) material = 'Skyline Combo';
-        else if (lower.includes('aluminum') || lower.includes('aluminium')) material = 'Aluminum';
+        else if (lower.includes('aluminum') || lower.includes('aluminium') || lower.includes('metal frame')) {
+          material = lower.includes('glass') ? 'Glass' : 'Aluminum';
+        }
       }
-      if (!material) return null;
+      if (material === 'Aluminum' && lower.includes('glass')) material = 'Glass';
 
       const sqft = parseSizeSqft(text) || parseSizeSqft(this.projectInfo.size);
-      if (!sqft) return null;
+      if (!material || !sqft) return null;
+      if (!isPatioRequest && !(this.projectInfo.material_type && this.projectInfo.size)) return null;
 
       const quote = patioCoverQuoteForMaterial(material, sqft);
       const materialLabel =
@@ -2269,13 +2276,13 @@ export default {
       if (!text) return;
       const lower = text.toLowerCase();
 
-      if (lower.includes('patio cover')) {
+      if (lower.includes('patio cover') || lower.includes('patio') || lower.includes('pergola')) {
         this.projectInfo.project_type = 'Patio Cover';
       } else if (this.isSunroomText(text)) {
         this.projectInfo.project_type = 'Sunroom';
       }
 
-      if (lower.includes('glass')) {
+      if (lower.includes('glass') || lower.includes('metal frame')) {
         this.projectInfo.material_type = 'Glass';
       } else if (lower.includes('skyline') || lower.includes('combo')) {
         this.projectInfo.material_type = 'Skyline Combo';
