@@ -361,6 +361,14 @@
                   </li>
                 </ul>
               </div>
+              <div class="home-seo-hub__col">
+                <h3 class="home-seo-hub__h3">Local contractors</h3>
+                <ul class="home-seo-hub__list">
+                  <li v-for="c in contractorPageLinks" :key="c.path">
+                    <router-link :to="c.path">{{ c.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </nav>
         </div>
@@ -1274,6 +1282,7 @@
 import siteData from './data/siteData.json';
 
 import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
+import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from './data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
 import {
@@ -1517,6 +1526,12 @@ export default {
       return GUIDE_PAGE_ORDER.map((id) => ({
         path: GUIDE_PAGES[id].path,
         label: labels[id] || id,
+      }));
+    },
+    contractorPageLinks() {
+      return CITY_SERVICE_PAGE_ORDER.filter((id) => id.startsWith('contractor-')).map((id) => ({
+        path: CITY_SERVICE_PAGES[id].path,
+        label: CITY_SERVICE_PAGES[id].h1.replace(/^Patio Cover Contractor in /i, 'Contractor — '),
       }));
     },
     /** Non-empty string only — Teleport + img must never bind null/invalid `is`-like state (Vue 3.2). */

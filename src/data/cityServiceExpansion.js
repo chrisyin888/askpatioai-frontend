@@ -182,10 +182,108 @@ function aluminumPage(slug, meta) {
   };
 }
 
+function glassPage(slug, meta) {
+  return {
+    id: `glass-${slug}`,
+    path: `/glass-patio-covers-${slug}`,
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: `Glass Patio Covers ${meta.name} | Bright Patio Roofs | LoomiHome Patios`,
+    metaDescription:
+      `Glass patio covers in ${meta.name} — bright, modern rain protection that keeps decks full of natural light. Fast estimate and free measurement.`,
+    h1: `Glass Patio Covers in ${meta.name}`,
+    serviceType: 'Glass patio cover installation',
+    areaServed: meta.areaServed,
+    intro:
+      `Glass patio covers are worth comparing in ${meta.name} when you want rain protection but still want the deck and back of the home to stay bright.`,
+    highlights: [
+      `Bright overhead rain protection for ${meta.name} decks`,
+      'Modern glass and black-frame design direction',
+      `Helpful for ${meta.neighbourhoods}`,
+      'Free measurement after your first ballpark estimate',
+    ],
+    localAngle:
+      `${meta.name} homes with walkout decks and large rear windows often compare glass to keep natural light. ${meta.localDetail.charAt(0).toUpperCase() + meta.localDetail.slice(1)} — slope and drainage are confirmed on site.`,
+    sections: [
+      {
+        h2: 'When glass is worth the upgrade',
+        body:
+          'Glass usually costs more than a basic aluminum cover, but it keeps the deck and adjoining rooms brighter and can look more premium from inside the home.',
+      },
+      {
+        h2: 'What affects glass pricing',
+        body:
+          'Panel layout, span, support posts, attachment height, glass type, and drainage direction all affect the final quote. A quick estimate helps you decide before measuring.',
+      },
+    ],
+    pricingNote:
+      'Send rough dimensions and whether you want maximum light or a balanced mix of shade. We can compare glass and aluminum from the same measurements.',
+    faqs: [
+      {
+        q: `Are glass patio covers good for ${meta.name} homes?`,
+        a: 'Yes, especially where keeping natural light matters. Slope and drainage are confirmed on site.',
+      },
+      {
+        q: 'Can I compare glass and aluminum pricing?',
+        a: 'Yes. We can ballpark both from the same approximate dimensions.',
+      },
+    ],
+  };
+}
+
+function sunroomPage(slug, meta) {
+  return {
+    id: `sunrooms-${slug}`,
+    path: `/sunrooms-${slug}`,
+    heroImage: '/house/sunrooms/sunroom-hero.png',
+    metaTitle: `Sunrooms ${meta.name} | Patio Enclosures & Estimate | LoomiHome Patios`,
+    metaDescription:
+      `Sunrooms in ${meta.name} — enclosed patio and glass room options for brighter, year-round usable space. Fast rough estimate and free site measurement.`,
+    h1: `Sunrooms in ${meta.name}`,
+    serviceType: 'Sunroom installation',
+    areaServed: meta.areaServed,
+    intro:
+      `${meta.name} homeowners comparing sunrooms usually want a practical budget range before detailed design. Start with a rough estimate, then book a free measurement when the numbers make sense.`,
+    highlights: [
+      `Enclosed patio and sunroom options in ${meta.name}`,
+      'Compare sunroom budget against open patio covers',
+      `Helpful for ${meta.neighbourhoods}`,
+      'Free measurement after the initial rough estimate',
+    ],
+    localAngle:
+      `${meta.name} lots vary in size and layout — ${meta.localDetail}. Existing deck condition, attachment, and drainage are reviewed before final sunroom pricing.`,
+    sections: [
+      {
+        h2: 'When to consider a sunroom',
+        body:
+          'Choose a sunroom when you want more enclosure and comfort than a roof alone provides. It works well for sitting areas, hobby rooms, or a protected transition to the backyard.',
+      },
+      {
+        h2: 'Budget before design',
+        body:
+          'Because sunrooms vary widely, the first step is understanding whether the project range makes sense. Final details come after measurement.',
+      },
+    ],
+    pricingNote:
+      'Share the approximate footprint and a few photos. We can compare a sunroom with simpler patio cover options if budget is uncertain.',
+    faqs: [
+      {
+        q: `Do you build sunrooms in ${meta.name}?`,
+        a: `Yes — ${meta.name} is part of our Lower Mainland service area.`,
+      },
+      {
+        q: 'Should I choose a sunroom or a patio cover?',
+        a: 'If you mainly need rain protection, start with a patio cover. If you want more enclosure and year-round comfort, compare a sunroom.',
+      },
+    ],
+  };
+}
+
 export const CITY_SERVICE_EXPANSION_ORDER = Object.keys(CITY_META).flatMap((slug) => [
   `contractor-${slug}`,
   `installer-${slug}`,
   `aluminum-${slug}`,
+  `glass-${slug}`,
+  `sunrooms-${slug}`,
 ]);
 
 export const CITY_SERVICE_EXPANSION_PAGES = Object.fromEntries(
@@ -193,5 +291,7 @@ export const CITY_SERVICE_EXPANSION_PAGES = Object.fromEntries(
     [`contractor-${slug}`, contractorPage(slug, meta)],
     [`installer-${slug}`, installerPage(slug, meta)],
     [`aluminum-${slug}`, aluminumPage(slug, meta)],
+    [`glass-${slug}`, glassPage(slug, meta)],
+    [`sunrooms-${slug}`, sunroomPage(slug, meta)],
   ]),
 );
