@@ -24,6 +24,33 @@ export function setCanonicalPath(pathname) {
   canonicalLinkEl.setAttribute('href', href);
 }
 
+let hreflangEnCaEl = null;
+let hreflangDefaultEl = null;
+
+function upsertHreflangAlternates(href) {
+  if (typeof document === 'undefined') return;
+  if (!hreflangEnCaEl) {
+    hreflangEnCaEl = document.querySelector('link[rel="alternate"][hreflang="en-CA"]');
+    if (!hreflangEnCaEl) {
+      hreflangEnCaEl = document.createElement('link');
+      hreflangEnCaEl.setAttribute('rel', 'alternate');
+      hreflangEnCaEl.setAttribute('hreflang', 'en-CA');
+      document.head.appendChild(hreflangEnCaEl);
+    }
+  }
+  if (!hreflangDefaultEl) {
+    hreflangDefaultEl = document.querySelector('link[rel="alternate"][hreflang="x-default"]');
+    if (!hreflangDefaultEl) {
+      hreflangDefaultEl = document.createElement('link');
+      hreflangDefaultEl.setAttribute('rel', 'alternate');
+      hreflangDefaultEl.setAttribute('hreflang', 'x-default');
+      document.head.appendChild(hreflangDefaultEl);
+    }
+  }
+  hreflangEnCaEl.setAttribute('href', href);
+  hreflangDefaultEl.setAttribute('href', href);
+}
+
 function upsertMetaByName(name, content) {
   if (typeof document === 'undefined') return;
   let el = document.querySelector(`meta[name="${name}"]`);
@@ -46,12 +73,22 @@ function upsertMetaProperty(property, content) {
   el.setAttribute('content', content || '');
 }
 
+/** Keep meta descriptions within common SERP snippet limits. */
+export function truncateMetaDescription(text, maxLen = 160) {
+  const value = (text || '').trim();
+  if (value.length <= maxLen) return value;
+  const cut = value.slice(0, maxLen - 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  const trimmed = lastSpace > 80 ? cut.slice(0, lastSpace) : cut;
+  return `${trimmed.trim()}…`;
+}
+
 /** Per-route title, description, canonical, robots, and social tags for SPA SEO. */
 export function setPageMeta({ title, description, path = '/', robots = 'index,follow', image } = {}) {
   if (typeof document === 'undefined') return;
 
   const pageTitle = title || 'LoomiHome Patios';
-  const pageDescription = description || '';
+  const pageDescription = truncateMetaDescription(description);
   const pagePath = path || '/';
   const pageUrl = absoluteUrl(pagePath);
   const shareImage = image ? absoluteUrl(image) : `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`;
@@ -60,6 +97,7 @@ export function setPageMeta({ title, description, path = '/', robots = 'index,fo
   upsertMetaByName('description', pageDescription);
   upsertMetaByName('robots', robots);
   setCanonicalPath(pagePath);
+  upsertHreflangAlternates(pageUrl);
 
   upsertMetaProperty('og:type', 'website');
   upsertMetaProperty('og:site_name', 'LoomiHome Patios');
@@ -67,6 +105,9 @@ export function setPageMeta({ title, description, path = '/', robots = 'index,fo
   upsertMetaProperty('og:description', pageDescription);
   upsertMetaProperty('og:url', pageUrl);
   upsertMetaProperty('og:image', shareImage);
+  upsertMetaProperty('og:locale', 'en_CA');
+  upsertMetaProperty('og:image:width', '1200');
+  upsertMetaProperty('og:image:height', '630');
 
   upsertMetaByName('twitter:card', 'summary_large_image');
   upsertMetaByName('twitter:title', pageTitle);
@@ -164,6 +205,7 @@ export function localBusinessNode() {
     makesOffer: [
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Aluminum patio covers' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass patio covers' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Skyline combo patio covers' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sunrooms' } },
     ],
   };
@@ -189,12 +231,15 @@ export function webPageNode(page) {
 export function articleNode(page) {
   if (!page || !page.path) return null;
   const image = page.heroImage ? absoluteUrl(page.heroImage) : `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`;
+  const today = new Date().toISOString().slice(0, 10);
   return {
     '@type': 'Article',
     '@id': `${absoluteUrl(page.path)}#article`,
     headline: page.h1,
     description: page.metaDescription || page.intro,
     image,
+    datePublished: page.datePublished || '2026-06-01',
+    dateModified: page.dateModified || today,
     mainEntityOfPage: { '@id': `${absoluteUrl(page.path)}#webpage` },
     author: { '@id': `${SITE_ORIGIN}/#business` },
     publisher: { '@id': `${SITE_ORIGIN}/#business` },

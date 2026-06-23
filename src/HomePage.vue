@@ -283,7 +283,14 @@
                     >·</span>
                     <span>{{ proj.city }}</span>
                   </p>
-                  <p class="home-before-after__benefit">{{ proj.benefit }}</p>
+                  <p class="home-before-after__benefit">
+                    {{ proj.benefit }}
+                    <router-link
+                      v-if="proj.projectPath"
+                      :to="proj.projectPath"
+                      class="home-before-after__project-link"
+                    >View project page</router-link>
+                  </p>
                 </div>
               </article>
             </div>
@@ -357,10 +364,13 @@
                 </ul>
               </div>
               <div class="home-seo-hub__col">
-                <h3 class="home-seo-hub__h3">Guides</h3>
+                <h3 class="home-seo-hub__h3">Guides &amp; projects</h3>
                 <ul class="home-seo-hub__list">
                   <li v-for="g in guidePageLinks" :key="g.path">
                     <router-link :to="g.path">{{ g.label }}</router-link>
+                  </li>
+                  <li v-for="p in projectPageLinks" :key="p.path">
+                    <router-link :to="p.path">{{ p.label }}</router-link>
                   </li>
                 </ul>
               </div>
@@ -1278,12 +1288,14 @@ import siteData from './data/siteData.json';
 
 import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
+import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from './data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
 import {
   faqPageNode,
   injectJsonLd,
   localBusinessNode,
   removeJsonLd,
+  webPageNode,
   webSiteNode,
 } from './utils/seoHead';
 import {
@@ -1522,6 +1534,12 @@ export default {
         label: labels[id] || id,
       }));
     },
+    projectPageLinks() {
+      return PROJECT_PAGE_ORDER.map((id) => ({
+        path: PROJECT_PAGES[id].path,
+        label: PROJECT_PAGES[id].h1.replace(' Project', ''),
+      }));
+    },
     /** Non-empty string only — Teleport + img must never bind null/invalid `is`-like state (Vue 3.2). */
     chatLightboxDisplaySrc() {
       const raw = this.chatLightboxImage;
@@ -1597,6 +1615,14 @@ export default {
     }
 
     const graph = [localBusinessNode(), webSiteNode()];
+    graph.push(
+      webPageNode({
+        path: '/',
+        metaTitle: 'Patio Cover Installation Vancouver | LoomiHome Patios',
+        metaDescription: this.s1.subtitle,
+        h1: this.s1.heroTitle,
+      }),
+    );
     const faqNode = faqPageNode(this.faqList);
     if (faqNode) graph.push(faqNode);
     injectJsonLd({ '@context': 'https://schema.org', '@graph': graph });
@@ -4940,6 +4966,14 @@ html.app-scroll-lock #app {
   font-size: 13px;
   line-height: 1.5;
   color: #64748b;
+}
+
+.home-before-after__project-link {
+  display: inline-block;
+  margin-left: 6px;
+  color: #0f766e;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .home-before-after__cta-block {

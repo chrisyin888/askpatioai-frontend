@@ -1,6 +1,8 @@
 import {
   CITY_SERVICE_EXPANSION_ORDER,
   CITY_SERVICE_EXPANSION_PAGES,
+  LEGACY_SKYLINE_ORDER,
+  LEGACY_SKYLINE_PAGES,
 } from './cityServiceExpansion.js';
 
 /** Service + city landing pages for high-intent local searches. */
@@ -37,6 +39,7 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'installer-langley',
   'contractor-delta',
   'installer-delta',
+  ...LEGACY_SKYLINE_ORDER,
   ...CITY_SERVICE_EXPANSION_ORDER,
 ];
 
@@ -520,7 +523,7 @@ export const CITY_SERVICE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Installer Vancouver | LoomiHome Patios',
     metaDescription:
-      'Patio cover installer in Vancouver BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate in ~60 seconds and free on-site measurement across the Lower Mainland.',
+      'Patio cover installer in Vancouver BC — aluminum, glass, combo covers, and sunrooms. Fast rough estimate in ~60 seconds and free measurement.',
     h1: 'Patio Cover Installer in Vancouver',
     serviceType: 'Patio cover installation',
     areaServed: 'Vancouver, British Columbia',
@@ -583,7 +586,7 @@ export const CITY_SERVICE_PAGES = {
       'Richmond homes can have flat lots, side driveways, and coastal weather exposure. Installation details like drainage, clearance, and attachment matter for the final quote.',
     sections: [
       {
-        h2: 'What installation details matter',
+        h2: 'Installation process in Richmond',
         body: 'Post placement, wall attachment, roof slope, gutter direction, access, and clearance all shape a proper patio cover installation.',
       },
       {
@@ -1421,5 +1424,6 @@ export const CITY_SERVICE_PAGES = {
       },
     ],
   },
+  ...LEGACY_SKYLINE_PAGES,
   ...CITY_SERVICE_EXPANSION_PAGES,
 };

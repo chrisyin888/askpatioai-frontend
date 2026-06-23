@@ -21,7 +21,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Vancouver | Fast Estimate | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Vancouver — get a fast rough quote in about a minute, compare aluminum, glass, skyline combo, and sunrooms, then book a free on-site measurement. Lower Mainland team.',
+      'Patio covers in Vancouver — fast rough quote in chat, compare aluminum, glass, combo, and sunrooms. Free on-site measurement across the Lower Mainland.',
     h1: 'Patio Covers in Vancouver',
     intro:
       'If you are searching for patio covers in Vancouver, you probably want two things: protection from the rain and a backyard that still feels bright and usable. We help you skip the slow back-and-forth with traditional quotes — start with a fast rough estimate in chat (about 60 seconds of your time), compare cover types, then book a free on-site measurement when you are ready for exact numbers.',
@@ -60,7 +60,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Burnaby | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Burnaby — fast rough estimate online, compare cover types, free Lower Mainland measurement. Rain-ready shade for Metrotown-area homes and quieter neighbourhoods alike.',
+      'Patio covers in Burnaby — fast online estimate, compare cover types, free measurement. Rain-ready shade for Metrotown and nearby neighbourhoods.',
     h1: 'Patio Covers in Burnaby',
     intro:
       'Burnaby homes range from tight lots near Metrotown to roomier pockets near Deer Lake. Wherever you are, the process is the same: get a quick rough patio cover estimate in chat, see how aluminum, glass, or combo options might fit your budget, then schedule a free on-site measurement if the numbers feel right.',
@@ -99,7 +99,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Richmond | Fast Estimate | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Richmond — compare aluminum, glass, and combo options. Get a fast online ballpark quote, then a free on-site measurement across Richmond and the Lower Mainland.',
+      'Patio covers in Richmond — compare aluminum, glass, and combo options. Fast ballpark quote online, then free on-site measurement.',
     h1: 'Patio Covers in Richmond',
     intro:
       'Richmond’s flat terrain and coastal weather make covered patios especially useful — you get shade in summer and a drier outdoor space the rest of the year. We focus on speed: a rough patio cover quote in about a minute, clear comparison between product types, and a free measurement visit when you want exact pricing.',
@@ -134,7 +134,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Surrey | Fast Estimate | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Surrey — quick ballpark pricing online, compare aluminum, glass, skyline combo, and sunrooms. Free on-site measurement. Serving Surrey and the Lower Mainland.',
+      'Patio covers in Surrey — ballpark pricing online, compare aluminum, glass, combo, and sunrooms. Free on-site measurement in the Lower Mainland.',
     h1: 'Patio Covers in Surrey',
     intro:
       'Surrey lots often have room to spread out — and homeowners here still want the same thing: honest pricing without the runaround. Use our chat for a fast rough patio cover estimate, compare styles side by side, then invite us for a free on-site measurement when you are serious about moving forward.',
@@ -169,7 +169,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Delta | Fast Estimate | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Delta — Ladner, Tsawwassen, North Delta. Fast rough quote online, compare cover types, free measurement. Wind and rain ready for Fraser Valley weather.',
+      'Patio covers in Delta — Ladner, Tsawwassen, North Delta. Fast rough quote online, compare cover types, free measurement for local weather.',
     h1: 'Patio Covers in Delta',
     intro:
       'Delta gets its share of wind off the water and wet shoulder seasons — a solid patio cover keeps your deck usable year-round. We make the first step easy: a fast online ballpark for patio cover pricing, a clear comparison of aluminum, glass, and combo systems, and a no-charge on-site measurement when you want firm numbers.',
@@ -204,7 +204,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Coquitlam | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Coquitlam — Burke Mountain, Austin Heights, and surrounding. Quick online estimate, compare aluminum, glass, and combo covers. Free Lower Mainland site measurement.',
+      'Patio covers in Coquitlam — Burke Mountain, Austin Heights, and nearby. Quick online estimate, compare aluminum, glass, and combo covers.',
     h1: 'Patio Covers in Coquitlam',
     intro:
       'Coquitlam’s mix of hillside homes and established neighbourhoods means every patio is a little different. Instead of guessing from generic web prices, start with a tailored rough estimate in chat — about a minute — then compare aluminum, glass, skyline combo, or even a sunroom path. Book a free on-site measurement when you want precision.',
@@ -239,7 +239,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Covers Langley | Fast Estimate | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Langley — Willoughby, Walnut Grove, Brookswood, and surrounding. Fast rough quote in chat, compare aluminum, glass, and sunrooms. Free on-site measurement.',
+      'Patio covers in Langley — Willoughby, Walnut Grove, Brookswood, and nearby. Fast rough quote, compare aluminum, glass, and sunrooms.',
     h1: 'Patio Covers in Langley',
     intro:
       'Langley homeowners often want a patio that works through wet springs and sunny summers without months of quote chasing. Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, or sunroom directions, then book a free on-site measurement when you want exact numbers.',
@@ -274,7 +274,7 @@ export const CITY_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'North Vancouver Patio Covers | LoomiHome Patios',
     metaDescription:
-      'Patio covers in North Vancouver — Lynn Valley, Lower Lonsdale, Edgemont, and nearby. Fast rough quote in chat, compare aluminum, glass, and combo covers. Free measurement.',
+      'Patio covers in North Vancouver — Lynn Valley, Lower Lonsdale, Edgemont, and nearby. Fast rough quote, compare aluminum, glass, and combo.',
     h1: 'Patio Covers in North Vancouver',
     intro:
       'North Vancouver homes often need covers that handle rain, tree debris, and sloped lots. Get a fast rough patio cover estimate in chat, compare aluminum, glass, or combo options, then book a free on-site measurement when you want exact pricing.',
@@ -305,7 +305,7 @@ export const CITY_PAGES = {
     heroImage: '/house/glass/glass-hero.png',
     metaTitle: 'West Vancouver Patio Covers | LoomiHome Patios',
     metaDescription:
-      'Patio covers in West Vancouver — Ambleside, Dundarave, British Properties, and nearby. Compare aluminum, glass, and sunrooms with a fast online estimate and free measurement.',
+      'Patio covers in West Vancouver — Ambleside, Dundarave, British Properties, and nearby. Compare covers with a fast estimate and free measurement.',
     h1: 'Patio Covers in West Vancouver',
     intro:
       'West Vancouver patios often prioritize views, rain protection, and a clean modern look. Start with a fast rough estimate, compare glass, aluminum, or combo systems, then schedule a free measurement when the range fits your plans.',
@@ -365,9 +365,9 @@ export const CITY_PAGES = {
     id: 'maple-ridge',
     path: '/patio-covers-maple-ridge',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Maple Ridge | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Covers Maple Ridge | LoomiHome Patios',
     metaDescription:
-      'Patio covers in Maple Ridge — Town Centre, Albion, Silver Valley, and nearby. Compare aluminum, glass, and sunrooms with a fast rough quote and free measurement.',
+      'Patio covers in Maple Ridge — Town Centre, Albion, Silver Valley, and nearby. Compare aluminum, glass, and sunrooms with a fast quote.',
     h1: 'Patio Covers in Maple Ridge',
     intro:
       'Maple Ridge homeowners often want more usable backyard space before summer and through the rainy season. Start with a fast rough estimate in chat, compare cover types, then book a free on-site measurement when you are ready for exact numbers.',
@@ -396,7 +396,7 @@ export const CITY_PAGES = {
     id: 'pitt-meadows',
     path: '/patio-covers-pitt-meadows',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Covers Pitt Meadows | Fast Estimate | LoomiHome Patios',
+    metaTitle: 'Patio Covers Pitt Meadows | LoomiHome Patios',
     metaDescription:
       'Patio covers in Pitt Meadows — fast rough estimate online, compare aluminum, glass, and combo options, free on-site measurement across the Lower Mainland.',
     h1: 'Patio Covers in Pitt Meadows',

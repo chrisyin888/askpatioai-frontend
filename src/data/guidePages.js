@@ -12,10 +12,12 @@ export const GUIDE_PAGES = {
   'contractors-near-me': {
     id: 'contractors-near-me',
     path: '/patio-cover-contractors-near-me',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Contractors Near Me | LoomiHome Patios',
     metaDescription:
-      'Looking for patio cover contractors or installers near you in Metro Vancouver? Compare aluminum, glass, combo, and sunroom options with a fast rough estimate in ~60 seconds. Serving Vancouver, Burnaby, Surrey, Richmond, and nearby BC cities.',
+      'Patio cover contractors near you in Metro Vancouver. Compare aluminum, glass, combo, and sunroom options with a fast rough estimate in ~60 seconds.',
     h1: 'Patio Cover Contractors Near Me — Metro Vancouver',
     intro:
       'If you searched “patio cover contractors near me” or “patio cover installers near me,” you probably want two things: a trustworthy local team and a clear price range before booking visits. LoomiHome serves Metro Vancouver and the Lower Mainland — Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby areas. Start with a fast rough estimate in chat (about 60 seconds), then book a free on-site measurement when the range fits your budget.',
@@ -57,10 +59,12 @@ export const GUIDE_PAGES = {
   'patio-cover-cost': {
     id: 'patio-cover-cost',
     path: '/patio-cover-cost-vancouver',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Vancouver | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Vancouver? Learn what drives price, typical starting ranges, and how to get a fast rough estimate before a free on-site measurement.',
+      'How much does a patio cover cost in Vancouver? What drives price, typical ranges, and how to get a fast rough estimate before free measurement.',
     h1: 'Patio Cover Cost in Vancouver',
     intro:
       'If you are researching patio cover cost in Vancouver, you have probably seen numbers all over the map. That is normal — size, product type, attachment, and finish level all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -106,10 +110,12 @@ export const GUIDE_PAGES = {
   'glass-vs-aluminum': {
     id: 'glass-vs-aluminum',
     path: '/glass-vs-aluminum-patio-covers',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/glass/glass-hero.png',
     metaTitle: 'Glass vs Aluminum Covers | Vancouver | LoomiHome',
     metaDescription:
-      'Glass vs aluminum patio cover — which is best for your Vancouver home? Compare light, rain protection, maintenance, and budget. Get a fast rough estimate for both in chat.',
+      'Glass vs aluminum patio cover for Vancouver homes. Compare light, rain protection, maintenance, and budget. Get a fast rough estimate for both in chat.',
     h1: 'Glass vs Aluminum Patio Covers',
     intro:
       'Choosing between a glass patio cover and an aluminum patio cover is less about “which is best in the world” and more about what you want from the space. Aluminum leans practical: strong rain protection, lower maintenance, often friendlier on budget. Glass leans bright: more natural light, a premium modern look, often a higher investment. In Vancouver’s grey months, both can work — the right pick depends on how you use the patio and what you want to spend.',
@@ -151,10 +157,12 @@ export const GUIDE_PAGES = {
   permit: {
     id: 'permit',
     path: '/do-you-need-a-permit-for-a-patio-cover-in-vancouver',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Permits Vancouver | LoomiHome Patios',
     metaDescription:
-      'Do you need a permit for a patio cover in Vancouver or BC? General guidance for homeowners, plus how to get a fast patio cover estimate and free measurement with LoomiHome.',
+      'Do you need a permit for a patio cover in Vancouver or BC? General guidance on when permits apply and how to plan your patio cover project.',
     h1: 'Do You Need a Permit for a Patio Cover in Vancouver?',
     intro:
       'Permit rules depend on your municipality, how the cover attaches to the home, height, projection, and sometimes whether there is existing work on the property. We are a patio cover team — not your city hall — so we cannot stamp “yes” or “no” for every lot. What we can do is build to compliant details once requirements are known, and help you move quickly on pricing while you check local rules.',
@@ -192,10 +200,12 @@ export const GUIDE_PAGES = {
   rain: {
     id: 'rain',
     path: '/best-patio-cover-for-rain-vancouver',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Best Patio Cover for Rain | Vancouver | LoomiHome',
     metaDescription:
-      'Best patio cover for rainy Vancouver weather — aluminum, glass, drainage, and durability. Compare options and get a fast rough estimate, then a free on-site measurement.',
+      'Best patio cover for rainy Vancouver weather — aluminum, glass, drainage, and durability. Compare options with a fast rough estimate in chat.',
     h1: 'Best Patio Cover for Rain in Vancouver',
     intro:
       'Vancouver’s rainy season is long. The “best” patio cover for rain is one that sheds water reliably, attaches securely to your home, and uses materials that will not fall apart after a few coastal winters. For many homeowners, that means a quality aluminum roof system or a well-engineered glass roof — not a flimsy big-box kit. We help you compare options fast so you are not guessing from marketing photos.',
@@ -233,10 +243,12 @@ export const GUIDE_PAGES = {
   'install-timeline': {
     id: 'install-timeline',
     path: '/how-long-does-patio-cover-installation-take',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/skyline/skyline-hero.png',
     metaTitle: 'Patio Cover Install Timeline | Vancouver | LoomiHome',
     metaDescription:
-      'Patio cover installation timeline — typical phases from estimate to completion in Vancouver and the Lower Mainland. Fast rough quote first, free measurement, then scheduling.',
+      'Patio cover installation timeline — typical phases from estimate to completion in Metro Vancouver. Plan your project with a fast rough quote first.',
     h1: 'How Long Does Patio Cover Installation Take?',
     intro:
       'Most homeowners care about two timelines: how long until they understand price, and how long until the cover is installed. We compress the first part — you can get a rough patio cover estimate in about a minute in chat. After that, a free site visit locks measurements and scope. Install timing then depends on product, season, and how busy the schedule is — we give realistic ranges once your project is defined.',

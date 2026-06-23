@@ -109,7 +109,7 @@ function installerPage(slug, meta) {
       `${meta.name} sites vary in ${meta.localDetail}. Attachment, slope, and drainage are confirmed during the free site visit.`,
     sections: [
       {
-        h2: `Installation details that matter in ${meta.name}`,
+        h2: `Installation process in ${meta.name}`,
         body:
           'Post placement, wall or deck attachment, roof slope, gutter direction, access, and exposure all shape a proper patio cover installation and the final quote.',
       },
@@ -127,8 +127,8 @@ function installerPage(slug, meta) {
         a: `Yes, we serve ${meta.name} as part of our Metro Vancouver and Lower Mainland coverage.`,
       },
       {
-        q: 'Can you install glass and aluminum covers?',
-        a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
+        q: `How long does patio cover installation take in ${meta.name}?`,
+        a: 'Most installs finish within a few days once materials are ready. We confirm a realistic schedule after measurement.',
       },
     ],
   };
@@ -278,11 +278,108 @@ function sunroomPage(slug, meta) {
   };
 }
 
+function skylinePage(slug, meta) {
+  return {
+    id: `skyline-${slug}`,
+    path: `/skyline-combo-patio-covers-${slug}`,
+    heroImage: '/house/skyline/skyline-hero.png',
+    metaTitle: `Skyline Combo Covers ${meta.name} | LoomiHome Patios`,
+    metaDescription:
+      `Skyline combo patio covers in ${meta.name} — glass and V-panel mix for balanced light and shade. Fast estimate and free measurement.`,
+    h1: `Skyline Combo Patio Covers in ${meta.name}`,
+    serviceType: 'Skyline combo patio cover installation',
+    areaServed: meta.areaServed,
+    intro:
+      `Skyline combo patio covers blend glass and V-panel sections — a middle path between solid aluminum and full glass. ${meta.name} homeowners often compare this style when they want both light and shade.`,
+    highlights: [
+      `Balanced light and shade for ${meta.name} patios`,
+      'Mix of glass and V-panel sections',
+      `Helpful for ${meta.neighbourhoods}`,
+      'Free on-site measurement after your first ballpark estimate',
+    ],
+    localAngle:
+      `${meta.name} backyards with ${meta.localDetail} benefit from tuning how much glass vs shade the roof includes. Layout and drainage are confirmed on site.`,
+    sections: [
+      {
+        h2: `When skyline combo works in ${meta.name}`,
+        body:
+          'Choose combo when a solid roof feels too dark but full glass feels too bright or too premium. It is a common compare-to alongside aluminum and glass.',
+      },
+      {
+        h2: 'What affects combo pricing',
+        body:
+          'Glass share, span, posts, attachment, and drainage all move the final quote. A quick estimate helps you decide before measuring.',
+      },
+    ],
+    pricingNote:
+      'Share rough dimensions and whether you want more light or more shade. We can compare combo, glass, and aluminum from the same measurements.',
+    faqs: [
+      {
+        q: `Do you install skyline combo covers in ${meta.name}?`,
+        a: `Yes — ${meta.name} is part of our regular Lower Mainland service area.`,
+      },
+      {
+        q: 'Can I compare combo with aluminum or glass?',
+        a: 'Yes. We can ballpark multiple product directions from the same rough dimensions.',
+      },
+    ],
+  };
+}
+
+const LEGACY_CITY_SKYLINE_META = {
+  burnaby: {
+    name: 'Burnaby',
+    areaServed: 'Burnaby, British Columbia',
+    neighbourhoods: 'Metrotown and quieter neighbourhoods',
+    localDetail: 'varied lot sizes and rainy seasons',
+  },
+  richmond: {
+    name: 'Richmond',
+    areaServed: 'Richmond, British Columbia',
+    neighbourhoods: 'Steveston, Terra Nova, and central Richmond',
+    localDetail: 'coastal rain and walkout decks',
+  },
+  surrey: {
+    name: 'Surrey',
+    areaServed: 'Surrey, British Columbia',
+    neighbourhoods: 'Fleetwood, Guildford, and South Surrey',
+    localDetail: 'larger backyards and mixed exposure',
+  },
+  delta: {
+    name: 'Delta',
+    areaServed: 'Delta, British Columbia',
+    neighbourhoods: 'Ladner, Tsawwassen, and North Delta',
+    localDetail: 'wind and Fraser Valley weather',
+  },
+  coquitlam: {
+    name: 'Coquitlam',
+    areaServed: 'Coquitlam, British Columbia',
+    neighbourhoods: 'Burke Mountain, Austin Heights, and Maillardville',
+    localDetail: 'hillside lots and mixed sun exposure',
+  },
+  langley: {
+    name: 'Langley',
+    areaServed: 'Langley, British Columbia',
+    neighbourhoods: 'Willoughby, Walnut Grove, and Brookswood',
+    localDetail: 'family backyards and seasonal weather swings',
+  },
+};
+
+export const LEGACY_SKYLINE_ORDER = Object.keys(LEGACY_CITY_SKYLINE_META).map((slug) => `skyline-${slug}`);
+
+export const LEGACY_SKYLINE_PAGES = Object.fromEntries(
+  Object.entries(LEGACY_CITY_SKYLINE_META).map(([slug, meta]) => [
+    `skyline-${slug}`,
+    skylinePage(slug, { ...meta, heroImage: '/house/skyline/skyline-hero.png' }),
+  ]),
+);
+
 export const CITY_SERVICE_EXPANSION_ORDER = Object.keys(CITY_META).flatMap((slug) => [
   `contractor-${slug}`,
   `installer-${slug}`,
   `aluminum-${slug}`,
   `glass-${slug}`,
+  `skyline-${slug}`,
   `sunrooms-${slug}`,
 ]);
 
@@ -292,6 +389,7 @@ export const CITY_SERVICE_EXPANSION_PAGES = Object.fromEntries(
     [`installer-${slug}`, installerPage(slug, meta)],
     [`aluminum-${slug}`, aluminumPage(slug, meta)],
     [`glass-${slug}`, glassPage(slug, meta)],
+    [`skyline-${slug}`, skylinePage(slug, meta)],
     [`sunrooms-${slug}`, sunroomPage(slug, meta)],
   ]),
 );

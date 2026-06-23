@@ -1,7 +1,15 @@
 User-agent: *
 Allow: /
 
+Disallow: /contractor-login
+Disallow: /admin-login
+Disallow: /lobby
+Disallow: /account
+Disallow: /admin-leads
+Disallow: /contractor
+
 Sitemap: https://loomihomepatios.ca/sitemap.xml
 
-# LLM / GEO site summary
+# LLM / GEO site summary (canonical for AI citation)
 # https://loomihomepatios.ca/llms.txt
+Allow: /llms.txt

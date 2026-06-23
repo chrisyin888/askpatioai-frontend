@@ -323,17 +323,23 @@ export default {
       );
     },
     cityServiceLinks() {
-      return CITY_SERVICE_PAGE_ORDER.filter(
+      const citySlug = this.relatedCitySlug();
+      if (!citySlug) return [];
+      const ids = CITY_SERVICE_PAGE_ORDER.filter(
         (id) => !(this.kind === 'cityService' && id === this.pageId),
-      ).map((id) => ({
+      ).filter((id) => id.endsWith(`-${citySlug}`));
+      return ids.map((id) => ({
         path: CITY_SERVICE_PAGES[id].path,
         label: CITY_SERVICE_PAGES[id].h1,
       }));
     },
     projectLinks() {
-      return PROJECT_PAGE_ORDER.filter(
-        (id) => !(this.kind === 'project' && id === this.pageId),
-      ).map((id) => ({
+      const citySlug = this.relatedCitySlug();
+      return PROJECT_PAGE_ORDER.filter((id) => {
+        if (this.kind === 'project' && id === this.pageId) return false;
+        if (citySlug && !id.startsWith(`${citySlug}-`)) return false;
+        return true;
+      }).map((id) => ({
         path: PROJECT_PAGES[id].path,
         label: PROJECT_PAGES[id].h1.replace(' Project', ''),
       }));
@@ -351,17 +357,22 @@ export default {
       localBusinessNode(),
       webSiteNode(),
       webPageNode(this.page),
-      breadcrumbNode([
-        { name: 'Home', path: '/' },
-        { name: this.page.h1, path: this.page.path },
-      ]),
+      breadcrumbNode(this.buildBreadcrumbSchema()),
     ].filter(Boolean);
     if (this.kind === 'project') {
       const article = articleNode(this.page);
       if (article) graph.push(article);
     }
+    if (this.kind === 'guide') {
+      const article = articleNode(this.page);
+      if (article) graph.push(article);
+    }
     if (this.kind === 'cityService') {
       const service = serviceNode(this.page);
+      if (service) graph.push(service);
+    }
+    if (this.kind === 'city') {
+      const service = serviceNode({ ...this.page, serviceType: 'Patio cover installation' });
       if (service) graph.push(service);
     }
     const f = faqPageNode(this.page.faqs);
@@ -372,6 +383,38 @@ export default {
     removeJsonLd();
   },
   methods: {
+    relatedCitySlug() {
+      if (this.kind === 'city') return this.pageId;
+      if (this.kind === 'cityService') {
+        const dash = this.pageId.indexOf('-');
+        return dash === -1 ? null : this.pageId.slice(dash + 1);
+      }
+      if (this.kind === 'project') {
+        const match = this.page.path.match(/\/projects\/([^/]+)-/);
+        return match ? match[1] : null;
+      }
+      return null;
+    },
+    buildBreadcrumbSchema() {
+      const items = [{ name: 'Home', path: '/' }];
+      if (this.kind === 'cityService') {
+        const slug = this.relatedCitySlug();
+        if (slug && CITY_PAGES[slug]) {
+          items.push({ name: CITY_PAGES[slug].h1, path: CITY_PAGES[slug].path });
+        }
+      } else if (this.kind === 'guide') {
+        items.push({ name: 'Guides', path: GUIDE_PAGES[GUIDE_PAGE_ORDER[0]].path });
+      } else if (this.kind === 'project') {
+        const slug = this.relatedCitySlug();
+        if (slug && CITY_PAGES[slug]) {
+          items.push({ name: CITY_PAGES[slug].h1, path: CITY_PAGES[slug].path });
+        } else {
+          items.push({ name: 'Project examples', path: PROJECT_PAGES[PROJECT_PAGE_ORDER[0]].path });
+        }
+      }
+      items.push({ name: this.page.h1, path: this.page.path });
+      return items;
+    },
     primeOpenChat() {
       try {
         sessionStorage.setItem('openChat', '1');

@@ -12,6 +12,8 @@ export const PROJECT_PAGES = {
   'burnaby-aluminum-patio-cover': {
     id: 'burnaby-aluminum-patio-cover',
     path: '/projects/burnaby-aluminum-patio-cover',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/before-after/burnaby-aluminum-after.png',
     metaTitle: 'Burnaby Aluminum Patio Cover Project | LoomiHome Patios',
     metaDescription:
@@ -53,6 +55,8 @@ export const PROJECT_PAGES = {
   'vancouver-glass-patio-cover': {
     id: 'vancouver-glass-patio-cover',
     path: '/projects/vancouver-glass-patio-cover',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/before-after/vancouver-glass-after.png',
     metaTitle: 'Vancouver Glass Patio Cover Project | LoomiHome Patios',
     metaDescription:
@@ -94,8 +98,10 @@ export const PROJECT_PAGES = {
   'surrey-skyline-combo-cover': {
     id: 'surrey-skyline-combo-cover',
     path: '/projects/surrey-skyline-combo-patio-cover',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/before-after/surrey-skyline-after.png',
-    metaTitle: 'Surrey Skyline Combo Patio Cover Project | LoomiHome Patios',
+    metaTitle: 'Surrey Skyline Combo Project | LoomiHome Patios',
     metaDescription:
       'Surrey skyline combo patio cover example — approx. 12 by 26 ft design mixing shade and natural light. Compare patio cover options with a fast quote.',
     h1: 'Surrey Skyline Combo Patio Cover Project',
@@ -135,6 +141,8 @@ export const PROJECT_PAGES = {
   'richmond-aluminum-carport-cover': {
     id: 'richmond-aluminum-carport-cover',
     path: '/projects/richmond-aluminum-carport-cover',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/before-after/richmond-carport-after.png',
     metaTitle: 'Richmond Aluminum Carport Cover Project | LoomiHome Patios',
     metaDescription:
@@ -176,6 +184,8 @@ export const PROJECT_PAGES = {
   'delta-aluminum-patio-cover': {
     id: 'delta-aluminum-patio-cover',
     path: '/projects/delta-aluminum-patio-cover',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/before-after/delta-aluminum-after.png',
     metaTitle: 'Delta Aluminum Patio Cover Project | LoomiHome Patios',
     metaDescription:
@@ -217,6 +227,8 @@ export const PROJECT_PAGES = {
   'coquitlam-glass-patio-cover': {
     id: 'coquitlam-glass-patio-cover',
     path: '/projects/coquitlam-glass-patio-cover',
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-19',
     heroImage: '/house/before-after/coquitlam-glass-after.png',
     metaTitle: 'Coquitlam Glass Patio Cover Project | LoomiHome Patios',
     metaDescription:

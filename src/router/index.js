@@ -7,6 +7,7 @@ import ContractorDashboard from '../views/ContractorDashboard.vue';
 import ContractorLogin from '../views/ContractorLogin.vue';
 import ServicePage from '../views/ServicePage.vue';
 import SeoContentPage from '../views/SeoContentPage.vue';
+import NotFound from '../views/NotFound.vue';
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
@@ -170,7 +171,16 @@ const router = createRouter({
     ...cityServiceRoutes,
     ...guideRoutes,
     ...projectRoutes,
-    { path: '/:pathMatch(.*)*', redirect: '/' },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFound,
+      meta: {
+        title: 'Page Not Found | LoomiHome Patios',
+        description: 'The page you requested was not found. Visit LoomiHome Patios for patio cover estimates in Metro Vancouver.',
+        robots: 'noindex,nofollow',
+      },
+    },
   ],
   scrollBehavior(to, from, saved) {
     if (saved) return saved;
@@ -203,11 +213,12 @@ router.beforeEach((to) => {
 });
 
 router.afterEach((to) => {
+  const robots = to.meta.robots || (NOINDEX_PATHS.has(to.path) ? 'noindex,nofollow' : 'index,follow');
   setPageMeta({
     title: to.meta.title || DEFAULT_TITLE,
     description: to.meta.description || DEFAULT_DESCRIPTION,
     path: to.path,
-    robots: NOINDEX_PATHS.has(to.path) ? 'noindex,nofollow' : 'index,follow',
+    robots,
     image: to.meta.image,
   });
 });

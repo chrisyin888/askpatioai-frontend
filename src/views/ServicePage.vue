@@ -144,12 +144,12 @@ import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import {
-  SITE_ORIGIN,
   breadcrumbNode,
   faqPageNode,
   injectJsonLd,
   localBusinessNode,
   removeJsonLd,
+  serviceNode,
   webSiteNode,
   webPageNode,
 } from '../utils/seoHead';
@@ -208,7 +208,7 @@ export default {
       }));
     },
     cityServiceLinks() {
-      return CITY_SERVICE_PAGE_ORDER.map((id) => ({
+      return CITY_SERVICE_PAGE_ORDER.filter((id) => id.endsWith('-vancouver')).map((id) => ({
         path: CITY_SERVICE_PAGES[id].path,
         label: CITY_SERVICE_PAGES[id].h1,
       }));
@@ -234,28 +234,18 @@ export default {
       webPageNode(this.page),
       breadcrumbNode([
         { name: 'Home', path: '/' },
+        { name: 'Cover types', path: SERVICE_PAGES.aluminum.path },
         { name: this.page.h1, path: this.page.path },
       ]),
     ].filter(Boolean);
     const st = SERVICE_SCHEMA_TYPE[this.serviceKey];
     if (st) {
-      const node = {
-        '@type': 'Service',
-        '@id': `${SITE_ORIGIN}${this.page.path}#service`,
-        name: this.page.h1,
-        description: this.page.metaDescription || this.page.intro,
-        url: `${SITE_ORIGIN}${this.page.path}`,
+      const service = serviceNode({
+        ...this.page,
         serviceType: st,
-        provider: { '@id': `${SITE_ORIGIN}/#business` },
-        areaServed: { '@type': 'AdministrativeArea', name: 'Lower Mainland, British Columbia' },
-      };
-      const hero = publicAssetUrl(this.page.heroImage);
-      if (hero.startsWith('/')) {
-        node.image = `${SITE_ORIGIN}${hero}`;
-      } else if (/^https?:\/\//i.test(hero)) {
-        node.image = hero;
-      }
-      graph.push(node);
+        areaServed: this.page.areaServed || 'Vancouver, British Columbia',
+      });
+      if (service) graph.push(service);
     }
     const f = faqPageNode(this.page.faqs);
     if (f) graph.push(f);

@@ -3,9 +3,10 @@ export const SERVICE_PAGES = {
   aluminum: {
     path: '/aluminum-patio-covers-vancouver',
     heroImage: '/house/Aluminum/aluminum-hero.png',
+    areaServed: 'Vancouver, British Columbia',
     metaTitle: 'Aluminum Patio Covers Vancouver | LoomiHome Patios',
     metaDescription:
-      'Aluminum patio covers in Vancouver and the Lower Mainland. Fast patio cover estimate in chat (~60 sec), compare options, free on-site measurement. Strong rain protection.',
+      'Aluminum patio covers in Vancouver and the Lower Mainland. Fast estimate in chat (~60 sec), compare options, free measurement. Strong rain protection.',
     h1: 'Aluminum Patio Covers in Vancouver',
     intro:
       'Durable, low-maintenance aluminum patio covers are a practical choice for rain and sun in the Lower Mainland. LoomiHome helps you see quick ballpark pricing before you commit to a site visit — so you can compare options on your own timeline.',
@@ -52,9 +53,10 @@ export const SERVICE_PAGES = {
   glass: {
     path: '/glass-patio-covers-vancouver',
     heroImage: '/house/glass/glass-hero.png',
+    areaServed: 'Vancouver, British Columbia',
     metaTitle: 'Glass Patio Covers Vancouver | LoomiHome Patios',
     metaDescription:
-      'Glass patio covers in Vancouver — bright, modern, rain-ready when engineered right. Fast rough quote in chat. Compare vs aluminum & combo. Free Lower Mainland measurement.',
+      'Glass patio covers in Vancouver — bright, modern, rain-ready when engineered right. Fast rough quote, compare vs aluminum. Free Lower Mainland measurement.',
     h1: 'Glass Patio Covers in Vancouver',
     intro:
       'Glass patio covers add brightness and a premium feel while keeping the weather out. We serve Vancouver-area homeowners who want clarity first: a fast rough estimate, then a free measurement when you want to move forward.',
@@ -97,9 +99,10 @@ export const SERVICE_PAGES = {
   skyline: {
     path: '/skyline-combo-patio-covers-vancouver',
     heroImage: '/house/skyline/skyline-hero.png',
+    areaServed: 'Vancouver, British Columbia',
     metaTitle: 'Skyline Combo Covers Vancouver | LoomiHome Patios',
     metaDescription:
-      'Skyline combo patio covers (glass + V-panel) in Vancouver. Quick patio cover estimate, compare with other types, free on-site measurement across the Lower Mainland.',
+      'Skyline combo patio covers (glass + V-panel) in Vancouver. Quick estimate, compare with other types, free on-site measurement across the Lower Mainland.',
     h1: 'Skyline Combo Patio Covers in Vancouver',
     intro:
       'Skyline combo designs blend glass and V-panels for balanced light and shade. If you are researching patio covers in Vancouver, we make the first step fast: rough pricing and easy comparison before you book an on-site visit.',
@@ -142,6 +145,7 @@ export const SERVICE_PAGES = {
   sunrooms: {
     path: '/sunrooms-vancouver',
     heroImage: '/house/sunrooms/sunroom-hero.png',
+    areaServed: 'Vancouver, British Columbia',
     metaTitle: 'Sunrooms Vancouver | LoomiHome Patios',
     metaDescription:
       'Sunrooms in Vancouver & Lower Mainland. Fast ballpark estimate, compare vs patio covers, free measurement. Enclosed glass living space.',

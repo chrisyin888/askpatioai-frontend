@@ -34,7 +34,7 @@
     "productsLead": "Compare the main patio cover types, then get a quick rough quote in chat before booking a free on-site measurement.",
     "seoHeading": "Patio cover installation in Metro Vancouver",
     "seoBody": "LoomiHome Patios provides aluminum patio cover installation, glass patio cover installation, skyline combo covers, and sunroom enclosures across Metro Vancouver. Rough pricing: aluminum about $8–10 per sq ft plus $500 base, glass about $10–12 per sq ft plus $500 base, and sunrooms from about $38–45 per sq ft. Final price depends on size, materials, posts, beams, and on-site measurement.",
-    "seoServiceArea": "Service areas: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Pitt Meadows, and nearby Metro Vancouver communities.",
+    "seoServiceArea": "Service areas: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities.",
     "faqTitle": "Frequently asked questions",
     "faqItems": [
       {
@@ -55,7 +55,7 @@
       },
       {
         "q": "What areas do you serve?",
-        "a": "We serve Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Pitt Meadows, and nearby Metro Vancouver communities."
+        "a": "We serve Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities."
       },
       {
         "q": "Can I get pricing before booking a measurement?",
@@ -84,7 +84,8 @@
         "afterSrc": "/house/before-after/burnaby-aluminum-after.png",
         "beforeAlt": "Open asphalt patio and backyard before large aluminum patio cover install, Burnaby",
         "afterAlt": "Aluminum patio cover installation in Metro Vancouver area, Burnaby project",
-        "hidePairLabels": true
+        "hidePairLabels": true,
+        "projectPath": "/projects/burnaby-aluminum-patio-cover"
       },
       {
         "type": "Glass Patio Cover",
@@ -95,7 +96,8 @@
         "afterSrc": "/house/before-after/vancouver-glass-after.png",
         "beforeAlt": "Back patio before glass patio cover installation in Vancouver",
         "afterAlt": "Glass patio cover installation in Vancouver with black frame and integrated gutter",
-        "hidePairLabels": true
+        "hidePairLabels": true,
+        "projectPath": "/projects/vancouver-glass-patio-cover"
       },
       {
         "type": "Skyline Combo Cover",
@@ -106,7 +108,8 @@
         "afterSrc": "/house/before-after/surrey-skyline-after.png",
         "beforeAlt": "Open back patio with new concrete slab before skyline combo cover, Surrey",
         "afterAlt": "Finished skyline combo cover with black frame, V-panel and light panels, wood posts, Surrey",
-        "hidePairLabels": true
+        "hidePairLabels": true,
+        "projectPath": "/projects/surrey-skyline-combo-patio-cover"
       },
       {
         "type": "Aluminum Patio Cover (Carport)",
@@ -117,7 +120,8 @@
         "afterSrc": "/house/before-after/richmond-carport-after.png",
         "beforeAlt": "Narrow brick side driveway at night before aluminum carport cover, Richmond",
         "afterAlt": "Long aluminum carport with light corrugated roof over side driveway, approx. 10 by 30 ft, Richmond",
-        "hidePairLabels": true
+        "hidePairLabels": true,
+        "projectPath": "/projects/richmond-aluminum-carport-cover"
       },
       {
         "type": "Aluminum Patio Cover",
@@ -128,7 +132,8 @@
         "afterSrc": "/house/before-after/delta-aluminum-after.png",
         "beforeAlt": "Side yard with gravel and unfinished ground before aluminum patio cover, Delta",
         "afterAlt": "Black-framed aluminum patio cover with light corrugated roof, approx. 11 by 14 ft, Delta",
-        "hidePairLabels": true
+        "hidePairLabels": true,
+        "projectPath": "/projects/delta-aluminum-patio-cover"
       },
       {
         "type": "Glass Patio Cover",
@@ -139,7 +144,8 @@
         "afterSrc": "/house/before-after/coquitlam-glass-after.png",
         "beforeAlt": "Open concrete patio and stucco back wall before glass patio cover, Coquitlam",
         "afterAlt": "Black-framed glass patio cover over rear patio, approx. 12 by 16 ft, Coquitlam",
-        "hidePairLabels": true
+        "hidePairLabels": true,
+        "projectPath": "/projects/coquitlam-glass-patio-cover"
       }
     ]
   },
@@ -215,7 +221,12 @@
       "Surrey",
       "Delta",
       "Coquitlam",
-      "Langley"
+      "Langley",
+      "North Vancouver",
+      "West Vancouver",
+      "New Westminster",
+      "Maple Ridge",
+      "Pitt Meadows"
     ]
   },
   "projects": [

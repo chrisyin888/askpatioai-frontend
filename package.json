@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "generate:sitemap": "node scripts/generate-sitemap.js",
-    "build": "npm run generate:sitemap && vue-cli-service build",
+    "build": "npm run generate:sitemap && vue-cli-service build && node scripts/generate-seo-shells.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

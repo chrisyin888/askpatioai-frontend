@@ -1,4 +1,4 @@
-/** Rough chat estimate rates (CAD, before GST). Keep in sync with public/llms.txt. */
+/** Rough chat estimate rates (CAD, before GST). Pricing sync: scripts/generate-sitemap.js → public/llms.txt */
 export const CHAT_PRICING = {
   patioCoverBaseFee: 500,
   aluminumPatioCoverPerSqft: { min: 8, max: 10 },
