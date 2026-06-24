@@ -36,19 +36,29 @@ function collectPaths(cityService) {
 function lookupPage(pathname, cityService) {
   const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
   for (const key of SERVICE_PAGE_ORDER) {
-    if (SERVICE_PAGES[key].path === pathname) return SERVICE_PAGES[key];
+    if (SERVICE_PAGES[key].path === pathname) {
+      return { kind: 'service', page: SERVICE_PAGES[key], serviceKey: key };
+    }
   }
   for (const id of CITY_PAGE_ORDER) {
-    if (CITY_PAGES[id].path === pathname) return CITY_PAGES[id];
+    if (CITY_PAGES[id].path === pathname) {
+      return { kind: 'city', page: CITY_PAGES[id], pageId: id };
+    }
   }
   for (const id of CITY_SERVICE_PAGE_ORDER) {
-    if (CITY_SERVICE_PAGES[id].path === pathname) return CITY_SERVICE_PAGES[id];
+    if (CITY_SERVICE_PAGES[id].path === pathname) {
+      return { kind: 'cityService', page: CITY_SERVICE_PAGES[id], pageId: id };
+    }
   }
   for (const id of GUIDE_PAGE_ORDER) {
-    if (GUIDE_PAGES[id].path === pathname) return GUIDE_PAGES[id];
+    if (GUIDE_PAGES[id].path === pathname) {
+      return { kind: 'guide', page: GUIDE_PAGES[id], pageId: id };
+    }
   }
   for (const id of PROJECT_PAGE_ORDER) {
-    if (PROJECT_PAGES[id].path === pathname) return PROJECT_PAGES[id];
+    if (PROJECT_PAGES[id].path === pathname) {
+      return { kind: 'project', page: PROJECT_PAGES[id], pageId: id };
+    }
   }
   return null;
 }
@@ -68,10 +78,141 @@ function truncate(text, maxLen = 160) {
   return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).trim()}…`;
 }
 
+function citySlugFromMeta(meta) {
+  if (meta.kind === 'city') return meta.pageId;
+  if (meta.kind === 'cityService') {
+    const dash = meta.pageId.indexOf('-');
+    return dash === -1 ? null : meta.pageId.slice(dash + 1);
+  }
+  if (meta.kind === 'project') {
+    const match = meta.page.path.match(/\/projects\/([^/]+)-/);
+    return match ? match[1] : null;
+  }
+  return null;
+}
+
+function buildBreadcrumbItems(meta) {
+  const items = [{ name: 'Home', path: '/' }];
+  const slug = citySlugFromMeta(meta);
+
+  if (meta.kind === 'service') {
+    items.push({ name: 'Cover types', path: SERVICE_PAGES.aluminum.path });
+  } else if (meta.kind === 'cityService' && slug && CITY_PAGES[slug]) {
+    items.push({ name: CITY_PAGES[slug].h1, path: CITY_PAGES[slug].path });
+  } else if (meta.kind === 'guide') {
+    items.push({ name: 'Guides', path: GUIDE_PAGES[GUIDE_PAGE_ORDER[0]].path });
+  } else if (meta.kind === 'project' && slug && CITY_PAGES[slug]) {
+    items.push({ name: CITY_PAGES[slug].h1, path: CITY_PAGES[slug].path });
+  }
+
+  items.push({ name: meta.page.h1, path: meta.page.path });
+  return items;
+}
+
+function buildPageJsonLd(pathname, meta) {
+  const page = meta.page;
+  const pageUrl = `${SITE_ORIGIN}${pathname}`;
+  const graph = [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: page.metaTitle || page.h1,
+      description: truncate(page.metaDescription || page.intro || '', 320),
+      isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+      about: { '@id': `${SITE_ORIGIN}/#business` },
+    },
+  ];
+
+  const breadcrumbs = buildBreadcrumbItems(meta);
+  if (breadcrumbs.length >= 2) {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: `${SITE_ORIGIN}${item.path === '/' ? '/' : item.path}`,
+      })),
+    });
+  }
+
+  if (page.serviceType) {
+    graph.push({
+      '@type': 'Service',
+      '@id': `${pageUrl}#service`,
+      name: page.h1,
+      description: truncate(page.metaDescription || page.intro || '', 320),
+      url: pageUrl,
+      serviceType: page.serviceType,
+      provider: { '@id': `${SITE_ORIGIN}/#business` },
+      areaServed: {
+        '@type': 'City',
+        name: page.areaServed || 'Vancouver, British Columbia',
+      },
+    });
+  } else if (meta.kind === 'city') {
+    graph.push({
+      '@type': 'Service',
+      '@id': `${pageUrl}#service`,
+      name: page.h1,
+      description: truncate(page.metaDescription || page.intro || '', 320),
+      url: pageUrl,
+      serviceType: 'Patio cover installation',
+      provider: { '@id': `${SITE_ORIGIN}/#business` },
+      areaServed: { '@type': 'City', name: page.h1.replace(/^Patio Covers in /i, '') },
+    });
+  }
+
+  if (meta.kind === 'guide' || meta.kind === 'project') {
+    graph.push({
+      '@type': 'Article',
+      '@id': `${pageUrl}#article`,
+      headline: page.h1,
+      description: truncate(page.metaDescription || page.intro || '', 320),
+      datePublished: page.datePublished || '2026-06-01',
+      dateModified: page.dateModified || new Date().toISOString().slice(0, 10),
+      mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+      author: { '@id': `${SITE_ORIGIN}/#business` },
+      publisher: { '@id': `${SITE_ORIGIN}/#business` },
+      inLanguage: 'en-CA',
+    });
+  }
+
+  const faqs = page.faqs || page.faqItems;
+  if (faqs && faqs.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    });
+  }
+
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
+}
+
+function buildStaticFaq(page) {
+  const faqs = page.faqs || page.faqItems;
+  if (!faqs || !faqs.length) return '';
+  const items = faqs
+    .slice(0, 4)
+    .map((item) => `<dt>${esc(item.q)}</dt>\n        <dd>${esc(item.a)}</dd>`)
+    .join('\n        ');
+  return `<h2>Common questions</h2>
+      <dl>
+        ${items}
+      </dl>`;
+}
+
 function buildStaticMain(page) {
   const intro = page.intro || page.metaDescription || '';
+  const faqBlock = buildStaticFaq(page);
   return `<h1>${esc(page.h1)}</h1>
       <p>${esc(intro)}</p>
+      ${faqBlock}
       <p>
         <a href="/">Homepage</a> ·
         <a href="/llms.txt">LLM / GEO summary (llms.txt)</a> ·
@@ -80,10 +221,12 @@ function buildStaticMain(page) {
       <p>Pricing and service-area facts for AI systems: ${SITE_ORIGIN}/llms.txt</p>`;
 }
 
-function personalizeHtml(template, pathname, page) {
+function personalizeHtml(template, pathname, meta) {
+  const page = meta.page;
   const pageUrl = `${SITE_ORIGIN}${pathname}`;
   const title = page.metaTitle || page.h1 || 'LoomiHome Patios';
   const description = truncate(page.metaDescription || page.intro || '');
+  const heroImage = page.heroImage ? `${SITE_ORIGIN}${page.heroImage}` : `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`;
 
   let html = template;
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
@@ -116,12 +259,25 @@ function personalizeHtml(template, pathname, page) {
     `<meta property="og:url" content="${esc(pageUrl)}">`,
   );
   html = html.replace(
+    /<meta property="og:image" content="[^"]*">/,
+    `<meta property="og:image" content="${esc(heroImage)}">`,
+  );
+  html = html.replace(
     /<meta name="twitter:title" content="[^"]*">/,
     `<meta name="twitter:title" content="${esc(title)}">`,
   );
   html = html.replace(
     /<meta name="twitter:description" content="[^"]*">/,
     `<meta name="twitter:description" content="${esc(description)}">`,
+  );
+  html = html.replace(
+    /<meta name="twitter:image" content="[^"]*">/,
+    `<meta name="twitter:image" content="${esc(heroImage)}">`,
+  );
+
+  html = html.replace(
+    /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+    `<script type="application/ld+json">\n    ${buildPageJsonLd(pathname, meta)}\n    </script>`,
   );
 
   html = html.replace(
@@ -145,10 +301,10 @@ async function main() {
 
   let written = 0;
   for (const pathname of paths) {
-    const page = lookupPage(pathname, cityService);
-    if (!page) continue;
+    const meta = lookupPage(pathname, cityService);
+    if (!meta) continue;
 
-    const html = personalizeHtml(template, pathname, page);
+    const html = personalizeHtml(template, pathname, meta);
     const outDir = path.join(__dirname, '..', 'dist', pathname.replace(/^\//, ''));
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');

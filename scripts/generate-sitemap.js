@@ -143,6 +143,7 @@ async function loadCityServiceData() {
 function priorityFor(pathname, cityService) {
   const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
   if (pathname === '/') return '1';
+  if (pathname === '/llms.txt') return '0.95';
   if (SERVICE_PAGE_ORDER.some((key) => SERVICE_PAGES[key].path === pathname)) return '0.9';
   if (CITY_PAGE_ORDER.some((id) => CITY_PAGES[id].path === pathname)) return '0.85';
   if (pathname.includes('contractor') || pathname.includes('installer')) return '0.84';
@@ -160,6 +161,7 @@ function collectPaths(cityService) {
   CITY_SERVICE_PAGE_ORDER.forEach((id) => paths.push(CITY_SERVICE_PAGES[id].path));
   GUIDE_PAGE_ORDER.forEach((id) => paths.push(GUIDE_PAGES[id].path));
   PROJECT_PAGE_ORDER.forEach((id) => paths.push(PROJECT_PAGES[id].path));
+  paths.push('/llms.txt');
   return [...new Set(paths)];
 }
 
@@ -177,6 +179,7 @@ function buildLlmsUrlSections(cityService) {
     lines.push(llmsLine(SERVICE_LABELS[key] || SERVICE_PAGES[key].h1, SERVICE_PAGES[key].path));
   });
   lines.push(llmsLine('Sitemap', '/sitemap.xml'));
+  lines.push(llmsLine('LLM / GEO summary (this file)', '/llms.txt'));
   lines.push('');
 
   lines.push('## City hubs');

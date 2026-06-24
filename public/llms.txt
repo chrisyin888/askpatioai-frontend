@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-06-23
+> Last updated: 2026-06-24
 > Canonical site: https://loomihomepatios.ca
 > Region: Metro Vancouver, British Columbia, Canada
 > Currency: CAD (rough estimates before GST; final quote confirmed on site)
@@ -43,6 +43,7 @@ Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver
 - Skyline combo (Vancouver): https://loomihomepatios.ca/skyline-combo-patio-covers-vancouver
 - Sunrooms (Vancouver): https://loomihomepatios.ca/sunrooms-vancouver
 - Sitemap: https://loomihomepatios.ca/sitemap.xml
+- LLM / GEO summary (this file): https://loomihomepatios.ca/llms.txt
 
 ## City hubs
 - Patio covers Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
