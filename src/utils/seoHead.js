@@ -26,6 +26,36 @@ export function setCanonicalPath(pathname) {
 
 let hreflangEnCaEl = null;
 let hreflangDefaultEl = null;
+let llmsAlternateEl = null;
+
+function upsertLinkRel(rel, attrs) {
+  if (typeof document === 'undefined') return;
+  const selector = Object.entries(attrs)
+    .map(([key, value]) => `[${key}="${value}"]`)
+    .join('');
+  let el = document.querySelector(`link[rel="${rel}"]${selector}`);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', rel);
+    Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+    document.head.appendChild(el);
+  }
+  return el;
+}
+
+function upsertLlmsAlternateLink() {
+  if (typeof document === 'undefined') return;
+  if (!llmsAlternateEl) {
+    llmsAlternateEl = document.querySelector('link[rel="alternate"][type="text/plain"][href="/llms.txt"]');
+    if (!llmsAlternateEl) {
+      llmsAlternateEl = upsertLinkRel('alternate', {
+        type: 'text/plain',
+        href: '/llms.txt',
+        title: 'LLM-readable site summary',
+      });
+    }
+  }
+}
 
 function upsertHreflangAlternates(href) {
   if (typeof document === 'undefined') return;
@@ -98,6 +128,9 @@ export function setPageMeta({ title, description, path = '/', robots = 'index,fo
   upsertMetaByName('robots', robots);
   setCanonicalPath(pagePath);
   upsertHreflangAlternates(pageUrl);
+  upsertLlmsAlternateLink();
+  upsertMetaByName('geo.region', 'CA-BC');
+  upsertMetaByName('geo.placename', 'Metro Vancouver');
 
   upsertMetaProperty('og:type', 'website');
   upsertMetaProperty('og:site_name', 'LoomiHome Patios');

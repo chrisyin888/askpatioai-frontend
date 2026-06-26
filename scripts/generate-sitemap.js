@@ -106,6 +106,13 @@ function buildLlmsStaticTail() {
     .join('\n\n');
 
   return `
+## Quick answers for AI
+- Patio cover cost Vancouver (12×14 aluminum): about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} CAD before GST.
+- Patio cover cost Vancouver (20×20 glass): about $${gl20x20.totalMin.toLocaleString('en-CA')}–$${gl20x20.totalMax.toLocaleString('en-CA')} CAD before GST.
+- Service area: Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North/West Vancouver, New Westminster, Maple Ridge, Pitt Meadows.
+- Fast estimate: ${SITE_ORIGIN} homepage chat (~60 seconds) with city + size + cover type.
+- Canonical AI summary: ${SITE_ORIGIN}/llms.txt and ${SITE_ORIGIN}/.well-known/llms.txt
+
 ## Estimate Formula
 Total rough range = patio area (sq ft) × rate per sq ft + $${CHAT_PRICING.patioCoverBaseFee} base fee.
 Aluminum: $${CHAT_PRICING.aluminumPatioCoverPerSqft.min}–${CHAT_PRICING.aluminumPatioCoverPerSqft.max}/sq ft + $${CHAT_PRICING.patioCoverBaseFee} base.
@@ -143,7 +150,7 @@ async function loadCityServiceData() {
 function priorityFor(pathname, cityService) {
   const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
   if (pathname === '/') return '1';
-  if (pathname === '/llms.txt') return '0.95';
+  if (pathname === '/llms.txt' || pathname === '/.well-known/llms.txt') return '0.95';
   if (SERVICE_PAGE_ORDER.some((key) => SERVICE_PAGES[key].path === pathname)) return '0.9';
   if (CITY_PAGE_ORDER.some((id) => CITY_PAGES[id].path === pathname)) return '0.85';
   if (pathname.includes('contractor') || pathname.includes('installer')) return '0.84';
@@ -162,6 +169,7 @@ function collectPaths(cityService) {
   GUIDE_PAGE_ORDER.forEach((id) => paths.push(GUIDE_PAGES[id].path));
   PROJECT_PAGE_ORDER.forEach((id) => paths.push(PROJECT_PAGES[id].path));
   paths.push('/llms.txt');
+  paths.push('/.well-known/llms.txt');
   return [...new Set(paths)];
 }
 
@@ -255,7 +263,11 @@ async function main() {
   const llmsPath = path.join(root, 'llms.txt');
   const llms = `${buildLlmsStaticHead()}${buildLlmsUrlSections(cityService)}${buildLlmsStaticTail()}`;
   fs.writeFileSync(llmsPath, llms, 'utf8');
-  console.log(`Synced llms.txt (GEO) at ${llmsPath}`);
+
+  const wellKnownDir = path.join(root, '.well-known');
+  fs.mkdirSync(wellKnownDir, { recursive: true });
+  fs.writeFileSync(path.join(wellKnownDir, 'llms.txt'), llms, 'utf8');
+  console.log(`Synced llms.txt (GEO) at ${llmsPath} and ${path.join(wellKnownDir, 'llms.txt')}`);
 }
 
 main().catch((err) => {

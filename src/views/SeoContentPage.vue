@@ -230,6 +230,7 @@
       <footer class="site-footer seo-page__footer" role="contentinfo">
         <div class="site-footer__inner">
           <p class="site-footer__copy">© 2026 LoomiHome Patios · Vancouver &amp; Lower Mainland</p>
+          <a href="/llms.txt" class="seo-page__footer-link">LLM site summary</a>
           <router-link to="/" class="seo-page__footer-link">Home</router-link>
         </div>
       </footer>

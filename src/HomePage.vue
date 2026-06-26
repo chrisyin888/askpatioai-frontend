@@ -817,6 +817,10 @@
               @click.prevent="scrollToSection('#why-us')"
             >Why Choose Us</a>
             <a
+              href="/llms.txt"
+              class="site-footer__link"
+            >LLM site summary</a>
+            <a
               href="#confirm-final-quote"
               class="site-footer__link"
               @click.prevent="scrollToGetQuote()"
