@@ -1,4 +1,5 @@
 import { skylinePageForExpansion } from './skylineCityPages.js';
+import { PRICING_COPY } from './pricingCopy.js';
 
 /** Contractor / installer / aluminum landing pages for newer city SEO targets. */
 
@@ -358,7 +359,7 @@ function sunroomPage(slug, meta) {
       },
       {
         q: 'What is the rough sunroom pricing range?',
-        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+        a: PRICING_COPY.sunroomWallOnly,
       },
     ],
     relatedPageLinks: [

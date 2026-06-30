@@ -1,4 +1,6 @@
 /** High-intent SEO guides / blog-style pages. */
+import { PRICING_COPY } from './pricingCopy.js';
+
 export const GUIDE_PAGE_ORDER = [
   'contractors-near-me',
   'patio-cover-cost',
@@ -56,7 +58,7 @@ export const GUIDE_PAGES = {
       },
       {
         q: 'How much does a patio cover usually cost in Metro Vancouver?',
-        a: 'Aluminum is about $8–10 per sq ft plus $500 base. Glass and skyline combo are about $12–15 and $11–14 per sq ft plus $500 base. Chat gives a planning range; measurement locks the final price.',
+        a: PRICING_COPY.threeWayShort,
       },
     ],
     caseStudy: {
@@ -112,7 +114,7 @@ export const GUIDE_PAGES = {
     faqs: [
       {
         q: 'How much does a patio cover usually cost in Vancouver?',
-        a: 'Aluminum is about $8–10 per sq ft plus $500 base. Glass is about $12–15 per sq ft plus $500 base. Skyline combo is about $11–14 per sq ft plus $500 base. Chat is the quickest way to get a range for your actual patio size.',
+        a: PRICING_COPY.threeWayCompare,
       },
       {
         q: 'Is the chat estimate binding?',
@@ -120,11 +122,11 @@ export const GUIDE_PAGES = {
       },
       {
         q: 'Are sunrooms more expensive than patio covers?',
-        a: 'Usually yes — more enclosure, glass, and planning. Wall/panel work is about $40–48 per sq ft; buildable footprint is about $130–145 per sq ft. We can ballpark both if you are comparing.',
+        a: PRICING_COPY.sunroomMoreExpensive,
       },
       {
         q: 'Example: what might a 12×14 ft aluminum cover cost?',
-        a: 'About 168 sq ft × $8–10 per sq ft plus $500 base ≈ $1,850–2,200 before GST. Chat refines this for your city; measurement confirms the formal quote.',
+        a: PRICING_COPY.example12x14Aluminum,
       },
     ],
     caseStudy: {
@@ -174,8 +176,7 @@ export const GUIDE_PAGES = {
         body: 'If rain protection is the main goal, start with aluminum or combo. If keeping daylight is just as important, compare glass at the same approximate size so the trade-off is based on numbers instead of guesswork.',
       },
     ],
-    pricingNote:
-      'Aluminum is about $8–10 per sq ft plus $500 base. Glass is about $12–15 per sq ft plus $500 base. Get both ballparks in one chat for your approximate size.',
+    pricingNote: PRICING_COPY.glassAluminumSameSize,
     faqs: [
       {
         q: 'Which patio cover type is best?',
@@ -187,7 +188,7 @@ export const GUIDE_PAGES = {
       },
       {
         q: 'How much more does glass cost than aluminum?',
-        a: 'On the same footprint, glass is often roughly $2–5 more per sq ft than aluminum before GST, plus the same $500 base fee. Chat compares both from one size.',
+        a: PRICING_COPY.glassVsAluminumShort,
       },
       {
         q: 'Can I get aluminum and glass estimates in the same chat?',
@@ -314,7 +315,7 @@ export const GUIDE_PAGES = {
       },
       {
         q: 'How much does a rain-ready aluminum cover cost in Vancouver?',
-        a: 'Aluminum is about $8–10 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+        a: PRICING_COPY.aluminumOnly,
       },
       {
         q: 'Is glass still good for Vancouver rain?',

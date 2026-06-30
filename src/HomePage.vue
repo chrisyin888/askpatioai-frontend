@@ -1327,6 +1327,8 @@ import {
 } from './utils/seoHead';
 import {
   CHAT_PRICING,
+  formatChatTotalRange,
+  formatDimensionLabel,
   parseSizeSqft,
   patioCoverMidRateForMaterial,
   patioCoverQuoteForMaterial,
@@ -1888,9 +1890,12 @@ export default {
         .slice(-12)
         .map((m) => ({ role: m.type === 'user' ? 'user' : 'assistant', content: m.text }));
 
+      const pricingReplyHint =
+        '[Reply with total CAD price ranges only. Never mention per-sq-ft rates, base fees, or how the estimate is calculated.] ';
+
       try {
         const askBody = {
-          question: questionForAI,
+          question: pricingReplyHint + questionForAI,
           history,
           project_type: (this.projectInfo && this.projectInfo.project_type) || '',
           material_type: (this.projectInfo && this.projectInfo.material_type) || '',
@@ -2230,13 +2235,12 @@ export default {
 
       if (wallIntent && !floorIntent) {
         const sqft = this.parseWallSqft(text);
-        const { min, max } = CHAT_PRICING.sunroomWallPerSqft;
         if (!sqft) {
           return {
             isPrice: true,
             showCta: false,
             answer:
-              `For sunroom wall or panel work, rough pricing is CAD $${min}-${max} per wall sq ft. Please send the wall width and height, or the wall square footage, and I can calculate the rough total.`,
+              'For sunroom wall or panel work, please send the wall width and height, or the wall square footage, and I can give you a rough total.',
           };
         }
 
@@ -2247,9 +2251,8 @@ export default {
           isPrice: true,
           showCta: true,
           answer:
-            `For sunroom wall or panel work, we estimate by wall square footage at ${quote.rateLabel}/sq ft. ` +
-            `${quote.sqft.toLocaleString()} wall sq ft comes to approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST. ` +
-            `This chat range is for planning only — your formal quote is confirmed after free on-site measurement.`,
+            `For sunroom wall or panel work (${quote.sqft.toLocaleString()} sq ft), the rough estimate is ${formatChatTotalRange(quote)}. ` +
+            `Final pricing is confirmed after free on-site measurement.`,
         };
       }
 
@@ -2264,8 +2267,8 @@ export default {
           showCta: false,
           answer:
             `Just to confirm: is ${sqft.toLocaleString()} sq ft the sunroom floor/buildable area, or wall/panel area? ` +
-            `Floor/buildable area is ${buildableQuote.rateLabel}/sq ft (about CAD $${buildableQuote.totalMin.toLocaleString()}–$${buildableQuote.totalMax.toLocaleString()} before GST). ` +
-            `Wall/panel area is ${wallQuote.rateLabel}/sq ft (about CAD $${wallQuote.totalMin.toLocaleString()}–$${wallQuote.totalMax.toLocaleString()} before GST).`,
+            `Floor/buildable area is about ${formatChatTotalRange(buildableQuote)}. ` +
+            `Wall/panel area is about ${formatChatTotalRange(wallQuote)}.`,
         };
       }
 
@@ -2276,9 +2279,8 @@ export default {
         isPrice: true,
         showCta: true,
         answer:
-          `For a sunroom floor/buildable area, we estimate at ${quote.rateLabel}/sq ft. Height is not used for this rough price. ` +
-          `${quote.sqft.toLocaleString()} buildable sq ft comes to approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST. ` +
-          `This chat range is for planning only — your formal quote is confirmed after free on-site measurement.`,
+          `For a sunroom floor/buildable area (${quote.sqft.toLocaleString()} sq ft), the rough estimate is ${formatChatTotalRange(quote)}. ` +
+          `Final pricing is confirmed after free on-site measurement.`,
       };
     },
     getPatioCoverEstimate(text) {
@@ -2320,11 +2322,12 @@ export default {
       this.projectInfo.material_type = material;
       this.projectInfo.size = `${sqft} sq ft`;
 
+      const sizeLabel = formatDimensionLabel(text, sqft) || formatDimensionLabel(this.projectInfo.size, sqft);
+
       return {
         answer:
-          `For a ${materialLabel}, rough pricing is ${quote.rateLabel}/sq ft plus CAD $${quote.baseFee} base fee. ` +
-          `${quote.sqft.toLocaleString()} sq ft with that range plus the base fee comes to approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST. ` +
-          `This chat range is for planning only — your formal quote is confirmed after free on-site measurement.`,
+          `For a ${materialLabel} (${sizeLabel}), the rough estimate is ${formatChatTotalRange(quote)}. ` +
+          `Final pricing is confirmed after free on-site measurement.`,
       };
     },
     updateProjectInfoFromText(text) {

@@ -1,4 +1,6 @@
 /** SEO service landing pages — paths must match router. */
+import { PRICING_COPY } from './pricingCopy.js';
+
 export const SERVICE_PAGES = {
   aluminum: {
     path: '/aluminum-patio-covers-vancouver',
@@ -92,7 +94,7 @@ export const SERVICE_PAGES = {
       },
       {
         q: 'How much does a glass patio cover cost in Vancouver?',
-        a: 'Glass is about $12–15 per sq ft plus a $500 base fee before GST. Final price depends on span, posts, attachment, and drainage confirmed on site.',
+        a: `${PRICING_COPY.glassOnly} Final price depends on span, posts, attachment, and drainage confirmed on site.`,
       },
       {
         q: 'Do glass covers work in heavy rain?',
@@ -192,7 +194,7 @@ export const SERVICE_PAGES = {
     faqs: [
       {
         q: 'Are sunrooms more expensive than patio covers?',
-        a: 'Usually yes — more enclosure, glass, and planning. Wall/panel work is about $40–48 per sq ft; buildable footprint is about $130–145 per sq ft.',
+        a: PRICING_COPY.sunroomMoreExpensive,
       },
       {
         q: 'How long does installation take?',

@@ -1,4 +1,5 @@
 /** Per-city skyline combo landing pages for high-intent local searches. */
+import { PRICING_COPY } from './pricingCopy.js';
 
 const SKYLINE_CITY_META = {
   burnaby: {
@@ -83,8 +84,7 @@ function skylinePage(slug, meta) {
           'Use chat to ballpark multiple directions from the same rough dimensions. That makes it easier to decide before anyone visits your property.',
       },
     ],
-    pricingNote:
-      'Combo pricing is about $11–14 per sq ft plus $500 base for patio covers. Send approximate size for a useful planning range; formal pricing follows free measurement.',
+    pricingNote: PRICING_COPY.skylineComboNote,
     faqs: [
       {
         q: `Do you install skyline combo covers in ${meta.name}?`,

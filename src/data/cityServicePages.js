@@ -2,6 +2,7 @@ import {
   CITY_SERVICE_EXPANSION_ORDER,
   CITY_SERVICE_EXPANSION_PAGES,
 } from './cityServiceExpansion.js';
+import { PRICING_COPY } from './pricingCopy.js';
 import { SKYLINE_CITY_PAGE_ORDER, SKYLINE_CITY_PAGES } from './skylineCityPages.js';
 
 /** Service + city landing pages for high-intent local searches. */
@@ -211,7 +212,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is glass more expensive than aluminum?',
-        a: 'Usually yes. Glass is often about $12–15 per sq ft plus $500 base versus aluminum at about $8–10 per sq ft plus $500 base.',
+        a: PRICING_COPY.glassVsAluminumShort,
       },
       {
         q: 'Can I get a Richmond glass patio cover estimate before a site visit?',
@@ -273,7 +274,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a Coquitlam glass patio cover cost?',
-        a: 'Glass is about $12–15 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+        a: PRICING_COPY.glassOnly,
       },
     ],
     relatedPageLinks: [
@@ -332,7 +333,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'What is the rough sunroom pricing range?',
-        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+        a: PRICING_COPY.sunroomWallOnly,
       },
     ],
     caseStudy: {
@@ -561,7 +562,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a Vancouver patio cover usually cost?',
-        a: 'Aluminum is about $8–10 per sq ft plus $500 base. Glass is about $12–15 per sq ft plus $500 base. Chat gives a planning range; measurement confirms final pricing.',
+        a: PRICING_COPY.aluminumGlassCompare,
       },
     ],
     caseStudy: {
@@ -710,7 +711,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a Delta aluminum patio cover cost?',
-        a: 'Aluminum is about $8–10 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+        a: PRICING_COPY.aluminumOnly,
       },
     ],
     relatedPageLinks: [
@@ -812,7 +813,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a Delta glass patio cover cost?',
-        a: 'Glass is about $12–15 per sq ft plus $500 base before GST. Chat compares glass and aluminum on the same size.',
+        a: PRICING_COPY.glassAluminumSameSize,
       },
     ],
     relatedPageLinks: [
@@ -871,7 +872,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'What is the rough sunroom pricing range?',
-        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+        a: PRICING_COPY.sunroomWallOnly,
       },
     ],
     relatedPageLinks: [
@@ -1361,7 +1362,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'What is the rough sunroom pricing range?',
-        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+        a: PRICING_COPY.sunroomWallOnly,
       },
     ],
     relatedPageLinks: [
@@ -1419,7 +1420,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a Langley aluminum patio cover cost?',
-        a: 'Aluminum is about $8–10 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+        a: PRICING_COPY.aluminumOnly,
       },
     ],
     relatedPageLinks: [
@@ -1478,7 +1479,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a Langley glass patio cover cost?',
-        a: 'Glass is about $12–15 per sq ft plus $500 base before GST. Chat compares both materials from one size.',
+        a: PRICING_COPY.glassAluminumSameSize,
       },
     ],
     relatedPageLinks: [
@@ -1537,7 +1538,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'What is the rough sunroom pricing range?',
-        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+        a: PRICING_COPY.sunroomWallOnly,
       },
     ],
     relatedPageLinks: [

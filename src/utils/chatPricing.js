@@ -61,6 +61,18 @@ export function sunroomQuoteForType(type, sqft) {
   };
 }
 
+export function formatDimensionLabel(textOrSize, sqft) {
+  const text = String(textOrSize || '').trim();
+  const dimMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:x|\*|×|by)\s*(\d+(?:\.\d+)?)/i);
+  if (dimMatch) return `${dimMatch[1]}×${dimMatch[2]} ft`;
+  const area = Math.round(Number(sqft) || 0);
+  return area > 0 ? `${area.toLocaleString()} sq ft` : '';
+}
+
+export function formatChatTotalRange(quote) {
+  return `approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST`;
+}
+
 export function parseSizeSqft(textOrSize) {
   const text = String(textOrSize || '').trim();
   if (!text) return null;

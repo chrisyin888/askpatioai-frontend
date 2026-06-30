@@ -1,4 +1,6 @@
 /** Local city landing pages — patio cover SEO. */
+import { PRICING_COPY } from './pricingCopy.js';
+
 export const CITY_PAGE_ORDER = [
   'vancouver',
   'burnaby',
@@ -371,7 +373,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a West Vancouver patio cover cost?',
-        a: 'Aluminum is about $8–10 per sq ft plus $500 base; glass is about $12–15 per sq ft plus $500 base. Chat gives a planning range; measurement confirms final pricing.',
+        a: PRICING_COPY.aluminumGlassCompare,
       },
     ],
     relatedPageLinks: [

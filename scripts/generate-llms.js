@@ -6,7 +6,10 @@ const path = require('path');
 const { pathToFileURL } = require('url');
 
 const { SITE_ORIGIN } = require('../src/utils/seoHead');
-const { CHAT_PRICING } = require('../src/utils/chatPricing');
+const {
+  patioCoverQuoteForMaterial,
+  sunroomQuoteForType,
+} = require('../src/utils/chatPricing');
 
 async function loadPriorityPages() {
   const mod = await import(
@@ -15,8 +18,21 @@ async function loadPriorityPages() {
   return mod.PRIORITY_SEO_PAGE_LINKS;
 }
 
-function rateLine(label, range, suffix = '') {
-  return `${label} are about $${range.min}–${range.max} per sq ft${suffix}.`;
+function exampleLine(material, w, h) {
+  const quote = patioCoverQuoteForMaterial(material, w * h);
+  const label =
+    material === 'Glass'
+      ? 'glass patio cover'
+      : material === 'Skyline Combo'
+        ? 'skyline combo patio cover'
+        : 'aluminum patio cover';
+  return `- ${w}×${h} ft ${label}: about $${quote.totalMin.toLocaleString('en-CA')}–$${quote.totalMax.toLocaleString('en-CA')} CAD before GST`;
+}
+
+function sunroomExampleLine(type, w, h) {
+  const quote = sunroomQuoteForType(type, w * h);
+  const label = type === 'wall' ? 'sunroom wall/panel area' : 'sunroom floor/buildable area';
+  return `- ${w}×${h} ft ${label}: about $${quote.totalMin.toLocaleString('en-CA')}–$${quote.totalMax.toLocaleString('en-CA')} CAD before GST`;
 }
 
 async function buildLlmsTxt() {
@@ -25,12 +41,9 @@ async function buildLlmsTxt() {
     .map((p) => `- ${p.label}: ${SITE_ORIGIN}${p.path}`)
     .join('\n');
 
-  const { patioCoverBaseFee: base } = CHAT_PRICING;
-  const al = CHAT_PRICING.aluminumPatioCoverPerSqft;
-  const gl = CHAT_PRICING.glassPatioCoverPerSqft;
-  const sk = CHAT_PRICING.skylineComboPerSqft;
-  const wall = CHAT_PRICING.sunroomWallPerSqft;
-  const floor = CHAT_PRICING.sunroomBuildablePerSqft;
+  const al12x14 = patioCoverQuoteForMaterial('Aluminum', 12 * 14);
+  const gl12x14 = patioCoverQuoteForMaterial('Glass', 12 * 14);
+  const sk12x14 = patioCoverQuoteForMaterial('Skyline Combo', 12 * 14);
 
   return `# LoomiHome Patios
 
@@ -54,14 +67,13 @@ LoomiHome Patios installs aluminum patio covers, glass patio covers, skyline com
 ## Service areas
 Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver areas.
 
-## Pricing (planning ranges only)
-${rateLine('Aluminum patio covers', al, ` plus a $${base} base fee`)}
-${rateLine('Glass patio covers', gl, ` plus a $${base} base fee`)}
-${rateLine('Skyline combo patio covers', sk, ` plus a $${base} base fee`)}
-${rateLine('Sunroom wall/panel pricing', wall)}
-${rateLine('Sunroom buildable footprint pricing', floor)}
-Chat gives a planning range only. Formal pricing is confirmed after free on-site measurement.
-Patio cover rough total ≈ area (sq ft) × rate + $${base} base.
+## Pricing (planning totals only — never quote per-sq-ft rates or base fees to homeowners)
+${exampleLine('Aluminum', 12, 14)}
+${exampleLine('Glass', 12, 14)}
+${exampleLine('Skyline Combo', 12, 26)}
+${sunroomExampleLine('wall', 12, 8)}
+${sunroomExampleLine('buildable', 10, 12)}
+Chat gives a planning total only. Formal pricing is confirmed after free on-site measurement.
 
 ## How to choose a product
 - Aluminum: best for rain-first protection, low maintenance, and practical budget.
@@ -71,7 +83,7 @@ Patio cover rough total ≈ area (sq ft) × rate + $${base} base.
 
 ## How estimates work
 1. Share city, rough patio size (sq ft or dimensions like 12x14), and preferred cover type in chat.
-2. Get a fast rough estimate in about 60 seconds.
+2. Get a fast rough total in about 60 seconds.
 3. Book a free on-site measurement when the range fits your budget.
 4. Receive final installation pricing after measurement.
 
@@ -90,7 +102,7 @@ ${keyPageLines}
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?
-A: Aluminum is about $${al.min}–${al.max} per sq ft plus $${base} base. Glass is about $${gl.min}–${gl.max} per sq ft plus $${base} base. Skyline combo is about $${sk.min}–${sk.max} per sq ft plus $${base} base. Chat gives a planning range; final price is confirmed after on-site measurement.
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Chat gives a planning total for your size; final price is confirmed after on-site measurement.
 
 Q: What is the difference between aluminum and glass patio covers?
 A: Aluminum offers durable rain protection with low maintenance. Glass keeps more natural light and a premium look but usually costs more. We can ballpark both from the same measurements.
@@ -111,7 +123,7 @@ Q: Do you serve Surrey and Coquitlam for patio cover contractors?
 A: Yes. Surrey (Guildford, Cloverdale, South Surrey) and Coquitlam (Burke Mountain, Maillardville, Austin Heights) are regular service areas with the same chat estimate flow.
 
 Q: Glass vs aluminum — how do I choose?
-A: Aluminum is about $${al.min}–${al.max}/sq ft plus $${base} base — best for rain-first and practical budget. Glass is about $${gl.min}–${gl.max}/sq ft plus $${base} base — best for natural light and premium look. Compare both in one chat session: ${SITE_ORIGIN}/glass-vs-aluminum-patio-covers
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST — best for rain-first and practical budget. Glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')} — best for natural light and premium look. Compare both in one chat session: ${SITE_ORIGIN}/glass-vs-aluminum-patio-covers
 
 Q: Do you provide patio cover contractor quotes in Langley?
 A: Yes. Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley are regular service areas. Start with chat for a planning range, then book free on-site measurement: ${SITE_ORIGIN}/patio-cover-contractor-langley
@@ -126,10 +138,10 @@ Q: Do you need a permit for a patio cover in Vancouver?
 A: Rules vary by municipality, attachment, projection, and height. Verify with your city's building department. General guide: ${SITE_ORIGIN}/do-you-need-a-permit-for-a-patio-cover-in-vancouver
 
 Q: What is the best patio cover for Vancouver rain?
-A: Aluminum is the practical rain-first starting point ($${al.min}–${al.max}/sq ft plus $${base} base). Glass and skyline combo work when light matters too. Guide: ${SITE_ORIGIN}/best-patio-cover-for-rain-vancouver
+A: Aluminum is the practical rain-first starting point (about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} for a 12×14 ft cover). Glass and skyline combo work when light matters too. Guide: ${SITE_ORIGIN}/best-patio-cover-for-rain-vancouver
 
 Q: How much does a sunroom cost in Metro Vancouver?
-A: Wall/panel work is about $${wall.min}–${wall.max} per sq ft. Buildable footprint is about $${floor.min}–${floor.max} per sq ft before GST. Chat gives a planning range; measurement confirms final pricing. Compare sunrooms: ${SITE_ORIGIN}/sunrooms-burnaby
+A: A 12×8 ft sunroom wall/panel area is about $${sunroomQuoteForType('wall', 96).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('wall', 96).totalMax.toLocaleString('en-CA')} before GST. A 10×12 ft buildable floor area is about $${sunroomQuoteForType('buildable', 120).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('buildable', 120).totalMax.toLocaleString('en-CA')}. Chat gives a planning total; measurement confirms final pricing. Compare sunrooms: ${SITE_ORIGIN}/sunrooms-burnaby
 
 Q: How long does patio cover installation take?
 A: Chat ballpark is same-day (~60 seconds). After free measurement and quote approval, on-site install timing depends on product and season — typically a modest number of days once materials arrive. Guide: ${SITE_ORIGIN}/how-long-does-patio-cover-installation-take
