@@ -53,6 +53,11 @@ export const CITY_PAGES = {
         a: 'We work across the Lower Mainland — Burnaby, Richmond, Surrey, Delta, Coquitlam, and nearby. Same fast estimate process everywhere we go.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor in Vancouver' },
+      { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+    ],
   },
   burnaby: {
     id: 'burnaby',
@@ -92,6 +97,11 @@ export const CITY_PAGES = {
         a: 'Yes — after your ballpark estimate, we can book a free visit to measure and confirm details. No obligation.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor in Burnaby' },
+      { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
+      { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+    ],
   },
   richmond: {
     id: 'richmond',
@@ -126,6 +136,10 @@ export const CITY_PAGES = {
         q: 'Do you serve all Richmond neighbourhoods?',
         a: 'Yes — including Steveston, Broadmoor, Burkeville, East Cambie, and surrounding areas.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
     ],
   },
   surrey: {
@@ -162,6 +176,10 @@ export const CITY_PAGES = {
         a: 'If you are unsure, start with chat. We can ballpark both directions so you see which fits your budget before you book a visit.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
+      { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+    ],
   },
   delta: {
     id: 'delta',
@@ -196,6 +214,11 @@ export const CITY_PAGES = {
         q: 'Can I compare cover types before choosing?',
         a: 'Absolutely — that is the point of our process. Ballpark each direction, then decide what to measure.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
+      { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
     ],
   },
   coquitlam: {
@@ -232,6 +255,10 @@ export const CITY_PAGES = {
         a: 'We can discuss both. Many Coquitlam homeowners compare enclosed sunroom vs open cover for budget and use-case.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
+    ],
   },
   langley: {
     id: 'langley',
@@ -267,6 +294,11 @@ export const CITY_PAGES = {
         a: 'Absolutely. Many Langley homeowners compare both before booking a free measurement visit.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
+      { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
+    ],
   },
   'north-vancouver': {
     id: 'north-vancouver',
@@ -297,6 +329,15 @@ export const CITY_PAGES = {
         q: 'How fast is the first estimate?',
         a: 'Usually about a minute in chat once we have your area and approximate patio size.',
       },
+      {
+        q: 'Is glass worth comparing on the North Shore?',
+        a: 'Yes when you want light on sloped decks — aluminum is still the practical rain-first starting point. Compare both in one chat session.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-north-vancouver', label: 'Patio cover contractor in North Vancouver' },
+      { path: '/aluminum-patio-covers-north-vancouver', label: 'Aluminum patio covers in North Vancouver' },
+      { path: '/glass-patio-covers-north-vancouver', label: 'Glass patio covers in North Vancouver' },
     ],
   },
   'west-vancouver': {
@@ -328,6 +369,15 @@ export const CITY_PAGES = {
         q: 'Is glass popular in West Vancouver?',
         a: 'Many homeowners compare glass for light and views versus aluminum for value and rain protection. We walk you through both in chat.',
       },
+      {
+        q: 'How much does a West Vancouver patio cover cost?',
+        a: 'Aluminum is about $8–10 per sq ft plus $500 base; glass is about $12–15 per sq ft plus $500 base. Chat gives a planning range; measurement confirms final pricing.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-west-vancouver', label: 'Patio cover contractor in West Vancouver' },
+      { path: '/glass-patio-covers-west-vancouver', label: 'Glass patio covers in West Vancouver' },
+      { path: '/aluminum-patio-covers-west-vancouver', label: 'Aluminum patio covers in West Vancouver' },
     ],
   },
   'new-westminster': {
@@ -360,6 +410,11 @@ export const CITY_PAGES = {
         a: 'Yes — that is how our estimate flow is designed.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-new-westminster', label: 'Patio cover contractor in New Westminster' },
+      { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
+      { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
+    ],
   },
   'maple-ridge': {
     id: 'maple-ridge',
@@ -391,6 +446,11 @@ export const CITY_PAGES = {
         a: 'Use the chat on our homepage with your city and approximate patio size — about a minute for a rough range.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-maple-ridge', label: 'Patio cover contractor in Maple Ridge' },
+      { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
+      { path: '/sunrooms-maple-ridge', label: 'Sunrooms in Maple Ridge' },
+    ],
   },
   'pitt-meadows': {
     id: 'pitt-meadows',
@@ -421,6 +481,11 @@ export const CITY_PAGES = {
         q: 'What cover type is best for rainy weather?',
         a: 'Aluminum and combo covers are popular for solid rain protection; glass works when you want more light. We compare both in chat.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
+      { path: '/aluminum-patio-covers-pitt-meadows', label: 'Aluminum patio covers in Pitt Meadows' },
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
     ],
   },
 };

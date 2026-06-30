@@ -88,12 +88,28 @@ export const SERVICE_PAGES = {
       },
       {
         q: 'How fast is the patio cover estimate?',
-        a: 'Roughly 60 seconds of your time in chat for a starting range, not days of waiting.',
+        a: 'Roughly 60 seconds in chat for a planning range. Your formal quote is confirmed after free on-site measurement.',
+      },
+      {
+        q: 'How much does a glass patio cover cost in Vancouver?',
+        a: 'Glass is about $12–15 per sq ft plus a $500 base fee before GST. Final price depends on span, posts, attachment, and drainage confirmed on site.',
       },
       {
         q: 'Do glass covers work in heavy rain?',
         a: 'When engineered and installed correctly, yes — slope, drainage, and attachment all matter. We confirm details on site.',
       },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Vancouver glass patio cover after installation with tempered glass panels and black aluminum frame',
+      caption:
+        'Vancouver glass patio cover — keeps the patio and back of the home bright while adding rain protection. See a similar rough range in chat.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor in Vancouver' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
     ],
   },
   skyline: {
@@ -176,7 +192,7 @@ export const SERVICE_PAGES = {
     faqs: [
       {
         q: 'Are sunrooms more expensive than patio covers?',
-        a: 'Usually yes — more enclosure, glass, and insulation. We can ballpark both so you are not guessing.',
+        a: 'Usually yes — more enclosure, glass, and planning. Wall/panel work is about $40–48 per sq ft; buildable footprint is about $130–145 per sq ft.',
       },
       {
         q: 'How long does installation take?',
@@ -184,8 +200,18 @@ export const SERVICE_PAGES = {
       },
       {
         q: 'Can I get a sunroom quote online first?',
-        a: 'Yes — start with a rough chat estimate, then a free visit for exact pricing.',
+        a: 'Yes — chat gives a planning range in about a minute. Your formal sunroom quote is confirmed after free on-site measurement.',
       },
+    ],
+    caseStudy: {
+      image: '/house/realprojects/sunroom-white.png',
+      alt: 'White-framed sunroom with glass walls attached to a Vancouver-area home',
+      caption:
+        'Sunroom enclosure example for Vancouver homeowners comparing a brighter enclosed space against an open patio cover.',
+    },
+    relatedPageLinks: [
+      { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+      { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor in Vancouver' },
     ],
   },
 };

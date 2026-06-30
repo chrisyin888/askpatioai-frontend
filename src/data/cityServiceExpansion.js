@@ -1,3 +1,5 @@
+import { skylinePageForExpansion } from './skylineCityPages.js';
+
 /** Contractor / installer / aluminum landing pages for newer city SEO targets. */
 
 const CITY_META = {
@@ -7,6 +9,13 @@ const CITY_META = {
     neighbourhoods: 'Lynn Valley, Lower Lonsdale, and Edgemont',
     localDetail: 'North Shore rain, sloped lots, and raised decks',
     heroImage: '/house/Aluminum/aluminum-hero.png',
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a sloped Lower Mainland backyard similar to North Vancouver lots',
+      caption:
+        'Aluminum patio cover — rain-ready protection for North Shore sloped yards and raised decks. Compare glass in chat on the same size.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   'west-vancouver': {
     name: 'West Vancouver',
@@ -14,6 +23,13 @@ const CITY_META = {
     neighbourhoods: 'Ambleside, Dundarave, and the British Properties',
     localDetail: 'coastal rain, wind exposure, and premium glass options',
     heroImage: '/house/glass/glass-hero.png',
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a premium West Coast home with natural light under tempered glass roof',
+      caption:
+        'Glass patio cover — bright rain protection suited to West Vancouver view lines and walkout decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
   },
   'new-westminster': {
     name: 'New Westminster',
@@ -21,6 +37,13 @@ const CITY_META = {
     neighbourhoods: 'Queensborough, Sapperton, and Uptown',
     localDetail: 'townhomes and detached homes near the riverfront',
     heroImage: '/house/Aluminum/aluminum-hero.png',
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a compact Metro Vancouver backyard patio',
+      caption:
+        'Aluminum patio cover — practical fit for New Westminster townhome patios and detached backyards. Ballpark in chat first.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   'maple-ridge': {
     name: 'Maple Ridge',
@@ -28,6 +51,13 @@ const CITY_META = {
     neighbourhoods: 'Town Centre, Albion, and Silver Valley',
     localDetail: 'larger lots and family backyards',
     heroImage: '/house/Aluminum/aluminum-hero.png',
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
+      caption:
+        'Skyline combo cover — larger backyard layout common in Maple Ridge. Compare aluminum and glass on your dimensions in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'pitt-meadows': {
     name: 'Pitt Meadows',
@@ -35,6 +65,13 @@ const CITY_META = {
     neighbourhoods: 'Pitt Meadows and nearby Maple Ridge',
     localDetail: 'wider spans and Fraser Valley weather',
     heroImage: '/house/Aluminum/aluminum-hero.png',
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Wide-span patio cover on a Fraser Valley suburban backyard',
+      caption:
+        'Wide-span combo cover — reference for Pitt Meadows lots with room for larger patios. Chat ballpark before free measurement.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
 };
 
@@ -82,9 +119,30 @@ function contractorPage(slug, meta) {
         q: 'What patio cover types can I compare?',
         a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
       },
+      {
+        q: `Is the online ${meta.name} contractor quote final?`,
+        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+      },
+      {
+        q: `Which ${meta.name} areas do you quote?`,
+        a: `${meta.neighbourhoods} and surrounding neighbourhoods — share your area in chat for a faster ballpark.`,
+      },
     ],
+    relatedPageLinks: [
+      { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
+      { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
+    ],
+    ...(meta.caseStudy ? { caseStudy: meta.caseStudy } : {}),
   };
 }
+
+const SUNROOM_CASE_STUDY = {
+  image: '/house/realprojects/sunroom-white.png',
+  alt: 'White-framed sunroom enclosure with glass walls on a Lower Mainland home',
+  caption:
+    'Sunroom-style enclosed patio — compare sunroom pricing against an open patio cover in chat before free measurement.',
+};
 
 function installerPage(slug, meta) {
   return {
@@ -130,7 +188,21 @@ function installerPage(slug, meta) {
         q: `How long does patio cover installation take in ${meta.name}?`,
         a: 'Most installs finish within a few days once materials are ready. We confirm a realistic schedule after measurement.',
       },
+      {
+        q: `Is the online ${meta.name} installation estimate final?`,
+        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+      },
+      {
+        q: `Which ${meta.name} areas do you install in?`,
+        a: `${meta.neighbourhoods} and surrounding neighbourhoods — share your area in chat for a faster ballpark.`,
+      },
     ],
+    relatedPageLinks: [
+      { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
+      { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
+    ],
+    ...(meta.caseStudy ? { caseStudy: meta.caseStudy } : {}),
   };
 }
 
@@ -178,6 +250,11 @@ function aluminumPage(slug, meta) {
         q: 'Can I compare aluminum with glass or a sunroom?',
         a: 'Yes. We can ballpark multiple product directions from the same rough dimensions.',
       },
+    ],
+    relatedPageLinks: [
+      { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
+      { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
     ],
   };
 }
@@ -227,6 +304,11 @@ function glassPage(slug, meta) {
         a: 'Yes. We can ballpark both from the same approximate dimensions.',
       },
     ],
+    relatedPageLinks: [
+      { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
+      { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
+    ],
   };
 }
 
@@ -274,7 +356,17 @@ function sunroomPage(slug, meta) {
         q: 'Should I choose a sunroom or a patio cover?',
         a: 'If you mainly need rain protection, start with a patio cover. If you want more enclosure and year-round comfort, compare a sunroom.',
       },
+      {
+        q: 'What is the rough sunroom pricing range?',
+        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+      },
     ],
+    relatedPageLinks: [
+      { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
+      { path: `/patio-cover-cost-vancouver`, label: 'Patio cover cost guide' },
+    ],
+    caseStudy: SUNROOM_CASE_STUDY,
   };
 }
 
@@ -389,7 +481,7 @@ export const CITY_SERVICE_EXPANSION_PAGES = Object.fromEntries(
     [`installer-${slug}`, installerPage(slug, meta)],
     [`aluminum-${slug}`, aluminumPage(slug, meta)],
     [`glass-${slug}`, glassPage(slug, meta)],
-    [`skyline-${slug}`, skylinePage(slug, meta)],
+    [`skyline-${slug}`, skylinePageForExpansion(slug, meta)],
     [`sunrooms-${slug}`, sunroomPage(slug, meta)],
   ]),
 );

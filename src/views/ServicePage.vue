@@ -38,6 +38,38 @@
             </ul>
           </div>
 
+          <div v-if="page.caseStudy && caseStudyImageUrl" class="service-page-case-study">
+            <h2 class="service-page-h2">Recent project example</h2>
+            <figure class="service-page-case-study__figure">
+              <img
+                class="service-page-case-study__img"
+                :src="caseStudyImageUrl"
+                :alt="page.caseStudy.alt || page.h1"
+                width="1200"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption v-if="page.caseStudy.caption" class="service-page-case-study__caption">
+                {{ page.caseStudy.caption }}
+              </figcaption>
+              <p v-if="page.caseStudy.projectPath" class="service-page-case-study__link-wrap">
+                <router-link :to="page.caseStudy.projectPath" class="service-page-crosslinks__a">
+                  View full project →
+                </router-link>
+              </p>
+            </figure>
+          </div>
+
+          <div v-if="page.relatedPageLinks && page.relatedPageLinks.length" class="service-page-related">
+            <h2 class="service-page-h2">Related pages</h2>
+            <ul class="service-page-crosslinks-list">
+              <li v-for="(link, ri) in page.relatedPageLinks" :key="'rel-' + ri">
+                <router-link :to="link.path" class="service-page-crosslinks__a">{{ link.label }}</router-link>
+              </li>
+            </ul>
+          </div>
+
           <div
             v-for="(sec, si) in page.sections || []"
             :key="'service-sec-' + si"
@@ -87,6 +119,12 @@
           </div>
 
           <div class="service-page-crosslinks">
+            <h2 class="service-page-h2">High-intent local pages</h2>
+            <ul class="service-page-crosslinks-list">
+              <li v-for="l in priorityLinks" :key="'prio-' + l.path">
+                <router-link :to="l.path" class="service-page-crosslinks__a">{{ l.label }}</router-link>
+              </li>
+            </ul>
             <h2 class="service-page-h2">More patio options in Vancouver</h2>
             <p class="service-page-crosslinks-lead">
               Compare cover types and get a quick ballpark before booking a free measurement.
@@ -132,6 +170,7 @@
           <p class="site-footer__copy">© 2026 LoomiHome Patios · Vancouver &amp; Lower Mainland</p>
           <a href="/llms.txt" class="service-page-footer-link">LLM site summary</a>
           <router-link to="/" class="service-page-footer-link">Back to home</router-link>
+          <a href="/llms.txt" class="service-page-footer-link">LLM summary</a>
         </div>
       </footer>
     </div>
@@ -142,6 +181,7 @@
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
+import { PRIORITY_SEO_PAGE_LINKS } from '../data/prioritySeoPages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import {
@@ -220,12 +260,20 @@ export default {
         label: PROJECT_PAGES[id].h1.replace(' Project', ''),
       }));
     },
+    priorityLinks() {
+      const current = this.page && this.page.path;
+      return PRIORITY_SEO_PAGE_LINKS.filter((l) => l.path !== current);
+    },
     heroImageUrl() {
       const raw = this.page && this.page.heroImage;
       return publicAssetUrl(raw);
     },
     heroImageAlt() {
       return (this.page && this.page.h1) || 'Patio cover project photo';
+    },
+    caseStudyImageUrl() {
+      const raw = this.page && this.page.caseStudy && this.page.caseStudy.image;
+      return raw ? publicAssetUrl(raw) : '';
     },
   },
   mounted() {
@@ -366,6 +414,37 @@ export default {
 }
 .service-page-benefits-list li {
   margin-bottom: 0.5rem;
+}
+.service-page-case-study {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+.service-page-case-study__figure {
+  margin: 0.75rem 0 0;
+}
+.service-page-case-study__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+}
+.service-page-case-study__caption {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #475569;
+}
+.service-page-case-study__link-wrap {
+  margin: 10px 0 0;
+}
+.service-page-related {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
 }
 .service-page-info {
   margin-bottom: 1.5rem;

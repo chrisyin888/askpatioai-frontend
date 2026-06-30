@@ -1,9 +1,8 @@
 import {
   CITY_SERVICE_EXPANSION_ORDER,
   CITY_SERVICE_EXPANSION_PAGES,
-  LEGACY_SKYLINE_ORDER,
-  LEGACY_SKYLINE_PAGES,
 } from './cityServiceExpansion.js';
+import { SKYLINE_CITY_PAGE_ORDER, SKYLINE_CITY_PAGES } from './skylineCityPages.js';
 
 /** Service + city landing pages for high-intent local searches. */
 export const CITY_SERVICE_PAGE_ORDER = [
@@ -39,7 +38,7 @@ export const CITY_SERVICE_PAGE_ORDER = [
   'installer-langley',
   'contractor-delta',
   'installer-delta',
-  ...LEGACY_SKYLINE_ORDER,
+  ...SKYLINE_CITY_PAGE_ORDER,
   ...CITY_SERVICE_EXPANSION_ORDER,
 ];
 
@@ -212,8 +211,23 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is glass more expensive than aluminum?',
-        a: 'Usually yes. Glass is often chosen for daylight and appearance rather than the lowest budget.',
+        a: 'Usually yes. Glass is often about $12–15 per sq ft plus $500 base versus aluminum at about $8–10 per sq ft plus $500 base.',
       },
+      {
+        q: 'Can I get a Richmond glass patio cover estimate before a site visit?',
+        a: 'Yes. Chat gives a planning range in about a minute. Your formal quote is confirmed after free on-site measurement.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/realprojects/glass-patio-door.png',
+      alt: 'Glass patio cover connecting to rear doors on a Richmond-area style home',
+      caption:
+        'Glass patio cover direction for Richmond homes that want rain protection without darkening kitchens or family rooms behind the patio.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
     ],
   },
   'glass-coquitlam': {
@@ -257,7 +271,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can glass work on a sloped lot?',
         a: 'Sometimes, but attachment and height details matter. The free measurement confirms what is realistic.',
       },
+      {
+        q: 'How much does a Coquitlam glass patio cover cost?',
+        a: 'Glass is about $12–15 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Coquitlam glass patio cover after installation on a backyard patio',
+      caption:
+        'Coquitlam glass patio cover — tempered glass roof with black frame. Compare aluminum on the same size in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   'sunrooms-burnaby': {
     id: 'sunrooms-burnaby',
@@ -298,8 +328,22 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Can I get a Burnaby sunroom estimate online?',
-        a: 'Yes. The online estimate is a rough range first; the free site visit confirms the final quote.',
+        a: 'Yes. Chat gives a planning range first; your formal quote is confirmed after free on-site measurement.',
       },
+      {
+        q: 'What is the rough sunroom pricing range?',
+        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/realprojects/sunroom-white.png',
+      alt: 'White-framed sunroom enclosure with glass walls on a Lower Mainland home',
+      caption:
+        'Sunroom-style enclosed patio space — useful reference when comparing a sunroom budget against an open patio cover in Burnaby.',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor in Burnaby' },
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
     ],
   },
   'glass-burnaby': {
@@ -509,12 +553,28 @@ export const CITY_SERVICE_PAGES = {
     faqs: [
       {
         q: 'Do you provide patio cover quotes in Vancouver?',
-        a: 'Yes. You can start with a fast rough estimate online, then book a free on-site measurement.',
+        a: 'Yes. Start with a fast rough estimate in chat, then book a free on-site measurement for your formal quote.',
       },
       {
         q: 'What patio cover types can I compare?',
         a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
       },
+      {
+        q: 'How much does a Vancouver patio cover usually cost?',
+        a: 'Aluminum is about $8–10 per sq ft plus $500 base. Glass is about $12–15 per sq ft plus $500 base. Chat gives a planning range; measurement confirms final pricing.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Finished glass patio cover installation on a Vancouver-area backyard patio',
+      caption:
+        'Vancouver glass patio cover project — tempered glass roof with black frame. Get a similar rough range in chat, then book a free measurement.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
     ],
   },
   'installer-vancouver': {
@@ -648,7 +708,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can aluminum work for a side-yard cover?',
         a: 'Often yes, depending on clearance, drainage, and attachment. We confirm those details during measurement.',
       },
+      {
+        q: 'How much does a Delta aluminum patio cover cost?',
+        a: 'Aluminum is about $8–10 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
+      { path: '/patio-covers-delta', label: 'Patio covers in Delta' },
+      { path: '/best-patio-cover-for-rain-vancouver', label: 'Best cover for rain guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/delta-aluminum-after.png',
+      alt: 'Delta aluminum patio cover providing rain protection on a side-yard patio',
+      caption:
+        'Delta aluminum cover — practical rain protection for Ladner, Tsawwassen, and North Delta patios. Compare glass in chat on the same size.',
+      projectPath: '/projects/delta-aluminum-patio-cover',
+    },
   },
   'aluminum-coquitlam': {
     id: 'aluminum-coquitlam',
@@ -734,7 +810,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Is glass always the best patio cover choice?',
         a: 'Not always. Glass is best when light and appearance are priorities; aluminum may be better for a lower budget.',
       },
+      {
+        q: 'How much does a Delta glass patio cover cost?',
+        a: 'Glass is about $12–15 per sq ft plus $500 base before GST. Chat compares glass and aluminum on the same size.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
+      { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover after installation with tempered glass roof and black frame',
+      caption:
+        'Glass patio cover — bright rain protection for patios near rear doors and windows. Compare aluminum on the same footprint in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   'sunrooms-coquitlam': {
     id: 'sunrooms-coquitlam',
@@ -777,7 +869,22 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can a sunroom go over an existing patio?',
         a: 'Sometimes, but the existing surface, attachment, drainage, and structure need to be checked during measurement.',
       },
+      {
+        q: 'What is the rough sunroom pricing range?',
+        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+    ],
+    caseStudy: {
+      image: '/house/realprojects/sunroom-white.png',
+      alt: 'White-framed sunroom enclosure with glass walls on a Lower Mainland home',
+      caption:
+        'Sunroom-style enclosed patio — compare sunroom budget against an open patio cover before booking free measurement.',
+    },
   },
   'contractor-burnaby': {
     id: 'contractor-burnaby',
@@ -814,13 +921,33 @@ export const CITY_SERVICE_PAGES = {
     faqs: [
       {
         q: 'Do you provide patio cover contractor quotes in Burnaby?',
-        a: 'Yes. Start with a rough online quote, then book a free measurement if the range works.',
+        a: 'Yes. Start with a rough online quote in chat, then book a free measurement if the range works.',
       },
       {
         q: 'Can I compare different patio cover types?',
         a: 'Yes. We can compare aluminum, glass, skyline combo, and sunroom directions.',
       },
+      {
+        q: 'Is the online contractor quote final?',
+        a: 'No — chat gives a planning range only. Your formal contractor quote is confirmed after free on-site measurement.',
+      },
+      {
+        q: 'Which Burnaby neighbourhoods do you serve?',
+        a: 'Metrotown, Brentwood, Deer Lake, Edmonds, Capitol Hill, and surrounding Burnaby areas — same fast estimate flow for each.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
+      { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Burnaby aluminum patio cover after installation with black frame over backyard patio',
+      caption:
+        'Burnaby aluminum patio cover — approx. 24×20 ft backyard cover for rain protection and everyday use.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   'installer-surrey': {
     id: 'installer-surrey',
@@ -863,7 +990,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can I get an installation estimate online?',
         a: 'Yes. The online estimate is a starting range; final installation pricing comes after measurement.',
       },
+      {
+        q: 'Which Surrey areas do you install in most often?',
+        a: 'Guildford, Cloverdale, Newton, Fleetwood, and South Surrey — townhome patios to larger detached-home yards.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Surrey skyline combo patio cover after installation on a large backyard',
+      caption:
+        'Surrey skyline combo install — larger backyard layout. Chat ballpark first, then free measurement for install planning.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'contractor-richmond': {
     id: 'contractor-richmond',
@@ -900,13 +1043,32 @@ export const CITY_SERVICE_PAGES = {
     faqs: [
       {
         q: 'Do you provide patio cover contractor quotes in Richmond?',
-        a: 'Yes. Start with a fast rough quote online, then book a free on-site measurement if the range works.',
+        a: 'Yes. Start with a fast rough quote in chat, then book a free on-site measurement if the range works.',
       },
       {
         q: 'What patio cover types can I compare?',
         a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
       },
+      {
+        q: 'Why get a ballpark before booking a Richmond contractor visit?',
+        a: 'A planning range helps you filter contractors and product types before spending an evening on appointments that may not fit your budget.',
+      },
+      {
+        q: 'Which Richmond areas do you quote most often?',
+        a: 'Steveston, Broadmoor, East Cambie, Burkeville, and City Centre — flat lots and side-yard patios are common. Share your neighbourhood in chat for a faster ballpark.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/richmond-carport-after.png',
+      alt: 'Richmond aluminum carport-style patio cover with black frame after installation',
+      caption:
+        'Richmond carport-style aluminum cover — practical rain protection for side-yard and patio layouts common on flat Richmond lots.',
+      projectPath: '/projects/richmond-aluminum-carport-cover',
+    },
   },
   'contractor-surrey': {
     id: 'contractor-surrey',
@@ -943,13 +1105,33 @@ export const CITY_SERVICE_PAGES = {
     faqs: [
       {
         q: 'Do you provide patio cover contractor quotes in Surrey?',
-        a: 'Yes. Start with a rough online quote, then book a free measurement if the range works.',
+        a: 'Yes. Start with a rough online quote in chat, then book a free measurement if the range works.',
       },
       {
         q: 'Can I compare different patio cover types?',
         a: 'Yes. We can compare aluminum, glass, skyline combo, and sunroom directions before measuring.',
       },
+      {
+        q: 'Is the online Surrey contractor quote final?',
+        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+      },
+      {
+        q: 'Which Surrey areas do you serve?',
+        a: 'Guildford, Cloverdale, Newton, Fleetwood, South Surrey, and surrounding areas — from townhome patios to larger detached-home yards.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Surrey skyline combo patio cover after installation with glass and V-panel sections',
+      caption:
+        'Surrey skyline combo project — approx. 12×26 ft cover balancing shade and natural light on a larger backyard patio.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'contractor-coquitlam': {
     id: 'contractor-coquitlam',
@@ -986,13 +1168,33 @@ export const CITY_SERVICE_PAGES = {
     faqs: [
       {
         q: 'Do you provide patio cover contractor quotes in Coquitlam?',
-        a: 'Yes. Start with a rough online quote, then book a free measurement if the range works.',
+        a: 'Yes. Start with a rough online quote in chat, then book a free measurement if the range works.',
       },
       {
         q: 'Can you cover a raised deck?',
         a: 'Often yes, but the deck structure, attachment, and clearance need to be checked during measurement.',
       },
+      {
+        q: 'Is the online Coquitlam contractor quote final?',
+        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+      },
+      {
+        q: 'Which Coquitlam neighbourhoods do you quote?',
+        a: 'Burke Mountain, Westwood Plateau, Maillardville, Austin Heights, and surrounding Tri-Cities areas — sloped lots and raised decks are common.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
+      { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Coquitlam glass patio cover after installation with black frame and tempered glass roof',
+      caption:
+        'Coquitlam glass patio cover example — bright overhead rain protection on a sloped-lot backyard patio.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   'installer-burnaby': {
     id: 'installer-burnaby',
@@ -1035,7 +1237,27 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can you install glass and aluminum covers?',
         a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
+      {
+        q: 'Is the online Burnaby installation estimate final?',
+        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+      },
+      {
+        q: 'Which Burnaby areas do you install in most often?',
+        a: 'Metrotown, Brentwood, Deer Lake, and North Burnaby — from compact patios to larger suburban yards.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor in Burnaby' },
+      { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Burnaby aluminum patio cover after installation on a backyard patio',
+      caption:
+        'Burnaby aluminum install — chat ballpark first, free measurement second, then scheduling once materials arrive.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   'installer-coquitlam': {
     id: 'installer-coquitlam',
@@ -1078,7 +1300,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can you install a cover over a raised deck?',
         a: 'Often yes, but the deck structure, attachment, and clearance need to be confirmed during measurement.',
       },
+      {
+        q: 'Is the online Coquitlam installation estimate final?',
+        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Coquitlam glass patio cover after installation on a sloped-lot backyard',
+      caption:
+        'Coquitlam glass install — sloped lots and raised decks confirmed during free measurement before final pricing.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   'sunrooms-delta': {
     id: 'sunrooms-delta',
@@ -1121,7 +1359,22 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can I get a Delta sunroom estimate online?',
         a: 'Yes. The first estimate is a rough planning range, then a free measurement confirms final pricing.',
       },
+      {
+        q: 'What is the rough sunroom pricing range?',
+        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
+      { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+    ],
+    caseStudy: {
+      image: '/house/realprojects/sunroom-white.png',
+      alt: 'White-framed sunroom enclosure with glass walls on a Lower Mainland home',
+      caption:
+        'Sunroom enclosure reference — useful when comparing enclosed space against an open aluminum or glass patio cover in Delta.',
+    },
   },
   'aluminum-langley': {
     id: 'aluminum-langley',
@@ -1164,7 +1417,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can a cover attach to an existing deck?',
         a: 'Often yes, depending on the deck structure, attachment, and clearance. We confirm those details during measurement.',
       },
+      {
+        q: 'How much does a Langley aluminum patio cover cost?',
+        a: 'Aluminum is about $8–10 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
+      { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/best-patio-cover-for-rain-vancouver', label: 'Best cover for rain guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Large backyard patio cover on a suburban Langley-style lot',
+      caption:
+        'Large backyard cover — common on Langley subdivisions. Start with aluminum in chat for rain-first budget, then compare glass.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'glass-langley': {
     id: 'glass-langley',
@@ -1207,7 +1476,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can I compare glass and aluminum pricing?',
         a: 'Yes. We can ballpark both from the same approximate dimensions.',
       },
+      {
+        q: 'How much does a Langley glass patio cover cost?',
+        a: 'Glass is about $12–15 per sq ft plus $500 base before GST. Chat compares both materials from one size.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
+      { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover keeping a walkout deck bright with tempered glass roof panels',
+      caption:
+        'Glass patio cover — suited to newer Langley walkout decks and large rear windows. Compare aluminum in chat on the same dimensions.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
   },
   'sunrooms-langley': {
     id: 'sunrooms-langley',
@@ -1250,7 +1535,22 @@ export const CITY_SERVICE_PAGES = {
         q: 'Should I choose a sunroom or a patio cover?',
         a: 'If you mainly need rain protection, start with a patio cover. If you want more enclosure and year-round comfort, compare a sunroom.',
       },
+      {
+        q: 'What is the rough sunroom pricing range?',
+        a: 'Wall/panel work is about $40–48 per sq ft. Buildable footprint is about $130–145 per sq ft before GST. Final price depends on enclosure level and site conditions.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
+      { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+    ],
+    caseStudy: {
+      image: '/house/realprojects/sunroom-white.png',
+      alt: 'White-framed sunroom enclosure with glass walls on a Lower Mainland home',
+      caption:
+        'Sunroom enclosure — larger Langley lots often have room for enclosed patio space. Compare against an open cover in chat first.',
+    },
   },
   'contractor-langley': {
     id: 'contractor-langley',
@@ -1293,7 +1593,27 @@ export const CITY_SERVICE_PAGES = {
         q: 'What patio cover types can I compare?',
         a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
       },
+      {
+        q: 'Is the online Langley contractor quote final?',
+        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+      },
+      {
+        q: 'Which Langley areas do you quote most often?',
+        a: 'Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley — larger backyards and newer decks are common. Share your neighbourhood in chat for a faster ballpark.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a large suburban backyard patio similar to Langley lot layouts',
+      caption:
+        'Large backyard skyline combo cover — approx. 12×26 ft layout common on Langley subdivisions. Compare aluminum and glass on your size in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'installer-langley': {
     id: 'installer-langley',
@@ -1336,7 +1656,23 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can you install glass and aluminum covers?',
         a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
+      {
+        q: 'Is the online Langley installation estimate final?',
+        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
+      { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Large backyard patio cover installation on a suburban Langley-style lot',
+      caption:
+        'Langley-area install reference — larger backyards common in Willoughby and Walnut Grove. Ballpark in chat before site visit.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'contractor-delta': {
     id: 'contractor-delta',
@@ -1379,7 +1715,31 @@ export const CITY_SERVICE_PAGES = {
         q: 'Do you serve Ladner and Tsawwassen?',
         a: 'Yes, we serve Delta broadly, including Ladner, Tsawwassen, and North Delta.',
       },
+      {
+        q: 'Is the online Delta contractor quote final?',
+        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+      },
+      {
+        q: 'What patio cover types can I compare?',
+        a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
+      },
+      {
+        q: 'How does coastal wind affect Delta patio covers?',
+        a: 'Exposure varies from Tsawwassen waterfront to sheltered North Delta lots. Attachment, drainage, and span are confirmed during free measurement.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-delta', label: 'Patio covers in Delta' },
+      { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/delta-aluminum-after.png',
+      alt: 'Delta aluminum patio cover after installation on a compact side-yard patio',
+      caption:
+        'Delta aluminum patio cover — approx. 11×14 ft compact layout common in Ladner and North Delta. Ballpark in chat, then free measurement.',
+      projectPath: '/projects/delta-aluminum-patio-cover',
+    },
   },
   'installer-delta': {
     id: 'installer-delta',
@@ -1422,8 +1782,24 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can you install glass and aluminum covers?',
         a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
+      {
+        q: 'How does coastal wind affect Delta patio cover installation?',
+        a: 'Exposure varies from Tsawwassen waterfront to sheltered North Delta lots. Attachment, span, and drainage are confirmed during free measurement.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
+      { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/delta-aluminum-after.png',
+      alt: 'Delta aluminum patio cover after installation on a compact side-yard patio',
+      caption:
+        'Delta aluminum install — Ladner and North Delta side-yard layout. Chat estimate first, measurement confirms install details.',
+      projectPath: '/projects/delta-aluminum-patio-cover',
+    },
   },
-  ...LEGACY_SKYLINE_PAGES,
+  ...SKYLINE_CITY_PAGES,
   ...CITY_SERVICE_EXPANSION_PAGES,
 };

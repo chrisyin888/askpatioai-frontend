@@ -115,6 +115,32 @@
               </div>
             </section>
 
+            <section v-if="page.caseStudy && caseStudyImageUrl" class="seo-page__section">
+              <div class="our-products-intro seo-page__section-head">
+                <h2 class="our-products-heading">Recent project example</h2>
+                <p class="our-products-lead">Real Lower Mainland work — use chat for a similar rough range.</p>
+              </div>
+              <figure class="seo-page__case-study">
+                <img
+                  class="seo-page__case-study-img"
+                  :src="caseStudyImageUrl"
+                  :alt="page.caseStudy.alt || 'Patio cover project photo'"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption v-if="page.caseStudy.caption" class="seo-page__case-caption">
+                  {{ page.caseStudy.caption }}
+                </figcaption>
+                <p v-if="page.caseStudy.projectPath" class="seo-page__case-link-wrap">
+                  <router-link :to="page.caseStudy.projectPath" class="seo-page__case-link">
+                    View full project →
+                  </router-link>
+                </p>
+              </figure>
+            </section>
+
             <section
               v-for="(sec, si) in page.sections || []"
               :key="'sec-' + si"
@@ -124,6 +150,18 @@
                 <h2 class="home-seo-block__title">{{ sec.h2 }}</h2>
                 <p class="home-seo-block__body">{{ sec.body }}</p>
               </div>
+            </section>
+
+            <section v-if="page.relatedPageLinks && page.relatedPageLinks.length" class="seo-page__section">
+              <div class="our-products-intro seo-page__section-head">
+                <h2 class="our-products-heading">Related pages</h2>
+                <p class="our-products-lead">More local guides and service pages for the same area or product.</p>
+              </div>
+              <ul class="seo-page__related-list">
+                <li v-for="(link, ri) in page.relatedPageLinks" :key="'rel-' + ri">
+                  <router-link :to="link.path" class="seo-page__explore-link">{{ link.label }}</router-link>
+                </li>
+              </ul>
             </section>
 
             <section v-if="page.pricingNote" class="seo-page__section">
@@ -178,6 +216,14 @@
                 <p class="our-products-lead">Jump to related services, cities, and guides.</p>
               </div>
               <div class="seo-page__explore-grid">
+                <div v-if="priorityLinks.length" class="seo-page__explore-card">
+                  <h3 class="seo-page__explore-card-title">High-intent local pages</h3>
+                  <ul class="seo-page__explore-list">
+                    <li v-for="l in priorityLinks" :key="'prio-' + l.path">
+                      <router-link :to="l.path" class="seo-page__explore-link">{{ l.label }}</router-link>
+                    </li>
+                  </ul>
+                </div>
                 <div v-if="serviceLinks.length" class="seo-page__explore-card">
                   <h3 class="seo-page__explore-card-title">Cover types</h3>
                   <ul class="seo-page__explore-list">
@@ -232,6 +278,7 @@
           <p class="site-footer__copy">© 2026 LoomiHome Patios · Vancouver &amp; Lower Mainland</p>
           <a href="/llms.txt" class="seo-page__footer-link">LLM site summary</a>
           <router-link to="/" class="seo-page__footer-link">Home</router-link>
+          <a href="/llms.txt" class="seo-page__footer-link">LLM summary</a>
         </div>
       </footer>
     </div>
@@ -242,6 +289,7 @@
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
 import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityServicePages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
+import { PRIORITY_SEO_PAGE_LINKS } from '../data/prioritySeoPages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import {
@@ -345,12 +393,20 @@ export default {
         label: PROJECT_PAGES[id].h1.replace(' Project', ''),
       }));
     },
+    priorityLinks() {
+      const current = this.page && this.page.path;
+      return PRIORITY_SEO_PAGE_LINKS.filter((l) => l.path !== current);
+    },
     heroImageUrl() {
       const raw = this.page && this.page.heroImage;
       return publicAssetUrl(raw);
     },
     heroImageAlt() {
       return (this.page && this.page.h1) || 'Patio cover project photo';
+    },
+    caseStudyImageUrl() {
+      const raw = this.page && this.page.caseStudy && this.page.caseStudy.image;
+      return raw ? publicAssetUrl(raw) : '';
     },
   },
   mounted() {
@@ -741,6 +797,60 @@ export default {
 /* FAQ: reuse home-faq block */
 .seo-page__faq {
   margin-top: 12px;
+}
+
+.seo-page__case-study {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+}
+
+.seo-page__case-study-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.seo-page__case-caption {
+  margin: 0;
+  padding: 14px 18px 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.seo-page__case-link-wrap {
+  margin: 10px 18px 16px;
+}
+
+.seo-page__case-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(15, 23, 42, 0.15);
+}
+
+.seo-page__case-link:hover {
+  border-bottom-color: #0f172a;
+}
+
+.seo-page__related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.seo-page__related-list li {
+  margin: 0;
 }
 
 .seo-page__faq-item {

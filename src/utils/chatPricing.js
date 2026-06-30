@@ -2,10 +2,10 @@
 export const CHAT_PRICING = {
   patioCoverBaseFee: 500,
   aluminumPatioCoverPerSqft: { min: 8, max: 10 },
-  glassPatioCoverPerSqft: { min: 10, max: 12 },
-  skylineComboPerSqft: { min: 10, max: 12 },
-  sunroomBuildablePerSqft: 125,
-  sunroomWallPerSqft: 38,
+  glassPatioCoverPerSqft: { min: 12, max: 15 },
+  skylineComboPerSqft: { min: 11, max: 14 },
+  sunroomBuildablePerSqft: { min: 130, max: 145 },
+  sunroomWallPerSqft: { min: 40, max: 48 },
 };
 
 export function patioCoverRateRangeForMaterial(material) {
@@ -31,6 +31,30 @@ export function patioCoverQuoteForMaterial(material, sqft) {
     rateMax: max,
     sqft: area,
     baseFee,
+    totalMin,
+    totalMax,
+    rateLabel: `CAD $${min}-${max}`,
+  };
+}
+
+export function sunroomRateRangeForType(type) {
+  return type === 'wall' ? CHAT_PRICING.sunroomWallPerSqft : CHAT_PRICING.sunroomBuildablePerSqft;
+}
+
+export function sunroomMidRateForType(type) {
+  const { min, max } = sunroomRateRangeForType(type);
+  return (min + max) / 2;
+}
+
+export function sunroomQuoteForType(type, sqft) {
+  const { min, max } = sunroomRateRangeForType(type);
+  const area = Math.round(Number(sqft) || 0);
+  const totalMin = Math.round(area * min);
+  const totalMax = Math.round(area * max);
+  return {
+    rateMin: min,
+    rateMax: max,
+    sqft: area,
     totalMin,
     totalMax,
     rateLabel: `CAD $${min}-${max}`,

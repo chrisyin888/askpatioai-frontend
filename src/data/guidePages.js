@@ -48,12 +48,29 @@ export const GUIDE_PAGES = {
       },
       {
         q: 'How fast can I get a quote from a patio cover contractor?',
-        a: 'Rough range in about a minute in chat. Firm pricing follows a free on-site measurement.',
+        a: 'Rough range in about a minute in chat. Your formal quote is confirmed after a free on-site measurement.',
       },
       {
         q: 'What patio cover types can I compare?',
         a: 'Aluminum, glass, skyline combo, and sunroom directions — helpful if you are still deciding product type.',
       },
+      {
+        q: 'How much does a patio cover usually cost in Metro Vancouver?',
+        a: 'Aluminum is about $8–10 per sq ft plus $500 base. Glass and skyline combo are about $12–15 and $11–14 per sq ft plus $500 base. Chat gives a planning range; measurement locks the final price.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Finished aluminum patio cover on a Burnaby backyard patio, Lower Mainland project',
+      caption:
+        'Recent Burnaby aluminum patio cover — approx. 24×20 ft rain-ready backyard cover. Use chat for a similar rough range, then book a free measurement.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor — Vancouver' },
+      { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor — Richmond' },
+      { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor — Burnaby' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
   'patio-cover-cost': {
@@ -94,17 +111,33 @@ export const GUIDE_PAGES = {
       'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your size and location.',
     faqs: [
       {
-        q: 'How much does a patio cover usually cost?',
-        a: 'It varies widely by size and system. Chat is the quickest way to get a range that fits your patio rather than a national average that does not mean much.',
+        q: 'How much does a patio cover usually cost in Vancouver?',
+        a: 'Aluminum is about $8–10 per sq ft plus $500 base. Glass is about $12–15 per sq ft plus $500 base. Skyline combo is about $11–14 per sq ft plus $500 base. Chat is the quickest way to get a range for your actual patio size.',
       },
       {
         q: 'Is the chat estimate binding?',
-        a: 'It is a ballpark for planning. Final pricing is always confirmed after we measure and review site conditions.',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
       },
       {
         q: 'Are sunrooms more expensive than patio covers?',
-        a: 'Usually yes — more enclosure, glass, and insulation. We can ballpark both if you are comparing.',
+        a: 'Usually yes — more enclosure, glass, and planning. Wall/panel work is about $40–48 per sq ft; buildable footprint is about $130–145 per sq ft. We can ballpark both if you are comparing.',
       },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost?',
+        a: 'About 168 sq ft × $8–10 per sq ft plus $500 base ≈ $1,850–2,200 before GST. Chat refines this for your city; measurement confirms the formal quote.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Finished glass patio cover on a Vancouver-area home with black frame and tempered glass panels',
+      caption:
+        'Vancouver-area glass patio cover example — bright rain protection without losing natural light. Compare aluminum and glass in chat before you measure.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
+      { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
+      { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
     ],
   },
   'glass-vs-aluminum': {
@@ -142,16 +175,37 @@ export const GUIDE_PAGES = {
       },
     ],
     pricingNote:
-      'Get two ballparks in one chat session — we can help you compare aluminum vs glass for your approximate size.',
+      'Aluminum is about $8–10 per sq ft plus $500 base. Glass is about $12–15 per sq ft plus $500 base. Get both ballparks in one chat for your approximate size.',
     faqs: [
       {
         q: 'Which patio cover type is best?',
-        a: 'The best type is the one that matches your light, budget, and maintenance comfort. We help you compare quickly instead of guessing from photos online.',
+        a: 'The best type matches your light, budget, and maintenance comfort. We help you compare quickly instead of guessing from photos online.',
       },
       {
         q: 'Is glass harder to maintain in rainy Vancouver?',
         a: 'Glass needs occasional cleaning like any exterior glass. Aluminum roofs are lower-touch. We explain real-world upkeep when you compare.',
       },
+      {
+        q: 'How much more does glass cost than aluminum?',
+        a: 'On the same footprint, glass is often roughly $2–5 more per sq ft than aluminum before GST, plus the same $500 base fee. Chat compares both from one size.',
+      },
+      {
+        q: 'Can I get aluminum and glass estimates in the same chat?',
+        a: 'Yes. Share city and rough dimensions once — we can ballpark aluminum, glass, and skyline combo from the same measurements.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Coquitlam-area home showing bright natural light under a tempered glass roof',
+      caption:
+        'Glass patio cover — keeps the patio bright while adding rain protection. Compare aluminum on the same dimensions in chat to see the budget difference.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
+      { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+      { path: '/skyline-combo-patio-covers-vancouver', label: 'Skyline combo covers' },
     ],
   },
   permit: {
@@ -195,7 +249,27 @@ export const GUIDE_PAGES = {
         q: 'Can LoomiHome help with permits?',
         a: 'We focus on design, product, and installation coordination. For permit questions, your city’s guidance is authoritative — we align construction details to what they require.',
       },
+      {
+        q: 'Should I get a price estimate before checking permits?',
+        a: 'Most homeowners do — a chat ballpark tells you if the project is financially realistic while you verify municipal rules in parallel.',
+      },
+      {
+        q: 'Do permit rules differ between Vancouver and Surrey?',
+        a: 'Yes. Attachment, projection, height, and enclosure level can be treated differently. Always confirm with your city’s building department.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+      { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor — Vancouver' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/delta-aluminum-after.png',
+      alt: 'Aluminum patio cover after installation on a Lower Mainland suburban backyard patio',
+      caption:
+        'Attached aluminum patio cover — typical open-roof project where municipal rules depend on projection and attachment. Ballpark in chat first, then confirm permits with your city.',
+      projectPath: '/projects/delta-aluminum-patio-cover',
+    },
   },
   rain: {
     id: 'rain',
@@ -238,7 +312,27 @@ export const GUIDE_PAGES = {
         q: 'What is the fastest way to compare rain-ready options?',
         a: 'Use the chat estimate — we will talk through aluminum, glass, and combo directions for your size and city.',
       },
+      {
+        q: 'How much does a rain-ready aluminum cover cost in Vancouver?',
+        a: 'Aluminum is about $8–10 per sq ft plus $500 base before GST. Chat gives a planning range; measurement confirms final pricing.',
+      },
+      {
+        q: 'Is glass still good for Vancouver rain?',
+        a: 'Yes when engineered with proper slope and drainage — it sheds water while keeping the patio brighter than a solid roof.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
+      { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Burnaby aluminum patio cover providing rain protection over a backyard seating area',
+      caption:
+        'Burnaby aluminum patio cover — rain-first protection for a typical Lower Mainland backyard. A practical starting point before comparing glass.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   'install-timeline': {
     id: 'install-timeline',
@@ -285,6 +379,22 @@ export const GUIDE_PAGES = {
         q: 'Can I get an estimate today?',
         a: 'Yes — the rough estimate is designed to happen immediately in chat.',
       },
+      {
+        q: 'What happens between chat estimate and installation?',
+        a: 'Free on-site measurement locks dimensions and scope, then you approve final pricing before materials are ordered and install is scheduled.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+      { path: '/do-you-need-a-permit-for-a-patio-cover-in-vancouver', label: 'Patio cover permit guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Surrey skyline combo patio cover after installation on a residential backyard',
+      caption:
+        'Surrey skyline combo install — chat ballpark first, measurement second, then scheduling once materials arrive. Typical flow for combo and glass projects.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
 };

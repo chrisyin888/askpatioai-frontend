@@ -363,12 +363,28 @@
                   </li>
                 </ul>
               </div>
+              <div class="home-seo-hub__col home-seo-hub__col--wide">
+                <h3 class="home-seo-hub__h3">Top local pages (start here)</h3>
+                <ul class="home-seo-hub__list">
+                  <li v-for="l in prioritySeoPageLinks" :key="l.path">
+                    <router-link :to="l.path">{{ l.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
               <div class="home-seo-hub__col">
                 <h3 class="home-seo-hub__h3">Guides &amp; projects</h3>
                 <ul class="home-seo-hub__list">
                   <li v-for="g in guidePageLinks" :key="g.path">
                     <router-link :to="g.path">{{ g.label }}</router-link>
                   </li>
+                  <li v-for="p in projectPageLinks" :key="p.path">
+                    <router-link :to="p.path">{{ p.label }}</router-link>
+                  </li>
+                </ul>
+              </div>
+              <div class="home-seo-hub__col">
+                <h3 class="home-seo-hub__h3">Project examples</h3>
+                <ul class="home-seo-hub__list">
                   <li v-for="p in projectPageLinks" :key="p.path">
                     <router-link :to="p.path">{{ p.label }}</router-link>
                   </li>
@@ -825,6 +841,10 @@
               class="site-footer__link"
               @click.prevent="scrollToGetQuote()"
             >Book Free Measurement</a>
+            <a
+              href="/llms.txt"
+              class="site-footer__link"
+            >LLM site summary</a>
           </nav>
 
           <div class="site-footer__contact">
@@ -833,7 +853,9 @@
               :href="'mailto:' + (cfg.targetEmail || 'info@loomihomepatios.ca')"
             >{{ cfg.targetEmail || 'info@loomihomepatios.ca' }}</a>
             <p class="site-footer__area">
-              Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam &amp; nearby
+              Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam,
+              North Vancouver, West Vancouver, New Westminster, Maple Ridge,
+              Pitt Meadows &amp; nearby
             </p>
           </div>
 
@@ -1291,6 +1313,7 @@
 import siteData from './data/siteData.json';
 
 import { CITY_PAGES, CITY_PAGE_ORDER } from './data/cityPages';
+import { PRIORITY_SEO_PAGE_LINKS } from './data/prioritySeoPages';
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from './data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
@@ -1307,6 +1330,8 @@ import {
   parseSizeSqft,
   patioCoverMidRateForMaterial,
   patioCoverQuoteForMaterial,
+  sunroomMidRateForType,
+  sunroomQuoteForType,
 } from './utils/chatPricing';
 import { publicAssetUrl } from './utils/publicAssetUrl';
 
@@ -1537,6 +1562,9 @@ export default {
         path: GUIDE_PAGES[id].path,
         label: labels[id] || id,
       }));
+    },
+    prioritySeoPageLinks() {
+      return PRIORITY_SEO_PAGE_LINKS;
     },
     projectPageLinks() {
       return PROJECT_PAGE_ORDER.map((id) => ({
@@ -2202,27 +2230,26 @@ export default {
 
       if (wallIntent && !floorIntent) {
         const sqft = this.parseWallSqft(text);
-        const rate = CHAT_PRICING.sunroomWallPerSqft;
+        const { min, max } = CHAT_PRICING.sunroomWallPerSqft;
         if (!sqft) {
           return {
             isPrice: true,
             showCta: false,
             answer:
-              `For sunroom wall or panel work, rough pricing is CAD $${rate} per wall sq ft. Please send the wall width and height, or the wall square footage, and I can calculate the rough total.`,
+              `For sunroom wall or panel work, rough pricing is CAD $${min}-${max} per wall sq ft. Please send the wall width and height, or the wall square footage, and I can calculate the rough total.`,
           };
         }
 
-        const total = Math.round(sqft * rate);
+        const quote = sunroomQuoteForType('wall', sqft);
         this.projectInfo.size = `${sqft} wall sq ft`;
         return {
           sqft,
-          total,
           isPrice: true,
           showCta: true,
           answer:
-            `For sunroom wall or panel work, we estimate by wall square footage at CAD $${rate}/sq ft. ` +
-            `${sqft.toLocaleString()} wall sq ft × CAD $${rate}/sq ft = approximately CAD $${total.toLocaleString()} before GST. ` +
-            `Final pricing is confirmed after free on-site measurement and site details.`,
+            `For sunroom wall or panel work, we estimate by wall square footage at ${quote.rateLabel}/sq ft. ` +
+            `${quote.sqft.toLocaleString()} wall sq ft comes to approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST. ` +
+            `This chat range is for planning only — your formal quote is confirmed after free on-site measurement.`,
         };
       }
 
@@ -2230,30 +2257,28 @@ export default {
       if (!sqft) return null;
 
       if (!floorIntent && !wallIntent) {
-        const buildableTotal = Math.round(sqft * CHAT_PRICING.sunroomBuildablePerSqft);
-        const wallTotal = Math.round(sqft * CHAT_PRICING.sunroomWallPerSqft);
+        const buildableQuote = sunroomQuoteForType('buildable', sqft);
+        const wallQuote = sunroomQuoteForType('wall', sqft);
         return {
           isPrice: false,
           showCta: false,
           answer:
             `Just to confirm: is ${sqft.toLocaleString()} sq ft the sunroom floor/buildable area, or wall/panel area? ` +
-            `Floor/buildable area is CAD $${CHAT_PRICING.sunroomBuildablePerSqft}/sq ft (about CAD $${buildableTotal.toLocaleString()} before GST). ` +
-            `Wall/panel area is CAD $${CHAT_PRICING.sunroomWallPerSqft}/sq ft (about CAD $${wallTotal.toLocaleString()} before GST).`,
+            `Floor/buildable area is ${buildableQuote.rateLabel}/sq ft (about CAD $${buildableQuote.totalMin.toLocaleString()}–$${buildableQuote.totalMax.toLocaleString()} before GST). ` +
+            `Wall/panel area is ${wallQuote.rateLabel}/sq ft (about CAD $${wallQuote.totalMin.toLocaleString()}–$${wallQuote.totalMax.toLocaleString()} before GST).`,
         };
       }
 
-      const rate = CHAT_PRICING.sunroomBuildablePerSqft;
-      const total = Math.round(sqft * rate);
+      const quote = sunroomQuoteForType('buildable', sqft);
       this.projectInfo.size = `${sqft} buildable sq ft`;
       return {
         sqft,
-        total,
         isPrice: true,
         showCta: true,
         answer:
-          `For a sunroom floor/buildable area, we estimate at CAD $${rate}/sq ft. Height is not used for this rough price. ` +
-          `${sqft.toLocaleString()} buildable sq ft × CAD $${rate}/sq ft = approximately CAD $${total.toLocaleString()} before GST. ` +
-          `Final pricing is confirmed after free on-site measurement and site details.`,
+          `For a sunroom floor/buildable area, we estimate at ${quote.rateLabel}/sq ft. Height is not used for this rough price. ` +
+          `${quote.sqft.toLocaleString()} buildable sq ft comes to approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST. ` +
+          `This chat range is for planning only — your formal quote is confirmed after free on-site measurement.`,
       };
     },
     getPatioCoverEstimate(text) {
@@ -2299,7 +2324,7 @@ export default {
         answer:
           `For a ${materialLabel}, rough pricing is ${quote.rateLabel}/sq ft plus CAD $${quote.baseFee} base fee. ` +
           `${quote.sqft.toLocaleString()} sq ft with that range plus the base fee comes to approximately CAD $${quote.totalMin.toLocaleString()}–$${quote.totalMax.toLocaleString()} before GST. ` +
-          `Final pricing is confirmed after free on-site measurement and site details.`,
+          `This chat range is for planning only — your formal quote is confirmed after free on-site measurement.`,
       };
     },
     updateProjectInfoFromText(text) {
@@ -2728,7 +2753,7 @@ export default {
           } else if (name.includes('sunroom')) {
             min = 6000;
             max = 8000;
-            ratePerSqft = CHAT_PRICING.sunroomBuildablePerSqft;
+            ratePerSqft = sunroomMidRateForType('buildable');
           }
 
           project.price =
@@ -5154,6 +5179,16 @@ html.app-scroll-lock #app {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.25rem 1.5rem;
+}
+
+.home-seo-hub__col--wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .home-seo-hub__col--wide {
+    grid-column: span 2;
+  }
 }
 
 .home-seo-hub__h3 {

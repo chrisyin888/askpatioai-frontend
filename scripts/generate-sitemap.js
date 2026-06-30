@@ -153,9 +153,9 @@ function priorityFor(pathname, cityService) {
   if (pathname === '/llms.txt' || pathname === '/.well-known/llms.txt') return '0.95';
   if (SERVICE_PAGE_ORDER.some((key) => SERVICE_PAGES[key].path === pathname)) return '0.9';
   if (CITY_PAGE_ORDER.some((id) => CITY_PAGES[id].path === pathname)) return '0.85';
+  if (GUIDE_PAGE_ORDER.some((id) => GUIDE_PAGES[id].path === pathname)) return '0.8';
   if (pathname.includes('contractor') || pathname.includes('installer')) return '0.84';
   if (CITY_SERVICE_PAGE_ORDER.some((id) => CITY_SERVICE_PAGES[id].path === pathname)) return '0.82';
-  if (GUIDE_PAGE_ORDER.some((id) => GUIDE_PAGES[id].path === pathname)) return '0.8';
   if (PROJECT_PAGE_ORDER.some((id) => PROJECT_PAGES[id].path === pathname)) return '0.75';
   return '0.7';
 }
