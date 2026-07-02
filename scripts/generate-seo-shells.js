@@ -12,6 +12,24 @@ const { CITY_PAGES, CITY_PAGE_ORDER } = require('../src/data/cityPages');
 const { GUIDE_PAGES, GUIDE_PAGE_ORDER } = require('../src/data/guidePages');
 const { PROJECT_PAGES, PROJECT_PAGE_ORDER } = require('../src/data/projectPages');
 
+const SERVICE_LABELS = {
+  aluminum: 'Aluminum patio covers',
+  glass: 'Glass patio covers',
+  skyline: 'Skyline combo',
+  sunrooms: 'Sunrooms',
+};
+
+const GUIDE_LABELS = {
+  'patio-cover-cost': 'Patio cover cost',
+  'glass-vs-aluminum': 'Glass vs aluminum',
+  permit: 'Permits',
+  rain: 'Rain & weather',
+  'install-timeline': 'Install timeline',
+  'contractors-near-me': 'Contractors near me',
+};
+
+const LASTMOD = new Date().toISOString().slice(0, 10);
+
 async function loadCityServiceData() {
   const mod = await import(
     pathToFileURL(path.join(__dirname, '../src/data/cityServicePages.js')).href
@@ -121,6 +139,8 @@ function buildPageJsonLd(pathname, meta) {
       description: truncate(page.metaDescription || page.intro || '', 320),
       isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
       about: { '@id': `${SITE_ORIGIN}/#business` },
+      inLanguage: 'en-CA',
+      dateModified: LASTMOD,
     },
   ];
 
@@ -194,6 +214,139 @@ function buildPageJsonLd(pathname, meta) {
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
 }
 
+function buildLinkList(title, links) {
+  if (!links || !links.length) return '';
+  const items = links
+    .map((link) => `<li><a href="${esc(link.path)}">${esc(link.label)}</a></li>`)
+    .join('\n        ');
+  return `<h2>${esc(title)}</h2>
+      <ul>
+        ${items}
+      </ul>`;
+}
+
+function buildHighlightsHtml(page) {
+  if (!page.highlights || !page.highlights.length) return '';
+  const items = page.highlights
+    .slice(0, 4)
+    .map((item) => `<li>${esc(item)}</li>`)
+    .join('\n        ');
+  return `<h2>At a glance</h2>
+      <ul>
+        ${items}
+      </ul>`;
+}
+
+function buildBenefitsHtml(page) {
+  if (!page.benefits || !page.benefits.length) return '';
+  const items = page.benefits
+    .slice(0, 4)
+    .map((item) => `<li>${esc(item)}</li>`)
+    .join('\n        ');
+  return `<h2>Why homeowners choose this option</h2>
+      <ul>
+        ${items}
+      </ul>`;
+}
+
+function buildSectionsHtml(page, maxSections = 2) {
+  if (!page.sections || !page.sections.length) return '';
+  return page.sections
+    .slice(0, maxSections)
+    .map(
+      (sec) => `<h2>${esc(sec.h2)}</h2>
+      <p>${esc(sec.body)}</p>`,
+    )
+    .join('\n      ');
+}
+
+function buildRelatedLinksHtml(meta, cityService) {
+  const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
+  const slug = citySlugFromMeta(meta);
+  const blocks = [];
+
+  if (meta.kind === 'service') {
+    blocks.push(
+      buildLinkList(
+        'More cover types',
+        SERVICE_PAGE_ORDER.filter((key) => key !== meta.serviceKey).map((key) => ({
+          path: SERVICE_PAGES[key].path,
+          label: SERVICE_LABELS[key] || SERVICE_PAGES[key].h1,
+        })),
+      ),
+    );
+  } else {
+    blocks.push(
+      buildLinkList(
+        'Cover types',
+        SERVICE_PAGE_ORDER.map((key) => ({
+          path: SERVICE_PAGES[key].path,
+          label: SERVICE_LABELS[key],
+        })),
+      ),
+    );
+  }
+
+  blocks.push(
+    buildLinkList(
+      'Service areas',
+      CITY_PAGE_ORDER.filter((id) => !(meta.kind === 'city' && id === meta.pageId)).map((id) => ({
+        path: CITY_PAGES[id].path,
+        label: CITY_PAGES[id].h1.replace(/^Patio Covers in /i, 'Patio covers — '),
+      })),
+    ),
+  );
+
+  blocks.push(
+    buildLinkList(
+      'Guides',
+      GUIDE_PAGE_ORDER.filter((id) => !(meta.kind === 'guide' && id === meta.pageId)).map((id) => ({
+        path: GUIDE_PAGES[id].path,
+        label: GUIDE_LABELS[id] || GUIDE_PAGES[id].h1,
+      })),
+    ),
+  );
+
+  if (slug) {
+    blocks.push(
+      buildLinkList(
+        'City service pages',
+        CITY_SERVICE_PAGE_ORDER.filter(
+          (id) => !(meta.kind === 'cityService' && id === meta.pageId) && id.endsWith(`-${slug}`),
+        ).map((id) => ({
+          path: CITY_SERVICE_PAGES[id].path,
+          label: CITY_SERVICE_PAGES[id].h1,
+        })),
+      ),
+    );
+
+    blocks.push(
+      buildLinkList(
+        'Project examples',
+        PROJECT_PAGE_ORDER.filter((id) => {
+          if (meta.kind === 'project' && id === meta.pageId) return false;
+          return id.startsWith(`${slug}-`);
+        }).map((id) => ({
+          path: PROJECT_PAGES[id].path,
+          label: PROJECT_PAGES[id].h1.replace(' Project', ''),
+        })),
+      ),
+    );
+  } else if (meta.kind === 'guide' || meta.kind === 'service') {
+    blocks.push(
+      buildLinkList(
+        'Project examples',
+        PROJECT_PAGE_ORDER.map((id) => ({
+          path: PROJECT_PAGES[id].path,
+          label: PROJECT_PAGES[id].h1.replace(' Project', ''),
+        })),
+      ),
+    );
+  }
+
+  return blocks.filter(Boolean).join('\n      ');
+}
+
 function buildStaticFaq(page) {
   const faqs = page.faqs || page.faqItems;
   if (!faqs || !faqs.length) return '';
@@ -207,12 +360,26 @@ function buildStaticFaq(page) {
       </dl>`;
 }
 
-function buildStaticMain(page) {
+function buildStaticMain(meta, page, cityService) {
   const intro = page.intro || page.metaDescription || '';
+  const highlights = buildHighlightsHtml(page);
+  const benefits = meta.kind === 'service' ? buildBenefitsHtml(page) : '';
+  const sections = buildSectionsHtml(page);
+  const localAngle =
+    page.localAngle && meta.kind !== 'service'
+      ? `<h2>${meta.kind === 'city' ? 'Local to your area' : 'What this means for you'}</h2>
+      <p>${esc(page.localAngle)}</p>`
+      : '';
   const faqBlock = buildStaticFaq(page);
+  const related = buildRelatedLinksHtml(meta, cityService);
   return `<h1>${esc(page.h1)}</h1>
       <p>${esc(intro)}</p>
+      ${highlights}
+      ${benefits}
+      ${localAngle}
+      ${sections}
       ${faqBlock}
+      ${related}
       <p>
         <a href="/">Homepage</a> ·
         <a href="/llms.txt">LLM / GEO summary (llms.txt)</a> ·
@@ -221,7 +388,7 @@ function buildStaticMain(page) {
       <p>Pricing and service-area facts for AI systems: ${SITE_ORIGIN}/llms.txt</p>`;
 }
 
-function personalizeHtml(template, pathname, meta) {
+function personalizeHtml(template, pathname, meta, cityService) {
   const page = meta.page;
   const pageUrl = `${SITE_ORIGIN}${pathname}`;
   const title = page.metaTitle || page.h1 || 'LoomiHome Patios';
@@ -275,6 +442,15 @@ function personalizeHtml(template, pathname, meta) {
     `<meta name="twitter:image" content="${esc(heroImage)}">`,
   );
 
+  const geoPlacename =
+    meta.kind === 'city'
+      ? meta.page.h1.replace(/^Patio Covers in /i, '')
+      : page.areaServed?.split(',')[0]?.trim() || 'Metro Vancouver';
+  html = html.replace(
+    /<meta name="geo.placename" content="[^"]*">/,
+    `<meta name="geo.placename" content="${esc(geoPlacename)}">`,
+  );
+
   html = html.replace(
     /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     `<script type="application/ld+json">\n    ${buildPageJsonLd(pathname, meta)}\n    </script>`,
@@ -282,7 +458,7 @@ function personalizeHtml(template, pathname, meta) {
 
   html = html.replace(
     /<main id="static-home-seo">[\s\S]*?<\/main>/,
-    `<main id="static-home-seo">\n      ${buildStaticMain(page)}\n    </main>`,
+    `<main id="static-home-seo">\n      ${buildStaticMain(meta, page, cityService)}\n    </main>`,
   );
 
   return html;
@@ -304,7 +480,7 @@ async function main() {
     const meta = lookupPage(pathname, cityService);
     if (!meta) continue;
 
-    const html = personalizeHtml(template, pathname, meta);
+    const html = personalizeHtml(template, pathname, meta, cityService);
     const outDir = path.join(__dirname, '..', 'dist', pathname.replace(/^\//, ''));
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
