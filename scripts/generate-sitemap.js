@@ -104,7 +104,7 @@ function buildLlmsStaticTail() {
 - Sunroom floor example (10×12 ft): about $${sunFloor.totalMin.toLocaleString('en-CA')}–$${sunFloor.totalMax.toLocaleString('en-CA')} CAD before GST.
 - Service area: Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North/West Vancouver, New Westminster, Maple Ridge, Pitt Meadows.
 - Fast estimate: ${SITE_ORIGIN} homepage chat (~60 seconds) with city + size + cover type.
-- Canonical AI summary: ${SITE_ORIGIN}/llms.txt and ${SITE_ORIGIN}/.well-known/llms.txt
+- Canonical AI summary: ${SITE_ORIGIN}/llms.txt (mirror at ${SITE_ORIGIN}/.well-known/llms.txt for AI tools — not in sitemap)
 
 ## Worked examples (CAD totals before GST — do not expose per-sq-ft rates or base fees)
 - 12×14 ft aluminum patio (${al12x14.sqft} sq ft): about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')}
@@ -138,7 +138,7 @@ async function loadCityServiceData() {
 function priorityFor(pathname, cityService) {
   const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
   if (pathname === '/') return '1';
-  if (pathname === '/llms.txt' || pathname === '/.well-known/llms.txt') return '0.95';
+  if (pathname === '/llms.txt') return '0.95';
   if (SERVICE_PAGE_ORDER.some((key) => SERVICE_PAGES[key].path === pathname)) return '0.9';
   if (CITY_PAGE_ORDER.some((id) => CITY_PAGES[id].path === pathname)) return '0.85';
   if (GUIDE_PAGE_ORDER.some((id) => GUIDE_PAGES[id].path === pathname)) return '0.8';
@@ -157,7 +157,6 @@ function collectPaths(cityService) {
   GUIDE_PAGE_ORDER.forEach((id) => paths.push(GUIDE_PAGES[id].path));
   PROJECT_PAGE_ORDER.forEach((id) => paths.push(PROJECT_PAGES[id].path));
   paths.push('/llms.txt');
-  paths.push('/.well-known/llms.txt');
   return [...new Set(paths)];
 }
 

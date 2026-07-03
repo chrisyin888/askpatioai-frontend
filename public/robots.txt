@@ -12,6 +12,6 @@ Sitemap: https://loomihomepatios.ca/sitemap.xml
 
 # LLM / GEO site summary (canonical for AI citation)
 # https://loomihomepatios.ca/llms.txt
-# https://loomihomepatios.ca/.well-known/llms.txt
+# Mirror for AI tools (not in sitemap): https://loomihomepatios.ca/.well-known/llms.txt
 Allow: /llms.txt
 Allow: /.well-known/llms.txt

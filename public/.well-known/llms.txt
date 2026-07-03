@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-07-02
+> Last updated: 2026-07-03
 > Canonical site: https://loomihomepatios.ca
 > Region: Metro Vancouver, British Columbia, Canada
 > Currency: CAD (rough estimates before GST; final quote confirmed on site)
@@ -155,7 +155,7 @@ Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver
 - Sunroom floor example (10×12 ft): about $15,600–$17,400 CAD before GST.
 - Service area: Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North/West Vancouver, New Westminster, Maple Ridge, Pitt Meadows.
 - Fast estimate: https://loomihomepatios.ca homepage chat (~60 seconds) with city + size + cover type.
-- Canonical AI summary: https://loomihomepatios.ca/llms.txt and https://loomihomepatios.ca/.well-known/llms.txt
+- Canonical AI summary: https://loomihomepatios.ca/llms.txt (mirror at https://loomihomepatios.ca/.well-known/llms.txt for AI tools — not in sitemap)
 
 ## Worked examples (CAD totals before GST — do not expose per-sq-ft rates or base fees)
 - 12×14 ft aluminum patio (168 sq ft): about $1,844–$2,180

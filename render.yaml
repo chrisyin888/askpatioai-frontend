@@ -4,8 +4,8 @@
 #   Root Directory:        .     (repo root — same folder as package.json)
 #   Build Command:         npm install && npm run build
 #   Publish Directory:     dist
-#   Static files:          /sitemap.xml, /robots.txt, /llms.txt, and per-route dist/{path}/index.html SEO shells
-#   Rewrite:               /*  →  /index.html  (type: rewrite — only when no static file matches)
+#   Static files:          /sitemap.xml, /robots.txt, /llms.txt, dist/_redirects (SEO path rewrites), and per-route dist/{path}/index.html SEO shells
+#   Rewrite:               /*  →  /index.html  (type: rewrite — only when no static file / _redirects rule matches)
 #
 # Python API: rootDir fastapi only. Do not point the apex domain at that service.
 #

@@ -30,6 +30,15 @@ const GUIDE_LABELS = {
 
 const LASTMOD = new Date().toISOString().slice(0, 10);
 
+/** Marketplace routes — static shells with noindex so crawlers never see homepage canonical. */
+const NOINDEX_SHELL_PATHS = [
+  { path: '/contractor-login', title: 'Contractor Login | LoomiHome Patios' },
+  { path: '/admin-login', title: 'Admin Login | LoomiHome Patios' },
+  { path: '/lobby', title: 'Lead Lobby | LoomiHome Patios' },
+  { path: '/account', title: 'Account | LoomiHome Patios' },
+  { path: '/admin-leads', title: 'Admin | LoomiHome Patios' },
+];
+
 async function loadCityServiceData() {
   const mod = await import(
     pathToFileURL(path.join(__dirname, '../src/data/cityServicePages.js')).href
@@ -464,6 +473,56 @@ function personalizeHtml(template, pathname, meta, cityService) {
   return html;
 }
 
+function buildNoindexShell(template, pathname, title) {
+  const pageUrl = `${SITE_ORIGIN}${pathname}`;
+  let html = template;
+  html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="noindex,nofollow">`);
+  html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
+  html = html.replace(
+    /<meta name="description" content="[^"]*">/,
+    `<meta name="description" content="Private marketplace page — not for search indexing.">`,
+  );
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*">/,
+    `<link rel="canonical" href="${esc(pageUrl)}">`,
+  );
+  html = html.replace(
+    /<link rel="alternate" hreflang="en-CA" href="[^"]*">/,
+    `<link rel="alternate" hreflang="en-CA" href="${esc(pageUrl)}">`,
+  );
+  html = html.replace(
+    /<link rel="alternate" hreflang="x-default" href="[^"]*">/,
+    `<link rel="alternate" hreflang="x-default" href="${esc(pageUrl)}">`,
+  );
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*">/,
+    `<meta property="og:url" content="${esc(pageUrl)}">`,
+  );
+  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '');
+  html = html.replace(
+    /<main id="static-home-seo">[\s\S]*?<\/main>/,
+    `<main id="static-home-seo"><p>Private page — not indexed.</p></main>`,
+  );
+  return html;
+}
+
+/** Render _redirects: map slashless sitemap URLs to SEO shells; consolidate trailing slashes. */
+function buildRedirectsFile(seoPaths) {
+  const lines = ['/contractor /contractor-login 301'];
+
+  seoPaths.forEach((pathname) => {
+    lines.push(`${pathname} ${pathname}/index.html 200`);
+    lines.push(`${pathname}/ ${pathname} 301`);
+  });
+
+  NOINDEX_SHELL_PATHS.forEach(({ path: pathname }) => {
+    lines.push(`${pathname} ${pathname}/index.html 200`);
+    lines.push(`${pathname}/ ${pathname} 301`);
+  });
+
+  return `${lines.join('\n')}\n`;
+}
+
 async function main() {
   const distIndex = path.join(__dirname, '..', 'dist', 'index.html');
   if (!fs.existsSync(distIndex)) {
@@ -487,7 +546,20 @@ async function main() {
     written += 1;
   }
 
+  let noindexWritten = 0;
+  for (const { path: pathname, title } of NOINDEX_SHELL_PATHS) {
+    const html = buildNoindexShell(template, pathname, title);
+    const outDir = path.join(__dirname, '..', 'dist', pathname.replace(/^\//, ''));
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+    noindexWritten += 1;
+  }
+
+  const redirectLines = buildRedirectsFile(paths);
+  fs.writeFileSync(path.join(__dirname, '..', 'dist', '_redirects'), redirectLines, 'utf8');
+
   console.log(`Wrote ${written} SEO HTML shells under dist/`);
+  console.log(`Wrote ${noindexWritten} noindex shells and ${redirectLines.trim().split('\n').length} redirect rules to dist/_redirects`);
 }
 
 main().catch((err) => {
