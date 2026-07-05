@@ -74,6 +74,34 @@ const CITY_META = {
       projectPath: '/projects/surrey-skyline-combo-patio-cover',
     },
   },
+  'port-coquitlam': {
+    name: 'Port Coquitlam',
+    areaServed: 'Port Coquitlam, British Columbia',
+    neighbourhoods: 'Citadel Heights, Mary Hill, and Lincoln Park',
+    localDetail: 'Tri-Cities rain, townhomes, and hillside yards',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Tri-Cities backyard patio similar to Port Coquitlam homes',
+      caption:
+        'Glass patio cover — rain-ready option for Port Coquitlam yards. Compare aluminum on the same size in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
+  },
+  'port-moody': {
+    name: 'Port Moody',
+    areaServed: 'Port Moody, British Columbia',
+    neighbourhoods: 'Moody Centre, Suter Brook, and Newport Village',
+    localDetail: 'coastal rain, compact lots, and view-oriented decks',
+    heroImage: '/house/glass/glass-hero.png',
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a compact Metro Vancouver backyard patio',
+      caption:
+        'Glass patio cover — bright rain protection suited to Port Moody walkout decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
+  },
 };
 
 function contractorPage(slug, meta) {

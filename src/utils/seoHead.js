@@ -131,6 +131,8 @@ export function setPageMeta({ title, description, path = '/', robots = 'index,fo
   upsertLlmsAlternateLink();
   upsertMetaByName('geo.region', 'CA-BC');
   upsertMetaByName('geo.placename', 'Metro Vancouver');
+  upsertMetaByName('geo.position', '49.2827;-123.1207');
+  upsertMetaByName('ICBM', '49.2827, -123.1207');
 
   upsertMetaProperty('og:type', 'website');
   upsertMetaProperty('og:site_name', 'LoomiHome Patios');
@@ -210,6 +212,25 @@ export function localBusinessNode() {
     foundingDate: '2025',
     url: SITE_ORIGIN,
     image: `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 49.2827,
+      longitude: -123.1207,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Vancouver',
+      addressRegion: 'BC',
+      addressCountry: 'CA',
+    },
+    knowsAbout: [
+      'Aluminum patio covers',
+      'Glass patio covers',
+      'Skyline combo patio covers',
+      'Sunroom enclosures',
+      'Patio cover installation',
+      'Metro Vancouver patio covers',
+    ],
     areaServed: [
       { '@type': 'City', name: 'Vancouver' },
       { '@type': 'City', name: 'Burnaby' },
@@ -217,6 +238,8 @@ export function localBusinessNode() {
       { '@type': 'City', name: 'Surrey' },
       { '@type': 'City', name: 'Delta' },
       { '@type': 'City', name: 'Coquitlam' },
+      { '@type': 'City', name: 'Port Coquitlam' },
+      { '@type': 'City', name: 'Port Moody' },
       { '@type': 'City', name: 'Langley' },
       { '@type': 'City', name: 'North Vancouver' },
       { '@type': 'City', name: 'West Vancouver' },

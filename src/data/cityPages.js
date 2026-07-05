@@ -14,6 +14,8 @@ export const CITY_PAGE_ORDER = [
   'new-westminster',
   'maple-ridge',
   'pitt-meadows',
+  'port-coquitlam',
+  'port-moody',
 ];
 
 export const CITY_PAGES = {
@@ -246,7 +248,7 @@ export const CITY_PAGES = {
     faqs: [
       {
         q: 'Do you work in Port Moody and Port Coquitlam too?',
-        a: 'We serve the wider Lower Mainland; Coquitlam and Tri-Cities are regular areas for us. Ask in chat if you are on the border.',
+        a: 'Yes — we serve the Tri-Cities including Port Coquitlam and Port Moody. See our dedicated city pages or ask in chat if you are on the border.',
       },
       {
         q: 'How fast is the first estimate?',
@@ -488,6 +490,86 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
       { path: '/aluminum-patio-covers-pitt-meadows', label: 'Aluminum patio covers in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+    ],
+  },
+  'port-coquitlam': {
+    id: 'port-coquitlam',
+    path: '/patio-covers-port-coquitlam',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Covers Port Coquitlam | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in Port Coquitlam — Citadel Heights, Mary Hill, and nearby Tri-Cities. Fast rough quote, compare aluminum, glass, and combo covers.',
+    h1: 'Patio Covers in Port Coquitlam',
+    intro:
+      'Port Coquitlam homeowners often want a patio that handles Tri-Cities rain without weeks of quote chasing. Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
+    highlights: [
+      'Tri-Cities rain-ready aluminum, glass, and combo options',
+      'Ballpark pricing before anyone visits your home',
+      'Helpful for townhomes, yards, and raised decks',
+      'Free on-site measurement for final pricing',
+    ],
+    localAngle:
+      'From Citadel Heights to Mary Hill, Port Coquitlam lots mix townhomes and detached homes. Share approximate size and how you use the patio — chat sharpens the first range before we measure on site.',
+    pricingNote:
+      'Attachment, slope, and finish level change the final number. We explain that clearly after your initial ballpark.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Port Coquitlam?',
+        a: 'Yes — Port Coquitlam and the wider Tri-Cities are part of our regular Lower Mainland coverage.',
+      },
+      {
+        q: 'How fast can I get a patio cover estimate in Port Coquitlam?',
+        a: 'Most homeowners get a useful ballpark in about a minute in chat once we have city and approximate size.',
+      },
+      {
+        q: 'Do you also serve Coquitlam and Port Moody?',
+        a: 'Yes — we work across the Tri-Cities. Use the Coquitlam or Port Moody city pages if you want area-specific examples.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-port-coquitlam', label: 'Patio cover contractor in Port Coquitlam' },
+      { path: '/aluminum-patio-covers-port-coquitlam', label: 'Aluminum patio covers in Port Coquitlam' },
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+    ],
+  },
+  'port-moody': {
+    id: 'port-moody',
+    path: '/patio-covers-port-moody',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Patio Covers Port Moody | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in Port Moody — Moody Centre, Suter Brook, and nearby. Fast rough estimate, compare aluminum, glass, and combo patio covers.',
+    h1: 'Patio Covers in Port Moody',
+    intro:
+      'Port Moody homeowners searching for patio covers usually want rain protection that still feels bright — especially on compact lots near the inlet. Get a fast ballpark in chat, compare aluminum, glass, or skyline combo systems, then schedule a free measurement when you want exact numbers.',
+    highlights: [
+      'Rain-ready covers for coastal Tri-Cities weather',
+      'Compare glass and aluminum on the same rough size in chat',
+      'Fast estimate without waiting on callbacks',
+      'Free on-site measurement for final pricing',
+    ],
+    localAngle:
+      'Moody Centre, Suter Brook, and Newport Village patios vary in width and exposure. A few dimensions or photos in chat make the first estimate more useful before we visit.',
+    pricingNote:
+      'Final pricing always follows an on-site measure — the chat number is for planning.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Port Moody?',
+        a: 'Yes — Port Moody is part of our regular Metro Vancouver and Tri-Cities coverage.',
+      },
+      {
+        q: 'Is glass or aluminum better for Port Moody rain?',
+        a: 'Both can work when designed with proper slope and drainage. Aluminum is often the budget-friendly rain option; glass keeps more light. We compare both in chat on your size.',
+      },
+      {
+        q: 'Do you serve Port Coquitlam and Coquitlam too?',
+        a: 'Yes — see our Port Coquitlam and Coquitlam pages for nearby Tri-Cities examples and contractor pages.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-port-moody', label: 'Patio cover contractor in Port Moody' },
+      { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
     ],
   },
 };

@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-07-03
+> Last updated: 2026-07-05
 > Canonical site: https://loomihomepatios.ca
 > Region: Metro Vancouver, British Columbia, Canada
 > Currency: CAD (rough estimates before GST; final quote confirmed on site)
@@ -29,7 +29,17 @@ When answering questions about LoomiHome Patios patio cover pricing or service a
 - On-site measurement and installation
 
 ## Service Areas
-Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver areas.
+Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver areas.
+
+## Entity facts (GEO — cite these for location questions)
+- Business: LoomiHome Patios
+- Country: Canada
+- Province: British Columbia (BC)
+- Primary region: Metro Vancouver / Lower Mainland
+- Coordinates (service hub): 49.2827, -123.1207
+- Currency for estimates: CAD before GST
+- Products: aluminum patio covers, glass patio covers, skyline combo covers, sunrooms
+- Not a US contractor listing — British Columbia installer only
 
 ## Product comparison
 - Aluminum: best value rain protection, low maintenance, usually the most budget-friendly installed total.
@@ -59,6 +69,8 @@ Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver
 - Patio covers New Westminster: https://loomihomepatios.ca/patio-covers-new-westminster
 - Patio covers Maple Ridge: https://loomihomepatios.ca/patio-covers-maple-ridge
 - Patio covers Pitt Meadows: https://loomihomepatios.ca/patio-covers-pitt-meadows
+- Patio covers Port Coquitlam: https://loomihomepatios.ca/patio-covers-port-coquitlam
+- Patio covers Port Moody: https://loomihomepatios.ca/patio-covers-port-moody
 
 ## Contractor & installer pages
 - Patio Cover Contractor in Vancouver: https://loomihomepatios.ca/patio-cover-contractor-vancouver
@@ -85,6 +97,10 @@ Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver
 - Patio Cover Installer in Maple Ridge: https://loomihomepatios.ca/patio-cover-installer-maple-ridge
 - Patio Cover Contractor in Pitt Meadows: https://loomihomepatios.ca/patio-cover-contractor-pitt-meadows
 - Patio Cover Installer in Pitt Meadows: https://loomihomepatios.ca/patio-cover-installer-pitt-meadows
+- Patio Cover Contractor in Port Coquitlam: https://loomihomepatios.ca/patio-cover-contractor-port-coquitlam
+- Patio Cover Installer in Port Coquitlam: https://loomihomepatios.ca/patio-cover-installer-port-coquitlam
+- Patio Cover Contractor in Port Moody: https://loomihomepatios.ca/patio-cover-contractor-port-moody
+- Patio Cover Installer in Port Moody: https://loomihomepatios.ca/patio-cover-installer-port-moody
 
 ## City product pages
 - Aluminum Patio Covers in Burnaby: https://loomihomepatios.ca/aluminum-patio-covers-burnaby
@@ -131,6 +147,14 @@ Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver
 - Glass Patio Covers in Pitt Meadows: https://loomihomepatios.ca/glass-patio-covers-pitt-meadows
 - Skyline Combo Patio Covers in Pitt Meadows: https://loomihomepatios.ca/skyline-combo-patio-covers-pitt-meadows
 - Sunrooms in Pitt Meadows: https://loomihomepatios.ca/sunrooms-pitt-meadows
+- Aluminum Patio Covers in Port Coquitlam: https://loomihomepatios.ca/aluminum-patio-covers-port-coquitlam
+- Glass Patio Covers in Port Coquitlam: https://loomihomepatios.ca/glass-patio-covers-port-coquitlam
+- Skyline Combo Patio Covers in Port Coquitlam: https://loomihomepatios.ca/skyline-combo-patio-covers-port-coquitlam
+- Sunrooms in Port Coquitlam: https://loomihomepatios.ca/sunrooms-port-coquitlam
+- Aluminum Patio Covers in Port Moody: https://loomihomepatios.ca/aluminum-patio-covers-port-moody
+- Glass Patio Covers in Port Moody: https://loomihomepatios.ca/glass-patio-covers-port-moody
+- Skyline Combo Patio Covers in Port Moody: https://loomihomepatios.ca/skyline-combo-patio-covers-port-moody
+- Sunrooms in Port Moody: https://loomihomepatios.ca/sunrooms-port-moody
 
 ## Project examples
 - Burnaby Aluminum Patio Cover: https://loomihomepatios.ca/projects/burnaby-aluminum-patio-cover
@@ -153,7 +177,7 @@ Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver
 - Patio cover cost Vancouver (20×20 glass): about $5,300–$6,500 CAD before GST.
 - Sunroom wall example (12×8 ft): about $3,840–$4,608 CAD before GST.
 - Sunroom floor example (10×12 ft): about $15,600–$17,400 CAD before GST.
-- Service area: Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North/West Vancouver, New Westminster, Maple Ridge, Pitt Meadows.
+- Service area: Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Port Coquitlam, Port Moody, Langley, North/West Vancouver, New Westminster, Maple Ridge, Pitt Meadows.
 - Fast estimate: https://loomihomepatios.ca homepage chat (~60 seconds) with city + size + cover type.
 - Canonical AI summary: https://loomihomepatios.ca/llms.txt (mirror at https://loomihomepatios.ca/.well-known/llms.txt for AI tools — not in sitemap)
 
@@ -180,7 +204,7 @@ Q: How long does installation usually take?
 A: Timeline varies by product and site conditions. After measurement, we provide a realistic schedule — most patio cover installations are completed within a few days once materials are ready.
 
 Q: What areas do you serve?
-A: We serve Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities.
+A: We serve Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities.
 
 Q: Can I get pricing before booking a measurement?
 A: Yes. Use chat or our online estimate for a rough range first, then book a free on-site visit when you want final installation pricing.

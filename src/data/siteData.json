@@ -34,7 +34,7 @@
     "productsLead": "Compare the main patio cover types, then get a quick rough quote in chat before booking a free on-site measurement.",
     "seoHeading": "Patio cover installation in Metro Vancouver",
     "seoBody": "LoomiHome Patios provides aluminum patio cover installation, glass patio cover installation, skyline combo covers, and sunroom enclosures across Metro Vancouver. Example planning ranges (before GST): a 12×14 ft aluminum patio cover is about $1,844–$2,180; a 12×14 ft glass cover is about $2,516–$3,020; a 12×26 ft skyline combo is about $3,932–$4,868. Chat gives a range for your size; formal pricing is confirmed after free on-site measurement.",
-    "seoServiceArea": "Service areas: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities.",
+    "seoServiceArea": "Service areas: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities.",
     "faqTitle": "Frequently asked questions",
     "faqItems": [
       {
@@ -55,7 +55,7 @@
       },
       {
         "q": "What areas do you serve?",
-        "a": "We serve Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities."
+        "a": "We serve Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities."
       },
       {
         "q": "Can I get pricing before booking a measurement?",
@@ -221,6 +221,8 @@
       "Surrey",
       "Delta",
       "Coquitlam",
+      "Port Coquitlam",
+      "Port Moody",
       "Langley",
       "North Vancouver",
       "West Vancouver",

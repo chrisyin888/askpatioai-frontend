@@ -5,6 +5,8 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor — Vancouver' },
   { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor — Richmond' },
   { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor — Burnaby' },
+  { path: '/patio-covers-port-coquitlam', label: 'Patio covers — Port Coquitlam' },
+  { path: '/patio-covers-port-moody', label: 'Patio covers — Port Moody' },
   { path: '/glass-patio-covers-richmond', label: 'Glass patio covers — Richmond' },
   { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers — Vancouver' },
   { path: '/sunrooms-vancouver', label: 'Sunrooms — Vancouver' },
