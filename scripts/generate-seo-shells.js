@@ -523,7 +523,13 @@ function buildNoindexShell(template, pathname, title) {
 
 /** Render _redirects: map slashless sitemap URLs to SEO shells; consolidate trailing slashes. */
 function buildRedirectsFile(seoPaths) {
-  const lines = ['/contractor /contractor-login 301'];
+  const lines = [
+    '/sitemap.xml /sitemap.xml 200',
+    '/robots.txt /robots.txt 200',
+    '/llms.txt /llms.txt 200',
+    '/.well-known/llms.txt /.well-known/llms.txt 200',
+    '/contractor /contractor-login 301',
+  ];
 
   seoPaths.forEach((pathname) => {
     lines.push(`${pathname} ${pathname}/index.html 200`);
@@ -534,6 +540,9 @@ function buildRedirectsFile(seoPaths) {
     lines.push(`${pathname} ${pathname}/index.html 200`);
     lines.push(`${pathname}/ ${pathname} 301`);
   });
+
+  // SPA fallback — must be last so SEO shell rules above take precedence.
+  lines.push('/* /index.html 200');
 
   return `${lines.join('\n')}\n`;
 }

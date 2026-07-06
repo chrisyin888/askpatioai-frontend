@@ -1,5 +1,7 @@
 /**
- * Regenerate public/llms.txt from pricing + priority SEO pages (run before production build).
+ * Legacy llms.txt generator (priority-page focused).
+ * Production builds use `npm run generate:sitemap` instead — it writes llms.txt,
+ * .well-known/llms.txt, and sitemap.xml from the full SEO route set.
  */
 const fs = require('fs');
 const path = require('path');
