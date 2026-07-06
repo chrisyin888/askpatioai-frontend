@@ -49,6 +49,13 @@ async function loadCityServiceData() {
   };
 }
 
+async function loadPriorityPages() {
+  const mod = await import(
+    pathToFileURL(path.join(__dirname, '../src/data/prioritySeoPages.js')).href
+  );
+  return mod.PRIORITY_SEO_PAGE_LINKS;
+}
+
 function collectPaths(cityService) {
   const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
   const paths = ['/'];
@@ -269,10 +276,18 @@ function buildSectionsHtml(page, maxSections = 2) {
     .join('\n      ');
 }
 
-function buildRelatedLinksHtml(meta, cityService) {
+function buildRelatedLinksHtml(meta, cityService, priorityPages) {
   const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
   const slug = citySlugFromMeta(meta);
+  const currentPath = meta.page.path;
   const blocks = [];
+
+  blocks.push(
+    buildLinkList(
+      'High-intent local pages',
+      priorityPages.filter((link) => link.path !== currentPath),
+    ),
+  );
 
   if (meta.kind === 'service') {
     blocks.push(
@@ -369,7 +384,7 @@ function buildStaticFaq(page) {
       </dl>`;
 }
 
-function buildStaticMain(meta, page, cityService) {
+function buildStaticMain(meta, page, cityService, priorityPages) {
   const intro = page.intro || page.metaDescription || '';
   const highlights = buildHighlightsHtml(page);
   const benefits = meta.kind === 'service' ? buildBenefitsHtml(page) : '';
@@ -380,7 +395,7 @@ function buildStaticMain(meta, page, cityService) {
       <p>${esc(page.localAngle)}</p>`
       : '';
   const faqBlock = buildStaticFaq(page);
-  const related = buildRelatedLinksHtml(meta, cityService);
+  const related = buildRelatedLinksHtml(meta, cityService, priorityPages);
   return `<h1>${esc(page.h1)}</h1>
       <p>${esc(intro)}</p>
       ${highlights}
@@ -397,7 +412,7 @@ function buildStaticMain(meta, page, cityService) {
       <p>Pricing and service-area facts for AI systems: ${SITE_ORIGIN}/llms.txt</p>`;
 }
 
-function personalizeHtml(template, pathname, meta, cityService) {
+function personalizeHtml(template, pathname, meta, cityService, priorityPages) {
   const page = meta.page;
   const pageUrl = `${SITE_ORIGIN}${pathname}`;
   const title = page.metaTitle || page.h1 || 'LoomiHome Patios';
@@ -467,7 +482,7 @@ function personalizeHtml(template, pathname, meta, cityService) {
 
   html = html.replace(
     /<main id="static-home-seo">[\s\S]*?<\/main>/,
-    `<main id="static-home-seo">\n      ${buildStaticMain(meta, page, cityService)}\n    </main>`,
+    `<main id="static-home-seo">\n      ${buildStaticMain(meta, page, cityService, priorityPages)}\n    </main>`,
   );
 
   return html;
@@ -532,6 +547,7 @@ async function main() {
 
   const template = fs.readFileSync(distIndex, 'utf8');
   const cityService = await loadCityServiceData();
+  const priorityPages = await loadPriorityPages();
   const paths = collectPaths(cityService).filter((p) => p !== '/');
 
   let written = 0;
@@ -539,7 +555,7 @@ async function main() {
     const meta = lookupPage(pathname, cityService);
     if (!meta) continue;
 
-    const html = personalizeHtml(template, pathname, meta, cityService);
+    const html = personalizeHtml(template, pathname, meta, cityService, priorityPages);
     const outDir = path.join(__dirname, '..', 'dist', pathname.replace(/^\//, ''));
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');

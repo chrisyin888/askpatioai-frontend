@@ -47,6 +47,10 @@ async function buildLlmsTxt() {
 
   return `# LoomiHome Patios
 
+> Last updated: ${new Date().toISOString().slice(0, 10)}
+> Canonical: ${SITE_ORIGIN}/llms.txt
+> Mirror for AI tools: ${SITE_ORIGIN}/.well-known/llms.txt
+
 LoomiHome Patios installs aluminum patio covers, glass patio covers, skyline combo patio covers, and sunroom enclosures in Metro Vancouver and the Lower Mainland, British Columbia, Canada.
 
 ## Business summary
@@ -159,7 +163,12 @@ async function main() {
   const outPath = path.join(__dirname, '..', 'public', 'llms.txt');
   const txt = await buildLlmsTxt();
   fs.writeFileSync(outPath, txt, 'utf8');
-  console.log(`Wrote ${outPath}`);
+
+  const wellKnownDir = path.join(__dirname, '..', 'public', '.well-known');
+  fs.mkdirSync(wellKnownDir, { recursive: true });
+  const wellKnownPath = path.join(wellKnownDir, 'llms.txt');
+  fs.writeFileSync(wellKnownPath, txt, 'utf8');
+  console.log(`Wrote ${outPath} and ${wellKnownPath}`);
 }
 
 main().catch((err) => {
