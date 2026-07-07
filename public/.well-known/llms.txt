@@ -1,10 +1,14 @@
 # LoomiHome Patios
 
+<<<<<<< HEAD
 > Last updated: 2026-07-06
 <<<<<<< HEAD
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 =======
+=======
+> Last updated: 2026-07-07
+>>>>>>> 3966c87 (Refresh sitemap and llms.txt lastmod dates.)
 > Canonical site: https://loomihomepatios.ca
 > Region: Metro Vancouver, British Columbia, Canada
 > Currency: CAD (rough estimates before GST; final quote confirmed on site)
