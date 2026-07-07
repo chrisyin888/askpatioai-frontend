@@ -1,8 +1,7 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/((?!sitemap\\.xml$|robots\\.txt$|llms\\.txt$|\\.well-known/).*)", "destination": "/index.html" }
   ]
 }
