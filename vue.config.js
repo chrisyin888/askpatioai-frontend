@@ -1,4 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
+const seoVerification = require('./src/data/seoVerification.json')
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -10,6 +11,10 @@ module.exports = defineConfig({
       template: 'public/index.html',
       filename: 'index.html',
       title: 'Patio Cover Installation Vancouver | LoomiHome Patios',
+      googleSiteVerification:
+        process.env.VUE_APP_GOOGLE_SITE_VERIFICATION || seoVerification.googleSiteVerification || '',
+      bingSiteVerification:
+        process.env.VUE_APP_BING_SITE_VERIFICATION || seoVerification.bingSiteVerification || '',
     },
   },
   devServer: {
