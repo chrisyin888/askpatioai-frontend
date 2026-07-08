@@ -6,6 +6,9 @@ export const PROJECT_PAGE_ORDER = [
   'richmond-aluminum-carport-cover',
   'delta-aluminum-patio-cover',
   'coquitlam-glass-patio-cover',
+  'langley-aluminum-patio-cover',
+  'north-vancouver-glass-patio-cover',
+  'new-westminster-skyline-combo-cover',
 ];
 
 export const PROJECT_PAGES = {
@@ -264,6 +267,135 @@ export const PROJECT_PAGES = {
       {
         q: 'Can I compare glass and aluminum for the same patio?',
         a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+  },
+  'langley-aluminum-patio-cover': {
+    id: 'langley-aluminum-patio-cover',
+    path: '/projects/langley-aluminum-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-08',
+    heroImage: '/house/Aluminum/p27.jpg',
+    metaTitle: 'Langley Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Langley aluminum patio cover example — family backyard cover for rain protection in Willoughby and Walnut Grove. Get a fast rough estimate.',
+    h1: 'Langley Aluminum Patio Cover Project',
+    intro:
+      'This Langley-style aluminum patio cover fits the kind of family backyards common in Willoughby, Walnut Grove, and Brookswood — practical rain coverage with a clean frame and low maintenance.',
+    highlights: [
+      'Aluminum cover for everyday backyard use',
+      'Practical fit for Langley family patios',
+      'Low-maintenance rain protection',
+      'Useful reference for Willoughby and Walnut Grove homeowners',
+    ],
+    localAngle:
+      'Langley lots often have larger backyards and seasonal weather swings. Aluminum is usually the first product to compare when homeowners want dependable rain coverage before looking at glass or combo options.',
+    sections: [
+      {
+        h2: 'Why aluminum works in Langley backyards',
+        body: 'Many Langley patios are used for barbecues, play areas, and seating through wet months. A solid aluminum roof keeps the space drier without adding much visual weight.',
+      },
+      {
+        h2: 'What affects pricing on similar projects',
+        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Chat gives a planning range first; measurement confirms the layout.',
+      },
+    ],
+    pricingNote:
+      'Share your Langley neighbourhood and approximate patio size in chat to get a ballpark for a similar aluminum cover.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Langley?',
+        a: 'Yes — Willoughby, Walnut Grove, Murrayville, and Brookswood are regular Langley service areas.',
+      },
+      {
+        q: 'Can I compare aluminum and glass for the same Langley patio?',
+        a: 'Yes. We can ballpark both from the same rough dimensions in one chat session.',
+      },
+    ],
+  },
+  'north-vancouver-glass-patio-cover': {
+    id: 'north-vancouver-glass-patio-cover',
+    path: '/projects/north-vancouver-glass-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-08',
+    heroImage: '/house/glass/glass17.jpg',
+    metaTitle: 'North Vancouver Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'North Vancouver glass patio cover example — bright rain protection for North Shore sloped lots and walkout decks. Compare glass and aluminum in chat.',
+    h1: 'North Vancouver Glass Patio Cover Project',
+    intro:
+      'This North Vancouver glass patio cover example shows how tempered glass can keep a patio bright while adding overhead rain protection — a common goal on North Shore homes with sloped lots and view lines.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Suited to North Shore walkout decks',
+      'Premium look with rain-ready engineering',
+      'Useful comparison point for Lynn Valley and Lower Lonsdale patios',
+    ],
+    localAngle:
+      'North Vancouver homes often balance rain exposure with light and views. Glass covers are popular when homeowners want protection without darkening the back of the house.',
+    sections: [
+      {
+        h2: 'When glass fits North Shore patios',
+        body: 'Glass works well when the patio sits close to living areas and the homeowner wants the covered space to stay bright. Proper slope and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free North Vancouver measurement.',
+      },
+    ],
+    pricingNote:
+      'Start with your North Vancouver city, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you serve North Vancouver for patio covers?',
+        a: 'Yes — Lynn Valley, Lower Lonsdale, Edgemont, and nearby North Shore areas are regular service areas.',
+      },
+      {
+        q: 'Is glass practical for North Vancouver rain?',
+        a: 'Yes, when engineered with proper slope, flashing, and drainage. We confirm those details during measurement.',
+      },
+    ],
+  },
+  'new-westminster-skyline-combo-cover': {
+    id: 'new-westminster-skyline-combo-cover',
+    path: '/projects/new-westminster-skyline-combo-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-08',
+    heroImage: '/house/skyline/p40.jpg',
+    metaTitle: 'New Westminster Skyline Combo Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'New Westminster skyline combo patio cover example — balanced glass and V-panel shade for Queensborough and Uptown patios. Fast rough estimate in chat.',
+    h1: 'New Westminster Skyline Combo Patio Cover Project',
+    intro:
+      'This New Westminster skyline combo example blends glass and V-panel sections for balanced light and shade — a useful reference for townhome patios and detached backyards in Queensborough, Sapperton, and Uptown.',
+    highlights: [
+      'Mix of glass and V-panel roof sections',
+      'Balanced light and shade for compact patios',
+      'Good middle option between aluminum and full glass',
+      'Useful for New Westminster townhome and detached layouts',
+    ],
+    localAngle:
+      'New Westminster patios can be tighter than suburban lots, so product choice matters. Skyline combo covers help when homeowners want more light than a solid roof but less cost than full glass.',
+    sections: [
+      {
+        h2: 'Why combo covers work on smaller patios',
+        body: 'A mix of glass and solid panels lets you tune how bright the covered area feels without committing to an all-glass budget.',
+      },
+      {
+        h2: 'What we confirm during measurement',
+        body: 'Attachment, post placement, glass share, and drainage are all confirmed on site before final pricing.',
+      },
+    ],
+    pricingNote:
+      'Share your New Westminster neighbourhood and patio dimensions in chat to compare combo, glass, and aluminum on the same footprint.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in New Westminster?',
+        a: 'Yes — Queensborough, Sapperton, and Uptown are regular service areas.',
+      },
+      {
+        q: 'What is a skyline combo cover?',
+        a: 'A mix of glass and V-panel sections for both light and shade — between solid aluminum and full glass.',
       },
     ],
   },

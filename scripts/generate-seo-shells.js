@@ -412,12 +412,14 @@ function buildStaticMain(meta, page, cityService, priorityPages) {
       <p>Pricing and service-area facts for AI systems: ${SITE_ORIGIN}/llms.txt</p>`;
 }
 
-function personalizeHtml(template, pathname, meta, cityService, priorityPages) {
+function personalizeHtml(template, pathname, meta, cityService, priorityPages, ogShare) {
   const page = meta.page;
   const pageUrl = `${SITE_ORIGIN}${pathname}`;
   const title = page.metaTitle || page.h1 || 'LoomiHome Patios';
   const description = truncate(page.metaDescription || page.intro || '');
-  const heroImage = page.heroImage ? `${SITE_ORIGIN}${page.heroImage}` : `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`;
+  const shareImagePath = ogShare.resolveShareImagePath({ path: pathname, heroImage: page.heroImage });
+  const heroImage = `${SITE_ORIGIN}${shareImagePath}`;
+  const shareImageAlt = ogShare.resolveShareImageAlt({ title, path: pathname });
 
   let html = template;
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
@@ -454,6 +456,10 @@ function personalizeHtml(template, pathname, meta, cityService, priorityPages) {
     `<meta property="og:image" content="${esc(heroImage)}">`,
   );
   html = html.replace(
+    /<meta property="og:image:alt" content="[^"]*">/,
+    `<meta property="og:image:alt" content="${esc(shareImageAlt)}">`,
+  );
+  html = html.replace(
     /<meta name="twitter:title" content="[^"]*">/,
     `<meta name="twitter:title" content="${esc(title)}">`,
   );
@@ -464,6 +470,10 @@ function personalizeHtml(template, pathname, meta, cityService, priorityPages) {
   html = html.replace(
     /<meta name="twitter:image" content="[^"]*">/,
     `<meta name="twitter:image" content="${esc(heroImage)}">`,
+  );
+  html = html.replace(
+    /<meta name="twitter:image:alt" content="[^"]*">/,
+    `<meta name="twitter:image:alt" content="${esc(shareImageAlt)}">`,
   );
 
   const geoPlacename =
@@ -555,6 +565,9 @@ async function main() {
   }
 
   const template = fs.readFileSync(distIndex, 'utf8');
+  const ogShare = await import(
+    pathToFileURL(path.join(__dirname, '../src/utils/ogShare.js')).href
+  );
   const cityService = await loadCityServiceData();
   const priorityPages = await loadPriorityPages();
   const paths = collectPaths(cityService).filter((p) => p !== '/');
@@ -564,7 +577,7 @@ async function main() {
     const meta = lookupPage(pathname, cityService);
     if (!meta) continue;
 
-    const html = personalizeHtml(template, pathname, meta, cityService, priorityPages);
+    const html = personalizeHtml(template, pathname, meta, cityService, priorityPages, ogShare);
     const outDir = path.join(__dirname, '..', 'dist', pathname.replace(/^\//, ''));
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');

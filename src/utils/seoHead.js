@@ -1,3 +1,5 @@
+import { resolveShareImageAlt, resolveShareImagePath } from './ogShare.js';
+
 /** Absolute site origin for canonicals, sitemap, and JSON-LD. */
 export const SITE_ORIGIN = 'https://loomihomepatios.ca';
 
@@ -114,14 +116,16 @@ export function truncateMetaDescription(text, maxLen = 160) {
 }
 
 /** Per-route title, description, canonical, robots, and social tags for SPA SEO. */
-export function setPageMeta({ title, description, path = '/', robots = 'index,follow', image } = {}) {
+export function setPageMeta({ title, description, path = '/', robots = 'index,follow', image, imageAlt } = {}) {
   if (typeof document === 'undefined') return;
 
   const pageTitle = title || 'LoomiHome Patios';
   const pageDescription = truncateMetaDescription(description);
   const pagePath = path || '/';
   const pageUrl = absoluteUrl(pagePath);
-  const shareImage = image ? absoluteUrl(image) : `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`;
+  const shareImagePath = resolveShareImagePath({ path: pagePath, heroImage: image });
+  const shareImage = absoluteUrl(shareImagePath);
+  const shareImageAlt = resolveShareImageAlt({ title: imageAlt || pageTitle, path: pagePath });
 
   document.title = pageTitle;
   upsertMetaByName('description', pageDescription);
@@ -140,6 +144,7 @@ export function setPageMeta({ title, description, path = '/', robots = 'index,fo
   upsertMetaProperty('og:description', pageDescription);
   upsertMetaProperty('og:url', pageUrl);
   upsertMetaProperty('og:image', shareImage);
+  upsertMetaProperty('og:image:alt', shareImageAlt);
   upsertMetaProperty('og:locale', 'en_CA');
   upsertMetaProperty('og:image:width', '1200');
   upsertMetaProperty('og:image:height', '630');
@@ -148,6 +153,7 @@ export function setPageMeta({ title, description, path = '/', robots = 'index,fo
   upsertMetaByName('twitter:title', pageTitle);
   upsertMetaByName('twitter:description', pageDescription);
   upsertMetaByName('twitter:image', shareImage);
+  upsertMetaByName('twitter:image:alt', shareImageAlt);
 }
 
 const JSONLD_ID = 'loomihome-jsonld';
