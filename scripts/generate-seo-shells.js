@@ -537,7 +537,12 @@ function buildRedirectsFile(seoPaths) {
     '/sitemap.xml /sitemap.xml 200',
     '/robots.txt /robots.txt 200',
     '/llms.txt /llms.txt 200',
+    '/BingSiteAuth.xml /BingSiteAuth.xml 200',
     '/.well-known/llms.txt /.well-known/llms.txt 200',
+    '/og/og-aluminum.png /og/og-aluminum.png 200',
+    '/og/og-glass.png /og/og-glass.png 200',
+    '/og/og-skyline.png /og/og-skyline.png 200',
+    '/og/og-sunrooms.png /og/og-sunrooms.png 200',
     '/contractor /contractor-login 301',
   ];
 

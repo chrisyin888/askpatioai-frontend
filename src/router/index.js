@@ -115,7 +115,7 @@ const router = createRouter({
       meta: {
         title: DEFAULT_TITLE,
         description: DEFAULT_DESCRIPTION,
-        image: '/house/glass/glass-hero.png',
+        image: '/og/og-glass.png',
       },
     },
     {
