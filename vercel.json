@@ -2,6 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/((?!sitemap\\.xml$|robots\\.txt$|llms\\.txt$|BingSiteAuth\\.xml$|\\.well-known/|og/).*)", "destination": "/index.html" }
+    { "source": "/((?!sitemap\\.xml$|robots\\.txt$|llms\\.txt$|BingSiteAuth\\.xml$|7c4f9a2e1b8d3056e6f4a0c9d2e5b781\\.txt$|\\.well-known/|og/).*)", "destination": "/index.html" }
   ]
 }

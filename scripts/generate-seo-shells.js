@@ -12,6 +12,16 @@ const { CITY_PAGES, CITY_PAGE_ORDER } = require('../src/data/cityPages');
 const { GUIDE_PAGES, GUIDE_PAGE_ORDER } = require('../src/data/guidePages');
 const { PROJECT_PAGES, PROJECT_PAGE_ORDER } = require('../src/data/projectPages');
 
+function loadIndexNowKey() {
+  try {
+    const configPath = path.join(__dirname, '..', 'src', 'data', 'indexNow.json');
+    const { key } = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    return String(key || '').trim();
+  } catch {
+    return '';
+  }
+}
+
 const SERVICE_LABELS = {
   aluminum: 'Aluminum patio covers',
   glass: 'Glass patio covers',
@@ -545,6 +555,11 @@ function buildRedirectsFile(seoPaths) {
     '/og/og-sunrooms.png /og/og-sunrooms.png 200',
     '/contractor /contractor-login 301',
   ];
+
+  const indexNowKey = loadIndexNowKey();
+  if (indexNowKey) {
+    lines.push(`/${indexNowKey}.txt /${indexNowKey}.txt 200`);
+  }
 
   seoPaths.forEach((pathname) => {
     lines.push(`${pathname} ${pathname}/index.html 200`);

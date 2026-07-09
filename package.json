@@ -7,7 +7,8 @@
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "sync:verification": "node scripts/sync-site-verification.js",
     "generate:llms": "node scripts/generate-llms.js",
-    "build": "npm run generate:sitemap && npm run sync:verification && vue-cli-service build && node scripts/generate-seo-shells.js",
+    "sync:indexnow": "node scripts/sync-indexnow.js",
+    "build": "npm run generate:sitemap && npm run generate:llms && npm run sync:verification && npm run sync:indexnow && vue-cli-service build && node scripts/generate-seo-shells.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

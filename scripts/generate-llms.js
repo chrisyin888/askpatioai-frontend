@@ -52,6 +52,9 @@ async function buildLlmsTxt() {
 > Last updated: ${new Date().toISOString().slice(0, 10)}
 > Canonical: ${SITE_ORIGIN}/llms.txt
 > Mirror for AI tools: ${SITE_ORIGIN}/.well-known/llms.txt
+> Canonical site: ${SITE_ORIGIN}
+> Region: Metro Vancouver, British Columbia, Canada
+> Currency: CAD (rough estimates before GST; final quote confirmed on site)
 
 LoomiHome Patios installs aluminum patio covers, glass patio covers, skyline combo patio covers, and sunroom enclosures in Metro Vancouver and the Lower Mainland, British Columbia, Canada.
 
