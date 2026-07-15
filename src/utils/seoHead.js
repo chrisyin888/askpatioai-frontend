@@ -5,10 +5,19 @@ export const SITE_ORIGIN = 'https://loomihomepatios.ca';
 
 let canonicalLinkEl = null;
 
+/** Content URLs use a trailing slash; static files keep their extension. */
+export function canonicalizePath(pathname = '/') {
+  if (!pathname || pathname === '/') return '/';
+  const p = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  if (/\.[a-z0-9]{2,8}$/i.test(p)) return p;
+  return p.endsWith('/') ? p : `${p}/`;
+}
+
 export function absoluteUrl(pathname) {
-  if (!pathname) return SITE_ORIGIN;
+  if (!pathname) return `${SITE_ORIGIN}/`;
   if (/^https?:\/\//i.test(pathname)) return pathname;
-  return `${SITE_ORIGIN}${pathname.startsWith('/') ? pathname : `/${pathname}`}`;
+  const path = canonicalizePath(pathname);
+  return `${SITE_ORIGIN}${path}`;
 }
 
 export function setCanonicalPath(pathname) {

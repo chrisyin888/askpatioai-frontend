@@ -65,7 +65,7 @@ function buildSitemapXml(paths, cityService, priorityPaths) {
       return a.localeCompare(b);
     })
     .map((pathname) => {
-      const loc = `${SITE_ORIGIN}${pathname === '/' ? '/' : pathname}`;
+  const loc = pathname === '/' ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN}${pathname.endsWith('/') ? pathname : `${pathname}/`}`;
       const priority = priorityFor(pathname, cityService, priorityPaths);
       return `  <url><loc>${loc}</loc><lastmod>${LASTMOD}</lastmod><changefreq>monthly</changefreq><priority>${priority}</priority></url>`;
     })

@@ -1,7 +1,6 @@
 /**
- * Legacy llms.txt generator (priority-page focused).
- * Production builds use `npm run generate:sitemap` instead — it writes llms.txt,
- * .well-known/llms.txt, and sitemap.xml from the full SEO route set.
+ * Generate public/llms.txt and public/.well-known/llms.txt for GEO.
+ * Invoked from the production build via `npm run generate:llms`.
  */
 const fs = require('fs');
 const path = require('path');

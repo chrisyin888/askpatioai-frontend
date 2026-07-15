@@ -7,6 +7,13 @@ const path = require('path');
 const { pathToFileURL } = require('url');
 
 const { SITE_ORIGIN } = require('../src/utils/seoHead');
+
+function pageAbsoluteUrl(pathname) {
+  if (!pathname || pathname === '/') return `${SITE_ORIGIN}/`;
+  if (/\.[a-z0-9]{2,8}$/i.test(pathname)) return `${SITE_ORIGIN}${pathname}`;
+  const p = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  return `${SITE_ORIGIN}${p}`;
+}
 const { SERVICE_PAGES, SERVICE_PAGE_ORDER } = require('../src/data/servicePages');
 const { CITY_PAGES, CITY_PAGE_ORDER } = require('../src/data/cityPages');
 const { GUIDE_PAGES, GUIDE_PAGE_ORDER } = require('../src/data/guidePages');
@@ -155,7 +162,7 @@ function buildBreadcrumbItems(meta) {
 
 function buildPageJsonLd(pathname, meta) {
   const page = meta.page;
-  const pageUrl = `${SITE_ORIGIN}${pathname}`;
+  const pageUrl = pageAbsoluteUrl(pathname);
   const graph = [
     {
       '@type': 'WebPage',
@@ -178,7 +185,7 @@ function buildPageJsonLd(pathname, meta) {
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
-        item: `${SITE_ORIGIN}${item.path === '/' ? '/' : item.path}`,
+        item: pageAbsoluteUrl(item.path),
       })),
     });
   }
@@ -424,11 +431,11 @@ function buildStaticMain(meta, page, cityService, priorityPages) {
 
 function personalizeHtml(template, pathname, meta, cityService, priorityPages, ogShare) {
   const page = meta.page;
-  const pageUrl = `${SITE_ORIGIN}${pathname}`;
+  const pageUrl = pageAbsoluteUrl(pathname);
   const title = page.metaTitle || page.h1 || 'LoomiHome Patios';
   const description = truncate(page.metaDescription || page.intro || '');
   const shareImagePath = ogShare.resolveShareImagePath({ path: pathname, heroImage: page.heroImage });
-  const heroImage = `${SITE_ORIGIN}${shareImagePath}`;
+  const heroImage = pageAbsoluteUrl(shareImagePath);
   const shareImageAlt = ogShare.resolveShareImageAlt({ title, path: pathname });
 
   let html = template;
@@ -509,7 +516,7 @@ function personalizeHtml(template, pathname, meta, cityService, priorityPages, o
 }
 
 function buildNoindexShell(template, pathname, title) {
-  const pageUrl = `${SITE_ORIGIN}${pathname}`;
+  const pageUrl = pageAbsoluteUrl(pathname);
   let html = template;
   html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="noindex,nofollow">`);
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
@@ -561,14 +568,15 @@ function buildRedirectsFile(seoPaths) {
     lines.push(`/${indexNowKey}.txt /${indexNowKey}.txt 200`);
   }
 
+  // Prefer trailing-slash shells: Render serves dist/{path}/index.html for /path/
+  // but slashless /path often falls through to the SPA catch-all (homepage title bug).
+  // 301 slashless → slash so crawlers always hit the personalized HTML shell.
   seoPaths.forEach((pathname) => {
-    lines.push(`${pathname} ${pathname}/index.html 200`);
-    lines.push(`${pathname}/ ${pathname} 301`);
+    lines.push(`${pathname} ${pathname}/ 301`);
   });
 
   NOINDEX_SHELL_PATHS.forEach(({ path: pathname }) => {
-    lines.push(`${pathname} ${pathname}/index.html 200`);
-    lines.push(`${pathname}/ ${pathname} 301`);
+    lines.push(`${pathname} ${pathname}/ 301`);
   });
 
   // SPA fallback — must be last so SEO shell rules above take precedence.
