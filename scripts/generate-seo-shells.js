@@ -556,10 +556,10 @@ function buildRedirectsFile(seoPaths) {
     '/llms.txt /llms.txt 200',
     '/BingSiteAuth.xml /BingSiteAuth.xml 200',
     '/.well-known/llms.txt /.well-known/llms.txt 200',
-    '/og/og-aluminum.png /og/og-aluminum.png 200',
-    '/og/og-glass.png /og/og-glass.png 200',
-    '/og/og-skyline.png /og/og-skyline.png 200',
-    '/og/og-sunrooms.png /og/og-sunrooms.png 200',
+    '/og/og-aluminum.jpg /og/og-aluminum.jpg 200',
+    '/og/og-glass.jpg /og/og-glass.jpg 200',
+    '/og/og-skyline.jpg /og/og-skyline.jpg 200',
+    '/og/og-sunrooms.jpg /og/og-sunrooms.jpg 200',
     '/contractor /contractor-login 301',
   ];
 

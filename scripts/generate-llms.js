@@ -73,7 +73,7 @@ LoomiHome Patios installs aluminum patio covers, glass patio covers, skyline com
 - Free on-site measurement after online ballpark
 
 ## Service areas
-Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver areas.
+Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver areas.
 
 ## Pricing (planning totals only — never quote per-sq-ft rates or base fees to homeowners)
 ${exampleLine('Aluminum', 12, 14)}
@@ -122,7 +122,7 @@ Q: Do you provide free on-site measurement?
 A: Yes. After a rough online estimate, homeowners can book a free on-site measurement for final pricing.
 
 Q: What areas do you serve?
-A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, and nearby Metro Vancouver communities.
+A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.
 
 Q: Do you provide patio cover contractor quotes in Richmond and Burnaby?
 A: Yes. Richmond (Steveston, Broadmoor, East Cambie) and Burnaby (Metrotown, Brentwood, Deer Lake) are core service areas. Start with chat for a planning range, then book free on-site measurement.

@@ -102,6 +102,34 @@ const CITY_META = {
       projectPath: '/projects/coquitlam-glass-patio-cover',
     },
   },
+  abbotsford: {
+    name: 'Abbotsford',
+    areaServed: 'Abbotsford, British Columbia',
+    neighbourhoods: 'Downtown Abbotsford, Clearbrook, and Sumas Mountain',
+    localDetail: 'Fraser Valley rain, larger lots, and family backyards',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a Fraser Valley suburban backyard similar to Abbotsford lots',
+      caption:
+        'Skyline combo cover — larger backyard layout common in Abbotsford. Compare aluminum and glass on your dimensions in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
+  },
+  'white-rock': {
+    name: 'White Rock',
+    areaServed: 'White Rock, British Columbia',
+    neighbourhoods: 'East Beach, West Beach, and nearby South Surrey',
+    localDetail: 'coastal wind, ocean exposure, and compact seaside lots',
+    heroImage: '/house/glass/glass-hero.png',
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a coastal Metro Vancouver home with natural light under tempered glass roof',
+      caption:
+        'Glass patio cover — bright rain protection suited to White Rock and South Surrey decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
+  },
 };
 
 function contractorPage(slug, meta) {

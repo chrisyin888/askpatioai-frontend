@@ -1,11 +1,11 @@
 /** Default Open Graph / Twitter share images by product type. */
 export const OG_IMAGE_BY_PRODUCT = {
-  aluminum: '/og/og-aluminum.png',
-  glass: '/og/og-glass.png',
-  skyline: '/og/og-skyline.png',
-  sunrooms: '/og/og-sunrooms.png',
-  homepage: '/og/og-glass.png',
-  default: '/og/og-aluminum.png',
+  aluminum: '/og/og-aluminum.jpg',
+  glass: '/og/og-glass.jpg',
+  skyline: '/og/og-skyline.jpg',
+  sunrooms: '/og/og-sunrooms.jpg',
+  homepage: '/og/og-glass.jpg',
+  default: '/og/og-aluminum.jpg',
 };
 
 export function detectProductFromPath(path = '') {

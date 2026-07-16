@@ -16,6 +16,8 @@ export const CITY_PAGE_ORDER = [
   'pitt-meadows',
   'port-coquitlam',
   'port-moody',
+  'abbotsford',
+  'white-rock',
 ];
 
 export const CITY_PAGES = {
@@ -570,6 +572,86 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-port-moody', label: 'Patio cover contractor in Port Moody' },
       { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+    ],
+  },
+  abbotsford: {
+    id: 'abbotsford',
+    path: '/patio-covers-abbotsford',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Covers Abbotsford | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in Abbotsford — Clearbrook, Sumas Mountain, and nearby Fraser Valley. Fast rough quote, compare aluminum, glass, and combo covers.',
+    h1: 'Patio Covers in Abbotsford',
+    intro:
+      'Abbotsford homeowners often want a backyard cover that handles Fraser Valley rain without weeks of quote chasing. Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
+    highlights: [
+      'Fraser Valley rain-ready aluminum, glass, and combo options',
+      'Ballpark pricing before anyone visits your home',
+      'Helpful for larger lots and family backyards',
+      'Free on-site measurement for final pricing',
+    ],
+    localAngle:
+      'From Clearbrook to Sumas Mountain, Abbotsford lots are often roomier than city yards. Share approximate size and how you use the patio — chat sharpens the first range before we measure on site.',
+    pricingNote:
+      'Attachment, slope, and finish level change the final number. We explain that clearly after your initial ballpark.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Abbotsford?',
+        a: 'Yes — Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage.',
+      },
+      {
+        q: 'How fast can I get a patio cover estimate in Abbotsford?',
+        a: 'Most homeowners get a useful ballpark in about a minute in chat once we have city and approximate size.',
+      },
+      {
+        q: 'Do you also serve Langley and White Rock?',
+        a: 'Yes — we work across the Lower Mainland and Fraser Valley. Use the Langley or White Rock city pages if you want area-specific examples.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
+      { path: '/aluminum-patio-covers-abbotsford', label: 'Aluminum patio covers in Abbotsford' },
+      { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+    ],
+  },
+  'white-rock': {
+    id: 'white-rock',
+    path: '/patio-covers-white-rock',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Patio Covers White Rock | LoomiHome Patios',
+    metaDescription:
+      'Patio covers in White Rock — East Beach, West Beach, and nearby South Surrey. Fast rough estimate, compare aluminum, glass, and combo patio covers.',
+    h1: 'Patio Covers in White Rock',
+    intro:
+      'White Rock homeowners searching for patio covers usually want rain and wind protection that still feels bright — especially on compact seaside lots. Get a fast ballpark in chat, compare aluminum, glass, or skyline combo systems, then schedule a free measurement when you want exact numbers.',
+    highlights: [
+      'Coastal rain- and wind-ready cover options',
+      'Compare glass and aluminum on the same rough size in chat',
+      'Fast estimate without waiting on callbacks',
+      'Free on-site measurement for final pricing',
+    ],
+    localAngle:
+      'East Beach, West Beach, and nearby South Surrey patios vary in width and ocean exposure. A few dimensions or photos in chat make the first estimate more useful before we visit.',
+    pricingNote:
+      'Final pricing always follows an on-site measure — the chat number is for planning.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in White Rock?',
+        a: 'Yes — White Rock and nearby South Surrey are part of our regular Lower Mainland coverage.',
+      },
+      {
+        q: 'Is glass or aluminum better for White Rock coastal weather?',
+        a: 'Both can work when designed with proper slope, drainage, and attachment. Aluminum is often the practical rain option; glass keeps more light. We compare both in chat on your size.',
+      },
+      {
+        q: 'Do you serve Surrey and Abbotsford too?',
+        a: 'Yes — see our Surrey and Abbotsford pages for nearby Fraser Valley and South Surrey examples.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-cover-contractor-white-rock', label: 'Patio cover contractor in White Rock' },
+      { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
     ],
   },
 };

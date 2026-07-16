@@ -261,6 +261,8 @@ export function localBusinessNode() {
       { '@type': 'City', name: 'New Westminster' },
       { '@type': 'City', name: 'Maple Ridge' },
       { '@type': 'City', name: 'Pitt Meadows' },
+      { '@type': 'City', name: 'Abbotsford' },
+      { '@type': 'City', name: 'White Rock' },
       { '@type': 'AdministrativeArea', name: 'Lower Mainland' },
       { '@type': 'AdministrativeArea', name: 'Metro Vancouver' },
     ],
