@@ -9,7 +9,7 @@
     "generate:llms": "node scripts/generate-llms.js",
     "sync:indexnow": "node scripts/sync-indexnow.js",
     "ping:indexnow": "node scripts/ping-indexnow.js",
-    "build": "npm run generate:sitemap && npm run generate:llms && npm run sync:verification && npm run sync:indexnow && vue-cli-service build && node scripts/generate-seo-shells.js",
+    "build": "npm run generate:sitemap && npm run generate:llms && npm run sync:verification && npm run sync:indexnow && vue-cli-service build && node scripts/generate-seo-shells.js && npm run ping:indexnow",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

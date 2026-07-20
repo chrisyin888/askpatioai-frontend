@@ -163,6 +163,8 @@ function buildBreadcrumbItems(meta) {
 function buildPageJsonLd(pathname, meta) {
   const page = meta.page;
   const pageUrl = pageAbsoluteUrl(pathname);
+  const pageImagePath = page.caseStudy?.image || page.heroImage;
+  const pageImageUrl = pageImagePath ? pageAbsoluteUrl(pageImagePath) : null;
   const graph = [
     {
       '@type': 'WebPage',
@@ -174,6 +176,14 @@ function buildPageJsonLd(pathname, meta) {
       about: { '@id': `${SITE_ORIGIN}/#business` },
       inLanguage: 'en-CA',
       dateModified: LASTMOD,
+      ...(pageImageUrl
+        ? {
+            primaryImageOfPage: {
+              '@type': 'ImageObject',
+              url: pageImageUrl,
+            },
+          }
+        : {}),
     },
   ];
 
@@ -198,6 +208,7 @@ function buildPageJsonLd(pathname, meta) {
       description: truncate(page.metaDescription || page.intro || '', 320),
       url: pageUrl,
       serviceType: page.serviceType,
+      ...(pageImageUrl ? { image: pageImageUrl } : {}),
       provider: { '@id': `${SITE_ORIGIN}/#business` },
       areaServed: {
         '@type': 'City',
@@ -223,6 +234,7 @@ function buildPageJsonLd(pathname, meta) {
       '@id': `${pageUrl}#article`,
       headline: page.h1,
       description: truncate(page.metaDescription || page.intro || '', 320),
+      ...(pageImageUrl ? { image: pageImageUrl } : {}),
       datePublished: page.datePublished || '2026-06-01',
       dateModified: page.dateModified || new Date().toISOString().slice(0, 10),
       mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
@@ -388,11 +400,27 @@ function buildRelatedLinksHtml(meta, cityService, priorityPages) {
   return blocks.filter(Boolean).join('\n      ');
 }
 
+function buildCaseStudyHtml(page) {
+  const cs = page.caseStudy;
+  if (!cs || !cs.image) return '';
+  const imgUrl = pageAbsoluteUrl(cs.image);
+  const caption = cs.caption ? `<figcaption>${esc(cs.caption)}</figcaption>` : '';
+  const projectLink = cs.projectPath
+    ? `<p><a href="${esc(cs.projectPath)}">View project page</a></p>`
+    : '';
+  return `<h2>Project example</h2>
+      <figure>
+        <img src="${esc(imgUrl)}" alt="${esc(cs.alt || page.h1)}" width="1200" height="900" loading="lazy">
+        ${caption}
+      </figure>
+      ${projectLink}`;
+}
+
 function buildStaticFaq(page) {
   const faqs = page.faqs || page.faqItems;
   if (!faqs || !faqs.length) return '';
   const items = faqs
-    .slice(0, 4)
+    .slice(0, 6)
     .map((item) => `<dt>${esc(item.q)}</dt>\n        <dd>${esc(item.a)}</dd>`)
     .join('\n        ');
   return `<h2>Common questions</h2>
@@ -417,6 +445,7 @@ function buildStaticMain(meta, page, cityService, priorityPages) {
   const highlights = buildHighlightsHtml(page);
   const benefits = meta.kind === 'service' ? buildBenefitsHtml(page) : '';
   const sections = buildSectionsHtml(page);
+  const caseStudy = buildCaseStudyHtml(page);
   const localAngle =
     page.localAngle && meta.kind !== 'service'
       ? `<h2>${meta.kind === 'city' ? 'Local to your area' : 'What this means for you'}</h2>
@@ -432,6 +461,7 @@ function buildStaticMain(meta, page, cityService, priorityPages) {
       ${benefits}
       ${localAngle}
       ${sections}
+      ${caseStudy}
       ${relatedPages}
       ${pricingNote}
       ${faqBlock}
