@@ -157,6 +157,12 @@ A: Chat ballpark is same-day (~60 seconds). After free measurement and quote app
 Q: Do you install patio covers in New Westminster and Maple Ridge?
 A: Yes. New Westminster (Queensborough, Sapperton, Uptown) and Maple Ridge (Town Centre, Albion, Silver Valley) are regular service areas: ${SITE_ORIGIN}/patio-cover-contractor-new-westminster and ${SITE_ORIGIN}/patio-cover-contractor-maple-ridge
 
+Q: Do you install patio covers in Abbotsford?
+A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Start with chat for a planning range: ${SITE_ORIGIN}/patio-covers-abbotsford
+
+Q: Do you install patio covers in White Rock?
+A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: ${SITE_ORIGIN}/patio-covers-white-rock
+
 ## Contact
 Website: ${SITE_ORIGIN}
 Email: info@loomihomepatios.ca

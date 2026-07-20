@@ -401,6 +401,17 @@ function buildStaticFaq(page) {
       </dl>`;
 }
 
+function buildRelatedPageLinksHtml(page) {
+  if (!page.relatedPageLinks || !page.relatedPageLinks.length) return '';
+  return buildLinkList('Related pages', page.relatedPageLinks);
+}
+
+function buildPricingNoteHtml(page) {
+  if (!page.pricingNote) return '';
+  return `<h2>Pricing direction</h2>
+      <p>${esc(page.pricingNote)}</p>`;
+}
+
 function buildStaticMain(meta, page, cityService, priorityPages) {
   const intro = page.intro || page.metaDescription || '';
   const highlights = buildHighlightsHtml(page);
@@ -411,6 +422,8 @@ function buildStaticMain(meta, page, cityService, priorityPages) {
       ? `<h2>${meta.kind === 'city' ? 'Local to your area' : 'What this means for you'}</h2>
       <p>${esc(page.localAngle)}</p>`
       : '';
+  const relatedPages = buildRelatedPageLinksHtml(page);
+  const pricingNote = buildPricingNoteHtml(page);
   const faqBlock = buildStaticFaq(page);
   const related = buildRelatedLinksHtml(meta, cityService, priorityPages);
   return `<h1>${esc(page.h1)}</h1>
@@ -419,6 +432,8 @@ function buildStaticMain(meta, page, cityService, priorityPages) {
       ${benefits}
       ${localAngle}
       ${sections}
+      ${relatedPages}
+      ${pricingNote}
       ${faqBlock}
       ${related}
       <p>
