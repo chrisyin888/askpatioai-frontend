@@ -305,6 +305,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
       { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
     ],
+    caseStudy: {
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Aluminum patio cover on a Langley family backyard patio in Willoughby or Walnut Grove',
+      caption:
+        'Langley aluminum patio cover — practical rain protection for Willoughby and Walnut Grove backyards. Compare glass in chat on the same size.',
+      projectPath: '/projects/langley-aluminum-patio-cover',
+    },
   },
   'north-vancouver': {
     id: 'north-vancouver',
@@ -345,6 +352,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-north-vancouver', label: 'Aluminum patio covers in North Vancouver' },
       { path: '/glass-patio-covers-north-vancouver', label: 'Glass patio covers in North Vancouver' },
     ],
+    caseStudy: {
+      image: '/house/glass/glass17.jpg',
+      alt: 'Glass patio cover on a North Vancouver walkout deck with natural light under tempered glass',
+      caption:
+        'North Vancouver glass patio cover — bright rain protection for North Shore sloped lots. Compare aluminum for budget in chat.',
+      projectPath: '/projects/north-vancouver-glass-patio-cover',
+    },
   },
   'west-vancouver': {
     id: 'west-vancouver',
@@ -533,6 +547,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-port-coquitlam', label: 'Aluminum patio covers in Port Coquitlam' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
     ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Tri-Cities backyard patio similar to Port Coquitlam homes',
+      caption:
+        'Glass patio cover — rain-ready option for Port Coquitlam yards. Compare aluminum on the same size in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   'port-moody': {
     id: 'port-moody',
@@ -613,6 +634,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-abbotsford', label: 'Aluminum patio covers in Abbotsford' },
       { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
     ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a Fraser Valley suburban backyard similar to Abbotsford lots',
+      caption:
+        'Skyline combo cover — larger backyard layout common in Abbotsford. Compare aluminum and glass on your dimensions in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'white-rock': {
     id: 'white-rock',

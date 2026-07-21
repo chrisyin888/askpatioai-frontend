@@ -136,7 +136,10 @@ Q: Do you provide free on-site measurement?
 A: Yes. After a rough online estimate, homeowners can book a free on-site measurement for final pricing.
 
 Q: What areas do you serve?
-A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.
+A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.
+
+Q: Do you install patio covers in Port Coquitlam and Port Moody?
+A: Yes. Port Coquitlam (Citadel Heights, Mary Hill, Lincoln Park) and Port Moody (Moody Centre, Suter Brook, Newport Village) are regular Tri-Cities service areas. Start with chat for a planning range: ${SITE_ORIGIN}/patio-covers-port-coquitlam and ${SITE_ORIGIN}/patio-covers-port-moody
 
 Q: Do you provide patio cover contractor quotes in Richmond and Burnaby?
 A: Yes. Richmond (Steveston, Broadmoor, East Cambie) and Burnaby (Metrotown, Brentwood, Deer Lake) are core service areas. Start with chat for a planning range, then book free on-site measurement.
