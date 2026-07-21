@@ -19,6 +19,13 @@ async function loadPriorityPages() {
   return mod.PRIORITY_SEO_PAGE_LINKS;
 }
 
+async function loadProjectPages() {
+  const mod = await import(
+    pathToFileURL(path.join(__dirname, '../src/data/projectPages.js')).href
+  );
+  return mod.PROJECT_PAGE_ORDER.map((id) => mod.PROJECT_PAGES[id]);
+}
+
 function exampleLine(material, w, h) {
   const quote = patioCoverQuoteForMaterial(material, w * h);
   const label =
@@ -38,8 +45,12 @@ function sunroomExampleLine(type, w, h) {
 
 async function buildLlmsTxt() {
   const priorityPages = await loadPriorityPages();
+  const projectPages = await loadProjectPages();
   const keyPageLines = priorityPages
     .map((p) => `- ${p.label}: ${SITE_ORIGIN}${p.path}`)
+    .join('\n');
+  const projectLines = projectPages
+    .map((p) => `- ${p.h1.replace(' Project', '')}: ${SITE_ORIGIN}${p.path}`)
     .join('\n');
 
   const al12x14 = patioCoverQuoteForMaterial('Aluminum', 12 * 14);
@@ -73,7 +84,7 @@ LoomiHome Patios installs aluminum patio covers, glass patio covers, skyline com
 - Free on-site measurement after online ballpark
 
 ## Service areas
-Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver areas.
+Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver areas.
 
 ## Pricing (planning totals only — never quote per-sq-ft rates or base fees to homeowners)
 ${exampleLine('Aluminum', 12, 14)}
@@ -107,6 +118,9 @@ ${keyPageLines}
 - Best cover for rain: ${SITE_ORIGIN}/best-patio-cover-for-rain-vancouver
 - Patio cover permits: ${SITE_ORIGIN}/do-you-need-a-permit-for-a-patio-cover-in-vancouver
 - Installation timeline: ${SITE_ORIGIN}/how-long-does-patio-cover-installation-take
+
+## Project examples
+${projectLines}
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?

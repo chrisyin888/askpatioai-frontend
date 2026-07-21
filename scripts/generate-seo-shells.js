@@ -400,6 +400,28 @@ function buildRelatedLinksHtml(meta, cityService, priorityPages) {
   return blocks.filter(Boolean).join('\n      ');
 }
 
+function buildHeroImageHtml(page) {
+  if (page.caseStudy?.image || !page.heroImage) return '';
+  const imgUrl = pageAbsoluteUrl(page.heroImage);
+  return `<figure>
+        <img src="${esc(imgUrl)}" alt="${esc(page.h1)}" width="1200" height="900" loading="lazy">
+      </figure>`;
+}
+
+function buildServiceExtrasHtml(page, meta) {
+  if (meta.kind !== 'service') return '';
+  const parts = [];
+  if (page.pricingLine) {
+    parts.push(`<h2>Ballpark pricing</h2>
+      <p>${esc(page.pricingLine)}</p>`);
+  }
+  if (page.ctaTitle && page.ctaBody) {
+    parts.push(`<h2>${esc(page.ctaTitle)}</h2>
+      <p>${esc(page.ctaBody)}</p>`);
+  }
+  return parts.join('\n      ');
+}
+
 function buildCaseStudyHtml(page) {
   const cs = page.caseStudy;
   if (!cs || !cs.image) return '';
@@ -442,10 +464,12 @@ function buildPricingNoteHtml(page) {
 
 function buildStaticMain(meta, page, cityService, priorityPages) {
   const intro = page.intro || page.metaDescription || '';
+  const heroImage = buildHeroImageHtml(page);
   const highlights = buildHighlightsHtml(page);
   const benefits = meta.kind === 'service' ? buildBenefitsHtml(page) : '';
   const sections = buildSectionsHtml(page);
   const caseStudy = buildCaseStudyHtml(page);
+  const serviceExtras = buildServiceExtrasHtml(page, meta);
   const localAngle =
     page.localAngle && meta.kind !== 'service'
       ? `<h2>${meta.kind === 'city' ? 'Local to your area' : 'What this means for you'}</h2>
@@ -457,11 +481,13 @@ function buildStaticMain(meta, page, cityService, priorityPages) {
   const related = buildRelatedLinksHtml(meta, cityService, priorityPages);
   return `<h1>${esc(page.h1)}</h1>
       <p>${esc(intro)}</p>
+      ${heroImage}
       ${highlights}
       ${benefits}
       ${localAngle}
       ${sections}
       ${caseStudy}
+      ${serviceExtras}
       ${relatedPages}
       ${pricingNote}
       ${faqBlock}
