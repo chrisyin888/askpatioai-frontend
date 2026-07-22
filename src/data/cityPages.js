@@ -64,6 +64,13 @@ export const CITY_PAGES = {
       { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a Vancouver home with natural light under tempered glass roof',
+      caption:
+        'Vancouver glass patio cover — bright rain protection for walkout decks and rear living areas. Compare aluminum for budget in chat.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
   },
   burnaby: {
     id: 'burnaby',
@@ -108,6 +115,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
     ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Burnaby backyard patio for rain protection',
+      caption:
+        'Burnaby aluminum patio cover — practical rain protection for Metrotown and Deer Lake backyards. Compare glass in chat on the same size.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   richmond: {
     id: 'richmond',
@@ -147,6 +161,13 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
       { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
     ],
+    caseStudy: {
+      image: '/house/before-after/richmond-carport-after.png',
+      alt: 'Aluminum carport-style patio cover on a Richmond home near Steveston or Broadmoor',
+      caption:
+        'Richmond aluminum cover — rain-ready protection for side yards and back patios. Compare glass in chat on the same footprint.',
+      projectPath: '/projects/richmond-aluminum-carport-cover',
+    },
   },
   surrey: {
     id: 'surrey',
@@ -186,6 +207,13 @@ export const CITY_PAGES = {
       { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
     ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a large Surrey backyard with glass and V-panel sections',
+      caption:
+        'Surrey skyline combo cover — balanced light and shade for larger backyards. Compare aluminum and full glass in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   delta: {
     id: 'delta',
@@ -226,6 +254,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
       { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
     ],
+    caseStudy: {
+      image: '/house/before-after/delta-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Delta backyard patio in Ladner or North Delta',
+      caption:
+        'Delta aluminum patio cover — dependable rain protection for coastal-adjacent family patios. Compare glass in chat on the same size.',
+      projectPath: '/projects/delta-aluminum-patio-cover',
+    },
   },
   coquitlam: {
     id: 'coquitlam',
@@ -265,6 +300,13 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
       { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
     ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Coquitlam backyard patio with natural light under tempered glass',
+      caption:
+        'Coquitlam glass patio cover — bright rain protection for Burke Mountain and Maillardville decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   langley: {
     id: 'langley',
@@ -399,6 +441,13 @@ export const CITY_PAGES = {
       { path: '/glass-patio-covers-west-vancouver', label: 'Glass patio covers in West Vancouver' },
       { path: '/aluminum-patio-covers-west-vancouver', label: 'Aluminum patio covers in West Vancouver' },
     ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a premium West Coast home with natural light under tempered glass roof',
+      caption:
+        'Glass patio cover — bright rain protection suited to West Vancouver view lines and walkout decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
   },
   'new-westminster': {
     id: 'new-westminster',
@@ -435,6 +484,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
       { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
     ],
+    caseStudy: {
+      image: '/house/skyline/p40.jpg',
+      alt: 'Skyline combo patio cover on a New Westminster townhome or detached backyard patio',
+      caption:
+        'New Westminster skyline combo cover — practical fit for compact townhome patios and detached backyards. Ballpark in chat first.',
+      projectPath: '/projects/new-westminster-skyline-combo-cover',
+    },
   },
   'maple-ridge': {
     id: 'maple-ridge',
@@ -471,6 +527,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
       { path: '/sunrooms-maple-ridge', label: 'Sunrooms in Maple Ridge' },
     ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
+      caption:
+        'Skyline combo cover — larger backyard layout common in Maple Ridge. Compare aluminum and glass on your dimensions in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'pitt-meadows': {
     id: 'pitt-meadows',
@@ -507,6 +570,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-pitt-meadows', label: 'Aluminum patio covers in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
     ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Wide-span patio cover on a Fraser Valley suburban backyard similar to Pitt Meadows lots',
+      caption:
+        'Wide-span combo cover — reference for Pitt Meadows lots with room for larger patios. Chat ballpark before free measurement.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'port-coquitlam': {
     id: 'port-coquitlam',
@@ -594,6 +664,13 @@ export const CITY_PAGES = {
       { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
     ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a compact Metro Vancouver backyard patio similar to Port Moody homes',
+      caption:
+        'Glass patio cover — bright rain protection suited to Port Moody walkout decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   abbotsford: {
     id: 'abbotsford',
@@ -681,5 +758,12 @@ export const CITY_PAGES = {
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
     ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a coastal Metro Vancouver home with natural light under tempered glass roof',
+      caption:
+        'Glass patio cover — bright rain protection suited to White Rock and South Surrey decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
   },
 };

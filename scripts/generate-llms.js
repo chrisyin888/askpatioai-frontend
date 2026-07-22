@@ -180,6 +180,12 @@ A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Ma
 Q: Do you install patio covers in White Rock?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: ${SITE_ORIGIN}/patio-covers-white-rock
 
+Q: Do you install patio covers in White Rock and South Surrey?
+A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: ${SITE_ORIGIN}/patio-covers-white-rock
+
+Q: Do you install patio covers in Maple Ridge and Pitt Meadows?
+A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Start with chat: ${SITE_ORIGIN}/patio-covers-maple-ridge
+
 ## Contact
 Website: ${SITE_ORIGIN}
 Email: info@loomihomepatios.ca
