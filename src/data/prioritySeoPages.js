@@ -2,6 +2,11 @@
 export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
   { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+  { path: '/patio-covers-vancouver', label: 'Patio covers — Vancouver' },
+  { path: '/patio-covers-burnaby', label: 'Patio covers — Burnaby' },
+  { path: '/patio-covers-richmond', label: 'Patio covers — Richmond' },
+  { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers — Vancouver' },
+  { path: '/skyline-combo-patio-covers-vancouver', label: 'Skyline combo covers — Vancouver' },
   { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor — Vancouver' },
   { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor — Richmond' },
   { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor — Burnaby' },

@@ -51,6 +51,18 @@ export const SERVICE_PAGES = {
         a: 'Yes — Burnaby, Richmond, Surrey, Delta, Coquitlam, and nearby. See our city pages for local notes.',
       },
     ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Vancouver-area backyard patio for rain protection',
+      caption:
+        'Aluminum patio cover — practical rain protection for Vancouver backyards. Compare glass and skyline combo in chat on the same size.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+      { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
+    ],
   },
   glass: {
     path: '/glass-patio-covers-vancouver',
@@ -158,6 +170,18 @@ export const SERVICE_PAGES = {
         q: 'Do I need a permit?',
         a: 'Depends on your city and design. See our permit guide for general guidance, and confirm with your municipality.',
       },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover with glass and V-panel sections on a Metro Vancouver backyard',
+      caption:
+        'Skyline combo cover — balanced light and shade for Vancouver-area patios. Compare aluminum and full glass in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+      { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
     ],
   },
   sunrooms: {

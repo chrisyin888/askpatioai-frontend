@@ -313,6 +313,7 @@ function aluminumPage(slug, meta) {
       { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
       { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
     ],
+    ...(meta.caseStudy ? { caseStudy: meta.caseStudy } : {}),
   };
 }
 
@@ -366,6 +367,7 @@ function glassPage(slug, meta) {
       { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
       { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
     ],
+    ...(meta.caseStudy ? { caseStudy: meta.caseStudy } : {}),
   };
 }
 
