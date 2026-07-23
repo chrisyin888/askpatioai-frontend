@@ -22,7 +22,7 @@ export const GUIDE_PAGES = {
       'Patio cover contractors near you in Metro Vancouver. Compare aluminum, glass, combo, and sunroom options with a fast rough estimate in ~60 seconds.',
     h1: 'Patio Cover Contractors Near Me — Metro Vancouver',
     intro:
-      'If you searched “patio cover contractors near me” or “patio cover installers near me,” you probably want two things: a trustworthy local team and a clear price range before booking visits. LoomiHome serves Metro Vancouver and the Lower Mainland — Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby areas. Start with a fast rough estimate in chat (about 60 seconds), then book a free on-site measurement when the range fits your budget.',
+      'If you searched “patio cover contractors near me” or “patio cover installers near me,” you probably want two things: a trustworthy local team and a clear price range before booking visits. LoomiHome serves Metro Vancouver and the Lower Mainland — Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Port Coquitlam, Port Moody, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby areas. Start with a fast rough estimate in chat (about 60 seconds), then book a free on-site measurement when the range fits your budget.',
     sections: [
       {
         h2: 'How to compare patio cover contractors without wasting evenings',
@@ -34,7 +34,7 @@ export const GUIDE_PAGES = {
       },
       {
         h2: 'Cities we serve in Metro Vancouver',
-        body: 'We regularly work in Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, and White Rock. If you are on the edge of the Lower Mainland, ask in chat — we can usually confirm quickly.',
+        body: 'We regularly work in Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Port Coquitlam, Port Moody, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, and White Rock. If you are on the edge of the Lower Mainland, ask in chat — we can usually confirm quickly.',
       },
       {
         h2: 'Installer vs contractor — what homeowners usually mean',

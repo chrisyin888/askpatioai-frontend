@@ -9,6 +9,9 @@ export const PROJECT_PAGE_ORDER = [
   'langley-aluminum-patio-cover',
   'north-vancouver-glass-patio-cover',
   'new-westminster-skyline-combo-cover',
+  'port-coquitlam-glass-patio-cover',
+  'abbotsford-aluminum-patio-cover',
+  'white-rock-glass-patio-cover',
 ];
 
 export const PROJECT_PAGES = {
@@ -397,6 +400,150 @@ export const PROJECT_PAGES = {
         q: 'What is a skyline combo cover?',
         a: 'A mix of glass and V-panel sections for both light and shade — between solid aluminum and full glass.',
       },
+    ],
+  },
+  'port-coquitlam-glass-patio-cover': {
+    id: 'port-coquitlam-glass-patio-cover',
+    path: '/projects/port-coquitlam-glass-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-23',
+    heroImage: '/house/before-after/coquitlam-glass-after.png',
+    metaTitle: 'Port Coquitlam Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Port Coquitlam glass patio cover example — bright rain protection for Citadel Heights and Mary Hill backyards. Compare glass and aluminum in chat.',
+    h1: 'Port Coquitlam Glass Patio Cover Project',
+    intro:
+      'This Port Coquitlam glass patio cover example shows how tempered glass can keep a Tri-Cities patio bright while adding overhead rain protection — a common goal for townhomes and detached homes in Citadel Heights, Mary Hill, and Lincoln Park.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Rain-ready fit for Tri-Cities backyards',
+      'Useful reference for Port Coquitlam walkout decks',
+      'Compare aluminum and combo options in chat',
+    ],
+    localAngle:
+      'Port Coquitlam lots mix townhomes and hillside yards. Glass works when homeowners want protection without darkening the back of the house — slope and drainage are confirmed on site.',
+    sections: [
+      {
+        h2: 'When glass fits Port Coquitlam patios',
+        body: 'Glass is worth comparing when the patio sits close to living areas and you want the covered space to stay bright. Proper slope and drainage matter on Tri-Cities lots.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free Port Coquitlam measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Port Coquitlam neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Port Coquitlam?',
+        a: 'Yes — Citadel Heights, Mary Hill, Lincoln Park, and nearby Tri-Cities areas are regular service areas.',
+      },
+      {
+        q: 'Do you also serve Coquitlam and Port Moody?',
+        a: 'Yes — see our Coquitlam and Port Moody city pages for nearby examples and contractor pages.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-port-coquitlam', label: 'Patio covers in Port Coquitlam' },
+      { path: '/glass-patio-covers-port-coquitlam', label: 'Glass patio covers in Port Coquitlam' },
+      { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass patio cover project' },
+    ],
+  },
+  'abbotsford-aluminum-patio-cover': {
+    id: 'abbotsford-aluminum-patio-cover',
+    path: '/projects/abbotsford-aluminum-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-23',
+    heroImage: '/house/Aluminum/p27.jpg',
+    metaTitle: 'Abbotsford Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Abbotsford aluminum patio cover example — practical rain protection for Clearbrook and Sumas Mountain backyards. Fast rough estimate in chat.',
+    h1: 'Abbotsford Aluminum Patio Cover Project',
+    intro:
+      'This Abbotsford-style aluminum patio cover fits the kind of family backyards common in Clearbrook, Sumas Mountain, and nearby Fraser Valley neighbourhoods — dependable rain coverage with low maintenance.',
+    highlights: [
+      'Aluminum cover for everyday backyard use',
+      'Practical fit for larger Abbotsford lots',
+      'Low-maintenance rain protection',
+      'Useful reference for Fraser Valley homeowners',
+    ],
+    localAngle:
+      'Abbotsford lots are often roomier than city yards. Aluminum is usually the first product to compare when homeowners want solid rain coverage before looking at glass or combo options.',
+    sections: [
+      {
+        h2: 'Why aluminum works in Abbotsford backyards',
+        body: 'Many Abbotsford patios are used for barbecues, play areas, and seating through wet months. A solid aluminum roof keeps the space drier without adding much visual weight.',
+      },
+      {
+        h2: 'What affects pricing on similar projects',
+        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Chat gives a planning range first; measurement confirms the layout.',
+      },
+    ],
+    pricingNote:
+      'Share your Abbotsford neighbourhood and approximate patio size in chat to get a ballpark for a similar aluminum cover.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Abbotsford?',
+        a: 'Yes — Clearbrook, Sumas Mountain, and nearby Fraser Valley communities are part of our Lower Mainland coverage.',
+      },
+      {
+        q: 'Can I compare aluminum and glass for the same Abbotsford patio?',
+        a: 'Yes. We can ballpark both from the same rough dimensions in one chat session.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
+      { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
+      { path: '/projects/langley-aluminum-patio-cover', label: 'Langley aluminum patio cover project' },
+    ],
+  },
+  'white-rock-glass-patio-cover': {
+    id: 'white-rock-glass-patio-cover',
+    path: '/projects/white-rock-glass-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-23',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'White Rock Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'White Rock glass patio cover example — bright rain protection for coastal decks near East Beach and South Surrey. Compare glass and aluminum in chat.',
+    h1: 'White Rock Glass Patio Cover Project',
+    intro:
+      'This White Rock glass patio cover example shows how tempered glass can protect a seaside deck while keeping natural light — a common goal on compact coastal lots near East Beach, West Beach, and South Surrey.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Suited to coastal rain and wind exposure',
+      'Premium look for compact seaside decks',
+      'Compare aluminum for budget in chat',
+    ],
+    localAngle:
+      'White Rock and nearby South Surrey patios often face ocean exposure. Glass keeps the space bright; attachment, slope, and drainage are confirmed during measurement.',
+    sections: [
+      {
+        h2: 'When glass fits White Rock patios',
+        body: 'Glass works well when the patio sits close to living areas and homeowners want protection without darkening the back of the house. Coastal wind makes proper engineering important.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide whether the light and look are worth the gap before a free White Rock measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your White Rock or South Surrey neighbourhood and patio dimensions in chat to compare glass and aluminum on the same footprint.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in White Rock?',
+        a: 'Yes — East Beach, West Beach, and nearby South Surrey are regular service areas.',
+      },
+      {
+        q: 'Is glass or aluminum better for coastal weather?',
+        a: 'Both can work with proper slope, drainage, and attachment. Aluminum is often the practical rain-first option; glass keeps more light.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-white-rock', label: 'Patio covers in White Rock' },
+      { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
+      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass patio cover project' },
     ],
   },
 };

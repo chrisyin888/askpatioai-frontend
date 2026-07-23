@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-07-22
+> Last updated: 2026-07-23
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -53,7 +53,10 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby
 - Patio covers — Richmond: https://loomihomepatios.ca/patio-covers-richmond
+- Patio covers — Delta: https://loomihomepatios.ca/patio-covers-delta
+- Patio covers — New Westminster: https://loomihomepatios.ca/patio-covers-new-westminster
 - Aluminum patio covers — Vancouver: https://loomihomepatios.ca/aluminum-patio-covers-vancouver
+- Aluminum patio covers — Burnaby: https://loomihomepatios.ca/aluminum-patio-covers-burnaby
 - Skyline combo covers — Vancouver: https://loomihomepatios.ca/skyline-combo-patio-covers-vancouver
 - Patio cover contractor — Vancouver: https://loomihomepatios.ca/patio-cover-contractor-vancouver
 - Patio cover contractor — Richmond: https://loomihomepatios.ca/patio-cover-contractor-richmond
@@ -71,6 +74,9 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Aluminum patio covers — Langley: https://loomihomepatios.ca/aluminum-patio-covers-langley
 - Patio covers — Surrey: https://loomihomepatios.ca/patio-covers-surrey
 - Patio covers — Coquitlam: https://loomihomepatios.ca/patio-covers-coquitlam
+- Glass patio covers — Coquitlam: https://loomihomepatios.ca/glass-patio-covers-coquitlam
+- Patio cover contractor — Surrey: https://loomihomepatios.ca/patio-cover-contractor-surrey
+- Patio cover contractor — West Vancouver: https://loomihomepatios.ca/patio-cover-contractor-west-vancouver
 - Patio covers — West Vancouver: https://loomihomepatios.ca/patio-covers-west-vancouver
 - Patio covers — Maple Ridge: https://loomihomepatios.ca/patio-covers-maple-ridge
 - Patio covers — Abbotsford: https://loomihomepatios.ca/patio-covers-abbotsford
@@ -92,6 +98,24 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover permits: https://loomihomepatios.ca/do-you-need-a-permit-for-a-patio-cover-in-vancouver
 - Installation timeline: https://loomihomepatios.ca/how-long-does-patio-cover-installation-take
 
+## City landing pages
+- Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
+- Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby
+- Patio covers — Richmond: https://loomihomepatios.ca/patio-covers-richmond
+- Patio covers — Surrey: https://loomihomepatios.ca/patio-covers-surrey
+- Patio covers — Delta: https://loomihomepatios.ca/patio-covers-delta
+- Patio covers — Coquitlam: https://loomihomepatios.ca/patio-covers-coquitlam
+- Patio covers — Langley: https://loomihomepatios.ca/patio-covers-langley
+- Patio covers — North Vancouver: https://loomihomepatios.ca/patio-covers-north-vancouver
+- Patio covers — West Vancouver: https://loomihomepatios.ca/patio-covers-west-vancouver
+- Patio covers — New Westminster: https://loomihomepatios.ca/patio-covers-new-westminster
+- Patio covers — Maple Ridge: https://loomihomepatios.ca/patio-covers-maple-ridge
+- Patio covers — Pitt Meadows: https://loomihomepatios.ca/patio-covers-pitt-meadows
+- Patio covers — Port Coquitlam: https://loomihomepatios.ca/patio-covers-port-coquitlam
+- Patio covers — Port Moody: https://loomihomepatios.ca/patio-covers-port-moody
+- Patio covers — Abbotsford: https://loomihomepatios.ca/patio-covers-abbotsford
+- Patio covers — White Rock: https://loomihomepatios.ca/patio-covers-white-rock
+
 ## Project examples
 - Burnaby Aluminum Patio Cover: https://loomihomepatios.ca/projects/burnaby-aluminum-patio-cover
 - Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/vancouver-glass-patio-cover
@@ -102,6 +126,9 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Langley Aluminum Patio Cover: https://loomihomepatios.ca/projects/langley-aluminum-patio-cover
 - North Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/north-vancouver-glass-patio-cover
 - New Westminster Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/new-westminster-skyline-combo-cover
+- Port Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover
+- Abbotsford Aluminum Patio Cover: https://loomihomepatios.ca/projects/abbotsford-aluminum-patio-cover
+- White Rock Glass Patio Cover: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?
@@ -159,9 +186,6 @@ Q: Do you install patio covers in Abbotsford?
 A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Start with chat for a planning range: https://loomihomepatios.ca/patio-covers-abbotsford
 
 Q: Do you install patio covers in White Rock?
-A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: https://loomihomepatios.ca/patio-covers-white-rock
-
-Q: Do you install patio covers in White Rock and South Surrey?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: https://loomihomepatios.ca/patio-covers-white-rock
 
 Q: Do you install patio covers in Maple Ridge and Pitt Meadows?

@@ -26,6 +26,11 @@ async function loadProjectPages() {
   return mod.PROJECT_PAGE_ORDER.map((id) => mod.PROJECT_PAGES[id]);
 }
 
+async function loadCityPages() {
+  const mod = await import(pathToFileURL(path.join(__dirname, '../src/data/cityPages.js')).href);
+  return mod.CITY_PAGE_ORDER.map((id) => mod.CITY_PAGES[id]);
+}
+
 function exampleLine(material, w, h) {
   const quote = patioCoverQuoteForMaterial(material, w * h);
   const label =
@@ -46,8 +51,12 @@ function sunroomExampleLine(type, w, h) {
 async function buildLlmsTxt() {
   const priorityPages = await loadPriorityPages();
   const projectPages = await loadProjectPages();
+  const cityPages = await loadCityPages();
   const keyPageLines = priorityPages
     .map((p) => `- ${p.label}: ${SITE_ORIGIN}${p.path}`)
+    .join('\n');
+  const cityLines = cityPages
+    .map((p) => `- ${p.h1.replace(/^Patio Covers in /i, 'Patio covers — ')}: ${SITE_ORIGIN}${p.path}`)
     .join('\n');
   const projectLines = projectPages
     .map((p) => `- ${p.h1.replace(' Project', '')}: ${SITE_ORIGIN}${p.path}`)
@@ -119,6 +128,9 @@ ${keyPageLines}
 - Patio cover permits: ${SITE_ORIGIN}/do-you-need-a-permit-for-a-patio-cover-in-vancouver
 - Installation timeline: ${SITE_ORIGIN}/how-long-does-patio-cover-installation-take
 
+## City landing pages
+${cityLines}
+
 ## Project examples
 ${projectLines}
 
@@ -178,9 +190,6 @@ Q: Do you install patio covers in Abbotsford?
 A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Start with chat for a planning range: ${SITE_ORIGIN}/patio-covers-abbotsford
 
 Q: Do you install patio covers in White Rock?
-A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: ${SITE_ORIGIN}/patio-covers-white-rock
-
-Q: Do you install patio covers in White Rock and South Surrey?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: ${SITE_ORIGIN}/patio-covers-white-rock
 
 Q: Do you install patio covers in Maple Ridge and Pitt Meadows?

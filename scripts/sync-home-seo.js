@@ -14,6 +14,15 @@ const EXTRA_POPULAR_LINKS = [
   { path: '/how-long-does-patio-cover-installation-take', label: 'Patio cover installation timeline' },
 ];
 
+const GUIDE_LINK_LABELS = {
+  'contractors-near-me': 'Patio cover contractors near me',
+  'patio-cover-cost': 'Patio cover cost Vancouver',
+  'glass-vs-aluminum': 'Glass vs aluminum patio covers',
+  permit: 'Patio cover permits',
+  rain: 'Best patio cover for rain',
+  'install-timeline': 'Installation timeline',
+};
+
 const SERVICE_LINK_LABELS = {
   aluminum: 'Aluminum patio covers Vancouver',
   glass: 'Glass patio covers Vancouver',
@@ -49,6 +58,7 @@ async function loadData() {
   const cityMod = await import(pathToFileURL(path.join(__dirname, '../src/data/cityPages.js')).href);
   const projectMod = await import(pathToFileURL(path.join(__dirname, '../src/data/projectPages.js')).href);
   const serviceMod = await import(pathToFileURL(path.join(__dirname, '../src/data/servicePages.js')).href);
+  const guideMod = await import(pathToFileURL(path.join(__dirname, '../src/data/guidePages.js')).href);
 
   return {
     priorityLinks: priorityMod.PRIORITY_SEO_PAGE_LINKS,
@@ -58,6 +68,8 @@ async function loadData() {
     projectPages: projectMod.PROJECT_PAGES,
     serviceOrder: serviceMod.SERVICE_PAGE_ORDER,
     servicePages: serviceMod.SERVICE_PAGES,
+    guideOrder: guideMod.GUIDE_PAGE_ORDER,
+    guidePages: guideMod.GUIDE_PAGES,
   };
 }
 
@@ -86,9 +98,15 @@ async function main() {
   }));
   html = replaceListSection(html, 'Cover types (Vancouver)', `\n${linkListHtml(coverLinks)}`);
 
+  const guideLinks = data.guideOrder.map((id) => ({
+    path: data.guidePages[id].path,
+    label: GUIDE_LINK_LABELS[id] || data.guidePages[id].h1,
+  }));
+  html = replaceListSection(html, 'Guides', `\n${linkListHtml(guideLinks)}`);
+
   fs.writeFileSync(INDEX_PATH, html, 'utf8');
   console.log(
-    `Synced public/index.html SEO lists (${popularLinks.length} popular, ${cityLinks.length} cities, ${projectLinks.length} projects)`,
+    `Synced public/index.html SEO lists (${popularLinks.length} popular, ${cityLinks.length} cities, ${projectLinks.length} projects, ${guideLinks.length} guides)`,
   );
 }
 
