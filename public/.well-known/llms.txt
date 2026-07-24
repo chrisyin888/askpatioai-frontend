@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-07-23
+> Last updated: 2026-07-24
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -79,6 +79,14 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover contractor — West Vancouver: https://loomihomepatios.ca/patio-cover-contractor-west-vancouver
 - Patio covers — West Vancouver: https://loomihomepatios.ca/patio-covers-west-vancouver
 - Patio covers — Maple Ridge: https://loomihomepatios.ca/patio-covers-maple-ridge
+- Patio covers — Pitt Meadows: https://loomihomepatios.ca/patio-covers-pitt-meadows
+- Patio cover contractor — Maple Ridge: https://loomihomepatios.ca/patio-cover-contractor-maple-ridge
+- Patio cover contractor — Delta: https://loomihomepatios.ca/patio-cover-contractor-delta
+- Patio cover contractor — New Westminster: https://loomihomepatios.ca/patio-cover-contractor-new-westminster
+- Patio cover contractor — Coquitlam: https://loomihomepatios.ca/patio-cover-contractor-coquitlam
+- Glass patio covers — West Vancouver: https://loomihomepatios.ca/glass-patio-covers-west-vancouver
+- Aluminum patio covers — Richmond: https://loomihomepatios.ca/aluminum-patio-covers-richmond
+- Sunrooms — Burnaby: https://loomihomepatios.ca/sunrooms-burnaby
 - Patio covers — Abbotsford: https://loomihomepatios.ca/patio-covers-abbotsford
 - Patio cover contractor — Abbotsford: https://loomihomepatios.ca/patio-cover-contractor-abbotsford
 - Patio covers — White Rock: https://loomihomepatios.ca/patio-covers-white-rock
@@ -129,6 +137,9 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Port Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover
 - Abbotsford Aluminum Patio Cover: https://loomihomepatios.ca/projects/abbotsford-aluminum-patio-cover
 - White Rock Glass Patio Cover: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover
+- Maple Ridge Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/maple-ridge-skyline-combo-cover
+- Port Moody Glass Patio Cover: https://loomihomepatios.ca/projects/port-moody-glass-patio-cover
+- Pitt Meadows Aluminum Patio Cover: https://loomihomepatios.ca/projects/pitt-meadows-aluminum-patio-cover
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?
@@ -147,7 +158,7 @@ Q: What areas do you serve?
 A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.
 
 Q: Do you install patio covers in Port Coquitlam and Port Moody?
-A: Yes. Port Coquitlam (Citadel Heights, Mary Hill, Lincoln Park) and Port Moody (Moody Centre, Suter Brook, Newport Village) are regular Tri-Cities service areas. Start with chat for a planning range: https://loomihomepatios.ca/patio-covers-port-coquitlam and https://loomihomepatios.ca/patio-covers-port-moody
+A: Yes. Port Coquitlam (Citadel Heights, Mary Hill, Lincoln Park) and Port Moody (Moody Centre, Suter Brook, Newport Village) are regular Tri-Cities service areas. Project examples: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover and https://loomihomepatios.ca/projects/port-moody-glass-patio-cover
 
 Q: Do you provide patio cover contractor quotes in Richmond and Burnaby?
 A: Yes. Richmond (Steveston, Broadmoor, East Cambie) and Burnaby (Metrotown, Brentwood, Deer Lake) are core service areas. Start with chat for a planning range, then book free on-site measurement.
@@ -189,7 +200,7 @@ Q: Do you install patio covers in White Rock?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: https://loomihomepatios.ca/patio-covers-white-rock
 
 Q: Do you install patio covers in Maple Ridge and Pitt Meadows?
-A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Start with chat: https://loomihomepatios.ca/patio-covers-maple-ridge
+A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Project examples: https://loomihomepatios.ca/projects/maple-ridge-skyline-combo-cover and https://loomihomepatios.ca/projects/pitt-meadows-aluminum-patio-cover
 
 ## Contact
 Website: https://loomihomepatios.ca

@@ -532,7 +532,7 @@ export const CITY_PAGES = {
       alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
       caption:
         'Skyline combo cover — larger backyard layout common in Maple Ridge. Compare aluminum and glass on your dimensions in chat.',
-      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
     },
   },
   'pitt-meadows': {
@@ -575,7 +575,7 @@ export const CITY_PAGES = {
       alt: 'Wide-span patio cover on a Fraser Valley suburban backyard similar to Pitt Meadows lots',
       caption:
         'Wide-span combo cover — reference for Pitt Meadows lots with room for larger patios. Chat ballpark before free measurement.',
-      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+      projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
     },
   },
   'port-coquitlam': {
@@ -669,7 +669,7 @@ export const CITY_PAGES = {
       alt: 'Glass patio cover on a compact Metro Vancouver backyard patio similar to Port Moody homes',
       caption:
         'Glass patio cover — bright rain protection suited to Port Moody walkout decks. Compare aluminum for budget in chat.',
-      projectPath: '/projects/coquitlam-glass-patio-cover',
+      projectPath: '/projects/port-moody-glass-patio-cover',
     },
   },
   abbotsford: {

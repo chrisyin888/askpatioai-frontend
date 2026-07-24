@@ -12,6 +12,9 @@ export const PROJECT_PAGE_ORDER = [
   'port-coquitlam-glass-patio-cover',
   'abbotsford-aluminum-patio-cover',
   'white-rock-glass-patio-cover',
+  'maple-ridge-skyline-combo-cover',
+  'port-moody-glass-patio-cover',
+  'pitt-meadows-aluminum-patio-cover',
 ];
 
 export const PROJECT_PAGES = {
@@ -544,6 +547,150 @@ export const PROJECT_PAGES = {
       { path: '/patio-covers-white-rock', label: 'Patio covers in White Rock' },
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
       { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass patio cover project' },
+    ],
+  },
+  'maple-ridge-skyline-combo-cover': {
+    id: 'maple-ridge-skyline-combo-cover',
+    path: '/projects/maple-ridge-skyline-combo-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-24',
+    heroImage: '/house/before-after/surrey-skyline-after.png',
+    metaTitle: 'Maple Ridge Skyline Combo Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Maple Ridge skyline combo patio cover example — balanced glass and V-panel shade for Town Centre and Albion backyards. Fast rough estimate in chat.',
+    h1: 'Maple Ridge Skyline Combo Patio Cover Project',
+    intro:
+      'This Maple Ridge skyline combo example blends glass and V-panel sections for balanced light and shade — a useful reference for larger family backyards in Town Centre, Albion, and Silver Valley.',
+    highlights: [
+      'Mix of glass and V-panel roof sections',
+      'Balanced light and shade for wider patios',
+      'Good middle option between aluminum and full glass',
+      'Useful for Maple Ridge suburban layouts',
+    ],
+    localAngle:
+      'Maple Ridge lots often have room for wider spans than city yards. Skyline combo covers help when homeowners want more light than a solid roof but less cost than full glass.',
+    sections: [
+      {
+        h2: 'Why combo covers work on Maple Ridge lots',
+        body: 'A mix of glass and solid panels lets you tune brightness and budget on larger backyards common in Maple Ridge and nearby Pitt Meadows.',
+      },
+      {
+        h2: 'What we confirm during measurement',
+        body: 'Attachment, post placement, glass share, span, and drainage are all confirmed on site before final pricing.',
+      },
+    ],
+    pricingNote:
+      'Share your Maple Ridge neighbourhood and patio dimensions in chat to compare combo, glass, and aluminum on the same footprint.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Maple Ridge?',
+        a: 'Yes — Town Centre, Albion, Silver Valley, and nearby areas are regular service areas.',
+      },
+      {
+        q: 'Do you also serve Pitt Meadows?',
+        a: 'Yes — see our Pitt Meadows city page for nearby Fraser Valley examples.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
+      { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
+    ],
+  },
+  'port-moody-glass-patio-cover': {
+    id: 'port-moody-glass-patio-cover',
+    path: '/projects/port-moody-glass-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-24',
+    heroImage: '/house/before-after/coquitlam-glass-after.png',
+    metaTitle: 'Port Moody Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Port Moody glass patio cover example — bright rain protection for Moody Centre and Suter Brook decks. Compare glass and aluminum in chat.',
+    h1: 'Port Moody Glass Patio Cover Project',
+    intro:
+      'This Port Moody glass patio cover example shows how tempered glass can keep a compact Tri-Cities patio bright while adding overhead rain protection — a common goal near Moody Centre, Suter Brook, and Newport Village.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Rain-ready fit for compact coastal lots',
+      'Useful reference for Port Moody walkout decks',
+      'Compare aluminum for budget in chat',
+    ],
+    localAngle:
+      'Port Moody patios are often compact with view lines toward the inlet. Glass works when homeowners want protection without darkening the back of the house.',
+    sections: [
+      {
+        h2: 'When glass fits Port Moody patios',
+        body: 'Glass is worth comparing when the patio sits close to living areas and you want the covered space to stay bright. Slope and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free Port Moody measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Port Moody neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Port Moody?',
+        a: 'Yes — Moody Centre, Suter Brook, Newport Village, and nearby Tri-Cities areas are regular service areas.',
+      },
+      {
+        q: 'Do you also serve Port Coquitlam and Coquitlam?',
+        a: 'Yes — see our Port Coquitlam and Coquitlam pages for nearby examples.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-port-moody', label: 'Patio covers in Port Moody' },
+      { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
+      { path: '/projects/port-coquitlam-glass-patio-cover', label: 'Port Coquitlam glass project' },
+    ],
+  },
+  'pitt-meadows-aluminum-patio-cover': {
+    id: 'pitt-meadows-aluminum-patio-cover',
+    path: '/projects/pitt-meadows-aluminum-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-24',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'Pitt Meadows Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Pitt Meadows aluminum patio cover example — practical rain protection for wider Fraser Valley backyards. Fast rough estimate in chat.',
+    h1: 'Pitt Meadows Aluminum Patio Cover Project',
+    intro:
+      'This Pitt Meadows-style aluminum patio cover fits wider suburban backyards common near Maple Ridge — dependable rain coverage with low maintenance and a clean frame.',
+    highlights: [
+      'Aluminum cover for everyday backyard use',
+      'Practical fit for wider Pitt Meadows spans',
+      'Low-maintenance rain protection',
+      'Useful reference for Fraser Valley edge homeowners',
+    ],
+    localAngle:
+      'Pitt Meadows lots often have room for wider patio spans. Aluminum is usually the first product to compare when homeowners want solid rain coverage before glass or combo options.',
+    sections: [
+      {
+        h2: 'Why aluminum works in Pitt Meadows backyards',
+        body: 'Many Pitt Meadows patios are used through wet springs and summers. A solid aluminum roof keeps the space drier without heavy visual weight.',
+      },
+      {
+        h2: 'What affects pricing on similar projects',
+        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Chat gives a planning range first; measurement confirms the layout.',
+      },
+    ],
+    pricingNote:
+      'Share your Pitt Meadows neighbourhood and approximate patio size in chat to get a ballpark for a similar aluminum cover.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Pitt Meadows?',
+        a: 'Yes — Pitt Meadows and nearby Maple Ridge are regular Lower Mainland service areas.',
+      },
+      {
+        q: 'Can I compare aluminum and combo covers?',
+        a: 'Yes. We can ballpark aluminum, glass, and skyline combo from the same rough dimensions in chat.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
+      { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
     ],
   },
 };

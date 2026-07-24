@@ -7,12 +7,26 @@ const SKYLINE_CITY_META = {
     areaServed: 'Burnaby, British Columbia',
     neighbourhoods: 'Metrotown, Deer Lake, and North Burnaby',
     localDetail: 'mixed lot sizes and rain exposure',
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Skyline combo patio cover on a Burnaby backyard similar to combo layouts in Metrotown and Deer Lake',
+      caption:
+        'Burnaby aluminum patio cover — rain-ready reference for combo comparisons on mixed lot sizes. Ballpark combo and aluminum in chat.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   richmond: {
     name: 'Richmond',
     areaServed: 'Richmond, British Columbia',
     neighbourhoods: 'Steveston, Broadmoor, and East Cambie',
     localDetail: 'side yards and back patios near parking areas',
+    caseStudy: {
+      image: '/house/before-after/richmond-carport-after.png',
+      alt: 'Aluminum carport-style cover on a Richmond home — useful combo comparison for side yards',
+      caption:
+        'Richmond cover example — compare skyline combo against aluminum on the same footprint in chat.',
+      projectPath: '/projects/richmond-aluminum-carport-cover',
+    },
   },
   surrey: {
     name: 'Surrey',
@@ -36,18 +50,39 @@ const SKYLINE_CITY_META = {
     areaServed: 'Delta, British Columbia',
     neighbourhoods: 'Ladner, Tsawwassen, and North Delta',
     localDetail: 'family patios and coastal rain exposure',
+    caseStudy: {
+      image: '/house/before-after/delta-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Delta backyard — reference for combo vs aluminum comparisons',
+      caption:
+        'Delta aluminum cover — compare skyline combo on the same size in chat before free measurement.',
+      projectPath: '/projects/delta-aluminum-patio-cover',
+    },
   },
   coquitlam: {
     name: 'Coquitlam',
     areaServed: 'Coquitlam, British Columbia',
     neighbourhoods: 'Burke Mountain, Westwood Plateau, and Maillardville',
     localDetail: 'hillside decks and established neighbourhoods',
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Coquitlam backyard — useful when comparing combo vs glass options',
+      caption:
+        'Coquitlam glass cover — compare skyline combo and glass on your dimensions in chat.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
   },
   langley: {
     name: 'Langley',
     areaServed: 'Langley, British Columbia',
     neighbourhoods: 'Willoughby, Walnut Grove, and Brookswood',
     localDetail: 'larger lots and family outdoor spaces',
+    caseStudy: {
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Aluminum patio cover on a Langley family backyard similar to combo layout planning',
+      caption:
+        'Langley aluminum cover — compare skyline combo for larger lots in Willoughby and Walnut Grove.',
+      projectPath: '/projects/langley-aluminum-patio-cover',
+    },
   },
 };
 

@@ -151,7 +151,7 @@ Q: What areas do you serve?
 A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.
 
 Q: Do you install patio covers in Port Coquitlam and Port Moody?
-A: Yes. Port Coquitlam (Citadel Heights, Mary Hill, Lincoln Park) and Port Moody (Moody Centre, Suter Brook, Newport Village) are regular Tri-Cities service areas. Start with chat for a planning range: ${SITE_ORIGIN}/patio-covers-port-coquitlam and ${SITE_ORIGIN}/patio-covers-port-moody
+A: Yes. Port Coquitlam (Citadel Heights, Mary Hill, Lincoln Park) and Port Moody (Moody Centre, Suter Brook, Newport Village) are regular Tri-Cities service areas. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover
 
 Q: Do you provide patio cover contractor quotes in Richmond and Burnaby?
 A: Yes. Richmond (Steveston, Broadmoor, East Cambie) and Burnaby (Metrotown, Brentwood, Deer Lake) are core service areas. Start with chat for a planning range, then book free on-site measurement.
@@ -193,7 +193,7 @@ Q: Do you install patio covers in White Rock?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: ${SITE_ORIGIN}/patio-covers-white-rock
 
 Q: Do you install patio covers in Maple Ridge and Pitt Meadows?
-A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Start with chat: ${SITE_ORIGIN}/patio-covers-maple-ridge
+A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Project examples: ${SITE_ORIGIN}/projects/maple-ridge-skyline-combo-cover and ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover
 
 ## Contact
 Website: ${SITE_ORIGIN}
