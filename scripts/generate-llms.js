@@ -31,6 +31,20 @@ async function loadCityPages() {
   return mod.CITY_PAGE_ORDER.map((id) => mod.CITY_PAGES[id]);
 }
 
+async function loadGuidePages() {
+  const mod = await import(pathToFileURL(path.join(__dirname, '../src/data/guidePages.js')).href);
+  return mod.GUIDE_PAGE_ORDER.map((id) => mod.GUIDE_PAGES[id]);
+}
+
+const GUIDE_LLM_LABELS = {
+  'contractors-near-me': 'Patio cover contractors near me',
+  'patio-cover-cost': 'Patio cover cost (Vancouver)',
+  'glass-vs-aluminum': 'Glass vs aluminum',
+  permit: 'Patio cover permits',
+  rain: 'Best cover for rain',
+  'install-timeline': 'Installation timeline',
+};
+
 function exampleLine(material, w, h) {
   const quote = patioCoverQuoteForMaterial(material, w * h);
   const label =
@@ -52,6 +66,7 @@ async function buildLlmsTxt() {
   const priorityPages = await loadPriorityPages();
   const projectPages = await loadProjectPages();
   const cityPages = await loadCityPages();
+  const guidePages = await loadGuidePages();
   const keyPageLines = priorityPages
     .map((p) => `- ${p.label}: ${SITE_ORIGIN}${p.path}`)
     .join('\n');
@@ -60,6 +75,9 @@ async function buildLlmsTxt() {
     .join('\n');
   const projectLines = projectPages
     .map((p) => `- ${p.h1.replace(' Project', '')}: ${SITE_ORIGIN}${p.path}`)
+    .join('\n');
+  const guideLines = guidePages
+    .map((p) => `- ${GUIDE_LLM_LABELS[p.id] || p.h1.split('—')[0].trim()}: ${SITE_ORIGIN}${p.path}`)
     .join('\n');
 
   const al12x14 = patioCoverQuoteForMaterial('Aluminum', 12 * 14);
@@ -121,12 +139,7 @@ ${keyPageLines}
 - LLM summary: ${SITE_ORIGIN}/llms.txt
 
 ## Helpful guides
-- Patio cover contractors near me: ${SITE_ORIGIN}/patio-cover-contractors-near-me
-- Patio cover cost (Vancouver): ${SITE_ORIGIN}/patio-cover-cost-vancouver
-- Glass vs aluminum: ${SITE_ORIGIN}/glass-vs-aluminum-patio-covers
-- Best cover for rain: ${SITE_ORIGIN}/best-patio-cover-for-rain-vancouver
-- Patio cover permits: ${SITE_ORIGIN}/do-you-need-a-permit-for-a-patio-cover-in-vancouver
-- Installation timeline: ${SITE_ORIGIN}/how-long-does-patio-cover-installation-take
+${guideLines}
 
 ## City landing pages
 ${cityLines}
@@ -187,10 +200,10 @@ Q: Do you install patio covers in New Westminster and Maple Ridge?
 A: Yes. New Westminster (Queensborough, Sapperton, Uptown) and Maple Ridge (Town Centre, Albion, Silver Valley) are regular service areas: ${SITE_ORIGIN}/patio-cover-contractor-new-westminster and ${SITE_ORIGIN}/patio-cover-contractor-maple-ridge
 
 Q: Do you install patio covers in Abbotsford?
-A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Start with chat for a planning range: ${SITE_ORIGIN}/patio-covers-abbotsford
+A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Project example: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover
 
 Q: Do you install patio covers in White Rock?
-A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Compare glass and aluminum in chat: ${SITE_ORIGIN}/patio-covers-white-rock
+A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Project example: ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover
 
 Q: Do you install patio covers in Maple Ridge and Pitt Meadows?
 A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Project examples: ${SITE_ORIGIN}/projects/maple-ridge-skyline-combo-cover and ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover

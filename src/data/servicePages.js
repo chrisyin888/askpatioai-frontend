@@ -61,6 +61,7 @@ export const SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+      { path: '/projects/vancouver-aluminum-patio-cover', label: 'Vancouver aluminum patio cover project' },
       { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
     ],
   },

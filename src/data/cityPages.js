@@ -63,6 +63,7 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor in Vancouver' },
       { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+      { path: '/projects/vancouver-aluminum-patio-cover', label: 'Vancouver aluminum patio cover project' },
     ],
     caseStudy: {
       image: '/house/before-after/vancouver-glass-after.png',

@@ -2,6 +2,7 @@
 export const PROJECT_PAGE_ORDER = [
   'burnaby-aluminum-patio-cover',
   'vancouver-glass-patio-cover',
+  'vancouver-aluminum-patio-cover',
   'surrey-skyline-combo-cover',
   'richmond-aluminum-carport-cover',
   'delta-aluminum-patio-cover',
@@ -102,6 +103,54 @@ export const PROJECT_PAGES = {
         q: 'Is glass more expensive than aluminum?',
         a: 'Usually yes. The trade-off is more daylight and a more premium look.',
       },
+    ],
+  },
+  'vancouver-aluminum-patio-cover': {
+    id: 'vancouver-aluminum-patio-cover',
+    path: '/projects/vancouver-aluminum-patio-cover',
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-26',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'Vancouver Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Vancouver aluminum patio cover example — practical rain protection for Kitsilano, East Van, and nearby back patios. Compare aluminum and glass in chat.',
+    h1: 'Vancouver Aluminum Patio Cover Project',
+    intro:
+      'This Vancouver aluminum patio cover example shows why aluminum is often the first option for rain-first protection — a clean frame, low maintenance, and a practical budget range before you compare glass or combo upgrades.',
+    highlights: [
+      'Aluminum cover for everyday patio use',
+      'Rain-ready reference for Vancouver backyards',
+      'Low-maintenance compared to wood or complex kits',
+      'Useful comparison point against glass covers',
+    ],
+    localAngle:
+      'Vancouver homeowners often want a dry patio through wet months without weeks of quote chasing. Aluminum gives a straightforward starting point from Kits to East Van to south-facing back decks.',
+    sections: [
+      {
+        h2: 'Why aluminum works in Vancouver',
+        body: 'Aluminum covers handle rain well with low upkeep. For many Vancouver patios, that means a usable outdoor space without the higher investment of a full glass roof.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Chat can ballpark aluminum and glass from the same rough dimensions so you see the budget gap before booking a free Vancouver measurement visit.',
+      },
+    ],
+    pricingNote:
+      'Share your Vancouver neighbourhood and approximate patio size in chat to get a ballpark for a similar aluminum cover.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in Vancouver?',
+        a: 'Yes — Vancouver and nearby Lower Mainland cities are core service areas.',
+      },
+      {
+        q: 'Can I compare aluminum and glass for the same Vancouver patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
+      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass patio cover project' },
     ],
   },
   'surrey-skyline-combo-cover': {

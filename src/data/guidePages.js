@@ -72,6 +72,8 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor — Vancouver' },
       { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor — Richmond' },
       { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor — Burnaby' },
+      { path: '/patio-covers-surrey', label: 'Patio covers — Surrey' },
+      { path: '/patio-covers-port-coquitlam', label: 'Patio covers — Port Coquitlam' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
