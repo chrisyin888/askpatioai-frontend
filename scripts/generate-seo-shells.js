@@ -18,6 +18,7 @@ const { SERVICE_PAGES, SERVICE_PAGE_ORDER } = require('../src/data/servicePages'
 const { CITY_PAGES, CITY_PAGE_ORDER } = require('../src/data/cityPages');
 const { GUIDE_PAGES, GUIDE_PAGE_ORDER } = require('../src/data/guidePages');
 const { PROJECT_PAGES, PROJECT_PAGE_ORDER } = require('../src/data/projectPages');
+const { PRICING_COPY } = require('../src/data/pricingCopy.js');
 
 function loadIndexNowKey() {
   try {
@@ -408,7 +409,23 @@ function buildHeroImageHtml(page) {
       </figure>`;
 }
 
+function buildCityServiceBallparkHtml(meta) {
+  if (meta.kind !== 'cityService' || !meta.pageId) return '';
+  const id = meta.pageId;
+  let line = '';
+  if (id.startsWith('aluminum-')) line = PRICING_COPY.aluminumOnly;
+  else if (id.startsWith('glass-')) line = PRICING_COPY.glassOnly;
+  else if (id.startsWith('skyline-')) line = PRICING_COPY.skylineComboNote;
+  else if (id.startsWith('sunrooms-')) line = PRICING_COPY.sunroomWallOnly;
+  else return '';
+  return `<h2>Ballpark pricing</h2>
+      <p>${esc(line)}</p>`;
+}
+
 function buildServiceExtrasHtml(page, meta) {
+  if (meta.kind === 'cityService') {
+    return buildCityServiceBallparkHtml(meta);
+  }
   if (meta.kind !== 'service') return '';
   const parts = [];
   if (page.pricingLine) {

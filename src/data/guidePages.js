@@ -207,6 +207,8 @@ export const GUIDE_PAGES = {
     relatedPageLinks: [
       { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
       { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
+      { path: '/projects/vancouver-aluminum-patio-cover', label: 'Vancouver aluminum project' },
+      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass project' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
       { path: '/skyline-combo-patio-covers-vancouver', label: 'Skyline combo covers' },
     ],

@@ -9,8 +9,6 @@ const { pathToFileURL } = require('url');
 const INDEX_PATH = path.join(__dirname, '..', 'public', 'index.html');
 
 const EXTRA_POPULAR_LINKS = [
-  { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum patio covers' },
-  { path: '/best-patio-cover-for-rain-vancouver', label: 'Best patio cover for rain' },
   { path: '/how-long-does-patio-cover-installation-take', label: 'Patio cover installation timeline' },
 ];
 

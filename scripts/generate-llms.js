@@ -149,7 +149,7 @@ ${projectLines}
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Chat gives a planning total for your size; final price is confirmed after on-site measurement.
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Chat gives a planning total for your size; final price is confirmed after on-site measurement. Project examples: ${SITE_ORIGIN}/projects/vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/vancouver-glass-patio-cover
 
 Q: What is the difference between aluminum and glass patio covers?
 A: Aluminum offers durable rain protection with low maintenance. Glass keeps more natural light and a premium look but usually costs more. We can ballpark both from the same measurements.

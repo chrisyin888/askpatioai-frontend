@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-07-26
+> Last updated: 2026-07-27
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -94,6 +94,15 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Glass patio covers — Langley: https://loomihomepatios.ca/glass-patio-covers-langley
 - Aluminum patio covers — Coquitlam: https://loomihomepatios.ca/aluminum-patio-covers-coquitlam
 - Patio cover contractor — Pitt Meadows: https://loomihomepatios.ca/patio-cover-contractor-pitt-meadows
+- Aluminum patio covers — Surrey: https://loomihomepatios.ca/aluminum-patio-covers-surrey
+- Aluminum patio covers — Langley: https://loomihomepatios.ca/aluminum-patio-covers-langley
+- Glass patio covers — Burnaby: https://loomihomepatios.ca/glass-patio-covers-burnaby
+- Glass patio covers — Surrey: https://loomihomepatios.ca/glass-patio-covers-surrey
+- Sunrooms — Coquitlam: https://loomihomepatios.ca/sunrooms-coquitlam
+- Sunrooms — Langley: https://loomihomepatios.ca/sunrooms-langley
+- Skyline combo covers — Langley: https://loomihomepatios.ca/skyline-combo-patio-covers-langley
+- Glass vs aluminum patio covers: https://loomihomepatios.ca/glass-vs-aluminum-patio-covers
+- Best patio cover for rain: https://loomihomepatios.ca/best-patio-cover-for-rain-vancouver
 - Patio covers — Abbotsford: https://loomihomepatios.ca/patio-covers-abbotsford
 - Patio cover contractor — Abbotsford: https://loomihomepatios.ca/patio-cover-contractor-abbotsford
 - Patio covers — White Rock: https://loomihomepatios.ca/patio-covers-white-rock
@@ -151,7 +160,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?
-A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Chat gives a planning total for your size; final price is confirmed after on-site measurement.
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Chat gives a planning total for your size; final price is confirmed after on-site measurement. Project examples: https://loomihomepatios.ca/projects/vancouver-aluminum-patio-cover and https://loomihomepatios.ca/projects/vancouver-glass-patio-cover
 
 Q: What is the difference between aluminum and glass patio covers?
 A: Aluminum offers durable rain protection with low maintenance. Glass keeps more natural light and a premium look but usually costs more. We can ballpark both from the same measurements.
