@@ -34,10 +34,14 @@ function linkListHtml(links) {
 
 function replaceListSection(html, heading, listBody) {
   const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(`(<h2>${escaped}</h2>\\s*<ul>\\n)[\\s\\S]*?(\\n      </ul>)`, 'i');
+  const re = new RegExp(
+    `(<h2>${escaped}</h2>\\s*<ul>\\r?\\n)[\\s\\S]*?(\\r?\\n      </ul>)`,
+    'i',
+  );
   if (!re.test(html)) {
     throw new Error(`Could not find section "${heading}" in public/index.html`);
   }
+  re.lastIndex = 0;
   return html.replace(re, `$1${listBody}$2`);
 }
 

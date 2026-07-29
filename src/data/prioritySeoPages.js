@@ -58,6 +58,7 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/patio-covers-abbotsford', label: 'Patio covers — Abbotsford' },
   { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor — Abbotsford' },
   { path: '/patio-covers-white-rock', label: 'Patio covers — White Rock' },
+  { path: '/patio-cover-contractor-white-rock', label: 'Patio cover contractor — White Rock' },
   { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers — White Rock' },
   { path: '/glass-patio-covers-richmond', label: 'Glass patio covers — Richmond' },
   { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers — Vancouver' },

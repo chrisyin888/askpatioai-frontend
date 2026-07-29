@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-07-27
+> Last updated: 2026-07-29
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -106,6 +106,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio covers — Abbotsford: https://loomihomepatios.ca/patio-covers-abbotsford
 - Patio cover contractor — Abbotsford: https://loomihomepatios.ca/patio-cover-contractor-abbotsford
 - Patio covers — White Rock: https://loomihomepatios.ca/patio-covers-white-rock
+- Patio cover contractor — White Rock: https://loomihomepatios.ca/patio-cover-contractor-white-rock
 - Glass patio covers — White Rock: https://loomihomepatios.ca/glass-patio-covers-white-rock
 - Glass patio covers — Richmond: https://loomihomepatios.ca/glass-patio-covers-richmond
 - Glass patio covers — Vancouver: https://loomihomepatios.ca/glass-patio-covers-vancouver

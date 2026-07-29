@@ -113,7 +113,7 @@ const CITY_META = {
       alt: 'Skyline combo patio cover on a Fraser Valley suburban backyard similar to Abbotsford lots',
       caption:
         'Skyline combo cover — larger backyard layout common in Abbotsford. Compare aluminum and glass on your dimensions in chat.',
-      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+      projectPath: '/projects/abbotsford-aluminum-patio-cover',
     },
   },
   'white-rock': {
@@ -127,7 +127,7 @@ const CITY_META = {
       alt: 'Glass patio cover on a coastal Metro Vancouver home with natural light under tempered glass roof',
       caption:
         'Glass patio cover — bright rain protection suited to White Rock and South Surrey decks. Compare aluminum for budget in chat.',
-      projectPath: '/projects/vancouver-glass-patio-cover',
+      projectPath: '/projects/white-rock-glass-patio-cover',
     },
   },
 };
