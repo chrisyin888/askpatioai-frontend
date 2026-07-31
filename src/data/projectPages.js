@@ -16,6 +16,7 @@ export const PROJECT_PAGE_ORDER = [
   'maple-ridge-skyline-combo-cover',
   'port-moody-glass-patio-cover',
   'pitt-meadows-aluminum-patio-cover',
+  'west-vancouver-glass-patio-cover',
 ];
 
 export const PROJECT_PAGES = {
@@ -740,6 +741,54 @@ export const PROJECT_PAGES = {
       { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
       { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+    ],
+  },
+  'west-vancouver-glass-patio-cover': {
+    id: 'west-vancouver-glass-patio-cover',
+    path: '/projects/west-vancouver-glass-patio-cover',
+    datePublished: '2026-07-31',
+    dateModified: '2026-07-31',
+    heroImage: '/house/glass/glass17.jpg',
+    metaTitle: 'West Vancouver Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'West Vancouver glass patio cover example — bright rain protection for Ambleside, Dundarave, and British Properties walkout decks. Compare glass and aluminum in chat.',
+    h1: 'West Vancouver Glass Patio Cover Project',
+    intro:
+      'This West Vancouver glass patio cover example shows how tempered glass can protect a walkout deck while preserving natural light and view lines — a common goal on North Shore homes in Ambleside, Dundarave, and the British Properties.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Suited to premium West Vancouver walkout decks',
+      'Rain-ready engineering with coastal exposure in mind',
+      'Useful comparison point for North Shore glass vs aluminum',
+    ],
+    localAngle:
+      'West Vancouver homes often balance ocean exposure, wind, and premium finishes. Glass covers are popular when homeowners want protection without darkening living areas that face the patio.',
+    sections: [
+      {
+        h2: 'When glass fits West Vancouver patios',
+        body: 'Glass works well when the patio sits close to living areas and views matter. Proper slope, flashing, and drainage are confirmed on site before final pricing.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free West Vancouver measurement.',
+      },
+    ],
+    pricingNote:
+      'Start with your West Vancouver neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you serve West Vancouver for patio covers?',
+        a: 'Yes — Ambleside, Dundarave, the British Properties, and nearby North Shore areas are regular service areas.',
+      },
+      {
+        q: 'Is glass practical for West Vancouver rain and wind?',
+        a: 'Yes, when engineered with proper slope, attachment, and drainage. We confirm those details during measurement.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-west-vancouver', label: 'Patio covers in West Vancouver' },
+      { path: '/glass-patio-covers-west-vancouver', label: 'Glass patio covers in West Vancouver' },
+      { path: '/projects/north-vancouver-glass-patio-cover', label: 'North Vancouver glass project' },
     ],
   },
 };

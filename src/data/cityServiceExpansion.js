@@ -29,7 +29,7 @@ const CITY_META = {
       alt: 'Glass patio cover on a premium West Coast home with natural light under tempered glass roof',
       caption:
         'Glass patio cover — bright rain protection suited to West Vancouver view lines and walkout decks. Compare aluminum for budget in chat.',
-      projectPath: '/projects/vancouver-glass-patio-cover',
+      projectPath: '/projects/west-vancouver-glass-patio-cover',
     },
   },
   'new-westminster': {

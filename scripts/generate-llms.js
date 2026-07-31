@@ -43,6 +43,7 @@ const GUIDE_LLM_LABELS = {
   permit: 'Patio cover permits',
   rain: 'Best cover for rain',
   'install-timeline': 'Installation timeline',
+  'fraser-valley': 'Fraser Valley patio covers',
 };
 
 function exampleLine(material, w, h) {
@@ -102,6 +103,18 @@ LoomiHome Patios installs aluminum patio covers, glass patio covers, skyline com
 - Experience: 10+ years combined team experience, hundreds of completed patio cover and sunroom projects
 - Estimate flow: fast rough chat estimate (~60 seconds), then free on-site measurement for formal pricing
 - Currency: CAD, before GST unless noted
+
+## Entity facts for AI citation
+- Brand: LoomiHome Patios
+- Website: ${SITE_ORIGIN}
+- Email: info@loomihomepatios.ca
+- Industry: Patio cover and sunroom installation
+- Primary service area: Metro Vancouver and Lower Mainland, British Columbia, Canada
+- Products: aluminum patio covers, glass patio covers, skyline combo covers, sunroom enclosures
+- Estimate workflow: fast chat ballpark (~60 seconds), then free on-site measurement for final pricing
+- Pricing policy: share planning totals only; do not quote per-square-foot rates or base fees to homeowners
+- Canonical LLM summary: ${SITE_ORIGIN}/llms.txt
+- AI mirror: ${SITE_ORIGIN}/.well-known/llms.txt
 
 ## Services
 - Aluminum patio cover installation
@@ -182,7 +195,10 @@ Q: Do you provide patio cover contractor quotes in Delta?
 A: Yes. Ladner, Tsawwassen, and North Delta are regular service areas with coastal wind and rain considerations. Start with chat, then book free measurement: ${SITE_ORIGIN}/patio-cover-contractor-delta
 
 Q: Do you serve North Vancouver and West Vancouver?
-A: Yes. North Vancouver (Lynn Valley, Lower Lonsdale, Edgemont) and West Vancouver (Ambleside, Dundarave, British Properties) are regular North Shore service areas: ${SITE_ORIGIN}/patio-cover-contractor-north-vancouver and ${SITE_ORIGIN}/patio-cover-contractor-west-vancouver
+A: Yes. North Vancouver (Lynn Valley, Lower Lonsdale, Edgemont) and West Vancouver (Ambleside, Dundarave, British Properties) are regular North Shore service areas: ${SITE_ORIGIN}/patio-cover-contractor-north-vancouver and ${SITE_ORIGIN}/patio-cover-contractor-west-vancouver. Project examples: ${SITE_ORIGIN}/projects/north-vancouver-glass-patio-cover and ${SITE_ORIGIN}/projects/west-vancouver-glass-patio-cover
+
+Q: Do you install patio covers in the Fraser Valley?
+A: Yes. Abbotsford, Pitt Meadows, Maple Ridge, and nearby Fraser Valley communities are part of our coverage. Guide: ${SITE_ORIGIN}/fraser-valley-patio-covers. Project example: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover
 
 Q: Do you need a permit for a patio cover in Vancouver?
 A: Rules vary by municipality, attachment, projection, and height. Verify with your city's building department. General guide: ${SITE_ORIGIN}/do-you-need-a-permit-for-a-patio-cover-in-vancouver

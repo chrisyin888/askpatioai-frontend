@@ -19,6 +19,7 @@ const GUIDE_LINK_LABELS = {
   permit: 'Patio cover permits',
   rain: 'Best patio cover for rain',
   'install-timeline': 'Installation timeline',
+  'fraser-valley': 'Fraser Valley patio covers',
 };
 
 const SERVICE_LINK_LABELS = {

@@ -55,6 +55,7 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/skyline-combo-patio-covers-langley', label: 'Skyline combo covers — Langley' },
   { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum patio covers' },
   { path: '/best-patio-cover-for-rain-vancouver', label: 'Best patio cover for rain' },
+  { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers' },
   { path: '/patio-covers-abbotsford', label: 'Patio covers — Abbotsford' },
   { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor — Abbotsford' },
   { path: '/patio-covers-white-rock', label: 'Patio covers — White Rock' },

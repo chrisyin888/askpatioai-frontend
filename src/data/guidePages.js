@@ -8,6 +8,7 @@ export const GUIDE_PAGE_ORDER = [
   'permit',
   'rain',
   'install-timeline',
+  'fraser-valley',
 ];
 
 export const GUIDE_PAGES = {
@@ -400,6 +401,75 @@ export const GUIDE_PAGES = {
       caption:
         'Surrey skyline combo install — chat ballpark first, measurement second, then scheduling once materials arrive. Typical flow for combo and glass projects.',
       projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
+  },
+  'fraser-valley': {
+    id: 'fraser-valley',
+    path: '/fraser-valley-patio-covers',
+    datePublished: '2026-07-31',
+    dateModified: '2026-07-31',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Fraser Valley Patio Covers | Abbotsford & Pitt Meadows | LoomiHome',
+    metaDescription:
+      'Fraser Valley patio covers — Abbotsford, Pitt Meadows, Maple Ridge, and nearby communities. Compare aluminum, glass, and combo covers with a fast rough estimate.',
+    h1: 'Fraser Valley Patio Covers — Abbotsford, Pitt Meadows & Nearby',
+    intro:
+      'Fraser Valley homeowners searching for patio covers often have larger backyards, seasonal rain, and a mix of suburban and semi-rural lots. Whether you are in Abbotsford, Pitt Meadows, Maple Ridge, or nearby communities, the process is the same: get a fast rough estimate in chat, compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
+    sections: [
+      {
+        h2: 'Why Fraser Valley patios are different from city lots',
+        body: 'Many Fraser Valley homes have wider spans, more yard access, and different wind exposure than compact Vancouver lots. That can change post placement, drainage, and which product type makes sense first.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo in the Valley',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass is worth comparing when you want more light. Skyline combo covers sit in the middle when you want both shade and brightness without a full-glass budget.',
+      },
+      {
+        h2: 'Abbotsford and Clearbrook considerations',
+        body: 'Larger suburban lots in Clearbrook, Sumas Mountain, and Downtown Abbotsford often support wider patio footprints. Chat helps you ballpark aluminum and combo options before anyone visits the property.',
+      },
+      {
+        h2: 'Pitt Meadows and Maple Ridge spans',
+        body: 'Wider backyards can make combo and aluminum layouts especially useful. Share approximate dimensions in chat — we can compare multiple product directions from the same size.',
+      },
+      {
+        h2: 'Estimate first, measure second',
+        body: 'We designed the flow so you understand budget range before booking visits. Formal pricing always follows a free on-site measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Fraser Valley city, neighbourhood, and rough patio size in chat for a planning range before free measurement.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Abbotsford?',
+        a: 'Yes — Clearbrook, Sumas Mountain, and Downtown Abbotsford are regular Fraser Valley service areas.',
+      },
+      {
+        q: 'Do you serve Pitt Meadows and Maple Ridge?',
+        a: 'Yes — both are part of our Lower Mainland coverage with the same chat estimate flow.',
+      },
+      {
+        q: 'What is a typical aluminum patio cover cost in the Fraser Valley?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Can I compare aluminum and glass for the same patio?',
+        a: 'Yes. We can ballpark both from the same rough dimensions in one chat session.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
+      { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
+      { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/projects/abbotsford-aluminum-patio-cover', label: 'Abbotsford project example' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a large suburban backyard similar to Fraser Valley lots',
+      caption:
+        'Fraser Valley-style combo cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/abbotsford-aluminum-patio-cover',
     },
   },
 };
