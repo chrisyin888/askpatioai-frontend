@@ -56,6 +56,8 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum patio covers' },
   { path: '/best-patio-cover-for-rain-vancouver', label: 'Best patio cover for rain' },
   { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers' },
+  { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers' },
+  { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers — Coquitlam' },
   { path: '/patio-covers-abbotsford', label: 'Patio covers — Abbotsford' },
   { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor — Abbotsford' },
   { path: '/patio-covers-white-rock', label: 'Patio covers — White Rock' },

@@ -20,6 +20,7 @@ const GUIDE_LINK_LABELS = {
   rain: 'Best patio cover for rain',
   'install-timeline': 'Installation timeline',
   'fraser-valley': 'Fraser Valley patio covers',
+  coastal: 'Coastal patio covers',
 };
 
 const SERVICE_LINK_LABELS = {

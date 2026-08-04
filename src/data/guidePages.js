@@ -9,6 +9,7 @@ export const GUIDE_PAGE_ORDER = [
   'rain',
   'install-timeline',
   'fraser-valley',
+  'coastal',
 ];
 
 export const GUIDE_PAGES = {
@@ -470,6 +471,75 @@ export const GUIDE_PAGES = {
       caption:
         'Fraser Valley-style combo cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
       projectPath: '/projects/abbotsford-aluminum-patio-cover',
+    },
+  },
+  coastal: {
+    id: 'coastal',
+    path: '/coastal-patio-covers-vancouver',
+    datePublished: '2026-08-04',
+    dateModified: '2026-08-04',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Coastal Patio Covers Vancouver | White Rock & West Van | LoomiHome',
+    metaDescription:
+      'Coastal patio covers for White Rock, West Vancouver, Delta, and South Surrey — wind, rain, and light considerations. Compare aluminum and glass with a fast rough estimate.',
+    h1: 'Coastal Patio Covers — White Rock, West Vancouver & South Surrey',
+    intro:
+      'Coastal patio covers face a different set of questions than inland city lots: ocean exposure, wind, compact seaside decks, and the need to keep living areas bright. Whether you are in White Rock, West Vancouver, Delta, or nearby South Surrey, start with a fast rough estimate in chat, compare aluminum and glass, then book a free measurement when the range fits.',
+    sections: [
+      {
+        h2: 'Wind and rain on coastal patios',
+        body: 'Coastal homes often need proper slope, attachment, and drainage — not just a roof overhead. We confirm those details during measurement rather than guessing from photos alone.',
+      },
+      {
+        h2: 'Glass vs aluminum near the water',
+        body: 'Glass is popular when homeowners want rain protection without darkening walkout decks and rear windows. Aluminum is usually the practical budget option when rain coverage matters most.',
+      },
+      {
+        h2: 'White Rock and South Surrey decks',
+        body: 'Compact seaside lots in White Rock and nearby South Surrey often need careful post placement and product choice. Chat helps narrow aluminum vs glass before a site visit.',
+      },
+      {
+        h2: 'West Vancouver and North Shore exposure',
+        body: 'West Vancouver and North Shore homes may balance view lines, wind, and premium finishes. Glass and combo options are worth comparing when light is a priority.',
+      },
+      {
+        h2: 'Delta and Tsawwassen coastal considerations',
+        body: 'Delta patios can see coastal wind and rain exposure similar to other waterfront communities. Share your neighbourhood and rough size for a useful first ballpark.',
+      },
+    ],
+    pricingNote:
+      'Tell us your coastal city, approximate patio size, and whether light or budget matters more. We can compare products in one chat session.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in White Rock?',
+        a: 'Yes — East Beach, West Beach, and nearby South Surrey are regular service areas.',
+      },
+      {
+        q: 'Do you serve West Vancouver for patio covers?',
+        a: 'Yes — Ambleside, Dundarave, and the British Properties are part of our North Shore coverage.',
+      },
+      {
+        q: 'Is glass practical for coastal rain and wind?',
+        a: 'Yes when engineered with proper slope, flashing, and drainage. We confirm those details on site.',
+      },
+      {
+        q: 'What is a typical aluminum patio cover cost?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-white-rock', label: 'Patio covers in White Rock' },
+      { path: '/patio-covers-west-vancouver', label: 'Patio covers in West Vancouver' },
+      { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
+      { path: '/projects/white-rock-glass-patio-cover', label: 'White Rock glass project' },
+      { path: '/projects/west-vancouver-glass-patio-cover', label: 'West Vancouver glass project' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a coastal Metro Vancouver home with natural light under tempered glass roof',
+      caption:
+        'Coastal glass patio cover reference — compare glass and aluminum on your deck size in chat before free measurement.',
+      projectPath: '/projects/white-rock-glass-patio-cover',
     },
   },
 };

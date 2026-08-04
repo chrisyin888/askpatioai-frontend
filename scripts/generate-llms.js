@@ -44,6 +44,7 @@ const GUIDE_LLM_LABELS = {
   rain: 'Best cover for rain',
   'install-timeline': 'Installation timeline',
   'fraser-valley': 'Fraser Valley patio covers',
+  coastal: 'Coastal patio covers',
 };
 
 function exampleLine(material, w, h) {
@@ -219,7 +220,10 @@ Q: Do you install patio covers in Abbotsford?
 A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Project example: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover
 
 Q: Do you install patio covers in White Rock?
-A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Project example: ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover
+A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Project example: ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover. Guide: ${SITE_ORIGIN}/coastal-patio-covers-vancouver
+
+Q: Do you install patio covers in Coquitlam?
+A: Yes. Burke Mountain, Maillardville, and Westwood Plateau are regular Tri-Cities service areas. Project examples: ${SITE_ORIGIN}/projects/coquitlam-glass-patio-cover and ${SITE_ORIGIN}/projects/coquitlam-aluminum-patio-cover
 
 Q: Do you install patio covers in Maple Ridge and Pitt Meadows?
 A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Project examples: ${SITE_ORIGIN}/projects/maple-ridge-skyline-combo-cover and ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover

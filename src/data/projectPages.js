@@ -7,6 +7,7 @@ export const PROJECT_PAGE_ORDER = [
   'richmond-aluminum-carport-cover',
   'delta-aluminum-patio-cover',
   'coquitlam-glass-patio-cover',
+  'coquitlam-aluminum-patio-cover',
   'langley-aluminum-patio-cover',
   'north-vancouver-glass-patio-cover',
   'new-westminster-skyline-combo-cover',
@@ -324,6 +325,54 @@ export const PROJECT_PAGES = {
         q: 'Can I compare glass and aluminum for the same patio?',
         a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
       },
+    ],
+  },
+  'coquitlam-aluminum-patio-cover': {
+    id: 'coquitlam-aluminum-patio-cover',
+    path: '/projects/coquitlam-aluminum-patio-cover',
+    datePublished: '2026-08-04',
+    dateModified: '2026-08-04',
+    heroImage: '/house/Aluminum/p26.jpg',
+    metaTitle: 'Coquitlam Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Coquitlam aluminum patio cover example — rain-ready backyard cover for Burke Mountain and Maillardville. Compare aluminum and glass in chat.',
+    h1: 'Coquitlam Aluminum Patio Cover Project',
+    intro:
+      'This Coquitlam aluminum patio cover example shows a practical rain-first option for Tri-Cities backyards — dependable coverage with low maintenance, useful for homeowners in Burke Mountain, Maillardville, and Westwood Plateau comparing product types.',
+    highlights: [
+      'Aluminum cover for everyday Tri-Cities backyard use',
+      'Practical rain-first protection',
+      'Low-maintenance frame and roof direction',
+      'Useful reference before comparing glass or combo covers',
+    ],
+    localAngle:
+      'Coquitlam lots can include hillside decks, varied elevations, and different attachment conditions. Aluminum is often the first product to compare when budget and rain coverage matter most.',
+    sections: [
+      {
+        h2: 'Why aluminum works in Coquitlam backyards',
+        body: 'Many Coquitlam patios are used through wet springs and summers. A solid aluminum roof keeps the space drier without adding much visual weight to the back of the home.',
+      },
+      {
+        h2: 'Compare aluminum, glass, and combo on the same size',
+        body: 'Chat helps you ballpark multiple directions from the same rough dimensions before booking a free Coquitlam measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Coquitlam neighbourhood and approximate patio size in chat to get a ballpark for a similar aluminum cover.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Coquitlam?',
+        a: 'Yes — Burke Mountain, Maillardville, Westwood Plateau, and nearby Tri-Cities areas are regular service areas.',
+      },
+      {
+        q: 'Can I compare aluminum and glass for the same Coquitlam patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
+      { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
     ],
   },
   'langley-aluminum-patio-cover': {
