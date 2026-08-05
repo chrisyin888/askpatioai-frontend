@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-08-04
+> Last updated: 2026-08-05
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -62,6 +62,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 ## High-intent local pages
 - Patio cover contractors near me: https://loomihomepatios.ca/patio-cover-contractors-near-me
 - Patio cover cost in Vancouver: https://loomihomepatios.ca/patio-cover-cost-vancouver
+- Patio cover cost in Abbotsford: https://loomihomepatios.ca/patio-cover-cost-abbotsford
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby
 - Patio covers — Richmond: https://loomihomepatios.ca/patio-covers-richmond
@@ -139,6 +140,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Installation timeline: https://loomihomepatios.ca/how-long-does-patio-cover-installation-take
 - Fraser Valley patio covers: https://loomihomepatios.ca/fraser-valley-patio-covers
 - Coastal patio covers: https://loomihomepatios.ca/coastal-patio-covers-vancouver
+- Patio cover cost (Abbotsford): https://loomihomepatios.ca/patio-cover-cost-abbotsford
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
@@ -163,6 +165,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/vancouver-glass-patio-cover
 - Vancouver Aluminum Patio Cover: https://loomihomepatios.ca/projects/vancouver-aluminum-patio-cover
 - Surrey Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/surrey-skyline-combo-patio-cover
+- Surrey Aluminum Patio Cover: https://loomihomepatios.ca/projects/surrey-aluminum-patio-cover
 - Richmond Aluminum Carport Cover: https://loomihomepatios.ca/projects/richmond-aluminum-carport-cover
 - Delta Aluminum Patio Cover: https://loomihomepatios.ca/projects/delta-aluminum-patio-cover
 - Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/coquitlam-glass-patio-cover

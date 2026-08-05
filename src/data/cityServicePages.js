@@ -172,6 +172,18 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. The first estimate is a rough planning range; final pricing comes after measurement.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
+      { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a wide Surrey suburban backyard',
+      caption:
+        'Surrey aluminum patio cover reference — practical rain protection for larger backyards. Ballpark in chat before free measurement.',
+      projectPath: '/projects/surrey-aluminum-patio-cover',
+    },
   },
   'glass-richmond': {
     id: 'glass-richmond',

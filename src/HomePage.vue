@@ -1554,11 +1554,14 @@ export default {
     guidePageLinks() {
       const labels = {
         'patio-cover-cost': 'Patio cover cost in Vancouver',
+        'patio-cover-cost-abbotsford': 'Patio cover cost in Abbotsford',
         'glass-vs-aluminum': 'Glass vs aluminum patio covers',
         permit: 'Patio cover permits',
         rain: 'Best cover for rain',
         'install-timeline': 'How long installation takes',
         'contractors-near-me': 'Patio cover contractors near me',
+        'fraser-valley': 'Fraser Valley patio covers',
+        coastal: 'Coastal patio covers',
       };
       return GUIDE_PAGE_ORDER.map((id) => ({
         path: GUIDE_PAGES[id].path,

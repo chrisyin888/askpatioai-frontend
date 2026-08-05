@@ -10,6 +10,7 @@ export const GUIDE_PAGE_ORDER = [
   'install-timeline',
   'fraser-valley',
   'coastal',
+  'patio-cover-cost-abbotsford',
 ];
 
 export const GUIDE_PAGES = {
@@ -461,6 +462,7 @@ export const GUIDE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
       { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
+      { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
       { path: '/projects/abbotsford-aluminum-patio-cover', label: 'Abbotsford project example' },
@@ -541,5 +543,73 @@ export const GUIDE_PAGES = {
         'Coastal glass patio cover reference — compare glass and aluminum on your deck size in chat before free measurement.',
       projectPath: '/projects/white-rock-glass-patio-cover',
     },
+  },
+  'patio-cover-cost-abbotsford': {
+    id: 'patio-cover-cost-abbotsford',
+    path: '/patio-cover-cost-abbotsford',
+    datePublished: '2026-08-05',
+    dateModified: '2026-08-05',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Abbotsford | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Abbotsford? What drives price in the Fraser Valley, typical ranges, and how to get a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Abbotsford',
+    intro:
+      'If you are researching patio cover cost in Abbotsford, you have probably seen numbers that do not match your lot. Fraser Valley homes often have wider spans, larger backyards, and different attachment conditions than compact Vancouver patios — and that changes the planning range. The fastest way to get oriented is a rough chat estimate for your actual size: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Abbotsford?',
+        body: 'Size and span, product type (aluminum, glass, or skyline combo), attachment to the home, post placement, slope, and finish level all matter. Larger Clearbrook and Sumas Mountain lots can support wider footprints, which changes layout and engineering compared to townhome patios.',
+      },
+      {
+        h2: 'Fraser Valley pricing vs Vancouver city lots',
+        body: 'Abbotsford installs often involve more yard access and wider spans than dense city lots. That can change post count and material direction even when the square footage looks similar on paper.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Abbotsford and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+      {
+        h2: 'What to prepare for a better Abbotsford estimate',
+        body: 'A rough width, projection from the house, neighbourhood, and one or two photos are enough to make the first ballpark more useful. Exact measurements come later during the free site visit.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Abbotsford size and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Abbotsford?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Abbotsford?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Pitt Meadows and Maple Ridge?',
+        a: 'Yes — both are part of our Fraser Valley coverage with the same chat estimate flow.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a wide suburban backyard similar to Abbotsford lots',
+      caption:
+        'Abbotsford-style aluminum patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/abbotsford-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
+      { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+    ],
   },
 };

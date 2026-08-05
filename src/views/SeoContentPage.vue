@@ -358,11 +358,14 @@ export default {
     guideLinks() {
       const labels = {
         'patio-cover-cost': 'Patio cover cost',
+        'patio-cover-cost-abbotsford': 'Patio cover cost — Abbotsford',
         'glass-vs-aluminum': 'Glass vs aluminum',
         permit: 'Permits',
         rain: 'Rain & weather',
         'install-timeline': 'Install timeline',
         'contractors-near-me': 'Contractors near me',
+        'fraser-valley': 'Fraser Valley',
+        coastal: 'Coastal covers',
       };
       return GUIDE_PAGE_ORDER.filter((id) => !(this.kind === 'guide' && id === this.pageId)).map(
         (id) => ({

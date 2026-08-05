@@ -710,6 +710,7 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
       { path: '/aluminum-patio-covers-abbotsford', label: 'Aluminum patio covers in Abbotsford' },
+      { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
     ],
     caseStudy: {

@@ -4,6 +4,7 @@ export const PROJECT_PAGE_ORDER = [
   'vancouver-glass-patio-cover',
   'vancouver-aluminum-patio-cover',
   'surrey-skyline-combo-cover',
+  'surrey-aluminum-patio-cover',
   'richmond-aluminum-carport-cover',
   'delta-aluminum-patio-cover',
   'coquitlam-glass-patio-cover',
@@ -196,6 +197,59 @@ export const PROJECT_PAGES = {
         q: 'Can I compare combo and aluminum pricing?',
         a: 'Yes. We can ballpark both directions from the same dimensions.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
+    ],
+  },
+  'surrey-aluminum-patio-cover': {
+    id: 'surrey-aluminum-patio-cover',
+    path: '/projects/surrey-aluminum-patio-cover',
+    datePublished: '2026-08-05',
+    dateModified: '2026-08-05',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'Surrey Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Surrey aluminum patio cover example — rain-ready backyard cover for Guildford, Cloverdale, and South Surrey. Compare aluminum and glass in chat.',
+    h1: 'Surrey Aluminum Patio Cover Project',
+    intro:
+      'This Surrey aluminum patio cover example shows a practical rain-first option for larger suburban backyards — dependable coverage with low maintenance, useful for homeowners in Guildford, Cloverdale, Newton, and South Surrey comparing product types.',
+    highlights: [
+      'Aluminum cover for everyday Surrey backyard use',
+      'Practical rain-first protection on wider spans',
+      'Low-maintenance frame and roof direction',
+      'Useful reference before comparing glass or skyline combo',
+    ],
+    localAngle:
+      'Surrey lots often have room for wider patio footprints than compact city yards. Aluminum is usually the first product to compare when budget and rain coverage matter most.',
+    sections: [
+      {
+        h2: 'Why aluminum works in Surrey backyards',
+        body: 'Many Surrey patios are used through wet springs and summers. A solid aluminum roof keeps the space drier without adding much visual weight to the back of the home.',
+      },
+      {
+        h2: 'Compare aluminum, glass, and combo on the same size',
+        body: 'Chat helps you ballpark multiple directions from the same rough dimensions before booking a free Surrey measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Surrey neighbourhood and approximate patio size in chat to get a ballpark for a similar aluminum cover.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Surrey?',
+        a: 'Yes — Guildford, Cloverdale, Newton, Fleetwood, South Surrey, and nearby areas are regular service areas.',
+      },
+      {
+        q: 'Can I compare aluminum and skyline combo for the same Surrey patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
     ],
   },
   'richmond-aluminum-carport-cover': {

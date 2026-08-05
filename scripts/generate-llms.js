@@ -45,6 +45,7 @@ const GUIDE_LLM_LABELS = {
   'install-timeline': 'Installation timeline',
   'fraser-valley': 'Fraser Valley patio covers',
   coastal: 'Coastal patio covers',
+  'patio-cover-cost-abbotsford': 'Patio cover cost (Abbotsford)',
 };
 
 function exampleLine(material, w, h) {
