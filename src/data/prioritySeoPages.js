@@ -3,6 +3,7 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
   { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
   { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
+  { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
   { path: '/patio-covers-vancouver', label: 'Patio covers — Vancouver' },
   { path: '/patio-covers-burnaby', label: 'Patio covers — Burnaby' },
   { path: '/patio-covers-richmond', label: 'Patio covers — Richmond' },

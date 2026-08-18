@@ -160,7 +160,9 @@ export const CITY_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
+      { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
       { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
+      { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond aluminum patio project' },
     ],
     caseStudy: {
       image: '/house/before-after/richmond-carport-after.png',
@@ -207,6 +209,8 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',

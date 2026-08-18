@@ -359,6 +359,7 @@ export default {
       const labels = {
         'patio-cover-cost': 'Patio cover cost',
         'patio-cover-cost-abbotsford': 'Patio cover cost — Abbotsford',
+        'patio-cover-cost-surrey': 'Patio cover cost — Surrey',
         'glass-vs-aluminum': 'Glass vs aluminum',
         permit: 'Permits',
         rain: 'Rain & weather',

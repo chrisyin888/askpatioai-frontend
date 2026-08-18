@@ -6,6 +6,7 @@ export const PROJECT_PAGE_ORDER = [
   'surrey-skyline-combo-cover',
   'surrey-aluminum-patio-cover',
   'richmond-aluminum-carport-cover',
+  'richmond-aluminum-patio-cover',
   'delta-aluminum-patio-cover',
   'coquitlam-glass-patio-cover',
   'coquitlam-aluminum-patio-cover',
@@ -293,6 +294,59 @@ export const PROJECT_PAGES = {
         q: 'Do you install carport covers in Richmond?',
         a: 'Yes, Richmond is one of the Lower Mainland cities we serve.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
+      { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond backyard patio project' },
+    ],
+  },
+  'richmond-aluminum-patio-cover': {
+    id: 'richmond-aluminum-patio-cover',
+    path: '/projects/richmond-aluminum-patio-cover',
+    datePublished: '2026-08-18',
+    dateModified: '2026-08-18',
+    heroImage: '/house/Aluminum/p27.jpg',
+    metaTitle: 'Richmond Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Richmond aluminum patio cover example — rain-ready backyard cover for Steveston, Broadmoor, and East Cambie. Compare aluminum and glass in chat.',
+    h1: 'Richmond Aluminum Patio Cover Project',
+    intro:
+      'This Richmond aluminum patio cover example shows a backyard rain-first option — dependable coverage with low maintenance, useful for homeowners in Steveston, Broadmoor, and East Cambie who want a usable patio rather than a side-driveway carport.',
+    highlights: [
+      'Aluminum cover for everyday Richmond backyard use',
+      'Practical rain-first protection on flat lots',
+      'Low-maintenance frame and roof direction',
+      'Useful comparison point before glass or combo covers',
+    ],
+    localAngle:
+      'Richmond lots are often flatter than North Shore decks, with coastal rain and wind still in play. Aluminum is usually the first product to compare when budget and rain coverage matter most.',
+    sections: [
+      {
+        h2: 'Why aluminum works in Richmond backyards',
+        body: 'Many Richmond patios sit unused through wet months. A solid aluminum roof creates a drier seating and barbecue zone without adding much visual weight to the back of the home.',
+      },
+      {
+        h2: 'Patio cover vs carport-style cover',
+        body: 'A backyard patio cover and a side-driveway carport can use similar product families, but clearance, drainage, and post placement differ. Chat helps you ballpark the layout you actually need.',
+      },
+    ],
+    pricingNote:
+      'Share your Richmond neighbourhood and approximate patio size in chat to get a ballpark for a similar aluminum cover.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Richmond?',
+        a: 'Yes — Steveston, Broadmoor, East Cambie, Burkeville, and nearby areas are regular service areas.',
+      },
+      {
+        q: 'Can I compare aluminum and glass for the same Richmond patio?',
+        a: 'Yes. We can ballpark both from the same rough dimensions before booking a free measurement.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
+      { path: '/projects/richmond-aluminum-carport-cover', label: 'Richmond carport project' },
     ],
   },
   'delta-aluminum-patio-cover': {

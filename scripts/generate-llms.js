@@ -46,6 +46,7 @@ const GUIDE_LLM_LABELS = {
   'fraser-valley': 'Fraser Valley patio covers',
   coastal: 'Coastal patio covers',
   'patio-cover-cost-abbotsford': 'Patio cover cost (Abbotsford)',
+  'patio-cover-cost-surrey': 'Patio cover cost (Surrey)',
 };
 
 function exampleLine(material, w, h) {
@@ -228,6 +229,12 @@ A: Yes. Burke Mountain, Maillardville, and Westwood Plateau are regular Tri-Citi
 
 Q: Do you install patio covers in Maple Ridge and Pitt Meadows?
 A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Project examples: ${SITE_ORIGIN}/projects/maple-ridge-skyline-combo-cover and ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover
+
+Q: How much does a patio cover cost in Surrey?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Surrey lots range from compact townhome patios to wider Cloverdale and South Surrey backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-surrey. Project examples: ${SITE_ORIGIN}/projects/surrey-aluminum-patio-cover and ${SITE_ORIGIN}/projects/surrey-skyline-combo-patio-cover
+
+Q: Do you install backyard patio covers in Richmond?
+A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Richmond projects include backyard patio covers and carport-style side covers. Project examples: ${SITE_ORIGIN}/projects/richmond-aluminum-patio-cover and ${SITE_ORIGIN}/projects/richmond-aluminum-carport-cover
 
 ## Contact
 Website: ${SITE_ORIGIN}

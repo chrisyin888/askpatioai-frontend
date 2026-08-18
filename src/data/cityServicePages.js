@@ -129,6 +129,18 @@ export const CITY_SERVICE_PAGES = {
         a: 'Often yes, depending on clearance, span, attachment, and local requirements. We confirm those details during measurement.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond backyard patio project' },
+      { path: '/projects/richmond-aluminum-carport-cover', label: 'Richmond carport project' },
+    ],
+    caseStudy: {
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Aluminum patio cover on a Richmond backyard patio',
+      caption:
+        'Richmond aluminum patio cover — practical rain protection for backyard seating. Compare glass in chat on the same size.',
+      projectPath: '/projects/richmond-aluminum-patio-cover',
+    },
   },
   'aluminum-surrey': {
     id: 'aluminum-surrey',
@@ -174,6 +186,7 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
       { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
       { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
     ],
@@ -241,6 +254,7 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
       { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond aluminum patio project' },
     ],
   },
   'glass-coquitlam': {

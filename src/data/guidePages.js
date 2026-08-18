@@ -11,6 +11,7 @@ export const GUIDE_PAGE_ORDER = [
   'fraser-valley',
   'coastal',
   'patio-cover-cost-abbotsford',
+  'patio-cover-cost-surrey',
 ];
 
 export const GUIDE_PAGES = {
@@ -145,6 +146,8 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
       { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
       { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
     ],
   },
   'glass-vs-aluminum': {
@@ -609,6 +612,76 @@ export const GUIDE_PAGES = {
       { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
       { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
       { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+    ],
+  },
+  'patio-cover-cost-surrey': {
+    id: 'patio-cover-cost-surrey',
+    path: '/patio-cover-cost-surrey',
+    datePublished: '2026-08-18',
+    dateModified: '2026-08-18',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Surrey | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Surrey? What drives price for Guildford, Cloverdale, and South Surrey lots, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Surrey',
+    intro:
+      'If you are researching patio cover cost in Surrey, you have probably seen generic numbers that do not match Guildford townhome patios or wider Cloverdale and South Surrey backyards. Size, product type, and lot layout all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Surrey?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, attachment to the home, post placement, slope, and finish level all matter. Surrey includes compact townhome patios and wide detached-home yards — those two layouts rarely price the same even when the city name is identical.',
+      },
+      {
+        h2: 'Guildford, Cloverdale, Newton, and South Surrey',
+        body: 'Neighbourhood layout changes access, span, and how much cover you actually need. South Surrey and Cloverdale lots often have room for wider footprints; Newton and Guildford can be tighter. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Surrey pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep the patio and rear rooms bright. Skyline combo sits in the middle for larger Surrey backyards that want both shade and light.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Surrey and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Surrey size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Surrey?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Surrey?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve White Rock and Langley?',
+        a: 'Yes — White Rock, South Surrey, Langley, and nearby Lower Mainland communities use the same chat estimate flow.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a large Surrey backyard with glass and V-panel sections',
+      caption:
+        'Surrey skyline combo reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
