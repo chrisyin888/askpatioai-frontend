@@ -86,6 +86,19 @@ export const CITY_SERVICE_PAGES = {
         a: 'For rain-first and budget-conscious projects, aluminum is often the practical starting point. Glass is better when keeping more natural light is a top priority.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
+      { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Burnaby backyard patio for rain protection',
+      caption:
+        'Burnaby aluminum patio cover — practical rain protection. Compare glass in chat on the same size.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
   },
   'aluminum-richmond': {
     id: 'aluminum-richmond',
@@ -415,6 +428,19 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. We can ballpark both from the same approximate dimensions.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+      { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a Burnaby-style backyard with natural light under tempered glass roof',
+      caption:
+        'Burnaby glass patio cover reference — bright rain protection for compact city lots. Compare aluminum for budget in chat.',
+      projectPath: '/projects/burnaby-glass-patio-cover',
+    },
   },
   'glass-surrey': {
     id: 'glass-surrey',

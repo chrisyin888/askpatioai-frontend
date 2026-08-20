@@ -1,6 +1,7 @@
 /** Local project-style pages. These add proof and long-tail city keywords without duplicating service pages. */
 export const PROJECT_PAGE_ORDER = [
   'burnaby-aluminum-patio-cover',
+  'burnaby-glass-patio-cover',
   'vancouver-glass-patio-cover',
   'vancouver-aluminum-patio-cover',
   'surrey-skyline-combo-cover',
@@ -64,6 +65,61 @@ export const PROJECT_PAGES = {
         q: 'Can I estimate a similar patio cover online?',
         a: 'Yes. Send the city, rough dimensions, and product preference in chat for a quick ballpark before booking a free measurement.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
+      { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+    ],
+  },
+  'burnaby-glass-patio-cover': {
+    id: 'burnaby-glass-patio-cover',
+    path: '/projects/burnaby-glass-patio-cover',
+    datePublished: '2026-08-20',
+    dateModified: '2026-08-20',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Burnaby Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Burnaby glass patio cover example — bright rain protection for Metrotown, Brentwood, and Deer Lake decks. Compare glass and aluminum in chat.',
+    h1: 'Burnaby Glass Patio Cover Project',
+    intro:
+      'This Burnaby glass patio cover example shows how tempered glass can protect a backyard patio while keeping natural light — a common goal on Metrotown-area lots, Brentwood walkouts, and Deer Lake neighbourhoods where solid roofs can feel too dark.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Rain-ready fit for compact Burnaby city lots',
+      'Useful reference near kitchens and family rooms',
+      'Compare aluminum for budget in chat',
+    ],
+    localAngle:
+      'Burnaby patios often sit close to living areas with limited yard depth. Glass works when homeowners want rain protection without darkening the back of the house.',
+    sections: [
+      {
+        h2: 'When glass fits Burnaby patios',
+        body: 'Glass is worth comparing when the patio sits close to living areas and you want the covered space to stay bright. Slope, flashing, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free Burnaby measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Burnaby neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Burnaby?',
+        a: 'Yes — Metrotown, Brentwood, Edmonds, Deer Lake, and nearby Burnaby areas are regular service areas.',
+      },
+      {
+        q: 'Can I compare glass and aluminum for the same Burnaby patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/glass-patio-covers-burnaby', label: 'Glass patio covers in Burnaby' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
     ],
   },
   'vancouver-glass-patio-cover': {

@@ -47,6 +47,7 @@ const GUIDE_LLM_LABELS = {
   coastal: 'Coastal patio covers',
   'patio-cover-cost-abbotsford': 'Patio cover cost (Abbotsford)',
   'patio-cover-cost-surrey': 'Patio cover cost (Surrey)',
+  'patio-cover-cost-burnaby': 'Patio cover cost (Burnaby)',
 };
 
 function exampleLine(material, w, h) {
@@ -235,6 +236,12 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install backyard patio covers in Richmond?
 A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Richmond projects include backyard patio covers and carport-style side covers. Project examples: ${SITE_ORIGIN}/projects/richmond-aluminum-patio-cover and ${SITE_ORIGIN}/projects/richmond-aluminum-carport-cover
+
+Q: How much does a patio cover cost in Burnaby?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Burnaby lots range from compact Metrotown yards to roomier Deer Lake backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-burnaby. Project examples: ${SITE_ORIGIN}/projects/burnaby-aluminum-patio-cover and ${SITE_ORIGIN}/projects/burnaby-glass-patio-cover
+
+Q: Do you install glass patio covers in Burnaby?
+A: Yes. Metrotown, Brentwood, Edmonds, and Deer Lake are regular Burnaby service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/burnaby-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-burnaby
 
 ## Contact
 Website: ${SITE_ORIGIN}

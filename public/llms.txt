@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-08-18
+> Last updated: 2026-08-20
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -64,6 +64,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost in Vancouver: https://loomihomepatios.ca/patio-cover-cost-vancouver
 - Patio cover cost in Abbotsford: https://loomihomepatios.ca/patio-cover-cost-abbotsford
 - Patio cover cost in Surrey: https://loomihomepatios.ca/patio-cover-cost-surrey
+- Patio cover cost in Burnaby: https://loomihomepatios.ca/patio-cover-cost-burnaby
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby
 - Patio covers — Richmond: https://loomihomepatios.ca/patio-covers-richmond
@@ -143,6 +144,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Coastal patio covers: https://loomihomepatios.ca/coastal-patio-covers-vancouver
 - Patio cover cost (Abbotsford): https://loomihomepatios.ca/patio-cover-cost-abbotsford
 - Patio cover cost (Surrey): https://loomihomepatios.ca/patio-cover-cost-surrey
+- Patio cover cost (Burnaby): https://loomihomepatios.ca/patio-cover-cost-burnaby
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
@@ -164,6 +166,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 
 ## Project examples
 - Burnaby Aluminum Patio Cover: https://loomihomepatios.ca/projects/burnaby-aluminum-patio-cover
+- Burnaby Glass Patio Cover: https://loomihomepatios.ca/projects/burnaby-glass-patio-cover
 - Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/vancouver-glass-patio-cover
 - Vancouver Aluminum Patio Cover: https://loomihomepatios.ca/projects/vancouver-aluminum-patio-cover
 - Surrey Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/surrey-skyline-combo-patio-cover
@@ -256,6 +259,12 @@ A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is 
 
 Q: Do you install backyard patio covers in Richmond?
 A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Richmond projects include backyard patio covers and carport-style side covers. Project examples: https://loomihomepatios.ca/projects/richmond-aluminum-patio-cover and https://loomihomepatios.ca/projects/richmond-aluminum-carport-cover
+
+Q: How much does a patio cover cost in Burnaby?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Burnaby lots range from compact Metrotown yards to roomier Deer Lake backyards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-burnaby. Project examples: https://loomihomepatios.ca/projects/burnaby-aluminum-patio-cover and https://loomihomepatios.ca/projects/burnaby-glass-patio-cover
+
+Q: Do you install glass patio covers in Burnaby?
+A: Yes. Metrotown, Brentwood, Edmonds, and Deer Lake are regular Burnaby service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: https://loomihomepatios.ca/projects/burnaby-glass-patio-cover. Service page: https://loomihomepatios.ca/glass-patio-covers-burnaby
 
 ## Contact
 Website: https://loomihomepatios.ca

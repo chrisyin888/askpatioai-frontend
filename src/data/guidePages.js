@@ -12,6 +12,7 @@ export const GUIDE_PAGE_ORDER = [
   'coastal',
   'patio-cover-cost-abbotsford',
   'patio-cover-cost-surrey',
+  'patio-cover-cost-burnaby',
 ];
 
 export const GUIDE_PAGES = {
@@ -148,6 +149,7 @@ export const GUIDE_PAGES = {
       { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
       { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
       { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
     ],
   },
   'glass-vs-aluminum': {
@@ -682,6 +684,77 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
       { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
       { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+    ],
+  },
+  'patio-cover-cost-burnaby': {
+    id: 'patio-cover-cost-burnaby',
+    path: '/patio-cover-cost-burnaby',
+    datePublished: '2026-08-20',
+    dateModified: '2026-08-20',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Burnaby | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Burnaby? What drives price for Metrotown, Brentwood, and Deer Lake lots, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Burnaby',
+    intro:
+      'If you are researching patio cover cost in Burnaby, you have probably seen numbers that do not match tight Metrotown lots or roomier Deer Lake backyards. Size, product type, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Burnaby?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, attachment to the home, post placement, slope, and finish level all matter. Burnaby includes compact city yards near Metrotown and wider suburban spaces near Deer Lake — those layouts rarely price the same even when the city name is identical.',
+      },
+      {
+        h2: 'Metrotown, Brentwood, Edmonds, and Deer Lake',
+        body: 'Neighbourhood layout changes access, span, and how much cover you actually need. Tight lots often need careful post placement; larger yards can support wider footprints. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Burnaby pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep the patio and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Burnaby and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Burnaby size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Burnaby?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Burnaby?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Vancouver and Coquitlam?',
+        a: 'Yes — Vancouver, Coquitlam, and nearby Metro Vancouver communities use the same chat estimate flow.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Burnaby backyard patio for rain protection',
+      caption:
+        'Burnaby aluminum patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor in Burnaby' },
+      { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
+      { path: '/glass-patio-covers-burnaby', label: 'Glass patio covers in Burnaby' },
+      { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
