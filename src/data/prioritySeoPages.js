@@ -5,6 +5,7 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
   { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
   { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+  { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
   { path: '/patio-covers-vancouver', label: 'Patio covers — Vancouver' },
   { path: '/patio-covers-burnaby', label: 'Patio covers — Burnaby' },
   { path: '/patio-covers-richmond', label: 'Patio covers — Richmond' },

@@ -12,6 +12,7 @@ export const PROJECT_PAGE_ORDER = [
   'coquitlam-glass-patio-cover',
   'coquitlam-aluminum-patio-cover',
   'langley-aluminum-patio-cover',
+  'langley-glass-patio-cover',
   'north-vancouver-glass-patio-cover',
   'new-westminster-skyline-combo-cover',
   'port-coquitlam-glass-patio-cover',
@@ -580,6 +581,61 @@ export const PROJECT_PAGES = {
         q: 'Can I compare aluminum and glass for the same Langley patio?',
         a: 'Yes. We can ballpark both from the same rough dimensions in one chat session.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/projects/langley-glass-patio-cover', label: 'Langley glass project' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
+    ],
+  },
+  'langley-glass-patio-cover': {
+    id: 'langley-glass-patio-cover',
+    path: '/projects/langley-glass-patio-cover',
+    datePublished: '2026-08-21',
+    dateModified: '2026-08-21',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Langley Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Langley glass patio cover example — bright rain protection for Willoughby, Walnut Grove, and Brookswood walkout decks. Compare glass and aluminum in chat.',
+    h1: 'Langley Glass Patio Cover Project',
+    intro:
+      'This Langley glass patio cover example shows how tempered glass can protect a family backyard or walkout deck while keeping natural light — a common goal on newer Willoughby and Walnut Grove homes where solid roofs can feel too dark against large rear windows.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Suited to newer Langley walkout decks',
+      'Rain-ready fit for family entertainment patios',
+      'Useful comparison against aluminum on larger lots',
+    ],
+    localAngle:
+      'Langley lots often have room for wider spans and newer homes with large rear windows. Glass is worth comparing when homeowners want rain protection without darkening living areas that face the patio.',
+    sections: [
+      {
+        h2: 'When glass fits Langley patios',
+        body: 'Glass works well when the patio sits close to living areas and light matters as much as rain coverage. Slope, flashing, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free Langley measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Langley neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Langley?',
+        a: 'Yes — Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley are regular service areas.',
+      },
+      {
+        q: 'Can I compare glass and aluminum for the same Langley patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
+      { path: '/projects/langley-aluminum-patio-cover', label: 'Langley aluminum project' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
     ],
   },
   'north-vancouver-glass-patio-cover': {

@@ -13,6 +13,7 @@ export const GUIDE_PAGE_ORDER = [
   'patio-cover-cost-abbotsford',
   'patio-cover-cost-surrey',
   'patio-cover-cost-burnaby',
+  'patio-cover-cost-langley',
 ];
 
 export const GUIDE_PAGES = {
@@ -150,6 +151,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
       { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
     ],
   },
   'glass-vs-aluminum': {
@@ -756,6 +758,77 @@ export const GUIDE_PAGES = {
       { path: '/glass-patio-covers-burnaby', label: 'Glass patio covers in Burnaby' },
       { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
+    ],
+  },
+  'patio-cover-cost-langley': {
+    id: 'patio-cover-cost-langley',
+    path: '/patio-cover-cost-langley',
+    datePublished: '2026-08-21',
+    dateModified: '2026-08-21',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Langley | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Langley? What drives price for Willoughby, Walnut Grove, and Brookswood lots, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Langley',
+    intro:
+      'If you are researching patio cover cost in Langley, you have probably seen generic numbers that do not match newer Willoughby walkout decks or wider Walnut Grove and Brookswood backyards. Size, product type, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Langley?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, attachment to the home or deck, post placement, slope, and finish level all matter. Langley includes townhome patios and generous detached-home yards — those layouts rarely price the same even when the city name is identical.',
+      },
+      {
+        h2: 'Willoughby, Walnut Grove, Murrayville, and Brookswood',
+        body: 'Neighbourhood layout changes access, span, and how much cover you actually need. Newer subdivisions often have walkout decks and larger rear windows; established lots can support wider footprints. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Langley pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep the deck and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Langley and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Langley size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Langley?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Langley?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Surrey and Abbotsford?',
+        a: 'Yes — Surrey, Abbotsford, and nearby Fraser Valley communities use the same chat estimate flow.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Aluminum patio cover on a Langley family backyard patio',
+      caption:
+        'Langley aluminum patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/langley-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
+      { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
+      { path: '/projects/langley-glass-patio-cover', label: 'Langley glass project' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
     ],
   },
 };

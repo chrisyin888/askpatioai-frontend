@@ -1478,14 +1478,16 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
       { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
-      { path: '/best-patio-cover-for-rain-vancouver', label: 'Best cover for rain guide' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
+      { path: '/projects/langley-aluminum-patio-cover', label: 'Langley aluminum project' },
+      { path: '/projects/langley-glass-patio-cover', label: 'Langley glass project' },
     ],
     caseStudy: {
-      image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Large backyard patio cover on a suburban Langley-style lot',
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Aluminum patio cover on a Langley family backyard patio',
       caption:
-        'Large backyard cover — common on Langley subdivisions. Start with aluminum in chat for rain-first budget, then compare glass.',
-      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+        'Langley aluminum patio cover — practical rain protection for larger backyards. Compare glass in chat on the same size.',
+      projectPath: '/projects/langley-aluminum-patio-cover',
     },
   },
   'glass-langley': {
@@ -1537,6 +1539,8 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
       { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
+      { path: '/projects/langley-glass-patio-cover', label: 'Langley glass project' },
       { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
     ],
     caseStudy: {
@@ -1544,7 +1548,7 @@ export const CITY_SERVICE_PAGES = {
       alt: 'Glass patio cover keeping a walkout deck bright with tempered glass roof panels',
       caption:
         'Glass patio cover — suited to newer Langley walkout decks and large rear windows. Compare aluminum in chat on the same dimensions.',
-      projectPath: '/projects/vancouver-glass-patio-cover',
+      projectPath: '/projects/langley-glass-patio-cover',
     },
   },
   'sunrooms-langley': {

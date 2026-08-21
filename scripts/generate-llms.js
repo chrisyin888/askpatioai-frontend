@@ -48,6 +48,7 @@ const GUIDE_LLM_LABELS = {
   'patio-cover-cost-abbotsford': 'Patio cover cost (Abbotsford)',
   'patio-cover-cost-surrey': 'Patio cover cost (Surrey)',
   'patio-cover-cost-burnaby': 'Patio cover cost (Burnaby)',
+  'patio-cover-cost-langley': 'Patio cover cost (Langley)',
 };
 
 function exampleLine(material, w, h) {
@@ -242,6 +243,12 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install glass patio covers in Burnaby?
 A: Yes. Metrotown, Brentwood, Edmonds, and Deer Lake are regular Burnaby service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/burnaby-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-burnaby
+
+Q: How much does a patio cover cost in Langley?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Langley lots range from townhome patios to wider Willoughby and Walnut Grove backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-langley. Project examples: ${SITE_ORIGIN}/projects/langley-aluminum-patio-cover and ${SITE_ORIGIN}/projects/langley-glass-patio-cover
+
+Q: Do you install glass patio covers in Langley?
+A: Yes. Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley are regular service areas. Glass is popular on newer walkout decks with large rear windows. Project example: ${SITE_ORIGIN}/projects/langley-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-langley
 
 ## Contact
 Website: ${SITE_ORIGIN}

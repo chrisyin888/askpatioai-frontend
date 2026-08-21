@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-08-20
+> Last updated: 2026-08-21
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -65,6 +65,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost in Abbotsford: https://loomihomepatios.ca/patio-cover-cost-abbotsford
 - Patio cover cost in Surrey: https://loomihomepatios.ca/patio-cover-cost-surrey
 - Patio cover cost in Burnaby: https://loomihomepatios.ca/patio-cover-cost-burnaby
+- Patio cover cost in Langley: https://loomihomepatios.ca/patio-cover-cost-langley
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby
 - Patio covers — Richmond: https://loomihomepatios.ca/patio-covers-richmond
@@ -145,6 +146,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost (Abbotsford): https://loomihomepatios.ca/patio-cover-cost-abbotsford
 - Patio cover cost (Surrey): https://loomihomepatios.ca/patio-cover-cost-surrey
 - Patio cover cost (Burnaby): https://loomihomepatios.ca/patio-cover-cost-burnaby
+- Patio cover cost (Langley): https://loomihomepatios.ca/patio-cover-cost-langley
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
@@ -177,6 +179,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/coquitlam-glass-patio-cover
 - Coquitlam Aluminum Patio Cover: https://loomihomepatios.ca/projects/coquitlam-aluminum-patio-cover
 - Langley Aluminum Patio Cover: https://loomihomepatios.ca/projects/langley-aluminum-patio-cover
+- Langley Glass Patio Cover: https://loomihomepatios.ca/projects/langley-glass-patio-cover
 - North Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/north-vancouver-glass-patio-cover
 - New Westminster Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/new-westminster-skyline-combo-cover
 - Port Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover
@@ -265,6 +268,12 @@ A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is 
 
 Q: Do you install glass patio covers in Burnaby?
 A: Yes. Metrotown, Brentwood, Edmonds, and Deer Lake are regular Burnaby service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: https://loomihomepatios.ca/projects/burnaby-glass-patio-cover. Service page: https://loomihomepatios.ca/glass-patio-covers-burnaby
+
+Q: How much does a patio cover cost in Langley?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Langley lots range from townhome patios to wider Willoughby and Walnut Grove backyards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-langley. Project examples: https://loomihomepatios.ca/projects/langley-aluminum-patio-cover and https://loomihomepatios.ca/projects/langley-glass-patio-cover
+
+Q: Do you install glass patio covers in Langley?
+A: Yes. Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley are regular service areas. Glass is popular on newer walkout decks with large rear windows. Project example: https://loomihomepatios.ca/projects/langley-glass-patio-cover. Service page: https://loomihomepatios.ca/glass-patio-covers-langley
 
 ## Contact
 Website: https://loomihomepatios.ca

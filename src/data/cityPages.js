@@ -353,6 +353,7 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
       { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
       { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
