@@ -8,6 +8,7 @@ export const PROJECT_PAGE_ORDER = [
   'surrey-aluminum-patio-cover',
   'richmond-aluminum-carport-cover',
   'richmond-aluminum-patio-cover',
+  'richmond-glass-patio-cover',
   'delta-aluminum-patio-cover',
   'coquitlam-glass-patio-cover',
   'coquitlam-aluminum-patio-cover',
@@ -356,6 +357,7 @@ export const PROJECT_PAGES = {
       { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
       { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
       { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond backyard patio project' },
+      { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
     ],
   },
   'richmond-aluminum-patio-cover': {
@@ -404,6 +406,57 @@ export const PROJECT_PAGES = {
       { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
       { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
       { path: '/projects/richmond-aluminum-carport-cover', label: 'Richmond carport project' },
+      { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+    ],
+  },
+  'richmond-glass-patio-cover': {
+    id: 'richmond-glass-patio-cover',
+    path: '/projects/richmond-glass-patio-cover',
+    datePublished: '2026-08-25',
+    dateModified: '2026-08-25',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Richmond Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Richmond glass patio cover example — bright rain protection for Steveston, Broadmoor, and East Cambie backyards. Compare glass and aluminum in chat.',
+    h1: 'Richmond Glass Patio Cover Project',
+    intro:
+      'This Richmond glass patio cover example shows how tempered glass can protect a backyard patio while keeping natural light — a common goal on flat Steveston, Broadmoor, and East Cambie lots where solid roofs can darken kitchens and family rooms behind the patio.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Suited to Richmond flat lots and walkout patios',
+      'Rain-ready fit near rear doors and windows',
+      'Useful comparison against aluminum and carport covers',
+    ],
+    localAngle:
+      'Richmond lots are often flatter than North Shore decks, with coastal rain and wind still in play. Glass is worth comparing when homeowners want rain protection without darkening living areas that face the patio.',
+    sections: [
+      {
+        h2: 'When glass fits Richmond patios',
+        body: 'Glass works well when the patio sits close to living areas and light matters as much as rain coverage. Slope, flashing, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free Richmond measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Richmond neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Richmond?',
+        a: 'Yes — Steveston, Broadmoor, East Cambie, Burkeville, and nearby areas are regular service areas.',
+      },
+      {
+        q: 'Can I compare glass and aluminum for the same Richmond patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
+      { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond aluminum patio project' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
     ],
   },
   'delta-aluminum-patio-cover': {

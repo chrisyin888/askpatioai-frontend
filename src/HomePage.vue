@@ -1558,6 +1558,7 @@ export default {
         'patio-cover-cost-surrey': 'Patio cover cost in Surrey',
         'patio-cover-cost-burnaby': 'Patio cover cost in Burnaby',
         'patio-cover-cost-langley': 'Patio cover cost in Langley',
+        'patio-cover-cost-richmond': 'Patio cover cost in Richmond',
         'glass-vs-aluminum': 'Glass vs aluminum patio covers',
         permit: 'Patio cover permits',
         rain: 'Best cover for rain',

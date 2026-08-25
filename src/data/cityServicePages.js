@@ -144,8 +144,10 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
       { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond backyard patio project' },
       { path: '/projects/richmond-aluminum-carport-cover', label: 'Richmond carport project' },
+      { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
@@ -258,15 +260,17 @@ export const CITY_SERVICE_PAGES = {
       },
     ],
     caseStudy: {
-      image: '/house/realprojects/glass-patio-door.png',
+      image: '/house/before-after/vancouver-glass-after.png',
       alt: 'Glass patio cover connecting to rear doors on a Richmond-area style home',
       caption:
         'Glass patio cover direction for Richmond homes that want rain protection without darkening kitchens or family rooms behind the patio.',
-      projectPath: '/projects/vancouver-glass-patio-cover',
+      projectPath: '/projects/richmond-glass-patio-cover',
     },
     relatedPageLinks: [
       { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
       { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+      { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
       { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond aluminum patio project' },
     ],
   },

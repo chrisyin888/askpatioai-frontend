@@ -14,6 +14,7 @@ export const GUIDE_PAGE_ORDER = [
   'patio-cover-cost-surrey',
   'patio-cover-cost-burnaby',
   'patio-cover-cost-langley',
+  'patio-cover-cost-richmond',
 ];
 
 export const GUIDE_PAGES = {
@@ -152,6 +153,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
       { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
     ],
   },
   'glass-vs-aluminum': {
@@ -829,6 +831,77 @@ export const GUIDE_PAGES = {
       { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
       { path: '/projects/langley-glass-patio-cover', label: 'Langley glass project' },
       { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+    ],
+  },
+  'patio-cover-cost-richmond': {
+    id: 'patio-cover-cost-richmond',
+    path: '/patio-cover-cost-richmond',
+    datePublished: '2026-08-25',
+    dateModified: '2026-08-25',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Richmond | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Richmond? What drives price for Steveston, Broadmoor, and East Cambie lots, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Richmond',
+    intro:
+      'If you are researching patio cover cost in Richmond, you have probably seen numbers that do not match compact City Centre patios or wider Steveston and Broadmoor backyards. Size, product type, coastal exposure, and whether you need a backyard cover or a carport-style side cover all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Richmond?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, attachment to the home, post placement, slope, and finish level all matter. Richmond also includes long narrow side-driveway covers that price differently than square backyard patios — even when the city name is the same.',
+      },
+      {
+        h2: 'Steveston, Broadmoor, East Cambie, and Burkeville',
+        body: 'Neighbourhood layout changes access, span, and how much cover you actually need. Flat lots near the water can still see wind and rain exposure. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Richmond pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep the patio and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Richmond and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Richmond size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Richmond?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Richmond?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Vancouver and Delta?',
+        a: 'Yes — Vancouver, Delta, and nearby Metro Vancouver communities use the same chat estimate flow.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Aluminum patio cover on a Richmond backyard patio',
+      caption:
+        'Richmond aluminum patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/richmond-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
+      { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
+      { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
 };

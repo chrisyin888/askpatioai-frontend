@@ -49,6 +49,7 @@ const GUIDE_LLM_LABELS = {
   'patio-cover-cost-surrey': 'Patio cover cost (Surrey)',
   'patio-cover-cost-burnaby': 'Patio cover cost (Burnaby)',
   'patio-cover-cost-langley': 'Patio cover cost (Langley)',
+  'patio-cover-cost-richmond': 'Patio cover cost (Richmond)',
 };
 
 function exampleLine(material, w, h) {
@@ -249,6 +250,12 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install glass patio covers in Langley?
 A: Yes. Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley are regular service areas. Glass is popular on newer walkout decks with large rear windows. Project example: ${SITE_ORIGIN}/projects/langley-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-langley
+
+Q: How much does a patio cover cost in Richmond?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Richmond projects include backyard patio covers and carport-style side covers, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-richmond. Project examples: ${SITE_ORIGIN}/projects/richmond-aluminum-patio-cover and ${SITE_ORIGIN}/projects/richmond-glass-patio-cover
+
+Q: Do you install glass patio covers in Richmond?
+A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/richmond-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-richmond
 
 ## Contact
 Website: ${SITE_ORIGIN}

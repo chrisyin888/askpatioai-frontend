@@ -164,7 +164,9 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
       { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
       { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
       { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond aluminum patio project' },
+      { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
     ],
     caseStudy: {
       image: '/house/before-after/richmond-carport-after.png',

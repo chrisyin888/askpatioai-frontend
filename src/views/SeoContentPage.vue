@@ -362,6 +362,7 @@ export default {
         'patio-cover-cost-surrey': 'Patio cover cost — Surrey',
         'patio-cover-cost-burnaby': 'Patio cover cost — Burnaby',
         'patio-cover-cost-langley': 'Patio cover cost — Langley',
+        'patio-cover-cost-richmond': 'Patio cover cost — Richmond',
         'glass-vs-aluminum': 'Glass vs aluminum',
         permit: 'Permits',
         rain: 'Rain & weather',
