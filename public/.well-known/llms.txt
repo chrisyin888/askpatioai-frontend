@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-08-25
+> Last updated: 2026-08-26
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -67,6 +67,8 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost in Burnaby: https://loomihomepatios.ca/patio-cover-cost-burnaby
 - Patio cover cost in Langley: https://loomihomepatios.ca/patio-cover-cost-langley
 - Patio cover cost in Richmond: https://loomihomepatios.ca/patio-cover-cost-richmond
+- Patio cover cost in Coquitlam: https://loomihomepatios.ca/patio-cover-cost-coquitlam
+- Tri-Cities patio covers: https://loomihomepatios.ca/tri-cities-patio-covers
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby
 - Patio covers — Richmond: https://loomihomepatios.ca/patio-covers-richmond
@@ -144,11 +146,13 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Installation timeline: https://loomihomepatios.ca/how-long-does-patio-cover-installation-take
 - Fraser Valley patio covers: https://loomihomepatios.ca/fraser-valley-patio-covers
 - Coastal patio covers: https://loomihomepatios.ca/coastal-patio-covers-vancouver
+- Tri-Cities patio covers: https://loomihomepatios.ca/tri-cities-patio-covers
 - Patio cover cost (Abbotsford): https://loomihomepatios.ca/patio-cover-cost-abbotsford
 - Patio cover cost (Surrey): https://loomihomepatios.ca/patio-cover-cost-surrey
 - Patio cover cost (Burnaby): https://loomihomepatios.ca/patio-cover-cost-burnaby
 - Patio cover cost (Langley): https://loomihomepatios.ca/patio-cover-cost-langley
 - Patio cover cost (Richmond): https://loomihomepatios.ca/patio-cover-cost-richmond
+- Patio cover cost (Coquitlam): https://loomihomepatios.ca/patio-cover-cost-coquitlam
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
@@ -283,6 +287,12 @@ A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is 
 
 Q: Do you install glass patio covers in Richmond?
 A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: https://loomihomepatios.ca/projects/richmond-glass-patio-cover. Service page: https://loomihomepatios.ca/glass-patio-covers-richmond
+
+Q: How much does a patio cover cost in Coquitlam?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Coquitlam lots range from hillside Burke Mountain decks to flatter Tri-Cities yards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-coquitlam. Project examples: https://loomihomepatios.ca/projects/coquitlam-aluminum-patio-cover and https://loomihomepatios.ca/projects/coquitlam-glass-patio-cover
+
+Q: Do you install patio covers across the Tri-Cities?
+A: Yes. Coquitlam, Port Coquitlam, and Port Moody are regular service areas — hillside decks, family yards, and walkout patios included. Regional guide: https://loomihomepatios.ca/tri-cities-patio-covers. Project examples: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover and https://loomihomepatios.ca/projects/port-moody-glass-patio-cover
 
 ## Contact
 Website: https://loomihomepatios.ca

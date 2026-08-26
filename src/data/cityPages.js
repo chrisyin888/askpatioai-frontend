@@ -307,7 +307,10 @@ export const CITY_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
       { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
     ],
     caseStudy: {
       image: '/house/before-after/coquitlam-glass-after.png',

@@ -10,11 +10,13 @@ export const GUIDE_PAGE_ORDER = [
   'install-timeline',
   'fraser-valley',
   'coastal',
+  'tri-cities',
   'patio-cover-cost-abbotsford',
   'patio-cover-cost-surrey',
   'patio-cover-cost-burnaby',
   'patio-cover-cost-langley',
   'patio-cover-cost-richmond',
+  'patio-cover-cost-coquitlam',
 ];
 
 export const GUIDE_PAGES = {
@@ -154,6 +156,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
       { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
       { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
     ],
   },
   'glass-vs-aluminum': {
@@ -553,6 +556,76 @@ export const GUIDE_PAGES = {
       projectPath: '/projects/white-rock-glass-patio-cover',
     },
   },
+  'tri-cities': {
+    id: 'tri-cities',
+    path: '/tri-cities-patio-covers',
+    datePublished: '2026-08-26',
+    dateModified: '2026-08-26',
+    heroImage: '/house/before-after/coquitlam-glass-after.png',
+    metaTitle: 'Tri-Cities Patio Covers | Coquitlam Port Moody PoCo | LoomiHome',
+    metaDescription:
+      'Tri-Cities patio covers — Coquitlam, Port Coquitlam, and Port Moody. Compare aluminum, glass, and combo covers with a fast rough estimate before free measurement.',
+    h1: 'Tri-Cities Patio Covers — Coquitlam, Port Coquitlam & Port Moody',
+    intro:
+      'Tri-Cities homeowners searching for patio covers often deal with hillside decks, compact townhome patios, and wet springs that keep outdoor spaces unused. Whether you are in Coquitlam, Port Coquitlam, or Port Moody, the process is the same: get a fast rough estimate in chat, compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
+    sections: [
+      {
+        h2: 'Why Tri-Cities patios need local planning',
+        body: 'Burke Mountain slopes, Port Coquitlam family yards, and Port Moody walkout decks do not share the same attachment or drainage conditions. A chat ballpark uses your city and size first; measurement confirms the layout.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo in the Tri-Cities',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass is worth comparing when you want more light near rear doors and windows. Skyline combo covers sit in the middle when you want both shade and brightness.',
+      },
+      {
+        h2: 'Coquitlam — Burke Mountain, Maillardville, Westwood Plateau',
+        body: 'Hillside decks and varied elevations are common. Share approximate dimensions and a photo so the first estimate reflects attachment height and span.',
+      },
+      {
+        h2: 'Port Coquitlam and Port Moody neighbourhoods',
+        body: 'Citadel Heights, Mary Hill, Moody Centre, and Suter Brook each have different lot depths and view lines. Chat helps you compare products before anyone visits.',
+      },
+      {
+        h2: 'Estimate first, measure second',
+        body: 'We designed the flow so you understand budget range before booking visits. Formal pricing always follows a free on-site measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Tri-Cities city, neighbourhood, and rough patio size in chat for a planning range before free measurement.',
+    faqs: [
+      {
+        q: 'Do you install patio covers in Coquitlam?',
+        a: 'Yes — Burke Mountain, Maillardville, Westwood Plateau, and nearby areas are regular Tri-Cities service areas.',
+      },
+      {
+        q: 'Do you serve Port Coquitlam and Port Moody?',
+        a: 'Yes — both are part of our Lower Mainland coverage with the same chat estimate flow.',
+      },
+      {
+        q: 'What is a typical aluminum patio cover cost in the Tri-Cities?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Can I compare aluminum and glass for the same patio?',
+        a: 'Yes. We can ballpark both from the same rough dimensions in one chat session.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/patio-covers-port-coquitlam', label: 'Patio covers in Port Coquitlam' },
+      { path: '/patio-covers-port-moody', label: 'Patio covers in Port Moody' },
+      { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
+      { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Coquitlam Tri-Cities backyard patio',
+      caption:
+        'Tri-Cities glass patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
+  },
   'patio-cover-cost-abbotsford': {
     id: 'patio-cover-cost-abbotsford',
     path: '/patio-cover-cost-abbotsford',
@@ -902,6 +975,77 @@ export const GUIDE_PAGES = {
       { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
       { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+    ],
+  },
+  'patio-cover-cost-coquitlam': {
+    id: 'patio-cover-cost-coquitlam',
+    path: '/patio-cover-cost-coquitlam',
+    datePublished: '2026-08-26',
+    dateModified: '2026-08-26',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Coquitlam | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Coquitlam? What drives price for Burke Mountain, Maillardville, and Tri-Cities lots, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Coquitlam',
+    intro:
+      'If you are researching patio cover cost in Coquitlam, you have probably seen numbers that do not match hillside Burke Mountain decks or more compact Maillardville and Austin Heights patios. Size, product type, slope, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Coquitlam?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, attachment to the home or deck, post placement, slope, and finish level all matter. Coquitlam includes hillside lots and flatter Tri-Cities yards — those layouts rarely price the same even when the city name is identical.',
+      },
+      {
+        h2: 'Burke Mountain, Maillardville, Westwood Plateau, and Austin Heights',
+        body: 'Neighbourhood layout changes access, height, and how much cover you actually need. Sloped lots often need careful attachment planning; wider yards can support larger footprints. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Coquitlam pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep the patio and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Coquitlam and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Coquitlam size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Coquitlam?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Coquitlam?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Port Coquitlam and Port Moody?',
+        a: 'Yes — both Tri-Cities neighbours use the same chat estimate flow. See our Tri-Cities patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Coquitlam backyard patio',
+      caption:
+        'Coquitlam patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/coquitlam-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
+      { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
+      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
+      { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
     ],
   },
 };

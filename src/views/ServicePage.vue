@@ -242,6 +242,7 @@ export default {
         'patio-cover-cost-burnaby': 'Patio cover cost — Burnaby',
         'patio-cover-cost-langley': 'Patio cover cost — Langley',
         'patio-cover-cost-richmond': 'Patio cover cost — Richmond',
+        'patio-cover-cost-coquitlam': 'Patio cover cost — Coquitlam',
         'glass-vs-aluminum': 'Glass vs aluminum',
         permit: 'Permits',
         rain: 'Rain & weather',
@@ -249,6 +250,7 @@ export default {
         'contractors-near-me': 'Contractors near me',
         'fraser-valley': 'Fraser Valley',
         coastal: 'Coastal covers',
+        'tri-cities': 'Tri-Cities',
       };
       return GUIDE_PAGE_ORDER.map((id) => ({
         path: GUIDE_PAGES[id].path,

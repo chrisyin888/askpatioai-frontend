@@ -45,11 +45,13 @@ const GUIDE_LLM_LABELS = {
   'install-timeline': 'Installation timeline',
   'fraser-valley': 'Fraser Valley patio covers',
   coastal: 'Coastal patio covers',
+  'tri-cities': 'Tri-Cities patio covers',
   'patio-cover-cost-abbotsford': 'Patio cover cost (Abbotsford)',
   'patio-cover-cost-surrey': 'Patio cover cost (Surrey)',
   'patio-cover-cost-burnaby': 'Patio cover cost (Burnaby)',
   'patio-cover-cost-langley': 'Patio cover cost (Langley)',
   'patio-cover-cost-richmond': 'Patio cover cost (Richmond)',
+  'patio-cover-cost-coquitlam': 'Patio cover cost (Coquitlam)',
 };
 
 function exampleLine(material, w, h) {
@@ -256,6 +258,12 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install glass patio covers in Richmond?
 A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/richmond-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-richmond
+
+Q: How much does a patio cover cost in Coquitlam?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Coquitlam lots range from hillside Burke Mountain decks to flatter Tri-Cities yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-coquitlam. Project examples: ${SITE_ORIGIN}/projects/coquitlam-aluminum-patio-cover and ${SITE_ORIGIN}/projects/coquitlam-glass-patio-cover
+
+Q: Do you install patio covers across the Tri-Cities?
+A: Yes. Coquitlam, Port Coquitlam, and Port Moody are regular service areas — hillside decks, family yards, and walkout patios included. Regional guide: ${SITE_ORIGIN}/tri-cities-patio-covers. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover
 
 ## Contact
 Website: ${SITE_ORIGIN}

@@ -544,6 +544,13 @@ export const PROJECT_PAGES = {
         a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
+      { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
+    ],
   },
   'coquitlam-aluminum-patio-cover': {
     id: 'coquitlam-aluminum-patio-cover',
@@ -590,6 +597,8 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
       { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
       { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
     ],
   },

@@ -323,6 +323,8 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
       { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
     ],
     caseStudy: {
@@ -825,6 +827,20 @@ export const CITY_SERVICE_PAGES = {
         a: 'Usually yes. Aluminum is often the practical starting point when budget and rain protection are the main priorities.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
+      { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
+      { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
+    ],
+    caseStudy: {
+      image: '/house/Aluminum/p26.jpg',
+      alt: 'Aluminum patio cover on a Coquitlam Tri-Cities backyard',
+      caption:
+        'Coquitlam aluminum patio cover — practical rain protection for hillside and family yards. Compare glass in chat on the same size.',
+      projectPath: '/projects/coquitlam-aluminum-patio-cover',
+    },
   },
   'glass-delta': {
     id: 'glass-delta',
