@@ -52,6 +52,7 @@ const GUIDE_LLM_LABELS = {
   'patio-cover-cost-langley': 'Patio cover cost (Langley)',
   'patio-cover-cost-richmond': 'Patio cover cost (Richmond)',
   'patio-cover-cost-coquitlam': 'Patio cover cost (Coquitlam)',
+  'patio-cover-cost-delta': 'Patio cover cost (Delta)',
 };
 
 function exampleLine(material, w, h) {
@@ -264,6 +265,12 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install patio covers across the Tri-Cities?
 A: Yes. Coquitlam, Port Coquitlam, and Port Moody are regular service areas — hillside decks, family yards, and walkout patios included. Regional guide: ${SITE_ORIGIN}/tri-cities-patio-covers. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover
+
+Q: How much does a patio cover cost in Delta?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Delta lots range from compact side-yard covers to family backyards in Ladner and Tsawwassen, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-delta. Project examples: ${SITE_ORIGIN}/projects/delta-aluminum-patio-cover and ${SITE_ORIGIN}/projects/delta-glass-patio-cover
+
+Q: Do you install glass patio covers in Delta?
+A: Yes. Ladner, Tsawwassen, and North Delta are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/delta-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-delta
 
 ## Contact
 Website: ${SITE_ORIGIN}

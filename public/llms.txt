@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-08-26
+> Last updated: 2026-08-27
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -68,6 +68,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost in Langley: https://loomihomepatios.ca/patio-cover-cost-langley
 - Patio cover cost in Richmond: https://loomihomepatios.ca/patio-cover-cost-richmond
 - Patio cover cost in Coquitlam: https://loomihomepatios.ca/patio-cover-cost-coquitlam
+- Patio cover cost in Delta: https://loomihomepatios.ca/patio-cover-cost-delta
 - Tri-Cities patio covers: https://loomihomepatios.ca/tri-cities-patio-covers
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby
@@ -153,6 +154,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost (Langley): https://loomihomepatios.ca/patio-cover-cost-langley
 - Patio cover cost (Richmond): https://loomihomepatios.ca/patio-cover-cost-richmond
 - Patio cover cost (Coquitlam): https://loomihomepatios.ca/patio-cover-cost-coquitlam
+- Patio cover cost (Delta): https://loomihomepatios.ca/patio-cover-cost-delta
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver
@@ -183,6 +185,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Richmond Aluminum Patio Cover: https://loomihomepatios.ca/projects/richmond-aluminum-patio-cover
 - Richmond Glass Patio Cover: https://loomihomepatios.ca/projects/richmond-glass-patio-cover
 - Delta Aluminum Patio Cover: https://loomihomepatios.ca/projects/delta-aluminum-patio-cover
+- Delta Glass Patio Cover: https://loomihomepatios.ca/projects/delta-glass-patio-cover
 - Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/coquitlam-glass-patio-cover
 - Coquitlam Aluminum Patio Cover: https://loomihomepatios.ca/projects/coquitlam-aluminum-patio-cover
 - Langley Aluminum Patio Cover: https://loomihomepatios.ca/projects/langley-aluminum-patio-cover
@@ -293,6 +296,12 @@ A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is 
 
 Q: Do you install patio covers across the Tri-Cities?
 A: Yes. Coquitlam, Port Coquitlam, and Port Moody are regular service areas — hillside decks, family yards, and walkout patios included. Regional guide: https://loomihomepatios.ca/tri-cities-patio-covers. Project examples: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover and https://loomihomepatios.ca/projects/port-moody-glass-patio-cover
+
+Q: How much does a patio cover cost in Delta?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Delta lots range from compact side-yard covers to family backyards in Ladner and Tsawwassen, so chat gives a planning total for your layout. Guide: https://loomihomepatios.ca/patio-cover-cost-delta. Project examples: https://loomihomepatios.ca/projects/delta-aluminum-patio-cover and https://loomihomepatios.ca/projects/delta-glass-patio-cover
+
+Q: Do you install glass patio covers in Delta?
+A: Yes. Ladner, Tsawwassen, and North Delta are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: https://loomihomepatios.ca/projects/delta-glass-patio-cover. Service page: https://loomihomepatios.ca/glass-patio-covers-delta
 
 ## Contact
 Website: https://loomihomepatios.ca

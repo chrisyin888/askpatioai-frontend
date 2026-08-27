@@ -10,6 +10,7 @@ export const PROJECT_PAGE_ORDER = [
   'richmond-aluminum-patio-cover',
   'richmond-glass-patio-cover',
   'delta-aluminum-patio-cover',
+  'delta-glass-patio-cover',
   'coquitlam-glass-patio-cover',
   'coquitlam-aluminum-patio-cover',
   'langley-aluminum-patio-cover',
@@ -500,6 +501,62 @@ export const PROJECT_PAGES = {
         q: 'Is aluminum good for smaller patios?',
         a: 'Yes. Aluminum is often practical for compact patios because it offers rain coverage with relatively low maintenance.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-delta', label: 'Patio covers in Delta' },
+      { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/projects/delta-glass-patio-cover', label: 'Delta glass project' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
+    ],
+  },
+  'delta-glass-patio-cover': {
+    id: 'delta-glass-patio-cover',
+    path: '/projects/delta-glass-patio-cover',
+    datePublished: '2026-08-27',
+    dateModified: '2026-08-27',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Delta Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Delta glass patio cover example — bright rain protection for Ladner, Tsawwassen, and North Delta patios. Compare glass and aluminum in chat.',
+    h1: 'Delta Glass Patio Cover Project',
+    intro:
+      'This Delta glass patio cover example shows how tempered glass can protect a backyard or walkout patio while keeping natural light — a common goal in Ladner, Tsawwassen, and North Delta where coastal rain and wind meet flat family lots.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Rain-ready fit for coastal-adjacent Delta patios',
+      'Useful reference near rear doors and windows',
+      'Compare aluminum for budget in chat',
+    ],
+    localAngle:
+      'Delta homes can face wind and rain exposure depending on neighbourhood. Glass works when homeowners want rain protection without darkening living areas that face the patio.',
+    sections: [
+      {
+        h2: 'When glass fits Delta patios',
+        body: 'Glass is worth comparing when the patio sits close to living areas and you want the covered space to stay bright. Slope, flashing, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free Delta measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Delta neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Delta?',
+        a: 'Yes — Ladner, Tsawwassen, and North Delta are regular service areas.',
+      },
+      {
+        q: 'Can I compare glass and aluminum for the same Delta patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-delta', label: 'Patio covers in Delta' },
+      { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
+      { path: '/projects/delta-aluminum-patio-cover', label: 'Delta aluminum project' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
   },
   'coquitlam-glass-patio-cover': {

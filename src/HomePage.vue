@@ -1560,6 +1560,7 @@ export default {
         'patio-cover-cost-langley': 'Patio cover cost in Langley',
         'patio-cover-cost-richmond': 'Patio cover cost in Richmond',
         'patio-cover-cost-coquitlam': 'Patio cover cost in Coquitlam',
+        'patio-cover-cost-delta': 'Patio cover cost in Delta',
         'glass-vs-aluminum': 'Glass vs aluminum patio covers',
         permit: 'Patio cover permits',
         rain: 'Best cover for rain',

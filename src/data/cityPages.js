@@ -262,6 +262,8 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
       { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
     caseStudy: {
       image: '/house/before-after/delta-aluminum-after.png',

@@ -243,6 +243,7 @@ export default {
         'patio-cover-cost-langley': 'Patio cover cost — Langley',
         'patio-cover-cost-richmond': 'Patio cover cost — Richmond',
         'patio-cover-cost-coquitlam': 'Patio cover cost — Coquitlam',
+        'patio-cover-cost-delta': 'Patio cover cost — Delta',
         'glass-vs-aluminum': 'Glass vs aluminum',
         permit: 'Permits',
         rain: 'Rain & weather',

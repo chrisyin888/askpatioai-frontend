@@ -775,7 +775,9 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
       { path: '/patio-covers-delta', label: 'Patio covers in Delta' },
-      { path: '/best-patio-cover-for-rain-vancouver', label: 'Best cover for rain guide' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
+      { path: '/projects/delta-aluminum-patio-cover', label: 'Delta aluminum project' },
+      { path: '/projects/delta-glass-patio-cover', label: 'Delta glass project' },
     ],
     caseStudy: {
       image: '/house/before-after/delta-aluminum-after.png',
@@ -891,14 +893,17 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
+      { path: '/projects/delta-glass-patio-cover', label: 'Delta glass project' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
       { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
     ],
     caseStudy: {
-      image: '/house/before-after/coquitlam-glass-after.png',
+      image: '/house/before-after/vancouver-glass-after.png',
       alt: 'Glass patio cover after installation with tempered glass roof and black frame',
       caption:
         'Glass patio cover — bright rain protection for patios near rear doors and windows. Compare aluminum on the same footprint in chat.',
-      projectPath: '/projects/coquitlam-glass-patio-cover',
+      projectPath: '/projects/delta-glass-patio-cover',
     },
   },
   'sunrooms-coquitlam': {

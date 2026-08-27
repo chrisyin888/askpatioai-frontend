@@ -17,6 +17,7 @@ export const GUIDE_PAGE_ORDER = [
   'patio-cover-cost-langley',
   'patio-cover-cost-richmond',
   'patio-cover-cost-coquitlam',
+  'patio-cover-cost-delta',
 ];
 
 export const GUIDE_PAGES = {
@@ -157,6 +158,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
       { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
       { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
     ],
   },
   'glass-vs-aluminum': {
@@ -1046,6 +1048,76 @@ export const GUIDE_PAGES = {
       { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
       { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
       { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
+    ],
+  },
+  'patio-cover-cost-delta': {
+    id: 'patio-cover-cost-delta',
+    path: '/patio-cover-cost-delta',
+    datePublished: '2026-08-27',
+    dateModified: '2026-08-27',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Delta | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Delta? What drives price for Ladner, Tsawwassen, and North Delta lots, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Delta',
+    intro:
+      'If you are researching patio cover cost in Delta, you have probably seen numbers that do not match compact North Delta patios or wider Ladner and Tsawwassen backyards. Size, product type, coastal exposure, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Delta?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, attachment to the home, post placement, slope, and finish level all matter. Delta includes compact side-yard covers and family backyards — those layouts rarely price the same even when the city name is identical.',
+      },
+      {
+        h2: 'Ladner, Tsawwassen, and North Delta',
+        body: 'Neighbourhood layout changes access, wind exposure, and how much cover you actually need. Coastal-adjacent lots may need careful drainage planning; inland North Delta yards can support wider footprints. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Delta pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep the patio and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Delta and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Delta size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Delta?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Delta?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Richmond and White Rock?',
+        a: 'Yes — Richmond, White Rock, and nearby coastal communities use the same chat estimate flow. See our coastal patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/delta-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Delta backyard patio',
+      caption:
+        'Delta aluminum patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/delta-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-delta', label: 'Patio covers in Delta' },
+      { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
+      { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
+      { path: '/projects/delta-glass-patio-cover', label: 'Delta glass project' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
   },
 };
