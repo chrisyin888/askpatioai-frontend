@@ -1318,6 +1318,7 @@ import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from './data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from './data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from './data/servicePages';
 import {
+  canonicalizePath,
   faqPageNode,
   injectJsonLd,
   localBusinessNode,
@@ -1538,7 +1539,7 @@ export default {
         sunrooms: 'Sunrooms',
       };
       return SERVICE_PAGE_ORDER.map((k) => ({
-        to: SERVICE_PAGES[k].path,
+        to: canonicalizePath(SERVICE_PAGES[k].path),
         label: labels[k],
       }));
     },
@@ -1547,7 +1548,7 @@ export default {
     },
     cityPageLinks() {
       return CITY_PAGE_ORDER.map((id) => ({
-        path: CITY_PAGES[id].path,
+        path: canonicalizePath(CITY_PAGES[id].path),
         label: CITY_PAGES[id].h1.replace(/^Patio Covers in /i, 'Patio covers — '),
       }));
     },
@@ -1572,16 +1573,19 @@ export default {
         'tri-cities': 'Tri-Cities patio covers',
       };
       return GUIDE_PAGE_ORDER.map((id) => ({
-        path: GUIDE_PAGES[id].path,
+        path: canonicalizePath(GUIDE_PAGES[id].path),
         label: labels[id] || id,
       }));
     },
     prioritySeoPageLinks() {
-      return PRIORITY_SEO_PAGE_LINKS;
+      return PRIORITY_SEO_PAGE_LINKS.map((link) => ({
+        ...link,
+        path: canonicalizePath(link.path),
+      }));
     },
     projectPageLinks() {
       return PROJECT_PAGE_ORDER.map((id) => ({
-        path: PROJECT_PAGES[id].path,
+        path: canonicalizePath(PROJECT_PAGES[id].path),
         label: PROJECT_PAGES[id].h1.replace(' Project', ''),
       }));
     },

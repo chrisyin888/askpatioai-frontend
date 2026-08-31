@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
 
-const { SITE_ORIGIN } = require('../src/utils/seoHead');
+const { SITE_ORIGIN, canonicalizePath } = require('../src/utils/seoHead');
 
 function pageAbsoluteUrl(pathname) {
   if (!pathname || pathname === '/') return `${SITE_ORIGIN}/`;
@@ -19,16 +19,12 @@ const { CITY_PAGES, CITY_PAGE_ORDER } = require('../src/data/cityPages');
 const { GUIDE_PAGES, GUIDE_PAGE_ORDER } = require('../src/data/guidePages');
 const { PROJECT_PAGES, PROJECT_PAGE_ORDER } = require('../src/data/projectPages');
 const { PRICING_COPY } = require('../src/data/pricingCopy.js');
-
-function loadIndexNowKey() {
-  try {
-    const configPath = path.join(__dirname, '..', 'src', 'data', 'indexNow.json');
-    const { key } = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-    return String(key || '').trim();
-  } catch {
-    return '';
-  }
-}
+const {
+  NOINDEX_SHELL_PATHS,
+  loadCityServiceData,
+  collectSeoPaths,
+  buildRedirectsFile,
+} = require('./seoRedirects');
 
 const SERVICE_LABELS = {
   aluminum: 'Aluminum patio covers',
@@ -48,41 +44,11 @@ const GUIDE_LABELS = {
 
 const LASTMOD = new Date().toISOString().slice(0, 10);
 
-/** Marketplace routes — static shells with noindex so crawlers never see homepage canonical. */
-const NOINDEX_SHELL_PATHS = [
-  { path: '/contractor-login', title: 'Contractor Login | LoomiHome Patios' },
-  { path: '/admin-login', title: 'Admin Login | LoomiHome Patios' },
-  { path: '/lobby', title: 'Lead Lobby | LoomiHome Patios' },
-  { path: '/account', title: 'Account | LoomiHome Patios' },
-  { path: '/admin-leads', title: 'Admin | LoomiHome Patios' },
-];
-
-async function loadCityServiceData() {
-  const mod = await import(
-    pathToFileURL(path.join(__dirname, '../src/data/cityServicePages.js')).href
-  );
-  return {
-    CITY_SERVICE_PAGES: mod.CITY_SERVICE_PAGES,
-    CITY_SERVICE_PAGE_ORDER: mod.CITY_SERVICE_PAGE_ORDER,
-  };
-}
-
 async function loadPriorityPages() {
   const mod = await import(
     pathToFileURL(path.join(__dirname, '../src/data/prioritySeoPages.js')).href
   );
   return mod.PRIORITY_SEO_PAGE_LINKS;
-}
-
-function collectPaths(cityService) {
-  const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
-  const paths = ['/'];
-  SERVICE_PAGE_ORDER.forEach((key) => paths.push(SERVICE_PAGES[key].path));
-  CITY_PAGE_ORDER.forEach((id) => paths.push(CITY_PAGES[id].path));
-  CITY_SERVICE_PAGE_ORDER.forEach((id) => paths.push(CITY_SERVICE_PAGES[id].path));
-  GUIDE_PAGE_ORDER.forEach((id) => paths.push(GUIDE_PAGES[id].path));
-  PROJECT_PAGE_ORDER.forEach((id) => paths.push(PROJECT_PAGES[id].path));
-  return [...new Set(paths)];
 }
 
 function lookupPage(pathname, cityService) {
@@ -263,7 +229,7 @@ function buildPageJsonLd(pathname, meta) {
 function buildLinkList(title, links) {
   if (!links || !links.length) return '';
   const items = links
-    .map((link) => `<li><a href="${esc(link.path)}">${esc(link.label)}</a></li>`)
+    .map((link) => `<li><a href="${esc(canonicalizePath(link.path))}">${esc(link.label)}</a></li>`)
     .join('\n        ');
   return `<h2>${esc(title)}</h2>
       <ul>
@@ -445,7 +411,7 @@ function buildCaseStudyHtml(page) {
   const imgUrl = pageAbsoluteUrl(cs.image);
   const caption = cs.caption ? `<figcaption>${esc(cs.caption)}</figcaption>` : '';
   const projectLink = cs.projectPath
-    ? `<p><a href="${esc(cs.projectPath)}">View project page</a></p>`
+    ? `<p><a href="${esc(canonicalizePath(cs.projectPath))}">View project page</a></p>`
     : '';
   return `<h2>Project example</h2>
       <figure>
@@ -636,43 +602,6 @@ function buildNoindexShell(template, pathname, title) {
   return html;
 }
 
-/** Render _redirects: map slashless sitemap URLs to SEO shells; consolidate trailing slashes. */
-function buildRedirectsFile(seoPaths) {
-  const lines = [
-    '/sitemap.xml /sitemap.xml 200',
-    '/robots.txt /robots.txt 200',
-    '/llms.txt /llms.txt 200',
-    '/BingSiteAuth.xml /BingSiteAuth.xml 200',
-    '/.well-known/llms.txt /.well-known/llms.txt 200',
-    '/og/og-aluminum.jpg /og/og-aluminum.jpg 200',
-    '/og/og-glass.jpg /og/og-glass.jpg 200',
-    '/og/og-skyline.jpg /og/og-skyline.jpg 200',
-    '/og/og-sunrooms.jpg /og/og-sunrooms.jpg 200',
-    '/contractor /contractor-login 301',
-  ];
-
-  const indexNowKey = loadIndexNowKey();
-  if (indexNowKey) {
-    lines.push(`/${indexNowKey}.txt /${indexNowKey}.txt 200`);
-  }
-
-  // Prefer trailing-slash shells: Render serves dist/{path}/index.html for /path/
-  // but slashless /path often falls through to the SPA catch-all (homepage title bug).
-  // 301 slashless → slash so crawlers always hit the personalized HTML shell.
-  seoPaths.forEach((pathname) => {
-    lines.push(`${pathname} ${pathname}/ 301`);
-  });
-
-  NOINDEX_SHELL_PATHS.forEach(({ path: pathname }) => {
-    lines.push(`${pathname} ${pathname}/ 301`);
-  });
-
-  // SPA fallback — must be last so SEO shell rules above take precedence.
-  lines.push('/* /index.html 200');
-
-  return `${lines.join('\n')}\n`;
-}
-
 async function main() {
   const distIndex = path.join(__dirname, '..', 'dist', 'index.html');
   if (!fs.existsSync(distIndex)) {
@@ -686,7 +615,8 @@ async function main() {
   );
   const cityService = await loadCityServiceData();
   const priorityPages = await loadPriorityPages();
-  const paths = collectPaths(cityService).filter((p) => p !== '/');
+  const allPaths = collectSeoPaths(cityService);
+  const paths = allPaths.filter((p) => p !== '/');
 
   let written = 0;
   for (const pathname of paths) {
@@ -709,7 +639,7 @@ async function main() {
     noindexWritten += 1;
   }
 
-  const redirectLines = buildRedirectsFile(paths);
+  const redirectLines = buildRedirectsFile(allPaths);
   fs.writeFileSync(path.join(__dirname, '..', 'dist', '_redirects'), redirectLines, 'utf8');
 
   console.log(`Wrote ${written} SEO HTML shells under dist/`);

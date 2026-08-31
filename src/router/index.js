@@ -13,7 +13,7 @@ import { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } from '../data/cityService
 import { GUIDE_PAGES, GUIDE_PAGE_ORDER } from '../data/guidePages';
 import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
-import { setPageMeta } from '../utils/seoHead';
+import { setPageMeta, canonicalizePath } from '../utils/seoHead';
 import { getCurrentUser } from '../utils/leadMarketplaceStore';
 
 const DEFAULT_TITLE = 'Patio Cover Installation Vancouver | LoomiHome Patios';
@@ -195,6 +195,22 @@ const router = createRouter({
 router.beforeEach((to) => {
   const user = getCurrentUser();
 
+  if (
+    to.path !== '/' &&
+    !NOINDEX_PATHS.has(to.path) &&
+    !/\.[a-z0-9]{2,8}$/i.test(to.path)
+  ) {
+    const canonical = canonicalizePath(to.path);
+    if (canonical !== to.path) {
+      return {
+        path: canonical,
+        query: to.query,
+        hash: to.hash,
+        replace: true,
+      };
+    }
+  }
+
   if (to.path === '/lobby' || to.path === '/account') {
     if (!user || user.role !== 'contractor') {
       return {
@@ -218,7 +234,7 @@ router.afterEach((to) => {
   setPageMeta({
     title: to.meta.title || DEFAULT_TITLE,
     description: to.meta.description || DEFAULT_DESCRIPTION,
-    path: to.path,
+    path: canonicalizePath(to.path),
     robots,
     image: to.meta.image,
   });

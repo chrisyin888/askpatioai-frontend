@@ -61,10 +61,10 @@
             </figure>
           </div>
 
-          <div v-if="page.relatedPageLinks && page.relatedPageLinks.length" class="service-page-related">
+          <div v-if="relatedPageLinks.length" class="service-page-related">
             <h2 class="service-page-h2">Related pages</h2>
             <ul class="service-page-crosslinks-list">
-              <li v-for="(link, ri) in page.relatedPageLinks" :key="'rel-' + ri">
+              <li v-for="(link, ri) in relatedPageLinks" :key="'rel-' + ri">
                 <router-link :to="link.path" class="service-page-crosslinks__a">{{ link.label }}</router-link>
               </li>
             </ul>
@@ -186,6 +186,7 @@ import { PROJECT_PAGES, PROJECT_PAGE_ORDER } from '../data/projectPages';
 import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import {
   breadcrumbNode,
+  canonicalizePath,
   faqPageNode,
   injectJsonLd,
   localBusinessNode,
@@ -224,13 +225,13 @@ export default {
     },
     siblingLinks() {
       return SERVICE_PAGE_ORDER.filter((k) => k !== this.serviceKey).map((k) => ({
-        path: SERVICE_PAGES[k].path,
+        path: canonicalizePath(SERVICE_PAGES[k].path),
         label: LABELS[k],
       }));
     },
     cityLinks() {
       return CITY_PAGE_ORDER.map((id) => ({
-        path: CITY_PAGES[id].path,
+        path: canonicalizePath(CITY_PAGES[id].path),
         label: CITY_PAGES[id].h1.replace(/^Patio Covers in /i, 'Patio covers — '),
       }));
     },
@@ -255,25 +256,35 @@ export default {
         'tri-cities': 'Tri-Cities',
       };
       return GUIDE_PAGE_ORDER.map((id) => ({
-        path: GUIDE_PAGES[id].path,
+        path: canonicalizePath(GUIDE_PAGES[id].path),
         label: labels[id] || id,
       }));
     },
     cityServiceLinks() {
       return CITY_SERVICE_PAGE_ORDER.filter((id) => id.endsWith('-vancouver')).map((id) => ({
-        path: CITY_SERVICE_PAGES[id].path,
+        path: canonicalizePath(CITY_SERVICE_PAGES[id].path),
         label: CITY_SERVICE_PAGES[id].h1,
       }));
     },
     projectLinks() {
       return PROJECT_PAGE_ORDER.map((id) => ({
-        path: PROJECT_PAGES[id].path,
+        path: canonicalizePath(PROJECT_PAGES[id].path),
         label: PROJECT_PAGES[id].h1.replace(' Project', ''),
       }));
     },
     priorityLinks() {
       const current = this.page && this.page.path;
-      return PRIORITY_SEO_PAGE_LINKS.filter((l) => l.path !== current);
+      return PRIORITY_SEO_PAGE_LINKS.filter((l) => l.path !== current).map((l) => ({
+        ...l,
+        path: canonicalizePath(l.path),
+      }));
+    },
+    relatedPageLinks() {
+      const links = (this.page && this.page.relatedPageLinks) || [];
+      return links.map((link) => ({
+        ...link,
+        path: canonicalizePath(link.path),
+      }));
     },
     heroImageUrl() {
       const raw = this.page && this.page.heroImage;

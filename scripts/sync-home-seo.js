@@ -30,8 +30,14 @@ const SERVICE_LINK_LABELS = {
   sunrooms: 'Sunrooms Vancouver',
 };
 
+const { canonicalizePath } = require('../src/utils/seoHead');
+
+function linkHref(pathname) {
+  return canonicalizePath(pathname);
+}
+
 function linkListHtml(links) {
-  return links.map((l) => `        <li><a href="${l.path}">${l.label}</a></li>`).join('\n');
+  return links.map((l) => `        <li><a href="${linkHref(l.path)}">${l.label}</a></li>`).join('\n');
 }
 
 function replaceListSection(html, heading, listBody) {

@@ -6,7 +6,17 @@ const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
 
-const { SITE_ORIGIN } = require('../src/utils/seoHead');
+const { SITE_ORIGIN, canonicalizePath } = require('../src/utils/seoHead');
+
+function normalizeLlmsUrls(txt) {
+  return txt.replace(
+    /https:\/\/loomihomepatios\.ca(\/[^\s)\]"']*)/g,
+    (match, pathname) => {
+      if (/\.[a-z0-9]{2,8}$/i.test(pathname)) return match;
+      return `${SITE_ORIGIN}${canonicalizePath(pathname)}`;
+    },
+  );
+}
 const {
   patioCoverQuoteForMaterial,
   sunroomQuoteForType,
@@ -79,16 +89,16 @@ async function buildLlmsTxt() {
   const cityPages = await loadCityPages();
   const guidePages = await loadGuidePages();
   const keyPageLines = priorityPages
-    .map((p) => `- ${p.label}: ${SITE_ORIGIN}${p.path}`)
+    .map((p) => `- ${p.label}: ${SITE_ORIGIN}${canonicalizePath(p.path)}`)
     .join('\n');
   const cityLines = cityPages
-    .map((p) => `- ${p.h1.replace(/^Patio Covers in /i, 'Patio covers — ')}: ${SITE_ORIGIN}${p.path}`)
+    .map((p) => `- ${p.h1.replace(/^Patio Covers in /i, 'Patio covers — ')}: ${SITE_ORIGIN}${canonicalizePath(p.path)}`)
     .join('\n');
   const projectLines = projectPages
-    .map((p) => `- ${p.h1.replace(' Project', '')}: ${SITE_ORIGIN}${p.path}`)
+    .map((p) => `- ${p.h1.replace(' Project', '')}: ${SITE_ORIGIN}${canonicalizePath(p.path)}`)
     .join('\n');
   const guideLines = guidePages
-    .map((p) => `- ${GUIDE_LLM_LABELS[p.id] || p.h1.split('—')[0].trim()}: ${SITE_ORIGIN}${p.path}`)
+    .map((p) => `- ${GUIDE_LLM_LABELS[p.id] || p.h1.split('—')[0].trim()}: ${SITE_ORIGIN}${canonicalizePath(p.path)}`)
     .join('\n');
 
   const al12x14 = patioCoverQuoteForMaterial('Aluminum', 12 * 14);
@@ -287,7 +297,7 @@ Email: info@loomihomepatios.ca
 
 async function main() {
   const outPath = path.join(__dirname, '..', 'public', 'llms.txt');
-  const txt = await buildLlmsTxt();
+  const txt = normalizeLlmsUrls(await buildLlmsTxt());
   fs.writeFileSync(outPath, txt, 'utf8');
 
   const wellKnownDir = path.join(__dirname, '..', 'public', '.well-known');

@@ -152,13 +152,13 @@
               </div>
             </section>
 
-            <section v-if="page.relatedPageLinks && page.relatedPageLinks.length" class="seo-page__section">
+            <section v-if="relatedPageLinks.length" class="seo-page__section">
               <div class="our-products-intro seo-page__section-head">
                 <h2 class="our-products-heading">Related pages</h2>
                 <p class="our-products-lead">More local guides and service pages for the same area or product.</p>
               </div>
               <ul class="seo-page__related-list">
-                <li v-for="(link, ri) in page.relatedPageLinks" :key="'rel-' + ri">
+                <li v-for="(link, ri) in relatedPageLinks" :key="'rel-' + ri">
                   <router-link :to="link.path" class="seo-page__explore-link">{{ link.label }}</router-link>
                 </li>
               </ul>
@@ -295,6 +295,7 @@ import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import {
   articleNode,
   breadcrumbNode,
+  canonicalizePath,
   faqPageNode,
   injectJsonLd,
   localBusinessNode,
@@ -343,14 +344,14 @@ export default {
     },
     serviceLinks() {
       return SERVICE_PAGE_ORDER.map((k) => ({
-        path: SERVICE_PAGES[k].path,
+        path: canonicalizePath(SERVICE_PAGES[k].path),
         label: SERVICE_LABELS[k],
       }));
     },
     cityLinks() {
       return CITY_PAGE_ORDER.filter((id) => !(this.kind === 'city' && id === this.pageId)).map(
         (id) => ({
-          path: CITY_PAGES[id].path,
+          path: canonicalizePath(CITY_PAGES[id].path),
           label: CITY_PAGES[id].h1.replace(/^Patio Covers in /i, 'Patio covers — '),
         }),
       );
@@ -377,7 +378,7 @@ export default {
       };
       return GUIDE_PAGE_ORDER.filter((id) => !(this.kind === 'guide' && id === this.pageId)).map(
         (id) => ({
-          path: GUIDE_PAGES[id].path,
+          path: canonicalizePath(GUIDE_PAGES[id].path),
           label: labels[id] || id,
         }),
       );
@@ -389,7 +390,7 @@ export default {
         (id) => !(this.kind === 'cityService' && id === this.pageId),
       ).filter((id) => id.endsWith(`-${citySlug}`));
       return ids.map((id) => ({
-        path: CITY_SERVICE_PAGES[id].path,
+        path: canonicalizePath(CITY_SERVICE_PAGES[id].path),
         label: CITY_SERVICE_PAGES[id].h1,
       }));
     },
@@ -400,13 +401,23 @@ export default {
         if (citySlug && !id.startsWith(`${citySlug}-`)) return false;
         return true;
       }).map((id) => ({
-        path: PROJECT_PAGES[id].path,
+        path: canonicalizePath(PROJECT_PAGES[id].path),
         label: PROJECT_PAGES[id].h1.replace(' Project', ''),
       }));
     },
     priorityLinks() {
       const current = this.page && this.page.path;
-      return PRIORITY_SEO_PAGE_LINKS.filter((l) => l.path !== current);
+      return PRIORITY_SEO_PAGE_LINKS.filter((l) => l.path !== current).map((l) => ({
+        ...l,
+        path: canonicalizePath(l.path),
+      }));
+    },
+    relatedPageLinks() {
+      const links = (this.page && this.page.relatedPageLinks) || [];
+      return links.map((link) => ({
+        ...link,
+        path: canonicalizePath(link.path),
+      }));
     },
     heroImageUrl() {
       const raw = this.page && this.page.heroImage;
