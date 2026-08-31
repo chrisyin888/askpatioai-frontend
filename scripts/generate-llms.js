@@ -53,6 +53,7 @@ const GUIDE_LLM_LABELS = {
   'patio-cover-cost-richmond': 'Patio cover cost (Richmond)',
   'patio-cover-cost-coquitlam': 'Patio cover cost (Coquitlam)',
   'patio-cover-cost-delta': 'Patio cover cost (Delta)',
+  'patio-cover-cost-north-vancouver': 'Patio cover cost (North Vancouver)',
 };
 
 function exampleLine(material, w, h) {
@@ -271,6 +272,12 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install glass patio covers in Delta?
 A: Yes. Ladner, Tsawwassen, and North Delta are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/delta-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-delta
+
+Q: How much does a patio cover cost in North Vancouver?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. North Vancouver lots range from compact Lower Lonsdale decks to sloped Lynn Valley yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-north-vancouver. Project examples: ${SITE_ORIGIN}/projects/north-vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/north-vancouver-glass-patio-cover
+
+Q: Do you install aluminum patio covers in North Vancouver?
+A: Yes. Lynn Valley, Lower Lonsdale, Edgemont, and nearby North Shore areas are regular service areas. Aluminum is often the rain-first starting point on sloped lots and raised decks. Project example: ${SITE_ORIGIN}/projects/north-vancouver-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-north-vancouver
 
 ## Contact
 Website: ${SITE_ORIGIN}

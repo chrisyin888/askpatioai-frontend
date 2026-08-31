@@ -15,6 +15,7 @@ export const PROJECT_PAGE_ORDER = [
   'coquitlam-aluminum-patio-cover',
   'langley-aluminum-patio-cover',
   'langley-glass-patio-cover',
+  'north-vancouver-aluminum-patio-cover',
   'north-vancouver-glass-patio-cover',
   'new-westminster-skyline-combo-cover',
   'port-coquitlam-glass-patio-cover',
@@ -757,6 +758,56 @@ export const PROJECT_PAGES = {
       { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
     ],
   },
+  'north-vancouver-aluminum-patio-cover': {
+    id: 'north-vancouver-aluminum-patio-cover',
+    path: '/projects/north-vancouver-aluminum-patio-cover',
+    datePublished: '2026-08-31',
+    dateModified: '2026-08-31',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'North Vancouver Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'North Vancouver aluminum patio cover example — rain-ready protection for North Shore sloped lots and raised decks. Compare aluminum and glass in chat.',
+    h1: 'North Vancouver Aluminum Patio Cover Project',
+    intro:
+      'This North Vancouver aluminum patio cover example shows how a low-maintenance roof can protect sloped North Shore patios and raised decks — a practical starting point in Lynn Valley, Lower Lonsdale, and Edgemont when rain coverage and budget matter more than full glass.',
+    highlights: [
+      'Aluminum roof for dependable rain protection',
+      'Suited to North Shore sloped yards and raised decks',
+      'Lower maintenance than wood covers',
+      'Useful comparison point against glass on walkout decks',
+    ],
+    localAngle:
+      'North Vancouver homes often deal with tree debris, slope, and wet winters. Aluminum is usually the rain-first option before comparing glass for light and views.',
+    sections: [
+      {
+        h2: 'When aluminum fits North Shore patios',
+        body: 'Aluminum works well when you want a dry patio without the premium cost of glass. Post placement, attachment height, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free North Vancouver measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your North Vancouver neighbourhood, patio size, and whether rain protection or light matters more. We can compare aluminum and glass in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in North Vancouver?',
+        a: 'Yes — Lynn Valley, Lower Lonsdale, Edgemont, and nearby North Shore areas are regular service areas.',
+      },
+      {
+        q: 'Is aluminum practical for North Vancouver rain and slope?',
+        a: 'Yes, when engineered with proper slope, attachment, and drainage. We confirm those details during measurement.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-north-vancouver', label: 'Patio covers in North Vancouver' },
+      { path: '/aluminum-patio-covers-north-vancouver', label: 'Aluminum patio covers in North Vancouver' },
+      { path: '/projects/north-vancouver-glass-patio-cover', label: 'North Vancouver glass project' },
+      { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
   'north-vancouver-glass-patio-cover': {
     id: 'north-vancouver-glass-patio-cover',
     path: '/projects/north-vancouver-glass-patio-cover',
@@ -798,6 +849,13 @@ export const PROJECT_PAGES = {
         q: 'Is glass practical for North Vancouver rain?',
         a: 'Yes, when engineered with proper slope, flashing, and drainage. We confirm those details during measurement.',
       },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-north-vancouver', label: 'Patio covers in North Vancouver' },
+      { path: '/glass-patio-covers-north-vancouver', label: 'Glass patio covers in North Vancouver' },
+      { path: '/projects/north-vancouver-aluminum-patio-cover', label: 'North Vancouver aluminum project' },
+      { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
   },
   'new-westminster-skyline-combo-cover': {

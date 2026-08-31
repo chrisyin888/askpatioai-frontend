@@ -18,6 +18,7 @@ export const GUIDE_PAGE_ORDER = [
   'patio-cover-cost-richmond',
   'patio-cover-cost-coquitlam',
   'patio-cover-cost-delta',
+  'patio-cover-cost-north-vancouver',
 ];
 
 export const GUIDE_PAGES = {
@@ -159,6 +160,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
       { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
       { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
+      { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
     ],
   },
   'glass-vs-aluminum': {
@@ -546,6 +548,8 @@ export const GUIDE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-white-rock', label: 'Patio covers in White Rock' },
       { path: '/patio-covers-west-vancouver', label: 'Patio covers in West Vancouver' },
+      { path: '/patio-covers-north-vancouver', label: 'Patio covers in North Vancouver' },
+      { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
       { path: '/projects/white-rock-glass-patio-cover', label: 'White Rock glass project' },
       { path: '/projects/west-vancouver-glass-patio-cover', label: 'West Vancouver glass project' },
@@ -1117,6 +1121,76 @@ export const GUIDE_PAGES = {
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
       { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
       { path: '/projects/delta-glass-patio-cover', label: 'Delta glass project' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-north-vancouver': {
+    id: 'patio-cover-cost-north-vancouver',
+    path: '/patio-cover-cost-north-vancouver',
+    datePublished: '2026-08-31',
+    dateModified: '2026-08-31',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost North Vancouver | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in North Vancouver? What drives price for Lynn Valley, Lower Lonsdale, and Edgemont sloped lots, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in North Vancouver',
+    intro:
+      'If you are researching patio cover cost in North Vancouver, you have probably seen numbers that do not match a compact Lower Lonsdale deck or a wider Lynn Valley backyard. Size, product type, slope, tree exposure, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in North Vancouver?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, slope and post placement, attachment to the home, and finish level all matter. North Shore lots rarely price the same even when the city name is identical.',
+      },
+      {
+        h2: 'Lynn Valley, Lower Lonsdale, and Edgemont',
+        body: 'Neighbourhood layout changes access, elevation, and wind exposure. Mountainside decks may need taller posts and careful drainage; flatter Lower Lonsdale patios can support different spans. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on North Shore pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep walkout decks and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses North Vancouver and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your North Vancouver size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in North Vancouver?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in North Vancouver?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve West Vancouver and Vancouver?',
+        a: 'Yes — West Vancouver, Vancouver, and nearby North Shore communities use the same chat estimate flow. See our coastal patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a sloped North Shore backyard patio',
+      caption:
+        'North Vancouver aluminum patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/north-vancouver-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-north-vancouver', label: 'Patio covers in North Vancouver' },
+      { path: '/patio-cover-contractor-north-vancouver', label: 'Patio cover contractor in North Vancouver' },
+      { path: '/aluminum-patio-covers-north-vancouver', label: 'Aluminum patio covers in North Vancouver' },
+      { path: '/glass-patio-covers-north-vancouver', label: 'Glass patio covers in North Vancouver' },
+      { path: '/projects/north-vancouver-glass-patio-cover', label: 'North Vancouver glass project' },
       { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
   },

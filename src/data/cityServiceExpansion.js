@@ -15,7 +15,7 @@ const CITY_META = {
       alt: 'Aluminum patio cover on a sloped Lower Mainland backyard similar to North Vancouver lots',
       caption:
         'Aluminum patio cover — rain-ready protection for North Shore sloped yards and raised decks. Compare glass in chat on the same size.',
-      projectPath: '/projects/burnaby-aluminum-patio-cover',
+      projectPath: '/projects/north-vancouver-aluminum-patio-cover',
     },
   },
   'west-vancouver': {

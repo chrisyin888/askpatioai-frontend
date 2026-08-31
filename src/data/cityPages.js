@@ -408,6 +408,8 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-north-vancouver', label: 'Patio cover contractor in North Vancouver' },
       { path: '/aluminum-patio-covers-north-vancouver', label: 'Aluminum patio covers in North Vancouver' },
       { path: '/glass-patio-covers-north-vancouver', label: 'Glass patio covers in North Vancouver' },
+      { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
+      { path: '/projects/north-vancouver-aluminum-patio-cover', label: 'North Vancouver aluminum project' },
     ],
     caseStudy: {
       image: '/house/glass/glass17.jpg',
