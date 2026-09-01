@@ -43,7 +43,7 @@ const CITY_META = {
       alt: 'Aluminum patio cover on a compact Metro Vancouver backyard patio',
       caption:
         'Aluminum patio cover — practical fit for New Westminster townhome patios and detached backyards. Ballpark in chat first.',
-      projectPath: '/projects/burnaby-aluminum-patio-cover',
+      projectPath: '/projects/new-westminster-aluminum-patio-cover',
     },
   },
   'maple-ridge': {

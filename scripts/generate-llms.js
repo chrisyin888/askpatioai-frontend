@@ -64,6 +64,8 @@ const GUIDE_LLM_LABELS = {
   'patio-cover-cost-coquitlam': 'Patio cover cost (Coquitlam)',
   'patio-cover-cost-delta': 'Patio cover cost (Delta)',
   'patio-cover-cost-north-vancouver': 'Patio cover cost (North Vancouver)',
+  'patio-cover-cost-west-vancouver': 'Patio cover cost (West Vancouver)',
+  'patio-cover-cost-new-westminster': 'Patio cover cost (New Westminster)',
 };
 
 function exampleLine(material, w, h) {
@@ -288,6 +290,18 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install aluminum patio covers in North Vancouver?
 A: Yes. Lynn Valley, Lower Lonsdale, Edgemont, and nearby North Shore areas are regular service areas. Aluminum is often the rain-first starting point on sloped lots and raised decks. Project example: ${SITE_ORIGIN}/projects/north-vancouver-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-north-vancouver
+
+Q: How much does a patio cover cost in West Vancouver?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. West Vancouver lots range from compact Ambleside decks to premium British Properties walkouts, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-west-vancouver. Project examples: ${SITE_ORIGIN}/projects/west-vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/west-vancouver-glass-patio-cover
+
+Q: Do you install glass patio covers in West Vancouver?
+A: Yes. Ambleside, Dundarave, the British Properties, and nearby North Shore areas are regular service areas. Glass is popular when homeowners want rain protection without darkening walkout decks or losing view lines. Project example: ${SITE_ORIGIN}/projects/west-vancouver-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-west-vancouver
+
+Q: How much does a patio cover cost in New Westminster?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. New Westminster patios range from compact Queensborough townhome layouts to wider Sapperton backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-new-westminster. Project examples: ${SITE_ORIGIN}/projects/new-westminster-aluminum-patio-cover and ${SITE_ORIGIN}/projects/new-westminster-skyline-combo-cover
+
+Q: Do you install aluminum patio covers in New Westminster?
+A: Yes. Queensborough, Sapperton, Uptown, and nearby Metro Vancouver areas are regular service areas. Aluminum is often the rain-first starting point on compact townhome patios. Project example: ${SITE_ORIGIN}/projects/new-westminster-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-new-westminster
 
 ## Contact
 Website: ${SITE_ORIGIN}

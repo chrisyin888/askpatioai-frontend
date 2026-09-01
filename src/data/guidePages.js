@@ -19,6 +19,8 @@ export const GUIDE_PAGE_ORDER = [
   'patio-cover-cost-coquitlam',
   'patio-cover-cost-delta',
   'patio-cover-cost-north-vancouver',
+  'patio-cover-cost-west-vancouver',
+  'patio-cover-cost-new-westminster',
 ];
 
 export const GUIDE_PAGES = {
@@ -161,6 +163,8 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
       { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
       { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
+      { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
+      { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
     ],
   },
   'glass-vs-aluminum': {
@@ -550,6 +554,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-covers-west-vancouver', label: 'Patio covers in West Vancouver' },
       { path: '/patio-covers-north-vancouver', label: 'Patio covers in North Vancouver' },
       { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
+      { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
       { path: '/projects/white-rock-glass-patio-cover', label: 'White Rock glass project' },
       { path: '/projects/west-vancouver-glass-patio-cover', label: 'West Vancouver glass project' },
@@ -619,6 +624,8 @@ export const GUIDE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
       { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
+      { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
       { path: '/patio-covers-port-coquitlam', label: 'Patio covers in Port Coquitlam' },
       { path: '/patio-covers-port-moody', label: 'Patio covers in Port Moody' },
       { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
@@ -1192,6 +1199,146 @@ export const GUIDE_PAGES = {
       { path: '/glass-patio-covers-north-vancouver', label: 'Glass patio covers in North Vancouver' },
       { path: '/projects/north-vancouver-glass-patio-cover', label: 'North Vancouver glass project' },
       { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-west-vancouver': {
+    id: 'patio-cover-cost-west-vancouver',
+    path: '/patio-cover-cost-west-vancouver',
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Patio Cover Cost West Vancouver | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in West Vancouver? What drives price for Ambleside, Dundarave, and British Properties walkout decks, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in West Vancouver',
+    intro:
+      'If you are researching patio cover cost in West Vancouver, you have probably seen numbers that do not match a compact Ambleside deck or a wider British Properties walkout. Size, product type, coastal exposure, view lines, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in West Vancouver?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, coastal wind exposure, attachment to the home, and finish level all matter. West Vancouver lots rarely price the same even when the neighbourhood name is identical.',
+      },
+      {
+        h2: 'Ambleside, Dundarave, and the British Properties',
+        body: 'Neighbourhood layout changes access, elevation, and view priorities. Walkout decks may need taller posts and careful drainage; flatter Ambleside patios can support different spans. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on West Vancouver pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep walkout decks and rear rooms bright while preserving views. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses West Vancouver and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your West Vancouver size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in West Vancouver?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in West Vancouver?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve North Vancouver and Vancouver?',
+        a: 'Yes — North Vancouver, Vancouver, and nearby North Shore communities use the same chat estimate flow. See our coastal patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a premium West Coast home with natural light under tempered glass roof',
+      caption:
+        'West Vancouver glass patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/west-vancouver-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-west-vancouver', label: 'Patio covers in West Vancouver' },
+      { path: '/patio-cover-contractor-west-vancouver', label: 'Patio cover contractor in West Vancouver' },
+      { path: '/glass-patio-covers-west-vancouver', label: 'Glass patio covers in West Vancouver' },
+      { path: '/aluminum-patio-covers-west-vancouver', label: 'Aluminum patio covers in West Vancouver' },
+      { path: '/projects/west-vancouver-aluminum-patio-cover', label: 'West Vancouver aluminum project' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-new-westminster': {
+    id: 'patio-cover-cost-new-westminster',
+    path: '/patio-cover-cost-new-westminster',
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost New Westminster | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in New Westminster? What drives price for Queensborough, Sapperton, and Uptown townhome patios, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in New Westminster',
+    intro:
+      'If you are researching patio cover cost in New Westminster, you have probably seen numbers that do not match a compact Queensborough townhome patio or a wider Sapperton backyard. Size, product type, attachment height, and layout all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in New Westminster?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, attachment to the home, and finish level all matter. New Westminster patios range from compact townhome layouts to detached backyards, so identical city names can price differently.',
+      },
+      {
+        h2: 'Queensborough, Sapperton, and Uptown',
+        body: 'Neighbourhood layout changes access and usable patio depth. Townhome patios may need tighter post placement; detached backyards can support wider spans. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on New Westminster pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses New Westminster and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your New Westminster size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in New Westminster?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in New Westminster?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Burnaby and Coquitlam?',
+        a: 'Yes — Burnaby, Coquitlam, and nearby Metro Vancouver communities use the same chat estimate flow. See our Tri-Cities patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a compact Metro Vancouver backyard patio',
+      caption:
+        'New Westminster aluminum patio cover reference — compare aluminum, combo, and glass on your dimensions in chat before free measurement.',
+      projectPath: '/projects/new-westminster-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
+      { path: '/patio-cover-contractor-new-westminster', label: 'Patio cover contractor in New Westminster' },
+      { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
+      { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
+      { path: '/projects/new-westminster-skyline-combo-cover', label: 'New Westminster combo project' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
     ],
   },
 };

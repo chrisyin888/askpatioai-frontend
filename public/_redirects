@@ -139,6 +139,8 @@
 /patio-cover-cost-coquitlam /patio-cover-cost-coquitlam/ 301!
 /patio-cover-cost-delta /patio-cover-cost-delta/ 301!
 /patio-cover-cost-north-vancouver /patio-cover-cost-north-vancouver/ 301!
+/patio-cover-cost-west-vancouver /patio-cover-cost-west-vancouver/ 301!
+/patio-cover-cost-new-westminster /patio-cover-cost-new-westminster/ 301!
 /projects/burnaby-aluminum-patio-cover /projects/burnaby-aluminum-patio-cover/ 301!
 /projects/burnaby-glass-patio-cover /projects/burnaby-glass-patio-cover/ 301!
 /projects/vancouver-glass-patio-cover /projects/vancouver-glass-patio-cover/ 301!
@@ -156,6 +158,9 @@
 /projects/langley-glass-patio-cover /projects/langley-glass-patio-cover/ 301!
 /projects/north-vancouver-aluminum-patio-cover /projects/north-vancouver-aluminum-patio-cover/ 301!
 /projects/north-vancouver-glass-patio-cover /projects/north-vancouver-glass-patio-cover/ 301!
+/projects/west-vancouver-glass-patio-cover /projects/west-vancouver-glass-patio-cover/ 301!
+/projects/west-vancouver-aluminum-patio-cover /projects/west-vancouver-aluminum-patio-cover/ 301!
+/projects/new-westminster-aluminum-patio-cover /projects/new-westminster-aluminum-patio-cover/ 301!
 /projects/new-westminster-skyline-combo-cover /projects/new-westminster-skyline-combo-cover/ 301!
 /projects/port-coquitlam-glass-patio-cover /projects/port-coquitlam-glass-patio-cover/ 301!
 /projects/abbotsford-aluminum-patio-cover /projects/abbotsford-aluminum-patio-cover/ 301!
@@ -163,7 +168,6 @@
 /projects/maple-ridge-skyline-combo-cover /projects/maple-ridge-skyline-combo-cover/ 301!
 /projects/port-moody-glass-patio-cover /projects/port-moody-glass-patio-cover/ 301!
 /projects/pitt-meadows-aluminum-patio-cover /projects/pitt-meadows-aluminum-patio-cover/ 301!
-/projects/west-vancouver-glass-patio-cover /projects/west-vancouver-glass-patio-cover/ 301!
 /contractor-login /contractor-login/ 301!
 /admin-login /admin-login/ 301!
 /lobby /lobby/ 301!

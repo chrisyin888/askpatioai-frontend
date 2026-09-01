@@ -10,6 +10,8 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
   { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
   { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
+  { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
+  { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
   { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers' },
   { path: '/patio-covers-vancouver', label: 'Patio covers — Vancouver' },
   { path: '/patio-covers-burnaby', label: 'Patio covers — Burnaby' },

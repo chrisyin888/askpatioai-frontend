@@ -457,13 +457,15 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-west-vancouver', label: 'Patio cover contractor in West Vancouver' },
       { path: '/glass-patio-covers-west-vancouver', label: 'Glass patio covers in West Vancouver' },
       { path: '/aluminum-patio-covers-west-vancouver', label: 'Aluminum patio covers in West Vancouver' },
+      { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
+      { path: '/projects/west-vancouver-glass-patio-cover', label: 'West Vancouver glass project' },
     ],
     caseStudy: {
       image: '/house/before-after/vancouver-glass-after.png',
       alt: 'Glass patio cover on a premium West Coast home with natural light under tempered glass roof',
       caption:
         'Glass patio cover — bright rain protection suited to West Vancouver view lines and walkout decks. Compare aluminum for budget in chat.',
-      projectPath: '/projects/vancouver-glass-patio-cover',
+      projectPath: '/projects/west-vancouver-glass-patio-cover',
     },
   },
   'new-westminster': {
@@ -500,6 +502,8 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-new-westminster', label: 'Patio cover contractor in New Westminster' },
       { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
       { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
+      { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
+      { path: '/projects/new-westminster-aluminum-patio-cover', label: 'New Westminster aluminum project' },
     ],
     caseStudy: {
       image: '/house/skyline/p40.jpg',

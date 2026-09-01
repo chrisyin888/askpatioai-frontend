@@ -17,6 +17,9 @@ export const PROJECT_PAGE_ORDER = [
   'langley-glass-patio-cover',
   'north-vancouver-aluminum-patio-cover',
   'north-vancouver-glass-patio-cover',
+  'west-vancouver-glass-patio-cover',
+  'west-vancouver-aluminum-patio-cover',
+  'new-westminster-aluminum-patio-cover',
   'new-westminster-skyline-combo-cover',
   'port-coquitlam-glass-patio-cover',
   'abbotsford-aluminum-patio-cover',
@@ -24,7 +27,6 @@ export const PROJECT_PAGE_ORDER = [
   'maple-ridge-skyline-combo-cover',
   'port-moody-glass-patio-cover',
   'pitt-meadows-aluminum-patio-cover',
-  'west-vancouver-glass-patio-cover',
 ];
 
 export const PROJECT_PAGES = {
@@ -900,6 +902,12 @@ export const PROJECT_PAGES = {
         a: 'A mix of glass and V-panel sections for both light and shade — between solid aluminum and full glass.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
+      { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
+      { path: '/projects/new-westminster-aluminum-patio-cover', label: 'New Westminster aluminum project' },
+      { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
+    ],
   },
   'port-coquitlam-glass-patio-cover': {
     id: 'port-coquitlam-glass-patio-cover',
@@ -1234,7 +1242,109 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-west-vancouver', label: 'Patio covers in West Vancouver' },
       { path: '/glass-patio-covers-west-vancouver', label: 'Glass patio covers in West Vancouver' },
+      { path: '/projects/west-vancouver-aluminum-patio-cover', label: 'West Vancouver aluminum project' },
+      { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
       { path: '/projects/north-vancouver-glass-patio-cover', label: 'North Vancouver glass project' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
+  'west-vancouver-aluminum-patio-cover': {
+    id: 'west-vancouver-aluminum-patio-cover',
+    path: '/projects/west-vancouver-aluminum-patio-cover',
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'West Vancouver Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'West Vancouver aluminum patio cover example — rain-ready protection for Ambleside, Dundarave, and British Properties decks. Compare aluminum and glass in chat.',
+    h1: 'West Vancouver Aluminum Patio Cover Project',
+    intro:
+      'This West Vancouver aluminum patio cover example shows how a low-maintenance roof can protect walkout decks while keeping the project budget practical — a common starting point in Ambleside, Dundarave, and the British Properties when rain coverage matters as much as views.',
+    highlights: [
+      'Aluminum roof for dependable rain protection',
+      'Suited to West Vancouver walkout decks and coastal exposure',
+      'Lower maintenance than wood covers',
+      'Useful comparison point against glass for view lines',
+    ],
+    localAngle:
+      'West Vancouver homes often balance ocean exposure, wind, and premium finishes. Aluminum is usually the rain-first option before comparing glass for light and views.',
+    sections: [
+      {
+        h2: 'When aluminum fits West Vancouver patios',
+        body: 'Aluminum works well when you want a dry patio without the premium cost of glass. Post placement, attachment height, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free West Vancouver measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your West Vancouver neighbourhood, patio size, and whether rain protection or views matter more. We can compare aluminum and glass in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in West Vancouver?',
+        a: 'Yes — Ambleside, Dundarave, the British Properties, and nearby North Shore areas are regular service areas.',
+      },
+      {
+        q: 'Is aluminum practical for West Vancouver rain and wind?',
+        a: 'Yes, when engineered with proper slope, attachment, and drainage. We confirm those details during measurement.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-west-vancouver', label: 'Patio covers in West Vancouver' },
+      { path: '/aluminum-patio-covers-west-vancouver', label: 'Aluminum patio covers in West Vancouver' },
+      { path: '/projects/west-vancouver-glass-patio-cover', label: 'West Vancouver glass project' },
+      { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
+  'new-westminster-aluminum-patio-cover': {
+    id: 'new-westminster-aluminum-patio-cover',
+    path: '/projects/new-westminster-aluminum-patio-cover',
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'New Westminster Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'New Westminster aluminum patio cover example — rain-ready protection for Queensborough, Sapperton, and Uptown patios. Compare aluminum and combo covers in chat.',
+    h1: 'New Westminster Aluminum Patio Cover Project',
+    intro:
+      'This New Westminster aluminum patio cover example shows how a practical roof can protect compact townhome patios and detached backyards — a dependable starting point in Queensborough, Sapperton, and Uptown when rain coverage and budget come first.',
+    highlights: [
+      'Aluminum roof for dependable rain protection',
+      'Suited to New Westminster townhome and detached layouts',
+      'Lower maintenance than wood covers',
+      'Useful comparison point against skyline combo and glass',
+    ],
+    localAngle:
+      'New Westminster patios can be tighter than suburban lots. Aluminum is often the rain-first option before comparing combo or glass upgrades.',
+    sections: [
+      {
+        h2: 'When aluminum fits New Westminster patios',
+        body: 'Aluminum works well when you want a dry patio without the premium cost of glass or combo sections. Attachment and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Skyline combo and glass usually cost more on the same footprint. Chat helps you decide before booking a free New Westminster measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your New Westminster neighbourhood, patio size, and whether rain protection or light matters more. We can compare aluminum, combo, and glass in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in New Westminster?',
+        a: 'Yes — Queensborough, Sapperton, Uptown, and nearby areas are regular service areas.',
+      },
+      {
+        q: 'Is aluminum good for compact New Westminster townhome patios?',
+        a: 'Often yes — aluminum is practical when you need rain coverage on a smaller footprint without a full-glass budget.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
+      { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
+      { path: '/projects/new-westminster-skyline-combo-cover', label: 'New Westminster combo project' },
+      { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
     ],
   },
 };

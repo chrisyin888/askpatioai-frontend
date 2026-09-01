@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-08-31
+> Last updated: 2026-09-01
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -70,6 +70,8 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost in Coquitlam: https://loomihomepatios.ca/patio-cover-cost-coquitlam/
 - Patio cover cost in Delta: https://loomihomepatios.ca/patio-cover-cost-delta/
 - Patio cover cost in North Vancouver: https://loomihomepatios.ca/patio-cover-cost-north-vancouver/
+- Patio cover cost in West Vancouver: https://loomihomepatios.ca/patio-cover-cost-west-vancouver/
+- Patio cover cost in New Westminster: https://loomihomepatios.ca/patio-cover-cost-new-westminster/
 - Tri-Cities patio covers: https://loomihomepatios.ca/tri-cities-patio-covers/
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver/
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby/
@@ -157,6 +159,8 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost (Coquitlam): https://loomihomepatios.ca/patio-cover-cost-coquitlam/
 - Patio cover cost (Delta): https://loomihomepatios.ca/patio-cover-cost-delta/
 - Patio cover cost (North Vancouver): https://loomihomepatios.ca/patio-cover-cost-north-vancouver/
+- Patio cover cost (West Vancouver): https://loomihomepatios.ca/patio-cover-cost-west-vancouver/
+- Patio cover cost (New Westminster): https://loomihomepatios.ca/patio-cover-cost-new-westminster/
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver/
@@ -194,6 +198,9 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Langley Glass Patio Cover: https://loomihomepatios.ca/projects/langley-glass-patio-cover/
 - North Vancouver Aluminum Patio Cover: https://loomihomepatios.ca/projects/north-vancouver-aluminum-patio-cover/
 - North Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/north-vancouver-glass-patio-cover/
+- West Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/west-vancouver-glass-patio-cover/
+- West Vancouver Aluminum Patio Cover: https://loomihomepatios.ca/projects/west-vancouver-aluminum-patio-cover/
+- New Westminster Aluminum Patio Cover: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover/
 - New Westminster Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/new-westminster-skyline-combo-cover/
 - Port Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover/
 - Abbotsford Aluminum Patio Cover: https://loomihomepatios.ca/projects/abbotsford-aluminum-patio-cover/
@@ -201,7 +208,6 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Maple Ridge Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/maple-ridge-skyline-combo-cover/
 - Port Moody Glass Patio Cover: https://loomihomepatios.ca/projects/port-moody-glass-patio-cover/
 - Pitt Meadows Aluminum Patio Cover: https://loomihomepatios.ca/projects/pitt-meadows-aluminum-patio-cover/
-- West Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/west-vancouver-glass-patio-cover/
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?
@@ -311,6 +317,18 @@ A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is 
 
 Q: Do you install aluminum patio covers in North Vancouver?
 A: Yes. Lynn Valley, Lower Lonsdale, Edgemont, and nearby North Shore areas are regular service areas. Aluminum is often the rain-first starting point on sloped lots and raised decks. Project example: https://loomihomepatios.ca/projects/north-vancouver-aluminum-patio-cover./ Service page: https://loomihomepatios.ca/aluminum-patio-covers-north-vancouver/
+
+Q: How much does a patio cover cost in West Vancouver?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. West Vancouver lots range from compact Ambleside decks to premium British Properties walkouts, so chat gives a planning total for your layout. Guide: https://loomihomepatios.ca/patio-cover-cost-west-vancouver./ Project examples: https://loomihomepatios.ca/projects/west-vancouver-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/west-vancouver-glass-patio-cover/
+
+Q: Do you install glass patio covers in West Vancouver?
+A: Yes. Ambleside, Dundarave, the British Properties, and nearby North Shore areas are regular service areas. Glass is popular when homeowners want rain protection without darkening walkout decks or losing view lines. Project example: https://loomihomepatios.ca/projects/west-vancouver-glass-patio-cover./ Service page: https://loomihomepatios.ca/glass-patio-covers-west-vancouver/
+
+Q: How much does a patio cover cost in New Westminster?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. New Westminster patios range from compact Queensborough townhome layouts to wider Sapperton backyards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-new-westminster./ Project examples: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/new-westminster-skyline-combo-cover/
+
+Q: Do you install aluminum patio covers in New Westminster?
+A: Yes. Queensborough, Sapperton, Uptown, and nearby Metro Vancouver areas are regular service areas. Aluminum is often the rain-first starting point on compact townhome patios. Project example: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover./ Service page: https://loomihomepatios.ca/aluminum-patio-covers-new-westminster/
 
 ## Contact
 Website: https://loomihomepatios.ca
