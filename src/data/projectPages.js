@@ -24,7 +24,9 @@ export const PROJECT_PAGE_ORDER = [
   'port-coquitlam-glass-patio-cover',
   'abbotsford-aluminum-patio-cover',
   'white-rock-glass-patio-cover',
+  'white-rock-aluminum-patio-cover',
   'maple-ridge-skyline-combo-cover',
+  'maple-ridge-aluminum-patio-cover',
   'port-moody-glass-patio-cover',
   'pitt-meadows-aluminum-patio-cover',
 ];
@@ -1050,7 +1052,59 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-white-rock', label: 'Patio covers in White Rock' },
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
-      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass patio cover project' },
+      { path: '/projects/white-rock-aluminum-patio-cover', label: 'White Rock aluminum project' },
+      { path: '/patio-cover-cost-white-rock', label: 'Patio cover cost in White Rock' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
+  'white-rock-aluminum-patio-cover': {
+    id: 'white-rock-aluminum-patio-cover',
+    path: '/projects/white-rock-aluminum-patio-cover',
+    datePublished: '2026-09-02',
+    dateModified: '2026-09-02',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'White Rock Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'White Rock aluminum patio cover example — rain-ready protection for East Beach, West Beach, and South Surrey decks. Compare aluminum and glass in chat.',
+    h1: 'White Rock Aluminum Patio Cover Project',
+    intro:
+      'This White Rock aluminum patio cover example shows how a low-maintenance roof can protect coastal decks while keeping the project budget practical — a dependable starting point near East Beach, West Beach, and South Surrey when rain coverage matters as much as ocean exposure.',
+    highlights: [
+      'Aluminum roof for dependable rain protection',
+      'Suited to White Rock coastal decks and wind exposure',
+      'Lower maintenance than wood covers',
+      'Useful comparison point against glass for light',
+    ],
+    localAngle:
+      'White Rock and nearby South Surrey patios often face coastal rain and wind. Aluminum is usually the rain-first option before comparing glass for brightness.',
+    sections: [
+      {
+        h2: 'When aluminum fits White Rock patios',
+        body: 'Aluminum works well when you want a dry patio without the premium cost of glass. Post placement, attachment height, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free White Rock measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your White Rock or South Surrey neighbourhood, patio size, and whether rain protection or light matters more. We can compare aluminum and glass in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in White Rock?',
+        a: 'Yes — East Beach, West Beach, and nearby South Surrey are regular service areas.',
+      },
+      {
+        q: 'Is aluminum practical for coastal rain and wind?',
+        a: 'Yes, when engineered with proper slope, attachment, and drainage. We confirm those details during measurement.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-white-rock', label: 'Patio covers in White Rock' },
+      { path: '/patio-cover-contractor-white-rock', label: 'Patio cover contractor in White Rock' },
+      { path: '/projects/white-rock-glass-patio-cover', label: 'White Rock glass project' },
+      { path: '/patio-cover-cost-white-rock', label: 'Patio cover cost in White Rock' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
   },
   'maple-ridge-skyline-combo-cover': {
@@ -1097,8 +1151,60 @@ export const PROJECT_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
-      { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
-      { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
+      { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
+      { path: '/projects/maple-ridge-aluminum-patio-cover', label: 'Maple Ridge aluminum project' },
+      { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
+      { path: '/projects/pitt-meadows-aluminum-patio-cover', label: 'Pitt Meadows aluminum project' },
+    ],
+  },
+  'maple-ridge-aluminum-patio-cover': {
+    id: 'maple-ridge-aluminum-patio-cover',
+    path: '/projects/maple-ridge-aluminum-patio-cover',
+    datePublished: '2026-09-02',
+    dateModified: '2026-09-02',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'Maple Ridge Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Maple Ridge aluminum patio cover example — rain-ready protection for Town Centre, Albion, and Silver Valley backyards. Compare aluminum and combo covers in chat.',
+    h1: 'Maple Ridge Aluminum Patio Cover Project',
+    intro:
+      'This Maple Ridge aluminum patio cover example shows how a practical roof can protect larger family backyards — a dependable starting point in Town Centre, Albion, and Silver Valley when rain coverage and budget come first.',
+    highlights: [
+      'Aluminum roof for dependable rain protection',
+      'Suited to Maple Ridge suburban lots and family yards',
+      'Lower maintenance than wood covers',
+      'Useful comparison point against skyline combo and glass',
+    ],
+    localAngle:
+      'Maple Ridge lots often have room for wider spans than city yards. Aluminum is usually the rain-first option before comparing combo or glass upgrades.',
+    sections: [
+      {
+        h2: 'When aluminum fits Maple Ridge patios',
+        body: 'Aluminum works well when you want a dry patio without the premium cost of glass or combo sections. Attachment and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Skyline combo and glass usually cost more on the same footprint. Chat helps you decide before booking a free Maple Ridge measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Maple Ridge neighbourhood, patio size, and whether rain protection or light matters more. We can compare aluminum, combo, and glass in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in Maple Ridge?',
+        a: 'Yes — Town Centre, Albion, Silver Valley, and nearby Pitt Meadows are regular service areas.',
+      },
+      {
+        q: 'Is aluminum good for larger Maple Ridge backyards?',
+        a: 'Often yes — aluminum is practical when you need rain coverage on a wider footprint without a full-glass or combo budget.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
+      { path: '/projects/maple-ridge-skyline-combo-cover', label: 'Maple Ridge combo project' },
+      { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
     ],
   },
   'port-moody-glass-patio-cover': {

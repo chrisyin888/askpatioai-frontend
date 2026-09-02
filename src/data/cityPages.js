@@ -547,6 +547,8 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-maple-ridge', label: 'Patio cover contractor in Maple Ridge' },
       { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
       { path: '/sunrooms-maple-ridge', label: 'Sunrooms in Maple Ridge' },
+      { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
+      { path: '/projects/maple-ridge-aluminum-patio-cover', label: 'Maple Ridge aluminum project' },
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
@@ -778,6 +780,8 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-white-rock', label: 'Patio cover contractor in White Rock' },
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
+      { path: '/patio-cover-cost-white-rock', label: 'Patio cover cost in White Rock' },
+      { path: '/projects/white-rock-aluminum-patio-cover', label: 'White Rock aluminum project' },
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
     ],
     caseStudy: {

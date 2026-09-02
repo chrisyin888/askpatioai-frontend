@@ -57,7 +57,7 @@ const CITY_META = {
       alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
       caption:
         'Skyline combo cover — larger backyard layout common in Maple Ridge. Compare aluminum and glass on your dimensions in chat.',
-      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
     },
   },
   'pitt-meadows': {

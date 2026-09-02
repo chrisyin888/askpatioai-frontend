@@ -21,6 +21,8 @@ export const GUIDE_PAGE_ORDER = [
   'patio-cover-cost-north-vancouver',
   'patio-cover-cost-west-vancouver',
   'patio-cover-cost-new-westminster',
+  'patio-cover-cost-maple-ridge',
+  'patio-cover-cost-white-rock',
 ];
 
 export const GUIDE_PAGES = {
@@ -165,6 +167,8 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
       { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
       { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
+      { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
+      { path: '/patio-cover-cost-white-rock', label: 'Patio cover cost in White Rock' },
     ],
   },
   'glass-vs-aluminum': {
@@ -485,6 +489,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
       { path: '/projects/abbotsford-aluminum-patio-cover', label: 'Abbotsford project example' },
     ],
     caseStudy: {
@@ -555,6 +560,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-covers-north-vancouver', label: 'Patio covers in North Vancouver' },
       { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
       { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
+      { path: '/patio-cover-cost-white-rock', label: 'Patio cover cost in White Rock' },
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
       { path: '/projects/white-rock-glass-patio-cover', label: 'White Rock glass project' },
       { path: '/projects/west-vancouver-glass-patio-cover', label: 'West Vancouver glass project' },
@@ -1339,6 +1345,146 @@ export const GUIDE_PAGES = {
       { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
       { path: '/projects/new-westminster-skyline-combo-cover', label: 'New Westminster combo project' },
       { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-maple-ridge': {
+    id: 'patio-cover-cost-maple-ridge',
+    path: '/patio-cover-cost-maple-ridge',
+    datePublished: '2026-09-02',
+    dateModified: '2026-09-02',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Maple Ridge | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Maple Ridge? What drives price for Town Centre, Albion, and Silver Valley backyards, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Maple Ridge',
+    intro:
+      'If you are researching patio cover cost in Maple Ridge, you have probably seen numbers that do not match a compact Town Centre patio or a wider Silver Valley backyard. Size, product type, span, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Maple Ridge?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, post placement, attachment to the home, and finish level all matter. Maple Ridge lots rarely price the same even when the neighbourhood name is identical.',
+      },
+      {
+        h2: 'Town Centre, Albion, and Silver Valley',
+        body: 'Neighbourhood layout changes access and usable patio depth. Larger Silver Valley and Albion backyards can support wider spans; tighter Town Centre patios may need different post placement. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Maple Ridge pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget — a popular fit on wider Maple Ridge lots.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Maple Ridge and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Maple Ridge size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Maple Ridge?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Maple Ridge?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Pitt Meadows and Abbotsford?',
+        a: 'Yes — Pitt Meadows, Abbotsford, and nearby Fraser Valley communities use the same chat estimate flow. See our Fraser Valley patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
+      caption:
+        'Maple Ridge skyline combo patio cover reference — compare aluminum, combo, and glass on your dimensions in chat before free measurement.',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/patio-cover-contractor-maple-ridge', label: 'Patio cover contractor in Maple Ridge' },
+      { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
+      { path: '/projects/maple-ridge-aluminum-patio-cover', label: 'Maple Ridge aluminum project' },
+      { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-white-rock': {
+    id: 'patio-cover-cost-white-rock',
+    path: '/patio-cover-cost-white-rock',
+    datePublished: '2026-09-02',
+    dateModified: '2026-09-02',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Patio Cover Cost White Rock | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in White Rock? What drives price for East Beach, West Beach, and South Surrey coastal decks, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in White Rock',
+    intro:
+      'If you are researching patio cover cost in White Rock, you have probably seen numbers that do not match a compact East Beach deck or a wider South Surrey backyard. Size, product type, coastal exposure, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in White Rock?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, coastal wind exposure, attachment to the home, and finish level all matter. White Rock and nearby South Surrey lots rarely price the same even when the neighbourhood name is identical.',
+      },
+      {
+        h2: 'East Beach, West Beach, and South Surrey',
+        body: 'Neighbourhood layout changes access, ocean exposure, and usable patio depth. Compact seaside decks may need careful post placement; roomier South Surrey yards can support wider spans. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on White Rock pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep decks and rear rooms bright despite coastal weather. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses White Rock and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your White Rock size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in White Rock?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in White Rock?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Surrey and Delta?',
+        a: 'Yes — Surrey, Delta, and nearby South Surrey communities use the same chat estimate flow. See our coastal patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Glass patio cover on a coastal Metro Vancouver home with natural light under tempered glass roof',
+      caption:
+        'White Rock glass patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/white-rock-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-white-rock', label: 'Patio covers in White Rock' },
+      { path: '/patio-cover-contractor-white-rock', label: 'Patio cover contractor in White Rock' },
+      { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
+      { path: '/projects/white-rock-aluminum-patio-cover', label: 'White Rock aluminum project' },
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
   },
 };

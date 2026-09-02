@@ -369,6 +369,8 @@ export default {
         'patio-cover-cost-north-vancouver': 'Patio cover cost — North Vancouver',
         'patio-cover-cost-west-vancouver': 'Patio cover cost — West Vancouver',
         'patio-cover-cost-new-westminster': 'Patio cover cost — New Westminster',
+        'patio-cover-cost-maple-ridge': 'Patio cover cost — Maple Ridge',
+        'patio-cover-cost-white-rock': 'Patio cover cost — White Rock',
         'glass-vs-aluminum': 'Glass vs aluminum',
         permit: 'Permits',
         rain: 'Rain & weather',

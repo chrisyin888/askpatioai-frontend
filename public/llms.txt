@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-09-01
+> Last updated: 2026-09-02
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -72,6 +72,8 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost in North Vancouver: https://loomihomepatios.ca/patio-cover-cost-north-vancouver/
 - Patio cover cost in West Vancouver: https://loomihomepatios.ca/patio-cover-cost-west-vancouver/
 - Patio cover cost in New Westminster: https://loomihomepatios.ca/patio-cover-cost-new-westminster/
+- Patio cover cost in Maple Ridge: https://loomihomepatios.ca/patio-cover-cost-maple-ridge/
+- Patio cover cost in White Rock: https://loomihomepatios.ca/patio-cover-cost-white-rock/
 - Tri-Cities patio covers: https://loomihomepatios.ca/tri-cities-patio-covers/
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver/
 - Patio covers — Burnaby: https://loomihomepatios.ca/patio-covers-burnaby/
@@ -161,6 +163,8 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost (North Vancouver): https://loomihomepatios.ca/patio-cover-cost-north-vancouver/
 - Patio cover cost (West Vancouver): https://loomihomepatios.ca/patio-cover-cost-west-vancouver/
 - Patio cover cost (New Westminster): https://loomihomepatios.ca/patio-cover-cost-new-westminster/
+- Patio cover cost (Maple Ridge): https://loomihomepatios.ca/patio-cover-cost-maple-ridge/
+- Patio cover cost (White Rock): https://loomihomepatios.ca/patio-cover-cost-white-rock/
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver/
@@ -205,7 +209,9 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Port Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover/
 - Abbotsford Aluminum Patio Cover: https://loomihomepatios.ca/projects/abbotsford-aluminum-patio-cover/
 - White Rock Glass Patio Cover: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover/
+- White Rock Aluminum Patio Cover: https://loomihomepatios.ca/projects/white-rock-aluminum-patio-cover/
 - Maple Ridge Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/maple-ridge-skyline-combo-cover/
+- Maple Ridge Aluminum Patio Cover: https://loomihomepatios.ca/projects/maple-ridge-aluminum-patio-cover/
 - Port Moody Glass Patio Cover: https://loomihomepatios.ca/projects/port-moody-glass-patio-cover/
 - Pitt Meadows Aluminum Patio Cover: https://loomihomepatios.ca/projects/pitt-meadows-aluminum-patio-cover/
 
@@ -329,6 +335,18 @@ A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is 
 
 Q: Do you install aluminum patio covers in New Westminster?
 A: Yes. Queensborough, Sapperton, Uptown, and nearby Metro Vancouver areas are regular service areas. Aluminum is often the rain-first starting point on compact townhome patios. Project example: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover./ Service page: https://loomihomepatios.ca/aluminum-patio-covers-new-westminster/
+
+Q: How much does a patio cover cost in Maple Ridge?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Maple Ridge lots range from compact Town Centre patios to wider Silver Valley and Albion backyards, so chat gives a planning total for your layout. Guide: https://loomihomepatios.ca/patio-cover-cost-maple-ridge./ Project examples: https://loomihomepatios.ca/projects/maple-ridge-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/maple-ridge-skyline-combo-cover/
+
+Q: Do you install aluminum patio covers in Maple Ridge?
+A: Yes. Town Centre, Albion, Silver Valley, and nearby Pitt Meadows are regular service areas. Aluminum is often the rain-first starting point on larger Fraser Valley lots. Project example: https://loomihomepatios.ca/projects/maple-ridge-aluminum-patio-cover./ Service page: https://loomihomepatios.ca/aluminum-patio-covers-maple-ridge/
+
+Q: How much does a patio cover cost in White Rock?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. White Rock lots range from compact East Beach decks to roomier South Surrey yards, so chat gives a planning total for your layout. Guide: https://loomihomepatios.ca/patio-cover-cost-white-rock./ Project examples: https://loomihomepatios.ca/projects/white-rock-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/white-rock-glass-patio-cover/
+
+Q: Do you install glass patio covers in White Rock?
+A: Yes. East Beach, West Beach, and nearby South Surrey are regular service areas. Glass is popular when homeowners want rain protection without darkening seaside decks. Project example: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover./ Service page: https://loomihomepatios.ca/glass-patio-covers-white-rock/
 
 ## Contact
 Website: https://loomihomepatios.ca
