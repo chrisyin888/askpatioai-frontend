@@ -22,12 +22,14 @@ export const PROJECT_PAGE_ORDER = [
   'new-westminster-aluminum-patio-cover',
   'new-westminster-skyline-combo-cover',
   'port-coquitlam-glass-patio-cover',
+  'port-coquitlam-aluminum-patio-cover',
   'abbotsford-aluminum-patio-cover',
   'white-rock-glass-patio-cover',
   'white-rock-aluminum-patio-cover',
   'maple-ridge-skyline-combo-cover',
   'maple-ridge-aluminum-patio-cover',
   'port-moody-glass-patio-cover',
+  'port-moody-aluminum-patio-cover',
   'pitt-meadows-aluminum-patio-cover',
 ];
 
@@ -956,7 +958,59 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-port-coquitlam', label: 'Patio covers in Port Coquitlam' },
       { path: '/glass-patio-covers-port-coquitlam', label: 'Glass patio covers in Port Coquitlam' },
-      { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass patio cover project' },
+      { path: '/projects/port-coquitlam-aluminum-patio-cover', label: 'Port Coquitlam aluminum project' },
+      { path: '/patio-cover-cost-port-coquitlam', label: 'Patio cover cost in Port Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
+    ],
+  },
+  'port-coquitlam-aluminum-patio-cover': {
+    id: 'port-coquitlam-aluminum-patio-cover',
+    path: '/projects/port-coquitlam-aluminum-patio-cover',
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'Port Coquitlam Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Port Coquitlam aluminum patio cover example — rain-ready protection for Citadel Heights, Mary Hill, and Lincoln Park patios. Compare aluminum and glass in chat.',
+    h1: 'Port Coquitlam Aluminum Patio Cover Project',
+    intro:
+      'This Port Coquitlam aluminum patio cover example shows how a practical roof can protect townhome patios and detached backyards — a dependable starting point in Citadel Heights, Mary Hill, and Lincoln Park when rain coverage and budget come first.',
+    highlights: [
+      'Aluminum roof for dependable rain protection',
+      'Suited to Port Coquitlam townhomes and hillside yards',
+      'Lower maintenance than wood covers',
+      'Useful comparison point against glass for light',
+    ],
+    localAngle:
+      'Port Coquitlam lots mix townhomes and hillside yards. Aluminum is usually the rain-first option before comparing glass for brightness.',
+    sections: [
+      {
+        h2: 'When aluminum fits Port Coquitlam patios',
+        body: 'Aluminum works well when you want a dry patio without the premium cost of glass. Post placement, attachment height, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free Port Coquitlam measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Port Coquitlam neighbourhood, patio size, and whether rain protection or light matters more. We can compare aluminum and glass in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in Port Coquitlam?',
+        a: 'Yes — Citadel Heights, Mary Hill, Lincoln Park, and nearby Tri-Cities areas are regular service areas.',
+      },
+      {
+        q: 'Is aluminum good for Tri-Cities rain?',
+        a: 'Yes — aluminum is often the practical rain-first starting point when budget matters as much as coverage.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-port-coquitlam', label: 'Patio covers in Port Coquitlam' },
+      { path: '/aluminum-patio-covers-port-coquitlam', label: 'Aluminum patio covers in Port Coquitlam' },
+      { path: '/projects/port-coquitlam-glass-patio-cover', label: 'Port Coquitlam glass project' },
+      { path: '/patio-cover-cost-port-coquitlam', label: 'Patio cover cost in Port Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
     ],
   },
   'abbotsford-aluminum-patio-cover': {
@@ -1252,7 +1306,59 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-port-moody', label: 'Patio covers in Port Moody' },
       { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
-      { path: '/projects/port-coquitlam-glass-patio-cover', label: 'Port Coquitlam glass project' },
+      { path: '/projects/port-moody-aluminum-patio-cover', label: 'Port Moody aluminum project' },
+      { path: '/patio-cover-cost-port-moody', label: 'Patio cover cost in Port Moody' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
+    ],
+  },
+  'port-moody-aluminum-patio-cover': {
+    id: 'port-moody-aluminum-patio-cover',
+    path: '/projects/port-moody-aluminum-patio-cover',
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    heroImage: '/house/before-after/burnaby-aluminum-after.png',
+    metaTitle: 'Port Moody Aluminum Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Port Moody aluminum patio cover example — rain-ready protection for Moody Centre, Suter Brook, and Newport Village decks. Compare aluminum and glass in chat.',
+    h1: 'Port Moody Aluminum Patio Cover Project',
+    intro:
+      'This Port Moody aluminum patio cover example shows how a low-maintenance roof can protect compact Tri-Cities decks while keeping the project budget practical — a dependable starting point near Moody Centre, Suter Brook, and Newport Village when rain coverage comes first.',
+    highlights: [
+      'Aluminum roof for dependable rain protection',
+      'Suited to Port Moody compact lots and walkout decks',
+      'Lower maintenance than wood covers',
+      'Useful comparison point against glass for light',
+    ],
+    localAngle:
+      'Port Moody patios are often compact with coastal rain exposure. Aluminum is usually the rain-first option before comparing glass for brightness.',
+    sections: [
+      {
+        h2: 'When aluminum fits Port Moody patios',
+        body: 'Aluminum works well when you want a dry patio without the premium cost of glass. Post placement, attachment height, and drainage are confirmed on site.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free Port Moody measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Port Moody neighbourhood, patio size, and whether rain protection or light matters more. We can compare aluminum and glass in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install aluminum patio covers in Port Moody?',
+        a: 'Yes — Moody Centre, Suter Brook, Newport Village, and nearby Tri-Cities areas are regular service areas.',
+      },
+      {
+        q: 'Is aluminum practical for Port Moody rain?',
+        a: 'Yes, when engineered with proper slope, attachment, and drainage. We confirm those details during measurement.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-port-moody', label: 'Patio covers in Port Moody' },
+      { path: '/patio-cover-contractor-port-moody', label: 'Patio cover contractor in Port Moody' },
+      { path: '/projects/port-moody-glass-patio-cover', label: 'Port Moody glass project' },
+      { path: '/patio-cover-cost-port-moody', label: 'Patio cover cost in Port Moody' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
     ],
   },
   'pitt-meadows-aluminum-patio-cover': {
@@ -1300,7 +1406,9 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
       { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
+      { path: '/patio-cover-cost-pitt-meadows', label: 'Patio cover cost in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
     ],
   },
   'west-vancouver-glass-patio-cover': {

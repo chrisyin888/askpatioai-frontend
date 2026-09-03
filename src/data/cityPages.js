@@ -591,6 +591,7 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
       { path: '/aluminum-patio-covers-pitt-meadows', label: 'Aluminum patio covers in Pitt Meadows' },
+      { path: '/patio-cover-cost-pitt-meadows', label: 'Patio cover cost in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
     ],
     caseStudy: {
@@ -638,6 +639,8 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-port-coquitlam', label: 'Patio cover contractor in Port Coquitlam' },
       { path: '/aluminum-patio-covers-port-coquitlam', label: 'Aluminum patio covers in Port Coquitlam' },
+      { path: '/patio-cover-cost-port-coquitlam', label: 'Patio cover cost in Port Coquitlam' },
+      { path: '/projects/port-coquitlam-aluminum-patio-cover', label: 'Port Coquitlam aluminum project' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
     ],
     caseStudy: {
@@ -685,6 +688,8 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-port-moody', label: 'Patio cover contractor in Port Moody' },
       { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
+      { path: '/patio-cover-cost-port-moody', label: 'Patio cover cost in Port Moody' },
+      { path: '/projects/port-moody-aluminum-patio-cover', label: 'Port Moody aluminum project' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
     ],
     caseStudy: {

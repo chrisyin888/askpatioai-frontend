@@ -68,6 +68,9 @@ const GUIDE_LLM_LABELS = {
   'patio-cover-cost-new-westminster': 'Patio cover cost (New Westminster)',
   'patio-cover-cost-maple-ridge': 'Patio cover cost (Maple Ridge)',
   'patio-cover-cost-white-rock': 'Patio cover cost (White Rock)',
+  'patio-cover-cost-pitt-meadows': 'Patio cover cost (Pitt Meadows)',
+  'patio-cover-cost-port-coquitlam': 'Patio cover cost (Port Coquitlam)',
+  'patio-cover-cost-port-moody': 'Patio cover cost (Port Moody)',
 };
 
 function exampleLine(material, w, h) {
@@ -316,6 +319,21 @@ A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('e
 
 Q: Do you install glass patio covers in White Rock?
 A: Yes. East Beach, West Beach, and nearby South Surrey are regular service areas. Glass is popular when homeowners want rain protection without darkening seaside decks. Project example: ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-white-rock
+
+Q: How much does a patio cover cost in Pitt Meadows?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Pitt Meadows lots often have room for wider spans than city yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-pitt-meadows. Project example: ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover
+
+Q: How much does a patio cover cost in Port Coquitlam?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Port Coquitlam lots range from compact townhome patios to hillside Mary Hill yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-port-coquitlam. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-aluminum-patio-cover and ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover
+
+Q: Do you install aluminum patio covers in Port Coquitlam?
+A: Yes. Citadel Heights, Mary Hill, Lincoln Park, and nearby Tri-Cities areas are regular service areas. Aluminum is often the rain-first starting point on townhome and hillside patios. Project example: ${SITE_ORIGIN}/projects/port-coquitlam-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-port-coquitlam
+
+Q: How much does a patio cover cost in Port Moody?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Port Moody lots range from compact Moody Centre decks to roomier Suter Brook walkouts, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-port-moody. Project examples: ${SITE_ORIGIN}/projects/port-moody-aluminum-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover
+
+Q: Do you install glass patio covers in Port Moody?
+A: Yes. Moody Centre, Suter Brook, Newport Village, and nearby Tri-Cities areas are regular service areas. Glass is popular when homeowners want rain protection without darkening walkout decks. Project example: ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-port-moody
 
 ## Contact
 Website: ${SITE_ORIGIN}

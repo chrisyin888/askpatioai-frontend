@@ -71,7 +71,7 @@ const CITY_META = {
       alt: 'Wide-span patio cover on a Fraser Valley suburban backyard',
       caption:
         'Wide-span combo cover — reference for Pitt Meadows lots with room for larger patios. Chat ballpark before free measurement.',
-      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+      projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
     },
   },
   'port-coquitlam': {
@@ -85,7 +85,7 @@ const CITY_META = {
       alt: 'Glass patio cover on a Tri-Cities backyard patio similar to Port Coquitlam homes',
       caption:
         'Glass patio cover — rain-ready option for Port Coquitlam yards. Compare aluminum on the same size in chat.',
-      projectPath: '/projects/coquitlam-glass-patio-cover',
+      projectPath: '/projects/port-coquitlam-glass-patio-cover',
     },
   },
   'port-moody': {
@@ -99,7 +99,7 @@ const CITY_META = {
       alt: 'Glass patio cover on a compact Metro Vancouver backyard patio',
       caption:
         'Glass patio cover — bright rain protection suited to Port Moody walkout decks. Compare aluminum for budget in chat.',
-      projectPath: '/projects/coquitlam-glass-patio-cover',
+      projectPath: '/projects/port-moody-glass-patio-cover',
     },
   },
   abbotsford: {

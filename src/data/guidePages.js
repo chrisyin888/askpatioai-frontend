@@ -23,6 +23,9 @@ export const GUIDE_PAGE_ORDER = [
   'patio-cover-cost-new-westminster',
   'patio-cover-cost-maple-ridge',
   'patio-cover-cost-white-rock',
+  'patio-cover-cost-pitt-meadows',
+  'patio-cover-cost-port-coquitlam',
+  'patio-cover-cost-port-moody',
 ];
 
 export const GUIDE_PAGES = {
@@ -169,6 +172,9 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
       { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
       { path: '/patio-cover-cost-white-rock', label: 'Patio cover cost in White Rock' },
+      { path: '/patio-cover-cost-pitt-meadows', label: 'Patio cover cost in Pitt Meadows' },
+      { path: '/patio-cover-cost-port-coquitlam', label: 'Patio cover cost in Port Coquitlam' },
+      { path: '/patio-cover-cost-port-moody', label: 'Patio cover cost in Port Moody' },
     ],
   },
   'glass-vs-aluminum': {
@@ -488,6 +494,7 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
       { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
+      { path: '/patio-cover-cost-pitt-meadows', label: 'Patio cover cost in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
       { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
       { path: '/projects/abbotsford-aluminum-patio-cover', label: 'Abbotsford project example' },
@@ -633,7 +640,9 @@ export const GUIDE_PAGES = {
       { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
       { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
       { path: '/patio-covers-port-coquitlam', label: 'Patio covers in Port Coquitlam' },
+      { path: '/patio-cover-cost-port-coquitlam', label: 'Patio cover cost in Port Coquitlam' },
       { path: '/patio-covers-port-moody', label: 'Patio covers in Port Moody' },
+      { path: '/patio-cover-cost-port-moody', label: 'Patio cover cost in Port Moody' },
       { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
       { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
     ],
@@ -1485,6 +1494,216 @@ export const GUIDE_PAGES = {
       { path: '/projects/white-rock-aluminum-patio-cover', label: 'White Rock aluminum project' },
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
       { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-pitt-meadows': {
+    id: 'patio-cover-cost-pitt-meadows',
+    path: '/patio-cover-cost-pitt-meadows',
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Pitt Meadows | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Pitt Meadows? What drives price for wider Fraser Valley backyards, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Pitt Meadows',
+    intro:
+      'If you are researching patio cover cost in Pitt Meadows, you have probably seen numbers that do not match a compact side patio or a wider suburban backyard. Size, product type, span, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Pitt Meadows?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, post placement, attachment to the home, and finish level all matter. Pitt Meadows lots rarely price the same even when the city name is identical.',
+      },
+      {
+        h2: 'Wider Fraser Valley layouts',
+        body: 'Many Pitt Meadows homes have room for wider patio spans than city yards. Share approximate width and projection so the first ballpark is useful before free measurement.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Pitt Meadows pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Pitt Meadows and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Pitt Meadows size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Pitt Meadows?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Pitt Meadows?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Maple Ridge and Abbotsford?',
+        a: 'Yes — Maple Ridge, Abbotsford, and nearby Fraser Valley communities use the same chat estimate flow. See our Fraser Valley patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Aluminum patio cover on a Fraser Valley suburban backyard',
+      caption:
+        'Pitt Meadows aluminum patio cover reference — compare aluminum, combo, and glass on your dimensions in chat before free measurement.',
+      projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
+      { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
+      { path: '/aluminum-patio-covers-pitt-meadows', label: 'Aluminum patio covers in Pitt Meadows' },
+      { path: '/projects/pitt-meadows-aluminum-patio-cover', label: 'Pitt Meadows aluminum project' },
+      { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-port-coquitlam': {
+    id: 'patio-cover-cost-port-coquitlam',
+    path: '/patio-cover-cost-port-coquitlam',
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    heroImage: '/house/Aluminum/aluminum-hero.png',
+    metaTitle: 'Patio Cover Cost Port Coquitlam | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Port Coquitlam? What drives price for Citadel Heights, Mary Hill, and Lincoln Park patios, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Port Coquitlam',
+    intro:
+      'If you are researching patio cover cost in Port Coquitlam, you have probably seen numbers that do not match a compact townhome patio or a wider Mary Hill backyard. Size, product type, slope, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Port Coquitlam?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, hillside slope, attachment to the home, and finish level all matter. Port Coquitlam lots rarely price the same even when the neighbourhood name is identical.',
+      },
+      {
+        h2: 'Citadel Heights, Mary Hill, and Lincoln Park',
+        body: 'Neighbourhood layout changes access and usable patio depth. Townhomes may need tighter post placement; detached hillside yards can support different spans. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Port Coquitlam pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep walkout decks and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Port Coquitlam and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Port Coquitlam size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Port Coquitlam?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Port Coquitlam?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Coquitlam and Port Moody?',
+        a: 'Yes — Coquitlam, Port Moody, and the wider Tri-Cities use the same chat estimate flow. See our Tri-Cities patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a Tri-Cities backyard patio',
+      caption:
+        'Port Coquitlam glass patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/port-coquitlam-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-port-coquitlam', label: 'Patio covers in Port Coquitlam' },
+      { path: '/patio-cover-contractor-port-coquitlam', label: 'Patio cover contractor in Port Coquitlam' },
+      { path: '/aluminum-patio-covers-port-coquitlam', label: 'Aluminum patio covers in Port Coquitlam' },
+      { path: '/projects/port-coquitlam-aluminum-patio-cover', label: 'Port Coquitlam aluminum project' },
+      { path: '/patio-cover-cost-port-moody', label: 'Patio cover cost in Port Moody' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
+    ],
+  },
+  'patio-cover-cost-port-moody': {
+    id: 'patio-cover-cost-port-moody',
+    path: '/patio-cover-cost-port-moody',
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    heroImage: '/house/glass/glass-hero.png',
+    metaTitle: 'Patio Cover Cost Port Moody | LoomiHome Patios',
+    metaDescription:
+      'How much does a patio cover cost in Port Moody? What drives price for Moody Centre, Suter Brook, and Newport Village decks, typical ranges, and a fast rough estimate before free measurement.',
+    h1: 'Patio Cover Cost in Port Moody',
+    intro:
+      'If you are researching patio cover cost in Port Moody, you have probably seen numbers that do not match a compact Moody Centre deck or a wider Suter Brook walkout. Size, product type, coastal exposure, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
+    sections: [
+      {
+        h2: 'What usually drives patio cover price in Port Moody?',
+        body: 'Span and square footage, whether you choose aluminum, glass, or skyline combo, coastal rain exposure, attachment to the home, and finish level all matter. Port Moody lots rarely price the same even when the neighbourhood name is identical.',
+      },
+      {
+        h2: 'Moody Centre, Suter Brook, and Newport Village',
+        body: 'Neighbourhood layout changes access and usable patio depth. Compact inlet-facing decks may need careful post placement; roomier yards can support wider spans. Share the neighbourhood with approximate dimensions so the first ballpark is useful.',
+      },
+      {
+        h2: 'Aluminum vs glass vs combo on Port Moody pricing',
+        body: 'Aluminum is usually the rain-first starting point for practical budget. Glass costs more when you want to keep walkout decks and rear rooms bright. Skyline combo sits in the middle when you want both shade and light without a full-glass budget.',
+      },
+      {
+        h2: 'Why a generic “starting from” number is not enough',
+        body: 'Starting prices are useful for orientation, but your patio is not generic. A ballpark that uses Port Moody and approximate dimensions is far more actionable — which is why we built the fast estimate flow first.',
+      },
+      {
+        h2: 'Rough quote first, accurate quote second',
+        body: 'We believe you should understand budget range before spending an evening on sales appointments. Chat for a ballpark, then a free on-site visit when you want line-item clarity and a measured final price.',
+      },
+    ],
+    pricingNote:
+      'Browse our product cards on the homepage for example “from” pricing by cover type — then refine in chat for your Port Moody size, neighbourhood, and product direction.',
+    faqs: [
+      {
+        q: 'How much does a patio cover usually cost in Port Moody?',
+        a: PRICING_COPY.threeWayCompare,
+      },
+      {
+        q: 'Is the chat estimate binding?',
+        a: 'It is a planning range only. Your formal quote is always confirmed after free on-site measurement and site review.',
+      },
+      {
+        q: 'Example: what might a 12×14 ft aluminum cover cost in Port Moody?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+      {
+        q: 'Do you also serve Port Coquitlam and Coquitlam?',
+        a: 'Yes — Port Coquitlam, Coquitlam, and the wider Tri-Cities use the same chat estimate flow. See our Tri-Cities patio covers guide for nearby examples.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/coquitlam-glass-after.png',
+      alt: 'Glass patio cover on a compact Tri-Cities patio',
+      caption:
+        'Port Moody glass patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
+      projectPath: '/projects/port-moody-glass-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-covers-port-moody', label: 'Patio covers in Port Moody' },
+      { path: '/patio-cover-contractor-port-moody', label: 'Patio cover contractor in Port Moody' },
+      { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
+      { path: '/projects/port-moody-aluminum-patio-cover', label: 'Port Moody aluminum project' },
+      { path: '/patio-cover-cost-port-coquitlam', label: 'Patio cover cost in Port Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
     ],
   },
 };
