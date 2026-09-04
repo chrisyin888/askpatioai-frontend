@@ -69,15 +69,19 @@ function buildRedirectsFile(seoPaths) {
     lines.push(`/${indexNowKey}.txt /${indexNowKey}.txt 200`);
   }
 
-  // 301! forces redirect before SPA fallback — critical for SEO canonical consistency.
+  // Render supports plain 301/200 only (Netlify's 301! force flag is ignored and
+  // drops the rule, so slashless URLs were falling through to SPA homepage HTML).
+  // Rewrite slashless → shell so crawlers get the right title without relying on 301.
   seoPaths
     .filter((pathname) => pathname !== '/')
     .forEach((pathname) => {
-      lines.push(`${pathname} ${pathname}/ 301!`);
+      lines.push(`${pathname} ${pathname}/index.html 200`);
+      lines.push(`${pathname}/ ${pathname}/index.html 200`);
     });
 
   NOINDEX_SHELL_PATHS.forEach(({ path: pathname }) => {
-    lines.push(`${pathname} ${pathname}/ 301!`);
+    lines.push(`${pathname} ${pathname}/index.html 200`);
+    lines.push(`${pathname}/ ${pathname}/index.html 200`);
   });
 
   // SPA fallback — must be last.

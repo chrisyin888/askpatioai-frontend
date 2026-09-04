@@ -187,6 +187,7 @@ function contractorPage(slug, meta) {
     ],
     relatedPageLinks: [
       { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
       { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
       { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
     ],
@@ -256,6 +257,7 @@ function installerPage(slug, meta) {
     ],
     relatedPageLinks: [
       { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
       { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
       { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
     ],
@@ -310,6 +312,7 @@ function aluminumPage(slug, meta) {
     ],
     relatedPageLinks: [
       { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
       { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
       { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
     ],
@@ -364,6 +367,7 @@ function glassPage(slug, meta) {
     ],
     relatedPageLinks: [
       { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
       { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
       { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
     ],
@@ -422,8 +426,9 @@ function sunroomPage(slug, meta) {
     ],
     relatedPageLinks: [
       { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
       { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
-      { path: `/patio-cover-cost-vancouver`, label: 'Patio cover cost guide' },
+      { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
     ],
     caseStudy: SUNROOM_CASE_STUDY,
   };

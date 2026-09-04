@@ -10,10 +10,15 @@ const { SITE_ORIGIN, canonicalizePath } = require('../src/utils/seoHead');
 
 function normalizeLlmsUrls(txt) {
   return txt.replace(
-    /https:\/\/loomihomepatios\.ca(\/[^\s)\]"']*)/g,
+    /https:\/\/loomihomepatios\.ca(\/[^\s)\]"'<>]*)/g,
     (match, pathname) => {
-      if (/\.[a-z0-9]{2,8}$/i.test(pathname)) return match;
-      return `${SITE_ORIGIN}${canonicalizePath(pathname)}`;
+      // FAQ answers often put a sentence period right after the URL
+      // ("…/guide. Project…"). Strip trailing punctuation before canonicalize.
+      const stripped = pathname.replace(/[.,;:!?]+$/u, '');
+      const trailing = pathname.slice(stripped.length);
+      if (!stripped || stripped === '/') return `${SITE_ORIGIN}/${trailing}`;
+      if (/\.[a-z0-9]{2,8}$/i.test(stripped)) return `${SITE_ORIGIN}${stripped}${trailing}`;
+      return `${SITE_ORIGIN}${canonicalizePath(stripped)}${trailing}`;
     },
   );
 }

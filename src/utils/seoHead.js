@@ -8,7 +8,10 @@ let canonicalLinkEl = null;
 /** Content URLs use a trailing slash; static files keep their extension. */
 export function canonicalizePath(pathname = '/') {
   if (!pathname || pathname === '/') return '/';
-  const p = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  let p = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  // Guard against sentence punctuation stuck to paths (e.g. "/guide.")
+  p = p.replace(/[.,;:!?]+$/u, '');
+  if (!p || p === '/') return '/';
   if (/\.[a-z0-9]{2,8}$/i.test(p)) return p;
   return p.endsWith('/') ? p : `${p}/`;
 }
