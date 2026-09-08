@@ -144,7 +144,7 @@ function contractorPage(slug, meta) {
     serviceType: 'Patio cover contractor',
     areaServed: meta.areaServed,
     intro:
-      `If you are comparing patio cover contractors in ${meta.name}, start with a clear budget range. LoomiHome helps you compare cover types before booking a free on-site measurement.`,
+      `If you are comparing patio cover contractors in ${meta.name}, start with a clear budget range. LoomiHome helps homeowners in ${meta.neighbourhoods} compare cover types online before booking a free on-site measurement.`,
     highlights: [
       `Fast rough patio cover quote for ${meta.name} homes`,
       'Compare aluminum, glass, skyline combo, and sunroom options',
@@ -152,25 +152,34 @@ function contractorPage(slug, meta) {
       'Free on-site measurement for final contractor pricing',
     ],
     localAngle:
-      `${meta.name} projects often involve ${meta.localDetail}. A rough online estimate saves time before a contractor visit.`,
+      `${meta.name} projects often involve ${meta.localDetail}. A rough online estimate saves time before a contractor visit and helps you decide whether aluminum, glass, or a combo cover fits the lot.`,
     sections: [
       {
         h2: `What a ${meta.name} contractor quote should clarify`,
         body:
-          'A useful quote should explain product direction, approximate size, attachment, drainage, and what still needs to be confirmed on site.',
+          `A useful ${meta.name} quote should explain product direction, approximate size, attachment, drainage, and what still needs to be confirmed on site — especially where ${meta.localDetail} affects posts and roof slope.`,
       },
       {
-        h2: 'Why start online',
+        h2: 'Why start online before booking visits',
         body:
-          'A ballpark helps you avoid booking multiple appointments before you know whether the project fits your budget.',
+          'A ballpark helps you avoid booking multiple contractor appointments before you know whether the project fits your budget. Share neighbourhood, rough dimensions, and preferred cover type in chat.',
+      },
+      {
+        h2: `Local factors in ${meta.name}`,
+        body:
+          `${meta.neighbourhoods} each bring different patio layouts. We use your photos and size notes first, then confirm attachment height, drainage direction, and access during the free measurement.`,
       },
     ],
     pricingNote:
-      `Share your ${meta.name} neighbourhood, rough dimensions, and preferred cover type for a starting range.`,
+      `Share your ${meta.name} neighbourhood, rough dimensions, and preferred cover type for a starting range. See the ${meta.name} cost guide for planning totals on common sizes.`,
     faqs: [
       {
         q: `Do you provide patio cover contractor quotes in ${meta.name}?`,
-        a: 'Yes. Start with a fast rough quote online, then book a free on-site measurement if the range works.',
+        a: `Yes. Start with a fast rough quote online for ${meta.name}, then book a free on-site measurement if the range works.`,
+      },
+      {
+        q: `How much does a patio cover cost in ${meta.name}?`,
+        a: `Chat gives a planning total for your size. For typical 12×14 ft ranges and local notes, see our ${meta.name} cost guide before you book measurement.`,
       },
       {
         q: 'What patio cover types can I compare?',
@@ -277,7 +286,7 @@ function aluminumPage(slug, meta) {
     serviceType: 'Aluminum patio cover installation',
     areaServed: meta.areaServed,
     intro:
-      `Aluminum patio covers are a practical choice for ${meta.name} homes that need dependable rain protection without heavy upkeep. Start with a fast rough estimate, then book a free measurement when the range fits your budget.`,
+      `Aluminum patio covers are a practical choice for ${meta.name} homes that need dependable rain protection without heavy upkeep — especially around ${meta.neighbourhoods}. Start with a fast rough estimate, then book a free measurement when the range fits your budget.`,
     highlights: [
       `Low-maintenance aluminum covers for ${meta.name}`,
       'Strong rain protection for Metro Vancouver seasons',
@@ -290,20 +299,29 @@ function aluminumPage(slug, meta) {
       {
         h2: `Why aluminum works well in ${meta.name}`,
         body:
-          'Aluminum covers are usually the first option when homeowners want reliable rain coverage, straightforward maintenance, and a clear budget range.',
+          `Aluminum covers are usually the first option when ${meta.name} homeowners want reliable rain coverage, straightforward maintenance, and a clear budget range — without committing to glass pricing yet.`,
       },
       {
         h2: 'What we confirm on site',
         body:
           'Width, projection, post placement, attachment, and drainage are measured during the free visit so the final quote matches your home.',
       },
+      {
+        h2: `Local layout notes for ${meta.name}`,
+        body:
+          `${meta.localDetail.charAt(0).toUpperCase() + meta.localDetail.slice(1)} can change post placement and roof slope. Photos and rough dimensions in chat help us ballpark before the visit.`,
+      },
     ],
     pricingNote:
-      'Send approximate patio dimensions in chat for a rough aluminum range before anyone visits your home.',
+      `Send approximate patio dimensions in chat for a rough aluminum range before anyone visits your ${meta.name} home. Compare with the ${meta.name} cost guide for common sizes.`,
     faqs: [
       {
         q: `Do you install aluminum patio covers in ${meta.name}?`,
-        a: `Yes — ${meta.name} is part of our regular Lower Mainland service area.`,
+        a: `Yes — ${meta.name} is part of our regular Lower Mainland service area, including ${meta.neighbourhoods}.`,
+      },
+      {
+        q: `How much does an aluminum patio cover cost in ${meta.name}?`,
+        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.`,
       },
       {
         q: 'Can I compare aluminum with glass or a sunroom?',
