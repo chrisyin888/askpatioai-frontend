@@ -223,7 +223,7 @@ function installerPage(slug, meta) {
     serviceType: 'Patio cover installation',
     areaServed: meta.areaServed,
     intro:
-      `${meta.name} homeowners searching for a patio cover installer often want practical answers first: what type fits, what it might cost, and how it will handle local weather. We start with a rough estimate, then confirm details during a free measurement.`,
+      `${meta.name} homeowners searching for a patio cover installer often want practical answers first: what type fits, what it might cost, and how it will handle local weather around ${meta.neighbourhoods}. We start with a rough estimate, then confirm details during a free measurement.`,
     highlights: [
       `Patio cover installation options across ${meta.name}`,
       'Compare aluminum, glass, combo, and sunroom paths',
@@ -236,20 +236,29 @@ function installerPage(slug, meta) {
       {
         h2: `Installation process in ${meta.name}`,
         body:
-          'Post placement, wall or deck attachment, roof slope, gutter direction, access, and exposure all shape a proper patio cover installation and the final quote.',
+          `Post placement, wall or deck attachment, roof slope, gutter direction, access, and exposure all shape a proper ${meta.name} patio cover installation and the final quote — especially where ${meta.localDetail} affects the layout.`,
       },
       {
         h2: 'Estimate first, install planning second',
         body:
           'The first estimate helps you decide whether the project is worth measuring. The site visit handles practical installation details and confirms pricing.',
       },
+      {
+        h2: `What ${meta.name} homeowners should prepare`,
+        body:
+          'Rough patio size, a few photos, and your neighbourhood help us ballpark product direction before anyone visits. Formal install timing is confirmed after measurement.',
+      },
     ],
     pricingNote:
-      `Share rough dimensions and one or two photos. We can ballpark the likely product direction before a ${meta.name} site visit.`,
+      `Share rough dimensions and one or two photos. We can ballpark the likely product direction before a ${meta.name} site visit — see the ${meta.name} cost guide for typical totals.`,
     faqs: [
       {
         q: `Do you install patio covers in ${meta.name}?`,
-        a: `Yes, we serve ${meta.name} as part of our Metro Vancouver and Lower Mainland coverage.`,
+        a: `Yes, we serve ${meta.name} as part of our Metro Vancouver and Lower Mainland coverage, including ${meta.neighbourhoods}.`,
+      },
+      {
+        q: `How much does patio cover installation cost in ${meta.name}?`,
+        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for common ranges, then book free measurement for a formal quote.`,
       },
       {
         q: `How long does patio cover installation take in ${meta.name}?`,
@@ -258,10 +267,6 @@ function installerPage(slug, meta) {
       {
         q: `Is the online ${meta.name} installation estimate final?`,
         a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
-      },
-      {
-        q: `Which ${meta.name} areas do you install in?`,
-        a: `${meta.neighbourhoods} and surrounding neighbourhoods — share your area in chat for a faster ballpark.`,
       },
     ],
     relatedPageLinks: [
@@ -350,7 +355,7 @@ function glassPage(slug, meta) {
     serviceType: 'Glass patio cover installation',
     areaServed: meta.areaServed,
     intro:
-      `Glass patio covers are worth comparing in ${meta.name} when you want rain protection but still want the deck and back of the home to stay bright.`,
+      `Glass patio covers are worth comparing in ${meta.name} when you want rain protection but still want the deck and back of the home to stay bright — a common request around ${meta.neighbourhoods}.`,
     highlights: [
       `Bright overhead rain protection for ${meta.name} decks`,
       'Modern glass and black-frame design direction',
@@ -361,22 +366,31 @@ function glassPage(slug, meta) {
       `${meta.name} homes with walkout decks and large rear windows often compare glass to keep natural light. ${meta.localDetail.charAt(0).toUpperCase() + meta.localDetail.slice(1)} — slope and drainage are confirmed on site.`,
     sections: [
       {
-        h2: 'When glass is worth the upgrade',
+        h2: `When glass is worth the upgrade in ${meta.name}`,
         body:
-          'Glass usually costs more than a basic aluminum cover, but it keeps the deck and adjoining rooms brighter and can look more premium from inside the home.',
+          `Glass usually costs more than a basic aluminum cover, but it keeps ${meta.name} decks and adjoining rooms brighter and can look more premium from inside the home — especially on walkouts where light matters.`,
       },
       {
         h2: 'What affects glass pricing',
         body:
           'Panel layout, span, support posts, attachment height, glass type, and drainage direction all affect the final quote. A quick estimate helps you decide before measuring.',
       },
+      {
+        h2: `Local notes for ${meta.name}`,
+        body:
+          `${meta.localDetail.charAt(0).toUpperCase() + meta.localDetail.slice(1)} can change frame height and drainage direction. Share neighbourhood and rough dimensions in chat before booking a free measurement.`,
+      },
     ],
     pricingNote:
-      'Send rough dimensions and whether you want maximum light or a balanced mix of shade. We can compare glass and aluminum from the same measurements.',
+      `Send rough dimensions and whether you want maximum light or a balanced mix of shade. Compare glass and aluminum from the same measurements, and see the ${meta.name} cost guide for typical totals.`,
     faqs: [
       {
         q: `Are glass patio covers good for ${meta.name} homes?`,
-        a: 'Yes, especially where keeping natural light matters. Slope and drainage are confirmed on site.',
+        a: `Yes, especially around ${meta.neighbourhoods} where keeping natural light matters. Slope and drainage are confirmed on site.`,
+      },
+      {
+        q: `How much does a glass patio cover cost in ${meta.name}?`,
+        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical 12×14 ft glass ranges, then book free measurement for a formal quote.`,
       },
       {
         q: 'Can I compare glass and aluminum pricing?',
@@ -405,7 +419,7 @@ function sunroomPage(slug, meta) {
     serviceType: 'Sunroom installation',
     areaServed: meta.areaServed,
     intro:
-      `${meta.name} homeowners comparing sunrooms usually want a practical budget range before detailed design. Start with a rough estimate, then book a free measurement when the numbers make sense.`,
+      `${meta.name} homeowners comparing sunrooms usually want a practical budget range before detailed design — especially around ${meta.neighbourhoods}. Start with a rough estimate, then book a free measurement when the numbers make sense.`,
     highlights: [
       `Enclosed patio and sunroom options in ${meta.name}`,
       'Compare sunroom budget against open patio covers',
@@ -416,22 +430,31 @@ function sunroomPage(slug, meta) {
       `${meta.name} lots vary in size and layout — ${meta.localDetail}. Existing deck condition, attachment, and drainage are reviewed before final sunroom pricing.`,
     sections: [
       {
-        h2: 'When to consider a sunroom',
+        h2: `When to consider a sunroom in ${meta.name}`,
         body:
-          'Choose a sunroom when you want more enclosure and comfort than a roof alone provides. It works well for sitting areas, hobby rooms, or a protected transition to the backyard.',
+          `Choose a sunroom when you want more enclosure and comfort than a roof alone provides. In ${meta.name}, it works well for sitting areas, hobby rooms, or a protected transition to the backyard.`,
       },
       {
         h2: 'Budget before design',
         body:
           'Because sunrooms vary widely, the first step is understanding whether the project range makes sense. Final details come after measurement.',
       },
+      {
+        h2: `Local layout factors in ${meta.name}`,
+        body:
+          `${meta.localDetail.charAt(0).toUpperCase() + meta.localDetail.slice(1)} can change footprint and attachment options. Photos and approximate size in chat help compare a sunroom against a simpler patio cover.`,
+      },
     ],
     pricingNote:
-      'Share the approximate footprint and a few photos. We can compare a sunroom with simpler patio cover options if budget is uncertain.',
+      `Share the approximate footprint and a few photos. We can compare a sunroom with simpler patio cover options if budget is uncertain — see the ${meta.name} cost guide for open-cover ranges too.`,
     faqs: [
       {
         q: `Do you build sunrooms in ${meta.name}?`,
-        a: `Yes — ${meta.name} is part of our Lower Mainland service area.`,
+        a: `Yes — ${meta.name} is part of our Lower Mainland service area, including ${meta.neighbourhoods}.`,
+      },
+      {
+        q: `How much does a sunroom cost in ${meta.name}?`,
+        a: 'Chat gives a planning total from your approximate footprint. Formal pricing is confirmed after free on-site measurement.',
       },
       {
         q: 'Should I choose a sunroom or a patio cover?',
