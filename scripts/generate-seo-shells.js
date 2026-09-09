@@ -642,8 +642,12 @@ async function main() {
   const redirectLines = buildRedirectsFile(allPaths);
   fs.writeFileSync(path.join(__dirname, '..', 'dist', '_redirects'), redirectLines, 'utf8');
 
+  // Render serves 404.html for missing paths — use SPA shell so client routes still boot
+  // without a Dashboard `/* → /index.html` rewrite that overrides SEO redirects.
+  fs.writeFileSync(path.join(__dirname, '..', 'dist', '404.html'), template, 'utf8');
+
   console.log(`Wrote ${written} SEO HTML shells under dist/`);
-  console.log(`Wrote ${noindexWritten} noindex shells and ${redirectLines.trim().split('\n').length} redirect rules to dist/_redirects`);
+  console.log(`Wrote ${noindexWritten} noindex shells, 404.html SPA fallback, and ${redirectLines.trim().split('\n').length} redirect rules to dist/_redirects`);
 }
 
 main().catch((err) => {

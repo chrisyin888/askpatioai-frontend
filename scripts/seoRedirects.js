@@ -86,7 +86,10 @@ function buildRedirectsFile(seoPaths) {
   return `${lines.join('\n')}\n`;
 }
 
-/** Render Blueprint routes — slashless → trailing slash, then SPA rewrite. */
+/** Render Blueprint routes — slashless → trailing slash. No SPA catch-all here:
+ * a Dashboard `/* → /index.html` rewrite overrides later rules and breaks SEO shells.
+ * Unknown paths use dist/404.html (SPA) instead.
+ */
 function buildRenderRoutes(seoPaths) {
   const routes = [];
 
@@ -106,12 +109,6 @@ function buildRenderRoutes(seoPaths) {
       source: pathname,
       destination: `${pathname}/`,
     });
-  });
-
-  routes.push({
-    type: 'rewrite',
-    source: '/*',
-    destination: '/index.html',
   });
 
   return routes;

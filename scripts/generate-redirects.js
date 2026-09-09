@@ -26,7 +26,7 @@ async function main() {
 
   console.log(`Wrote ${outPath}`);
   console.log(
-    `Synced ${routes.length} Render Blueprint routes into render.yaml (slashless → slash + SPA fallback)`,
+    `Synced ${routes.length} Render Blueprint redirects into render.yaml (slashless → slash; use 404.html for SPA)`,
   );
 }
 
