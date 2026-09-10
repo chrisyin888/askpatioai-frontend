@@ -86,9 +86,14 @@ function buildRedirectsFile(seoPaths) {
   return `${lines.join('\n')}\n`;
 }
 
-/** Render Blueprint routes — slashless → trailing slash. No SPA catch-all here:
- * a Dashboard `/* → /index.html` rewrite overrides later rules and breaks SEO shells.
- * Unknown paths use dist/404.html (SPA) instead.
+/**
+ * Render Blueprint routes.
+ *
+ * Critical: a Dashboard catch-all rewrite to /index.html serves the homepage for every
+ * slashless SEO URL. Replacing that catch-all with a rewrite to path/index.html maps
+ * /patio-covers-burnaby to /patio-covers-burnaby/index.html (the SEO shell).
+ * Real static files (/js, /css, images) still win because Render skips rewrites
+ * when a resource already exists at the request path.
  */
 function buildRenderRoutes(seoPaths) {
   const routes = [];
@@ -99,7 +104,7 @@ function buildRenderRoutes(seoPaths) {
       routes.push({
         type: 'redirect',
         source: pathname,
-        destination: `${pathname}/`,
+        destination: pathname + '/',
       });
     });
 
@@ -107,8 +112,15 @@ function buildRenderRoutes(seoPaths) {
     routes.push({
       type: 'redirect',
       source: pathname,
-      destination: `${pathname}/`,
+      destination: pathname + '/',
     });
+  });
+
+  // Same source as Dashboard SPA catch-all — Blueprint sync should replace destination.
+  routes.push({
+    type: 'rewrite',
+    source: '/*',
+    destination: '/*/index.html',
   });
 
   return routes;

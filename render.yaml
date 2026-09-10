@@ -550,6 +550,9 @@ services:
       - type: redirect
         source: /admin-leads
         destination: /admin-leads/
+      - type: rewrite
+        source: /*
+        destination: /*/index.html
     # END GENERATED SEO ROUTES
 
     autoDeploy: true
