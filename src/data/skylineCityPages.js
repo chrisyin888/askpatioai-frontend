@@ -9,9 +9,9 @@ const SKYLINE_CITY_META = {
     localDetail: 'mixed lot sizes and rain exposure',
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Skyline combo patio cover on a Burnaby backyard similar to combo layouts in Metrotown and Deer Lake',
+      alt: 'Burnaby aluminum patio cover — planning reference when comparing skyline combo layouts in Metrotown and Deer Lake',
       caption:
-        'Burnaby aluminum patio cover — rain-ready reference for combo comparisons on mixed lot sizes. Ballpark combo and aluminum in chat.',
+        'Burnaby aluminum patio cover example used for skyline combo planning on mixed lot sizes. Ballpark combo and aluminum in chat.',
       projectPath: '/projects/burnaby-aluminum-patio-cover',
     },
   },
@@ -42,7 +42,10 @@ const SKYLINE_CITY_META = {
     },
     relatedPageLinks: [
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
     ],
   },
   delta: {
@@ -78,9 +81,9 @@ const SKYLINE_CITY_META = {
     localDetail: 'larger lots and family outdoor spaces',
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
-      alt: 'Aluminum patio cover on a Langley family backyard similar to combo layout planning',
+      alt: 'Langley aluminum patio cover on a family backyard — planning reference for skyline combo layouts',
       caption:
-        'Langley aluminum cover — compare skyline combo for larger lots in Willoughby and Walnut Grove.',
+        'Langley aluminum cover example used for skyline combo planning on larger lots in Willoughby and Walnut Grove.',
       projectPath: '/projects/langley-aluminum-patio-cover',
     },
   },
@@ -134,12 +137,21 @@ function skylinePage(slug, meta) {
         a: 'Yes. We can ballpark combo, glass, and aluminum from the same approximate patio size.',
       },
       {
+        q: `How much does a skyline combo cover cost in ${meta.name}?`,
+        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical ranges, then book free measurement for a formal quote.`,
+      },
+      {
         q: 'Is the chat skyline estimate final?',
         a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
     ],
+    relatedPageLinks: meta.relatedPageLinks || [
+      { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
+      { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
+      { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
+    ],
     ...(meta.caseStudy ? { caseStudy: meta.caseStudy } : {}),
-    ...(meta.relatedPageLinks ? { relatedPageLinks: meta.relatedPageLinks } : {}),
   };
 }
 

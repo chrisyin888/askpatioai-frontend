@@ -12,9 +12,9 @@ const CITY_META = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Aluminum patio cover on a sloped Lower Mainland backyard similar to North Vancouver lots',
+      alt: 'Lower Mainland aluminum patio cover — planning reference for North Vancouver sloped lots and raised decks',
       caption:
-        'Aluminum patio cover — rain-ready protection for North Shore sloped yards and raised decks. Compare glass in chat on the same size.',
+        'Lower Mainland aluminum patio cover example used for North Vancouver planning — rain-ready protection for sloped yards and raised decks. Compare glass in chat on the same size.',
       projectPath: '/projects/north-vancouver-aluminum-patio-cover',
     },
   },
@@ -26,9 +26,9 @@ const CITY_META = {
     heroImage: '/house/glass/glass-hero.png',
     caseStudy: {
       image: '/house/before-after/vancouver-glass-after.png',
-      alt: 'Glass patio cover on a premium West Coast home with natural light under tempered glass roof',
+      alt: 'West Coast glass patio cover with natural light under tempered glass roof — planning reference for West Vancouver',
       caption:
-        'Glass patio cover — bright rain protection suited to West Vancouver view lines and walkout decks. Compare aluminum for budget in chat.',
+        'West Coast glass patio cover example used for West Vancouver planning — bright rain protection for view lines and walkout decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/west-vancouver-glass-patio-cover',
     },
   },
@@ -40,9 +40,9 @@ const CITY_META = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Aluminum patio cover on a compact Metro Vancouver backyard patio',
+      alt: 'Lower Mainland aluminum patio cover on a compact backyard — planning reference for New Westminster',
       caption:
-        'Aluminum patio cover — practical fit for New Westminster townhome patios and detached backyards. Ballpark in chat first.',
+        'Lower Mainland aluminum patio cover example used for New Westminster planning — practical for townhome patios and detached backyards. Ballpark in chat first.',
       projectPath: '/projects/new-westminster-aluminum-patio-cover',
     },
   },
@@ -54,9 +54,9 @@ const CITY_META = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
+      alt: 'Fraser Valley skyline combo patio cover on a larger suburban backyard — planning reference for Maple Ridge',
       caption:
-        'Skyline combo cover — larger backyard layout common in Maple Ridge. Compare aluminum and glass on your dimensions in chat.',
+        'Fraser Valley skyline combo example used for Maple Ridge planning — larger backyard layouts with mixed light and shade. Compare aluminum and glass on your dimensions in chat.',
       projectPath: '/projects/maple-ridge-skyline-combo-cover',
     },
   },
@@ -67,10 +67,10 @@ const CITY_META = {
     localDetail: 'wider spans and Fraser Valley weather',
     heroImage: '/house/Aluminum/aluminum-hero.png',
     caseStudy: {
-      image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Wide-span patio cover on a Fraser Valley suburban backyard',
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Lower Mainland aluminum patio cover — planning reference for wider Pitt Meadows backyard spans',
       caption:
-        'Wide-span combo cover — reference for Pitt Meadows lots with room for larger patios. Chat ballpark before free measurement.',
+        'Lower Mainland aluminum patio cover example used for Pitt Meadows planning — practical rain protection for wider Fraser Valley spans. Chat ballpark before free measurement.',
       projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
     },
   },
@@ -82,9 +82,9 @@ const CITY_META = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     caseStudy: {
       image: '/house/before-after/coquitlam-glass-after.png',
-      alt: 'Glass patio cover on a Tri-Cities backyard patio similar to Port Coquitlam homes',
+      alt: 'Tri-Cities glass patio cover — planning reference for Port Coquitlam yards and hillside decks',
       caption:
-        'Glass patio cover — rain-ready option for Port Coquitlam yards. Compare aluminum on the same size in chat.',
+        'Tri-Cities glass patio cover example used for Port Coquitlam planning — rain-ready option with more natural light. Compare aluminum on the same size in chat.',
       projectPath: '/projects/port-coquitlam-glass-patio-cover',
     },
   },
@@ -96,9 +96,9 @@ const CITY_META = {
     heroImage: '/house/glass/glass-hero.png',
     caseStudy: {
       image: '/house/before-after/coquitlam-glass-after.png',
-      alt: 'Glass patio cover on a compact Metro Vancouver backyard patio',
+      alt: 'Tri-Cities glass patio cover on a compact backyard — planning reference for Port Moody walkouts',
       caption:
-        'Glass patio cover — bright rain protection suited to Port Moody walkout decks. Compare aluminum for budget in chat.',
+        'Tri-Cities glass patio cover example used for Port Moody planning — bright rain protection for compact walkout decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/port-moody-glass-patio-cover',
     },
   },
@@ -109,10 +109,10 @@ const CITY_META = {
     localDetail: 'Fraser Valley rain, larger lots, and family backyards',
     heroImage: '/house/Aluminum/aluminum-hero.png',
     caseStudy: {
-      image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Skyline combo patio cover on a Fraser Valley suburban backyard similar to Abbotsford lots',
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Fraser Valley aluminum patio cover — planning reference for Abbotsford family backyards',
       caption:
-        'Skyline combo cover — larger backyard layout common in Abbotsford. Compare aluminum and glass on your dimensions in chat.',
+        'Fraser Valley aluminum patio cover example used for Abbotsford planning — rain-ready coverage for larger family lots. Compare glass and combo on your dimensions in chat.',
       projectPath: '/projects/abbotsford-aluminum-patio-cover',
     },
   },
@@ -124,9 +124,9 @@ const CITY_META = {
     heroImage: '/house/glass/glass-hero.png',
     caseStudy: {
       image: '/house/before-after/vancouver-glass-after.png',
-      alt: 'Glass patio cover on a coastal Metro Vancouver home with natural light under tempered glass roof',
+      alt: 'Coastal Metro Vancouver glass patio cover — planning reference for White Rock and South Surrey decks',
       caption:
-        'Glass patio cover — bright rain protection suited to White Rock and South Surrey decks. Compare aluminum for budget in chat.',
+        'Coastal glass patio cover example used for White Rock planning — bright rain protection for seaside decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/white-rock-glass-patio-cover',
     },
   },

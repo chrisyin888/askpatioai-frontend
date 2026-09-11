@@ -489,6 +489,21 @@ export const CITY_SERVICE_PAGES = {
         q: 'Do you install glass covers across Surrey?',
         a: 'Yes, we serve Surrey broadly, including South Surrey, Cloverdale, Newton, Fleetwood, and Guildford.',
       },
+      {
+        q: 'How much does a glass patio cover cost in Surrey?',
+        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft glass ranges, then book free measurement for a formal quote.',
+      },
+      {
+        q: 'Can I compare glass and aluminum in Surrey?',
+        a: 'Yes. We can ballpark glass, aluminum, and skyline combo from the same approximate dimensions.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
     ],
   },
   'sunrooms-richmond': {
@@ -532,6 +547,16 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can I get a Richmond sunroom estimate online?',
         a: 'Yes. The first estimate is a rough planning range, then a free measurement confirms final pricing.',
       },
+      {
+        q: 'How much does a patio cover or sunroom cost in Richmond?',
+        a: 'Chat gives a planning total for your footprint. See the Richmond patio cover cost guide for open-cover ranges, then compare a sunroom ballpark in the same chat.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+      { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
     ],
   },
   'sunrooms-surrey': {
@@ -575,6 +600,16 @@ export const CITY_SERVICE_PAGES = {
         q: 'Should I choose a sunroom or patio cover?',
         a: 'If you mainly need rain protection, start with a patio cover. If you want more enclosure and comfort, compare a sunroom.',
       },
+      {
+        q: 'How much does a patio cover or sunroom cost in Surrey?',
+        a: 'Chat gives a planning total for your footprint. See the Surrey patio cover cost guide for open-cover ranges, then compare a sunroom ballpark in the same chat.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
     ],
   },
   'contractor-vancouver': {
@@ -1013,9 +1048,14 @@ export const CITY_SERVICE_PAGES = {
         q: 'Which Burnaby neighbourhoods do you serve?',
         a: 'Metrotown, Brentwood, Deer Lake, Edmonds, Capitol Hill, and surrounding Burnaby areas — same fast estimate flow for each.',
       },
+      {
+        q: 'How much does a patio cover cost in Burnaby?',
+        a: 'Chat gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
     ],
     relatedPageLinks: [
       { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
       { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
     ],
@@ -1135,9 +1175,14 @@ export const CITY_SERVICE_PAGES = {
         q: 'Which Richmond areas do you quote most often?',
         a: 'Steveston, Broadmoor, East Cambie, Burkeville, and City Centre — flat lots and side-yard patios are common. Share your neighbourhood in chat for a faster ballpark.',
       },
+      {
+        q: 'How much does a patio cover cost in Richmond?',
+        a: 'Chat gives a planning total for your size. See the Richmond patio cover cost guide for typical ranges, then book free measurement for a formal quote.',
+      },
     ],
     relatedPageLinks: [
       { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
       { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
     ],
     caseStudy: {
@@ -1197,9 +1242,14 @@ export const CITY_SERVICE_PAGES = {
         q: 'Which Surrey areas do you serve?',
         a: 'Guildford, Cloverdale, Newton, Fleetwood, South Surrey, and surrounding areas — from townhome patios to larger detached-home yards.',
       },
+      {
+        q: 'How much does a patio cover cost in Surrey?',
+        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical ranges, then book free measurement for a formal quote.',
+      },
     ],
     relatedPageLinks: [
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
       { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
       { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
     ],
@@ -1691,7 +1741,7 @@ export const CITY_SERVICE_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Skyline combo patio cover on a large suburban backyard patio similar to Langley lot layouts',
+      alt: 'Langley-area skyline combo patio cover — planning reference for larger backyard layouts',
       caption:
         'Large backyard skyline combo cover — approx. 12×26 ft layout common on Langley subdivisions. Compare aluminum and glass on your size in chat.',
       projectPath: '/projects/surrey-skyline-combo-patio-cover',

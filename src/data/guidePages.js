@@ -501,7 +501,7 @@ export const GUIDE_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Skyline combo patio cover on a large suburban backyard similar to Fraser Valley lots',
+      alt: 'Fraser Valley skyline combo patio cover — planning reference for larger suburban lots',
       caption:
         'Fraser Valley-style combo cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
       projectPath: '/projects/abbotsford-aluminum-patio-cover',
@@ -710,7 +710,7 @@ export const GUIDE_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Aluminum patio cover on a wide suburban backyard similar to Abbotsford lots',
+      alt: 'Fraser Valley aluminum patio cover — planning reference for Abbotsford lots',
       caption:
         'Abbotsford-style aluminum patio cover reference — compare aluminum, glass, and combo on your dimensions in chat before free measurement.',
       projectPath: '/projects/abbotsford-aluminum-patio-cover',
@@ -1412,7 +1412,7 @@ export const GUIDE_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
+      alt: 'Fraser Valley skyline combo patio cover — planning reference for Maple Ridge lots',
       caption:
         'Maple Ridge skyline combo patio cover reference — compare aluminum, combo, and glass on your dimensions in chat before free measurement.',
       projectPath: '/projects/maple-ridge-skyline-combo-cover',

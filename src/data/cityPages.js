@@ -552,7 +552,7 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Skyline combo patio cover on a large suburban backyard similar to Maple Ridge lots',
+      alt: 'Fraser Valley skyline combo patio cover — planning reference for Maple Ridge lots',
       caption:
         'Skyline combo cover — larger backyard layout common in Maple Ridge. Compare aluminum and glass on your dimensions in chat.',
       projectPath: '/projects/maple-ridge-skyline-combo-cover',
@@ -596,7 +596,7 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Wide-span patio cover on a Fraser Valley suburban backyard similar to Pitt Meadows lots',
+      alt: 'Fraser Valley aluminum patio cover — planning reference for wider Pitt Meadows lots',
       caption:
         'Wide-span combo cover — reference for Pitt Meadows lots with room for larger patios. Chat ballpark before free measurement.',
       projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
@@ -645,7 +645,7 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/coquitlam-glass-after.png',
-      alt: 'Glass patio cover on a Tri-Cities backyard patio similar to Port Coquitlam homes',
+      alt: 'Tri-Cities glass patio cover — planning reference for Port Coquitlam yards',
       caption:
         'Glass patio cover — rain-ready option for Port Coquitlam yards. Compare aluminum on the same size in chat.',
       projectPath: '/projects/port-coquitlam-glass-patio-cover',
@@ -694,7 +694,7 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/coquitlam-glass-after.png',
-      alt: 'Glass patio cover on a compact Metro Vancouver backyard patio similar to Port Moody homes',
+      alt: 'Tri-Cities glass patio cover — planning reference for Port Moody walkout decks',
       caption:
         'Glass patio cover — bright rain protection suited to Port Moody walkout decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/port-moody-glass-patio-cover',
@@ -742,7 +742,7 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Skyline combo patio cover on a Fraser Valley suburban backyard similar to Abbotsford lots',
+      alt: 'Fraser Valley patio cover — planning reference for Abbotsford family backyards',
       caption:
         'Skyline combo cover — larger backyard layout common in Abbotsford. Compare aluminum and glass on your dimensions in chat.',
       projectPath: '/projects/abbotsford-aluminum-patio-cover',
