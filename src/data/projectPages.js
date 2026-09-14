@@ -6,6 +6,7 @@ export const PROJECT_PAGE_ORDER = [
   'vancouver-aluminum-patio-cover',
   'surrey-skyline-combo-cover',
   'surrey-aluminum-patio-cover',
+  'surrey-glass-patio-cover',
   'richmond-aluminum-carport-cover',
   'richmond-aluminum-patio-cover',
   'richmond-glass-patio-cover',
@@ -20,17 +21,21 @@ export const PROJECT_PAGE_ORDER = [
   'west-vancouver-glass-patio-cover',
   'west-vancouver-aluminum-patio-cover',
   'new-westminster-aluminum-patio-cover',
+  'new-westminster-glass-patio-cover',
   'new-westminster-skyline-combo-cover',
   'port-coquitlam-glass-patio-cover',
   'port-coquitlam-aluminum-patio-cover',
   'abbotsford-aluminum-patio-cover',
+  'abbotsford-glass-patio-cover',
   'white-rock-glass-patio-cover',
   'white-rock-aluminum-patio-cover',
   'maple-ridge-skyline-combo-cover',
   'maple-ridge-aluminum-patio-cover',
+  'maple-ridge-glass-patio-cover',
   'port-moody-glass-patio-cover',
   'port-moody-aluminum-patio-cover',
   'pitt-meadows-aluminum-patio-cover',
+  'pitt-meadows-glass-patio-cover',
 ];
 
 export const PROJECT_PAGES = {
@@ -268,7 +273,9 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
       { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
       { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
+      { path: '/projects/surrey-glass-patio-cover', label: 'Surrey glass project' },
     ],
   },
   'surrey-aluminum-patio-cover': {
@@ -316,7 +323,10 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
       { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
       { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
+      { path: '/projects/surrey-glass-patio-cover', label: 'Surrey glass project' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
     ],
   },
   'richmond-aluminum-carport-cover': {
@@ -909,7 +919,9 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
       { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
+      { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
       { path: '/projects/new-westminster-aluminum-patio-cover', label: 'New Westminster aluminum project' },
+      { path: '/projects/new-westminster-glass-patio-cover', label: 'New Westminster glass project' },
       { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
     ],
   },
@@ -1057,7 +1069,10 @@ export const PROJECT_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
-      { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
+      { path: '/aluminum-patio-covers-abbotsford', label: 'Aluminum patio covers in Abbotsford' },
+      { path: '/glass-patio-covers-abbotsford', label: 'Glass patio covers in Abbotsford' },
+      { path: '/projects/abbotsford-glass-patio-cover', label: 'Abbotsford glass project' },
+      { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/projects/langley-aluminum-patio-cover', label: 'Langley aluminum patio cover project' },
     ],
   },
@@ -1206,7 +1221,9 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
       { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
+      { path: '/glass-patio-covers-maple-ridge', label: 'Glass patio covers in Maple Ridge' },
       { path: '/projects/maple-ridge-aluminum-patio-cover', label: 'Maple Ridge aluminum project' },
+      { path: '/projects/maple-ridge-glass-patio-cover', label: 'Maple Ridge glass project' },
       { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
       { path: '/projects/pitt-meadows-aluminum-patio-cover', label: 'Pitt Meadows aluminum project' },
     ],
@@ -1256,7 +1273,9 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
       { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
+      { path: '/glass-patio-covers-maple-ridge', label: 'Glass patio covers in Maple Ridge' },
       { path: '/projects/maple-ridge-skyline-combo-cover', label: 'Maple Ridge combo project' },
+      { path: '/projects/maple-ridge-glass-patio-cover', label: 'Maple Ridge glass project' },
       { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
       { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
     ],
@@ -1405,6 +1424,9 @@ export const PROJECT_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
+      { path: '/aluminum-patio-covers-pitt-meadows', label: 'Aluminum patio covers in Pitt Meadows' },
+      { path: '/glass-patio-covers-pitt-meadows', label: 'Glass patio covers in Pitt Meadows' },
+      { path: '/projects/pitt-meadows-glass-patio-cover', label: 'Pitt Meadows glass project' },
       { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
       { path: '/patio-cover-cost-pitt-meadows', label: 'Patio cover cost in Pitt Meadows' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
@@ -1557,8 +1579,262 @@ export const PROJECT_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
       { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
+      { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
+      { path: '/projects/new-westminster-skyline-combo-cover', label: 'New Westminster combo project' },
+      { path: '/projects/new-westminster-glass-patio-cover', label: 'New Westminster glass project' },
+      { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
+    ],
+  },
+  'surrey-glass-patio-cover': {
+    id: 'surrey-glass-patio-cover',
+    path: '/projects/surrey-glass-patio-cover',
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Surrey Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Surrey glass patio cover example — bright rain protection for South Surrey, Cloverdale, and Fleetwood backyards. Compare glass and aluminum in chat.',
+    h1: 'Surrey Glass Patio Cover Project',
+    intro:
+      'This Surrey glass patio cover example is a planning reference for homeowners who want rain protection without darkening a larger backyard — a common goal in South Surrey, Cloverdale, Fleetwood, and Guildford when living rooms face the patio.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Useful reference for wider Surrey suburban lots',
+      'Rain-ready fit when slope and drainage are engineered correctly',
+      'Compare aluminum and skyline combo on the same size in chat',
+    ],
+    localAngle:
+      'Surrey lots often have more patio footprint than compact city yards. Glass works when brightness matters as much as rain coverage; attachment and drainage are confirmed on site.',
+    sections: [
+      {
+        h2: 'When glass fits Surrey patios',
+        body: 'Glass is worth comparing when the covered area sits close to main living spaces and you want the patio to stay bright. Proper slope, flashing, and guttering matter on wider spans.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you see whether the budget gap is worth it before booking a free Surrey measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Surrey neighbourhood, patio size, and whether light or budget matters more. We can compare glass, aluminum, and skyline combo in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Surrey?',
+        a: 'Yes — South Surrey, Cloverdale, Newton, Fleetwood, Guildford, and nearby areas are regular service areas.',
+      },
+      {
+        q: 'Can I compare glass and aluminum for the same Surrey patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
+      { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
+      { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+    ],
+  },
+  'new-westminster-glass-patio-cover': {
+    id: 'new-westminster-glass-patio-cover',
+    path: '/projects/new-westminster-glass-patio-cover',
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'New Westminster Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'New Westminster glass patio cover example — bright rain protection for Queensborough, Sapperton, and Uptown decks. Compare glass and aluminum in chat.',
+    h1: 'New Westminster Glass Patio Cover Project',
+    intro:
+      'This New Westminster glass patio cover example is a planning reference for compact townhome patios and detached backyards — useful when Queensborough, Sapperton, or Uptown homeowners want overhead rain protection without darkening rooms that face the patio.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Useful reference for compact New Westminster layouts',
+      'Rain-ready option when slope and attachment are confirmed',
+      'Compare aluminum and skyline combo for budget in chat',
+    ],
+    localAngle:
+      'New Westminster patios are often tighter than suburban lots. Glass helps keep the covered space bright on townhome decks and riverfront walkouts; posts and drainage are confirmed on site.',
+    sections: [
+      {
+        h2: 'When glass fits New Westminster patios',
+        body: 'Glass is worth comparing when the patio sits close to living areas and light matters as much as rain coverage. Compact footprints still need proper slope and flashing.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free New Westminster measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your New Westminster neighbourhood, patio size, and whether light or budget matters more. We can compare glass, aluminum, and combo in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in New Westminster?',
+        a: 'Yes — Queensborough, Sapperton, Uptown, and nearby areas are regular service areas.',
+      },
+      {
+        q: 'Is glass practical on compact townhome patios?',
+        a: 'Often yes when light matters. We confirm posts, attachment height, and drainage during free measurement.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
+      { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
+      { path: '/projects/new-westminster-aluminum-patio-cover', label: 'New Westminster aluminum project' },
       { path: '/projects/new-westminster-skyline-combo-cover', label: 'New Westminster combo project' },
       { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
+    ],
+  },
+  'maple-ridge-glass-patio-cover': {
+    id: 'maple-ridge-glass-patio-cover',
+    path: '/projects/maple-ridge-glass-patio-cover',
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Maple Ridge Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Maple Ridge glass patio cover example — bright rain protection for Town Centre, Albion, and Silver Valley backyards. Compare glass and aluminum in chat.',
+    h1: 'Maple Ridge Glass Patio Cover Project',
+    intro:
+      'This Maple Ridge glass patio cover example is a planning reference for larger family backyards — useful when Town Centre, Albion, or Silver Valley homeowners want rain protection while keeping natural light on wider patio footprints.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Useful reference for larger Maple Ridge suburban lots',
+      'Rain-ready option when span and drainage are engineered correctly',
+      'Compare aluminum and skyline combo on the same size in chat',
+    ],
+    localAngle:
+      'Maple Ridge lots often have room for wider spans than city yards. Glass keeps the space bright; attachment, posts, and drainage are confirmed on site before final pricing.',
+    sections: [
+      {
+        h2: 'When glass fits Maple Ridge patios',
+        body: 'Glass is worth comparing when living rooms face a large backyard and you want the covered area to stay bright through wet months. Wider spans need careful support and slope planning.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum or a partial combo on the same footprint. Chat helps you decide before booking a free Maple Ridge measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Maple Ridge neighbourhood, patio size, and whether light or budget matters more. We can compare glass, aluminum, and skyline combo in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Maple Ridge?',
+        a: 'Yes — Town Centre, Albion, Silver Valley, and nearby Pitt Meadows are regular service areas.',
+      },
+      {
+        q: 'Should I choose full glass or a skyline combo?',
+        a: 'If you want maximum light, compare full glass. If you want a mix of shade and light for less cost, compare skyline combo.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/glass-patio-covers-maple-ridge', label: 'Glass patio covers in Maple Ridge' },
+      { path: '/projects/maple-ridge-aluminum-patio-cover', label: 'Maple Ridge aluminum project' },
+      { path: '/projects/maple-ridge-skyline-combo-cover', label: 'Maple Ridge combo project' },
+      { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
+    ],
+  },
+  'pitt-meadows-glass-patio-cover': {
+    id: 'pitt-meadows-glass-patio-cover',
+    path: '/projects/pitt-meadows-glass-patio-cover',
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Pitt Meadows Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Pitt Meadows glass patio cover example — bright rain protection for wider Fraser Valley backyards. Compare glass and aluminum in chat.',
+    h1: 'Pitt Meadows Glass Patio Cover Project',
+    intro:
+      'This Pitt Meadows glass patio cover example is a planning reference for wider suburban spans near Maple Ridge — useful when homeowners want overhead rain protection without darkening a family backyard that faces living rooms.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Useful reference for wider Pitt Meadows backyard spans',
+      'Rain-ready option when slope and drainage are confirmed',
+      'Compare aluminum and combo for budget in chat',
+    ],
+    localAngle:
+      'Pitt Meadows lots often allow wider patio footprints than compact city yards. Glass keeps the covered space bright; posts, attachment, and drainage are confirmed during free measurement.',
+    sections: [
+      {
+        h2: 'When glass fits Pitt Meadows patios',
+        body: 'Glass is worth comparing when you want rain protection and daylight on a wider backyard seating area. Span, support layout, and drainage drive both design and price.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free Pitt Meadows measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Pitt Meadows neighbourhood, patio size, and whether light or budget matters more. We can compare glass, aluminum, and combo in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Pitt Meadows?',
+        a: 'Yes — Pitt Meadows and nearby Maple Ridge are regular Lower Mainland service areas.',
+      },
+      {
+        q: 'Can I compare glass and aluminum for the same Pitt Meadows patio?',
+        a: 'Yes. That is often the best way to decide based on budget, light, and rain protection.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-pitt-meadows', label: 'Patio covers in Pitt Meadows' },
+      { path: '/glass-patio-covers-pitt-meadows', label: 'Glass patio covers in Pitt Meadows' },
+      { path: '/projects/pitt-meadows-aluminum-patio-cover', label: 'Pitt Meadows aluminum project' },
+      { path: '/patio-cover-cost-pitt-meadows', label: 'Patio cover cost in Pitt Meadows' },
+      { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
+    ],
+  },
+  'abbotsford-glass-patio-cover': {
+    id: 'abbotsford-glass-patio-cover',
+    path: '/projects/abbotsford-glass-patio-cover',
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    heroImage: '/house/before-after/vancouver-glass-after.png',
+    metaTitle: 'Abbotsford Glass Patio Cover Project | LoomiHome Patios',
+    metaDescription:
+      'Abbotsford glass patio cover example — bright rain protection for Clearbrook and Sumas Mountain backyards. Compare glass and aluminum in chat.',
+    h1: 'Abbotsford Glass Patio Cover Project',
+    intro:
+      'This Abbotsford glass patio cover example is a planning reference for Fraser Valley family backyards — useful when Clearbrook, Sumas Mountain, or Downtown Abbotsford homeowners want rain protection while keeping natural light on larger lots.',
+    highlights: [
+      'Glass roof for natural light under cover',
+      'Useful reference for larger Abbotsford family lots',
+      'Rain-ready option when span and drainage are engineered correctly',
+      'Compare aluminum for budget in chat',
+    ],
+    localAngle:
+      'Abbotsford lots are often roomier than city yards. Glass keeps the patio bright through wet months; attachment, posts, and drainage are confirmed on site before final pricing.',
+    sections: [
+      {
+        h2: 'When glass fits Abbotsford patios',
+        body: 'Glass is worth comparing when living spaces face a large backyard and you want the covered area to stay bright. Wider spans need careful support and slope planning.',
+      },
+      {
+        h2: 'Compare before you measure',
+        body: 'Glass usually costs more than aluminum on the same footprint. Chat helps you decide before booking a free Abbotsford measurement.',
+      },
+    ],
+    pricingNote:
+      'Share your Abbotsford neighbourhood, patio size, and whether light or budget matters more. We can compare glass and aluminum in one estimate.',
+    faqs: [
+      {
+        q: 'Do you install glass patio covers in Abbotsford?',
+        a: 'Yes — Clearbrook, Sumas Mountain, Downtown Abbotsford, and nearby Fraser Valley communities are part of our coverage.',
+      },
+      {
+        q: 'Can I compare glass and aluminum for the same Abbotsford patio?',
+        a: 'Yes. We can ballpark both from the same rough dimensions in one chat session.',
+      },
+    ],
+    relatedPageLinks: [
+      { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
+      { path: '/glass-patio-covers-abbotsford', label: 'Glass patio covers in Abbotsford' },
+      { path: '/projects/abbotsford-aluminum-patio-cover', label: 'Abbotsford aluminum project' },
+      { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
+      { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
     ],
   },
 };

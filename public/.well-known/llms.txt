@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-09-11
+> Last updated: 2026-09-14
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -207,6 +207,7 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Vancouver Aluminum Patio Cover: https://loomihomepatios.ca/projects/vancouver-aluminum-patio-cover/
 - Surrey Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/surrey-skyline-combo-patio-cover/
 - Surrey Aluminum Patio Cover: https://loomihomepatios.ca/projects/surrey-aluminum-patio-cover/
+- Surrey Glass Patio Cover: https://loomihomepatios.ca/projects/surrey-glass-patio-cover/
 - Richmond Aluminum Carport Cover: https://loomihomepatios.ca/projects/richmond-aluminum-carport-cover/
 - Richmond Aluminum Patio Cover: https://loomihomepatios.ca/projects/richmond-aluminum-patio-cover/
 - Richmond Glass Patio Cover: https://loomihomepatios.ca/projects/richmond-glass-patio-cover/
@@ -221,17 +222,21 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - West Vancouver Glass Patio Cover: https://loomihomepatios.ca/projects/west-vancouver-glass-patio-cover/
 - West Vancouver Aluminum Patio Cover: https://loomihomepatios.ca/projects/west-vancouver-aluminum-patio-cover/
 - New Westminster Aluminum Patio Cover: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover/
+- New Westminster Glass Patio Cover: https://loomihomepatios.ca/projects/new-westminster-glass-patio-cover/
 - New Westminster Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/new-westminster-skyline-combo-cover/
 - Port Coquitlam Glass Patio Cover: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover/
 - Port Coquitlam Aluminum Patio Cover: https://loomihomepatios.ca/projects/port-coquitlam-aluminum-patio-cover/
 - Abbotsford Aluminum Patio Cover: https://loomihomepatios.ca/projects/abbotsford-aluminum-patio-cover/
+- Abbotsford Glass Patio Cover: https://loomihomepatios.ca/projects/abbotsford-glass-patio-cover/
 - White Rock Glass Patio Cover: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover/
 - White Rock Aluminum Patio Cover: https://loomihomepatios.ca/projects/white-rock-aluminum-patio-cover/
 - Maple Ridge Skyline Combo Patio Cover: https://loomihomepatios.ca/projects/maple-ridge-skyline-combo-cover/
 - Maple Ridge Aluminum Patio Cover: https://loomihomepatios.ca/projects/maple-ridge-aluminum-patio-cover/
+- Maple Ridge Glass Patio Cover: https://loomihomepatios.ca/projects/maple-ridge-glass-patio-cover/
 - Port Moody Glass Patio Cover: https://loomihomepatios.ca/projects/port-moody-glass-patio-cover/
 - Port Moody Aluminum Patio Cover: https://loomihomepatios.ca/projects/port-moody-aluminum-patio-cover/
 - Pitt Meadows Aluminum Patio Cover: https://loomihomepatios.ca/projects/pitt-meadows-aluminum-patio-cover/
+- Pitt Meadows Glass Patio Cover: https://loomihomepatios.ca/projects/pitt-meadows-glass-patio-cover/
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?

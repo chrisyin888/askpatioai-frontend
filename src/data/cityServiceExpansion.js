@@ -17,6 +17,14 @@ const CITY_META = {
         'Lower Mainland aluminum patio cover example used for North Vancouver planning — rain-ready protection for sloped yards and raised decks. Compare glass in chat on the same size.',
       projectPath: '/projects/north-vancouver-aluminum-patio-cover',
     },
+    glassCaseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'North Shore glass patio cover — planning reference for North Vancouver raised decks',
+      caption:
+        'North Shore glass patio cover example used for North Vancouver planning — bright rain protection for raised decks and walkouts. Compare aluminum for budget in chat.',
+      projectPath: '/projects/north-vancouver-glass-patio-cover',
+    },
+    glassProjectPath: '/projects/north-vancouver-glass-patio-cover',
   },
   'west-vancouver': {
     name: 'West Vancouver',
@@ -31,6 +39,7 @@ const CITY_META = {
         'West Coast glass patio cover example used for West Vancouver planning — bright rain protection for view lines and walkout decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/west-vancouver-glass-patio-cover',
     },
+    glassProjectPath: '/projects/west-vancouver-glass-patio-cover',
   },
   'new-westminster': {
     name: 'New Westminster',
@@ -45,6 +54,14 @@ const CITY_META = {
         'Lower Mainland aluminum patio cover example used for New Westminster planning — practical for townhome patios and detached backyards. Ballpark in chat first.',
       projectPath: '/projects/new-westminster-aluminum-patio-cover',
     },
+    glassCaseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Lower Mainland glass patio cover — planning reference for New Westminster townhome and riverfront decks',
+      caption:
+        'Lower Mainland glass patio cover example used for New Westminster planning — bright rain protection for compact decks. Compare aluminum for budget in chat.',
+      projectPath: '/projects/new-westminster-glass-patio-cover',
+    },
+    glassProjectPath: '/projects/new-westminster-glass-patio-cover',
   },
   'maple-ridge': {
     name: 'Maple Ridge',
@@ -59,6 +76,14 @@ const CITY_META = {
         'Fraser Valley skyline combo example used for Maple Ridge planning — larger backyard layouts with mixed light and shade. Compare aluminum and glass on your dimensions in chat.',
       projectPath: '/projects/maple-ridge-skyline-combo-cover',
     },
+    glassCaseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Fraser Valley glass patio cover — planning reference for Maple Ridge family backyards',
+      caption:
+        'Fraser Valley glass patio cover example used for Maple Ridge planning — bright rain protection on larger lots. Compare aluminum and combo in chat.',
+      projectPath: '/projects/maple-ridge-glass-patio-cover',
+    },
+    glassProjectPath: '/projects/maple-ridge-glass-patio-cover',
   },
   'pitt-meadows': {
     name: 'Pitt Meadows',
@@ -73,6 +98,14 @@ const CITY_META = {
         'Lower Mainland aluminum patio cover example used for Pitt Meadows planning — practical rain protection for wider Fraser Valley spans. Chat ballpark before free measurement.',
       projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
     },
+    glassCaseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Fraser Valley glass patio cover — planning reference for wider Pitt Meadows backyard spans',
+      caption:
+        'Fraser Valley glass patio cover example used for Pitt Meadows planning — bright rain protection on wider spans. Compare aluminum for budget in chat.',
+      projectPath: '/projects/pitt-meadows-glass-patio-cover',
+    },
+    glassProjectPath: '/projects/pitt-meadows-glass-patio-cover',
   },
   'port-coquitlam': {
     name: 'Port Coquitlam',
@@ -87,6 +120,7 @@ const CITY_META = {
         'Tri-Cities glass patio cover example used for Port Coquitlam planning — rain-ready option with more natural light. Compare aluminum on the same size in chat.',
       projectPath: '/projects/port-coquitlam-glass-patio-cover',
     },
+    glassProjectPath: '/projects/port-coquitlam-glass-patio-cover',
   },
   'port-moody': {
     name: 'Port Moody',
@@ -101,6 +135,7 @@ const CITY_META = {
         'Tri-Cities glass patio cover example used for Port Moody planning — bright rain protection for compact walkout decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/port-moody-glass-patio-cover',
     },
+    glassProjectPath: '/projects/port-moody-glass-patio-cover',
   },
   abbotsford: {
     name: 'Abbotsford',
@@ -115,6 +150,14 @@ const CITY_META = {
         'Fraser Valley aluminum patio cover example used for Abbotsford planning — rain-ready coverage for larger family lots. Compare glass and combo on your dimensions in chat.',
       projectPath: '/projects/abbotsford-aluminum-patio-cover',
     },
+    glassCaseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Fraser Valley glass patio cover — planning reference for Abbotsford family backyards',
+      caption:
+        'Fraser Valley glass patio cover example used for Abbotsford planning — bright rain protection for larger family lots. Compare aluminum for budget in chat.',
+      projectPath: '/projects/abbotsford-glass-patio-cover',
+    },
+    glassProjectPath: '/projects/abbotsford-glass-patio-cover',
   },
   'white-rock': {
     name: 'White Rock',
@@ -129,6 +172,7 @@ const CITY_META = {
         'Coastal glass patio cover example used for White Rock planning — bright rain protection for seaside decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/white-rock-glass-patio-cover',
     },
+    glassProjectPath: '/projects/white-rock-glass-patio-cover',
   },
 };
 
@@ -402,8 +446,15 @@ function glassPage(slug, meta) {
       { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
       { path: `/patio-cover-contractor-${slug}`, label: `Patio cover contractor in ${meta.name}` },
       { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
+      ...(meta.glassProjectPath
+        ? [{ path: meta.glassProjectPath, label: `${meta.name} glass project` }]
+        : []),
     ],
-    ...(meta.caseStudy ? { caseStudy: meta.caseStudy } : {}),
+    ...(meta.glassCaseStudy
+      ? { caseStudy: meta.glassCaseStudy }
+      : meta.caseStudy
+        ? { caseStudy: meta.caseStudy }
+        : {}),
   };
 }
 

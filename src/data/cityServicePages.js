@@ -504,7 +504,15 @@ export const CITY_SERVICE_PAGES = {
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
       { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
       { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
+      { path: '/projects/surrey-glass-patio-cover', label: 'Surrey glass project' },
     ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Surrey-area glass patio cover — planning reference for South Surrey and Cloverdale backyards',
+      caption:
+        'Glass patio cover example used for Surrey planning — bright rain protection for larger suburban lots. Compare aluminum and skyline combo in chat.',
+      projectPath: '/projects/surrey-glass-patio-cover',
+    },
   },
   'sunrooms-richmond': {
     id: 'sunrooms-richmond',
