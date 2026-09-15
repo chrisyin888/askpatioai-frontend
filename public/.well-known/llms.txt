@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-09-14
+> Last updated: 2026-09-15
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -139,14 +139,25 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Glass patio covers — Delta: https://loomihomepatios.ca/glass-patio-covers-delta/
 - Glass patio covers — North Vancouver: https://loomihomepatios.ca/glass-patio-covers-north-vancouver/
 - Glass patio covers — West Vancouver: https://loomihomepatios.ca/glass-patio-covers-west-vancouver/
+- Glass patio covers — New Westminster: https://loomihomepatios.ca/glass-patio-covers-new-westminster/
+- Glass patio covers — Maple Ridge: https://loomihomepatios.ca/glass-patio-covers-maple-ridge/
+- Glass patio covers — Pitt Meadows: https://loomihomepatios.ca/glass-patio-covers-pitt-meadows/
 - Glass patio covers — Port Coquitlam: https://loomihomepatios.ca/glass-patio-covers-port-coquitlam/
 - Glass patio covers — Port Moody: https://loomihomepatios.ca/glass-patio-covers-port-moody/
+- Glass patio covers — Abbotsford: https://loomihomepatios.ca/glass-patio-covers-abbotsford/
 - Glass patio covers — White Rock: https://loomihomepatios.ca/glass-patio-covers-white-rock/
 - Skyline combo covers — Vancouver: https://loomihomepatios.ca/skyline-combo-patio-covers-vancouver/
 - Skyline combo covers — Burnaby: https://loomihomepatios.ca/skyline-combo-patio-covers-burnaby/
 - Skyline combo covers — Surrey: https://loomihomepatios.ca/skyline-combo-patio-covers-surrey/
 - Skyline combo covers — Coquitlam: https://loomihomepatios.ca/skyline-combo-patio-covers-coquitlam/
 - Skyline combo covers — Langley: https://loomihomepatios.ca/skyline-combo-patio-covers-langley/
+- Skyline combo covers — New Westminster: https://loomihomepatios.ca/skyline-combo-patio-covers-new-westminster/
+- Skyline combo covers — Maple Ridge: https://loomihomepatios.ca/skyline-combo-patio-covers-maple-ridge/
+- Surrey glass project: https://loomihomepatios.ca/projects/surrey-glass-patio-cover/
+- New Westminster glass project: https://loomihomepatios.ca/projects/new-westminster-glass-patio-cover/
+- Maple Ridge glass project: https://loomihomepatios.ca/projects/maple-ridge-glass-patio-cover/
+- Pitt Meadows glass project: https://loomihomepatios.ca/projects/pitt-meadows-glass-patio-cover/
+- Abbotsford glass project: https://loomihomepatios.ca/projects/abbotsford-glass-patio-cover/
 - Sunrooms — Vancouver: https://loomihomepatios.ca/sunrooms-vancouver/
 - Sunrooms — Burnaby: https://loomihomepatios.ca/sunrooms-burnaby/
 - Sunrooms — Richmond: https://loomihomepatios.ca/sunrooms-richmond/

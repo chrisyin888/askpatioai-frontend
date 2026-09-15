@@ -199,11 +199,15 @@ export const CITY_PAGES = {
     faqs: [
       {
         q: 'How much does a patio cover cost in Surrey?',
-        a: 'It depends on size, product type, and site conditions. Chat gives you a sensible ballpark for your situation; our cost guide page also explains what moves the number.',
+        a: 'It depends on size, product type, and site conditions. Chat gives you a sensible ballpark for your situation; our Surrey cost guide also explains typical 12×14 ft ranges.',
       },
       {
         q: 'Do you cover North Surrey and Cloverdale too?',
-        a: 'Yes — we serve Surrey broadly, including Guildford, Newton, Cloverdale, and South Surrey.',
+        a: 'Yes — we serve Surrey broadly, including Guildford, Newton, Cloverdale, Fleetwood, and South Surrey.',
+      },
+      {
+        q: 'Should I compare glass, aluminum, or a skyline combo in Surrey?',
+        a: 'Aluminum is usually the rain-first budget option; glass keeps more light; skyline combo mixes both. We can ballpark all three from the same approximate size in chat.',
       },
       {
         q: 'Sunroom or patio cover — which should I estimate first?',
@@ -215,6 +219,9 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
       { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
       { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
+      { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
+      { path: '/projects/surrey-glass-patio-cover', label: 'Surrey glass project' },
+      { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
@@ -491,7 +498,15 @@ export const CITY_PAGES = {
     faqs: [
       {
         q: 'Do you install patio covers in New Westminster?',
-        a: 'Yes — New Westminster is part of our regular Metro Vancouver service area.',
+        a: 'Yes — Queensborough, Sapperton, Uptown, and nearby New Westminster neighbourhoods are part of our regular Metro Vancouver service area.',
+      },
+      {
+        q: 'How much does a patio cover cost in New Westminster?',
+        a: 'Chat gives a planning total for your size. See the New Westminster cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
+        q: 'Is glass or aluminum better for compact New Westminster patios?',
+        a: 'Aluminum is often the practical rain-first option on tighter townhome decks; glass keeps more light when living rooms face the patio. We compare both — and skyline combo — in chat.',
       },
       {
         q: 'Can I get pricing before a home visit?',
@@ -502,8 +517,10 @@ export const CITY_PAGES = {
       { path: '/patio-cover-contractor-new-westminster', label: 'Patio cover contractor in New Westminster' },
       { path: '/aluminum-patio-covers-new-westminster', label: 'Aluminum patio covers in New Westminster' },
       { path: '/glass-patio-covers-new-westminster', label: 'Glass patio covers in New Westminster' },
+      { path: '/skyline-combo-patio-covers-new-westminster', label: 'Skyline combo covers in New Westminster' },
       { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
       { path: '/projects/new-westminster-aluminum-patio-cover', label: 'New Westminster aluminum project' },
+      { path: '/projects/new-westminster-glass-patio-cover', label: 'New Westminster glass project' },
     ],
     caseStudy: {
       image: '/house/skyline/p40.jpg',
@@ -536,7 +553,15 @@ export const CITY_PAGES = {
     faqs: [
       {
         q: 'Do you serve Maple Ridge and Pitt Meadows?',
-        a: 'Yes — both are within our Metro Vancouver / Lower Mainland service area.',
+        a: 'Yes — both are within our Metro Vancouver / Lower Mainland service area, including Town Centre, Albion, and Silver Valley.',
+      },
+      {
+        q: 'How much does a patio cover cost in Maple Ridge?',
+        a: 'Chat gives a planning total for your size. See the Maple Ridge cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
+        q: 'Should I choose aluminum, glass, or a skyline combo on a larger Maple Ridge lot?',
+        a: 'Aluminum is usually the rain-first budget option; glass keeps more light; skyline combo mixes shade and brightness. We can ballpark all three from the same approximate size.',
       },
       {
         q: 'How do I start a patio cover quote?',
@@ -546,9 +571,12 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-maple-ridge', label: 'Patio cover contractor in Maple Ridge' },
       { path: '/aluminum-patio-covers-maple-ridge', label: 'Aluminum patio covers in Maple Ridge' },
+      { path: '/glass-patio-covers-maple-ridge', label: 'Glass patio covers in Maple Ridge' },
+      { path: '/skyline-combo-patio-covers-maple-ridge', label: 'Skyline combo covers in Maple Ridge' },
       { path: '/sunrooms-maple-ridge', label: 'Sunrooms in Maple Ridge' },
       { path: '/patio-cover-cost-maple-ridge', label: 'Patio cover cost in Maple Ridge' },
       { path: '/projects/maple-ridge-aluminum-patio-cover', label: 'Maple Ridge aluminum project' },
+      { path: '/projects/maple-ridge-glass-patio-cover', label: 'Maple Ridge glass project' },
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
@@ -581,24 +609,31 @@ export const CITY_PAGES = {
     faqs: [
       {
         q: 'Do you install patio covers in Pitt Meadows?',
-        a: 'Yes — Pitt Meadows is part of our regular Lower Mainland coverage.',
+        a: 'Yes — Pitt Meadows and nearby Maple Ridge are part of our regular Lower Mainland coverage.',
       },
       {
-        q: 'What cover type is best for rainy weather?',
-        a: 'Aluminum and combo covers are popular for solid rain protection; glass works when you want more light. We compare both in chat.',
+        q: 'How much does a patio cover cost in Pitt Meadows?',
+        a: 'Chat gives a planning total for your size. See the Pitt Meadows cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
+        q: 'What cover type is best for rainy Fraser Valley weather?',
+        a: 'Aluminum and combo covers are popular for solid rain protection; glass works when you want more light on wider spans. We compare directions in chat on your approximate size.',
       },
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-pitt-meadows', label: 'Patio cover contractor in Pitt Meadows' },
       { path: '/aluminum-patio-covers-pitt-meadows', label: 'Aluminum patio covers in Pitt Meadows' },
+      { path: '/glass-patio-covers-pitt-meadows', label: 'Glass patio covers in Pitt Meadows' },
       { path: '/patio-cover-cost-pitt-meadows', label: 'Patio cover cost in Pitt Meadows' },
+      { path: '/projects/pitt-meadows-aluminum-patio-cover', label: 'Pitt Meadows aluminum project' },
+      { path: '/projects/pitt-meadows-glass-patio-cover', label: 'Pitt Meadows glass project' },
       { path: '/patio-covers-maple-ridge', label: 'Patio covers in Maple Ridge' },
     ],
     caseStudy: {
-      image: '/house/before-after/surrey-skyline-after.png',
+      image: '/house/before-after/burnaby-aluminum-after.png',
       alt: 'Fraser Valley aluminum patio cover — planning reference for wider Pitt Meadows lots',
       caption:
-        'Wide-span combo cover — reference for Pitt Meadows lots with room for larger patios. Chat ballpark before free measurement.',
+        'Aluminum patio cover example used for Pitt Meadows planning — practical rain protection for wider spans. Chat ballpark before free measurement.',
       projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
     },
   },
@@ -723,11 +758,19 @@ export const CITY_PAGES = {
     faqs: [
       {
         q: 'Do you install patio covers in Abbotsford?',
-        a: 'Yes — Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage.',
+        a: 'Yes — Clearbrook, Sumas Mountain, Downtown Abbotsford, and nearby Fraser Valley communities are part of our Lower Mainland coverage.',
+      },
+      {
+        q: 'How much does a patio cover cost in Abbotsford?',
+        a: 'Chat gives a planning total for your size. See the Abbotsford cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'How fast can I get a patio cover estimate in Abbotsford?',
         a: 'Most homeowners get a useful ballpark in about a minute in chat once we have city and approximate size.',
+      },
+      {
+        q: 'Should I compare aluminum or glass for an Abbotsford backyard?',
+        a: 'Aluminum is usually the rain-first budget option on larger lots; glass keeps more light when living rooms face the patio. We compare both in chat on the same size.',
       },
       {
         q: 'Do you also serve Langley and White Rock?',
@@ -737,14 +780,17 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
       { path: '/aluminum-patio-covers-abbotsford', label: 'Aluminum patio covers in Abbotsford' },
+      { path: '/glass-patio-covers-abbotsford', label: 'Glass patio covers in Abbotsford' },
       { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
+      { path: '/projects/abbotsford-aluminum-patio-cover', label: 'Abbotsford aluminum project' },
+      { path: '/projects/abbotsford-glass-patio-cover', label: 'Abbotsford glass project' },
       { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
     ],
     caseStudy: {
-      image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Fraser Valley patio cover — planning reference for Abbotsford family backyards',
+      image: '/house/before-after/burnaby-aluminum-after.png',
+      alt: 'Fraser Valley aluminum patio cover — planning reference for Abbotsford family backyards',
       caption:
-        'Skyline combo cover — larger backyard layout common in Abbotsford. Compare aluminum and glass on your dimensions in chat.',
+        'Aluminum patio cover example used for Abbotsford planning — rain-ready coverage for larger family lots. Compare glass on your dimensions in chat.',
       projectPath: '/projects/abbotsford-aluminum-patio-cover',
     },
   },
