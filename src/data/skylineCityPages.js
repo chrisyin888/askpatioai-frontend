@@ -8,11 +8,11 @@ const SKYLINE_CITY_META = {
     neighbourhoods: 'Metrotown, Deer Lake, and North Burnaby',
     localDetail: 'mixed lot sizes and rain exposure',
     caseStudy: {
-      image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Burnaby aluminum patio cover — planning reference when comparing skyline combo layouts in Metrotown and Deer Lake',
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Burnaby Metrotown and Deer Lake layouts',
       caption:
-        'Burnaby aluminum patio cover example used for skyline combo planning on mixed lot sizes. Ballpark combo and aluminum in chat.',
-      projectPath: '/projects/burnaby-aluminum-patio-cover',
+        'Skyline combo patio cover example used for Burnaby planning — balanced light and shade on mixed lot sizes. Compare aluminum and glass in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
     },
   },
   richmond: {
@@ -21,11 +21,11 @@ const SKYLINE_CITY_META = {
     neighbourhoods: 'Steveston, Broadmoor, and East Cambie',
     localDetail: 'side yards and back patios near parking areas',
     caseStudy: {
-      image: '/house/before-after/richmond-carport-after.png',
-      alt: 'Aluminum carport-style cover on a Richmond home — useful combo comparison for side yards',
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Richmond back patios and side yards',
       caption:
-        'Richmond cover example — compare skyline combo against aluminum on the same footprint in chat.',
-      projectPath: '/projects/richmond-aluminum-carport-cover',
+        'Skyline combo patio cover example used for Richmond planning — compare combo against aluminum on the same footprint in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
     },
   },
   surrey: {
@@ -46,6 +46,7 @@ const SKYLINE_CITY_META = {
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
       { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
       { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
+      { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
     ],
   },
   delta: {
@@ -54,11 +55,11 @@ const SKYLINE_CITY_META = {
     neighbourhoods: 'Ladner, Tsawwassen, and North Delta',
     localDetail: 'family patios and coastal rain exposure',
     caseStudy: {
-      image: '/house/before-after/delta-aluminum-after.png',
-      alt: 'Aluminum patio cover on a Delta backyard — reference for combo vs aluminum comparisons',
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Delta family patios',
       caption:
-        'Delta aluminum cover — compare skyline combo on the same size in chat before free measurement.',
-      projectPath: '/projects/delta-aluminum-patio-cover',
+        'Skyline combo patio cover example used for Delta planning — compare combo and aluminum on the same size in chat before free measurement.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
     },
   },
   coquitlam: {
@@ -67,11 +68,11 @@ const SKYLINE_CITY_META = {
     neighbourhoods: 'Burke Mountain, Westwood Plateau, and Maillardville',
     localDetail: 'hillside decks and established neighbourhoods',
     caseStudy: {
-      image: '/house/before-after/coquitlam-glass-after.png',
-      alt: 'Glass patio cover on a Coquitlam backyard — useful when comparing combo vs glass options',
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Coquitlam hillside decks',
       caption:
-        'Coquitlam glass cover — compare skyline combo and glass on your dimensions in chat.',
-      projectPath: '/projects/coquitlam-glass-patio-cover',
+        'Skyline combo patio cover example used for Coquitlam planning — compare combo and glass on your dimensions in chat.',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
     },
   },
   langley: {
@@ -80,11 +81,11 @@ const SKYLINE_CITY_META = {
     neighbourhoods: 'Willoughby, Walnut Grove, and Brookswood',
     localDetail: 'larger lots and family outdoor spaces',
     caseStudy: {
-      image: '/house/Aluminum/p27.jpg',
-      alt: 'Langley aluminum patio cover on a family backyard — planning reference for skyline combo layouts',
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Langley Willoughby and Walnut Grove lots',
       caption:
-        'Langley aluminum cover example used for skyline combo planning on larger lots in Willoughby and Walnut Grove.',
-      projectPath: '/projects/langley-aluminum-patio-cover',
+        'Skyline combo patio cover example used for Langley planning — balanced light and shade on larger family lots.',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
     },
   },
 };
@@ -150,6 +151,9 @@ function skylinePage(slug, meta) {
       { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
       { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
       { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
+      ...(meta.caseStudy?.projectPath
+        ? [{ path: meta.caseStudy.projectPath, label: 'Skyline combo project example' }]
+        : []),
     ],
     ...(meta.caseStudy ? { caseStudy: meta.caseStudy } : {}),
   };
@@ -169,5 +173,17 @@ export function skylinePageForExpansion(slug, meta) {
     ...meta,
     neighbourhoods: meta.neighbourhoods,
     localDetail: meta.localDetail,
+    caseStudy: meta.skylineCaseStudy || meta.caseStudy,
+    relatedPageLinks: [
+      { path: `/patio-covers-${slug}`, label: `Patio covers in ${meta.name}` },
+      { path: `/patio-cover-cost-${slug}`, label: `Patio cover cost in ${meta.name}` },
+      { path: `/aluminum-patio-covers-${slug}`, label: `Aluminum patio covers in ${meta.name}` },
+      { path: `/glass-patio-covers-${slug}`, label: `Glass patio covers in ${meta.name}` },
+      ...(meta.skylineCaseStudy?.projectPath
+        ? [{ path: meta.skylineCaseStudy.projectPath, label: `${meta.name} combo project` }]
+        : meta.caseStudy?.projectPath && String(meta.caseStudy.projectPath).includes('skyline')
+          ? [{ path: meta.caseStudy.projectPath, label: `${meta.name} combo project` }]
+          : []),
+    ],
   });
 }

@@ -99,6 +99,10 @@ export const CITY_PAGES = {
         a: 'Yes — north and south Burnaby, Brentwood, Edmonds, Deer Lake area, and surrounding. Same estimate flow for each.',
       },
       {
+        q: 'How much does a patio cover cost in Burnaby?',
+        a: 'Chat gives a planning total for your size. See the Burnaby cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'How does your estimate compare to calling contractors one by one?',
         a: 'You get a rough range almost immediately instead of playing phone tag. If the range works, we come out to measure for free and tighten the quote.',
       },
@@ -116,6 +120,8 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
       { path: '/glass-patio-covers-burnaby', label: 'Glass patio covers in Burnaby' },
       { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
+      { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
     ],
     caseStudy: {
@@ -150,6 +156,10 @@ export const CITY_PAGES = {
       {
         q: 'Can I get a patio cover quote for Richmond without a site visit first?',
         a: 'You can get a rough range in chat first. A site visit is for precise measurements and final numbers — and that visit is free when you are ready.',
+      },
+      {
+        q: 'How much does a patio cover cost in Richmond?',
+        a: 'Chat gives a planning total for your size. See the Richmond cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Glass or aluminum for a Richmond home near the water?',
@@ -257,6 +267,10 @@ export const CITY_PAGES = {
         a: 'Yes — all of Delta, including Ladner, Tsawwassen, and North Delta.',
       },
       {
+        q: 'How much does a patio cover cost in Delta?',
+        a: 'Chat gives a planning total for your size. See the Delta cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Are patio covers worth it in windy areas?',
         a: 'Engineering and attachment matter. We discuss your situation in chat and confirm structure and hardware on the measurement visit.',
       },
@@ -270,6 +284,8 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
       { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
       { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
+      { path: '/projects/delta-aluminum-patio-cover', label: 'Delta aluminum project' },
+      { path: '/projects/delta-glass-patio-cover', label: 'Delta glass project' },
       { path: '/coastal-patio-covers-vancouver', label: 'Coastal patio covers guide' },
     ],
     caseStudy: {
@@ -355,6 +371,10 @@ export const CITY_PAGES = {
         a: 'Yes — we regularly work across Langley, including Walnut Grove, Willoughby, Brookswood, and nearby areas.',
       },
       {
+        q: 'How much does a patio cover cost in Langley?',
+        a: 'Chat gives a planning total for your size. See the Langley cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'How fast is the first patio cover estimate?',
         a: 'Most homeowners get a useful ballpark in about a minute in chat once we have city and approximate size.',
       },
@@ -368,6 +388,8 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
       { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
       { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
+      { path: '/projects/langley-aluminum-patio-cover', label: 'Langley aluminum project' },
+      { path: '/projects/langley-glass-patio-cover', label: 'Langley glass project' },
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
@@ -403,6 +425,10 @@ export const CITY_PAGES = {
         a: 'Yes — we serve North Vancouver regularly along with Vancouver, Burnaby, and nearby cities.',
       },
       {
+        q: 'How much does a patio cover cost in North Vancouver?',
+        a: 'Chat gives a planning total for your size. See the North Vancouver cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'How fast is the first estimate?',
         a: 'Usually about a minute in chat once we have your area and approximate patio size.',
       },
@@ -417,6 +443,7 @@ export const CITY_PAGES = {
       { path: '/glass-patio-covers-north-vancouver', label: 'Glass patio covers in North Vancouver' },
       { path: '/patio-cover-cost-north-vancouver', label: 'Patio cover cost in North Vancouver' },
       { path: '/projects/north-vancouver-aluminum-patio-cover', label: 'North Vancouver aluminum project' },
+      { path: '/projects/north-vancouver-glass-patio-cover', label: 'North Vancouver glass project' },
     ],
     caseStudy: {
       image: '/house/glass/glass17.jpg',
@@ -663,6 +690,10 @@ export const CITY_PAGES = {
         a: 'Yes — Port Coquitlam and the wider Tri-Cities are part of our regular Lower Mainland coverage.',
       },
       {
+        q: 'How much does a patio cover cost in Port Coquitlam?',
+        a: 'Chat gives a planning total for your size. See the Port Coquitlam cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'How fast can I get a patio cover estimate in Port Coquitlam?',
         a: 'Most homeowners get a useful ballpark in about a minute in chat once we have city and approximate size.',
       },
@@ -674,8 +705,10 @@ export const CITY_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-port-coquitlam', label: 'Patio cover contractor in Port Coquitlam' },
       { path: '/aluminum-patio-covers-port-coquitlam', label: 'Aluminum patio covers in Port Coquitlam' },
+      { path: '/glass-patio-covers-port-coquitlam', label: 'Glass patio covers in Port Coquitlam' },
       { path: '/patio-cover-cost-port-coquitlam', label: 'Patio cover cost in Port Coquitlam' },
       { path: '/projects/port-coquitlam-aluminum-patio-cover', label: 'Port Coquitlam aluminum project' },
+      { path: '/projects/port-coquitlam-glass-patio-cover', label: 'Port Coquitlam glass project' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
     ],
     caseStudy: {
@@ -820,6 +853,10 @@ export const CITY_PAGES = {
         a: 'Yes — White Rock and nearby South Surrey are part of our regular Lower Mainland coverage.',
       },
       {
+        q: 'How much does a patio cover cost in White Rock?',
+        a: 'Chat gives a planning total for your size. See the White Rock cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Is glass or aluminum better for White Rock coastal weather?',
         a: 'Both can work when designed with proper slope, drainage, and attachment. Aluminum is often the practical rain option; glass keeps more light. We compare both in chat on your size.',
       },
@@ -830,9 +867,11 @@ export const CITY_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-white-rock', label: 'Patio cover contractor in White Rock' },
+      { path: '/aluminum-patio-covers-white-rock', label: 'Aluminum patio covers in White Rock' },
       { path: '/glass-patio-covers-white-rock', label: 'Glass patio covers in White Rock' },
       { path: '/patio-cover-cost-white-rock', label: 'Patio cover cost in White Rock' },
       { path: '/projects/white-rock-aluminum-patio-cover', label: 'White Rock aluminum project' },
+      { path: '/projects/white-rock-glass-patio-cover', label: 'White Rock glass project' },
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
     ],
     caseStudy: {

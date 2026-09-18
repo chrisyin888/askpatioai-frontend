@@ -93,6 +93,8 @@ export const GUIDE_PAGES = {
       { path: '/patio-covers-surrey', label: 'Patio covers — Surrey' },
       { path: '/patio-covers-port-coquitlam', label: 'Patio covers — Port Coquitlam' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
+      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass project' },
     ],
   },
   'patio-cover-cost': {
@@ -158,8 +160,11 @@ export const GUIDE_PAGES = {
     },
     relatedPageLinks: [
       { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
       { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
       { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
+      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass project' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
       { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
       { path: '/patio-cover-cost-abbotsford', label: 'Patio cover cost in Abbotsford' },
       { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
@@ -300,6 +305,9 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
       { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
       { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor — Vancouver' },
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
     ],
     caseStudy: {
       image: '/house/before-after/delta-aluminum-after.png',
@@ -363,6 +371,9 @@ export const GUIDE_PAGES = {
       { path: '/glass-vs-aluminum-patio-covers', label: 'Glass vs aluminum guide' },
       { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
+      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass project' },
     ],
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
@@ -426,6 +437,8 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost guide' },
       { path: '/do-you-need-a-permit-for-a-patio-cover-in-vancouver', label: 'Patio cover permit guide' },
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
@@ -718,6 +731,8 @@ export const GUIDE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-abbotsford', label: 'Patio covers in Abbotsford' },
       { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor in Abbotsford' },
+      { path: '/projects/abbotsford-aluminum-patio-cover', label: 'Abbotsford aluminum project' },
+      { path: '/projects/abbotsford-glass-patio-cover', label: 'Abbotsford glass project' },
       { path: '/fraser-valley-patio-covers', label: 'Fraser Valley patio covers guide' },
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
       { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },

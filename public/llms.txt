@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-09-15
+> Last updated: 2026-09-18
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -149,10 +149,25 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Skyline combo covers — Vancouver: https://loomihomepatios.ca/skyline-combo-patio-covers-vancouver/
 - Skyline combo covers — Burnaby: https://loomihomepatios.ca/skyline-combo-patio-covers-burnaby/
 - Skyline combo covers — Surrey: https://loomihomepatios.ca/skyline-combo-patio-covers-surrey/
+- Skyline combo covers — Richmond: https://loomihomepatios.ca/skyline-combo-patio-covers-richmond/
+- Skyline combo covers — Delta: https://loomihomepatios.ca/skyline-combo-patio-covers-delta/
 - Skyline combo covers — Coquitlam: https://loomihomepatios.ca/skyline-combo-patio-covers-coquitlam/
 - Skyline combo covers — Langley: https://loomihomepatios.ca/skyline-combo-patio-covers-langley/
 - Skyline combo covers — New Westminster: https://loomihomepatios.ca/skyline-combo-patio-covers-new-westminster/
 - Skyline combo covers — Maple Ridge: https://loomihomepatios.ca/skyline-combo-patio-covers-maple-ridge/
+- Patio cover permits guide: https://loomihomepatios.ca/do-you-need-a-permit-for-a-patio-cover-in-vancouver/
+- Patio cover install timeline: https://loomihomepatios.ca/how-long-does-patio-cover-installation-take/
+- Vancouver glass project: https://loomihomepatios.ca/projects/vancouver-glass-patio-cover/
+- Burnaby glass project: https://loomihomepatios.ca/projects/burnaby-glass-patio-cover/
+- Richmond glass project: https://loomihomepatios.ca/projects/richmond-glass-patio-cover/
+- Delta glass project: https://loomihomepatios.ca/projects/delta-glass-patio-cover/
+- Coquitlam glass project: https://loomihomepatios.ca/projects/coquitlam-glass-patio-cover/
+- Langley glass project: https://loomihomepatios.ca/projects/langley-glass-patio-cover/
+- North Vancouver glass project: https://loomihomepatios.ca/projects/north-vancouver-glass-patio-cover/
+- West Vancouver glass project: https://loomihomepatios.ca/projects/west-vancouver-glass-patio-cover/
+- Port Coquitlam glass project: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover/
+- Port Moody glass project: https://loomihomepatios.ca/projects/port-moody-glass-patio-cover/
+- White Rock glass project: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover/
 - Surrey glass project: https://loomihomepatios.ca/projects/surrey-glass-patio-cover/
 - New Westminster glass project: https://loomihomepatios.ca/projects/new-westminster-glass-patio-cover/
 - Maple Ridge glass project: https://loomihomepatios.ca/projects/maple-ridge-glass-patio-cover/
@@ -365,7 +380,7 @@ Q: Do you install glass patio covers in West Vancouver?
 A: Yes. Ambleside, Dundarave, the British Properties, and nearby North Shore areas are regular service areas. Glass is popular when homeowners want rain protection without darkening walkout decks or losing view lines. Project example: https://loomihomepatios.ca/projects/west-vancouver-glass-patio-cover/. Service page: https://loomihomepatios.ca/glass-patio-covers-west-vancouver/
 
 Q: How much does a patio cover cost in New Westminster?
-A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. New Westminster patios range from compact Queensborough townhome layouts to wider Sapperton backyards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-new-westminster/. Project examples: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/new-westminster-skyline-combo-cover/
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. New Westminster patios range from compact Queensborough townhome layouts to wider Sapperton backyards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-new-westminster/. Project examples: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover/, https://loomihomepatios.ca/projects/new-westminster-glass-patio-cover/, and https://loomihomepatios.ca/projects/new-westminster-skyline-combo-cover/
 
 Q: Do you install aluminum patio covers in New Westminster?
 A: Yes. Queensborough, Sapperton, Uptown, and nearby Metro Vancouver areas are regular service areas. Aluminum is often the rain-first starting point on compact townhome patios. Project example: https://loomihomepatios.ca/projects/new-westminster-aluminum-patio-cover/. Service page: https://loomihomepatios.ca/aluminum-patio-covers-new-westminster/
@@ -383,7 +398,7 @@ Q: Do you install glass patio covers in White Rock?
 A: Yes. East Beach, West Beach, and nearby South Surrey are regular service areas. Glass is popular when homeowners want rain protection without darkening seaside decks. Project example: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover/. Service page: https://loomihomepatios.ca/glass-patio-covers-white-rock/
 
 Q: How much does a patio cover cost in Pitt Meadows?
-A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Pitt Meadows lots often have room for wider spans than city yards, so chat gives a planning total for your layout. Guide: https://loomihomepatios.ca/patio-cover-cost-pitt-meadows/. Project example: https://loomihomepatios.ca/projects/pitt-meadows-aluminum-patio-cover/
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Pitt Meadows lots often have room for wider spans than city yards, so chat gives a planning total for your layout. Guide: https://loomihomepatios.ca/patio-cover-cost-pitt-meadows/. Project examples: https://loomihomepatios.ca/projects/pitt-meadows-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/pitt-meadows-glass-patio-cover/
 
 Q: How much does a patio cover cost in Port Coquitlam?
 A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Port Coquitlam lots range from compact townhome patios to hillside Mary Hill yards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-port-coquitlam/. Project examples: https://loomihomepatios.ca/projects/port-coquitlam-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover/
