@@ -138,8 +138,16 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, Richmond is one of our main Lower Mainland service areas.',
       },
       {
+        q: 'How much does an aluminum patio cover cost in Richmond?',
+        a: 'Chat gives a planning total for your size. See the Richmond patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can aluminum be used for a side driveway cover?',
         a: 'Often yes, depending on clearance, span, attachment, and local requirements. We confirm those details during measurement.',
+      },
+      {
+        q: 'Is the online Richmond aluminum estimate final?',
+        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -151,9 +159,9 @@ export const CITY_SERVICE_PAGES = {
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
-      alt: 'Aluminum patio cover on a Richmond backyard patio',
+      alt: 'Aluminum patio cover on a Richmond backyard patio — planning reference for Steveston and Broadmoor',
       caption:
-        'Richmond aluminum patio cover — practical rain protection for backyard seating. Compare glass in chat on the same size.',
+        'Richmond aluminum patio cover example — practical rain protection for backyard seating. Compare glass in chat on the same size.',
       projectPath: '/projects/richmond-aluminum-patio-cover',
     },
   },
@@ -717,6 +725,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes — Vancouver and the wider Lower Mainland are our primary service area. Start with a fast online estimate, then book a free on-site measurement.',
       },
       {
+        q: 'How much does patio cover installation cost in Vancouver?',
+        a: 'Chat gives a planning total for your size. See the Vancouver patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can I find patio cover installers near me without calling multiple companies?',
         a: 'Yes. Chat gives a rough range in about a minute. If it fits your budget, we measure on site for free and tighten the quote.',
       },
@@ -724,7 +736,27 @@ export const CITY_SERVICE_PAGES = {
         q: 'What patio cover types do you install?',
         a: 'Aluminum, glass, skyline combo, and sunroom directions — we help you compare before finalizing installation details.',
       },
+      {
+        q: 'Is the online Vancouver installation estimate final?',
+        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+      { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor in Vancouver' },
+      { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
+      { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
+      { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass project' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
+    caseStudy: {
+      image: '/house/before-after/vancouver-glass-after.png',
+      alt: 'Vancouver glass patio cover after installation with natural light under tempered glass',
+      caption:
+        'Vancouver glass patio cover install — chat ballpark first, free measurement second, then scheduling once materials arrive.',
+      projectPath: '/projects/vancouver-glass-patio-cover',
+    },
   },
   'installer-richmond': {
     id: 'installer-richmond',
@@ -764,10 +796,34 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, we serve Richmond and nearby Lower Mainland cities.',
       },
       {
+        q: 'How much does patio cover installation cost in Richmond?',
+        a: 'Chat gives a planning total for your size. See the Richmond patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can you install glass and aluminum covers?',
         a: 'We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
+      {
+        q: 'Is the online Richmond installation estimate final?',
+        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+      },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+      { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
+      { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
+      { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond aluminum project' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
+    caseStudy: {
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Richmond aluminum patio cover after installation on a backyard patio',
+      caption:
+        'Richmond aluminum install — chat ballpark first, free measurement second, then scheduling once materials arrive.',
+      projectPath: '/projects/richmond-aluminum-patio-cover',
+    },
   },
   'aluminum-delta': {
     id: 'aluminum-delta',
@@ -1793,6 +1849,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, we serve Langley, including the Township and City of Langley.',
       },
       {
+        q: 'How much does patio cover installation cost in Langley?',
+        a: 'Chat gives a planning total for your size. See the Langley patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can you install glass and aluminum covers?',
         a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
@@ -1803,15 +1863,18 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
       { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
+      { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
+      { path: '/projects/langley-aluminum-patio-cover', label: 'Langley aluminum project' },
       { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
     ],
     caseStudy: {
-      image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Large backyard patio cover installation on a suburban Langley-style lot',
+      image: '/house/Aluminum/p27.jpg',
+      alt: 'Langley aluminum patio cover — planning reference for Willoughby and Walnut Grove installs',
       caption:
-        'Langley-area install reference — larger backyards common in Willoughby and Walnut Grove. Ballpark in chat before site visit.',
-      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+        'Langley aluminum install example used for planning — larger backyards common in Willoughby and Walnut Grove. Ballpark in chat before site visit.',
+      projectPath: '/projects/langley-aluminum-patio-cover',
     },
   },
   'contractor-delta': {
@@ -1852,6 +1915,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. Start with a rough online quote, then book a free measurement if the range works.',
       },
       {
+        q: 'How much does a patio cover cost in Delta?',
+        a: 'Chat gives a planning total for your size. See the Delta patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Do you serve Ladner and Tsawwassen?',
         a: 'Yes, we serve Delta broadly, including Ladner, Tsawwassen, and North Delta.',
       },
@@ -1870,8 +1937,10 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-delta', label: 'Patio covers in Delta' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
       { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
+      { path: '/projects/delta-aluminum-patio-cover', label: 'Delta aluminum project' },
     ],
     caseStudy: {
       image: '/house/before-after/delta-aluminum-after.png',
@@ -1919,6 +1988,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, we serve Delta, including Ladner, Tsawwassen, and North Delta.',
       },
       {
+        q: 'How much does patio cover installation cost in Delta?',
+        a: 'Chat gives a planning total for your size. See the Delta patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can you install glass and aluminum covers?',
         a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
@@ -1929,7 +2002,10 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/glass-patio-covers-delta', label: 'Glass patio covers in Delta' },
+      { path: '/projects/delta-aluminum-patio-cover', label: 'Delta aluminum project' },
       { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
     ],
     caseStudy: {

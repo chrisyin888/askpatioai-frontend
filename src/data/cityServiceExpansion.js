@@ -25,6 +25,13 @@ const CITY_META = {
       projectPath: '/projects/north-vancouver-glass-patio-cover',
     },
     glassProjectPath: '/projects/north-vancouver-glass-patio-cover',
+    skylineCaseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for North Vancouver raised decks',
+      caption:
+        'Skyline combo patio cover example used for North Vancouver planning — balanced light and shade on sloped lots and raised decks. Compare aluminum and glass in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'west-vancouver': {
     name: 'West Vancouver',
@@ -47,6 +54,13 @@ const CITY_META = {
       projectPath: '/projects/west-vancouver-aluminum-patio-cover',
     },
     glassProjectPath: '/projects/west-vancouver-glass-patio-cover',
+    skylineCaseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for West Vancouver coastal decks',
+      caption:
+        'Skyline combo patio cover example used for West Vancouver planning — mixed light and shade for coastal walkouts. Compare aluminum and glass in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   'new-westminster': {
     name: 'New Westminster',
@@ -134,6 +148,13 @@ const CITY_META = {
       projectPath: '/projects/pitt-meadows-glass-patio-cover',
     },
     glassProjectPath: '/projects/pitt-meadows-glass-patio-cover',
+    skylineCaseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for wider Pitt Meadows backyard spans',
+      caption:
+        'Skyline combo patio cover example used for Pitt Meadows planning — mixed light and shade on wider Fraser Valley spans. Compare aluminum and glass in chat.',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
+    },
   },
   'port-coquitlam': {
     name: 'Port Coquitlam',
@@ -156,6 +177,13 @@ const CITY_META = {
       projectPath: '/projects/port-coquitlam-aluminum-patio-cover',
     },
     glassProjectPath: '/projects/port-coquitlam-glass-patio-cover',
+    skylineCaseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Port Coquitlam townhomes and hillside yards',
+      caption:
+        'Skyline combo patio cover example used for Port Coquitlam planning — balanced light and shade for Tri-Cities yards. Compare aluminum and glass in chat.',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
+    },
   },
   'port-moody': {
     name: 'Port Moody',
@@ -178,6 +206,13 @@ const CITY_META = {
       projectPath: '/projects/port-moody-aluminum-patio-cover',
     },
     glassProjectPath: '/projects/port-moody-glass-patio-cover',
+    skylineCaseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Port Moody compact walkout decks',
+      caption:
+        'Skyline combo patio cover example used for Port Moody planning — mixed light and shade on compact coastal decks. Compare aluminum and glass in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
   abbotsford: {
     name: 'Abbotsford',
@@ -200,6 +235,13 @@ const CITY_META = {
       projectPath: '/projects/abbotsford-glass-patio-cover',
     },
     glassProjectPath: '/projects/abbotsford-glass-patio-cover',
+    skylineCaseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for Abbotsford family backyards',
+      caption:
+        'Skyline combo patio cover example used for Abbotsford planning — balanced light and shade on larger Fraser Valley lots. Compare aluminum and glass in chat.',
+      projectPath: '/projects/maple-ridge-skyline-combo-cover',
+    },
   },
   'white-rock': {
     name: 'White Rock',
@@ -222,6 +264,13 @@ const CITY_META = {
       projectPath: '/projects/white-rock-aluminum-patio-cover',
     },
     glassProjectPath: '/projects/white-rock-glass-patio-cover',
+    skylineCaseStudy: {
+      image: '/house/before-after/surrey-skyline-after.png',
+      alt: 'Skyline combo patio cover — planning reference for White Rock and South Surrey decks',
+      caption:
+        'Skyline combo patio cover example used for White Rock planning — mixed light and shade for coastal decks. Compare aluminum and glass in chat.',
+      projectPath: '/projects/surrey-skyline-combo-patio-cover',
+    },
   },
 };
 

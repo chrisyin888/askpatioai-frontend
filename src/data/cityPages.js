@@ -335,6 +335,8 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
       { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
       { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
+      { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
       { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
     ],
     caseStudy: {
@@ -393,9 +395,9 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
-      alt: 'Aluminum patio cover on a Langley family backyard patio in Willoughby or Walnut Grove',
+      alt: 'Fraser Valley aluminum patio cover — planning reference for Langley Willoughby and Walnut Grove lots',
       caption:
-        'Langley aluminum patio cover — practical rain protection for Willoughby and Walnut Grove backyards. Compare glass in chat on the same size.',
+        'Aluminum patio cover example used for Langley planning — practical rain protection for Willoughby and Walnut Grove backyards. Compare glass in chat on the same size.',
       projectPath: '/projects/langley-aluminum-patio-cover',
     },
   },
@@ -447,9 +449,9 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/glass/glass17.jpg',
-      alt: 'Glass patio cover on a North Vancouver walkout deck with natural light under tempered glass',
+      alt: 'North Shore glass patio cover — planning reference for North Vancouver walkout decks',
       caption:
-        'North Vancouver glass patio cover — bright rain protection for North Shore sloped lots. Compare aluminum for budget in chat.',
+        'Glass patio cover example used for North Vancouver planning — bright rain protection for North Shore sloped lots. Compare aluminum for budget in chat.',
       projectPath: '/projects/north-vancouver-glass-patio-cover',
     },
   },
@@ -493,12 +495,13 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-west-vancouver', label: 'Aluminum patio covers in West Vancouver' },
       { path: '/patio-cover-cost-west-vancouver', label: 'Patio cover cost in West Vancouver' },
       { path: '/projects/west-vancouver-glass-patio-cover', label: 'West Vancouver glass project' },
+      { path: '/projects/west-vancouver-aluminum-patio-cover', label: 'West Vancouver aluminum project' },
     ],
     caseStudy: {
       image: '/house/before-after/vancouver-glass-after.png',
-      alt: 'Glass patio cover on a premium West Coast home with natural light under tempered glass roof',
+      alt: 'West Coast glass patio cover — planning reference for West Vancouver view lines and walkout decks',
       caption:
-        'Glass patio cover — bright rain protection suited to West Vancouver view lines and walkout decks. Compare aluminum for budget in chat.',
+        'Glass patio cover example used for West Vancouver planning — bright rain protection for view lines and walkout decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/west-vancouver-glass-patio-cover',
     },
   },
@@ -551,9 +554,9 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/skyline/p40.jpg',
-      alt: 'Skyline combo patio cover on a New Westminster townhome or detached backyard patio',
+      alt: 'Skyline combo patio cover — planning reference for New Westminster townhome and detached patios',
       caption:
-        'New Westminster skyline combo cover — practical fit for compact townhome patios and detached backyards. Ballpark in chat first.',
+        'Skyline combo cover example used for New Westminster planning — practical fit for compact townhome patios and detached backyards. Ballpark in chat first.',
       projectPath: '/projects/new-westminster-skyline-combo-cover',
     },
   },
@@ -755,9 +758,11 @@ export const CITY_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-port-moody', label: 'Patio cover contractor in Port Moody' },
+      { path: '/aluminum-patio-covers-port-moody', label: 'Aluminum patio covers in Port Moody' },
       { path: '/glass-patio-covers-port-moody', label: 'Glass patio covers in Port Moody' },
       { path: '/patio-cover-cost-port-moody', label: 'Patio cover cost in Port Moody' },
       { path: '/projects/port-moody-aluminum-patio-cover', label: 'Port Moody aluminum project' },
+      { path: '/projects/port-moody-glass-patio-cover', label: 'Port Moody glass project' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
     ],
     caseStudy: {
@@ -876,9 +881,9 @@ export const CITY_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/vancouver-glass-after.png',
-      alt: 'Glass patio cover on a coastal Metro Vancouver home with natural light under tempered glass roof',
+      alt: 'Coastal glass patio cover — planning reference for White Rock and South Surrey decks',
       caption:
-        'Glass patio cover — bright rain protection suited to White Rock and South Surrey decks. Compare aluminum for budget in chat.',
+        'Glass patio cover example used for White Rock planning — bright rain protection for seaside decks. Compare aluminum for budget in chat.',
       projectPath: '/projects/white-rock-glass-patio-cover',
     },
   },

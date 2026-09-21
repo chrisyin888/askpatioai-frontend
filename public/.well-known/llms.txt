@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-09-18
+> Last updated: 2026-09-21
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -179,6 +179,33 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Sunrooms — Surrey: https://loomihomepatios.ca/sunrooms-surrey/
 - Sunrooms — Coquitlam: https://loomihomepatios.ca/sunrooms-coquitlam/
 - Sunrooms — Langley: https://loomihomepatios.ca/sunrooms-langley/
+- Sunrooms — Delta: https://loomihomepatios.ca/sunrooms-delta/
+- Sunrooms — North Vancouver: https://loomihomepatios.ca/sunrooms-north-vancouver/
+- Sunrooms — West Vancouver: https://loomihomepatios.ca/sunrooms-west-vancouver/
+- Sunrooms — New Westminster: https://loomihomepatios.ca/sunrooms-new-westminster/
+- Sunrooms — Maple Ridge: https://loomihomepatios.ca/sunrooms-maple-ridge/
+- Patio cover installer — Vancouver: https://loomihomepatios.ca/patio-cover-installer-vancouver/
+- Patio cover installer — Burnaby: https://loomihomepatios.ca/patio-cover-installer-burnaby/
+- Patio cover installer — Richmond: https://loomihomepatios.ca/patio-cover-installer-richmond/
+- Patio cover installer — Surrey: https://loomihomepatios.ca/patio-cover-installer-surrey/
+- Patio cover installer — Coquitlam: https://loomihomepatios.ca/patio-cover-installer-coquitlam/
+- Patio cover installer — Langley: https://loomihomepatios.ca/patio-cover-installer-langley/
+- Patio cover installer — Delta: https://loomihomepatios.ca/patio-cover-installer-delta/
+- Skyline combo covers — North Vancouver: https://loomihomepatios.ca/skyline-combo-patio-covers-north-vancouver/
+- Skyline combo covers — West Vancouver: https://loomihomepatios.ca/skyline-combo-patio-covers-west-vancouver/
+- Skyline combo covers — Pitt Meadows: https://loomihomepatios.ca/skyline-combo-patio-covers-pitt-meadows/
+- Skyline combo covers — Port Coquitlam: https://loomihomepatios.ca/skyline-combo-patio-covers-port-coquitlam/
+- Skyline combo covers — Port Moody: https://loomihomepatios.ca/skyline-combo-patio-covers-port-moody/
+- Skyline combo covers — Abbotsford: https://loomihomepatios.ca/skyline-combo-patio-covers-abbotsford/
+- Skyline combo covers — White Rock: https://loomihomepatios.ca/skyline-combo-patio-covers-white-rock/
+- Vancouver aluminum project: https://loomihomepatios.ca/projects/vancouver-aluminum-patio-cover/
+- Burnaby aluminum project: https://loomihomepatios.ca/projects/burnaby-aluminum-patio-cover/
+- Surrey aluminum project: https://loomihomepatios.ca/projects/surrey-aluminum-patio-cover/
+- Richmond aluminum project: https://loomihomepatios.ca/projects/richmond-aluminum-patio-cover/
+- Coquitlam aluminum project: https://loomihomepatios.ca/projects/coquitlam-aluminum-patio-cover/
+- Langley aluminum project: https://loomihomepatios.ca/projects/langley-aluminum-patio-cover/
+- Delta aluminum project: https://loomihomepatios.ca/projects/delta-aluminum-patio-cover/
+- North Vancouver aluminum project: https://loomihomepatios.ca/projects/north-vancouver-aluminum-patio-cover/
 - Full sitemap: https://loomihomepatios.ca/sitemap.xml
 - LLM summary: https://loomihomepatios.ca/llms.txt
 
@@ -311,16 +338,19 @@ Q: What is the best patio cover for Vancouver rain?
 A: Aluminum is the practical rain-first starting point (about $1,844–$2,180 for a 12×14 ft cover). Glass and skyline combo work when light matters too. Guide: https://loomihomepatios.ca/best-patio-cover-for-rain-vancouver/
 
 Q: How much does a sunroom cost in Metro Vancouver?
-A: A 12×8 ft sunroom wall/panel area is about $3,840–$4,608 before GST. A 10×12 ft buildable floor area is about $15,600–$17,400. Chat gives a planning total; measurement confirms final pricing. Compare sunrooms: https://loomihomepatios.ca/sunrooms-burnaby/
+A: A 12×8 ft sunroom wall/panel area is about $3,840–$4,608 before GST. A 10×12 ft buildable floor area is about $15,600–$17,400. Chat gives a planning total; measurement confirms final pricing. Compare sunrooms: https://loomihomepatios.ca/sunrooms-vancouver/, https://loomihomepatios.ca/sunrooms-burnaby/, and https://loomihomepatios.ca/sunrooms-surrey/
 
 Q: How long does patio cover installation take?
-A: Chat ballpark is same-day (~60 seconds). After free measurement and quote approval, on-site install timing depends on product and season — typically a modest number of days once materials arrive. Guide: https://loomihomepatios.ca/how-long-does-patio-cover-installation-take/
+A: Chat ballpark is same-day (~60 seconds). After free measurement and quote approval, on-site install timing depends on product and season — typically a modest number of days once materials arrive. Guide: https://loomihomepatios.ca/how-long-does-patio-cover-installation-take/. Installer pages: https://loomihomepatios.ca/patio-cover-installer-vancouver/ and https://loomihomepatios.ca/patio-cover-installer-richmond/
 
 Q: Do you install patio covers in New Westminster and Maple Ridge?
 A: Yes. New Westminster (Queensborough, Sapperton, Uptown) and Maple Ridge (Town Centre, Albion, Silver Valley) are regular service areas: https://loomihomepatios.ca/patio-cover-contractor-new-westminster/ and https://loomihomepatios.ca/patio-cover-contractor-maple-ridge/
 
 Q: Do you install patio covers in Abbotsford?
 A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Project example: https://loomihomepatios.ca/projects/abbotsford-aluminum-patio-cover/
+
+Q: How much does a patio cover cost in Abbotsford?
+A: On a 12×14 ft patio, aluminum is about $1,844–$2,180 before GST, glass is about $2,516–$3,020, and skyline combo is about $2,348–$2,852. Abbotsford lots are often roomier than city yards, so chat gives a planning total for your size. Guide: https://loomihomepatios.ca/patio-cover-cost-abbotsford/. Project examples: https://loomihomepatios.ca/projects/abbotsford-aluminum-patio-cover/ and https://loomihomepatios.ca/projects/abbotsford-glass-patio-cover/
 
 Q: Do you install patio covers in White Rock?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Project example: https://loomihomepatios.ca/projects/white-rock-glass-patio-cover/. Guide: https://loomihomepatios.ca/coastal-patio-covers-vancouver/

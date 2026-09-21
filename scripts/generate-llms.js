@@ -239,16 +239,19 @@ Q: What is the best patio cover for Vancouver rain?
 A: Aluminum is the practical rain-first starting point (about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} for a 12×14 ft cover). Glass and skyline combo work when light matters too. Guide: ${SITE_ORIGIN}/best-patio-cover-for-rain-vancouver
 
 Q: How much does a sunroom cost in Metro Vancouver?
-A: A 12×8 ft sunroom wall/panel area is about $${sunroomQuoteForType('wall', 96).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('wall', 96).totalMax.toLocaleString('en-CA')} before GST. A 10×12 ft buildable floor area is about $${sunroomQuoteForType('buildable', 120).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('buildable', 120).totalMax.toLocaleString('en-CA')}. Chat gives a planning total; measurement confirms final pricing. Compare sunrooms: ${SITE_ORIGIN}/sunrooms-burnaby
+A: A 12×8 ft sunroom wall/panel area is about $${sunroomQuoteForType('wall', 96).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('wall', 96).totalMax.toLocaleString('en-CA')} before GST. A 10×12 ft buildable floor area is about $${sunroomQuoteForType('buildable', 120).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('buildable', 120).totalMax.toLocaleString('en-CA')}. Chat gives a planning total; measurement confirms final pricing. Compare sunrooms: ${SITE_ORIGIN}/sunrooms-vancouver, ${SITE_ORIGIN}/sunrooms-burnaby, and ${SITE_ORIGIN}/sunrooms-surrey
 
 Q: How long does patio cover installation take?
-A: Chat ballpark is same-day (~60 seconds). After free measurement and quote approval, on-site install timing depends on product and season — typically a modest number of days once materials arrive. Guide: ${SITE_ORIGIN}/how-long-does-patio-cover-installation-take
+A: Chat ballpark is same-day (~60 seconds). After free measurement and quote approval, on-site install timing depends on product and season — typically a modest number of days once materials arrive. Guide: ${SITE_ORIGIN}/how-long-does-patio-cover-installation-take. Installer pages: ${SITE_ORIGIN}/patio-cover-installer-vancouver and ${SITE_ORIGIN}/patio-cover-installer-richmond
 
 Q: Do you install patio covers in New Westminster and Maple Ridge?
 A: Yes. New Westminster (Queensborough, Sapperton, Uptown) and Maple Ridge (Town Centre, Albion, Silver Valley) are regular service areas: ${SITE_ORIGIN}/patio-cover-contractor-new-westminster and ${SITE_ORIGIN}/patio-cover-contractor-maple-ridge
 
 Q: Do you install patio covers in Abbotsford?
 A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Project example: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover
+
+Q: How much does a patio cover cost in Abbotsford?
+A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Abbotsford lots are often roomier than city yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-abbotsford. Project examples: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover and ${SITE_ORIGIN}/projects/abbotsford-glass-patio-cover
 
 Q: Do you install patio covers in White Rock?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Project example: ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover. Guide: ${SITE_ORIGIN}/coastal-patio-covers-vancouver
