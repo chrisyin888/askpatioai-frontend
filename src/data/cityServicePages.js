@@ -1549,9 +1549,6 @@ export const CITY_SERVICE_PAGES = {
       { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
       { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
     ],
-      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
-      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
-    ],
     caseStudy: {
       image: '/house/before-after/coquitlam-glass-after.png',
       alt: 'Coquitlam glass patio cover after installation on a sloped-lot backyard',
