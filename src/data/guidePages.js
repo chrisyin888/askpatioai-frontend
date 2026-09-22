@@ -1357,9 +1357,9 @@ export const GUIDE_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Aluminum patio cover on a compact Metro Vancouver backyard patio',
+      alt: 'Lower Mainland aluminum patio cover — planning reference for compact New Westminster patios',
       caption:
-        'New Westminster aluminum patio cover reference — compare aluminum, combo, and glass on your dimensions in chat before free measurement.',
+        'Lower Mainland aluminum patio cover example used for New Westminster cost planning — compare aluminum, combo, and glass on your dimensions in chat before free measurement.',
       projectPath: '/projects/new-westminster-aluminum-patio-cover',
     },
     relatedPageLinks: [

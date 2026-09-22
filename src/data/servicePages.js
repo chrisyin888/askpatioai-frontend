@@ -39,6 +39,10 @@ export const SERVICE_PAGES = {
         a: 'Usually about a minute in chat once we have your city and approximate patio size — then we refine on a free visit if you want to proceed.',
       },
       {
+        q: 'How much does an aluminum patio cover cost in Vancouver?',
+        a: 'Chat gives a planning total for your size. See the Vancouver patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Is aluminum better than glass for Vancouver rain?',
         a: 'Aluminum roofs are the straightforward rain shield; glass adds light with proper engineering. We help you compare both for your goals.',
       },
@@ -53,10 +57,10 @@ export const SERVICE_PAGES = {
     ],
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Aluminum patio cover on a Vancouver-area backyard patio for rain protection',
+      alt: 'Lower Mainland aluminum patio cover — planning reference for Vancouver backyards',
       caption:
-        'Aluminum patio cover — practical rain protection for Vancouver backyards. Compare glass and skyline combo in chat on the same size.',
-      projectPath: '/projects/burnaby-aluminum-patio-cover',
+        'Lower Mainland aluminum patio cover example used for Vancouver planning — practical rain protection. Compare glass and skyline combo in chat on the same size.',
+      projectPath: '/projects/vancouver-aluminum-patio-cover',
     },
     relatedPageLinks: [
       { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },

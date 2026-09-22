@@ -82,6 +82,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. Share rough dimensions and your area of Burnaby to get a starting range before booking a free measurement.',
       },
       {
+        q: 'How much does an aluminum patio cover cost in Burnaby?',
+        a: 'Chat gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Is aluminum better than glass for rain?',
         a: 'For rain-first and budget-conscious projects, aluminum is often the practical starting point. Glass is better when keeping more natural light is a top priority.',
       },
@@ -89,6 +93,8 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
       { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+      { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor in Burnaby' },
+      { path: '/glass-patio-covers-burnaby', label: 'Glass patio covers in Burnaby' },
       { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
       { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
     ],
@@ -153,15 +159,17 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
       { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+      { path: '/patio-cover-contractor-richmond', label: 'Patio cover contractor in Richmond' },
+      { path: '/glass-patio-covers-richmond', label: 'Glass patio covers in Richmond' },
       { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond backyard patio project' },
       { path: '/projects/richmond-aluminum-carport-cover', label: 'Richmond carport project' },
       { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
-      alt: 'Aluminum patio cover on a Richmond backyard patio — planning reference for Steveston and Broadmoor',
+      alt: 'Aluminum patio cover — planning reference for Richmond Steveston and Broadmoor backyards',
       caption:
-        'Richmond aluminum patio cover example — practical rain protection for backyard seating. Compare glass in chat on the same size.',
+        'Aluminum patio cover example used for Richmond planning — practical rain protection for backyard seating. Compare glass in chat on the same size.',
       projectPath: '/projects/richmond-aluminum-patio-cover',
     },
   },
@@ -203,6 +211,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. We serve Surrey broadly, including South Surrey, Cloverdale, Newton, Fleetwood, and Guildford.',
       },
       {
+        q: 'How much does an aluminum patio cover cost in Surrey?',
+        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can I get pricing before a site visit?',
         a: 'Yes. The first estimate is a rough planning range; final pricing comes after measurement.',
       },
@@ -210,14 +222,16 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
       { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
       { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
       { path: '/projects/surrey-skyline-combo-patio-cover', label: 'Surrey skyline combo project' },
     ],
     caseStudy: {
       image: '/house/before-after/burnaby-aluminum-after.png',
-      alt: 'Aluminum patio cover on a wide Surrey suburban backyard',
+      alt: 'Lower Mainland aluminum patio cover — planning reference for wider Surrey suburban backyards',
       caption:
-        'Surrey aluminum patio cover reference — practical rain protection for larger backyards. Ballpark in chat before free measurement.',
+        'Lower Mainland aluminum patio cover example used for Surrey planning — practical rain protection for larger backyards. Ballpark in chat before free measurement.',
       projectPath: '/projects/surrey-aluminum-patio-cover',
     },
   },
@@ -819,9 +833,9 @@ export const CITY_SERVICE_PAGES = {
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
-      alt: 'Richmond aluminum patio cover after installation on a backyard patio',
+      alt: 'Aluminum patio cover — planning reference for Richmond backyard installs',
       caption:
-        'Richmond aluminum install — chat ballpark first, free measurement second, then scheduling once materials arrive.',
+        'Aluminum patio cover example used for Richmond install planning — chat ballpark first, free measurement second, then scheduling once materials arrive.',
       projectPath: '/projects/richmond-aluminum-patio-cover',
     },
   },
@@ -924,6 +938,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, we serve Coquitlam and nearby Tri-Cities areas.',
       },
       {
+        q: 'How much does an aluminum patio cover cost in Coquitlam?',
+        a: 'Chat gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Is aluminum cheaper than glass?',
         a: 'Usually yes. Aluminum is often the practical starting point when budget and rain protection are the main priorities.',
       },
@@ -931,15 +949,17 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
       { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
       { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers guide' },
       { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
       { path: '/projects/coquitlam-glass-patio-cover', label: 'Coquitlam glass project' },
     ],
     caseStudy: {
       image: '/house/Aluminum/p26.jpg',
-      alt: 'Aluminum patio cover on a Coquitlam Tri-Cities backyard',
+      alt: 'Tri-Cities aluminum patio cover — planning reference for Coquitlam hillside and family yards',
       caption:
-        'Coquitlam aluminum patio cover — practical rain protection for hillside and family yards. Compare glass in chat on the same size.',
+        'Aluminum patio cover example used for Coquitlam planning — practical rain protection for hillside and family yards. Compare glass in chat on the same size.',
       projectPath: '/projects/coquitlam-aluminum-patio-cover',
     },
   },
@@ -1169,6 +1189,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, we serve Surrey broadly, including South Surrey, Cloverdale, Newton, Fleetwood, and Guildford.',
       },
       {
+        q: 'How much does patio cover installation cost in Surrey?',
+        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can I get an installation estimate online?',
         a: 'Yes. The online estimate is a starting range; final installation pricing comes after measurement.',
       },
@@ -1179,7 +1203,10 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-surrey', label: 'Patio cover contractor in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/aluminum-patio-covers-surrey', label: 'Aluminum patio covers in Surrey' },
       { path: '/skyline-combo-patio-covers-surrey', label: 'Skyline combo covers in Surrey' },
+      { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
       { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
     ],
     caseStudy: {
@@ -1363,6 +1390,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. Start with a rough online quote in chat, then book a free measurement if the range works.',
       },
       {
+        q: 'How much does a patio cover cost in Coquitlam?',
+        a: 'Chat gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can you cover a raised deck?',
         a: 'Often yes, but the deck structure, attachment, and clearance need to be checked during measurement.',
       },
@@ -1377,8 +1408,10 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
       { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
       { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
+      { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
     ],
     caseStudy: {
       image: '/house/before-after/coquitlam-glass-after.png',
@@ -1426,6 +1459,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, Burnaby is one of our main Lower Mainland service areas.',
       },
       {
+        q: 'How much does patio cover installation cost in Burnaby?',
+        a: 'Chat gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can you install glass and aluminum covers?',
         a: 'Yes. We help homeowners compare aluminum, glass, skyline combo, and sunroom options before final measurement.',
       },
@@ -1440,7 +1477,10 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor in Burnaby' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
       { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
+      { path: '/glass-patio-covers-burnaby', label: 'Glass patio covers in Burnaby' },
+      { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
       { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
     ],
     caseStudy: {
@@ -1489,6 +1529,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes, we serve Coquitlam and nearby Tri-Cities areas.',
       },
       {
+        q: 'How much does patio cover installation cost in Coquitlam?',
+        a: 'Chat gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'Can you install a cover over a raised deck?',
         a: 'Often yes, but the deck structure, attachment, and clearance need to be confirmed during measurement.',
       },
@@ -1499,6 +1543,12 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/aluminum-patio-covers-coquitlam', label: 'Aluminum patio covers in Coquitlam' },
+      { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
+      { path: '/projects/coquitlam-aluminum-patio-cover', label: 'Coquitlam aluminum project' },
+      { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
+    ],
       { path: '/glass-patio-covers-coquitlam', label: 'Glass patio covers in Coquitlam' },
       { path: '/how-long-does-patio-cover-installation-take', label: 'Installation timeline guide' },
     ],
@@ -1623,9 +1673,9 @@ export const CITY_SERVICE_PAGES = {
     ],
     caseStudy: {
       image: '/house/Aluminum/p27.jpg',
-      alt: 'Aluminum patio cover on a Langley family backyard patio',
+      alt: 'Fraser Valley aluminum patio cover — planning reference for Langley Willoughby and Walnut Grove lots',
       caption:
-        'Langley aluminum patio cover — practical rain protection for larger backyards. Compare glass in chat on the same size.',
+        'Aluminum patio cover example used for Langley planning — practical rain protection for larger backyards. Compare glass in chat on the same size.',
       projectPath: '/projects/langley-aluminum-patio-cover',
     },
   },
@@ -1786,6 +1836,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. Start with a fast rough quote online, then book a free on-site measurement if the range works.',
       },
       {
+        q: 'How much does a patio cover cost in Langley?',
+        a: 'Chat gives a planning total for your size. See the Langley patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'What patio cover types can I compare?',
         a: 'You can compare aluminum, glass, skyline combo, and sunroom directions before choosing what to measure.',
       },
@@ -1800,14 +1854,16 @@ export const CITY_SERVICE_PAGES = {
     ],
     relatedPageLinks: [
       { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
       { path: '/aluminum-patio-covers-langley', label: 'Aluminum patio covers in Langley' },
       { path: '/glass-patio-covers-langley', label: 'Glass patio covers in Langley' },
+      { path: '/projects/langley-aluminum-patio-cover', label: 'Langley aluminum project' },
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',
-      alt: 'Langley-area skyline combo patio cover — planning reference for larger backyard layouts',
+      alt: 'Skyline combo patio cover — planning reference for larger Langley backyard layouts',
       caption:
-        'Large backyard skyline combo cover — approx. 12×26 ft layout common on Langley subdivisions. Compare aluminum and glass on your size in chat.',
+        'Skyline combo patio cover example used for Langley planning — approx. 12×26 ft layout common on larger subdivisions. Compare aluminum and glass on your size in chat.',
       projectPath: '/projects/surrey-skyline-combo-patio-cover',
     },
   },
