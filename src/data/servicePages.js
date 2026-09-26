@@ -233,6 +233,10 @@ export const SERVICE_PAGES = {
         q: 'Can I get a sunroom quote online first?',
         a: 'Yes — chat gives a planning range in about a minute. Your formal sunroom quote is confirmed after free on-site measurement.',
       },
+      {
+        q: 'How much does a sunroom cost in Vancouver?',
+        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Vancouver patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+      },
     ],
     caseStudy: {
       image: '/house/realprojects/sunroom-white.png',
@@ -242,7 +246,13 @@ export const SERVICE_PAGES = {
     },
     relatedPageLinks: [
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+      { path: '/sunrooms-richmond', label: 'Sunrooms in Richmond' },
+      { path: '/sunrooms-surrey', label: 'Sunrooms in Surrey' },
+      { path: '/sunrooms-coquitlam', label: 'Sunrooms in Coquitlam' },
+      { path: '/sunrooms-langley', label: 'Sunrooms in Langley' },
+      { path: '/sunrooms-delta', label: 'Sunrooms in Delta' },
       { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor in Vancouver' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
 };

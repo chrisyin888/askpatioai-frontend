@@ -399,6 +399,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. Chat gives a planning range first; your formal quote is confirmed after free on-site measurement.',
       },
       {
+        q: 'How much does a sunroom cost in Burnaby?',
+        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Burnaby patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'What is the rough sunroom pricing range?',
         a: PRICING_COPY.sunroomWallOnly,
       },
@@ -412,6 +416,8 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-burnaby', label: 'Patio cover contractor in Burnaby' },
       { path: '/patio-covers-burnaby', label: 'Patio covers in Burnaby' },
+      { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+      { path: '/sunrooms-vancouver', label: 'Sunrooms in Vancouver' },
     ],
   },
   'glass-burnaby': {
@@ -1067,6 +1073,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Sometimes, but the existing surface, attachment, drainage, and structure need to be checked during measurement.',
       },
       {
+        q: 'How much does a sunroom cost in Coquitlam?',
+        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Coquitlam patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'What is the rough sunroom pricing range?',
         a: PRICING_COPY.sunroomWallOnly,
       },
@@ -1074,6 +1084,7 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-coquitlam', label: 'Patio cover contractor in Coquitlam' },
       { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
     ],
     caseStudy: {
@@ -1599,6 +1610,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'Yes. The first estimate is a rough planning range, then a free measurement confirms final pricing.',
       },
       {
+        q: 'How much does a sunroom cost in Delta?',
+        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Delta patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'What is the rough sunroom pricing range?',
         a: PRICING_COPY.sunroomWallOnly,
       },
@@ -1606,6 +1621,7 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-delta', label: 'Patio cover contractor in Delta' },
       { path: '/aluminum-patio-covers-delta', label: 'Aluminum patio covers in Delta' },
+      { path: '/patio-cover-cost-delta', label: 'Patio cover cost in Delta' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
     ],
     caseStudy: {
@@ -1779,6 +1795,10 @@ export const CITY_SERVICE_PAGES = {
         a: 'If you mainly need rain protection, start with a patio cover. If you want more enclosure and year-round comfort, compare a sunroom.',
       },
       {
+        q: 'How much does a sunroom cost in Langley?',
+        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Langley patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+      },
+      {
         q: 'What is the rough sunroom pricing range?',
         a: PRICING_COPY.sunroomWallOnly,
       },
@@ -1786,6 +1806,7 @@ export const CITY_SERVICE_PAGES = {
     relatedPageLinks: [
       { path: '/patio-cover-contractor-langley', label: 'Patio cover contractor in Langley' },
       { path: '/patio-covers-langley', label: 'Patio covers in Langley' },
+      { path: '/patio-cover-cost-langley', label: 'Patio cover cost in Langley' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
     ],
     caseStudy: {
