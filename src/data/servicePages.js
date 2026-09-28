@@ -175,6 +175,10 @@ export const SERVICE_PAGES = {
         q: 'Do I need a permit?',
         a: 'Depends on your city and design. See our permit guide for general guidance, and confirm with your municipality.',
       },
+      {
+        q: 'How much does a skyline combo patio cover cost in Vancouver?',
+        a: 'Combo covers usually land between a solid aluminum roof and a full glass roof on the same footprint, depending on how much glass you choose. Chat gives a planning total from rough dimensions; the Vancouver cost guide explains what moves it, and free measurement confirms the formal quote.',
+      },
     ],
     caseStudy: {
       image: '/house/before-after/surrey-skyline-after.png',

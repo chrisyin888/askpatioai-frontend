@@ -179,6 +179,12 @@ export const PROJECT_PAGES = {
         a: 'Usually yes. The trade-off is more daylight and a more premium look.',
       },
     ],
+    relatedPageLinks: [
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/glass-patio-covers-vancouver', label: 'Glass patio covers in Vancouver' },
+      { path: '/projects/vancouver-aluminum-patio-cover', label: 'Vancouver aluminum project' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
+    ],
   },
   'vancouver-aluminum-patio-cover': {
     id: 'vancouver-aluminum-patio-cover',
@@ -226,6 +232,7 @@ export const PROJECT_PAGES = {
       { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
       { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
       { path: '/projects/vancouver-glass-patio-cover', label: 'Vancouver glass patio cover project' },
+      { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
   'surrey-skyline-combo-cover': {
@@ -276,6 +283,7 @@ export const PROJECT_PAGES = {
       { path: '/glass-patio-covers-surrey', label: 'Glass patio covers in Surrey' },
       { path: '/projects/surrey-aluminum-patio-cover', label: 'Surrey aluminum project' },
       { path: '/projects/surrey-glass-patio-cover', label: 'Surrey glass project' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
     ],
   },
   'surrey-aluminum-patio-cover': {
@@ -376,6 +384,7 @@ export const PROJECT_PAGES = {
       { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers in Richmond' },
       { path: '/projects/richmond-aluminum-patio-cover', label: 'Richmond backyard patio project' },
       { path: '/projects/richmond-glass-patio-cover', label: 'Richmond glass project' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
     ],
   },
   'richmond-aluminum-patio-cover': {
@@ -1838,3 +1847,27 @@ export const PROJECT_PAGES = {
     ],
   },
 };
+
+function projectProductLabel(id) {
+  if (id.includes('carport')) return 'aluminum carport cover';
+  if (id.includes('skyline')) return 'skyline combo patio cover';
+  if (id.includes('glass')) return 'glass patio cover';
+  return 'aluminum patio cover';
+}
+
+for (const page of Object.values(PROJECT_PAGES)) {
+  const costLink = (page.relatedPageLinks || []).find((l) => l.path.startsWith('/patio-cover-cost-'));
+  if (!costLink) continue;
+  const city = costLink.label.replace('Patio cover cost in ', '');
+  const product = projectProductLabel(page.id);
+  const article = /^[aeiou]/.test(product) ? 'an' : 'a';
+  const q = `How much does ${article} ${product} like this cost in ${city}?`;
+  if ((page.faqs || []).some((f) => f.q === q)) continue;
+  page.faqs = [
+    ...(page.faqs || []),
+    {
+      q,
+      a: `This project is a planning reference, not a fixed price. Chat gives a ballpark from your approximate width, projection, and a few photos; the ${city} patio cover cost guide explains what moves the total, and free on-site measurement confirms your formal quote.`,
+    },
+  ];
+}

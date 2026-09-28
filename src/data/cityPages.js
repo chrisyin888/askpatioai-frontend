@@ -58,6 +58,10 @@ export const CITY_PAGES = {
         q: 'What cities do you serve besides Vancouver?',
         a: 'We work across the Lower Mainland — Burnaby, Richmond, Surrey, Delta, Coquitlam, and nearby. Same fast estimate process everywhere we go.',
       },
+      {
+        q: 'How much does a patio cover cost in Vancouver?',
+        a: 'It depends on size, product (aluminum, glass, or skyline combo), attachment, and site access. Chat gives a planning total from rough dimensions; the Vancouver patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+      },
     ],
     relatedPageLinks: [
       { path: '/patio-cover-contractor-vancouver', label: 'Patio cover contractor in Vancouver' },
@@ -328,6 +332,10 @@ export const CITY_PAGES = {
       {
         q: 'What if I want a sunroom instead of a cover?',
         a: 'We can discuss both. Many Coquitlam homeowners compare enclosed sunroom vs open cover for budget and use-case.',
+      },
+      {
+        q: 'How much does a patio cover cost in Coquitlam?',
+        a: 'It depends on size, product, slope or deck height, and attachment. Chat gives a planning total from rough dimensions; the Coquitlam patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
       },
     ],
     relatedPageLinks: [
@@ -754,6 +762,10 @@ export const CITY_PAGES = {
       {
         q: 'Do you serve Port Coquitlam and Coquitlam too?',
         a: 'Yes — see our Port Coquitlam and Coquitlam pages for nearby Tri-Cities examples and contractor pages.',
+      },
+      {
+        q: 'How much does a patio cover cost in Port Moody?',
+        a: 'It depends on size, product, view and slope conditions, and attachment. Chat gives a planning total from rough dimensions; the Port Moody patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
       },
     ],
     relatedPageLinks: [

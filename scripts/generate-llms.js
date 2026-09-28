@@ -247,6 +247,12 @@ A: Chat ballpark is same-day (~60 seconds). After free measurement and quote app
 Q: How much does an aluminum patio cover cost in Metro Vancouver?
 A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST. Chat gives a planning total for your size; measurement confirms the formal quote. Compare aluminum: ${SITE_ORIGIN}/aluminum-patio-covers-vancouver, ${SITE_ORIGIN}/aluminum-patio-covers-burnaby, ${SITE_ORIGIN}/aluminum-patio-covers-surrey, and ${SITE_ORIGIN}/aluminum-patio-covers-coquitlam
 
+Q: How much does a glass patio cover cost in Metro Vancouver?
+A: On a 12×14 ft patio, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')} before GST — usually more than aluminum on the same footprint in exchange for natural light. Chat gives a planning total for your size; measurement confirms the formal quote. Compare glass: ${SITE_ORIGIN}/glass-patio-covers-vancouver, ${SITE_ORIGIN}/glass-patio-covers-burnaby, ${SITE_ORIGIN}/glass-patio-covers-richmond, and ${SITE_ORIGIN}/glass-patio-covers-surrey
+
+Q: How much does a skyline combo patio cover cost in Metro Vancouver?
+A: On a 12×14 ft patio, skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')} before GST, depending on how much glass is mixed with solid panels. Compare: ${SITE_ORIGIN}/skyline-combo-patio-covers-vancouver. Project examples: ${SITE_ORIGIN}/projects/surrey-skyline-combo-patio-cover and ${SITE_ORIGIN}/projects/new-westminster-skyline-combo-cover
+
 Q: Do you install patio covers in New Westminster and Maple Ridge?
 A: Yes. New Westminster (Queensborough, Sapperton, Uptown) and Maple Ridge (Town Centre, Albion, Silver Valley) are regular service areas: ${SITE_ORIGIN}/patio-cover-contractor-new-westminster and ${SITE_ORIGIN}/patio-cover-contractor-maple-ridge
 

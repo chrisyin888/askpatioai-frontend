@@ -280,6 +280,10 @@ export const CITY_SERVICE_PAGES = {
         q: 'Can I get a Richmond glass patio cover estimate before a site visit?',
         a: 'Yes. Chat gives a planning range in about a minute. Your formal quote is confirmed after free on-site measurement.',
       },
+      {
+        q: 'How much does a glass patio cover cost in Richmond?',
+        a: 'Glass usually costs more than aluminum on the same footprint. Chat gives a planning total from your approximate size; the Richmond patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+      },
     ],
     caseStudy: {
       image: '/house/before-after/vancouver-glass-after.png',
@@ -460,6 +464,14 @@ export const CITY_SERVICE_PAGES = {
       {
         q: 'Can I compare glass and aluminum pricing?',
         a: 'Yes. We can ballpark both from the same approximate dimensions.',
+      },
+      {
+        q: 'How much does a glass patio cover cost in Burnaby?',
+        a: 'Glass usually costs more than aluminum on the same footprint. Chat gives a planning total from your approximate size; the Burnaby patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+      },
+      {
+        q: 'Can I get a Burnaby glass patio cover estimate online?',
+        a: 'Yes. Chat gives a planning range in about a minute. Your formal quote is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
