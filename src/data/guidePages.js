@@ -528,7 +528,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/glass/glass-hero.png',
     metaTitle: 'Coastal Patio Covers Vancouver | White Rock & West Van | LoomiHome',
     metaDescription:
-      'Coastal patio covers for White Rock, West Vancouver, Delta, and South Surrey — wind, rain, and light considerations. Compare aluminum and glass with a fast rough estimate.',
+      'Coastal patio covers for White Rock, West Vancouver, Delta, and South Surrey — wind, rain, and light considerations. Compare aluminum and glass in chat.',
     h1: 'Coastal Patio Covers — White Rock, West Vancouver & South Surrey',
     intro:
       'Coastal patio covers face a different set of questions than inland city lots: ocean exposure, wind, compact seaside decks, and the need to keep living areas bright. Whether you are in White Rock, West Vancouver, Delta, or nearby South Surrey, start with a fast rough estimate in chat, compare aluminum and glass, then book a free measurement when the range fits.',
@@ -746,7 +746,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Surrey | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Surrey? What drives price for Guildford, Cloverdale, and South Surrey lots, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Surrey? Price factors for Guildford, Cloverdale, and South Surrey lots, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Surrey',
     intro:
       'If you are researching patio cover cost in Surrey, you have probably seen generic numbers that do not match Guildford townhome patios or wider Cloverdale and South Surrey backyards. Size, product type, and lot layout all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -816,7 +816,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Burnaby | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Burnaby? What drives price for Metrotown, Brentwood, and Deer Lake lots, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Burnaby? Price factors for Metrotown, Brentwood, and Deer Lake lots, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Burnaby',
     intro:
       'If you are researching patio cover cost in Burnaby, you have probably seen numbers that do not match tight Metrotown lots or roomier Deer Lake backyards. Size, product type, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -887,7 +887,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Langley | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Langley? What drives price for Willoughby, Walnut Grove, and Brookswood lots, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Langley? Price factors for Willoughby, Walnut Grove, and Brookswood lots, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Langley',
     intro:
       'If you are researching patio cover cost in Langley, you have probably seen generic numbers that do not match newer Willoughby walkout decks or wider Walnut Grove and Brookswood backyards. Size, product type, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -958,7 +958,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Richmond | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Richmond? What drives price for Steveston, Broadmoor, and East Cambie lots, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Richmond? Price factors for Steveston, Broadmoor, and East Cambie lots, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Richmond',
     intro:
       'If you are researching patio cover cost in Richmond, you have probably seen numbers that do not match compact City Centre patios or wider Steveston and Broadmoor backyards. Size, product type, coastal exposure, and whether you need a backyard cover or a carport-style side cover all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1029,7 +1029,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Coquitlam | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Coquitlam? What drives price for Burke Mountain, Maillardville, and Tri-Cities lots, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Coquitlam? Price factors for Burke Mountain, Maillardville, and Tri-Cities lots, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Coquitlam',
     intro:
       'If you are researching patio cover cost in Coquitlam, you have probably seen numbers that do not match hillside Burke Mountain decks or more compact Maillardville and Austin Heights patios. Size, product type, slope, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1103,7 +1103,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Delta | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Delta? What drives price for Ladner, Tsawwassen, and North Delta lots, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Delta? Price factors for Ladner, Tsawwassen, and North Delta lots, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Delta',
     intro:
       'If you are researching patio cover cost in Delta, you have probably seen numbers that do not match compact North Delta patios or wider Ladner and Tsawwassen backyards. Size, product type, coastal exposure, and attachment conditions all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1177,7 +1177,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost North Vancouver | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in North Vancouver? What drives price for Lynn Valley, Lower Lonsdale, and Edgemont sloped lots, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in North Vancouver? Price factors for Lynn Valley, Lower Lonsdale, and Edgemont sloped lots, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in North Vancouver',
     intro:
       'If you are researching patio cover cost in North Vancouver, you have probably seen numbers that do not match a compact Lower Lonsdale deck or a wider Lynn Valley backyard. Size, product type, slope, tree exposure, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1250,7 +1250,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/glass/glass-hero.png',
     metaTitle: 'Patio Cover Cost West Vancouver | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in West Vancouver? What drives price for Ambleside, Dundarave, and British Properties walkout decks, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in West Vancouver? Price factors for Ambleside, Dundarave, and British Properties decks, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in West Vancouver',
     intro:
       'If you are researching patio cover cost in West Vancouver, you have probably seen numbers that do not match a compact Ambleside deck or a wider British Properties walkout. Size, product type, coastal exposure, view lines, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1323,7 +1323,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost New Westminster | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in New Westminster? What drives price for Queensborough, Sapperton, and Uptown townhome patios, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in New Westminster? Price factors for Queensborough, Sapperton, and Uptown townhome patios, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in New Westminster',
     intro:
       'If you are researching patio cover cost in New Westminster, you have probably seen numbers that do not match a compact Queensborough townhome patio or a wider Sapperton backyard. Size, product type, attachment height, and layout all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1397,7 +1397,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Maple Ridge | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Maple Ridge? What drives price for Town Centre, Albion, and Silver Valley backyards, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Maple Ridge? Price factors for Town Centre, Albion, and Silver Valley backyards, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Maple Ridge',
     intro:
       'If you are researching patio cover cost in Maple Ridge, you have probably seen numbers that do not match a compact Town Centre patio or a wider Silver Valley backyard. Size, product type, span, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1470,7 +1470,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/glass/glass-hero.png',
     metaTitle: 'Patio Cover Cost White Rock | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in White Rock? What drives price for East Beach, West Beach, and South Surrey coastal decks, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in White Rock? Price factors for East Beach, West Beach, and South Surrey coastal decks, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in White Rock',
     intro:
       'If you are researching patio cover cost in White Rock, you have probably seen numbers that do not match a compact East Beach deck or a wider South Surrey backyard. Size, product type, coastal exposure, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1543,7 +1543,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Pitt Meadows | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Pitt Meadows? What drives price for wider Fraser Valley backyards, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Pitt Meadows? Price factors for wider Fraser Valley backyards, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Pitt Meadows',
     intro:
       'If you are researching patio cover cost in Pitt Meadows, you have probably seen numbers that do not match a compact side patio or a wider suburban backyard. Size, product type, span, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1613,7 +1613,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/Aluminum/aluminum-hero.png',
     metaTitle: 'Patio Cover Cost Port Coquitlam | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Port Coquitlam? What drives price for Citadel Heights, Mary Hill, and Lincoln Park patios, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Port Coquitlam? Price factors for Citadel Heights, Mary Hill, and Lincoln Park patios, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Port Coquitlam',
     intro:
       'If you are researching patio cover cost in Port Coquitlam, you have probably seen numbers that do not match a compact townhome patio or a wider Mary Hill backyard. Size, product type, slope, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',
@@ -1683,7 +1683,7 @@ export const GUIDE_PAGES = {
     heroImage: '/house/glass/glass-hero.png',
     metaTitle: 'Patio Cover Cost Port Moody | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Port Moody? What drives price for Moody Centre, Suter Brook, and Newport Village decks, typical ranges, and a fast rough estimate before free measurement.',
+      'How much does a patio cover cost in Port Moody? Price factors for Moody Centre, Suter Brook, and Newport Village decks, typical ranges, and a fast estimate.',
     h1: 'Patio Cover Cost in Port Moody',
     intro:
       'If you are researching patio cover cost in Port Moody, you have probably seen numbers that do not match a compact Moody Centre deck or a wider Suter Brook walkout. Size, product type, coastal exposure, and attachment height all move the total. The fastest way to get oriented is a rough chat estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',

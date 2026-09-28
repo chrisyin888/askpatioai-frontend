@@ -253,6 +253,9 @@ A: On a 12×14 ft patio, glass is about $${gl12x14.totalMin.toLocaleString('en-C
 Q: How much does a skyline combo patio cover cost in Metro Vancouver?
 A: On a 12×14 ft patio, skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')} before GST, depending on how much glass is mixed with solid panels. Compare: ${SITE_ORIGIN}/skyline-combo-patio-covers-vancouver. Project examples: ${SITE_ORIGIN}/projects/surrey-skyline-combo-patio-cover and ${SITE_ORIGIN}/projects/new-westminster-skyline-combo-cover
 
+Q: Can an aluminum patio cover be used as a carport?
+A: Sometimes. Long side-driveway covers use a similar aluminum system, but vehicle clearance, span, post placement, drainage, and local requirements must be confirmed on site. Send the approximate length, width, and a photo from each end in chat for a ballpark. Project example: ${SITE_ORIGIN}/projects/richmond-aluminum-carport-cover
+
 Q: Do you install patio covers in New Westminster and Maple Ridge?
 A: Yes. New Westminster (Queensborough, Sapperton, Uptown) and Maple Ridge (Town Centre, Albion, Silver Valley) are regular service areas: ${SITE_ORIGIN}/patio-cover-contractor-new-westminster and ${SITE_ORIGIN}/patio-cover-contractor-maple-ridge
 

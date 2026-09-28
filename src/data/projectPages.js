@@ -889,7 +889,7 @@ export const PROJECT_PAGES = {
     datePublished: '2026-07-01',
     dateModified: '2026-07-08',
     heroImage: '/house/skyline/p40.jpg',
-    metaTitle: 'New Westminster Skyline Combo Patio Cover Project | LoomiHome Patios',
+    metaTitle: 'New Westminster Skyline Combo Project | LoomiHome Patios',
     metaDescription:
       'New Westminster skyline combo patio cover example — balanced glass and V-panel shade for Queensborough and Uptown patios. Fast rough estimate in chat.',
     h1: 'New Westminster Skyline Combo Patio Cover Project',
