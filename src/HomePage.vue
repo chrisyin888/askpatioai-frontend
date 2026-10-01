@@ -13,66 +13,19 @@
 
     <!-- Scrollable Content -->
     <div v-show="siteLoaded" class="scroll-container">
+      <SiteHeader @nav="onHeaderNav" @estimate="startEstimateFromHero" />
       <!-- Section 1: Instant Quote -->
       <section id="home" class="section section-hero">
-        <div class="content-wrapper glass-panel">
-          <div class="header hero-header">
-            <div class="hero-top-row">
-              <div class="hero-brand-block">
-                <p v-if="cfg.brandName" class="hero-eyebrow">
-                  <span class="hero-eyebrow-name">{{ cfg.brandName }}</span>
-                  <span
-                    v-if="cfg.brandSuffix"
-                    class="hero-eyebrow-suffix"
-                  >{{ cfg.brandSuffix }}</span>
-                </p>
-                <h1 class="hero-main-title">{{ s1.heroTitle }}</h1>
-                <p class="subtitle hero-subtitle">{{ s1.subtitle }}</p>
-                <div class="hero-cta-row">
-                  <button
-                    type="button"
-                    class="hero-cta hero-cta--primary"
-                    @click="startEstimateFromHero()"
-                  >
-                    Get My Fast Estimate
-                  </button>
-                  <a
-                    href="#our-products"
-                    class="hero-cta hero-cta--secondary"
-                    @click.prevent="scrollToSection('#our-products')"
-                  >Compare Cover Types</a>
-                </div>
-              </div>
-            </div>
-            <nav class="hero-subnav" aria-label="Site sections">
-              <a
-                href="#our-products"
-                class="hero-subnav__link hero-subnav__link--emphasized"
-                @click.prevent="scrollToSection('#our-products')"
-              >Our products</a>
-              <a
-                href="#before-after-projects"
-                class="hero-subnav__link hero-subnav__link--emphasized"
-                @click.prevent="scrollToSection('#before-after-projects')"
-              >Before &amp; after</a>
-              <a
-                href="#past-projects"
-                class="hero-subnav__link hero-subnav__link--emphasized"
-                @click.prevent="scrollToSection('#past-projects')"
-              >Past projects</a>
-              <a
-                href="#why-us"
-                class="hero-subnav__link hero-subnav__link--emphasized"
-                @click.prevent="scrollToSection('#why-us')"
-              >Why us?</a>
-              <a
-                href="#confirm-final-quote"
-                class="hero-subnav__link hero-subnav__link--inverse"
-                @click.prevent="scrollToGetQuote()"
-              >Book Free Measurement</a>
-            </nav>
-          </div>
-
+        <HeroSection
+          :title="s1.heroTitle"
+          :subtitle="s1.subtitle"
+          :eyebrow-name="cfg.brandName"
+          :eyebrow-suffix="cfg.brandSuffix"
+          :trust-points="s1.trustPoints"
+          @estimate="startEstimateFromHero"
+          @nav="onHeaderNav"
+        />
+        <div class="content-wrapper">
           <div id="our-products" class="body-section body-section-cards-only">
             <div class="our-products-intro">
               <h2 class="our-products-heading">
@@ -190,20 +143,6 @@
               </div>
             </div>
           </div>
-          <!-- Trust strip under hero content -->
-          <div
-            v-if="s1.trustPoints && s1.trustPoints.length"
-            class="trust-strip trust-strip--points"
-          >
-            <div
-              v-for="(pt, i) in s1.trustPoints"
-              :key="i"
-              class="trust-item trust-item--line"
-            >
-              <span class="trust-line">{{ pt }}</span>
-            </div>
-          </div>
-
           <section
             v-if="beforeAfter && beforeAfter.items && beforeAfter.items.length"
             id="before-after-projects"
@@ -326,6 +265,7 @@
 
           <div
             v-if="faqList.length"
+            id="faq"
             class="home-faq"
           >
             <h2 class="home-faq__title">{{ s1.faqTitle || 'Common questions' }}</h2>
@@ -341,57 +281,7 @@
             </div>
           </div>
 
-          <nav class="home-seo-hub" aria-label="Patio cover resources and local pages">
-            <h2 class="home-seo-hub__title">Patio Cover Guides, Service Areas &amp; Cover Types</h2>
-            <p class="home-seo-hub__lead">
-              Same fast rough estimate (~60 seconds) and free measurement — whether you are in Vancouver, a nearby city, or just researching cost and options.
-            </p>
-            <div class="home-seo-hub__grid">
-              <div class="home-seo-hub__col">
-                <h3 class="home-seo-hub__h3">Lower Mainland cities</h3>
-                <ul class="home-seo-hub__list">
-                  <li v-for="c in cityPageLinks" :key="c.path">
-                    <router-link :to="c.path">{{ c.label }}</router-link>
-                  </li>
-                </ul>
-              </div>
-              <div class="home-seo-hub__col">
-                <h3 class="home-seo-hub__h3">Cover types</h3>
-                <ul class="home-seo-hub__list">
-                  <li v-for="link in serviceNavLinks" :key="'hub-svc-' + link.to">
-                    <router-link :to="link.to">{{ link.label }}</router-link>
-                  </li>
-                </ul>
-              </div>
-              <div class="home-seo-hub__col home-seo-hub__col--wide">
-                <h3 class="home-seo-hub__h3">Top local pages (start here)</h3>
-                <ul class="home-seo-hub__list">
-                  <li v-for="l in prioritySeoPageLinks" :key="l.path">
-                    <router-link :to="l.path">{{ l.label }}</router-link>
-                  </li>
-                </ul>
-              </div>
-              <div class="home-seo-hub__col">
-                <h3 class="home-seo-hub__h3">Guides &amp; projects</h3>
-                <ul class="home-seo-hub__list">
-                  <li v-for="g in guidePageLinks" :key="g.path">
-                    <router-link :to="g.path">{{ g.label }}</router-link>
-                  </li>
-                  <li v-for="p in projectPageLinks" :key="p.path">
-                    <router-link :to="p.path">{{ p.label }}</router-link>
-                  </li>
-                </ul>
-              </div>
-              <div class="home-seo-hub__col">
-                <h3 class="home-seo-hub__h3">Project examples</h3>
-                <ul class="home-seo-hub__list">
-                  <li v-for="p in projectPageLinks" :key="p.path">
-                    <router-link :to="p.path">{{ p.label }}</router-link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+          <SeoLinkHub :groups="seoHubGroups" />
         </div>
       </section>
 
@@ -526,6 +416,56 @@
               <figcaption class="facility-caption">{{ item.caption }}</figcaption>
             </figure>
           </div>
+        </div>
+      </section>
+
+      <!-- Showroom -->
+      <section class="section section-showroom">
+        <div class="content-wrapper glass-panel">
+          <div class="header">
+            <h2 class="title">Visit Our Showroom</h2>
+            <p class="subtitle">
+              See it in person before you decide. Our Delta, BC showroom has
+              full-size displays of our aluminum, glass, and skyline combo patio
+              covers — plus an all-glass sunroom you can walk through. Touch the
+              real materials, compare frame colors, and talk to our team.
+            </p>
+          </div>
+          <div class="showroom-gallery">
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/patio-cover-displays.jpg')"
+                alt="Patio cover displays in the LoomiHome Delta showroom"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Patio cover displays — aluminum, glass &amp; combo</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/sunroom-display.jpg')"
+                alt="All-glass sunroom display in the LoomiHome Delta showroom"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>All-glass sunroom display</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/showroom-space.jpg')"
+                alt="Inside the LoomiHome Delta showroom"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Our Delta showroom — come take a look</figcaption>
+            </figure>
+          </div>
+          <button
+            class="hero-cta hero-cta--primary showroom-cta"
+            @click="scrollToAppointment"
+          >
+            Book a Showroom Visit
+          </button>
         </div>
       </section>
 
@@ -786,87 +726,13 @@
         </div>
       </section>
 
-      <footer class="site-footer" role="contentinfo">
-        <div class="site-footer__inner">
-          <div class="site-footer__brand">
-            <p class="site-footer__name">LoomiHome Patios</p>
-            <p class="site-footer__desc">
-              Fast ballpark estimates for patio covers and sunrooms in Vancouver
-              and the Lower Mainland — compare options first, then book a free
-              on-site measurement.
-            </p>
-          </div>
+      <SiteFooter
+        :service-links="serviceNavLinks"
+        :email="cfg.targetEmail"
+        @nav="onHeaderNav"
+        @estimate="scrollToGetQuote"
+      />
 
-          <nav
-            class="site-footer__nav"
-            aria-label="Footer quick links"
-          >
-            <a
-              href="#home"
-              class="site-footer__link"
-              @click.prevent="scrollToSection('#home')"
-            >Home</a>
-            <router-link
-              v-for="link in serviceNavLinks"
-              :key="'ft-' + link.to"
-              :to="link.to"
-              class="site-footer__link"
-            >{{ link.label }}</router-link>
-            <a
-              href="#our-products"
-              class="site-footer__link"
-              @click.prevent="scrollToSection('#our-products')"
-            >Our Products</a>
-            <a
-              href="#before-after-projects"
-              class="site-footer__link"
-              @click.prevent="scrollToSection('#before-after-projects')"
-            >Before &amp; After</a>
-            <a
-              href="#past-projects"
-              class="site-footer__link"
-              @click.prevent="scrollToSection('#past-projects')"
-            >Past Projects</a>
-            <a
-              href="#why-us"
-              class="site-footer__link"
-              @click.prevent="scrollToSection('#why-us')"
-            >Why Choose Us</a>
-            <a
-              href="/llms.txt"
-              class="site-footer__link"
-            >LLM site summary</a>
-            <a
-              href="#confirm-final-quote"
-              class="site-footer__link"
-              @click.prevent="scrollToGetQuote()"
-            >Book Free Measurement</a>
-            <a
-              href="/llms.txt"
-              class="site-footer__link"
-            >LLM site summary</a>
-          </nav>
-
-          <div class="site-footer__contact">
-            <a
-              class="site-footer__email"
-              :href="'mailto:' + (cfg.targetEmail || 'info@loomihomepatios.ca')"
-            >{{ cfg.targetEmail || 'info@loomihomepatios.ca' }}</a>
-            <p class="site-footer__area">
-              Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam,
-              North Vancouver, West Vancouver, New Westminster, Maple Ridge,
-              Pitt Meadows &amp; nearby
-            </p>
-          </div>
-
-          <p class="site-footer__cta">
-            Get a quote in about 60 seconds in chat — or send photos for a faster refined estimate.
-          </p>
-          <p class="site-footer__copy">
-            © 2026 LoomiHome Patios. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
 
     <!-- Fixed bottom-right chat -->
@@ -1337,9 +1203,19 @@ import {
   sunroomQuoteForType,
 } from './utils/chatPricing';
 import { publicAssetUrl } from './utils/publicAssetUrl';
+import SiteHeader from './components/home/SiteHeader.vue';
+import HeroSection from './components/home/HeroSection.vue';
+import SeoLinkHub from './components/home/SeoLinkHub.vue';
+import SiteFooter from './components/home/SiteFooter.vue';
 
 export default {
   name: 'HomePage',
+  components: {
+    SiteHeader,
+    HeroSection,
+    SeoLinkHub,
+    SiteFooter,
+  },
   data() {
     return {
       userInput: '',
@@ -1444,7 +1320,7 @@ export default {
       chatLayoutMobile: false,
       chatMobilePanelOpen: false,
       /** Desktop: when true, panel hidden and FAB shown (same as mobile collapsed) */
-      chatDesktopMinimized: false,
+      chatDesktopMinimized: true, // chat launcher starts collapsed on desktop; expands on click
       /** Brief attention state after "Start My Estimate" (hero CTA) */
       chatHeroHighlight: false,
       /** Persistent anonymous id for /ask + logging (localStorage) */
@@ -1595,6 +1471,23 @@ export default {
         path: canonicalizePath(PROJECT_PAGES[id].path),
         label: PROJECT_PAGES[id].h1.replace(' Project', ''),
       }));
+    },
+    /**
+     * SEO link hub groups (redesign): same links as the old flat link wall,
+     * grouped into exclusive accordions. Every link stays in the DOM.
+     */
+    seoHubGroups() {
+      return [
+        { id: 'cities', title: 'Lower Mainland cities', links: this.cityPageLinks },
+        {
+          id: 'types',
+          title: 'Cover types',
+          links: this.serviceNavLinks.map((l) => ({ path: l.to, label: l.label })),
+        },
+        { id: 'top', title: 'Top local pages (start here)', links: this.prioritySeoPageLinks },
+        { id: 'guides', title: 'Cost & buying guides', links: this.guidePageLinks },
+        { id: 'projects', title: 'Project examples', links: this.projectPageLinks },
+      ];
     },
     /** Non-empty string only — Teleport + img must never bind null/invalid `is`-like state (Vue 3.2). */
     chatLightboxDisplaySrc() {
@@ -2495,6 +2388,10 @@ export default {
         this.appointmentHighlight = false;
       }, 1500);
     },
+    /** Header / footer nav clicks (redesign): smooth-scroll to the section anchor. */
+    onHeaderNav(selector) {
+      this.scrollToSection(selector);
+    },
     scrollToSection(selector) {
       const target = this.$el.querySelector(selector);
       if (!target || typeof target.scrollIntoView !== 'function') return;
@@ -3297,6 +3194,58 @@ html.app-scroll-lock #app {
   background: #ffffff;
 }
 
+.section-showroom {
+  align-items: stretch;
+  padding: 40px max(12px, env(safe-area-inset-left)) 40px
+    max(12px, env(safe-area-inset-right));
+  box-sizing: border-box;
+}
+
+.section-showroom .content-wrapper.glass-panel {
+  width: 100%;
+  background: #ffffff;
+  text-align: center;
+}
+
+.section-showroom .header {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.showroom-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  margin: 24px 0 28px;
+}
+
+.showroom-photo {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f5f9;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+}
+
+.showroom-photo img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.showroom-photo figcaption {
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  text-align: left;
+}
+
+.showroom-cta {
+  margin: 0 auto;
+}
+
 .facility-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
@@ -3755,166 +3704,6 @@ html.app-scroll-lock #app {
 
 #why-us {
   scroll-margin-top: 24px;
-}
-
-/* Site footer */
-.site-footer {
-  background: #ffffff;
-  border-top: 1px solid rgba(226, 232, 240, 0.95);
-  scroll-snap-align: end;
-}
-
-.site-footer__inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 52px 28px 40px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr) minmax(0, 1fr);
-  gap: 36px 44px;
-  grid-template-areas:
-    'brand nav contact'
-    'cta cta cta'
-    'copy copy copy';
-}
-
-.site-footer__brand {
-  grid-area: brand;
-}
-
-.site-footer__name {
-  margin: 0 0 10px;
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #0f172a;
-}
-
-.site-footer__desc {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.62;
-  color: #64748b;
-  max-width: 36em;
-}
-
-.site-footer__nav {
-  grid-area: nav;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.site-footer__link {
-  font-size: 14px;
-  font-weight: 500;
-  color: #475569;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.site-footer__link:hover {
-  color: #0f172a;
-  border-bottom-color: rgba(15, 23, 42, 0.2);
-}
-
-.site-footer__link:focus-visible {
-  outline: 2px solid #0ea5e9;
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-.site-footer__contact {
-  grid-area: contact;
-}
-
-.site-footer__email {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #0f172a;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.22);
-  margin-bottom: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.site-footer__email:hover {
-  color: #1d4ed8;
-  border-bottom-color: rgba(29, 78, 216, 0.45);
-}
-
-.site-footer__email:focus-visible {
-  outline: 2px solid #0ea5e9;
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-.site-footer__area {
-  margin: 0;
-  font-size: 13px;
-  color: #64748b;
-  line-height: 1.5;
-}
-
-.site-footer__cta {
-  grid-area: cta;
-  margin: 0;
-  padding-top: 28px;
-  border-top: 1px solid rgba(148, 163, 184, 0.28);
-  font-size: 14px;
-  font-weight: 500;
-  color: #475569;
-  text-align: center;
-  letter-spacing: -0.01em;
-}
-
-.site-footer__copy {
-  grid-area: copy;
-  margin: 0;
-  padding-top: 14px;
-  font-size: 12px;
-  color: #94a3b8;
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .site-footer__inner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'brand'
-      'contact'
-      'nav'
-      'cta'
-      'copy';
-    gap: 26px;
-    padding: 44px 20px 36px;
-  }
-
-  .site-footer__nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px 20px;
-  }
-
-  .site-footer__link {
-    border-bottom: none;
-  }
-
-  .site-footer__link:hover {
-    border-bottom: none;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .site-footer__cta {
-    padding-top: 22px;
-  }
-
-  .site-footer__copy {
-    padding-top: 10px;
-  }
 }
 
 /* Floating chat — fixed bottom-right */
@@ -7226,6 +7015,219 @@ html.app-scroll-lock #app {
 
   .project-name {
     font-size: 13px;
+  }
+}
+
+/* ============================================================
+   REDESIGN 2026-09 — homepage visual system
+   Serif display headings + clean sans body; deep navy + warm amber.
+   Appended overrides: keep earlier rules as fallback.
+   ============================================================ */
+
+/* --- Section rhythm: natural height, generous vertical spacing --- */
+.section {
+  min-height: 0;
+  display: block;
+  padding: 84px 24px;
+  scroll-snap-align: start;
+}
+
+.section-hero {
+  padding: 0;
+  background: #fff;
+}
+
+.section-hero > .content-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 76px 0 84px;
+  border-radius: 0;
+  overflow: visible;
+}
+
+/* Drop the old glass card look on the remaining sections: flat, editorial */
+.section-projects .content-wrapper.glass-panel,
+.section-facility .content-wrapper.glass-panel {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.section-projects .content-wrapper.glass-panel::before,
+.section-projects .content-wrapper.glass-panel::after,
+.section-facility .content-wrapper.glass-panel::before,
+.section-facility .content-wrapper.glass-panel::after {
+  content: none;
+}
+
+.section-facility {
+  background: #f8fafc;
+}
+
+.section-appointment {
+  background: #fff;
+}
+
+.section-appointment .appt-layout {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* --- Serif display headings --- */
+.our-products-heading,
+.home-before-after__title,
+.section-projects .title,
+.section-facility .title,
+.home-faq__title,
+.home-seo-block__title,
+.why-choose-us .section-heading,
+.appt-main-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+  text-wrap: balance;
+}
+
+.our-products-heading,
+.home-before-after__title,
+.home-faq__title,
+.home-seo-block__title {
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+/* Consistent section intro spacing inside the hero content column */
+.section-hero > .content-wrapper > .body-section,
+.section-hero > .content-wrapper > section,
+.section-hero > .content-wrapper > div {
+  margin-bottom: 0;
+}
+
+#our-products,
+.home-before-after,
+#why-us,
+.home-seo-block,
+.home-faq,
+.seo-hub {
+  padding-top: 64px;
+}
+
+#our-products {
+  padding-top: 0;
+}
+
+/* Amber eyebrow label above section headings */
+.our-products-intro::before {
+  content: 'Our products';
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d97706;
+}
+
+/* --- Product cards: consistent depth, amber accents --- */
+.service-card {
+  border: 1px solid #e8edf3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: #f3c57e;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1);
+}
+
+.service-card .card-product-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #0f172a;
+}
+
+.service-card .service-card-best-label {
+  color: #b45309;
+}
+
+/* Product tab / filter buttons: amber active state */
+.home-service-nav .home-service-nav__link--active,
+.home-products__tab--active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fff;
+}
+
+/* --- Before / after: tighten, add amber CTA --- */
+.home-before-after__cta-btn {
+  background: #d97706;
+  border-color: #d97706;
+  color: #fff;
+}
+
+.home-before-after__cta-btn:hover {
+  background: #b45309;
+  border-color: #b45309;
+}
+
+/* --- FAQ: card polish --- */
+.home-faq details,
+.home-faq__item {
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background: #fff;
+}
+
+/* --- Appointment section: keep layout, sharpen the card --- */
+.section-appointment .appt-layout {
+  border: 1px solid #e8edf3;
+  border-radius: 24px;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.section-appointment .appt-submit,
+.section-appointment .appt-form button[type='submit'] {
+  background: #d97706;
+  border-color: #d97706;
+}
+
+.section-appointment .appt-submit:hover,
+.section-appointment .appt-form button[type='submit']:hover {
+  background: #b45309;
+  border-color: #b45309;
+}
+
+/* --- Footer sits directly on the page (component is self-styled) --- */
+.site-footer {
+  scroll-snap-align: start;
+}
+
+/* --- Mobile rhythm --- */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 18px;
+  }
+
+  .section-hero > .content-wrapper {
+    padding: 52px 0 60px;
+  }
+
+  #our-products,
+  .home-before-after,
+  #why-us,
+  .home-seo-block,
+  .home-faq,
+  .seo-hub {
+    padding-top: 48px;
   }
 }
 
