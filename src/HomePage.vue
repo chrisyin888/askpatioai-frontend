@@ -25,6 +25,66 @@
           @estimate="startEstimateFromHero"
           @nav="onHeaderNav"
         />
+
+        <!-- Showroom -->
+      <section class="section section-showroom">
+        <div class="content-wrapper glass-panel">
+          <div class="header">
+            <h2 class="title">Visit Our Showroom</h2>
+            <p class="subtitle">
+              See it in person before you decide. Our Delta, BC showroom has
+              full-size displays of our aluminum, glass, and skyline combo patio
+              covers — plus an all-glass sunroom you can walk through. Touch the
+              real materials, compare frame colors, and talk to our team.
+            </p>
+          </div>
+          <div class="showroom-gallery">
+            <figure class="showroom-photo showroom-photo--lead">
+              <img
+                :src="publicAssetUrl('/house/showroom/showroom-main.jpg')"
+                alt="Inside the LoomiHome showroom — patio cover displays and the all-glass sunroom"
+                loading="eager"
+                decoding="async"
+              />
+              <figcaption>Our showroom — patio covers &amp; sunrooms on display</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/patio-cover-displays.jpg')"
+                alt="Patio cover displays in the LoomiHome Delta showroom"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Patio cover displays — aluminum, glass &amp; combo</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/sunroom-display.jpg')"
+                alt="All-glass sunroom display in the LoomiHome Delta showroom"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>All-glass sunroom display</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/showroom-space.jpg')"
+                alt="Inside the LoomiHome Delta showroom"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Our Delta showroom — come take a look</figcaption>
+            </figure>
+          </div>
+          <button
+            class="hero-cta hero-cta--primary showroom-cta"
+            @click="scrollToAppointment"
+          >
+            Book a Showroom Visit
+          </button>
+        </div>
+      </section>
+
         <div class="content-wrapper">
           <div id="our-products" class="body-section body-section-cards-only">
             <div class="our-products-intro">
@@ -285,66 +345,7 @@
         </div>
       </section>
 
-      <!-- Showroom -->
-      <section class="section section-showroom">
-        <div class="content-wrapper glass-panel">
-          <div class="header">
-            <h2 class="title">Visit Our Showroom</h2>
-            <p class="subtitle">
-              See it in person before you decide. Our Delta, BC showroom has
-              full-size displays of our aluminum, glass, and skyline combo patio
-              covers — plus an all-glass sunroom you can walk through. Touch the
-              real materials, compare frame colors, and talk to our team.
-            </p>
-          </div>
-          <div class="showroom-gallery">
-            <figure class="showroom-photo showroom-photo--lead">
-              <img
-                :src="publicAssetUrl('/house/showroom/showroom-main.jpg')"
-                alt="Inside the LoomiHome showroom — patio cover displays and the all-glass sunroom"
-                loading="eager"
-                decoding="async"
-              />
-              <figcaption>Our showroom — patio covers &amp; sunrooms on display</figcaption>
-            </figure>
-            <figure class="showroom-photo">
-              <img
-                :src="publicAssetUrl('/house/showroom/patio-cover-displays.jpg')"
-                alt="Patio cover displays in the LoomiHome Delta showroom"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>Patio cover displays — aluminum, glass &amp; combo</figcaption>
-            </figure>
-            <figure class="showroom-photo">
-              <img
-                :src="publicAssetUrl('/house/showroom/sunroom-display.jpg')"
-                alt="All-glass sunroom display in the LoomiHome Delta showroom"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>All-glass sunroom display</figcaption>
-            </figure>
-            <figure class="showroom-photo">
-              <img
-                :src="publicAssetUrl('/house/showroom/showroom-space.jpg')"
-                alt="Inside the LoomiHome Delta showroom"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>Our Delta showroom — come take a look</figcaption>
-            </figure>
-          </div>
-          <button
-            class="hero-cta hero-cta--primary showroom-cta"
-            @click="scrollToAppointment"
-          >
-            Book a Showroom Visit
-          </button>
-        </div>
-      </section>
-
-      <!-- Section 2: Projects & Testimonials -->
+            <!-- Section 2: Projects & Testimonials -->
       <section class="section section-projects">
         <div class="content-wrapper glass-panel">
           <div class="header">
