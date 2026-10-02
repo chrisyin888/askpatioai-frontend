@@ -77,7 +77,7 @@ export default {
   emits: ['estimate', 'nav'],
   computed: {
     bgSrc() {
-      return publicAssetUrl('/house/glass/glass-patio-cover-hero.png');
+      return publicAssetUrl('/house/showroom/showroom-sunroom-hero.jpg');
     },
   },
 };
