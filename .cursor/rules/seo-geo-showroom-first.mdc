@@ -1,0 +1,30 @@
+---
+description: SEO/GEO work for loomihomepatios.ca is showroom-first (Burnaby showroom), without changing the site UI
+alwaysApply: true
+---
+
+# SEO/GEO: showroom first
+
+When the user asks for SEO, GEO, keywords, or "seo geo push", prioritize the **Burnaby showroom** over new city or project pages.
+
+## Verified showroom facts (do not invent beyond these)
+- Location: **Burnaby, BC** (not Delta). No street address or hours are published on the site.
+- On display: full-size **aluminum, glass, and skyline combo** patio covers, plus an **all-glass sunroom**.
+- Also: own warehouse with aluminum profile stock.
+- CTA: "Book a Showroom Visit" on the homepage, or chat.
+- Photos: `/house/showroom/*.jpg` (showroom-main, patio-cover-displays, sunroom-display, showroom-space, showroom-wide-hero).
+
+If a page needs an address, hours, or anything else not listed, ask the user rather than guessing.
+
+## What to build
+- Showroom keyword pages go in `src/data/guidePages.js` (existing guide template). Existing ids: `showroom-vancouver`, `showroom-burnaby`, `showroom-near-me`, `aluminum-showroom`, `glass-showroom`, `sunroom-showroom`.
+- Good next targets: showroom + nearby city (New Westminster, Coquitlam, Richmond, Surrey) framed as "near X / short drive", "patio cover display", "see patio covers in person", "sunroom display".
+- Add showroom mentions, links, and FAQs to existing city, cost, and project pages (especially Burnaby and nearby cities).
+- Every new guide id needs labels in `HomePage.vue`, `SeoContentPage.vue`, `ServicePage.vue`, and `GUIDE_LLM_LABELS` plus a Q&A in `scripts/generate-llms.js`.
+
+## Do not
+- Change layout, styles, or components. Data and copy only.
+- Claim a showroom in a city other than Burnaby.
+
+## Finish
+`npm run build`, then commit only your own files (leave unrelated uncommitted changes alone) and push per `auto-push.mdc`.
