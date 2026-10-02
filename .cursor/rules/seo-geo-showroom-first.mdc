@@ -25,6 +25,7 @@ If a page needs an address, hours, or anything else not listed, ask the user rat
 ## Do not
 - Change layout, styles, or components. Data and copy only.
 - Claim a showroom in a city other than Burnaby.
+- Publish per-square-foot rates anywhere on the site (no "$X/sq ft", "多少钱一尺"). Planning totals for example sizes (e.g. "12×14 ft aluminum: about $X") are acceptable; per-sq-ft rates are never shown publicly. This is a standing owner rule (2026-10-02).
 
 ## Finish
 `npm run build`, then commit only your own files (leave unrelated uncommitted changes alone) and push per `auto-push.mdc`.

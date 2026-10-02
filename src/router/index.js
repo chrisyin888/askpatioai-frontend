@@ -16,9 +16,9 @@ import { SERVICE_PAGES, SERVICE_PAGE_ORDER } from '../data/servicePages';
 import { setPageMeta, canonicalizePath } from '../utils/seoHead';
 import { getCurrentUser } from '../utils/leadMarketplaceStore';
 
-const DEFAULT_TITLE = 'Patio Cover Installation Vancouver | LoomiHome Patios';
+const DEFAULT_TITLE = 'Patio Cover Installation & Showroom in Burnaby, Vancouver | LoomiHome Patios';
 const DEFAULT_DESCRIPTION =
-  'Custom aluminum and glass patio cover installation in Metro Vancouver. Get a fast estimate with photos and measurements.';
+  'Custom aluminum and glass patio cover installation in Metro Vancouver. Visit our Burnaby showroom to see full-size patio cover and sunroom displays.';
 
 const NOINDEX_PATHS = new Set([
   '/contractor-login',

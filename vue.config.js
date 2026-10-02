@@ -10,7 +10,7 @@ module.exports = defineConfig({
       entry: 'src/main.js',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'Patio Cover Installation Vancouver | LoomiHome Patios',
+      title: 'Patio Cover Installation & Showroom in Burnaby, Vancouver | LoomiHome Patios',
       googleSiteVerification:
         process.env.VUE_APP_GOOGLE_SITE_VERIFICATION || seoVerification.googleSiteVerification || '',
       bingSiteVerification:
