@@ -77,7 +77,7 @@ export default {
   emits: ['estimate', 'nav'],
   computed: {
     bgSrc() {
-      return publicAssetUrl('/house/showroom/showroom-sunroom-hero.jpg');
+      return publicAssetUrl('/house/showroom/showroom-wide-hero.jpg');
     },
   },
 };
