@@ -124,6 +124,7 @@ export const CITY_PAGES = {
       { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers in Burnaby' },
       { path: '/glass-patio-covers-burnaby', label: 'Glass patio covers in Burnaby' },
       { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
+      { path: '/patio-cover-showroom-burnaby', label: 'Our Burnaby showroom' },
       { path: '/projects/burnaby-aluminum-patio-cover', label: 'Burnaby aluminum project' },
       { path: '/projects/burnaby-glass-patio-cover', label: 'Burnaby glass project' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },

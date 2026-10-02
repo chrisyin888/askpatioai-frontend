@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-09-28
+> Last updated: 2026-10-02
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca
@@ -61,6 +61,10 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 
 ## High-intent local pages
 - Patio cover contractors near me: https://loomihomepatios.ca/patio-cover-contractors-near-me/
+- Patio cover showroom in Burnaby: https://loomihomepatios.ca/patio-cover-showroom-burnaby/
+- Patio cover showroom near Vancouver: https://loomihomepatios.ca/patio-cover-showroom-vancouver/
+- Patio cover showroom near me: https://loomihomepatios.ca/patio-cover-showroom-near-me/
+- Sunroom showroom in Vancouver: https://loomihomepatios.ca/sunroom-showroom-vancouver/
 - Patio cover cost in Vancouver: https://loomihomepatios.ca/patio-cover-cost-vancouver/
 - Patio cover cost in Burnaby: https://loomihomepatios.ca/patio-cover-cost-burnaby/
 - Patio cover cost in Richmond: https://loomihomepatios.ca/patio-cover-cost-richmond/
@@ -260,6 +264,12 @@ Chat gives a planning total only. Formal pricing is confirmed after free on-site
 - Patio cover cost (Pitt Meadows): https://loomihomepatios.ca/patio-cover-cost-pitt-meadows/
 - Patio cover cost (Port Coquitlam): https://loomihomepatios.ca/patio-cover-cost-port-coquitlam/
 - Patio cover cost (Port Moody): https://loomihomepatios.ca/patio-cover-cost-port-moody/
+- Patio cover showroom (near Vancouver): https://loomihomepatios.ca/patio-cover-showroom-vancouver/
+- Patio cover & sunroom showroom (Burnaby, BC): https://loomihomepatios.ca/patio-cover-showroom-burnaby/
+- Patio cover showroom near me: https://loomihomepatios.ca/patio-cover-showroom-near-me/
+- Aluminum patio cover showroom: https://loomihomepatios.ca/aluminum-patio-cover-showroom-vancouver/
+- Glass patio cover showroom: https://loomihomepatios.ca/glass-patio-cover-showroom-vancouver/
+- Sunroom showroom: https://loomihomepatios.ca/sunroom-showroom-vancouver/
 
 ## City landing pages
 - Patio covers — Vancouver: https://loomihomepatios.ca/patio-covers-vancouver/
@@ -332,6 +342,18 @@ A: Yes. After a rough online estimate, homeowners can book a free on-site measur
 
 Q: What areas do you serve?
 A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.
+
+Q: Where is the LoomiHome Patios showroom?
+A: In Burnaby, BC. The showroom has full-size aluminum, glass, and skyline combo patio cover displays plus an all-glass sunroom. Homeowners can book a showroom visit through the website or chat. Showroom page: https://loomihomepatios.ca/patio-cover-showroom-burnaby/
+
+Q: Do you have a patio cover showroom near Vancouver?
+A: Yes. The LoomiHome Patios showroom in Burnaby, BC is a short drive from Vancouver and serves the wider Lower Mainland. Page: https://loomihomepatios.ca/patio-cover-showroom-vancouver/
+
+Q: Is there a patio cover or sunroom showroom near me?
+A: LoomiHome Patios serves Vancouver, Burnaby, Richmond, Surrey, Delta, White Rock, Langley, Coquitlam, Port Coquitlam, Port Moody, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, North Vancouver, and West Vancouver from one showroom in Burnaby, BC. Pages: https://loomihomepatios.ca/patio-cover-showroom-near-me/ and https://loomihomepatios.ca/sunroom-showroom-vancouver/
+
+Q: Can I see aluminum or glass patio covers in person before ordering?
+A: Yes. The Burnaby showroom has full-size aluminum, glass, and skyline combo displays to compare side by side. A rough chat estimate and free on-site measurement are still the fastest path to pricing. Pages: https://loomihomepatios.ca/aluminum-patio-cover-showroom-vancouver/ and https://loomihomepatios.ca/glass-patio-cover-showroom-vancouver/
 
 Q: Do you install patio covers in Port Coquitlam and Port Moody?
 A: Yes. Port Coquitlam (Citadel Heights, Mary Hill, Lincoln Park) and Port Moody (Moody Centre, Suter Brook, Newport Village) are regular Tri-Cities service areas. Project examples: https://loomihomepatios.ca/projects/port-coquitlam-glass-patio-cover/ and https://loomihomepatios.ca/projects/port-moody-glass-patio-cover/

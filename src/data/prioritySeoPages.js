@@ -2,6 +2,10 @@
 export const PRIORITY_SEO_PAGE_LINKS = [
   // Cost guides (all service cities)
   { path: '/patio-cover-contractors-near-me', label: 'Patio cover contractors near me' },
+  { path: '/patio-cover-showroom-burnaby', label: 'Patio cover showroom in Burnaby' },
+  { path: '/patio-cover-showroom-vancouver', label: 'Patio cover showroom near Vancouver' },
+  { path: '/patio-cover-showroom-near-me', label: 'Patio cover showroom near me' },
+  { path: '/sunroom-showroom-vancouver', label: 'Sunroom showroom in Vancouver' },
   { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
   { path: '/patio-cover-cost-burnaby', label: 'Patio cover cost in Burnaby' },
   { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },

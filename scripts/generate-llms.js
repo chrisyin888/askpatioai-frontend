@@ -76,6 +76,12 @@ const GUIDE_LLM_LABELS = {
   'patio-cover-cost-pitt-meadows': 'Patio cover cost (Pitt Meadows)',
   'patio-cover-cost-port-coquitlam': 'Patio cover cost (Port Coquitlam)',
   'patio-cover-cost-port-moody': 'Patio cover cost (Port Moody)',
+  'showroom-vancouver': 'Patio cover showroom (near Vancouver)',
+  'showroom-burnaby': 'Patio cover & sunroom showroom (Burnaby, BC)',
+  'showroom-near-me': 'Patio cover showroom near me',
+  'aluminum-showroom': 'Aluminum patio cover showroom',
+  'glass-showroom': 'Glass patio cover showroom',
+  'sunroom-showroom': 'Sunroom showroom',
 };
 
 function exampleLine(material, w, h) {
@@ -207,6 +213,18 @@ A: Yes. After a rough online estimate, homeowners can book a free on-site measur
 
 Q: What areas do you serve?
 A: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.
+
+Q: Where is the LoomiHome Patios showroom?
+A: In Burnaby, BC. The showroom has full-size aluminum, glass, and skyline combo patio cover displays plus an all-glass sunroom. Homeowners can book a showroom visit through the website or chat. Showroom page: ${SITE_ORIGIN}/patio-cover-showroom-burnaby
+
+Q: Do you have a patio cover showroom near Vancouver?
+A: Yes. The LoomiHome Patios showroom in Burnaby, BC is a short drive from Vancouver and serves the wider Lower Mainland. Page: ${SITE_ORIGIN}/patio-cover-showroom-vancouver
+
+Q: Is there a patio cover or sunroom showroom near me?
+A: LoomiHome Patios serves Vancouver, Burnaby, Richmond, Surrey, Delta, White Rock, Langley, Coquitlam, Port Coquitlam, Port Moody, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, North Vancouver, and West Vancouver from one showroom in Burnaby, BC. Pages: ${SITE_ORIGIN}/patio-cover-showroom-near-me and ${SITE_ORIGIN}/sunroom-showroom-vancouver
+
+Q: Can I see aluminum or glass patio covers in person before ordering?
+A: Yes. The Burnaby showroom has full-size aluminum, glass, and skyline combo displays to compare side by side. A rough chat estimate and free on-site measurement are still the fastest path to pricing. Pages: ${SITE_ORIGIN}/aluminum-patio-cover-showroom-vancouver and ${SITE_ORIGIN}/glass-patio-cover-showroom-vancouver
 
 Q: Do you install patio covers in Port Coquitlam and Port Moody?
 A: Yes. Port Coquitlam (Citadel Heights, Mary Hill, Lincoln Park) and Port Moody (Moody Centre, Suter Brook, Newport Village) are regular Tri-Cities service areas. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover

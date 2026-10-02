@@ -443,6 +443,24 @@ services:
         source: /patio-cover-cost-port-moody
         destination: /patio-cover-cost-port-moody/
       - type: redirect
+        source: /patio-cover-showroom-vancouver
+        destination: /patio-cover-showroom-vancouver/
+      - type: redirect
+        source: /patio-cover-showroom-burnaby
+        destination: /patio-cover-showroom-burnaby/
+      - type: redirect
+        source: /patio-cover-showroom-near-me
+        destination: /patio-cover-showroom-near-me/
+      - type: redirect
+        source: /aluminum-patio-cover-showroom-vancouver
+        destination: /aluminum-patio-cover-showroom-vancouver/
+      - type: redirect
+        source: /glass-patio-cover-showroom-vancouver
+        destination: /glass-patio-cover-showroom-vancouver/
+      - type: redirect
+        source: /sunroom-showroom-vancouver
+        destination: /sunroom-showroom-vancouver/
+      - type: redirect
         source: /projects/burnaby-aluminum-patio-cover
         destination: /projects/burnaby-aluminum-patio-cover/
       - type: redirect
@@ -460,6 +478,9 @@ services:
       - type: redirect
         source: /projects/surrey-aluminum-patio-cover
         destination: /projects/surrey-aluminum-patio-cover/
+      - type: redirect
+        source: /projects/surrey-glass-patio-cover
+        destination: /projects/surrey-glass-patio-cover/
       - type: redirect
         source: /projects/richmond-aluminum-carport-cover
         destination: /projects/richmond-aluminum-carport-cover/
@@ -503,6 +524,9 @@ services:
         source: /projects/new-westminster-aluminum-patio-cover
         destination: /projects/new-westminster-aluminum-patio-cover/
       - type: redirect
+        source: /projects/new-westminster-glass-patio-cover
+        destination: /projects/new-westminster-glass-patio-cover/
+      - type: redirect
         source: /projects/new-westminster-skyline-combo-cover
         destination: /projects/new-westminster-skyline-combo-cover/
       - type: redirect
@@ -514,6 +538,9 @@ services:
       - type: redirect
         source: /projects/abbotsford-aluminum-patio-cover
         destination: /projects/abbotsford-aluminum-patio-cover/
+      - type: redirect
+        source: /projects/abbotsford-glass-patio-cover
+        destination: /projects/abbotsford-glass-patio-cover/
       - type: redirect
         source: /projects/white-rock-glass-patio-cover
         destination: /projects/white-rock-glass-patio-cover/
@@ -527,6 +554,9 @@ services:
         source: /projects/maple-ridge-aluminum-patio-cover
         destination: /projects/maple-ridge-aluminum-patio-cover/
       - type: redirect
+        source: /projects/maple-ridge-glass-patio-cover
+        destination: /projects/maple-ridge-glass-patio-cover/
+      - type: redirect
         source: /projects/port-moody-glass-patio-cover
         destination: /projects/port-moody-glass-patio-cover/
       - type: redirect
@@ -535,6 +565,9 @@ services:
       - type: redirect
         source: /projects/pitt-meadows-aluminum-patio-cover
         destination: /projects/pitt-meadows-aluminum-patio-cover/
+      - type: redirect
+        source: /projects/pitt-meadows-glass-patio-cover
+        destination: /projects/pitt-meadows-glass-patio-cover/
       - type: redirect
         source: /contractor-login
         destination: /contractor-login/
