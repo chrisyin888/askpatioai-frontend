@@ -461,6 +461,18 @@ services:
         source: /sunroom-showroom-vancouver
         destination: /sunroom-showroom-vancouver/
       - type: redirect
+        source: /patio-cover-showroom-new-westminster
+        destination: /patio-cover-showroom-new-westminster/
+      - type: redirect
+        source: /patio-cover-showroom-coquitlam
+        destination: /patio-cover-showroom-coquitlam/
+      - type: redirect
+        source: /patio-cover-showroom-richmond
+        destination: /patio-cover-showroom-richmond/
+      - type: redirect
+        source: /patio-cover-showroom-surrey
+        destination: /patio-cover-showroom-surrey/
+      - type: redirect
         source: /projects/burnaby-aluminum-patio-cover
         destination: /projects/burnaby-aluminum-patio-cover/
       - type: redirect

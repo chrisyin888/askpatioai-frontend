@@ -32,6 +32,10 @@ export const GUIDE_PAGE_ORDER = [
   'aluminum-showroom',
   'glass-showroom',
   'sunroom-showroom',
+  'showroom-new-westminster',
+  'showroom-coquitlam',
+  'showroom-richmond',
+  'showroom-surrey',
 ];
 
 export const GUIDE_PAGES = {
@@ -2114,6 +2118,230 @@ export const GUIDE_PAGES = {
       { path: '/patio-cover-showroom-near-me', label: 'Patio cover showroom near me' },
       { path: '/sunroom-showroom-vancouver', label: 'Sunroom showroom' },
       { path: '/sunrooms-burnaby', label: 'Sunrooms in Burnaby' },
+    ],
+  },
+  'showroom-new-westminster': {
+    id: 'showroom-new-westminster',
+    path: '/patio-cover-showroom-new-westminster',
+    datePublished: '2026-10-02',
+    dateModified: '2026-10-02',
+    heroImage: '/house/showroom/showroom-main.jpg',
+    metaTitle: 'Patio Cover Showroom Near New Westminster, BC | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover showroom near New Westminster? The LoomiHome Patios showroom in Burnaby, BC is a short drive away — full-size aluminum, glass, and skyline combo displays plus an all-glass sunroom.',
+    h1: 'Patio Cover Showroom Near New Westminster',
+    intro:
+      'New Westminster homeowners do not have to choose a patio cover from photos alone. The LoomiHome Patios showroom in nearby Burnaby, BC is a short drive from Downtown New West, Sapperton, Queensborough, and Uptown — with full-size aluminum, glass, and skyline combo patio cover displays and an all-glass sunroom you can walk through.',
+    sections: [
+      {
+        h2: 'A short drive from New Westminster',
+        body: 'Burnaby borders New Westminster directly, so the showroom is one of the closest places to see real patio covers and a sunroom at full size before you buy.',
+      },
+      {
+        h2: 'What is on display',
+        body: 'Full-size aluminum patio covers, glass patio covers, skyline combo covers (glass plus V-panel), and an all-glass sunroom. Compare frame finishes, light, and scale side by side.',
+      },
+      {
+        h2: 'Estimate first, then visit or measure',
+        body: 'Most homeowners start with a fast rough estimate in chat using their city and approximate patio size. Then book a showroom visit or a free on-site measurement for formal pricing.',
+      },
+    ],
+    pricingNote:
+      'Showroom displays show product and finish — your price depends on patio size, product, and site details. Chat gives a planning range; free measurement confirms it.',
+    faqs: [
+      {
+        q: 'Is there a patio cover showroom near New Westminster?',
+        a: 'Yes — the LoomiHome Patios showroom in Burnaby, BC is a short drive from New Westminster, with full-size patio cover and sunroom displays.',
+      },
+      {
+        q: 'Can I see a sunroom in person before ordering?',
+        a: 'Yes. The Burnaby showroom has an all-glass sunroom you can walk through, alongside full-size patio cover displays.',
+      },
+      {
+        q: 'What is a typical aluminum patio cover cost?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+    ],
+    caseStudy: {
+      image: '/house/showroom/patio-cover-displays.jpg',
+      alt: 'Patio cover displays in the LoomiHome Burnaby showroom',
+      caption: 'Full-size patio cover displays in our Burnaby showroom — a short drive from New Westminster.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-showroom-burnaby', label: 'Patio cover showroom in Burnaby' },
+      { path: '/patio-cover-showroom-near-me', label: 'Patio cover showroom near me' },
+      { path: '/patio-covers-new-westminster', label: 'Patio covers in New Westminster' },
+      { path: '/patio-cover-cost-new-westminster', label: 'Patio cover cost in New Westminster' },
+      { path: '/sunroom-showroom-vancouver', label: 'Sunroom showroom' },
+    ],
+  },
+  'showroom-coquitlam': {
+    id: 'showroom-coquitlam',
+    path: '/patio-cover-showroom-coquitlam',
+    datePublished: '2026-10-02',
+    dateModified: '2026-10-02',
+    heroImage: '/house/showroom/showroom-main.jpg',
+    metaTitle: 'Patio Cover Showroom Near Coquitlam, BC | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover showroom near Coquitlam? The LoomiHome Patios showroom in Burnaby, BC is a short drive via Highway 1 — full-size aluminum, glass, and skyline combo displays plus an all-glass sunroom.',
+    h1: 'Patio Cover Showroom Near Coquitlam',
+    intro:
+      'Coquitlam homeowners can see real patio covers before they commit. The LoomiHome Patios showroom in Burnaby, BC is a short drive west via Highway 1 or Lougheed Highway from Coquitlam Town Centre, Burke Mountain, Maillardville, and Austin Heights — with full-size aluminum, glass, and skyline combo patio cover displays and an all-glass sunroom.',
+    sections: [
+      {
+        h2: 'A short drive from Coquitlam',
+        body: 'The Burnaby showroom sits just west of Coquitlam along Highway 1, making it an easy trip for Tri-Cities homeowners comparing patio cover options.',
+      },
+      {
+        h2: 'What is on display',
+        body: 'Full-size aluminum patio covers, glass patio covers, skyline combo covers (glass plus V-panel), and an all-glass sunroom. Judge quality, colour, light, and scale in person.',
+      },
+      {
+        h2: 'Estimate first, then visit or measure',
+        body: 'Start with a fast rough estimate in chat using your city and approximate patio size, then book a showroom visit or a free on-site measurement for formal pricing.',
+      },
+    ],
+    pricingNote:
+      'Showroom displays show product and finish — your price depends on patio size, product, and site details. Chat gives a planning range; free measurement confirms it.',
+    faqs: [
+      {
+        q: 'Is there a patio cover showroom near Coquitlam?',
+        a: 'Yes — the LoomiHome Patios showroom in Burnaby, BC is a short drive from Coquitlam via Highway 1, with full-size patio cover and sunroom displays.',
+      },
+      {
+        q: 'Can I compare aluminum and glass covers side by side?',
+        a: 'Yes. The Burnaby showroom has full-size aluminum, glass, and skyline combo displays so you can compare them directly.',
+      },
+      {
+        q: 'What is a typical aluminum patio cover cost?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+    ],
+    caseStudy: {
+      image: '/house/showroom/patio-cover-displays.jpg',
+      alt: 'Patio cover displays in the LoomiHome Burnaby showroom',
+      caption: 'Full-size patio cover displays in our Burnaby showroom — a short drive from Coquitlam.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-showroom-burnaby', label: 'Patio cover showroom in Burnaby' },
+      { path: '/patio-cover-showroom-near-me', label: 'Patio cover showroom near me' },
+      { path: '/patio-covers-coquitlam', label: 'Patio covers in Coquitlam' },
+      { path: '/patio-cover-cost-coquitlam', label: 'Patio cover cost in Coquitlam' },
+      { path: '/tri-cities-patio-covers', label: 'Tri-Cities patio covers' },
+    ],
+  },
+  'showroom-richmond': {
+    id: 'showroom-richmond',
+    path: '/patio-cover-showroom-richmond',
+    datePublished: '2026-10-02',
+    dateModified: '2026-10-02',
+    heroImage: '/house/showroom/showroom-main.jpg',
+    metaTitle: 'Patio Cover Showroom Near Richmond, BC | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover showroom near Richmond? The LoomiHome Patios showroom in Burnaby, BC is a short drive via the Knight Street Bridge — full-size aluminum, glass, and skyline combo displays plus an all-glass sunroom.',
+    h1: 'Patio Cover Showroom Near Richmond',
+    intro:
+      'Richmond homeowners can see patio covers and sunrooms in person before deciding. The LoomiHome Patios showroom in Burnaby, BC is a short drive from Steveston, Richmond Centre, Brighouse, and Sea Island via the Knight Street Bridge — with full-size aluminum, glass, and skyline combo patio cover displays and an all-glass sunroom you can walk through.',
+    sections: [
+      {
+        h2: 'A short drive from Richmond',
+        body: 'Cross the Knight Street Bridge and you are close to the Burnaby showroom — the nearest place for Richmond homeowners to stand under full-size patio covers and step inside a real sunroom.',
+      },
+      {
+        h2: 'What is on display',
+        body: 'Full-size aluminum patio covers, glass patio covers, skyline combo covers (glass plus V-panel), and an all-glass sunroom. Compare how each option handles rain, light, and privacy.',
+      },
+      {
+        h2: 'Estimate first, then visit or measure',
+        body: 'Get a fast rough estimate in chat with your city and approximate patio size, then book a showroom visit or a free on-site measurement for formal pricing.',
+      },
+    ],
+    pricingNote:
+      'Showroom displays show product and finish — your price depends on patio size, product, and site details. Chat gives a planning range; free measurement confirms it.',
+    faqs: [
+      {
+        q: 'Is there a patio cover showroom near Richmond?',
+        a: 'Yes — the LoomiHome Patios showroom in Burnaby, BC is a short drive from Richmond via the Knight Street Bridge, with full-size patio cover and sunroom displays.',
+      },
+      {
+        q: 'Do I need to visit the showroom to get a price?',
+        a: 'No. You can get a rough estimate in chat in about a minute, and a free on-site measurement confirms the final quote.',
+      },
+      {
+        q: 'What is a typical aluminum patio cover cost?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+    ],
+    caseStudy: {
+      image: '/house/showroom/patio-cover-displays.jpg',
+      alt: 'Patio cover displays in the LoomiHome Burnaby showroom',
+      caption: 'Full-size patio cover displays in our Burnaby showroom — a short drive from Richmond.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-showroom-burnaby', label: 'Patio cover showroom in Burnaby' },
+      { path: '/patio-cover-showroom-near-me', label: 'Patio cover showroom near me' },
+      { path: '/patio-covers-richmond', label: 'Patio covers in Richmond' },
+      { path: '/patio-cover-cost-richmond', label: 'Patio cover cost in Richmond' },
+      { path: '/sunrooms-richmond', label: 'Sunrooms in Richmond' },
+    ],
+  },
+  'showroom-surrey': {
+    id: 'showroom-surrey',
+    path: '/patio-cover-showroom-surrey',
+    datePublished: '2026-10-02',
+    dateModified: '2026-10-02',
+    heroImage: '/house/showroom/showroom-main.jpg',
+    metaTitle: 'Patio Cover Showroom Near Surrey, BC | LoomiHome Patios',
+    metaDescription:
+      'Looking for a patio cover showroom near Surrey? The LoomiHome Patios showroom in Burnaby, BC is a short drive over the Port Mann — full-size aluminum, glass, and skyline combo displays plus an all-glass sunroom.',
+    h1: 'Patio Cover Showroom Near Surrey',
+    intro:
+      'Surrey homeowners can see patio covers and sunrooms at full size before they buy. The LoomiHome Patios showroom in Burnaby, BC is a short drive from Whalley, Guildford, Cloverdale, and South Surrey — with full-size aluminum, glass, and skyline combo patio cover displays and an all-glass sunroom.',
+    sections: [
+      {
+        h2: 'A short drive from Surrey',
+        body: 'The Burnaby showroom is an easy trip from Surrey for homeowners who want to compare real products — frame finishes, glass, roof panels, and scale — before choosing.',
+      },
+      {
+        h2: 'What is on display',
+        body: 'Full-size aluminum patio covers, glass patio covers, skyline combo covers (glass plus V-panel), and an all-glass sunroom. Our team can explain how each option handles rain, light, and maintenance.',
+      },
+      {
+        h2: 'Estimate first, then visit or measure',
+        body: 'Surrey lots range from compact townhome patios to wider backyards — start with a fast rough estimate in chat, then book a showroom visit or a free on-site measurement for formal pricing.',
+      },
+    ],
+    pricingNote:
+      'Showroom displays show product and finish — your price depends on patio size, product, and site details. Chat gives a planning range; free measurement confirms it.',
+    faqs: [
+      {
+        q: 'Is there a patio cover showroom near Surrey?',
+        a: 'Yes — the LoomiHome Patios showroom in Burnaby, BC is a short drive from Surrey, with full-size patio cover and sunroom displays.',
+      },
+      {
+        q: 'Can I see a sunroom in person before ordering?',
+        a: 'Yes. The Burnaby showroom has an all-glass sunroom you can walk through, alongside full-size patio cover displays.',
+      },
+      {
+        q: 'What is a typical aluminum patio cover cost?',
+        a: PRICING_COPY.example12x14Aluminum,
+      },
+    ],
+    caseStudy: {
+      image: '/house/showroom/patio-cover-displays.jpg',
+      alt: 'Patio cover displays in the LoomiHome Burnaby showroom',
+      caption: 'Full-size patio cover displays in our Burnaby showroom — a short drive from Surrey.',
+      projectPath: '/projects/burnaby-aluminum-patio-cover',
+    },
+    relatedPageLinks: [
+      { path: '/patio-cover-showroom-burnaby', label: 'Patio cover showroom in Burnaby' },
+      { path: '/patio-cover-showroom-near-me', label: 'Patio cover showroom near me' },
+      { path: '/patio-covers-surrey', label: 'Patio covers in Surrey' },
+      { path: '/patio-cover-cost-surrey', label: 'Patio cover cost in Surrey' },
+      { path: '/sunrooms-surrey', label: 'Sunrooms in Surrey' },
     ],
   },
 };
