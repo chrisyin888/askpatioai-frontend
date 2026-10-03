@@ -677,6 +677,24 @@ export default {
   background: #ffffff;
 }
 
+/* Homepage `.section-hero .body-section` is a fixed-height flex child; SEO pages need full-height flow. */
+.seo-page .seo-page__article {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+.seo-page .seo-page__panel {
+  flex: 0 0 auto;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.seo-page .seo-page__article .seo-page__body {
+  flex: 0 0 auto;
+  min-height: auto;
+  overflow: visible;
+}
+
 .seo-page__section {
   padding: 20px max(16px, env(safe-area-inset-left)) 8px
     max(16px, env(safe-area-inset-right));
