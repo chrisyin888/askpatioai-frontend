@@ -1,6 +1,6 @@
 # LoomiHome Patios
 
-> Last updated: 2026-10-02
+> Last updated: 2026-10-04
 > Canonical: https://loomihomepatios.ca/llms.txt
 > Mirror for AI tools: https://loomihomepatios.ca/.well-known/llms.txt
 > Canonical site: https://loomihomepatios.ca

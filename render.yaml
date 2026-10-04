@@ -595,6 +595,9 @@ services:
       - type: redirect
         source: /admin-leads
         destination: /admin-leads/
+      - type: redirect
+        source: /instant-quote
+        destination: /instant-quote/
       - type: rewrite
         source: /*
         destination: /*/index.html

@@ -199,4 +199,5 @@
 /lobby /lobby/ 301
 /account /account/ 301
 /admin-leads /admin-leads/ 301
+/instant-quote /instant-quote/ 301
 /* /index.html 200
