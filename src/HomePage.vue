@@ -442,6 +442,14 @@
             target="_blank"
             rel="noopener"
           >★★★★★ Leave a Google Review</a>
+          <div class="reviews-qr">
+            <img
+              :src="publicAssetUrl('/google-review-qr.png')"
+              alt="Scan to leave a Google review"
+              loading="lazy"
+            />
+            <p>Scan with your phone camera</p>
+          </div>
         </div>
       </section>
 
@@ -3237,6 +3245,22 @@ html.app-scroll-lock #app {
   display: inline-block;
   margin-top: 20px;
   text-decoration: none;
+}
+
+.section-reviews-cta .reviews-qr {
+  margin-top: 28px;
+}
+
+.section-reviews-cta .reviews-qr img {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+}
+
+.section-reviews-cta .reviews-qr p {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 14px;
 }
 
 /* Our Facility & Real Projects */
