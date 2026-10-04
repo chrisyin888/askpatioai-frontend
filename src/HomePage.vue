@@ -429,6 +429,22 @@
         </div>
       </section>
 
+      <!-- Google Reviews CTA -->
+      <section class="section section-reviews-cta">
+        <div class="content-wrapper glass-panel reviews-cta-panel">
+          <h2 class="title">Happy With Our Work?</h2>
+          <p class="subtitle">
+            Your review helps other Metro Vancouver homeowners find us. It only takes a minute.
+          </p>
+          <a
+            class="hero-cta hero-cta--primary"
+            href="https://g.page/r/CR7NXdM0DwJFEBM/review"
+            target="_blank"
+            rel="noopener"
+          >★★★★★ Leave a Google Review</a>
+        </div>
+      </section>
+
       <!-- Our Facility & Real Projects (trust / proof) -->
       <section class="section section-facility">
         <div class="content-wrapper glass-panel">
@@ -3200,6 +3216,27 @@ html.app-scroll-lock #app {
   padding: 40px max(12px, env(safe-area-inset-left)) 40px
     max(12px, env(safe-area-inset-right));
   box-sizing: border-box;
+}
+
+/* Google Reviews CTA */
+.section-reviews-cta {
+  align-items: stretch;
+  padding: 40px max(12px, env(safe-area-inset-left)) 40px
+    max(12px, env(safe-area-inset-right));
+  box-sizing: border-box;
+}
+
+.section-reviews-cta .reviews-cta-panel {
+  width: 100%;
+  background: #ffffff;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.section-reviews-cta .reviews-cta-panel .hero-cta {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
 }
 
 /* Our Facility & Real Projects */
