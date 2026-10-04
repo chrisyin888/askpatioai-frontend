@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../HomePage.vue';
+import InstantQuote from '../views/InstantQuote.vue';
 import ContractorAccount from '../views/ContractorAccount.vue';
 import AdminLogin from '../views/AdminLogin.vue';
 import AdminLeads from '../views/AdminLeads.vue';
@@ -116,6 +117,16 @@ const router = createRouter({
         title: DEFAULT_TITLE,
         description: DEFAULT_DESCRIPTION,
         image: '/og/og-glass.jpg',
+      },
+    },
+    {
+      path: '/instant-quote',
+      name: 'instant-quote',
+      component: InstantQuote,
+      meta: {
+        title: 'Instant Patio Cover Quote — Design & Price Online | LoomiHome Patios',
+        description:
+          'Design your patio cover online and see the price instantly. Choose aluminum, glass, or combo roof, set your size, and get a planning total in seconds.',
       },
     },
     {

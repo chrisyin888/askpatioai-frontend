@@ -30,11 +30,10 @@
         >
           Get My Fast Estimate
         </button>
-        <a
-          href="#our-products"
+        <router-link
+          to="/instant-quote"
           class="hero__cta hero__cta--secondary"
-          @click.prevent="$emit('nav', '#our-products')"
-        >Compare Cover Types</a>
+        >Design &amp; Price It Yourself</router-link>
       </div>
 
       <ul
