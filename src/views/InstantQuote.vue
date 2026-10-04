@@ -65,6 +65,7 @@
         <form class="iq-form" @submit.prevent="submitLead">
           <input v-model="name" type="text" placeholder="Your name" required />
           <input v-model="email" type="email" placeholder="Email address" required />
+          <input v-model="phone" type="tel" placeholder="Phone (optional)" />
           <input v-model="city" type="text" placeholder="City (e.g. Burnaby)" required />
           <button class="hero-cta hero-cta--primary" type="submit" :disabled="leadSent || leadSending">
             {{ leadSent ? 'Quote Sent — Check Your Inbox' : (leadSending ? 'Sending…' : 'Email Me This Quote') }}
@@ -105,6 +106,7 @@ export default {
       width: 12,
       name: '',
       email: '',
+      phone: '',
       city: '',
       leadSending: false,
       leadSent: false,
@@ -142,6 +144,7 @@ export default {
             source: 'instant_quote',
             name: this.name,
             email: this.email,
+            phone: this.phone || '',
             city: this.city,
             project_type: 'patio cover',
             size: `${this.length}x${this.width} ft (${this.sqft} sq ft)`,
