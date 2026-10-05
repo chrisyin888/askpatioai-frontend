@@ -42,7 +42,7 @@
       <div class="iq-sliders">
         <div class="iq-slider-row">
           <label for="iq-length">Length <strong>{{ length }} ft</strong></label>
-          <input id="iq-length" v-model.number="length" type="range" min="8" max="40" step="1" />
+          <input id="iq-length" v-model.number="length" type="range" min="4" max="40" step="1" />
         </div>
         <div class="iq-slider-row">
           <label for="iq-width">Width (projection) <strong>{{ width }} ft</strong></label>
