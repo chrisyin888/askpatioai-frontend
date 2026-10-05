@@ -22,11 +22,6 @@ function normalizeLlmsUrls(txt) {
     },
   );
 }
-const {
-  patioCoverQuoteForMaterial,
-  sunroomQuoteForType,
-} = require('../src/utils/chatPricing');
-
 async function loadPriorityPages() {
   const mod = await import(
     pathToFileURL(path.join(__dirname, '../src/data/prioritySeoPages.js')).href
@@ -88,23 +83,6 @@ const GUIDE_LLM_LABELS = {
   'showroom-surrey': 'Patio cover showroom (near Surrey)',
 };
 
-function exampleLine(material, w, h) {
-  const quote = patioCoverQuoteForMaterial(material, w * h);
-  const label =
-    material === 'Glass'
-      ? 'glass patio cover'
-      : material === 'Skyline Combo'
-        ? 'skyline combo patio cover'
-        : 'aluminum patio cover';
-  return `- ${w}×${h} ft ${label}: about $${quote.totalMin.toLocaleString('en-CA')}–$${quote.totalMax.toLocaleString('en-CA')} CAD before GST`;
-}
-
-function sunroomExampleLine(type, w, h) {
-  const quote = sunroomQuoteForType(type, w * h);
-  const label = type === 'wall' ? 'sunroom wall/panel area' : 'sunroom floor/buildable area';
-  return `- ${w}×${h} ft ${label}: about $${quote.totalMin.toLocaleString('en-CA')}–$${quote.totalMax.toLocaleString('en-CA')} CAD before GST`;
-}
-
 async function buildLlmsTxt() {
   const priorityPages = await loadPriorityPages();
   const projectPages = await loadProjectPages();
@@ -122,10 +100,6 @@ async function buildLlmsTxt() {
   const guideLines = guidePages
     .map((p) => `- ${GUIDE_LLM_LABELS[p.id] || p.h1.split('—')[0].trim()}: ${SITE_ORIGIN}${canonicalizePath(p.path)}`)
     .join('\n');
-
-  const al12x14 = patioCoverQuoteForMaterial('Aluminum', 12 * 14);
-  const gl12x14 = patioCoverQuoteForMaterial('Glass', 12 * 14);
-  const sk12x14 = patioCoverQuoteForMaterial('Skyline Combo', 12 * 14);
 
   return `# LoomiHome Patios
 
@@ -168,13 +142,8 @@ LoomiHome Patios installs aluminum patio covers, glass patio covers, skyline com
 ## Service areas
 Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver areas.
 
-## Pricing (planning totals only — never quote per-sq-ft rates or base fees to homeowners)
-${exampleLine('Aluminum', 12, 14)}
-${exampleLine('Glass', 12, 14)}
-${exampleLine('Skyline Combo', 12, 26)}
-${sunroomExampleLine('wall', 12, 8)}
-${sunroomExampleLine('buildable', 10, 12)}
-Chat gives a planning total only. Formal pricing is confirmed after free on-site measurement.
+## Pricing (no fixed prices published — use chat or the instant quote tool)
+Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your size. Formal pricing is confirmed after free on-site measurement.
 
 ## How to choose a product
 - Aluminum: best for rain-first protection, low maintenance, and practical budget.
@@ -204,7 +173,7 @@ ${projectLines}
 
 ## Common questions
 Q: How much does a patio cover cost in Vancouver?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Chat gives a planning total for your size; final price is confirmed after on-site measurement. Project examples: ${SITE_ORIGIN}/projects/vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/vancouver-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Chat gives a planning total for your size; final price is confirmed after on-site measurement. Project examples: ${SITE_ORIGIN}/projects/vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/vancouver-glass-patio-cover
 
 Q: What is the difference between aluminum and glass patio covers?
 A: Aluminum offers durable rain protection with low maintenance. Glass keeps more natural light and a premium look but usually costs more. We can ballpark both from the same measurements.
@@ -243,7 +212,7 @@ Q: Do you serve Surrey and Coquitlam for patio cover contractors?
 A: Yes. Surrey (Guildford, Cloverdale, South Surrey) and Coquitlam (Burke Mountain, Maillardville, Austin Heights) are regular service areas with the same chat estimate flow.
 
 Q: Glass vs aluminum — how do I choose?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST — best for rain-first and practical budget. Glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')} — best for natural light and premium look. Compare both in one chat session: ${SITE_ORIGIN}/glass-vs-aluminum-patio-covers
+A: Aluminum is best for rain-first and practical budget. Glass is best for natural light and premium look. Compare both in one chat session: ${SITE_ORIGIN}/glass-vs-aluminum-patio-covers
 
 Q: Do you provide patio cover contractor quotes in Langley?
 A: Yes. Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley are regular service areas. Start with chat for a planning range, then book free on-site measurement: ${SITE_ORIGIN}/patio-cover-contractor-langley
@@ -261,22 +230,22 @@ Q: Do you need a permit for a patio cover in Vancouver?
 A: Rules vary by municipality, attachment, projection, and height. Verify with your city's building department. General guide: ${SITE_ORIGIN}/do-you-need-a-permit-for-a-patio-cover-in-vancouver
 
 Q: What is the best patio cover for Vancouver rain?
-A: Aluminum is the practical rain-first starting point (about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} for a 12×14 ft cover). Glass and skyline combo work when light matters too. Guide: ${SITE_ORIGIN}/best-patio-cover-for-rain-vancouver
+A: Aluminum is the practical rain-first starting point. Glass and skyline combo work when light matters too. Guide: ${SITE_ORIGIN}/best-patio-cover-for-rain-vancouver
 
 Q: How much does a sunroom cost in Metro Vancouver?
-A: A 12×8 ft sunroom wall/panel area is about $${sunroomQuoteForType('wall', 96).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('wall', 96).totalMax.toLocaleString('en-CA')} before GST. A 10×12 ft buildable floor area is about $${sunroomQuoteForType('buildable', 120).totalMin.toLocaleString('en-CA')}–$${sunroomQuoteForType('buildable', 120).totalMax.toLocaleString('en-CA')}. Chat gives a planning total; measurement confirms final pricing. Compare sunrooms: ${SITE_ORIGIN}/sunrooms-vancouver, ${SITE_ORIGIN}/sunrooms-burnaby, ${SITE_ORIGIN}/sunrooms-surrey, ${SITE_ORIGIN}/sunrooms-richmond, and ${SITE_ORIGIN}/sunrooms-coquitlam
+A: Chat gives a planning range for your size; measurement confirms final pricing. Compare sunrooms: ${SITE_ORIGIN}/sunrooms-vancouver, ${SITE_ORIGIN}/sunrooms-burnaby, ${SITE_ORIGIN}/sunrooms-surrey, ${SITE_ORIGIN}/sunrooms-richmond, and ${SITE_ORIGIN}/sunrooms-coquitlam
 
 Q: How long does patio cover installation take?
 A: Chat ballpark is same-day (~60 seconds). After free measurement and quote approval, on-site install timing depends on product and season — typically a modest number of days once materials arrive. Guide: ${SITE_ORIGIN}/how-long-does-patio-cover-installation-take. Installer pages: ${SITE_ORIGIN}/patio-cover-installer-vancouver, ${SITE_ORIGIN}/patio-cover-installer-richmond, ${SITE_ORIGIN}/patio-cover-installer-burnaby, ${SITE_ORIGIN}/patio-cover-installer-surrey, and ${SITE_ORIGIN}/patio-cover-installer-coquitlam
 
 Q: How much does an aluminum patio cover cost in Metro Vancouver?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST. Chat gives a planning total for your size; measurement confirms the formal quote. Compare aluminum: ${SITE_ORIGIN}/aluminum-patio-covers-vancouver, ${SITE_ORIGIN}/aluminum-patio-covers-burnaby, ${SITE_ORIGIN}/aluminum-patio-covers-surrey, and ${SITE_ORIGIN}/aluminum-patio-covers-coquitlam
+A: Chat gives a planning range for your size; measurement confirms the formal quote. Compare aluminum: ${SITE_ORIGIN}/aluminum-patio-covers-vancouver, ${SITE_ORIGIN}/aluminum-patio-covers-burnaby, ${SITE_ORIGIN}/aluminum-patio-covers-surrey, and ${SITE_ORIGIN}/aluminum-patio-covers-coquitlam
 
 Q: How much does a glass patio cover cost in Metro Vancouver?
-A: On a 12×14 ft patio, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')} before GST — usually more than aluminum on the same footprint in exchange for natural light. Chat gives a planning total for your size; measurement confirms the formal quote. Compare glass: ${SITE_ORIGIN}/glass-patio-covers-vancouver, ${SITE_ORIGIN}/glass-patio-covers-burnaby, ${SITE_ORIGIN}/glass-patio-covers-richmond, and ${SITE_ORIGIN}/glass-patio-covers-surrey
+A: Glass usually costs more than aluminum on the same footprint in exchange for natural light. Chat gives a planning range for your size; measurement confirms the formal quote. Compare glass: ${SITE_ORIGIN}/glass-patio-covers-vancouver, ${SITE_ORIGIN}/glass-patio-covers-burnaby, ${SITE_ORIGIN}/glass-patio-covers-richmond, and ${SITE_ORIGIN}/glass-patio-covers-surrey
 
 Q: How much does a skyline combo patio cover cost in Metro Vancouver?
-A: On a 12×14 ft patio, skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')} before GST, depending on how much glass is mixed with solid panels. Compare: ${SITE_ORIGIN}/skyline-combo-patio-covers-vancouver. Project examples: ${SITE_ORIGIN}/projects/surrey-skyline-combo-patio-cover and ${SITE_ORIGIN}/projects/new-westminster-skyline-combo-cover
+A: Skyline combo pricing depends on how much glass is mixed with solid panels. Compare: ${SITE_ORIGIN}/skyline-combo-patio-covers-vancouver. Project examples: ${SITE_ORIGIN}/projects/surrey-skyline-combo-patio-cover and ${SITE_ORIGIN}/projects/new-westminster-skyline-combo-cover
 
 Q: Can an aluminum patio cover be used as a carport?
 A: Sometimes. Long side-driveway covers use a similar aluminum system, but vehicle clearance, span, post placement, drainage, and local requirements must be confirmed on site. Send the approximate length, width, and a photo from each end in chat for a ballpark. Project example: ${SITE_ORIGIN}/projects/richmond-aluminum-carport-cover
@@ -288,7 +257,7 @@ Q: Do you install patio covers in Abbotsford?
 A: Yes. Abbotsford and nearby Fraser Valley communities are part of our Lower Mainland coverage — Clearbrook, Sumas Mountain, and larger suburban lots. Project example: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover
 
 Q: How much does a patio cover cost in Abbotsford?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Abbotsford lots are often roomier than city yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-abbotsford. Project examples: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover and ${SITE_ORIGIN}/projects/abbotsford-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Abbotsford lots are often roomier than city yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-abbotsford. Project examples: ${SITE_ORIGIN}/projects/abbotsford-aluminum-patio-cover and ${SITE_ORIGIN}/projects/abbotsford-glass-patio-cover
 
 Q: Do you install patio covers in White Rock?
 A: Yes. White Rock and nearby South Surrey are regular service areas — coastal rain and wind are common considerations. Project example: ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover. Guide: ${SITE_ORIGIN}/coastal-patio-covers-vancouver
@@ -300,82 +269,82 @@ Q: Do you install patio covers in Maple Ridge and Pitt Meadows?
 A: Yes. Maple Ridge (Town Centre, Albion, Silver Valley) and Pitt Meadows are part of our Lower Mainland coverage — often with room for wider patio spans. Project examples: ${SITE_ORIGIN}/projects/maple-ridge-skyline-combo-cover and ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover
 
 Q: How much does a patio cover cost in Surrey?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Surrey lots range from compact townhome patios to wider Cloverdale and South Surrey backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-surrey. Project examples: ${SITE_ORIGIN}/projects/surrey-aluminum-patio-cover and ${SITE_ORIGIN}/projects/surrey-skyline-combo-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Surrey lots range from compact townhome patios to wider Cloverdale and South Surrey backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-surrey. Project examples: ${SITE_ORIGIN}/projects/surrey-aluminum-patio-cover and ${SITE_ORIGIN}/projects/surrey-skyline-combo-patio-cover
 
 Q: Do you install backyard patio covers in Richmond?
 A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Richmond projects include backyard patio covers and carport-style side covers. Project examples: ${SITE_ORIGIN}/projects/richmond-aluminum-patio-cover and ${SITE_ORIGIN}/projects/richmond-aluminum-carport-cover
 
 Q: How much does a patio cover cost in Burnaby?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Burnaby lots range from compact Metrotown yards to roomier Deer Lake backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-burnaby. Project examples: ${SITE_ORIGIN}/projects/burnaby-aluminum-patio-cover and ${SITE_ORIGIN}/projects/burnaby-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Burnaby lots range from compact Metrotown yards to roomier Deer Lake backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-burnaby. Project examples: ${SITE_ORIGIN}/projects/burnaby-aluminum-patio-cover and ${SITE_ORIGIN}/projects/burnaby-glass-patio-cover
 
 Q: Do you install glass patio covers in Burnaby?
 A: Yes. Metrotown, Brentwood, Edmonds, and Deer Lake are regular Burnaby service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/burnaby-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-burnaby
 
 Q: How much does a patio cover cost in Langley?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Langley lots range from townhome patios to wider Willoughby and Walnut Grove backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-langley. Project examples: ${SITE_ORIGIN}/projects/langley-aluminum-patio-cover and ${SITE_ORIGIN}/projects/langley-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Langley lots range from townhome patios to wider Willoughby and Walnut Grove backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-langley. Project examples: ${SITE_ORIGIN}/projects/langley-aluminum-patio-cover and ${SITE_ORIGIN}/projects/langley-glass-patio-cover
 
 Q: Do you install glass patio covers in Langley?
 A: Yes. Willoughby, Walnut Grove, Murrayville, Brookswood, and Fort Langley are regular service areas. Glass is popular on newer walkout decks with large rear windows. Project example: ${SITE_ORIGIN}/projects/langley-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-langley
 
 Q: How much does a patio cover cost in Richmond?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Richmond projects include backyard patio covers and carport-style side covers, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-richmond. Project examples: ${SITE_ORIGIN}/projects/richmond-aluminum-patio-cover and ${SITE_ORIGIN}/projects/richmond-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Richmond projects include backyard patio covers and carport-style side covers, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-richmond. Project examples: ${SITE_ORIGIN}/projects/richmond-aluminum-patio-cover and ${SITE_ORIGIN}/projects/richmond-glass-patio-cover
 
 Q: Do you install glass patio covers in Richmond?
 A: Yes. Steveston, Broadmoor, East Cambie, and Burkeville are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/richmond-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-richmond
 
 Q: How much does a patio cover cost in Coquitlam?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Coquitlam lots range from hillside Burke Mountain decks to flatter Tri-Cities yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-coquitlam. Project examples: ${SITE_ORIGIN}/projects/coquitlam-aluminum-patio-cover and ${SITE_ORIGIN}/projects/coquitlam-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Coquitlam lots range from hillside Burke Mountain decks to flatter Tri-Cities yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-coquitlam. Project examples: ${SITE_ORIGIN}/projects/coquitlam-aluminum-patio-cover and ${SITE_ORIGIN}/projects/coquitlam-glass-patio-cover
 
 Q: Do you install patio covers across the Tri-Cities?
 A: Yes. Coquitlam, Port Coquitlam, and Port Moody are regular service areas — hillside decks, family yards, and walkout patios included. Regional guide: ${SITE_ORIGIN}/tri-cities-patio-covers. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover
 
 Q: How much does a patio cover cost in Delta?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Delta lots range from compact side-yard covers to family backyards in Ladner and Tsawwassen, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-delta. Project examples: ${SITE_ORIGIN}/projects/delta-aluminum-patio-cover and ${SITE_ORIGIN}/projects/delta-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Delta lots range from compact side-yard covers to family backyards in Ladner and Tsawwassen, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-delta. Project examples: ${SITE_ORIGIN}/projects/delta-aluminum-patio-cover and ${SITE_ORIGIN}/projects/delta-glass-patio-cover
 
 Q: Do you install glass patio covers in Delta?
 A: Yes. Ladner, Tsawwassen, and North Delta are regular service areas. Glass is popular when homeowners want rain protection without darkening rear living spaces. Project example: ${SITE_ORIGIN}/projects/delta-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-delta
 
 Q: How much does a patio cover cost in North Vancouver?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. North Vancouver lots range from compact Lower Lonsdale decks to sloped Lynn Valley yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-north-vancouver. Project examples: ${SITE_ORIGIN}/projects/north-vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/north-vancouver-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. North Vancouver lots range from compact Lower Lonsdale decks to sloped Lynn Valley yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-north-vancouver. Project examples: ${SITE_ORIGIN}/projects/north-vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/north-vancouver-glass-patio-cover
 
 Q: Do you install aluminum patio covers in North Vancouver?
 A: Yes. Lynn Valley, Lower Lonsdale, Edgemont, and nearby North Shore areas are regular service areas. Aluminum is often the rain-first starting point on sloped lots and raised decks. Project example: ${SITE_ORIGIN}/projects/north-vancouver-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-north-vancouver
 
 Q: How much does a patio cover cost in West Vancouver?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. West Vancouver lots range from compact Ambleside decks to premium British Properties walkouts, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-west-vancouver. Project examples: ${SITE_ORIGIN}/projects/west-vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/west-vancouver-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. West Vancouver lots range from compact Ambleside decks to premium British Properties walkouts, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-west-vancouver. Project examples: ${SITE_ORIGIN}/projects/west-vancouver-aluminum-patio-cover and ${SITE_ORIGIN}/projects/west-vancouver-glass-patio-cover
 
 Q: Do you install glass patio covers in West Vancouver?
 A: Yes. Ambleside, Dundarave, the British Properties, and nearby North Shore areas are regular service areas. Glass is popular when homeowners want rain protection without darkening walkout decks or losing view lines. Project example: ${SITE_ORIGIN}/projects/west-vancouver-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-west-vancouver
 
 Q: How much does a patio cover cost in New Westminster?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. New Westminster patios range from compact Queensborough townhome layouts to wider Sapperton backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-new-westminster. Project examples: ${SITE_ORIGIN}/projects/new-westminster-aluminum-patio-cover, ${SITE_ORIGIN}/projects/new-westminster-glass-patio-cover, and ${SITE_ORIGIN}/projects/new-westminster-skyline-combo-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. New Westminster patios range from compact Queensborough townhome layouts to wider Sapperton backyards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-new-westminster. Project examples: ${SITE_ORIGIN}/projects/new-westminster-aluminum-patio-cover, ${SITE_ORIGIN}/projects/new-westminster-glass-patio-cover, and ${SITE_ORIGIN}/projects/new-westminster-skyline-combo-cover
 
 Q: Do you install aluminum patio covers in New Westminster?
 A: Yes. Queensborough, Sapperton, Uptown, and nearby Metro Vancouver areas are regular service areas. Aluminum is often the rain-first starting point on compact townhome patios. Project example: ${SITE_ORIGIN}/projects/new-westminster-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-new-westminster
 
 Q: How much does a patio cover cost in Maple Ridge?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Maple Ridge lots range from compact Town Centre patios to wider Silver Valley and Albion backyards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-maple-ridge. Project examples: ${SITE_ORIGIN}/projects/maple-ridge-aluminum-patio-cover and ${SITE_ORIGIN}/projects/maple-ridge-skyline-combo-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Maple Ridge lots range from compact Town Centre patios to wider Silver Valley and Albion backyards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-maple-ridge. Project examples: ${SITE_ORIGIN}/projects/maple-ridge-aluminum-patio-cover and ${SITE_ORIGIN}/projects/maple-ridge-skyline-combo-cover
 
 Q: Do you install aluminum patio covers in Maple Ridge?
 A: Yes. Town Centre, Albion, Silver Valley, and nearby Pitt Meadows are regular service areas. Aluminum is often the rain-first starting point on larger Fraser Valley lots. Project example: ${SITE_ORIGIN}/projects/maple-ridge-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-maple-ridge
 
 Q: How much does a patio cover cost in White Rock?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. White Rock lots range from compact East Beach decks to roomier South Surrey yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-white-rock. Project examples: ${SITE_ORIGIN}/projects/white-rock-aluminum-patio-cover and ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. White Rock lots range from compact East Beach decks to roomier South Surrey yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-white-rock. Project examples: ${SITE_ORIGIN}/projects/white-rock-aluminum-patio-cover and ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover
 
 Q: Do you install glass patio covers in White Rock?
 A: Yes. East Beach, West Beach, and nearby South Surrey are regular service areas. Glass is popular when homeowners want rain protection without darkening seaside decks. Project example: ${SITE_ORIGIN}/projects/white-rock-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-white-rock
 
 Q: How much does a patio cover cost in Pitt Meadows?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Pitt Meadows lots often have room for wider spans than city yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-pitt-meadows. Project examples: ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover and ${SITE_ORIGIN}/projects/pitt-meadows-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Pitt Meadows lots often have room for wider spans than city yards, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-pitt-meadows. Project examples: ${SITE_ORIGIN}/projects/pitt-meadows-aluminum-patio-cover and ${SITE_ORIGIN}/projects/pitt-meadows-glass-patio-cover
 
 Q: How much does a patio cover cost in Port Coquitlam?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Port Coquitlam lots range from compact townhome patios to hillside Mary Hill yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-port-coquitlam. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-aluminum-patio-cover and ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Port Coquitlam lots range from compact townhome patios to hillside Mary Hill yards, so chat gives a planning total for your size. Guide: ${SITE_ORIGIN}/patio-cover-cost-port-coquitlam. Project examples: ${SITE_ORIGIN}/projects/port-coquitlam-aluminum-patio-cover and ${SITE_ORIGIN}/projects/port-coquitlam-glass-patio-cover
 
 Q: Do you install aluminum patio covers in Port Coquitlam?
 A: Yes. Citadel Heights, Mary Hill, Lincoln Park, and nearby Tri-Cities areas are regular service areas. Aluminum is often the rain-first starting point on townhome and hillside patios. Project example: ${SITE_ORIGIN}/projects/port-coquitlam-aluminum-patio-cover. Service page: ${SITE_ORIGIN}/aluminum-patio-covers-port-coquitlam
 
 Q: How much does a patio cover cost in Port Moody?
-A: On a 12×14 ft patio, aluminum is about $${al12x14.totalMin.toLocaleString('en-CA')}–$${al12x14.totalMax.toLocaleString('en-CA')} before GST, glass is about $${gl12x14.totalMin.toLocaleString('en-CA')}–$${gl12x14.totalMax.toLocaleString('en-CA')}, and skyline combo is about $${sk12x14.totalMin.toLocaleString('en-CA')}–$${sk12x14.totalMax.toLocaleString('en-CA')}. Port Moody lots range from compact Moody Centre decks to roomier Suter Brook walkouts, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-port-moody. Project examples: ${SITE_ORIGIN}/projects/port-moody-aluminum-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover
+A: Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size. Port Moody lots range from compact Moody Centre decks to roomier Suter Brook walkouts, so chat gives a planning total for your layout. Guide: ${SITE_ORIGIN}/patio-cover-cost-port-moody. Project examples: ${SITE_ORIGIN}/projects/port-moody-aluminum-patio-cover and ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover
 
 Q: Do you install glass patio covers in Port Moody?
 A: Yes. Moody Centre, Suter Brook, Newport Village, and nearby Tri-Cities areas are regular service areas. Glass is popular when homeowners want rain protection without darkening walkout decks. Project example: ${SITE_ORIGIN}/projects/port-moody-glass-patio-cover. Service page: ${SITE_ORIGIN}/glass-patio-covers-port-moody
