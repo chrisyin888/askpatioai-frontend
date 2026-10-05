@@ -45,8 +45,23 @@
           <input id="iq-length" v-model.number="length" type="range" min="4" max="40" step="1" />
         </div>
         <div class="iq-slider-row">
-          <label for="iq-width">Width (projection) <strong>{{ width }} ft</strong></label>
-          <input id="iq-width" v-model.number="width" type="range" min="8" max="30" step="1" />
+          <label for="iq-width">Width <strong>{{ width }} ft · {{ panelCount }} pieces</strong></label>
+          <input id="iq-width" v-model.number="width" type="range" min="8" max="30" :step="panelWidthFt" />
+          <div class="iq-piece-note">
+            <span class="iq-piece-imgs">
+              <img
+                v-for="piece in selectedPieces"
+                :key="piece.key"
+                :src="assetUrl(piece.image)"
+                :alt="piece.alt"
+                loading="lazy"
+              />
+            </span>
+            <p>
+              Every {{ selectedPieceLabel }} is <strong>{{ panelWidthFt }} ft wide</strong>, so width goes up in
+              {{ panelWidthFt }} ft steps. {{ width }} ft = {{ panelCount }} pieces laid side by side.
+            </p>
+          </div>
         </div>
         <div class="iq-slider-row">
           <label for="iq-cover-height">Cover height <strong>{{ coverHeight }} ft</strong></label>
@@ -169,6 +184,21 @@ export default {
       floor: 1,
       coverHeight: COVER_HEIGHT.default,
       coverHeightRange: COVER_HEIGHT,
+      panelWidthFt: 2,
+      pieces: {
+        vPanel: {
+          key: 'vPanel',
+          label: 'aluminum V panel',
+          image: '/house/instant-quote/piece-v-panel.png',
+          alt: 'Single 2 ft wide aluminum V roof panel',
+        },
+        glass: {
+          key: 'glass',
+          label: 'glass panel',
+          image: '/house/instant-quote/piece-glass.png',
+          alt: 'Single 2 ft wide tempered glass roof panel',
+        },
+      },
       cityOptions: CITY_TRAVEL_TIERS.flatMap((t) => t.cities),
       floorOptions: [
         {
@@ -242,6 +272,17 @@ export default {
         city: this.city,
         coverHeight: this.coverHeight,
       });
+    },
+    panelCount() {
+      return Math.round(this.width / this.panelWidthFt);
+    },
+    selectedPieces() {
+      if (this.roofType === 'glass') return [this.pieces.glass];
+      if (this.roofType === 'combo') return [this.pieces.vPanel, this.pieces.glass];
+      return [this.pieces.vPanel];
+    },
+    selectedPieceLabel() {
+      return this.selectedPieces.map((p) => p.label).join(' and ');
     },
     priceLabel() {
       const { totalMin, totalMax } = this.quote;
@@ -494,6 +535,35 @@ export default {
 .iq-sqft {
   font-size: 18px;
   margin: 8px 0 0;
+}
+.iq-piece-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid #d1fae5;
+  border-radius: 10px;
+  background: #f0fdf4;
+}
+.iq-piece-imgs {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.iq-piece-imgs img {
+  width: 64px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+.iq-piece-note p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #334155;
 }
 .iq-hint {
   margin: 6px 0 0;
