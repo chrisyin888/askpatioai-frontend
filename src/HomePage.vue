@@ -306,18 +306,6 @@
               >{{ beforeAfter.viewMoreLabel }}</a>
             </div>
           </section>
-
-          <div
-            v-if="s1.seoHeading && s1.seoBody"
-            class="home-seo-block"
-          >
-            <h2 class="home-seo-block__title">{{ s1.seoHeading }}</h2>
-            <p class="home-seo-block__body">{{ s1.seoBody }}</p>
-            <p
-              v-if="s1.seoServiceArea"
-              class="home-seo-block__area"
-            >{{ s1.seoServiceArea }}</p>
-          </div>
         </div>
       </section>
 
@@ -732,6 +720,18 @@
       </section>
 
       <div class="home-seo-hub-wrap">
+        <div
+          v-if="s1.seoHeading && s1.seoBody"
+          class="home-seo-block"
+        >
+          <h2 class="home-seo-block__title">{{ s1.seoHeading }}</h2>
+          <p class="home-seo-block__body">{{ s1.seoBody }}</p>
+          <p
+            v-if="s1.seoServiceArea"
+            class="home-seo-block__area"
+          >{{ s1.seoServiceArea }}</p>
+        </div>
+
         <div
           v-if="faqList.length"
           id="faq"
@@ -3248,6 +3248,7 @@ html.app-scroll-lock #app {
   }
 }
 
+.home-seo-hub-wrap .home-seo-block,
 .home-seo-hub-wrap .home-faq {
   padding-left: 0;
   padding-right: 0;
