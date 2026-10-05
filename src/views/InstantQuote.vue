@@ -442,7 +442,7 @@ export default {
     },
     priceLabel() {
       const { totalMin, totalMax } = this.quote;
-      if (totalMin === totalMax) return `$${totalMin.toLocaleString()}`;
+      if (totalMin === totalMax) return `Around $${totalMin.toLocaleString()}`;
       return `$${totalMin.toLocaleString()} – $${totalMax.toLocaleString()}`;
     },
     selectedFloor() {
