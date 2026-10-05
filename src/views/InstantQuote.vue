@@ -96,7 +96,7 @@
       <h2 class="iq-step-title"><span class="iq-step-num">4</span> Your planning total</h2>
       <div class="iq-estimate-grid">
         <figure class="iq-preview">
-          <img :src="assetUrl(selectedRoof.image)" :alt="selectedRoof.alt" />
+          <img :src="assetUrl(selectedRoof.render)" :alt="selectedRoof.renderAlt" />
           <figcaption>{{ selectedRoof.name }} · {{ length }}×{{ width }} ft · {{ coverHeight }} ft high · {{ selectedFloor.name }}</figcaption>
         </figure>
 
@@ -182,6 +182,8 @@ export default {
           desc: 'Solid shade, lowest maintenance, most popular.',
           image: '/house/Aluminum/aluminum-hero.png',
           alt: 'Aluminum patio cover with solid roof panels',
+          render: '/house/instant-quote/aluminum-render.jpg',
+          renderAlt: '3D render of an aluminum patio cover with solid V-panel roof, posts, beam and downpipe',
         },
         {
           key: 'glass',
@@ -189,6 +191,8 @@ export default {
           desc: 'Maximum daylight, bright and open feel.',
           image: '/house/glass/glass-hero.png',
           alt: 'Glass patio cover with tempered glass roof',
+          render: '/house/instant-quote/glass-render.jpg',
+          renderAlt: '3D render of a glass patio cover with tempered glass roof panels on an aluminum frame',
         },
         {
           key: 'combo',
@@ -196,6 +200,8 @@ export default {
           desc: 'Glass center with solid borders — the best of both.',
           image: '/house/skyline/skyline-hero.png',
           alt: 'Skyline combo patio cover mixing glass and solid panels',
+          render: '/house/instant-quote/skyline-render.jpg',
+          renderAlt: '3D render of a Skyline combo patio cover alternating solid panels and glass skylight strips',
         },
       ],
     };
@@ -551,12 +557,13 @@ export default {
   margin: 0;
   border-radius: 14px;
   overflow: hidden;
-  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  background: #f4f4f4;
 }
 .iq-preview img {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 .iq-preview figcaption {
