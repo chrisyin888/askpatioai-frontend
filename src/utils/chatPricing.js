@@ -6,7 +6,32 @@ export const CHAT_PRICING = {
   skylineComboPerSqft: { min: 11, max: 14 },
   sunroomBuildablePerSqft: { min: 130, max: 145 },
   sunroomWallPerSqft: { min: 40, max: 48 },
+  patioCoverMinimumCharge: 1500,
+  patioCoverMinimumChargeBelowSqft: 100,
 };
+
+/** Instant quote add-ons: deck height (floor level) and travel tier, as multipliers on the patio cover total. */
+export const PATIO_HEIGHT_MULTIPLIERS = { 1: 1, 2: 1.15, 3: 1.3 };
+
+export const CITY_TRAVEL_TIERS = [
+  {
+    multiplier: 1,
+    cities: [
+      'Vancouver',
+      'Burnaby',
+      'New Westminster',
+      'Richmond',
+      'Coquitlam',
+      'Port Coquitlam',
+      'Port Moody',
+      'North Vancouver',
+      'Surrey',
+      'Delta',
+    ],
+  },
+  { multiplier: 1.05, cities: ['West Vancouver', 'Langley', 'White Rock', 'Pitt Meadows', 'Maple Ridge'] },
+  { multiplier: 1.1, cities: ['Abbotsford'] },
+];
 
 export function patioCoverRateRangeForMaterial(material) {
   const value = String(material || '').toLowerCase();
@@ -34,6 +59,27 @@ export function patioCoverQuoteForMaterial(material, sqft) {
     totalMin,
     totalMax,
     rateLabel: `CAD $${min}-${max}`,
+  };
+}
+
+export function cityTravelMultiplier(city) {
+  const tier = CITY_TRAVEL_TIERS.find((t) => t.cities.includes(city));
+  return tier ? tier.multiplier : 1;
+}
+
+/** Patio cover total with the small-job minimum, deck height, and city travel tier applied. */
+export function instantPatioQuote({ material, sqft, floor = 1, city = '' }) {
+  const base = patioCoverQuoteForMaterial(material, sqft);
+  const minCharge = CHAT_PRICING.patioCoverMinimumCharge;
+  const isMinimum = base.sqft < CHAT_PRICING.patioCoverMinimumChargeBelowSqft;
+  const baseMin = isMinimum ? minCharge : Math.max(base.totalMin, minCharge);
+  const baseMax = isMinimum ? minCharge : Math.max(base.totalMax, minCharge);
+  const multiplier = (PATIO_HEIGHT_MULTIPLIERS[floor] || 1) * cityTravelMultiplier(city);
+  return {
+    ...base,
+    isMinimum,
+    totalMin: Math.round(baseMin * multiplier),
+    totalMax: Math.round(baseMax * multiplier),
   };
 }
 

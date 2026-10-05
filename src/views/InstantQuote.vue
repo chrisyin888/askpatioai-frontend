@@ -52,21 +52,50 @@
       </div>
     </section>
 
+    <section class="iq-panel">
+      <h2 class="iq-step-title"><span class="iq-step-num">3</span> Location &amp; deck height</h2>
+      <div class="iq-field">
+        <label for="iq-city" class="iq-field-label">City</label>
+        <select id="iq-city" v-model="city" class="iq-select">
+          <option value="" disabled>Select your city</option>
+          <option v-for="c in cityOptions" :key="c" :value="c">{{ c }}</option>
+        </select>
+      </div>
+      <p class="iq-field-label">Which floor is the patio or deck on?</p>
+      <div class="iq-floors">
+        <button
+          v-for="opt in floorOptions"
+          :key="opt.floor"
+          type="button"
+          :class="['iq-floor', { active: floor === opt.floor }]"
+          :aria-pressed="floor === opt.floor"
+          @click="floor = opt.floor"
+        >
+          <span class="iq-floor-name">{{ opt.name }}</span>
+          <span class="iq-floor-desc">{{ opt.desc }}</span>
+        </button>
+      </div>
+    </section>
+
     <section class="iq-panel iq-estimate">
-      <h2 class="iq-step-title"><span class="iq-step-num">3</span> Your planning total</h2>
+      <h2 class="iq-step-title"><span class="iq-step-num">4</span> Your planning total</h2>
       <div class="iq-estimate-grid">
         <figure class="iq-preview">
           <img :src="assetUrl(selectedRoof.image)" :alt="selectedRoof.alt" />
-          <figcaption>{{ selectedRoof.name }} · {{ length }}×{{ width }} ft</figcaption>
+          <figcaption>{{ selectedRoof.name }} · {{ length }}×{{ width }} ft · {{ selectedFloor.name }}</figcaption>
         </figure>
 
         <div class="iq-estimate-body">
           <div class="iq-price">
-            ${{ quote.totalMin.toLocaleString() }} – ${{ quote.totalMax.toLocaleString() }}
+            {{ priceLabel }}
             <span class="iq-price-note">CAD, before GST</span>
           </div>
+          <p v-if="quote.isMinimum" class="iq-minimum">
+            Minimum charge of ${{ minimumCharge.toLocaleString() }} applies to covers under {{ minimumSqft }} sq ft.
+          </p>
           <p class="iq-disclaimer">
-            Planning total for {{ roofArticle }} {{ roofLabel }} patio cover, {{ length }}×{{ width }} ft.
+            Planning total for {{ roofArticle }} {{ roofLabel }} patio cover, {{ length }}×{{ width }} ft,
+            {{ selectedFloor.name.toLowerCase() }}{{ city ? ` in ${city}` : '' }}.
             Final pricing is confirmed after a free on-site measurement.
           </p>
 
@@ -74,7 +103,6 @@
             <input v-model="name" type="text" placeholder="Your name" autocomplete="name" required />
             <input v-model="email" type="email" placeholder="Email address" autocomplete="email" required />
             <input v-model="phone" type="tel" placeholder="Phone number" autocomplete="tel" required />
-            <input v-model="city" type="text" placeholder="City (e.g. Burnaby)" autocomplete="address-level2" required />
             <button class="iq-submit" type="submit" :disabled="leadSent || leadSending">
               {{ leadSent ? 'Quote Sent — Check Your Inbox' : (leadSending ? 'Sending…' : 'Email Me This Quote') }}
             </button>
@@ -98,7 +126,7 @@
 </template>
 
 <script>
-import { patioCoverQuoteForMaterial } from '../utils/chatPricing.js';
+import { CHAT_PRICING, CITY_TRAVEL_TIERS, instantPatioQuote } from '../utils/chatPricing.js';
 import { publicAssetUrl } from '../utils/publicAssetUrl';
 import siteData from '../data/siteData.json';
 
@@ -117,6 +145,15 @@ export default {
       email: '',
       phone: '',
       city: '',
+      floor: 1,
+      cityOptions: CITY_TRAVEL_TIERS.flatMap((t) => t.cities),
+      floorOptions: [
+        { floor: 1, name: 'Ground / 1st floor', desc: 'Patio or low deck — standard install.' },
+        { floor: 2, name: '2nd floor deck', desc: 'Taller posts and lifting — moderate install.' },
+        { floor: 3, name: '3rd floor deck', desc: 'Highest posts and access work — complex install.' },
+      ],
+      minimumCharge: CHAT_PRICING.patioCoverMinimumCharge,
+      minimumSqft: CHAT_PRICING.patioCoverMinimumChargeBelowSqft,
       leadSending: false,
       leadSent: false,
       leadError: '',
@@ -151,7 +188,20 @@ export default {
       return this.length * this.width;
     },
     quote() {
-      return patioCoverQuoteForMaterial(this.roofType, this.sqft);
+      return instantPatioQuote({
+        material: this.roofType,
+        sqft: this.sqft,
+        floor: this.floor,
+        city: this.city,
+      });
+    },
+    priceLabel() {
+      const { totalMin, totalMax } = this.quote;
+      if (totalMin === totalMax) return `$${totalMin.toLocaleString()}`;
+      return `$${totalMin.toLocaleString()} – $${totalMax.toLocaleString()}`;
+    },
+    selectedFloor() {
+      return this.floorOptions.find((o) => o.floor === this.floor) || this.floorOptions[0];
     },
     selectedRoof() {
       return this.roofOptions.find((o) => o.key === this.roofType) || this.roofOptions[0];
@@ -169,6 +219,10 @@ export default {
     },
     async submitLead() {
       if (this.leadSending || this.leadSent) return;
+      if (!this.city) {
+        this.leadError = 'Please select your city in step 3.';
+        return;
+      }
       this.leadSending = true;
       this.leadError = '';
       try {
@@ -183,8 +237,8 @@ export default {
             city: this.city,
             project_type: 'patio cover',
             size: `${this.length}x${this.width} ft (${this.sqft} sq ft)`,
-            message: `Instant quote configurator: ${this.roofLabel}, planning total $${this.quote.totalMin}-$${this.quote.totalMax} CAD before GST`,
-            notes: `roof=${this.roofType}`,
+            message: `Instant quote configurator: ${this.roofLabel}, ${this.selectedFloor.name}, planning total ${this.priceLabel} CAD before GST`,
+            notes: `roof=${this.roofType}; floor=${this.floor}`,
           }),
         });
         if (!res.ok) throw new Error(`Request failed (${res.status})`);
@@ -394,6 +448,75 @@ export default {
   margin: 8px 0 0;
 }
 
+.iq-field {
+  max-width: 420px;
+  margin-bottom: 22px;
+}
+.iq-field-label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #334155;
+  font-weight: 600;
+}
+.iq-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  background: #fff;
+  color: #0f172a;
+  cursor: pointer;
+}
+.iq-select:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.18);
+}
+.iq-floors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.iq-floor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.iq-floor:hover {
+  border-color: #94a3b8;
+}
+.iq-floor.active {
+  border-color: #059669;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.18);
+}
+.iq-floor-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+.iq-floor-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.4;
+}
+.iq-minimum {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b45309;
+}
+
 .iq-estimate-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -507,6 +630,7 @@ export default {
 
 @media (max-width: 760px) {
   .iq-cards,
+  .iq-floors,
   .iq-estimate-grid {
     grid-template-columns: 1fr;
   }
