@@ -23,13 +23,6 @@
       <p class="hero__subtitle">{{ subtitle }}</p>
 
       <div class="hero__cta-row">
-        <button
-          type="button"
-          class="hero__cta hero__cta--primary"
-          @click="$emit('estimate')"
-        >
-          Get My Fast Estimate
-        </button>
         <router-link
           to="/instant-quote"
           class="hero__cta hero__cta--secondary"
@@ -73,7 +66,7 @@ export default {
     eyebrowSuffix: { type: String, default: '' },
     trustPoints: { type: Array, default: () => [] },
   },
-  emits: ['estimate', 'nav'],
+  emits: ['nav'],
   computed: {
     bgSrc() {
       return publicAssetUrl('/house/showroom/showroom-wide-hero.jpg');
@@ -186,20 +179,6 @@ export default {
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   border: 2px solid transparent;
-}
-
-.hero__cta--primary {
-  background: #d97706;
-  border-color: #d97706;
-  color: #fff;
-  box-shadow: 0 10px 28px rgba(217, 119, 6, 0.45);
-}
-
-.hero__cta--primary:hover {
-  background: #b45309;
-  border-color: #b45309;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(217, 119, 6, 0.5);
 }
 
 .hero__cta--secondary {

@@ -1,37 +1,38 @@
 // Public-facing pricing copy for SEO/service/city pages.
-// Policy: no specific price numbers on public webpages. Customers get a
-// planning range from the AI chat or the instant quote tool instead.
+// Policy: no specific price numbers on public webpages, and the AI chat does
+// not quote prices. Customers get a planning range from the Design & Price It
+// Yourself tool (/instant-quote) instead.
 export const PRICING_COPY = {
   chatCta:
-    'Chat gives a planning range for your size; formal pricing is confirmed after free on-site measurement.',
+    'Use our Design & Price It Yourself tool for a planning range for your size; formal pricing is confirmed after free on-site measurement.',
   patioCostFaq:
-    'Pricing depends on roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size; your formal quote is confirmed after free on-site measurement.',
+    'Pricing depends on roof style, size, and site conditions. Use our Design & Price It Yourself tool for a planning range for your actual size; your formal quote is confirmed after free on-site measurement.',
   patioCostSeo:
-    'Chat with our AI or use the instant quote tool for a planning range for your size; formal pricing is confirmed after free on-site measurement.',
+    'Use our Design & Price It Yourself tool for a planning range for your size; formal pricing is confirmed after free on-site measurement.',
   aluminumGlassCompare:
-    'Glass usually costs more than aluminum on the same size. Chat compares both from your size.',
+    'Glass usually costs more than aluminum on the same size. The Design & Price It Yourself tool compares both for your size.',
   aluminumOnly:
-    'Chat gives a planning range for your size; measurement confirms final pricing.',
+    'The Design & Price It Yourself tool gives a planning range for your size; measurement confirms final pricing.',
   glassOnly:
-    'Chat gives a planning range; measurement confirms final pricing.',
+    'The Design & Price It Yourself tool gives a planning range; measurement confirms final pricing.',
   glassVsAluminumShort:
     'Usually yes — glass typically costs more than aluminum for the same size.',
   glassAluminumSameSize:
-    'Chat compares glass and aluminum from your size.',
+    'The Design & Price It Yourself tool compares glass and aluminum for your size.',
   threeWayCompare:
-    'Chat is the quickest way to get a range for your actual patio size.',
+    'The Design & Price It Yourself tool is the quickest way to get a range for your actual patio size.',
   threeWayShort:
-    'Chat gives a planning range; measurement locks the final price.',
+    'The Design & Price It Yourself tool gives a planning range; measurement locks the final price.',
   example12x14Aluminum:
-    'Chat refines this for your city; measurement confirms the formal quote.',
+    'The Design & Price It Yourself tool refines this for your city; measurement confirms the formal quote.',
   skylineComboNote:
-    'Send approximate size in chat for a useful planning range; formal pricing follows free measurement.',
+    'Enter your approximate size in the Design & Price It Yourself tool for a useful planning range; formal pricing follows free measurement.',
   sunroomCompare:
-    'Chat can ballpark both options from your size if you are comparing.',
+    'Every sunroom is priced after a free on-site measurement, since layout, glass, and foundation all change the cost.',
   sunroomCost:
-    'Chat gives a planning range; measurement confirms final pricing.',
+    'Sunroom pricing is confirmed after a free on-site measurement.',
   sunroomWallOnly:
-    'Final price depends on enclosure level and site conditions; chat gives a planning range.',
+    'Final price depends on enclosure level and site conditions; we confirm it after a free on-site measurement.',
   sunroomMoreExpensive:
     'Usually yes — more enclosure, glass, and planning.',
   rainGuide:

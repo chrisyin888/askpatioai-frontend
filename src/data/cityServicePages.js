@@ -83,7 +83,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does an aluminum patio cover cost in Burnaby?',
-        a: 'Chat gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Is aluminum better than glass for rain?',
@@ -133,7 +133,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         h2: 'How the estimate works',
-        body: 'Chat gives a rough range first. If the number is in the right zone, the site visit confirms size, post locations, slope, and final quote details.',
+        body: 'Our Design & Price tool gives a rough range first. If the number is in the right zone, the site visit confirms size, post locations, slope, and final quote details.',
       },
     ],
     pricingNote:
@@ -145,7 +145,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does an aluminum patio cover cost in Richmond?',
-        a: 'Chat gives a planning total for your size. See the Richmond patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Richmond patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can aluminum be used for a side driveway cover?',
@@ -153,7 +153,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Richmond aluminum estimate final?',
-        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -192,7 +192,7 @@ export const CITY_SERVICE_PAGES = {
       'Free site measurement after your ballpark estimate',
     ],
     localAngle:
-      'Surrey includes compact townhome patios and wide family backyards. A few details in chat help us shape the first estimate around your actual space.',
+      'Surrey includes compact townhome patios and wide family backyards. Entering your size in our Design & Price tool shapes the first price around your actual space.',
     sections: [
       {
         h2: 'Why start with aluminum',
@@ -212,7 +212,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does an aluminum patio cover cost in Surrey?',
-        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can I get pricing before a site visit?',
@@ -231,7 +231,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/before-after/burnaby-aluminum-after.png',
       alt: 'Lower Mainland aluminum patio cover — planning reference for wider Surrey suburban backyards',
       caption:
-        'Lower Mainland aluminum patio cover example used for Surrey planning — practical rain protection for larger backyards. Ballpark in chat before free measurement.',
+        'Lower Mainland aluminum patio cover example used for Surrey planning — practical rain protection for larger backyards.  with our Design & Price tool before free measurement.',
       projectPath: '/projects/surrey-aluminum-patio-cover',
     },
   },
@@ -262,7 +262,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         h2: 'What we confirm on site',
-        body: 'Slope, drainage, glass layout, attachment, and height all matter. The first chat estimate gives budget direction; the site visit confirms build details.',
+        body: 'Slope, drainage, glass layout, attachment, and height all matter. The first online estimate gives budget direction; the site visit confirms build details.',
       },
     ],
     pricingNote:
@@ -278,11 +278,11 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Can I get a Richmond glass patio cover estimate before a site visit?',
-        a: 'Yes. Chat gives a planning range in about a minute. Your formal quote is confirmed after free on-site measurement.',
+        a: 'Yes. Our Design & Price tool gives a planning range in about a minute. Your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: 'How much does a glass patio cover cost in Richmond?',
-        a: 'Glass usually costs more than aluminum on the same footprint. Chat gives a planning total from your approximate size; the Richmond patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+        a: 'Glass usually costs more than aluminum on the same footprint. Our Design & Price tool gives a planning total from your approximate size; the Richmond patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
       },
     ],
     caseStudy: {
@@ -400,11 +400,11 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Can I get a Burnaby sunroom estimate online?',
-        a: 'Yes. Chat gives a planning range first; your formal quote is confirmed after free on-site measurement.',
+        a: 'Yes. Our Design & Price tool gives a planning range first; your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: 'How much does a sunroom cost in Burnaby?',
-        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Burnaby patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total from your approximate footprint and enclosure level. Compare it with the Burnaby patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'What is the rough sunroom pricing range?',
@@ -467,11 +467,11 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a glass patio cover cost in Burnaby?',
-        a: 'Glass usually costs more than aluminum on the same footprint. Chat gives a planning total from your approximate size; the Burnaby patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+        a: 'Glass usually costs more than aluminum on the same footprint. Our Design & Price tool gives a planning total from your approximate size; the Burnaby patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
       },
       {
         q: 'Can I get a Burnaby glass patio cover estimate online?',
-        a: 'Yes. Chat gives a planning range in about a minute. Your formal quote is confirmed after free on-site measurement.',
+        a: 'Yes. Our Design & Price tool gives a planning range in about a minute. Your formal quote is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -531,7 +531,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a glass patio cover cost in Surrey?',
-        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft glass ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft glass ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can I compare glass and aluminum in Surrey?',
@@ -597,7 +597,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover or sunroom cost in Richmond?',
-        a: 'Chat gives a planning total for your footprint. See the Richmond patio cover cost guide for open-cover ranges, then compare a sunroom ballpark in the same chat.',
+        a: 'Our Design & Price tool gives a planning total for your footprint. See the Richmond patio cover cost guide for open-cover ranges, then compare a sunroom ballpark in the same chat.',
       },
     ],
     relatedPageLinks: [
@@ -650,7 +650,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover or sunroom cost in Surrey?',
-        a: 'Chat gives a planning total for your footprint. See the Surrey patio cover cost guide for open-cover ranges, then compare a sunroom ballpark in the same chat.',
+        a: 'Our Design & Price tool gives a planning total for your footprint. See the Surrey patio cover cost guide for open-cover ranges, then compare a sunroom ballpark in the same chat.',
       },
     ],
     relatedPageLinks: [
@@ -695,7 +695,7 @@ export const CITY_SERVICE_PAGES = {
     faqs: [
       {
         q: 'Do you provide patio cover quotes in Vancouver?',
-        a: 'Yes. Start with a fast rough estimate in chat, then book a free on-site measurement for your formal quote.',
+        a: 'Yes. Start with a fast rough  with our Design & Price tool, then book a free on-site measurement for your formal quote.',
       },
       {
         q: 'What patio cover types can I compare?',
@@ -730,7 +730,7 @@ export const CITY_SERVICE_PAGES = {
     serviceType: 'Patio cover installation',
     areaServed: 'Vancouver, British Columbia',
     intro:
-      'Searching for patio cover installers near you in Vancouver? Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, and sunroom options, then book a free on-site measurement when the range makes sense.',
+      'Searching for patio cover installers near you in Vancouver? Start with a fast rough  with our Design & Price tool — about a minute — compare aluminum, glass, skyline combo, and sunroom options, then book a free on-site measurement when the range makes sense.',
     highlights: [
       'Patio cover installation for Vancouver and nearby cities',
       'Compare product types before anyone visits your home',
@@ -758,11 +758,11 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does patio cover installation cost in Vancouver?',
-        a: 'Chat gives a planning total for your size. See the Vancouver patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Vancouver patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can I find patio cover installers near me without calling multiple companies?',
-        a: 'Yes. Chat gives a rough range in about a minute. If it fits your budget, we measure on site for free and tighten the quote.',
+        a: 'Yes. Our Design & Price tool gives a rough range in about a minute. If it fits your budget, we measure on site for free and tighten the quote.',
       },
       {
         q: 'What patio cover types do you install?',
@@ -770,7 +770,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Vancouver installation estimate final?',
-        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -786,7 +786,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/before-after/vancouver-glass-after.png',
       alt: 'Vancouver glass patio cover after installation with natural light under tempered glass',
       caption:
-        'Vancouver glass patio cover install — chat ballpark first, free measurement second, then scheduling once materials arrive.',
+        'Vancouver glass patio cover install — online price first, free measurement second, then scheduling once materials arrive.',
       projectPath: '/projects/vancouver-glass-patio-cover',
     },
   },
@@ -829,7 +829,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does patio cover installation cost in Richmond?',
-        a: 'Chat gives a planning total for your size. See the Richmond patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Richmond patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can you install glass and aluminum covers?',
@@ -837,7 +837,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Richmond installation estimate final?',
-        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -853,7 +853,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/Aluminum/p27.jpg',
       alt: 'Aluminum patio cover — planning reference for Richmond backyard installs',
       caption:
-        'Aluminum patio cover example used for Richmond install planning — chat ballpark first, free measurement second, then scheduling once materials arrive.',
+        'Aluminum patio cover example used for Richmond install planning — online price first, free measurement second, then scheduling once materials arrive.',
       projectPath: '/projects/richmond-aluminum-patio-cover',
     },
   },
@@ -957,7 +957,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does an aluminum patio cover cost in Coquitlam?',
-        a: 'Chat gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Is aluminum cheaper than glass?',
@@ -1086,7 +1086,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a sunroom cost in Coquitlam?',
-        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Coquitlam patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total from your approximate footprint and enclosure level. Compare it with the Coquitlam patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'What is the rough sunroom pricing range?',
@@ -1149,7 +1149,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online contractor quote final?',
-        a: 'No — chat gives a planning range only. Your formal contractor quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal contractor quote is confirmed after free on-site measurement.',
       },
       {
         q: 'Which Burnaby neighbourhoods do you serve?',
@@ -1157,7 +1157,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Burnaby?',
-        a: 'Chat gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
     ],
     relatedPageLinks: [
@@ -1213,7 +1213,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does patio cover installation cost in Surrey?',
-        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Surrey patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can I get an installation estimate online?',
@@ -1236,7 +1236,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/before-after/surrey-skyline-after.png',
       alt: 'Surrey skyline combo patio cover after installation on a large backyard',
       caption:
-        'Surrey skyline combo install — larger backyard layout. Chat ballpark first, then free measurement for install planning.',
+        'Surrey skyline combo install — larger backyard layout. Online price first, then free measurement for install planning.',
       projectPath: '/projects/surrey-skyline-combo-patio-cover',
     },
   },
@@ -1291,7 +1291,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Richmond?',
-        a: 'Chat gives a planning total for your size. See the Richmond patio cover cost guide for typical ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Richmond patio cover cost guide for typical ranges, then book free measurement for a formal quote.',
       },
     ],
     relatedPageLinks: [
@@ -1350,7 +1350,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Surrey contractor quote final?',
-        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: 'Which Surrey areas do you serve?',
@@ -1358,7 +1358,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Surrey?',
-        a: 'Chat gives a planning total for your size. See the Surrey patio cover cost guide for typical ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Surrey patio cover cost guide for typical ranges, then book free measurement for a formal quote.',
       },
     ],
     relatedPageLinks: [
@@ -1414,7 +1414,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Coquitlam?',
-        a: 'Chat gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can you cover a raised deck?',
@@ -1422,7 +1422,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Coquitlam contractor quote final?',
-        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: 'Which Coquitlam neighbourhoods do you quote?',
@@ -1483,7 +1483,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does patio cover installation cost in Burnaby?',
-        a: 'Chat gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Burnaby patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can you install glass and aluminum covers?',
@@ -1491,7 +1491,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Burnaby installation estimate final?',
-        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
       },
       {
         q: 'Which Burnaby areas do you install in most often?',
@@ -1510,7 +1510,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/before-after/burnaby-aluminum-after.png',
       alt: 'Burnaby aluminum patio cover after installation on a backyard patio',
       caption:
-        'Burnaby aluminum install — chat ballpark first, free measurement second, then scheduling once materials arrive.',
+        'Burnaby aluminum install — online price first, free measurement second, then scheduling once materials arrive.',
       projectPath: '/projects/burnaby-aluminum-patio-cover',
     },
   },
@@ -1553,7 +1553,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does patio cover installation cost in Coquitlam?',
-        a: 'Chat gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Coquitlam patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can you install a cover over a raised deck?',
@@ -1561,7 +1561,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Coquitlam installation estimate final?',
-        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -1623,7 +1623,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a sunroom cost in Delta?',
-        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Delta patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total from your approximate footprint and enclosure level. Compare it with the Delta patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'What is the rough sunroom pricing range?',
@@ -1808,7 +1808,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a sunroom cost in Langley?',
-        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Langley patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total from your approximate footprint and enclosure level. Compare it with the Langley patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'What is the rough sunroom pricing range?',
@@ -1867,7 +1867,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Langley?',
-        a: 'Chat gives a planning total for your size. See the Langley patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Langley patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'What patio cover types can I compare?',
@@ -1875,7 +1875,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Langley contractor quote final?',
-        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: 'Which Langley areas do you quote most often?',
@@ -1936,7 +1936,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does patio cover installation cost in Langley?',
-        a: 'Chat gives a planning total for your size. See the Langley patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Langley patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can you install glass and aluminum covers?',
@@ -1944,7 +1944,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Langley installation estimate final?',
-        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -1959,7 +1959,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/Aluminum/p27.jpg',
       alt: 'Langley aluminum patio cover — planning reference for Willoughby and Walnut Grove installs',
       caption:
-        'Langley aluminum install example used for planning — larger backyards common in Willoughby and Walnut Grove. Ballpark in chat before site visit.',
+        'Langley aluminum install example used for planning — larger backyards common in Willoughby and Walnut Grove.  with our Design & Price tool before site visit.',
       projectPath: '/projects/langley-aluminum-patio-cover',
     },
   },
@@ -2002,7 +2002,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Delta?',
-        a: 'Chat gives a planning total for your size. See the Delta patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Delta patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Do you serve Ladner and Tsawwassen?',
@@ -2010,7 +2010,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'Is the online Delta contractor quote final?',
-        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: 'What patio cover types can I compare?',
@@ -2032,7 +2032,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/before-after/delta-aluminum-after.png',
       alt: 'Delta aluminum patio cover after installation on a compact side-yard patio',
       caption:
-        'Delta aluminum patio cover — approx. 11×14 ft compact layout common in Ladner and North Delta. Ballpark in chat, then free measurement.',
+        'Delta aluminum patio cover — approx. 11×14 ft compact layout common in Ladner and North Delta.  with our Design & Price tool, then free measurement.',
       projectPath: '/projects/delta-aluminum-patio-cover',
     },
   },
@@ -2075,7 +2075,7 @@ export const CITY_SERVICE_PAGES = {
       },
       {
         q: 'How much does patio cover installation cost in Delta?',
-        a: 'Chat gives a planning total for your size. See the Delta patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Delta patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Can you install glass and aluminum covers?',
@@ -2098,7 +2098,7 @@ export const CITY_SERVICE_PAGES = {
       image: '/house/before-after/delta-aluminum-after.png',
       alt: 'Delta aluminum patio cover after installation on a compact side-yard patio',
       caption:
-        'Delta aluminum install — Ladner and North Delta side-yard layout. Chat estimate first, measurement confirms install details.',
+        'Delta aluminum install — Ladner and North Delta side-yard layout. Online estimate first, measurement confirms install details.',
       projectPath: '/projects/delta-aluminum-patio-cover',
     },
   },

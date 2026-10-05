@@ -8,7 +8,7 @@ export const SERVICE_PAGES = {
     areaServed: 'Vancouver, British Columbia',
     metaTitle: 'Aluminum Patio Covers Vancouver | LoomiHome Patios',
     metaDescription:
-      'Aluminum patio covers in Vancouver and the Lower Mainland. Fast estimate in chat (~60 sec), compare options, free measurement. Strong rain protection.',
+      'Aluminum patio covers in Vancouver and the Lower Mainland. Fast  with our Design & Price tool (~60 sec), compare options, free measurement. Strong rain protection.',
     h1: 'Aluminum Patio Covers in Vancouver',
     intro:
       'Durable, low-maintenance aluminum patio covers are a practical choice for rain and sun in the Lower Mainland. LoomiHome helps you see quick ballpark pricing before you commit to a site visit — so you can compare options on your own timeline.',
@@ -16,7 +16,7 @@ export const SERVICE_PAGES = {
       'Strong weather resistance for Vancouver seasons',
       'Low upkeep compared to wood',
       'Clean look that works with most homes',
-      'Fast estimate in chat — no waiting days for a first number',
+      'Fast  with our Design & Price tool — no waiting days for a first number',
     ],
     sections: [
       {
@@ -29,18 +29,18 @@ export const SERVICE_PAGES = {
       },
     ],
     pricingLine:
-      'Many entry-style aluminum cover projects start in the neighbourhood of our homepage “from” pricing — your chat estimate adjusts for size, attachment, and site details.',
+      'Many entry-style aluminum cover projects start in the neighbourhood of our homepage “from” pricing — your online estimate adjusts for size, attachment, and site details.',
     ctaTitle: 'Get a fast rough estimate',
     ctaBody:
       'Use our 60-second style estimator to compare aluminum with glass, skyline combo, and sunroom options. Book a free on-site measurement after you have a ballpark you are comfortable with.',
     faqs: [
       {
         q: 'How fast can I get a rough aluminum patio cover quote?',
-        a: 'Usually about a minute in chat once we have your city and approximate patio size — then we refine on a free visit if you want to proceed.',
+        a: 'Usually about a minute in our Design & Price It Yourself tool once you enter your city and approximate patio size — then we refine on a free visit if you want to proceed.',
       },
       {
         q: 'How much does an aluminum patio cover cost in Vancouver?',
-        a: 'Chat gives a planning total for your size. See the Vancouver patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Vancouver patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Is aluminum better than glass for Vancouver rain?',
@@ -96,7 +96,7 @@ export const SERVICE_PAGES = {
       },
     ],
     pricingLine:
-      'Glass systems typically sit above basic aluminum on budget — chat gives you a realistic ballpark for your footprint before we measure.',
+      'Glass systems typically sit above basic aluminum on budget — our Design & Price tool gives you a realistic ballpark for your footprint before we measure.',
     ctaTitle: 'See a quick ballpark price',
     ctaBody:
       'Start with an instant-style estimate so you understand range and options. There is no pressure to book until you are ready — free on-site measurement comes after.',
@@ -107,7 +107,7 @@ export const SERVICE_PAGES = {
       },
       {
         q: 'How fast is the patio cover estimate?',
-        a: 'Roughly 60 seconds in chat for a planning range. Your formal quote is confirmed after free on-site measurement.',
+        a: 'Roughly 60 seconds in our Design & Price It Yourself tool. Your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: 'How much does a glass patio cover cost in Vancouver?',
@@ -122,7 +122,7 @@ export const SERVICE_PAGES = {
       image: '/house/before-after/vancouver-glass-after.png',
       alt: 'Vancouver glass patio cover after installation with tempered glass panels and black aluminum frame',
       caption:
-        'Vancouver glass patio cover — keeps the patio and back of the home bright while adding rain protection. See a similar rough range in chat.',
+        'Vancouver glass patio cover — keeps the patio and back of the home bright while adding rain protection. See the price for your size in our Design & Price tool.',
       projectPath: '/projects/vancouver-glass-patio-cover',
     },
     relatedPageLinks: [
@@ -158,10 +158,10 @@ export const SERVICE_PAGES = {
       },
     ],
     pricingLine:
-      'Combo systems often fall between premium glass and value aluminum depending on glass share and span — use chat for a ballpark tied to your size.',
-    ctaTitle: 'Get my fast estimate',
+      'Combo systems often fall between premium glass and value aluminum depending on glass share and span — use our Design & Price tool to see the price for your size.',
+    ctaTitle: 'Design & price your cover',
     ctaBody:
-      'Use the chat estimator for a ballpark in minutes. When you want exact measurements and final numbers, we book a free site visit — no obligation.',
+      'Use the Design & Price It Yourself tool for a ballpark in minutes. When you want exact measurements and final numbers, we book a free site visit — no obligation.',
     faqs: [
       {
         q: 'What is a skyline combo cover?',
@@ -169,7 +169,7 @@ export const SERVICE_PAGES = {
       },
       {
         q: 'Can I compare combo vs aluminum in one go?',
-        a: 'Yes — that is what the chat estimate flow is for.',
+        a: 'Yes — that is what the online estimate flow is for.',
       },
       {
         q: 'Do I need a permit?',
@@ -177,7 +177,7 @@ export const SERVICE_PAGES = {
       },
       {
         q: 'How much does a skyline combo patio cover cost in Vancouver?',
-        a: 'Combo covers usually land between a solid aluminum roof and a full glass roof on the same footprint, depending on how much glass you choose. Chat gives a planning total from rough dimensions; the Vancouver cost guide explains what moves it, and free measurement confirms the formal quote.',
+        a: 'Combo covers usually land between a solid aluminum roof and a full glass roof on the same footprint, depending on how much glass you choose. Our Design & Price tool gives a planning total from rough dimensions; the Vancouver cost guide explains what moves it, and free measurement confirms the formal quote.',
       },
     ],
     caseStudy: {
@@ -216,7 +216,7 @@ export const SERVICE_PAGES = {
       },
       {
         h2: 'Start with budget before design details',
-        body: 'Because sunrooms vary widely by size and finish level, the first goal is to understand whether the project fits your expected range. The chat estimate gives that early direction before we schedule a measured quote.',
+        body: 'Because sunrooms vary widely by size and finish level, the first goal is to understand whether the project fits your expected range. The online estimate gives that early direction before we schedule a measured quote.',
       },
     ],
     pricingLine:
@@ -235,11 +235,11 @@ export const SERVICE_PAGES = {
       },
       {
         q: 'Can I get a sunroom quote online first?',
-        a: 'Yes — chat gives a planning range in about a minute. Your formal sunroom quote is confirmed after free on-site measurement.',
+        a: 'Yes — our Design & Price tool gives a planning range in about a minute. Your formal sunroom quote is confirmed after free on-site measurement.',
       },
       {
         q: 'How much does a sunroom cost in Vancouver?',
-        a: 'Chat gives a planning total from your approximate footprint and enclosure level. Compare it with the Vancouver patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total from your approximate footprint and enclosure level. Compare it with the Vancouver patio cover cost guide for open-cover ranges, then book free measurement for a formal quote.',
       },
     ],
     caseStudy: {

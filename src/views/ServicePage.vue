@@ -88,13 +88,9 @@
             <h2 class="service-page-h2">{{ page.ctaTitle }}</h2>
             <p class="service-page-cta-body">{{ page.ctaBody }}</p>
             <div class="hero-cta-row service-page-cta-row">
-              <button
-                type="button"
-                class="hero-cta hero-cta--primary"
-                @click="goHomeOpenEstimate"
-              >
-                Get My Fast Estimate
-              </button>
+              <router-link to="/instant-quote" class="hero-cta hero-cta--primary">
+                Design &amp; Price It Yourself
+              </router-link>
               <router-link
                 :to="{ path: '/', hash: '#our-products' }"
                 class="hero-cta hero-cta--secondary"

@@ -54,13 +54,9 @@
       </nav>
 
       <div class="site-header__actions">
-        <button
-          type="button"
-          class="site-header__cta"
-          @click="$emit('estimate')"
-        >
-          Get Fast Estimate
-        </button>
+        <router-link to="/instant-quote" class="site-header__cta">
+          Design &amp; Price
+        </router-link>
         <button
           type="button"
           class="site-header__burger"
@@ -88,13 +84,13 @@
           class="site-header__mobile-link"
           @click.prevent="go(link.selector)"
         >{{ link.label }}</a>
-        <button
-          type="button"
+        <router-link
+          to="/instant-quote"
           class="site-header__cta site-header__cta--mobile"
-          @click="estimateFromMenu"
+          @click="menuOpen = false"
         >
-          Get Fast Estimate
-        </button>
+          Design &amp; Price It Yourself
+        </router-link>
       </nav>
     </transition>
   </header>
@@ -103,7 +99,7 @@
 <script>
 export default {
   name: 'SiteHeader',
-  emits: ['nav', 'estimate'],
+  emits: ['nav'],
   data() {
     return {
       menuOpen: false,
@@ -121,10 +117,6 @@ export default {
     go(selector) {
       this.menuOpen = false;
       this.$emit('nav', selector);
-    },
-    estimateFromMenu() {
-      this.menuOpen = false;
-      this.$emit('estimate');
     },
   },
 };
@@ -233,6 +225,8 @@ export default {
   box-shadow: 0 6px 18px rgba(217, 119, 6, 0.32);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   white-space: nowrap;
+  text-decoration: none;
+  text-align: center;
 }
 
 .site-header__cta:hover {

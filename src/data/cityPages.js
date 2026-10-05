@@ -30,7 +30,7 @@ export const CITY_PAGES = {
       'Patio covers in Vancouver — fast rough quote in chat, compare aluminum, glass, combo, and sunrooms. Free on-site measurement across the Lower Mainland.',
     h1: 'Patio Covers in Vancouver',
     intro:
-      'If you are searching for patio covers in Vancouver, you probably want two things: protection from the rain and a backyard that still feels bright and usable. We help you skip the slow back-and-forth with traditional quotes — start with a fast rough estimate in chat (about 60 seconds of your time), compare cover types, then book a free on-site measurement when you are ready for exact numbers.',
+      'If you are searching for patio covers in Vancouver, you probably want two things: protection from the rain and a backyard that still feels bright and usable. We help you skip the slow back-and-forth with traditional quotes — start with a fast rough  with our Design & Price tool (about 60 seconds of your time), compare cover types, then book a free on-site measurement when you are ready for exact numbers.',
     highlights: [
       'Rough ballpark pricing before anyone steps on your property',
       'Compare aluminum, glass, skyline combo, and sunroom directions in one flow',
@@ -60,7 +60,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Vancouver?',
-        a: 'It depends on size, product (aluminum, glass, or skyline combo), attachment, and site access. Chat gives a planning total from rough dimensions; the Vancouver patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+        a: 'It depends on size, product (aluminum, glass, or skyline combo), attachment, and site access. Our Design & Price tool gives a planning total from rough dimensions; the Vancouver patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
       },
     ],
     relatedPageLinks: [
@@ -86,7 +86,7 @@ export const CITY_PAGES = {
       'Patio covers in Burnaby — fast online estimate, compare cover types, free measurement. Rain-ready shade for Metrotown and nearby neighbourhoods.',
     h1: 'Patio Covers in Burnaby',
     intro:
-      'Burnaby homes range from tight lots near Metrotown to roomier pockets near Deer Lake. Wherever you are, the process is the same: get a quick rough patio cover estimate in chat, see how aluminum, glass, or combo options might fit your budget, then schedule a free on-site measurement if the numbers feel right.',
+      'Burnaby homes range from tight lots near Metrotown to roomier pockets near Deer Lake. Wherever you are, the process is the same: get a quick rough patio cover  with our Design & Price tool, see how aluminum, glass, or combo options might fit your budget, then schedule a free on-site measurement if the numbers feel right.',
     highlights: [
       'Fast ballpark — no waiting days for a first reply',
       'Options for smaller city lots and larger suburban yards',
@@ -104,7 +104,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Burnaby?',
-        a: 'Chat gives a planning total for your size. See the Burnaby cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Burnaby cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'How does your estimate compare to calling contractors one by one?',
@@ -164,7 +164,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Richmond?',
-        a: 'Chat gives a planning total for your size. See the Richmond cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Richmond cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Glass or aluminum for a Richmond home near the water?',
@@ -214,7 +214,7 @@ export const CITY_PAGES = {
     faqs: [
       {
         q: 'How much does a patio cover cost in Surrey?',
-        a: 'It depends on size, product type, and site conditions. Chat gives you a sensible ballpark for your situation; our Surrey cost guide also explains typical 12×14 ft ranges.',
+        a: 'It depends on size, product type, and site conditions. Our Design & Price tool gives you a sensible ballpark for your situation; our Surrey cost guide also explains typical 12×14 ft ranges.',
       },
       {
         q: 'Do you cover North Surrey and Cloverdale too?',
@@ -265,7 +265,7 @@ export const CITY_PAGES = {
     localAngle:
       'Ladner, Tsawwassen, and North Delta each have different lot styles. Tell us your area and how you use the patio — we will tailor the ballpark conversation.',
     pricingNote:
-      'Exposure and attachment details affect final cost. The chat estimate gets you in the right band; we refine on site.',
+      'Exposure and attachment details affect final cost. The online estimate gets you in the right band; we refine on site.',
     faqs: [
       {
         q: 'Do you install patio covers in Tsawwassen and Ladner?',
@@ -273,7 +273,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Delta?',
-        a: 'Chat gives a planning total for your size. See the Delta cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Delta cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Are patio covers worth it in windy areas?',
@@ -310,7 +310,7 @@ export const CITY_PAGES = {
       'Patio covers in Coquitlam — Burke Mountain, Austin Heights, and nearby. Quick online estimate, compare aluminum, glass, and combo covers.',
     h1: 'Patio Covers in Coquitlam',
     intro:
-      'Coquitlam’s mix of hillside homes and established neighbourhoods means every patio is a little different. Instead of guessing from generic web prices, start with a tailored rough estimate in chat — about a minute — then compare aluminum, glass, skyline combo, or even a sunroom path. Book a free on-site measurement when you want precision.',
+      'Coquitlam’s mix of hillside homes and established neighbourhoods means every patio is a little different. Instead of guessing from generic web prices, start with a tailored rough  with our Design & Price tool — about a minute — then compare aluminum, glass, skyline combo, or even a sunroom path. Book a free on-site measurement when you want precision.',
     highlights: [
       'Helpful on sloped lots and standard yards alike',
       'Fast first number — then free measurement',
@@ -336,7 +336,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Coquitlam?',
-        a: 'It depends on size, product, slope or deck height, and attachment. Chat gives a planning total from rough dimensions; the Coquitlam patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+        a: 'It depends on size, product, slope or deck height, and attachment. Our Design & Price tool gives a planning total from rough dimensions; the Coquitlam patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
       },
     ],
     relatedPageLinks: [
@@ -365,7 +365,7 @@ export const CITY_PAGES = {
       'Patio covers in Langley — Willoughby, Walnut Grove, Brookswood, and nearby. Fast rough quote, compare aluminum, glass, and sunrooms.',
     h1: 'Patio Covers in Langley',
     intro:
-      'Langley homeowners often want a patio that works through wet springs and sunny summers without months of quote chasing. Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, or sunroom directions, then book a free on-site measurement when you want exact numbers.',
+      'Langley homeowners often want a patio that works through wet springs and sunny summers without months of quote chasing. Start with a fast rough  with our Design & Price tool — about a minute — compare aluminum, glass, skyline combo, or sunroom directions, then book a free on-site measurement when you want exact numbers.',
     highlights: [
       'Helpful for larger Langley lots and townhome patios',
       'Ballpark pricing before anyone visits your home',
@@ -383,7 +383,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Langley?',
-        a: 'Chat gives a planning total for your size. See the Langley cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Langley cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'How fast is the first patio cover estimate?',
@@ -419,7 +419,7 @@ export const CITY_PAGES = {
       'Patio covers in North Vancouver — Lynn Valley, Lower Lonsdale, Edgemont, and nearby. Fast rough quote, compare aluminum, glass, and combo.',
     h1: 'Patio Covers in North Vancouver',
     intro:
-      'North Vancouver homes often need covers that handle rain, tree debris, and sloped lots. Get a fast rough patio cover estimate in chat, compare aluminum, glass, or combo options, then book a free on-site measurement when you want exact pricing.',
+      'North Vancouver homes often need covers that handle rain, tree debris, and sloped lots. Get a fast rough patio cover  with our Design & Price tool, compare aluminum, glass, or combo options, then book a free on-site measurement when you want exact pricing.',
     highlights: [
       'Rain-ready covers for North Shore weather',
       'Helpful on sloped yards and raised decks',
@@ -437,7 +437,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in North Vancouver?',
-        a: 'Chat gives a planning total for your size. See the North Vancouver cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the North Vancouver cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'How fast is the first estimate?',
@@ -481,7 +481,7 @@ export const CITY_PAGES = {
       'Lower Mainland team familiar with West Van sites',
     ],
     localAngle:
-      'Lot grade, view lines, and attachment details matter on the North Shore. A few photos and dimensions in chat sharpen the first range.',
+      'Lot grade, view lines, and attachment details matter on the North Shore. Enter your size in our Design & Price tool first; photos and the free measurement confirm the final price.',
     pricingNote:
       'Premium finishes and larger spans can move price. We keep the first ballpark plain and practical.',
     faqs: [
@@ -523,7 +523,7 @@ export const CITY_PAGES = {
       'Patio covers in New Westminster — Queensborough, Sapperton, Uptown, and nearby. Fast rough estimate, compare cover types, free on-site measurement.',
     h1: 'Patio Covers in New Westminster',
     intro:
-      'New Westminster townhomes and detached homes both benefit from covered patios through wet seasons. Get a quick ballpark in chat, compare aluminum, glass, or combo covers, then book a free measurement for firm pricing.',
+      'New Westminster townhomes and detached homes both benefit from covered patios through wet seasons. Get a quick  with our Design & Price tool, compare aluminum, glass, or combo covers, then book a free measurement for firm pricing.',
     highlights: [
       'Works for compact patios and larger backyards',
       'Fast online estimate before scheduling visits',
@@ -541,7 +541,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in New Westminster?',
-        a: 'Chat gives a planning total for your size. See the New Westminster cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the New Westminster cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Is glass or aluminum better for compact New Westminster patios?',
@@ -565,7 +565,7 @@ export const CITY_PAGES = {
       image: '/house/skyline/p40.jpg',
       alt: 'Skyline combo patio cover — planning reference for New Westminster townhome and detached patios',
       caption:
-        'Skyline combo cover example used for New Westminster planning — practical fit for compact townhome patios and detached backyards. Ballpark in chat first.',
+        'Skyline combo cover example used for New Westminster planning — practical fit for compact townhome patios and detached backyards.  with our Design & Price tool first.',
       projectPath: '/projects/new-westminster-skyline-combo-cover',
     },
   },
@@ -578,7 +578,7 @@ export const CITY_PAGES = {
       'Patio covers in Maple Ridge — Town Centre, Albion, Silver Valley, and nearby. Compare aluminum, glass, and sunrooms with a fast quote.',
     h1: 'Patio Covers in Maple Ridge',
     intro:
-      'Maple Ridge homeowners often want more usable backyard space before summer and through the rainy season. Start with a fast rough estimate in chat, compare cover types, then book a free on-site measurement when you are ready for exact numbers.',
+      'Maple Ridge homeowners often want more usable backyard space before summer and through the rainy season. Start with a fast rough  with our Design & Price tool, compare cover types, then book a free on-site measurement when you are ready for exact numbers.',
     highlights: [
       'Good fit for larger Maple Ridge lots',
       'Compare aluminum, glass, combo, and sunroom paths',
@@ -596,7 +596,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Maple Ridge?',
-        a: 'Chat gives a planning total for your size. See the Maple Ridge cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Maple Ridge cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Should I choose aluminum, glass, or a skyline combo on a larger Maple Ridge lot?',
@@ -634,7 +634,7 @@ export const CITY_PAGES = {
       'Patio covers in Pitt Meadows — fast rough estimate online, compare aluminum, glass, and combo options, free on-site measurement across the Lower Mainland.',
     h1: 'Patio Covers in Pitt Meadows',
     intro:
-      'Pitt Meadows homeowners looking for patio covers usually want a practical price range first. Get a fast ballpark in chat, compare aluminum, glass, or combo systems, then schedule a free measurement when the numbers make sense.',
+      'Pitt Meadows homeowners looking for patio covers usually want a practical price range first. Get a fast  with our Design & Price tool, compare aluminum, glass, or combo systems, then schedule a free measurement when the numbers make sense.',
     highlights: [
       'Rain-ready patio covers for Fraser Valley weather',
       'Fast estimate without waiting on callbacks',
@@ -642,7 +642,7 @@ export const CITY_PAGES = {
       'Serving Pitt Meadows, Maple Ridge, and nearby',
     ],
     localAngle:
-      'Many Pitt Meadows homes have room for wider spans. Approximate width and projection in chat make the first estimate more accurate.',
+      'Many Pitt Meadows homes have room for wider spans. Entering approximate width and projection in our Design & Price tool makes the first price more accurate.',
     pricingNote:
       'Final pricing always follows an on-site measure — the chat number is for planning.',
     faqs: [
@@ -652,7 +652,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Pitt Meadows?',
-        a: 'Chat gives a planning total for your size. See the Pitt Meadows cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Pitt Meadows cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'What cover type is best for rainy Fraser Valley weather?',
@@ -672,7 +672,7 @@ export const CITY_PAGES = {
       image: '/house/before-after/burnaby-aluminum-after.png',
       alt: 'Fraser Valley aluminum patio cover — planning reference for wider Pitt Meadows lots',
       caption:
-        'Aluminum patio cover example used for Pitt Meadows planning — practical rain protection for wider spans. Chat ballpark before free measurement.',
+        'Aluminum patio cover example used for Pitt Meadows planning — practical rain protection for wider spans. Online price before free measurement.',
       projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
     },
   },
@@ -685,7 +685,7 @@ export const CITY_PAGES = {
       'Patio covers in Port Coquitlam — Citadel Heights, Mary Hill, and nearby Tri-Cities. Fast rough quote, compare aluminum, glass, and combo covers.',
     h1: 'Patio Covers in Port Coquitlam',
     intro:
-      'Port Coquitlam homeowners often want a patio that handles Tri-Cities rain without weeks of quote chasing. Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
+      'Port Coquitlam homeowners often want a patio that handles Tri-Cities rain without weeks of quote chasing. Start with a fast rough  with our Design & Price tool — about a minute — compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
     highlights: [
       'Tri-Cities rain-ready aluminum, glass, and combo options',
       'Ballpark pricing before anyone visits your home',
@@ -703,7 +703,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Port Coquitlam?',
-        a: 'Chat gives a planning total for your size. See the Port Coquitlam cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Port Coquitlam cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'How fast can I get a patio cover estimate in Port Coquitlam?',
@@ -740,7 +740,7 @@ export const CITY_PAGES = {
       'Patio covers in Port Moody — Moody Centre, Suter Brook, and nearby. Fast rough estimate, compare aluminum, glass, and combo patio covers.',
     h1: 'Patio Covers in Port Moody',
     intro:
-      'Port Moody homeowners searching for patio covers usually want rain protection that still feels bright — especially on compact lots near the inlet. Get a fast ballpark in chat, compare aluminum, glass, or skyline combo systems, then schedule a free measurement when you want exact numbers.',
+      'Port Moody homeowners searching for patio covers usually want rain protection that still feels bright — especially on compact lots near the inlet. Get a fast  with our Design & Price tool, compare aluminum, glass, or skyline combo systems, then schedule a free measurement when you want exact numbers.',
     highlights: [
       'Rain-ready covers for coastal Tri-Cities weather',
       'Compare glass and aluminum on the same rough size in chat',
@@ -748,7 +748,7 @@ export const CITY_PAGES = {
       'Free on-site measurement for final pricing',
     ],
     localAngle:
-      'Moody Centre, Suter Brook, and Newport Village patios vary in width and exposure. A few dimensions or photos in chat make the first estimate more useful before we visit.',
+      'Moody Centre, Suter Brook, and Newport Village patios vary in width and exposure. Entering your dimensions in our Design & Price tool makes the first price more useful before we visit.',
     pricingNote:
       'Final pricing always follows an on-site measure — the chat number is for planning.',
     faqs: [
@@ -766,7 +766,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Port Moody?',
-        a: 'It depends on size, product, view and slope conditions, and attachment. Chat gives a planning total from rough dimensions; the Port Moody patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
+        a: 'It depends on size, product, view and slope conditions, and attachment. Our Design & Price tool gives a planning total from rough dimensions; the Port Moody patio cover cost guide explains what moves the price, and free measurement confirms the formal quote.',
       },
     ],
     relatedPageLinks: [
@@ -795,7 +795,7 @@ export const CITY_PAGES = {
       'Patio covers in Abbotsford — Clearbrook, Sumas Mountain, and nearby Fraser Valley. Fast rough quote, compare aluminum, glass, and combo covers.',
     h1: 'Patio Covers in Abbotsford',
     intro:
-      'Abbotsford homeowners often want a backyard cover that handles Fraser Valley rain without weeks of quote chasing. Start with a fast rough estimate in chat — about a minute — compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
+      'Abbotsford homeowners often want a backyard cover that handles Fraser Valley rain without weeks of quote chasing. Start with a fast rough  with our Design & Price tool — about a minute — compare aluminum, glass, skyline combo, or sunroom options, then book a free on-site measurement when the range fits your budget.',
     highlights: [
       'Fraser Valley rain-ready aluminum, glass, and combo options',
       'Ballpark pricing before anyone visits your home',
@@ -813,7 +813,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in Abbotsford?',
-        a: 'Chat gives a planning total for your size. See the Abbotsford cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the Abbotsford cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'How fast can I get a patio cover estimate in Abbotsford?',
@@ -854,7 +854,7 @@ export const CITY_PAGES = {
       'Patio covers in White Rock — East Beach, West Beach, and nearby South Surrey. Fast rough estimate, compare aluminum, glass, and combo patio covers.',
     h1: 'Patio Covers in White Rock',
     intro:
-      'White Rock homeowners searching for patio covers usually want rain and wind protection that still feels bright — especially on compact seaside lots. Get a fast ballpark in chat, compare aluminum, glass, or skyline combo systems, then schedule a free measurement when you want exact numbers.',
+      'White Rock homeowners searching for patio covers usually want rain and wind protection that still feels bright — especially on compact seaside lots. Get a fast  with our Design & Price tool, compare aluminum, glass, or skyline combo systems, then schedule a free measurement when you want exact numbers.',
     highlights: [
       'Coastal rain- and wind-ready cover options',
       'Compare glass and aluminum on the same rough size in chat',
@@ -862,7 +862,7 @@ export const CITY_PAGES = {
       'Free on-site measurement for final pricing',
     ],
     localAngle:
-      'East Beach, West Beach, and nearby South Surrey patios vary in width and ocean exposure. A few dimensions or photos in chat make the first estimate more useful before we visit.',
+      'East Beach, West Beach, and nearby South Surrey patios vary in width and ocean exposure. Entering your dimensions in our Design & Price tool makes the first price more useful before we visit.',
     pricingNote:
       'Final pricing always follows an on-site measure — the chat number is for planning.',
     faqs: [
@@ -872,7 +872,7 @@ export const CITY_PAGES = {
       },
       {
         q: 'How much does a patio cover cost in White Rock?',
-        a: 'Chat gives a planning total for your size. See the White Rock cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
+        a: 'Our Design & Price tool gives a planning total for your size. See the White Rock cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.',
       },
       {
         q: 'Is glass or aluminum better for White Rock coastal weather?',

@@ -294,13 +294,9 @@
               </article>
             </div>
             <div class="home-before-after__cta-block">
-              <button
-                type="button"
-                class="hero-cta hero-cta--primary home-before-after__cta-btn"
-                @click="startEstimateFromHero()"
-              >
+              <router-link to="/instant-quote" class="hero-cta hero-cta--primary home-before-after__cta-btn">
                 {{ beforeAfter.ctaTitle }}
-              </button>
+              </router-link>
               <p class="home-before-after__cta-note">{{ beforeAfter.ctaBody }}</p>
               <a
                 v-if="beforeAfter.viewMoreLabel && beforeAfter.viewMoreHref"
@@ -395,12 +391,6 @@
                         class="price-value price-value--custom"
                       >
                         Custom build
-                      </span>
-                      <span
-                        v-else-if="typeof project.price === 'number'"
-                        class="price-value"
-                      >
-                        From ${{ project.price.toLocaleString() }}
                       </span>
                     </p>
                   </div>
@@ -813,10 +803,10 @@
         role="dialog"
         aria-modal="false"
         :aria-label="
-          (cfg.chatWidgetTitle || 'Get Your Estimate') +
+          (cfg.chatWidgetTitle || 'Ask us anything') +
           '. ' +
           (cfg.chatWidgetSubtitle ||
-            'Start here for a fast estimate')
+            'Patio covers, sunrooms, and free measurements')
         "
         :style="chatPanelStyle"
       >
@@ -832,11 +822,11 @@
             <span class="chat-widget-ai-badge" title="AI assistant">AI</span>
             <div class="chat-widget-header-text">
               <span class="chat-widget-header-title">{{
-                cfg.chatWidgetTitle || 'Get Your Estimate'
+                cfg.chatWidgetTitle || 'Ask us anything'
               }}</span>
               <span class="chat-widget-header-subtitle">{{
                 cfg.chatWidgetSubtitle ||
-                  'Start here for a fast estimate'
+                  'Patio covers, sunrooms, and free measurements'
               }}</span>
             </div>
           </div>
@@ -968,12 +958,21 @@
                   </div>
                 </div>
 
+                <div v-if="msg.type === 'bot' && msg.showDesignLink" class="chat-cta-card">
+                  <h4 class="chat-cta-title">See your price in about a minute</h4>
+                  <div class="chat-cta-actions">
+                    <router-link to="/instant-quote" class="chat-cta-btn primary">
+                      Design &amp; Price It Yourself
+                    </router-link>
+                  </div>
+                </div>
+
                 <!-- Booking options: Quick Book + Full Form -->
                 <div
                   v-if="msg.type === 'bot' && msg.showCta && !chatBookingForm.success"
                   class="chat-cta-card"
                 >
-                  <h4 class="chat-cta-title">Have your rough price? Book a free measurement</h4>
+                  <h4 class="chat-cta-title">Want an exact price? Book a free measurement</h4>
                   <div class="chat-cta-actions">
                     <button
                       type="button"
@@ -1227,16 +1226,12 @@ import {
   webPageNode,
   webSiteNode,
 } from './utils/seoHead';
-import {
-  CHAT_PRICING,
-  formatChatTotalRange,
-  formatDimensionLabel,
-  parseSizeSqft,
-  patioCoverMidRateForMaterial,
-  patioCoverQuoteForMaterial,
-  sunroomMidRateForType,
-  sunroomQuoteForType,
-} from './utils/chatPricing';
+import { CHAT_PRICING, patioCoverMidRateForMaterial, sunroomMidRateForType } from './utils/chatPricing';
+
+const PATIO_PRICE_REPLY =
+  'Our chat doesn’t give prices. Use our Design & Price It Yourself tool — pick your roof style, size, city, and install level, and you’ll see the price right away.';
+const SUNROOM_PRICE_REPLY =
+  'Sunroom pricing depends on your layout, glass, and foundation, so we price every sunroom after a free on-site measurement. You can also see our all-glass sunroom display at the Burnaby showroom.';
 import { publicAssetUrl } from './utils/publicAssetUrl';
 import SiteHeader from './components/home/SiteHeader.vue';
 import HeroSection from './components/home/HeroSection.vue';
@@ -1775,7 +1770,7 @@ export default {
       this.messages.push({
         id: placeholderId,
         type: 'bot',
-        text: productInquiry ? 'Let me pull up some info on that...' : 'Got it — calculating your estimate...',
+        text: productInquiry ? 'Let me pull up some info on that...' : 'Got it — one moment...',
         showCta: false,
         isPlaceholder: true,
       });
@@ -1797,41 +1792,17 @@ export default {
         return;
       }
 
-      if (this.shouldAskMaterialTypeForPatioPricing(text)) {
+      if (this.isPriceQuestion(text)) {
+        const sunroom = this.isSunroomText(text) || this.projectInfo.project_type === 'Sunroom';
+        const answer = sunroom ? SUNROOM_PRICE_REPLY : PATIO_PRICE_REPLY;
         this.replaceMessageById(placeholderId, {
           type: 'bot',
-          text: 'To give you an accurate estimate, is this for an aluminum patio cover or a glass patio cover?',
-          showCta: false,
+          text: answer,
+          showDesignLink: !sunroom,
+          showCta: sunroom,
           isPlaceholder: false,
         });
-        this.$nextTick(() => this.scrollToBottom());
-        return;
-      }
-
-      const sunroomEstimate = this.getSunroomEstimate(text);
-      if (sunroomEstimate) {
-        this.replaceMessageById(placeholderId, {
-          type: 'bot',
-          text: sunroomEstimate.answer,
-          isPrice: !!sunroomEstimate.isPrice,
-          showCta: !!sunroomEstimate.showCta,
-          isPlaceholder: false,
-        });
-        this.logChatDisplayToSheet({ question: text, answer: sunroomEstimate.answer });
-        this.$nextTick(() => this.scrollToBottom());
-        return;
-      }
-
-      const patioCoverEstimate = this.getPatioCoverEstimate(text);
-      if (patioCoverEstimate) {
-        this.replaceMessageById(placeholderId, {
-          type: 'bot',
-          text: patioCoverEstimate.answer,
-          isPrice: true,
-          showCta: true,
-          isPlaceholder: false,
-        });
-        this.logChatDisplayToSheet({ question: text, answer: patioCoverEstimate.answer });
+        this.logChatDisplayToSheet({ question: text, answer });
         this.$nextTick(() => this.scrollToBottom());
         return;
       }
@@ -1851,7 +1822,7 @@ export default {
         .map((m) => ({ role: m.type === 'user' ? 'user' : 'assistant', content: m.text }));
 
       const pricingReplyHint =
-        '[Reply with total CAD price ranges only. Never mention per-sq-ft rates, base fees, or how the estimate is calculated.] ';
+        '[Never give prices, price ranges, per-sq-ft rates, or cost numbers of any kind. If the customer asks about price or cost, tell them to use the "Design & Price It Yourself" tool on our website to see the price for their size.] ';
 
       try {
         const askBody = {
@@ -1872,8 +1843,10 @@ export default {
           body: JSON.stringify(askBody),
         });
         const data = await res.json();
-        const answer = data.answer || 'Sorry, something went wrong.';
-        const isPrice = this.isPriceResponse(answer);
+        const rawAnswer = data.answer || 'Sorry, something went wrong.';
+        const leakedPrice = /\$\s?\d/.test(rawAnswer);
+        const answer = leakedPrice ? PATIO_PRICE_REPLY : rawAnswer;
+        const isPrice = !leakedPrice && this.isPriceResponse(answer);
         const aiAsksForDetails = this.aiAsksForContactDetails(answer);
 
         const showBookBtn = aiAsksForDetails || isPrice;
@@ -1892,6 +1865,7 @@ export default {
           type: 'bot',
           text: answer,
           isPrice,
+          showDesignLink: leakedPrice,
           showCta: forceQuickBook ? false : showBookBtn,
           showQuickBookForm: !!forceQuickBook,
           productCard,
@@ -2102,193 +2076,13 @@ export default {
         lower.includes('sf')
       );
     },
-    shouldAskMaterialTypeForPatioPricing(text) {
+    isPriceQuestion(text) {
       if (!text) return false;
-      const lower = text.toLowerCase();
-
-      // Only enforce for patio cover pricing requests.
-      const isPatioPricingRequest =
-        (this.projectInfo.project_type === 'Patio Cover' ||
-          lower.includes('patio cover')) &&
-        (lower.includes('how much') ||
-          lower.includes('price') ||
-          lower.includes('cost') ||
-          lower.includes('estimate') ||
-          lower.includes('quote'));
-
-      // Material not confirmed in the text => don't call backend AI yet.
-      const materialConfirmed = !!this.projectInfo.material_type;
-
-      return isPatioPricingRequest && !materialConfirmed;
+      return /how much|price|pricing|cost|quote|estimate|budget|ballpark|\$|多少钱|价格|价钱|报价|费用|几钱/i.test(text);
     },
     isSunroomText(text) {
       if (!text) return false;
       return /\b(sun\s*room|sunroom|four\s*season|4\s*season)\b/i.test(text);
-    },
-    hasSunroomFloorIntent(text) {
-      if (!text) return false;
-      return /buildable|floor|floor\s*area|footprint|ground|base|wide.{0,24}long|long.{0,24}wide|地面|占地/i.test(text);
-    },
-    hasSunroomWallIntent(text) {
-      if (!text) return false;
-      return /wall|walls|panel|panels|side|sides|one\s+wall|one\s+side|single\s+wall|一面|墙|墙面|侧面/i.test(text);
-    },
-    parseBuildableSqft(text) {
-      if (!text) return null;
-
-      const sqftMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:sqft|sq\s*ft|sf)\b/i);
-      if (sqftMatch) {
-        const sqft = Number(sqftMatch[1]);
-        return Number.isFinite(sqft) && sqft > 0 ? sqft : null;
-      }
-
-      const dimensionPatterns = [
-        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:wide|width|w)?\s*(?:x|\*|×|by)\s*(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:long|length|l|deep|depth|projection)?/i,
-        /(\d+(?:\.\d+)?)\s*(?:wide|width|w)\b.*?(\d+(?:\.\d+)?)\s*(?:long|length|l|deep|depth|projection)\b/i,
-        /(\d+(?:\.\d+)?)\s*(?:long|length|l)\b.*?(\d+(?:\.\d+)?)\s*(?:wide|width|w)\b/i,
-      ];
-
-      for (const pattern of dimensionPatterns) {
-        const match = text.match(pattern);
-        if (!match) continue;
-        const first = Number(match[1]);
-        const second = Number(match[2]);
-        const sqft = first * second;
-        if (Number.isFinite(sqft) && sqft > 0) return sqft;
-      }
-
-      return null;
-    },
-    parseWallSqft(text) {
-      if (!text) return null;
-
-      const sqftMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:sqft|sq\s*ft|sf)\b/i);
-      if (sqftMatch) {
-        const sqft = Number(sqftMatch[1]);
-        return Number.isFinite(sqft) && sqft > 0 ? sqft : null;
-      }
-
-      const wallPatterns = [
-        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:wide|width|w)?\b.*?(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:high|height|h)\b/i,
-        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:high|height|h)\b.*?(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:wide|width|w)\b/i,
-        /(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:x|\*|×|by)\s*(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?/i,
-      ];
-
-      for (const pattern of wallPatterns) {
-        const match = text.match(pattern);
-        if (!match) continue;
-        const first = Number(match[1]);
-        const second = Number(match[2]);
-        const sqft = first * second;
-        if (Number.isFinite(sqft) && sqft > 0) return sqft;
-      }
-
-      return null;
-    },
-    getSunroomEstimate(text) {
-      if (!this.isSunroomText(text)) return null;
-
-      const floorIntent = this.hasSunroomFloorIntent(text);
-      const wallIntent = this.hasSunroomWallIntent(text);
-
-      this.projectInfo.project_type = 'Sunroom';
-
-      if (wallIntent && !floorIntent) {
-        const sqft = this.parseWallSqft(text);
-        if (!sqft) {
-          return {
-            isPrice: true,
-            showCta: false,
-            answer:
-              'For sunroom wall or panel work, please send the wall width and height, or the wall square footage, and I can give you a rough total.',
-          };
-        }
-
-        const quote = sunroomQuoteForType('wall', sqft);
-        this.projectInfo.size = `${sqft} wall sq ft`;
-        return {
-          sqft,
-          isPrice: true,
-          showCta: true,
-          answer:
-            `For sunroom wall or panel work (${quote.sqft.toLocaleString()} sq ft), the rough estimate is ${formatChatTotalRange(quote)}. ` +
-            `Final pricing is confirmed after free on-site measurement.`,
-        };
-      }
-
-      const sqft = this.parseBuildableSqft(text);
-      if (!sqft) return null;
-
-      if (!floorIntent && !wallIntent) {
-        const buildableQuote = sunroomQuoteForType('buildable', sqft);
-        const wallQuote = sunroomQuoteForType('wall', sqft);
-        return {
-          isPrice: false,
-          showCta: false,
-          answer:
-            `Just to confirm: is ${sqft.toLocaleString()} sq ft the sunroom floor/buildable area, or wall/panel area? ` +
-            `Floor/buildable area is about ${formatChatTotalRange(buildableQuote)}. ` +
-            `Wall/panel area is about ${formatChatTotalRange(wallQuote)}.`,
-        };
-      }
-
-      const quote = sunroomQuoteForType('buildable', sqft);
-      this.projectInfo.size = `${sqft} buildable sq ft`;
-      return {
-        sqft,
-        isPrice: true,
-        showCta: true,
-        answer:
-          `For a sunroom floor/buildable area (${quote.sqft.toLocaleString()} sq ft), the rough estimate is ${formatChatTotalRange(quote)}. ` +
-          `Final pricing is confirmed after free on-site measurement.`,
-      };
-    },
-    getPatioCoverEstimate(text) {
-      if (this.isSunroomText(text)) return null;
-      if (this.projectInfo.project_type === 'Sunroom') return null;
-
-      const lower = String(text || '').toLowerCase();
-      const isPatioRequest =
-        this.projectInfo.project_type === 'Patio Cover' ||
-        lower.includes('patio cover') ||
-        lower.includes('pergola') ||
-        lower.includes('patio') ||
-        lower.includes('cover') ||
-        lower.includes('installation');
-
-      let material = this.projectInfo.material_type;
-      if (!material) {
-        if (lower.includes('glass')) material = 'Glass';
-        else if (lower.includes('skyline') || lower.includes('combo')) material = 'Skyline Combo';
-        else if (lower.includes('aluminum') || lower.includes('aluminium') || lower.includes('metal frame')) {
-          material = lower.includes('glass') ? 'Glass' : 'Aluminum';
-        }
-      }
-      if (material === 'Aluminum' && lower.includes('glass')) material = 'Glass';
-
-      const sqft = parseSizeSqft(text) || parseSizeSqft(this.projectInfo.size);
-      if (!material || !sqft) return null;
-      if (!isPatioRequest && !(this.projectInfo.material_type && this.projectInfo.size)) return null;
-
-      const quote = patioCoverQuoteForMaterial(material, sqft);
-      const materialLabel =
-        material === 'Glass'
-          ? 'glass patio cover'
-          : material === 'Skyline Combo'
-            ? 'skyline combo patio cover'
-            : 'aluminum patio cover';
-
-      this.projectInfo.project_type = 'Patio Cover';
-      this.projectInfo.material_type = material;
-      this.projectInfo.size = `${sqft} sq ft`;
-
-      const sizeLabel = formatDimensionLabel(text, sqft) || formatDimensionLabel(this.projectInfo.size, sqft);
-
-      return {
-        answer:
-          `For a ${materialLabel} (${sizeLabel}), the rough estimate is ${formatChatTotalRange(quote)}. ` +
-          `Final pricing is confirmed after free on-site measurement.`,
-      };
     },
     updateProjectInfoFromText(text) {
       if (!text) return;
@@ -5559,10 +5353,13 @@ html.app-scroll-lock #app {
 }
 
 .chat-cta-btn {
+  display: inline-flex;
+  align-items: center;
   border-radius: 999px;
   padding: 6px 14px;
   font-size: 12px;
   font-weight: 500;
+  text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,

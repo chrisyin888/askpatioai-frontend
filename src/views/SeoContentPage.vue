@@ -30,13 +30,9 @@
                 </p>
 
                 <div class="hero-cta-row">
-                  <button
-                    type="button"
-                    class="hero-cta hero-cta--primary"
-                    @click="goHomeOpenEstimate"
-                  >
-                    Get My Fast Estimate
-                  </button>
+                  <router-link to="/instant-quote" class="hero-cta hero-cta--primary">
+                    Design &amp; Price It Yourself
+                  </router-link>
                   <router-link
                     :to="{ path: '/', hash: '#our-products' }"
                     class="hero-cta hero-cta--secondary"
@@ -179,13 +175,9 @@
                   measurement.
                 </p>
                 <div class="hero-cta-row seo-page__cta-row">
-                  <button
-                    type="button"
-                    class="hero-cta hero-cta--primary seo-page__cta-btn-primary"
-                    @click="goHomeOpenEstimate"
-                  >
-                    Get My Fast Estimate
-                  </button>
+                  <router-link to="/instant-quote" class="hero-cta hero-cta--primary seo-page__cta-btn-primary">
+                    Design &amp; Price It Yourself
+                  </router-link>
                   <router-link
                     :to="{ path: '/', hash: '#our-products' }"
                     class="hero-cta hero-cta--secondary seo-page__cta-btn-secondary"

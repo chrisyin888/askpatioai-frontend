@@ -12,13 +12,9 @@
             and the Lower Mainland — compare options first, then book a free
             on-site measurement.
           </p>
-          <button
-            type="button"
-            class="site-footer__cta"
-            @click="$emit('estimate')"
-          >
-            Get a Fast Estimate
-          </button>
+          <router-link to="/instant-quote" class="site-footer__cta">
+            Design &amp; Price It Yourself
+          </router-link>
         </div>
 
         <nav class="site-footer__col" aria-label="Footer sections">
@@ -126,7 +122,7 @@ export default {
     serviceLinks: { type: Array, default: () => [] },
     email: { type: String, default: '' },
   },
-  emits: ['nav', 'estimate'],
+  emits: ['nav'],
 };
 </script>
 
@@ -189,6 +185,8 @@ export default {
   padding: 12px 24px;
   border-radius: 999px;
   transition: background 0.15s ease, transform 0.15s ease;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .site-footer__cta:hover {

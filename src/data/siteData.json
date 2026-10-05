@@ -12,34 +12,34 @@
     "leadApiUrl": "https://fastapi-0bcw.onrender.com/lead",
     "contractorSmsNotifyUrl": "https://fastapi-0bcw.onrender.com/notify-contractor-sms",
     "contractorNotifyWebhookUrl": "",
-    "chatWidgetTitle": "Fast estimate — about 60 seconds",
-    "chatWidgetSubtitle": "Rough patio cover pricing before you book a site visit"
+    "chatWidgetTitle": "Ask us anything",
+    "chatWidgetSubtitle": "Patio covers, sunrooms, showroom visits, and free measurements"
   },
   "section1": {
     "heroTitle": "Patio Cover Installation in Vancouver",
-    "subtitle": "Custom aluminum and glass patio cover installation in Metro Vancouver. Get a fast estimate with photos and measurements.",
+    "subtitle": "Custom aluminum and glass patio cover installation in Metro Vancouver. Design your cover online and see the price instantly.",
     "botAvatar": "",
     "welcomeMessages": [
-      "Tell me your patio size and city — get a fast ballpark estimate in about a minute, no obligation."
+      "Hi! Ask me about patio covers, sunrooms, our Burnaby showroom, or booking a free measurement. For pricing, use our Design & Price It Yourself tool."
     ],
-    "chatPlaceholder": "Example: 12x14 aluminum patio cover in Burnaby",
-    "inputHelperExample": "Richmond, glass patio cover, about 12×14 ft",
+    "chatPlaceholder": "Example: Glass or aluminum — which is better for rain?",
+    "inputHelperExample": "Can I visit the showroom in Burnaby?",
     "trustPoints": [
       "✔ 10+ years experience, hundreds of projects",
-      "✔ Fast rough quote in chat (~60 sec)",
+      "✔ Design & price your cover online",
       "✔ Compare cover types side by side",
       "✔ Free on-site measurement when you’re ready"
     ],
     "productsHeading": "Compare patio cover types",
-    "productsLead": "Compare the main patio cover types, then get a quick rough quote in chat before booking a free on-site measurement.",
+    "productsLead": "Compare the main patio cover types, then design and price your cover online before booking a free on-site measurement.",
     "seoHeading": "Patio cover installation in Metro Vancouver",
-    "seoBody": "LoomiHome Patios provides aluminum patio cover installation, glass patio cover installation, skyline combo covers, and sunroom enclosures across Metro Vancouver. Chat with our AI or use the instant quote tool for a planning range for your size; formal pricing is confirmed after free on-site measurement.",
+    "seoBody": "LoomiHome Patios provides aluminum patio cover installation, glass patio cover installation, skyline combo covers, and sunroom enclosures across Metro Vancouver. Use the Design & Price It Yourself tool for a planning range for your size; formal pricing is confirmed after free on-site measurement.",
     "seoServiceArea": "Service areas: Vancouver, Richmond, Burnaby, Surrey, Delta, Langley, Coquitlam, Port Coquitlam, Port Moody, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby Metro Vancouver communities.",
     "faqTitle": "Frequently asked questions",
     "faqItems": [
       {
         "q": "How much does a patio cover cost in Vancouver?",
-        "a": "Pricing depends on the roof style, size, and site conditions. Chat with our AI or use the instant quote tool for a planning range for your actual size; your formal quote is confirmed after free on-site measurement."
+        "a": "Pricing depends on the roof style, size, and site conditions. Use the Design & Price It Yourself tool for a planning range for your actual size; your formal quote is confirmed after free on-site measurement."
       },
       {
         "q": "What is the difference between aluminum and glass patio covers?",
@@ -47,7 +47,7 @@
       },
       {
         "q": "Do you provide onsite measurement?",
-        "a": "Yes. After a fast rough estimate online or in chat, we book a free on-site measurement to confirm size, attachment, drainage, and final installation pricing."
+        "a": "Yes. After you design and price your cover online, we book a free on-site measurement to confirm size, attachment, drainage, and final installation pricing."
       },
       {
         "q": "How long does installation usually take?",
@@ -59,7 +59,7 @@
       },
       {
         "q": "Can I get pricing before booking a measurement?",
-        "a": "Yes. Use chat or our online estimate for a rough range first, then book a free on-site visit when you want final installation pricing."
+        "a": "Yes. Use the Design & Price It Yourself tool for a rough range first, then book a free on-site visit when you want final installation pricing."
       },
       {
         "q": "Do patio covers help with rain in Vancouver?",
@@ -70,8 +70,8 @@
   "beforeAfterProjects": {
     "heading": "Before & After Patio Cover Projects",
     "subtitle": "See how common backyard and patio spaces can change with aluminum, glass, skyline combo, and sunroom upgrades — real project-style examples from our Lower Mainland work.",
-    "ctaTitle": "Get a Rough Estimate for a Similar Project",
-    "ctaBody": "Share your patio size and city in chat to get a quick ballpark estimate in about 60 seconds.",
+    "ctaTitle": "Design & Price a Similar Project",
+    "ctaBody": "Pick your roof style, size, and city to see the price for your patio in about a minute.",
     "viewMoreLabel": "View more projects",
     "viewMoreHref": "#past-projects",
     "items": [
@@ -156,7 +156,6 @@
       "icon": "",
       "image": "/house/glass/glass-hero.png",
       "imageAlt": "Glass patio cover installation in Vancouver",
-      "examplePrice": 2200,
       "modalBullets": [
         "Bright & modern look",
         "Keeps natural light",
@@ -171,7 +170,6 @@
       "icon": "",
       "image": "/house/Aluminum/aluminum-hero.png",
       "imageAlt": "Aluminum patio cover installation in Vancouver",
-      "examplePrice": 1900,
       "modalBullets": [
         "Durable & low maintenance",
         "Full rain & sun protection",
@@ -186,7 +184,6 @@
       "icon": "",
       "image": "/house/skyline/skyline-hero.png",
       "imageAlt": "Patio cover project in Metro Vancouver",
-      "examplePrice": 2200,
       "modalBullets": [
         "Open, airy design",
         "Modern architectural style",
@@ -201,7 +198,6 @@
       "icon": "",
       "image": "/house/sunrooms/sunroom-hero.png",
       "imageAlt": "Sunroom enclosure installation in Metro Vancouver",
-      "examplePrice": 14000,
       "modalBullets": [
         "Enclosed living space",
         "Use in more seasons",

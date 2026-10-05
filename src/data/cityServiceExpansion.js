@@ -72,7 +72,7 @@ const CITY_META = {
       image: '/house/before-after/burnaby-aluminum-after.png',
       alt: 'Lower Mainland aluminum patio cover on a compact backyard — planning reference for New Westminster',
       caption:
-        'Lower Mainland aluminum patio cover example used for New Westminster planning — practical for townhome patios and detached backyards. Ballpark in chat first.',
+        'Lower Mainland aluminum patio cover example used for New Westminster planning — practical for townhome patios and detached backyards.  with our Design & Price tool first.',
       projectPath: '/projects/new-westminster-aluminum-patio-cover',
     },
     glassCaseStudy: {
@@ -137,7 +137,7 @@ const CITY_META = {
       image: '/house/before-after/burnaby-aluminum-after.png',
       alt: 'Lower Mainland aluminum patio cover — planning reference for wider Pitt Meadows backyard spans',
       caption:
-        'Lower Mainland aluminum patio cover example used for Pitt Meadows planning — practical rain protection for wider Fraser Valley spans. Chat ballpark before free measurement.',
+        'Lower Mainland aluminum patio cover example used for Pitt Meadows planning — practical rain protection for wider Fraser Valley spans. Online price before free measurement.',
       projectPath: '/projects/pitt-meadows-aluminum-patio-cover',
     },
     glassCaseStudy: {
@@ -321,7 +321,7 @@ function contractorPage(slug, meta) {
       },
       {
         q: `How much does a patio cover cost in ${meta.name}?`,
-        a: `Chat gives a planning total for your size. For typical 12×14 ft ranges and local notes, see our ${meta.name} cost guide before you book measurement.`,
+        a: `Our Design & Price tool gives a planning total for your size. For typical 12×14 ft ranges and local notes, see our ${meta.name} cost guide before you book measurement.`,
       },
       {
         q: 'What patio cover types can I compare?',
@@ -329,7 +329,7 @@ function contractorPage(slug, meta) {
       },
       {
         q: `Is the online ${meta.name} contractor quote final?`,
-        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
       {
         q: `Which ${meta.name} areas do you quote?`,
@@ -400,7 +400,7 @@ function installerPage(slug, meta) {
       },
       {
         q: `How much does patio cover installation cost in ${meta.name}?`,
-        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for common ranges, then book free measurement for a formal quote.`,
+        a: `Our Design & Price tool gives a planning total for your size. See the ${meta.name} patio cover cost guide for common ranges, then book free measurement for a formal quote.`,
       },
       {
         q: `How long does patio cover installation take in ${meta.name}?`,
@@ -408,7 +408,7 @@ function installerPage(slug, meta) {
       },
       {
         q: `Is the online ${meta.name} installation estimate final?`,
-        a: 'No — chat gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Final installation pricing is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: [
@@ -460,7 +460,7 @@ function aluminumPage(slug, meta) {
       },
     ],
     pricingNote:
-      `Send approximate patio dimensions in chat for a rough aluminum range before anyone visits your ${meta.name} home. Compare with the ${meta.name} cost guide for common sizes.`,
+      `Enter approximate patio dimensions in our Design & Price tool to see an aluminum price before anyone visits your ${meta.name} home. Compare with the ${meta.name} cost guide for common sizes.`,
     faqs: [
       {
         q: `Do you install aluminum patio covers in ${meta.name}?`,
@@ -468,7 +468,7 @@ function aluminumPage(slug, meta) {
       },
       {
         q: `How much does an aluminum patio cover cost in ${meta.name}?`,
-        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.`,
+        a: `Our Design & Price tool gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical 12×14 ft ranges, then book free measurement for a formal quote.`,
       },
       {
         q: 'Can I compare aluminum with glass or a sunroom?',
@@ -536,7 +536,7 @@ function glassPage(slug, meta) {
       },
       {
         q: `How much does a glass patio cover cost in ${meta.name}?`,
-        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical 12×14 ft glass ranges, then book free measurement for a formal quote.`,
+        a: `Our Design & Price tool gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical 12×14 ft glass ranges, then book free measurement for a formal quote.`,
       },
       {
         q: 'Can I compare glass and aluminum pricing?',
@@ -607,7 +607,7 @@ function sunroomPage(slug, meta) {
       },
       {
         q: `How much does a sunroom cost in ${meta.name}?`,
-        a: 'Chat gives a planning total from your approximate footprint. Formal pricing is confirmed after free on-site measurement.',
+        a: 'Our Design & Price tool gives a planning total from your approximate footprint. Formal pricing is confirmed after free on-site measurement.',
       },
       {
         q: 'Should I choose a sunroom or a patio cover?',

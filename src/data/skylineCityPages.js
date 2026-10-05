@@ -139,11 +139,11 @@ function skylinePage(slug, meta) {
       },
       {
         q: `How much does a skyline combo cover cost in ${meta.name}?`,
-        a: `Chat gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical ranges, then book free measurement for a formal quote.`,
+        a: `Our Design & Price tool gives a planning total for your size. See the ${meta.name} patio cover cost guide for typical ranges, then book free measurement for a formal quote.`,
       },
       {
         q: 'Is the chat skyline estimate final?',
-        a: 'No — chat gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
+        a: 'No — our Design & Price tool gives a planning range only. Your formal quote is confirmed after free on-site measurement.',
       },
     ],
     relatedPageLinks: meta.relatedPageLinks || [

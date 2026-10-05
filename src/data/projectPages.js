@@ -262,7 +262,7 @@ export const PROJECT_PAGES = {
       },
       {
         h2: 'What changes the estimate',
-        body: 'The amount of glass, panel layout, span, posts, and connection to the home all affect pricing. A quick chat estimate can compare combo, aluminum, and glass before measurement.',
+        body: 'The amount of glass, panel layout, span, posts, and connection to the home all affect pricing. A quick online estimate can compare combo, aluminum, and glass before measurement.',
       },
     ],
     pricingNote:
@@ -712,7 +712,7 @@ export const PROJECT_PAGES = {
       },
       {
         h2: 'What affects pricing on similar projects',
-        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Chat gives a planning range first; measurement confirms the layout.',
+        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Our Design & Price tool gives a planning range first; measurement confirms the layout.',
       },
     ],
     pricingNote:
@@ -891,7 +891,7 @@ export const PROJECT_PAGES = {
     heroImage: '/house/skyline/p40.jpg',
     metaTitle: 'New Westminster Skyline Combo Project | LoomiHome Patios',
     metaDescription:
-      'New Westminster skyline combo patio cover example — balanced glass and V-panel shade for Queensborough and Uptown patios. Fast rough estimate in chat.',
+      'New Westminster skyline combo patio cover example — balanced glass and V-panel shade for Queensborough and Uptown patios. Fast rough  with our Design & Price tool.',
     h1: 'New Westminster Skyline Combo Patio Cover Project',
     intro:
       'This New Westminster skyline combo example blends glass and V-panel sections for balanced light and shade — a useful reference for townhome patios and detached backyards in Queensborough, Sapperton, and Uptown.',
@@ -1042,7 +1042,7 @@ export const PROJECT_PAGES = {
     heroImage: '/house/Aluminum/p27.jpg',
     metaTitle: 'Abbotsford Aluminum Patio Cover Project | LoomiHome Patios',
     metaDescription:
-      'Abbotsford aluminum patio cover example — practical rain protection for Clearbrook and Sumas Mountain backyards. Fast rough estimate in chat.',
+      'Abbotsford aluminum patio cover example — practical rain protection for Clearbrook and Sumas Mountain backyards. Fast rough  with our Design & Price tool.',
     h1: 'Abbotsford Aluminum Patio Cover Project',
     intro:
       'This Abbotsford-style aluminum patio cover fits the kind of family backyards common in Clearbrook, Sumas Mountain, and nearby Fraser Valley neighbourhoods — dependable rain coverage with low maintenance.',
@@ -1061,7 +1061,7 @@ export const PROJECT_PAGES = {
       },
       {
         h2: 'What affects pricing on similar projects',
-        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Chat gives a planning range first; measurement confirms the layout.',
+        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Our Design & Price tool gives a planning range first; measurement confirms the layout.',
       },
     ],
     pricingNote:
@@ -1193,7 +1193,7 @@ export const PROJECT_PAGES = {
     heroImage: '/house/before-after/surrey-skyline-after.png',
     metaTitle: 'Maple Ridge Skyline Combo Patio Cover Project | LoomiHome Patios',
     metaDescription:
-      'Maple Ridge skyline combo patio cover example — balanced glass and V-panel shade for Town Centre and Albion backyards. Fast rough estimate in chat.',
+      'Maple Ridge skyline combo patio cover example — balanced glass and V-panel shade for Town Centre and Albion backyards. Fast rough  with our Design & Price tool.',
     h1: 'Maple Ridge Skyline Combo Patio Cover Project',
     intro:
       'This Maple Ridge skyline combo example blends glass and V-panel sections for balanced light and shade — a useful reference for larger family backyards in Town Centre, Albion, and Silver Valley.',
@@ -1397,7 +1397,7 @@ export const PROJECT_PAGES = {
     heroImage: '/house/before-after/burnaby-aluminum-after.png',
     metaTitle: 'Pitt Meadows Aluminum Patio Cover Project | LoomiHome Patios',
     metaDescription:
-      'Pitt Meadows aluminum patio cover example — practical rain protection for wider Fraser Valley backyards. Fast rough estimate in chat.',
+      'Pitt Meadows aluminum patio cover example — practical rain protection for wider Fraser Valley backyards. Fast rough  with our Design & Price tool.',
     h1: 'Pitt Meadows Aluminum Patio Cover Project',
     intro:
       'This Pitt Meadows-style aluminum patio cover fits wider suburban backyards common near Maple Ridge — dependable rain coverage with low maintenance and a clean frame.',
@@ -1416,7 +1416,7 @@ export const PROJECT_PAGES = {
       },
       {
         h2: 'What affects pricing on similar projects',
-        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Chat gives a planning range first; measurement confirms the layout.',
+        body: 'Width, projection, posts, attachment, and drainage all move the final quote. Our Design & Price tool gives a planning range first; measurement confirms the layout.',
       },
     ],
     pricingNote:
@@ -1867,7 +1867,7 @@ for (const page of Object.values(PROJECT_PAGES)) {
     ...(page.faqs || []),
     {
       q,
-      a: `This project is a planning reference, not a fixed price. Chat gives a ballpark from your approximate width, projection, and a few photos; the ${city} patio cover cost guide explains what moves the total, and free on-site measurement confirms your formal quote.`,
+      a: `This project is a planning reference, not a fixed price. Our Design & Price tool gives a ballpark from your approximate width, projection, and a few photos; the ${city} patio cover cost guide explains what moves the total, and free on-site measurement confirms your formal quote.`,
     },
   ];
 }
