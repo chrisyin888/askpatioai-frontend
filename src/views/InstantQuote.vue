@@ -39,6 +39,8 @@
 
     <section class="iq-panel">
       <h2 class="iq-step-title"><span class="iq-step-num">2</span> Set your size</h2>
+      <div class="iq-size-grid">
+      <div class="iq-size-main">
       <div class="iq-measure">
         <p class="iq-measure-title">Measure your deck or balcony</p>
         <p class="iq-measure-rule">
@@ -106,6 +108,43 @@
           </p>
         </div>
         <p class="iq-sqft">{{ length }} × {{ width }} ft = <strong>{{ sqft }} sq ft</strong></p>
+      </div>
+      </div>
+
+      <aside class="iq-tip" aria-labelledby="iq-tip-title">
+        <p id="iq-tip-title" class="iq-tip-title">Tip: how to measure your patio cover</p>
+        <svg class="iq-tip-diagram" viewBox="0 0 260 200" role="img" aria-label="Top view: house wall, deck, and cover with 1 ft overhang on the front and both sides">
+          <defs>
+            <marker id="iq-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#0f172a" />
+            </marker>
+          </defs>
+          <rect x="10" y="8" width="240" height="16" rx="2" fill="#94a3b8" />
+          <text x="130" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">HOUSE WALL</text>
+          <rect x="30" y="24" width="200" height="146" fill="rgba(5,150,105,0.08)" stroke="#059669" stroke-width="2" stroke-dasharray="6 4" />
+          <rect x="50" y="24" width="160" height="126" fill="#fde68a" stroke="#d97706" stroke-width="1.5" />
+          <text x="170" y="140" text-anchor="middle" font-size="10" fill="#92400e">Deck / balcony</text>
+          <line x1="80" y1="28" x2="80" y2="146" stroke="#0f172a" stroke-width="1.5" marker-start="url(#iq-arrow)" marker-end="url(#iq-arrow)" />
+          <text x="88" y="92" font-size="13" font-weight="800" fill="#0f172a">A</text>
+          <line x1="54" y1="62" x2="206" y2="62" stroke="#0f172a" stroke-width="1.5" marker-start="url(#iq-arrow)" marker-end="url(#iq-arrow)" />
+          <text x="150" y="56" font-size="13" font-weight="800" fill="#0f172a">B</text>
+          <text x="130" y="164" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">+1 ft</text>
+          <text x="40" y="104" text-anchor="middle" font-size="9" font-weight="700" fill="#047857" transform="rotate(-90 40 104)">+1 ft</text>
+          <text x="220" y="104" text-anchor="middle" font-size="9" font-weight="700" fill="#047857" transform="rotate(90 220 104)">+1 ft</text>
+          <text x="130" y="188" text-anchor="middle" font-size="10" fill="#047857">Green dashed line = patio cover</text>
+        </svg>
+        <ol class="iq-tip-steps">
+          <li><strong>A</strong> — measure from the house wall to the outer edge of your deck or balcony.</li>
+          <li><strong>B</strong> — measure the deck width along the wall.</li>
+          <li>
+            Add the overhang: <strong>Length = A + 1 ft</strong>, <strong>Width = B + 2 ft</strong>
+            (1 ft each side), rounded up to the next {{ panelWidthFt }} ft panel.
+          </li>
+          <li><strong>Height</strong> — from the deck surface up to where the roof should sit, usually just under the gutter or soffit.</li>
+        </ol>
+        <p class="iq-tip-example">Example: A = 10 ft, B = 15 ft → cover 11 × 18 ft.</p>
+        <p class="iq-tip-note">Not sure? Rough numbers are fine — we confirm every size at the free on-site measurement.</p>
+      </aside>
       </div>
     </section>
 
@@ -712,6 +751,56 @@ export default {
 .iq-sliders {
   max-width: 620px;
 }
+.iq-size-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 24px;
+  align-items: start;
+}
+.iq-tip {
+  position: sticky;
+  top: 16px;
+  padding: 16px;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  background: #f0fdf4;
+}
+.iq-tip-title {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #065f46;
+}
+.iq-tip-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #fff;
+}
+.iq-tip-steps {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #334155;
+}
+.iq-tip-steps li {
+  margin-bottom: 6px;
+}
+.iq-tip-example {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #065f46;
+}
+.iq-tip-note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #64748b;
+}
 .iq-slider-row {
   margin-bottom: 20px;
 }
@@ -1108,6 +1197,7 @@ export default {
 
 @media (max-width: 760px) {
   .iq-cards,
+  .iq-size-grid,
   .iq-floors,
   .iq-estimate-grid {
     grid-template-columns: 1fr;
