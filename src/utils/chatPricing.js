@@ -1,12 +1,12 @@
 /** Rough chat estimate rates (CAD, before GST). Pricing sync: scripts/generate-sitemap.js → public/llms.txt */
 export const CHAT_PRICING = {
-  patioCoverBaseFee: 800,
+  patioCoverBaseFee: 0,
   aluminumPatioCoverPerSqft: { min: 13, max: 16 },
   glassPatioCoverPerSqft: { min: 18, max: 22 },
   skylineComboPerSqft: { min: 15, max: 18 },
   sunroomBuildablePerSqft: { min: 130, max: 145 },
   sunroomWallPerSqft: { min: 40, max: 48 },
-  patioCoverMinimumCharge: 2500,
+  patioCoverMinimumCharge: 1500,
   patioCoverMinimumChargeBelowSqft: 100,
 };
 
