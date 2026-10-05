@@ -82,7 +82,7 @@
       </div>
     </section>
 
-    <section class="iq-panel">
+    <section ref="step3" class="iq-panel">
       <h2 class="iq-step-title"><span class="iq-step-num">3</span> Location &amp; install level</h2>
       <div class="iq-field">
         <label for="iq-city" class="iq-field-label">City</label>
@@ -118,22 +118,33 @@
       <div class="iq-estimate-grid">
         <figure class="iq-preview">
           <img :src="assetUrl(selectedRoof.render)" :alt="selectedRoof.renderAlt" />
-          <figcaption>{{ selectedRoof.name }} · {{ length }}×{{ width }} ft · {{ coverHeight }} ft high · {{ selectedFloor.name }}</figcaption>
+          <figcaption>
+            {{ selectedRoof.name }} · {{ length }}×{{ width }} ft · {{ coverHeight }} ft high{{ selectedFloor ? ` · ${selectedFloor.name}` : '' }}
+          </figcaption>
         </figure>
 
         <div class="iq-estimate-body">
-          <div class="iq-price">
-            {{ priceLabel }}
-            <span class="iq-price-note">CAD, before GST</span>
+          <div v-if="missingSelections.length" class="iq-locked">
+            <p class="iq-locked-title">Almost there — your price unlocks once you choose:</p>
+            <ul>
+              <li v-for="item in missingSelections" :key="item">{{ item }}</li>
+            </ul>
+            <button type="button" class="iq-locked-btn" @click="goToStep3">Go to step 3</button>
           </div>
-          <p v-if="quote.isMinimum" class="iq-minimum">
-            Minimum charge of ${{ minimumCharge.toLocaleString() }} applies to covers under {{ minimumSqft }} sq ft.
-          </p>
-          <p class="iq-disclaimer">
-            Planning total for {{ roofArticle }} {{ roofLabel }} patio cover, {{ length }}×{{ width }} ft, {{ coverHeight }} ft high,
-            {{ selectedFloor.name.toLowerCase() }}{{ city ? ` in ${city}` : '' }}.
-            Final pricing is confirmed after a free on-site measurement.
-          </p>
+          <template v-else>
+            <div class="iq-price">
+              {{ priceLabel }}
+              <span class="iq-price-note">CAD, before GST</span>
+            </div>
+            <p v-if="quote.isMinimum" class="iq-minimum">
+              Minimum charge of ${{ minimumCharge.toLocaleString() }} applies to covers under {{ minimumSqft }} sq ft.
+            </p>
+            <p class="iq-disclaimer">
+              Planning total for {{ roofArticle }} {{ roofLabel }} patio cover, {{ length }}×{{ width }} ft, {{ coverHeight }} ft high,
+              {{ selectedFloor.name.toLowerCase() }} in {{ city }}.
+              Final pricing is confirmed after a free on-site measurement.
+            </p>
+          </template>
 
           <form class="iq-form" @submit.prevent="submitLead">
             <input v-model="name" type="text" placeholder="Your name" autocomplete="name" required />
@@ -233,7 +244,7 @@ export default {
       email: '',
       phone: '',
       city: '',
-      floor: 1,
+      floor: null,
       coverHeight: COVER_HEIGHT.default,
       coverHeightRange: COVER_HEIGHT,
       address: '',
@@ -356,7 +367,13 @@ export default {
       return `$${totalMin.toLocaleString()} – $${totalMax.toLocaleString()}`;
     },
     selectedFloor() {
-      return this.floorOptions.find((o) => o.floor === this.floor) || this.floorOptions[0];
+      return this.floorOptions.find((o) => o.floor === this.floor) || null;
+    },
+    missingSelections() {
+      const missing = [];
+      if (!this.city) missing.push('Your city');
+      if (!this.selectedFloor) missing.push('Where the cover will be installed (ground, balcony or rooftop)');
+      return missing;
     },
     selectedRoof() {
       return this.roofOptions.find((o) => o.key === this.roofType) || this.roofOptions[0];
@@ -374,6 +391,10 @@ export default {
   methods: {
     assetUrl(path) {
       return publicAssetUrl(path);
+    },
+    goToStep3() {
+      const el = this.$refs.step3;
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
     onAddressInput() {
       this.addressPoint = null;
@@ -433,8 +454,9 @@ export default {
     },
     async submitLead() {
       if (this.leadSending || this.leadSent) return;
-      if (!this.city) {
-        this.leadError = 'Please select your city in step 3.';
+      if (this.missingSelections.length) {
+        this.leadError = 'Please choose your city and install level in step 3 first.';
+        this.goToStep3();
         return;
       }
       this.leadSending = true;
@@ -783,6 +805,40 @@ export default {
   font-size: 13px;
   color: #64748b;
   line-height: 1.4;
+}
+.iq-locked {
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border: 1px dashed #f59e0b;
+  border-radius: 12px;
+  background: #fffbeb;
+}
+.iq-locked-title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #92400e;
+}
+.iq-locked ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #78350f;
+}
+.iq-locked-btn {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 999px;
+  background: #059669;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.iq-locked-btn:hover {
+  background: #047857;
 }
 .iq-minimum {
   margin: 0 0 8px;
