@@ -318,24 +318,6 @@
               class="home-seo-block__area"
             >{{ s1.seoServiceArea }}</p>
           </div>
-
-          <div
-            v-if="faqList.length"
-            id="faq"
-            class="home-faq"
-          >
-            <h2 class="home-faq__title">{{ s1.faqTitle || 'Common questions' }}</h2>
-            <div class="home-faq__list">
-              <details
-                v-for="(item, fi) in faqList"
-                :key="fi"
-                class="home-faq__item"
-              >
-                <summary class="home-faq__q">{{ item.q }}</summary>
-                <p class="home-faq__a">{{ item.a }}</p>
-              </details>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -750,6 +732,24 @@
       </section>
 
       <div class="home-seo-hub-wrap">
+        <div
+          v-if="faqList.length"
+          id="faq"
+          class="home-faq"
+        >
+          <h2 class="home-faq__title">{{ s1.faqTitle || 'Common questions' }}</h2>
+          <div class="home-faq__list">
+            <details
+              v-for="(item, fi) in faqList"
+              :key="fi"
+              class="home-faq__item"
+            >
+              <summary class="home-faq__q">{{ item.q }}</summary>
+              <p class="home-faq__a">{{ item.a }}</p>
+            </details>
+          </div>
+        </div>
+
         <SeoLinkHub :groups="seoHubGroups" />
       </div>
 
@@ -3238,14 +3238,20 @@ html.app-scroll-lock #app {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 56px 24px 64px;
+  padding: 0 24px 64px;
   box-sizing: border-box;
 }
 
 @media (max-width: 480px) {
   .home-seo-hub-wrap {
-    padding: 40px 16px 48px;
+    padding: 0 16px 48px;
   }
+}
+
+.home-seo-hub-wrap .home-faq {
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 0;
 }
 
 .content-wrapper {
