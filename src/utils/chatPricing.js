@@ -10,8 +10,8 @@ export const CHAT_PRICING = {
   patioCoverMinimumChargeBelowSqft: 100,
 };
 
-/** Instant quote add-ons: deck height (floor level) and travel tier, as multipliers on the patio cover total. */
-export const PATIO_HEIGHT_MULTIPLIERS = { 1: 1, 2: 1.15, 3: 1.3 };
+/** Instant quote add-ons: flat surcharge by install level (CAD), plus travel tier and cover height multipliers. */
+export const PATIO_FLOOR_SURCHARGE = { 1: 0, 2: 200, 3: 400 };
 
 export const COVER_HEIGHT = { min: 7, max: 14, default: 9, includedUpToFt: 10, surchargePerFt: 0.05 };
 
@@ -81,13 +81,13 @@ export function instantPatioQuote({ material, sqft, floor = 1, city = '', coverH
   const isMinimum = base.sqft < CHAT_PRICING.patioCoverMinimumChargeBelowSqft;
   const baseMin = isMinimum ? minCharge : Math.max(base.totalMin, minCharge);
   const baseMax = isMinimum ? minCharge : Math.max(base.totalMax, minCharge);
-  const multiplier =
-    (PATIO_HEIGHT_MULTIPLIERS[floor] || 1) * cityTravelMultiplier(city) * coverHeightMultiplier(coverHeight);
+  const multiplier = cityTravelMultiplier(city) * coverHeightMultiplier(coverHeight);
+  const floorSurcharge = PATIO_FLOOR_SURCHARGE[floor] || 0;
   return {
     ...base,
     isMinimum,
-    totalMin: Math.round(baseMin * multiplier),
-    totalMax: Math.round(baseMax * multiplier),
+    totalMin: Math.round(baseMin * multiplier) + floorSurcharge,
+    totalMax: Math.round(baseMax * multiplier) + floorSurcharge,
   };
 }
 
