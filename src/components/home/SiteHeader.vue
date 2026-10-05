@@ -137,7 +137,7 @@ export default {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
-  height: 68px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -147,14 +147,14 @@ export default {
 .site-header__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .site-header__mark {
-  width: 34px;
-  height: 34px;
+  width: 46px;
+  height: 46px;
   display: inline-flex;
 }
 
@@ -171,15 +171,15 @@ export default {
 
 .site-header__wordmark-main {
   font-weight: 800;
-  font-size: 1.02rem;
-  letter-spacing: 0.06em;
+  font-size: 1.45rem;
+  letter-spacing: 0.05em;
   color: #0f172a;
 }
 
 .site-header__wordmark-sub {
   font-weight: 700;
-  font-size: 0.68rem;
-  letter-spacing: 0.42em;
+  font-size: 0.86rem;
+  letter-spacing: 0.5em;
   color: #d97706;
 }
 
@@ -323,7 +323,20 @@ export default {
 @media (max-width: 480px) {
   .site-header__inner {
     padding: 0 16px;
-    height: 62px;
+    height: 66px;
+  }
+
+  .site-header__mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .site-header__wordmark-main {
+    font-size: 1.25rem;
+  }
+
+  .site-header__wordmark-sub {
+    font-size: 0.76rem;
   }
 
   .site-header__cta {
