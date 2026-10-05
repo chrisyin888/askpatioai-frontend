@@ -218,9 +218,9 @@ export default {
   cursor: pointer;
   background: #d97706;
   color: #fff;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 12px 22px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 15px 30px;
   border-radius: 999px;
   box-shadow: 0 6px 18px rgba(217, 119, 6, 0.32);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
@@ -304,6 +304,17 @@ export default {
 .site-header-menu-leave-to {
   opacity: 0;
   transform: translateY(-6px);
+}
+
+@media (max-width: 1180px) {
+  .site-header__link {
+    padding: 10px 10px;
+  }
+
+  .site-header__cta {
+    font-size: 1rem;
+    padding: 13px 22px;
+  }
 }
 
 @media (max-width: 960px) {
