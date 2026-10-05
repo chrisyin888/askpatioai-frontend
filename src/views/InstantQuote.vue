@@ -86,8 +86,14 @@
           :aria-pressed="floor === opt.floor"
           @click="floor = opt.floor"
         >
-          <span class="iq-floor-name">{{ opt.name }}</span>
-          <span class="iq-floor-desc">{{ opt.desc }}</span>
+          <span class="iq-floor-media">
+            <img :src="assetUrl(opt.image)" :alt="opt.alt" loading="lazy" />
+            <span v-if="floor === opt.floor" class="iq-card-check" aria-hidden="true">✓</span>
+          </span>
+          <span class="iq-floor-body">
+            <span class="iq-floor-name">{{ opt.name }}</span>
+            <span class="iq-floor-desc">{{ opt.desc }}</span>
+          </span>
         </button>
       </div>
     </section>
@@ -165,9 +171,27 @@ export default {
       coverHeightRange: COVER_HEIGHT,
       cityOptions: CITY_TRAVEL_TIERS.flatMap((t) => t.cities),
       floorOptions: [
-        { floor: 1, name: 'Ground floor patio', desc: 'Backyard patio or low deck — standard install.' },
-        { floor: 2, name: '2nd floor balcony', desc: 'Taller posts and lifting — moderate install.' },
-        { floor: 3, name: '3rd floor balcony / rooftop', desc: 'Highest access and safety work — complex install.' },
+        {
+          floor: 1,
+          name: 'Ground floor patio',
+          desc: 'Backyard patio or low deck — standard install.',
+          image: '/house/instant-quote/level-ground-patio.jpg',
+          alt: 'Patio cover over a ground-level backyard deck',
+        },
+        {
+          floor: 2,
+          name: '2nd floor balcony',
+          desc: 'Taller posts and lifting — moderate install.',
+          image: '/house/instant-quote/level-2nd-balcony.jpg',
+          alt: 'Glass patio cover over a second-floor balcony',
+        },
+        {
+          floor: 3,
+          name: '3rd floor balcony / rooftop',
+          desc: 'Highest access and safety work — complex install.',
+          image: '/house/instant-quote/level-3rd-rooftop.jpg',
+          alt: 'Glass patio covers on a third-floor balcony and rooftop',
+        },
       ],
       minimumCharge: CHAT_PRICING.patioCoverMinimumCharge,
       minimumSqft: CHAT_PRICING.patioCoverMinimumChargeBelowSqft,
@@ -513,8 +537,8 @@ export default {
 .iq-floor {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 14px 16px;
+  padding: 0;
+  overflow: hidden;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   background: #fff;
@@ -523,6 +547,28 @@ export default {
   color: inherit;
   cursor: pointer;
   transition: border-color 0.15s, box-shadow 0.15s;
+}
+.iq-floor-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+.iq-floor-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.iq-floor-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
 }
 .iq-floor:hover {
   border-color: #94a3b8;
