@@ -2677,16 +2677,11 @@ export default {
           return project;
         }
 
-        // Glass: 1,2,3,4,6,7 have fixed price & sqft ($13/sq ft rough model); rest are Custom build, no price/size
+        // Glass: 1,2,3,4,6,7 use fixed price & sqft from data; rest are Custom build, no price/size
         const glassMatch = (project.name || '').match(/Glass Patio Cover Project (\d+)/i);
         if (glassMatch) {
           const num = parseInt(glassMatch[1], 10);
           if ([1, 2, 3, 4, 6, 7].includes(num)) {
-            if (typeof project.price === 'number') {
-              const rate = patioCoverMidRateForMaterial('Glass');
-              const rawSqft = (project.price - CHAT_PRICING.patioCoverBaseFee) / rate;
-              project.sqft = Math.round(rawSqft / 10) * 10;
-            }
             return project;
           }
           project.isCustom = true;
