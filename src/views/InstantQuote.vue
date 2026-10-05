@@ -68,7 +68,7 @@
     </section>
 
     <section class="iq-panel">
-      <h2 class="iq-step-title"><span class="iq-step-num">3</span> Location &amp; deck height</h2>
+      <h2 class="iq-step-title"><span class="iq-step-num">3</span> Location &amp; install level</h2>
       <div class="iq-field">
         <label for="iq-city" class="iq-field-label">City</label>
         <select id="iq-city" v-model="city" class="iq-select">
@@ -76,7 +76,7 @@
           <option v-for="c in cityOptions" :key="c" :value="c">{{ c }}</option>
         </select>
       </div>
-      <p class="iq-field-label">Which floor is the patio or deck on?</p>
+      <p class="iq-field-label">Where will the cover be installed?</p>
       <div class="iq-floors">
         <button
           v-for="opt in floorOptions"
@@ -165,9 +165,9 @@ export default {
       coverHeightRange: COVER_HEIGHT,
       cityOptions: CITY_TRAVEL_TIERS.flatMap((t) => t.cities),
       floorOptions: [
-        { floor: 1, name: 'Ground / 1st floor', desc: 'Patio or low deck — standard install.' },
-        { floor: 2, name: '2nd floor deck', desc: 'Taller posts and lifting — moderate install.' },
-        { floor: 3, name: '3rd floor deck', desc: 'Highest posts and access work — complex install.' },
+        { floor: 1, name: 'Ground floor patio', desc: 'Backyard patio or low deck — standard install.' },
+        { floor: 2, name: '2nd floor balcony', desc: 'Taller posts and lifting — moderate install.' },
+        { floor: 3, name: '3rd floor balcony / rooftop', desc: 'Highest access and safety work — complex install.' },
       ],
       minimumCharge: CHAT_PRICING.patioCoverMinimumCharge,
       minimumSqft: CHAT_PRICING.patioCoverMinimumChargeBelowSqft,
