@@ -139,6 +139,44 @@
             <input v-model="name" type="text" placeholder="Your name" autocomplete="name" required />
             <input v-model="email" type="email" placeholder="Email address" autocomplete="email" required />
             <input v-model="phone" type="tel" placeholder="Phone number" autocomplete="tel" required />
+            <div class="iq-address">
+              <input
+                v-model="address"
+                type="text"
+                placeholder="Project address (start typing)"
+                autocomplete="off"
+                role="combobox"
+                aria-autocomplete="list"
+                :aria-expanded="addressOpen && addressSuggestions.length > 0"
+                required
+                @input="onAddressInput"
+                @keydown.down.prevent="moveAddressHighlight(1)"
+                @keydown.up.prevent="moveAddressHighlight(-1)"
+                @keydown.enter="onAddressEnter"
+                @keydown.esc="addressOpen = false"
+                @blur="closeAddressSoon"
+              />
+              <ul v-if="addressOpen && addressSuggestions.length" class="iq-address-list" role="listbox">
+                <li
+                  v-for="(s, i) in addressSuggestions"
+                  :key="s.label + i"
+                  role="option"
+                  :aria-selected="i === addressHighlight"
+                  :class="{ active: i === addressHighlight }"
+                  @mousedown.prevent="selectAddress(s)"
+                >
+                  <span class="iq-address-main">{{ s.main }}</span>
+                  <span class="iq-address-sub">{{ s.sub }}</span>
+                </li>
+              </ul>
+            </div>
+            <iframe
+              v-if="addressPoint"
+              class="iq-address-map"
+              :src="addressMapUrl"
+              title="Map of project address"
+              loading="lazy"
+            ></iframe>
             <button class="iq-submit" type="submit" :disabled="leadSent || leadSending">
               {{ leadSent ? 'Quote Sent — Check Your Inbox' : (leadSending ? 'Sending…' : 'Email Me This Quote') }}
             </button>
@@ -163,6 +201,20 @@
 
 <script>
 import { CHAT_PRICING, CITY_TRAVEL_TIERS, COVER_HEIGHT, instantPatioQuote } from '../utils/chatPricing.js';
+
+const ADDRESS_SEARCH_URL = 'https://photon.komoot.io/api/';
+const ADDRESS_SEARCH_BBOX = '-123.35,49.0,-122.2,49.45';
+
+function formatAddressFeature(feature) {
+  const p = feature.properties || {};
+  const [lon, lat] = (feature.geometry && feature.geometry.coordinates) || [];
+  if (lat == null || lon == null) return null;
+  const street = [p.housenumber, p.street || p.name].filter(Boolean).join(' ');
+  if (!street) return null;
+  const city = p.city || p.district || '';
+  const sub = [city, 'BC', p.postcode].filter(Boolean).join(', ').replace('BC, ', 'BC ');
+  return { main: street, sub, label: `${street}, ${sub}`, city, lat, lon };
+}
 import { publicAssetUrl } from '../utils/publicAssetUrl';
 import siteData from '../data/siteData.json';
 
@@ -184,6 +236,13 @@ export default {
       floor: 1,
       coverHeight: COVER_HEIGHT.default,
       coverHeightRange: COVER_HEIGHT,
+      address: '',
+      addressPoint: null,
+      addressSuggestions: [],
+      addressOpen: false,
+      addressHighlight: -1,
+      addressTimer: null,
+      addressRequestId: 0,
       panelWidthFt: 2,
       pieces: {
         vPanel: {
@@ -273,6 +332,13 @@ export default {
         coverHeight: this.coverHeight,
       });
     },
+    addressMapUrl() {
+      if (!this.addressPoint) return '';
+      const { lat, lon } = this.addressPoint;
+      const d = 0.004;
+      const bbox = [lon - d, lat - d * 0.6, lon + d, lat + d * 0.6].map((n) => n.toFixed(6)).join(',');
+      return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`;
+    },
     panelCount() {
       return Math.round(this.width / this.panelWidthFt);
     },
@@ -302,9 +368,68 @@ export default {
       return /^[aeiou]/.test(this.roofLabel) ? 'an' : 'a';
     },
   },
+  beforeUnmount() {
+    clearTimeout(this.addressTimer);
+  },
   methods: {
     assetUrl(path) {
       return publicAssetUrl(path);
+    },
+    onAddressInput() {
+      this.addressPoint = null;
+      this.addressHighlight = -1;
+      clearTimeout(this.addressTimer);
+      const query = this.address.trim();
+      if (query.length < 3) {
+        this.addressSuggestions = [];
+        return;
+      }
+      this.addressTimer = setTimeout(() => this.fetchAddressSuggestions(query), 300);
+    },
+    async fetchAddressSuggestions(query) {
+      const requestId = ++this.addressRequestId;
+      const params = new URLSearchParams({ q: query, limit: '8', lang: 'en', lat: '49.25', lon: '-122.95' });
+      params.append('bbox', ADDRESS_SEARCH_BBOX);
+      params.append('layer', 'house');
+      params.append('layer', 'street');
+      try {
+        const res = await fetch(`${ADDRESS_SEARCH_URL}?${params}`);
+        if (!res.ok || requestId !== this.addressRequestId) return;
+        const data = await res.json();
+        if (requestId !== this.addressRequestId) return;
+        const seen = new Set();
+        this.addressSuggestions = (data.features || [])
+          .map(formatAddressFeature)
+          .filter((s) => s && !seen.has(s.label) && seen.add(s.label))
+          .slice(0, 5);
+        this.addressOpen = true;
+      } catch {
+        this.addressSuggestions = [];
+      }
+    },
+    selectAddress(s) {
+      this.address = s.label;
+      this.addressPoint = { lat: s.lat, lon: s.lon };
+      this.addressOpen = false;
+      this.addressSuggestions = [];
+      if (s.city && this.cityOptions.includes(s.city)) this.city = s.city;
+    },
+    moveAddressHighlight(step) {
+      const n = this.addressSuggestions.length;
+      if (!n) return;
+      this.addressOpen = true;
+      this.addressHighlight = (this.addressHighlight + step + n) % n;
+    },
+    onAddressEnter(e) {
+      if (this.addressOpen && this.addressHighlight >= 0 && this.addressSuggestions[this.addressHighlight]) {
+        e.preventDefault();
+        this.selectAddress(this.addressSuggestions[this.addressHighlight]);
+      }
+    },
+    closeAddressSoon() {
+      setTimeout(() => {
+        this.addressOpen = false;
+      }, 150);
     },
     async submitLead() {
       if (this.leadSending || this.leadSent) return;
@@ -324,10 +449,13 @@ export default {
             email: this.email,
             phone: this.phone,
             city: this.city,
+            address: this.address,
             project_type: 'patio cover',
             size: `${this.length}x${this.width} ft (${this.sqft} sq ft)`,
-            message: `Instant quote configurator: ${this.roofLabel}, ${this.coverHeight} ft cover height, ${this.selectedFloor.name}, planning total ${this.priceLabel} CAD before GST`,
-            notes: `roof=${this.roofType}; floor=${this.floor}; cover_height_ft=${this.coverHeight}`,
+            message: `Instant quote configurator: ${this.address}. ${this.roofLabel}, ${this.coverHeight} ft cover height, ${this.selectedFloor.name}, planning total ${this.priceLabel} CAD before GST`,
+            notes: `roof=${this.roofType}; floor=${this.floor}; cover_height_ft=${this.coverHeight}; address=${this.address}${
+              this.addressPoint ? `; lat=${this.addressPoint.lat}; lon=${this.addressPoint.lon}` : ''
+            }`,
           }),
         });
         if (!res.ok) throw new Error(`Request failed (${res.status})`);
@@ -721,6 +849,53 @@ export default {
   border-radius: 10px;
   font-size: 16px;
   font-family: inherit;
+}
+.iq-address {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.iq-address-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+  max-height: 260px;
+  overflow-y: auto;
+}
+.iq-address-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 14px;
+  cursor: pointer;
+}
+.iq-address-list li:hover,
+.iq-address-list li.active {
+  background: #ecfdf5;
+}
+.iq-address-main {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+.iq-address-sub {
+  font-size: 12px;
+  color: #64748b;
+}
+.iq-address-map {
+  width: 100%;
+  height: 170px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
 }
 .iq-form input:focus {
   outline: none;
