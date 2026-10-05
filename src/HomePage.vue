@@ -336,8 +336,6 @@
               </details>
             </div>
           </div>
-
-          <SeoLinkHub :groups="seoHubGroups" />
         </div>
       </section>
 
@@ -750,6 +748,10 @@
           </div>
         </div>
       </section>
+
+      <div class="home-seo-hub-wrap">
+        <SeoLinkHub :groups="seoHubGroups" />
+      </div>
 
       <SiteFooter
         :service-links="serviceNavLinks"
@@ -3230,6 +3232,20 @@ html.app-scroll-lock #app {
 .glass-panel > * {
   position: relative;
   z-index: 1;
+}
+
+.home-seo-hub-wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 24px 64px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .home-seo-hub-wrap {
+    padding: 40px 16px 48px;
+  }
 }
 
 .content-wrapper {

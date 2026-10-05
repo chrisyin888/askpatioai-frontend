@@ -8,9 +8,9 @@
             <span class="site-footer__wordmark-sub">PATIOS</span>
           </p>
           <p class="site-footer__desc">
-            Fast ballpark estimates for patio covers and sunrooms in Vancouver
-            and the Lower Mainland — compare options first, then book a free
-            on-site measurement.
+            Patio covers and sunrooms in Vancouver and the Lower Mainland —
+            design and price your cover online, then book a free on-site
+            measurement.
           </p>
           <router-link to="/instant-quote" class="site-footer__cta">
             Design &amp; Price It Yourself
@@ -99,7 +99,7 @@
             Pitt Meadows &amp; nearby
           </p>
           <p class="site-footer__note">
-            Get a quote in about 60 seconds in chat — or send photos for a faster refined estimate.
+            See your price in about a minute with Design &amp; Price It Yourself — or send photos when you book a free measurement.
           </p>
         </div>
       </div>

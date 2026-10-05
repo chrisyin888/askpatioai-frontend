@@ -2,8 +2,8 @@
   <nav class="seo-hub" aria-label="Patio cover resources and local pages">
     <h2 class="seo-hub__title">Patio Cover Guides, Service Areas &amp; Cover Types</h2>
     <p class="seo-hub__lead">
-      Same fast rough estimate (~60 seconds) and free measurement — whether you are in Vancouver,
-      a nearby city, or just researching cost and options.
+      Design &amp; price your cover online, then book a free measurement — whether you are in
+      Vancouver, a nearby city, or just researching cost and options.
     </p>
     <div class="seo-hub__groups">
       <details
