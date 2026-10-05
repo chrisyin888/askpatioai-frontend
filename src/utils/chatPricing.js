@@ -10,19 +10,14 @@ export const CHAT_PRICING = {
   patioCoverMinimumChargeBelowSqft: 100,
 };
 
-/** Instant quote add-ons: flat surcharge by install level (CAD), plus travel tier and cover height multipliers. */
+/** Instant quote add-ons: flat CAD surcharges by install level and travel tier. Cover height does not change the price. */
 export const PATIO_FLOOR_SURCHARGE = { 1: 0, 2: 200, 3: 400 };
 
-export const COVER_HEIGHT = { min: 7, max: 14, default: 9, includedUpToFt: 10, surchargePerFt: 0.05 };
-
-export function coverHeightMultiplier(heightFt) {
-  const extraFt = Math.max(0, (Number(heightFt) || 0) - COVER_HEIGHT.includedUpToFt);
-  return 1 + extraFt * COVER_HEIGHT.surchargePerFt;
-}
+export const COVER_HEIGHT = { min: 7, max: 14, default: 9 };
 
 export const CITY_TRAVEL_TIERS = [
   {
-    multiplier: 1,
+    surcharge: 0,
     cities: [
       'Vancouver',
       'Burnaby',
@@ -36,8 +31,10 @@ export const CITY_TRAVEL_TIERS = [
       'Delta',
     ],
   },
-  { multiplier: 1.05, cities: ['West Vancouver', 'Langley', 'White Rock', 'Pitt Meadows', 'Maple Ridge'] },
-  { multiplier: 1.1, cities: ['Abbotsford'] },
+  {
+    surcharge: 200,
+    cities: ['West Vancouver', 'Langley', 'White Rock', 'Pitt Meadows', 'Maple Ridge', 'Abbotsford'],
+  },
 ];
 
 export function patioCoverRateRangeForMaterial(material) {
@@ -69,25 +66,24 @@ export function patioCoverQuoteForMaterial(material, sqft) {
   };
 }
 
-export function cityTravelMultiplier(city) {
+export function cityTravelSurcharge(city) {
   const tier = CITY_TRAVEL_TIERS.find((t) => t.cities.includes(city));
-  return tier ? tier.multiplier : 1;
+  return tier ? tier.surcharge : 0;
 }
 
-/** Patio cover total with the small-job minimum, deck height, and city travel tier applied. */
-export function instantPatioQuote({ material, sqft, floor = 1, city = '', coverHeight = COVER_HEIGHT.default }) {
+/** Patio cover total with the small-job minimum, then flat install-level and travel surcharges. */
+export function instantPatioQuote({ material, sqft, floor = 1, city = '' }) {
   const base = patioCoverQuoteForMaterial(material, sqft);
   const minCharge = CHAT_PRICING.patioCoverMinimumCharge;
   const isMinimum = base.sqft < CHAT_PRICING.patioCoverMinimumChargeBelowSqft;
   const baseMin = isMinimum ? minCharge : Math.max(base.totalMin, minCharge);
   const baseMax = isMinimum ? minCharge : Math.max(base.totalMax, minCharge);
-  const multiplier = cityTravelMultiplier(city) * coverHeightMultiplier(coverHeight);
-  const floorSurcharge = PATIO_FLOOR_SURCHARGE[floor] || 0;
+  const surcharge = (PATIO_FLOOR_SURCHARGE[floor] || 0) + cityTravelSurcharge(city);
   return {
     ...base,
     isMinimum,
-    totalMin: Math.round(baseMin * multiplier) + floorSurcharge,
-    totalMax: Math.round(baseMax * multiplier) + floorSurcharge,
+    totalMin: baseMin + surcharge,
+    totalMax: baseMax + surcharge,
   };
 }
 

@@ -104,7 +104,7 @@
           />
           <p class="iq-hint">
             Height from the floor or deck surface to the underside of the roof.
-            Up to {{ coverHeightRange.includedUpToFt }} ft is standard; taller covers need longer posts and extra bracing.
+            Most covers sit around 8–10 ft; we confirm the final height at the free on-site measurement.
           </p>
         </div>
         <p class="iq-sqft">{{ length }} × {{ width }} ft = <strong>{{ sqft }} sq ft</strong></p>
