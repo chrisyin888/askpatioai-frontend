@@ -17,7 +17,8 @@ const FREE_SCROLL_PATHS = new Set([
 
 function syncScrollLock(path) {
   if (typeof document === 'undefined') return;
-  const lock = !FREE_SCROLL_PATHS.has(path);
+  const normalized = path.length > 1 ? path.replace(/\/+$/, '') : path;
+  const lock = !FREE_SCROLL_PATHS.has(normalized);
   document.documentElement.classList.toggle('app-scroll-lock', lock);
   document.body.classList.toggle('app-scroll-lock', lock);
 }

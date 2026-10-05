@@ -203,16 +203,17 @@ export default {
 }
 
 .hero__cta--secondary {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.65);
+  background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
+  border-color: #34d399;
   color: #fff;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 28px rgba(16, 185, 129, 0.45);
 }
 
 .hero__cta--secondary:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(135deg, #059669 0%, #0f766e 100%);
+  border-color: #6ee7b7;
   transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(16, 185, 129, 0.55);
 }
 
 .hero__badges {
