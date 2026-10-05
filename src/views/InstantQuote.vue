@@ -48,6 +48,21 @@
           <label for="iq-width">Width (projection) <strong>{{ width }} ft</strong></label>
           <input id="iq-width" v-model.number="width" type="range" min="8" max="30" step="1" />
         </div>
+        <div class="iq-slider-row">
+          <label for="iq-cover-height">Cover height <strong>{{ coverHeight }} ft</strong></label>
+          <input
+            id="iq-cover-height"
+            v-model.number="coverHeight"
+            type="range"
+            :min="coverHeightRange.min"
+            :max="coverHeightRange.max"
+            step="1"
+          />
+          <p class="iq-hint">
+            Height from the floor or deck surface to the underside of the roof.
+            Up to {{ coverHeightRange.includedUpToFt }} ft is standard; taller covers need longer posts and extra bracing.
+          </p>
+        </div>
         <p class="iq-sqft">{{ length }} × {{ width }} ft = <strong>{{ sqft }} sq ft</strong></p>
       </div>
     </section>
@@ -82,7 +97,7 @@
       <div class="iq-estimate-grid">
         <figure class="iq-preview">
           <img :src="assetUrl(selectedRoof.image)" :alt="selectedRoof.alt" />
-          <figcaption>{{ selectedRoof.name }} · {{ length }}×{{ width }} ft · {{ selectedFloor.name }}</figcaption>
+          <figcaption>{{ selectedRoof.name }} · {{ length }}×{{ width }} ft · {{ coverHeight }} ft high · {{ selectedFloor.name }}</figcaption>
         </figure>
 
         <div class="iq-estimate-body">
@@ -94,7 +109,7 @@
             Minimum charge of ${{ minimumCharge.toLocaleString() }} applies to covers under {{ minimumSqft }} sq ft.
           </p>
           <p class="iq-disclaimer">
-            Planning total for {{ roofArticle }} {{ roofLabel }} patio cover, {{ length }}×{{ width }} ft,
+            Planning total for {{ roofArticle }} {{ roofLabel }} patio cover, {{ length }}×{{ width }} ft, {{ coverHeight }} ft high,
             {{ selectedFloor.name.toLowerCase() }}{{ city ? ` in ${city}` : '' }}.
             Final pricing is confirmed after a free on-site measurement.
           </p>
@@ -126,7 +141,7 @@
 </template>
 
 <script>
-import { CHAT_PRICING, CITY_TRAVEL_TIERS, instantPatioQuote } from '../utils/chatPricing.js';
+import { CHAT_PRICING, CITY_TRAVEL_TIERS, COVER_HEIGHT, instantPatioQuote } from '../utils/chatPricing.js';
 import { publicAssetUrl } from '../utils/publicAssetUrl';
 import siteData from '../data/siteData.json';
 
@@ -146,6 +161,8 @@ export default {
       phone: '',
       city: '',
       floor: 1,
+      coverHeight: COVER_HEIGHT.default,
+      coverHeightRange: COVER_HEIGHT,
       cityOptions: CITY_TRAVEL_TIERS.flatMap((t) => t.cities),
       floorOptions: [
         { floor: 1, name: 'Ground / 1st floor', desc: 'Patio or low deck — standard install.' },
@@ -193,6 +210,7 @@ export default {
         sqft: this.sqft,
         floor: this.floor,
         city: this.city,
+        coverHeight: this.coverHeight,
       });
     },
     priceLabel() {
@@ -237,8 +255,8 @@ export default {
             city: this.city,
             project_type: 'patio cover',
             size: `${this.length}x${this.width} ft (${this.sqft} sq ft)`,
-            message: `Instant quote configurator: ${this.roofLabel}, ${this.selectedFloor.name}, planning total ${this.priceLabel} CAD before GST`,
-            notes: `roof=${this.roofType}; floor=${this.floor}`,
+            message: `Instant quote configurator: ${this.roofLabel}, ${this.coverHeight} ft cover height, ${this.selectedFloor.name}, planning total ${this.priceLabel} CAD before GST`,
+            notes: `roof=${this.roofType}; floor=${this.floor}; cover_height_ft=${this.coverHeight}`,
           }),
         });
         if (!res.ok) throw new Error(`Request failed (${res.status})`);
@@ -446,6 +464,12 @@ export default {
 .iq-sqft {
   font-size: 18px;
   margin: 8px 0 0;
+}
+.iq-hint {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #64748b;
 }
 
 .iq-field {

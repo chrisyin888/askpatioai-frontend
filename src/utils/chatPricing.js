@@ -13,6 +13,13 @@ export const CHAT_PRICING = {
 /** Instant quote add-ons: deck height (floor level) and travel tier, as multipliers on the patio cover total. */
 export const PATIO_HEIGHT_MULTIPLIERS = { 1: 1, 2: 1.15, 3: 1.3 };
 
+export const COVER_HEIGHT = { min: 7, max: 14, default: 9, includedUpToFt: 10, surchargePerFt: 0.05 };
+
+export function coverHeightMultiplier(heightFt) {
+  const extraFt = Math.max(0, (Number(heightFt) || 0) - COVER_HEIGHT.includedUpToFt);
+  return 1 + extraFt * COVER_HEIGHT.surchargePerFt;
+}
+
 export const CITY_TRAVEL_TIERS = [
   {
     multiplier: 1,
@@ -68,13 +75,14 @@ export function cityTravelMultiplier(city) {
 }
 
 /** Patio cover total with the small-job minimum, deck height, and city travel tier applied. */
-export function instantPatioQuote({ material, sqft, floor = 1, city = '' }) {
+export function instantPatioQuote({ material, sqft, floor = 1, city = '', coverHeight = COVER_HEIGHT.default }) {
   const base = patioCoverQuoteForMaterial(material, sqft);
   const minCharge = CHAT_PRICING.patioCoverMinimumCharge;
   const isMinimum = base.sqft < CHAT_PRICING.patioCoverMinimumChargeBelowSqft;
   const baseMin = isMinimum ? minCharge : Math.max(base.totalMin, minCharge);
   const baseMax = isMinimum ? minCharge : Math.max(base.totalMax, minCharge);
-  const multiplier = (PATIO_HEIGHT_MULTIPLIERS[floor] || 1) * cityTravelMultiplier(city);
+  const multiplier =
+    (PATIO_HEIGHT_MULTIPLIERS[floor] || 1) * cityTravelMultiplier(city) * coverHeightMultiplier(coverHeight);
   return {
     ...base,
     isMinimum,
