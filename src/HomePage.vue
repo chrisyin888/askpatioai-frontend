@@ -3076,6 +3076,8 @@ html.app-scroll-lock #app {
 
 .section-showroom .content-wrapper.glass-panel {
   width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
   background: #ffffff;
   text-align: center;
 }
@@ -3087,9 +3089,15 @@ html.app-scroll-lock #app {
 
 .showroom-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin: 24px 0 28px;
+}
+
+@media (max-width: 720px) {
+  .showroom-gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 .showroom-photo {
@@ -3236,7 +3244,7 @@ html.app-scroll-lock #app {
 
 .home-seo-hub-wrap {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1228px;
   margin: 0 auto;
   padding: 0 24px 64px;
   box-sizing: border-box;
