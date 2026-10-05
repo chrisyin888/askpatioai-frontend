@@ -39,13 +39,40 @@
 
     <section class="iq-panel">
       <h2 class="iq-step-title"><span class="iq-step-num">2</span> Set your size</h2>
+      <div class="iq-measure">
+        <p class="iq-measure-title">Measure your deck or balcony</p>
+        <p class="iq-measure-rule">
+          Measure from the wall to the edge of your deck or balcony, and the deck width along the wall.
+          We add a <strong>1 ft overhang</strong> at the front and <strong>1 ft on each side</strong>,
+          then round the width up to the next {{ panelWidthFt }} ft panel.
+        </p>
+        <div class="iq-measure-inputs">
+          <label>
+            Wall to deck edge (ft)
+            <input v-model.number="deckDepth" type="number" min="1" max="39" step="0.5" inputmode="decimal" placeholder="e.g. 10" />
+          </label>
+          <label>
+            Deck width along the wall (ft)
+            <input v-model.number="deckWidth" type="number" min="1" max="28" step="0.5" inputmode="decimal" placeholder="e.g. 15" />
+          </label>
+        </div>
+        <ul v-if="measuredLength || measuredWidth" class="iq-measure-result">
+          <li v-if="measuredLength">
+            Length: {{ deckDepth }} + 1 ft overhang = <strong>{{ measuredLength }} ft</strong>
+          </li>
+          <li v-if="measuredWidth">
+            Width: {{ deckWidth }} + 1 + 1 ft overhang = {{ deckWidth + 2 }} ft → rounded up to
+            <strong>{{ measuredWidth }} ft</strong> ({{ measuredWidth / panelWidthFt }} panels)
+          </li>
+        </ul>
+      </div>
       <div class="iq-sliders">
         <div class="iq-slider-row">
-          <label for="iq-length">Length <strong>{{ length }} ft</strong></label>
+          <label for="iq-length">Length (wall to front, incl. overhang) <strong>{{ length }} ft</strong></label>
           <input id="iq-length" v-model.number="length" type="range" min="4" max="40" step="1" />
         </div>
         <div class="iq-slider-row">
-          <label for="iq-width">Width <strong>{{ width }} ft · {{ panelCount }} pieces</strong></label>
+          <label for="iq-width">Width (along the wall) <strong>{{ width }} ft · {{ panelCount }} pieces</strong></label>
           <input id="iq-width" v-model.number="width" type="range" min="8" max="30" :step="panelWidthFt" />
           <div class="iq-piece-note">
             <span class="iq-piece-imgs">
@@ -247,6 +274,8 @@ export default {
       floor: null,
       coverHeight: COVER_HEIGHT.default,
       coverHeightRange: COVER_HEIGHT,
+      deckDepth: null,
+      deckWidth: null,
       address: '',
       addressPoint: null,
       addressSuggestions: [],
@@ -343,6 +372,17 @@ export default {
         coverHeight: this.coverHeight,
       });
     },
+    measuredLength() {
+      const depth = Number(this.deckDepth);
+      if (!depth || depth <= 0) return null;
+      return Math.min(40, Math.max(4, Math.ceil(depth + 1)));
+    },
+    measuredWidth() {
+      const w = Number(this.deckWidth);
+      if (!w || w <= 0) return null;
+      const step = this.panelWidthFt;
+      return Math.min(30, Math.max(8, Math.ceil((w + 2) / step) * step));
+    },
     addressMapUrl() {
       if (!this.addressPoint) return '';
       const { lat, lon } = this.addressPoint;
@@ -383,6 +423,14 @@ export default {
     },
     roofArticle() {
       return /^[aeiou]/.test(this.roofLabel) ? 'an' : 'a';
+    },
+  },
+  watch: {
+    measuredLength(v) {
+      if (v) this.length = v;
+    },
+    measuredWidth(v) {
+      if (v) this.width = v;
     },
   },
   beforeUnmount() {
@@ -685,6 +733,58 @@ export default {
 .iq-sqft {
   font-size: 18px;
   margin: 8px 0 0;
+}
+.iq-measure {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+.iq-measure-title {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.iq-measure-rule {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #475569;
+}
+.iq-measure-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 220px));
+  gap: 12px;
+}
+.iq-measure-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+.iq-measure-inputs input {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  background: #fff;
+}
+.iq-measure-inputs input:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.18);
+}
+.iq-measure-result {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #065f46;
 }
 .iq-piece-note {
   display: flex;
