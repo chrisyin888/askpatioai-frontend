@@ -225,7 +225,7 @@ export function localBusinessNode() {
     '@id': `${SITE_ORIGIN}/#business`,
     name: 'LoomiHome Patios',
     description:
-      'Patio covers and sunrooms in Vancouver and the Lower Mainland, backed by a team with 10+ years of combined experience and hundreds of completed projects. Fast rough estimates in about 60 seconds, then free on-site measurement.',
+      'Patio covers and sunrooms in Vancouver and the Lower Mainland, backed by a team with 10+ years of combined experience and hundreds of completed projects. Design your patio cover online and see the price instantly with the free Design & Price It Yourself tool (https://loomihomepatios.ca/instant-quote/), then book a free on-site measurement for formal pricing. Burnaby showroom.',
     slogan: '10+ years of combined experience, hundreds of patio cover and sunroom projects across the Lower Mainland.',
     foundingDate: '2025',
     url: SITE_ORIGIN,
@@ -248,6 +248,8 @@ export function localBusinessNode() {
       'Sunroom enclosures',
       'Patio cover installation',
       'Metro Vancouver patio covers',
+      'Online patio cover design and instant quote tool',
+      'Patio cover showroom in Burnaby',
     ],
     areaServed: [
       { '@type': 'City', name: 'Vancouver' },
@@ -283,6 +285,14 @@ export function localBusinessNode() {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Glass patio covers' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Skyline combo patio covers' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sunrooms' } },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Online patio cover design and instant quote tool',
+          url: 'https://loomihomepatios.ca/instant-quote/',
+        },
+      },
     ],
   };
 }
