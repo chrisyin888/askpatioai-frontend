@@ -73,9 +73,9 @@ export const SERVICE_PAGES = {
     path: '/glass-patio-covers-vancouver',
     heroImage: '/house/glass/glass-hero.png',
     areaServed: 'Vancouver, British Columbia',
-    metaTitle: 'Glass Patio Covers Vancouver | LoomiHome Patios',
+    metaTitle: 'Glass Patio Covers Vancouver — See Your Price in 60 Seconds | LoomiHome Patios',
     metaDescription:
-      'Glass patio covers in Vancouver — bright, modern, rain-ready when engineered right. Fast rough quote, compare vs aluminum. Free Lower Mainland measurement.',
+      'Glass patio covers in Vancouver — bright, modern, rain-ready. Design yours online and see your price in 60 seconds, then book a free on-site measurement.',
     h1: 'Glass Patio Covers in Vancouver',
     intro:
       'Glass patio covers add brightness and a premium feel while keeping the weather out. We serve Vancouver-area homeowners who want clarity first: a fast rough estimate, then a free measurement when you want to move forward.',

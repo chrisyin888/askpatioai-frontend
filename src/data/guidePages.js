@@ -45,9 +45,9 @@ export const GUIDE_PAGES = {
     datePublished: '2026-06-01',
     dateModified: '2026-06-19',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractors Near Me | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractors Near Me — Price Yours in 60 Seconds | LoomiHome Patios',
     metaDescription:
-      'Patio cover contractors near you in Metro Vancouver. Compare aluminum, glass, combo, and sunroom options with a fast rough estimate in ~60 seconds.',
+      'Looking for patio cover installers near you in Metro Vancouver? Design your cover online and see your price in 60 seconds — aluminum, glass, or combo — then book a free on-site measurement.',
     h1: 'Patio Cover Contractors Near Me — Metro Vancouver',
     intro:
       'If you searched “patio cover contractors near me” or “patio cover installers near me,” you probably want two things: a trustworthy local team and a clear price range before booking visits. LoomiHome serves Metro Vancouver and the Lower Mainland — Vancouver, Burnaby, Richmond, Surrey, Delta, Coquitlam, Port Coquitlam, Port Moody, Langley, North Vancouver, West Vancouver, New Westminster, Maple Ridge, Pitt Meadows, Abbotsford, White Rock, and nearby areas. Start with a fast rough  with our Design & Price tool (about 60 seconds), then book a free on-site measurement when the range fits your budget.',
@@ -114,9 +114,9 @@ export const GUIDE_PAGES = {
     datePublished: '2026-06-01',
     dateModified: '2026-06-19',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Cost Vancouver | LoomiHome Patios',
+    metaTitle: 'Patio Cover Cost Vancouver — Get Your Price in 60 Seconds | LoomiHome Patios',
     metaDescription:
-      'How much does a patio cover cost in Vancouver? What drives price, typical ranges, and how to get a fast rough estimate before free measurement.',
+      'What drives patio cover cost in Vancouver? Skip the guesswork — design your cover online and see your price in 60 seconds, then book a free on-site measurement.',
     h1: 'Patio Cover Cost in Vancouver',
     intro:
       'If you are researching patio cover cost in Vancouver, you have probably seen numbers all over the map. That is normal — size, product type, attachment, and finish level all move the total. The fastest way to get oriented is a rough online estimate for your actual patio: about a minute, no site visit yet. Then, if the range makes sense, we book a free measurement and give you firm numbers.',

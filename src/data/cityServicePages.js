@@ -1832,9 +1832,9 @@ export const CITY_SERVICE_PAGES = {
     id: 'contractor-langley',
     path: '/patio-cover-contractor-langley',
     heroImage: '/house/Aluminum/aluminum-hero.png',
-    metaTitle: 'Patio Cover Contractor Langley | LoomiHome Patios',
+    metaTitle: 'Patio Cover Contractor Langley — Instant Online Quote | LoomiHome Patios',
     metaDescription:
-      'Looking for a patio cover contractor in Langley? Compare aluminum, glass, combo, and sunroom options with a fast rough quote and free on-site measurement.',
+      'Comparing patio cover contractors in Langley? Design your cover online and see your price in 60 seconds — aluminum, glass, or combo — then book a free on-site measurement.',
     h1: 'Patio Cover Contractor in Langley',
     serviceType: 'Patio cover contractor',
     areaServed: 'Langley, British Columbia',
