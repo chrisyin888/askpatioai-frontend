@@ -19,6 +19,7 @@ const NOINDEX_SHELL_PATHS = [
   { path: '/account', title: 'Account | LoomiHome Patios' },
   { path: '/admin-leads', title: 'Admin | LoomiHome Patios' },
   { path: '/instant-quote', title: 'Instant Patio Cover Quote | LoomiHome Patios' },
+  { path: '/lp/patio-cover', title: 'Design Your Patio Cover — Free Instant Quote | LoomiHome Patios' },
 ];
 
 async function loadCityServiceData() {
