@@ -7,6 +7,7 @@ import AdminLeads from '../views/AdminLeads.vue';
 import ContractorDashboard from '../views/ContractorDashboard.vue';
 import ContractorLogin from '../views/ContractorLogin.vue';
 import ServicePage from '../views/ServicePage.vue';
+import LandingPatioCover from '../views/LandingPatioCover.vue';
 import SeoContentPage from '../views/SeoContentPage.vue';
 import NotFound from '../views/NotFound.vue';
 import { CITY_PAGES, CITY_PAGE_ORDER } from '../data/cityPages';
@@ -117,6 +118,16 @@ const router = createRouter({
         title: DEFAULT_TITLE,
         description: DEFAULT_DESCRIPTION,
         image: '/og/og-glass.jpg',
+      },
+    },
+    {
+      path: '/lp/patio-cover',
+      name: 'landing-patio-cover',
+      component: LandingPatioCover,
+      meta: {
+        title: 'Rain-Proof Your Patio — Design & Price in 60 Seconds | LoomiHome Patios',
+        description:
+          'Metro Vancouver gets 160+ rainy days a year. Design your patio cover online, see your price in 60 seconds, and book a free on-site measurement.',
       },
     },
     {
