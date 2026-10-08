@@ -23,21 +23,31 @@
     <!-- Side-by-side showcase: real photo + designer card -->
     <section class="lp-showcase">
       <div class="lp-shot">
-        <img
-          :src="assetUrl('/house/Aluminum/aluminum-hero.png')"
-          alt="Aluminum patio cover installed on a Metro Vancouver home"
-          loading="eager"
-        />
-        <p class="lp-photo-caption">A recent aluminum patio cover install in Metro Vancouver.</p>
+        <div class="lp-carousel">
+          <img
+            v-for="(p, i) in photos"
+            :key="p.src"
+            :src="assetUrl(p.src)"
+            :alt="p.alt"
+            :class="{ active: i === activePhoto }"
+            loading="eager"
+          />
+        </div>
+        <p class="lp-photo-caption">Recent patio cover installs in Metro Vancouver.</p>
       </div>
       <div class="lp-card">
         <h2 class="lp-card-title">Design Your Dream Patio Cover<br />&amp; Get Instant Pricing</h2>
-        <img
+        <video
           class="lp-card-preview"
-          :src="assetUrl('/house/instant-quote/tool-preview.jpg')"
-          alt="Preview of the online patio cover designer"
-          loading="lazy"
-        />
+          :src="assetUrl('/house/instant-quote/tool-demo.mp4')"
+          :poster="assetUrl('/house/instant-quote/tool-preview.jpg')"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Demo video of the online patio cover designer"
+        ></video>
         <p class="lp-card-sub">
           Configure your patio cover and see exactly what it costs in under 60 seconds.
         </p>
@@ -64,6 +74,26 @@ import { publicAssetUrl } from '../utils/publicAssetUrl';
 
 export default {
   name: 'LandingPatioCover',
+  data() {
+    return {
+      activePhoto: 0,
+      carouselTimer: null,
+      photos: [
+        { src: '/house/Aluminum/aluminum-hero.png', alt: 'Aluminum patio cover installed on a Metro Vancouver home' },
+        { src: '/house/realprojects/glass-deck-2story.png', alt: 'Glass patio cover on a two-storey deck in Metro Vancouver' },
+        { src: '/house/realprojects/aluminum-entrance.png', alt: 'Aluminum patio cover over a home entrance' },
+        { src: '/house/realprojects/glass-patio-door.png', alt: 'Glass patio cover outside patio doors' },
+      ],
+    };
+  },
+  mounted() {
+    this.carouselTimer = setInterval(() => {
+      this.activePhoto = (this.activePhoto + 1) % this.photos.length;
+    }, 4000);
+  },
+  beforeUnmount() {
+    if (this.carouselTimer) clearInterval(this.carouselTimer);
+  },
   methods: {
     assetUrl(path) {
       return publicAssetUrl(path);
@@ -171,14 +201,26 @@ export default {
   gap: 22px;
   align-items: stretch;
 }
-.lp-shot img {
+.lp-carousel {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  background: #0c1410;
+}
+.lp-carousel img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 420px;
   object-fit: cover;
-  border-radius: 18px;
   display: block;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 1.1s ease-in-out;
+}
+.lp-carousel img.active {
+  opacity: 1;
 }
 .lp-photo-caption {
   margin: 10px 4px 0;
@@ -284,9 +326,8 @@ export default {
   .lp-showcase {
     grid-template-columns: 1fr;
   }
-  .lp-shot img {
-    min-height: 0;
-    height: auto;
+  .lp-carousel {
+    aspect-ratio: 4 / 3;
   }
 }
 @media (max-width: 640px) {
