@@ -38,6 +38,7 @@
       <div class="lp-card">
         <h2 class="lp-card-title">Design Your Dream Patio Cover<br />&amp; Get Instant Pricing</h2>
         <video
+          ref="demoVideo"
           class="lp-card-preview"
           :src="assetUrl('/house/instant-quote/tool-demo.mp4')"
           :poster="assetUrl('/house/instant-quote/tool-preview.jpg')"
@@ -90,6 +91,13 @@ export default {
     this.carouselTimer = setInterval(() => {
       this.activePhoto = (this.activePhoto + 1) % this.photos.length;
     }, 4000);
+    // Guarantee muted autoplay (some browsers ignore the muted attribute alone).
+    const v = this.$refs.demoVideo;
+    if (v) {
+      v.muted = true;
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    }
   },
   beforeUnmount() {
     if (this.carouselTimer) clearInterval(this.carouselTimer);
