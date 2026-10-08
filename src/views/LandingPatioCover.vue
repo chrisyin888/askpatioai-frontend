@@ -330,6 +330,72 @@ export default {
   color: #6f7f77;
 }
 
+/* Desktop: fit hero + photo + designer card in the first screen. */
+@media (min-width: 861px) {
+  .lp-topbar {
+    padding: 12px 0;
+  }
+  .lp-hero {
+    max-width: 920px;
+    margin: 4px auto 18px;
+  }
+  .lp-eyebrow {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .lp-title {
+    margin-bottom: 10px;
+    font-size: clamp(28px, 3.2vw, 42px);
+  }
+  .lp-subtitle {
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+  .lp-badges {
+    margin-top: 14px;
+  }
+  .lp-badges li {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+  .lp-carousel {
+    aspect-ratio: auto;
+    height: clamp(300px, calc(100vh - 310px), 520px);
+  }
+  .lp-photo-caption {
+    margin-top: 6px;
+  }
+  .lp-card {
+    padding: 20px 24px;
+    justify-content: flex-start;
+  }
+  .lp-card-title {
+    margin-bottom: 12px;
+    font-size: clamp(20px, 2vw, 28px);
+  }
+  .lp-card-preview {
+    flex: 1 1 0;
+    min-height: 60px;
+    object-fit: cover;
+    object-position: top;
+    margin-bottom: 12px;
+  }
+  .lp-card-sub {
+    margin-bottom: 14px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .lp-card-cta {
+    padding: 14px 18px;
+    font-size: 14.5px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .lp-card-micro {
+    margin-top: 10px;
+  }
+}
+
 @media (max-width: 860px) {
   .lp-showcase {
     grid-template-columns: 1fr;
