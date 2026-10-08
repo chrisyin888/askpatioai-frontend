@@ -20,23 +20,21 @@
       </ul>
     </header>
 
-    <!-- Real project photo -->
-    <section class="lp-photo">
-      <img
-        :src="assetUrl('/house/Aluminum/aluminum-hero.png')"
-        alt="Aluminum patio cover installed on a Metro Vancouver home"
-        loading="eager"
-      />
-      <p class="lp-photo-caption">A recent aluminum patio cover install in Metro Vancouver.</p>
-    </section>
-
-    <!-- Designer entry card -->
-    <section class="lp-designer">
+    <!-- Side-by-side showcase: real photo + designer card -->
+    <section class="lp-showcase">
+      <div class="lp-shot">
+        <img
+          :src="assetUrl('/house/Aluminum/aluminum-hero.png')"
+          alt="Aluminum patio cover installed on a Metro Vancouver home"
+          loading="eager"
+        />
+        <p class="lp-photo-caption">A recent aluminum patio cover install in Metro Vancouver.</p>
+      </div>
       <div class="lp-card">
         <h2 class="lp-card-title">Design Your Dream Patio Cover<br />&amp; Get Instant Pricing</h2>
         <img
           class="lp-card-preview"
-          :src="assetUrl('/house/instant-quote/aluminum-render.jpg')"
+          :src="assetUrl('/house/instant-quote/tool-preview.jpg')"
           alt="Preview of the online patio cover designer"
           loading="lazy"
         />
@@ -165,12 +163,19 @@ export default {
   font-weight: 900;
 }
 
-.lp-photo {
+.lp-showcase {
   max-width: 1040px;
-  margin: 0 auto 30px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 22px;
+  align-items: stretch;
 }
-.lp-photo img {
+.lp-shot img {
   width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
   border-radius: 18px;
   display: block;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
@@ -181,10 +186,6 @@ export default {
   color: #8fa098;
 }
 
-.lp-designer {
-  max-width: 720px;
-  margin: 0 auto 40px;
-}
 .lp-card {
   background: #ffffff;
   color: #0f172a;
@@ -192,6 +193,9 @@ export default {
   padding: 36px 28px;
   text-align: center;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .lp-card-title {
   margin: 0 0 18px;
@@ -276,6 +280,15 @@ export default {
   color: #6f7f77;
 }
 
+@media (max-width: 860px) {
+  .lp-showcase {
+    grid-template-columns: 1fr;
+  }
+  .lp-shot img {
+    min-height: 0;
+    height: auto;
+  }
+}
 @media (max-width: 640px) {
   .lp-card {
     padding: 28px 18px;
