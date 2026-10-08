@@ -5,13 +5,13 @@
       <router-link to="/" class="lp-back">← Back to home</router-link>
     </nav>
 
-    <!-- 1. Pain-point hero -->
+    <!-- Pain-point hero -->
     <header class="lp-hero">
       <p class="lp-eyebrow">Metro Vancouver patio covers</p>
       <h1 class="lp-title">Rain Steals Your Patio 8 Months a Year.<br />Take It Back.</h1>
       <p class="lp-subtitle">
-        Metro Vancouver sees 160+ rainy days a year. A covered patio turns those
-        lost months into the room your family uses most — rain or shine.
+        A covered patio turns Metro Vancouver's lost rainy months into the room
+        your family uses most — rain or shine.
       </p>
       <ul class="lp-badges">
         <li><span aria-hidden="true">✓</span> Free On-Site Measurement</li>
@@ -20,7 +20,7 @@
       </ul>
     </header>
 
-    <!-- 2. Real project photo -->
+    <!-- Real project photo -->
     <section class="lp-photo">
       <img
         :src="assetUrl('/house/Aluminum/aluminum-hero.png')"
@@ -30,7 +30,7 @@
       <p class="lp-photo-caption">A recent aluminum patio cover install in Metro Vancouver.</p>
     </section>
 
-    <!-- 3. Designer entry card -->
+    <!-- Designer entry card -->
     <section class="lp-designer">
       <div class="lp-card">
         <h2 class="lp-card-title">Design Your Dream Patio Cover<br />&amp; Get Instant Pricing</h2>
@@ -48,26 +48,10 @@
       </div>
     </section>
 
-    <!-- 4. How it works -->
-    <section class="lp-steps">
-      <div class="lp-step">
-        <span class="lp-step-num">1</span>
-        <p><strong>Pick a roof style.</strong> Aluminum, glass, or our skyline combo.</p>
-      </div>
-      <div class="lp-step">
-        <span class="lp-step-num">2</span>
-        <p><strong>Set your size.</strong> Sliders or your own measurements.</p>
-      </div>
-      <div class="lp-step">
-        <span class="lp-step-num">3</span>
-        <p><strong>See your price instantly</strong> and book a free on-site measurement.</p>
-      </div>
-    </section>
-
-    <!-- 5. Bottom repeat CTA -->
+    <!-- Bottom repeat CTA -->
     <section class="lp-final">
       <h2 class="lp-final-title">Your patio, usable all year.</h2>
-      <router-link to="/instant-quote/" class="lp-card-cta">Launch the Patio Cover Designer</router-link>
+      <router-link to="/instant-quote/" class="lp-final-cta">Launch the Patio Cover Designer</router-link>
       <p class="lp-areas">Serving Vancouver, Burnaby, Richmond, Surrey, Delta, Langley, Coquitlam &amp; more.</p>
     </section>
 
@@ -93,8 +77,10 @@ export default {
 <style scoped>
 .landing-patio {
   min-height: 100vh;
-  background: #f8fafc;
-  color: #0f172a;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(232, 163, 61, 0.12), transparent 60%),
+    linear-gradient(180deg, #0c1410 0%, #14231b 55%, #0c1410 100%);
+  color: #f2f5f3;
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen,
     Ubuntu, sans-serif;
   padding: 0 16px 48px;
@@ -113,47 +99,48 @@ export default {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0f172a;
+  color: #f2f5f3;
   text-decoration: none;
 }
 .lp-brand span {
-  color: #d97706;
+  color: #e8a33d;
 }
 .lp-back {
-  color: #475569;
+  color: #9fb0a6;
   font-size: 15px;
   text-decoration: none;
 }
 
 .lp-hero {
   max-width: 760px;
-  margin: 16px auto 28px;
+  margin: 26px auto 30px;
   text-align: center;
 }
 .lp-eyebrow {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #059669;
+  color: #e8a33d;
 }
 .lp-title {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: clamp(30px, 5vw, 48px);
+  font-size: clamp(32px, 5.4vw, 52px);
   line-height: 1.12;
+  color: #ffffff;
 }
 .lp-subtitle {
   margin: 0 auto;
-  max-width: 620px;
+  max-width: 600px;
   font-size: 17px;
   line-height: 1.6;
-  color: #475569;
+  color: #c3cec8;
 }
 .lp-badges {
   list-style: none;
-  margin: 22px 0 0;
+  margin: 24px 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -164,45 +151,47 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
   padding: 9px 16px;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #eef3f0;
 }
 .lp-badges li span {
-  color: #059669;
+  color: #e8a33d;
   font-weight: 900;
 }
 
 .lp-photo {
   max-width: 1040px;
-  margin: 0 auto 28px;
+  margin: 0 auto 30px;
 }
 .lp-photo img {
   width: 100%;
   border-radius: 18px;
   display: block;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 .lp-photo-caption {
   margin: 10px 4px 0;
   font-size: 13px;
-  color: #64748b;
+  color: #8fa098;
 }
 
 .lp-designer {
   max-width: 720px;
-  margin: 0 auto 36px;
+  margin: 0 auto 40px;
 }
 .lp-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
   border-radius: 22px;
   padding: 36px 28px;
   text-align: center;
-  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
 }
 .lp-card-title {
   margin: 0 0 18px;
@@ -226,7 +215,7 @@ export default {
 }
 .lp-card-cta {
   display: inline-block;
-  background: #0f172a;
+  background: #111111;
   color: #fff;
   font-weight: 800;
   font-size: 16px;
@@ -237,47 +226,12 @@ export default {
   border-radius: 10px;
 }
 .lp-card-cta:hover {
-  background: #1e293b;
+  background: #2a2a2a;
 }
 .lp-card-micro {
   margin: 16px 0 0;
   font-size: 13px;
   color: #64748b;
-}
-
-.lp-steps {
-  max-width: 1040px;
-  margin: 0 auto 36px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-.lp-step {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 20px 18px;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-.lp-step-num {
-  flex: 0 0 32px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #059669;
-  color: #fff;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.lp-step p {
-  margin: 2px 0 0;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #334155;
 }
 
 .lp-final {
@@ -288,32 +242,46 @@ export default {
 .lp-final-title {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: clamp(24px, 4vw, 36px);
-  margin: 0 0 20px;
+  margin: 0 0 22px;
+  color: #ffffff;
+}
+.lp-final-cta {
+  display: inline-block;
+  background: #e8a33d;
+  color: #1a1206;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 34px;
+  border-radius: 10px;
+}
+.lp-final-cta:hover {
+  background: #f0b45a;
 }
 .lp-areas {
   margin: 16px 0 0;
   font-size: 14px;
-  color: #64748b;
+  color: #8fa098;
 }
 
 .lp-footer {
   max-width: 1040px;
   margin: 0 auto;
   padding-top: 18px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   text-align: center;
   font-size: 13px;
-  color: #94a3b8;
+  color: #6f7f77;
 }
 
 @media (max-width: 640px) {
-  .lp-steps {
-    grid-template-columns: 1fr;
-  }
   .lp-card {
     padding: 28px 18px;
   }
-  .lp-card-cta {
+  .lp-card-cta,
+  .lp-final-cta {
     display: block;
     padding: 16px 12px;
   }
