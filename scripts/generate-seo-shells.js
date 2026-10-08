@@ -569,7 +569,8 @@ function personalizeHtml(template, pathname, meta, cityService, priorityPages, o
   return html;
 }
 
-function buildNoindexShell(template, pathname, title) {
+function buildNoindexShell(template, entry) {
+  const { path: pathname, title, ogTitle, ogDescription, ogImage } = entry;
   const pageUrl = pageAbsoluteUrl(pathname);
   let html = template;
   html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="noindex,nofollow">`);
@@ -594,6 +595,36 @@ function buildNoindexShell(template, pathname, title) {
     /<meta property="og:url" content="[^"]*">/,
     `<meta property="og:url" content="${esc(pageUrl)}">`,
   );
+  if (ogTitle) {
+    html = html.replace(
+      /<meta property="og:title" content="[^"]*">/,
+      `<meta property="og:title" content="${esc(ogTitle)}">`,
+    );
+    html = html.replace(
+      /<meta name="twitter:title" content="[^"]*">/,
+      `<meta name="twitter:title" content="${esc(ogTitle)}">`,
+    );
+  }
+  if (ogDescription) {
+    html = html.replace(
+      /<meta property="og:description" content="[^"]*">/,
+      `<meta property="og:description" content="${esc(ogDescription)}">`,
+    );
+    html = html.replace(
+      /<meta name="twitter:description" content="[^"]*">/,
+      `<meta name="twitter:description" content="${esc(ogDescription)}">`,
+    );
+  }
+  if (ogImage) {
+    html = html.replace(
+      /<meta property="og:image" content="[^"]*">/,
+      `<meta property="og:image" content="${esc(ogImage)}">`,
+    );
+    html = html.replace(
+      /<meta name="twitter:image" content="[^"]*">/,
+      `<meta name="twitter:image" content="${esc(ogImage)}">`,
+    );
+  }
   html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '');
   html = html.replace(
     /<main id="static-home-seo">[\s\S]*?<\/main>/,
@@ -631,8 +662,9 @@ async function main() {
   }
 
   let noindexWritten = 0;
-  for (const { path: pathname, title } of NOINDEX_SHELL_PATHS) {
-    const html = buildNoindexShell(template, pathname, title);
+  for (const entry of NOINDEX_SHELL_PATHS) {
+    const { path: pathname } = entry;
+    const html = buildNoindexShell(template, entry);
     const outDir = path.join(__dirname, '..', 'dist', pathname.replace(/^\//, ''));
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');

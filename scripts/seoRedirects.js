@@ -19,7 +19,13 @@ const NOINDEX_SHELL_PATHS = [
   { path: '/account', title: 'Account | LoomiHome Patios' },
   { path: '/admin-leads', title: 'Admin | LoomiHome Patios' },
   { path: '/instant-quote', title: 'Instant Patio Cover Quote | LoomiHome Patios' },
-  { path: '/lp/patio-cover', title: 'Design Your Patio Cover — Free Instant Quote | LoomiHome Patios' },
+  {
+    path: '/lp/patio-cover',
+    title: 'Design Your Patio Cover — Free Instant Quote | LoomiHome Patios',
+    ogTitle: 'Design Your Patio Cover — See the Price Instantly',
+    ogDescription: 'Pick a roof style, set your size, and get your planning total in under 60 seconds. No obligation. Serving Metro Vancouver.',
+    ogImage: 'https://loomihomepatios.ca/house/instant-quote/tool-preview.jpg',
+  },
 ];
 
 async function loadCityServiceData() {
