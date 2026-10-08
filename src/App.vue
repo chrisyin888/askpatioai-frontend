@@ -13,6 +13,7 @@ const FREE_SCROLL_PATHS = new Set([
   '/admin-leads',
   '/contractor',
   '/instant-quote',
+  '/lp/patio-cover',
 ]);
 
 function syncScrollLock(path) {
