@@ -11,31 +11,7 @@
         @click.prevent="go('#home')"
       >
         <span class="site-header__mark" aria-hidden="true">
-          <svg
-            viewBox="0 0 32 32"
-            fill="none"
-            focusable="false"
-          >
-            <path
-              d="M4 13.5 16 6l12 7.5"
-              stroke="#d97706"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M8.5 13.5V24M23.5 13.5V24"
-              stroke="#0f172a"
-              stroke-width="3"
-              stroke-linecap="round"
-            />
-            <path
-              d="M4.5 24.5h23"
-              stroke="#0f172a"
-              stroke-width="3"
-              stroke-linecap="round"
-            />
-          </svg>
+          <img src="/logo-icon.png" alt="" />
         </span>
         <span class="site-header__wordmark">
           <span class="site-header__wordmark-main">LOOMIHOME</span>
@@ -158,9 +134,14 @@ export default {
   display: inline-flex;
 }
 
-.site-header__mark svg {
+.site-header__mark svg,
+.site-header__mark img {
   width: 100%;
   height: 100%;
+}
+
+.site-header__mark img {
+  border-radius: 10px;
 }
 
 .site-header__wordmark {

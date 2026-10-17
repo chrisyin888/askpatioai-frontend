@@ -4,6 +4,7 @@
       <div class="site-footer__grid">
         <div class="site-footer__col site-footer__brand">
           <p class="site-footer__wordmark">
+            <img class="site-footer__logo" src="/logo-icon.png" alt="" />
             <span class="site-footer__wordmark-main">LOOMIHOME</span>
             <span class="site-footer__wordmark-sub">PATIOS</span>
           </p>
@@ -150,6 +151,13 @@ export default {
   display: flex;
   flex-direction: column;
   line-height: 1.05;
+}
+
+.site-footer__logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  margin-bottom: 14px;
 }
 
 .site-footer__wordmark-main {
