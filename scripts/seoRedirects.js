@@ -11,6 +11,17 @@ const { CITY_PAGES, CITY_PAGE_ORDER } = require('../src/data/cityPages');
 const { GUIDE_PAGES, GUIDE_PAGE_ORDER } = require('../src/data/guidePages');
 const { PROJECT_PAGES, PROJECT_PAGE_ORDER } = require('../src/data/projectPages');
 
+/**
+ * Friendly aliases that are NOT real pages. Without explicit redirects these hit the
+ * old catch-all rewrite and returned a blank 200. Send them to the instant-quote tool.
+ */
+const EXTRA_REDIRECTS = [
+  { source: '/quote', destination: '/instant-quote/' },
+  { source: '/quote/', destination: '/instant-quote/' },
+  { source: '/lead', destination: '/instant-quote/' },
+  { source: '/lead/', destination: '/instant-quote/' },
+];
+
 /** Marketplace routes — noindex shells; still get slashless → slash redirects. */
 const NOINDEX_SHELL_PATHS = [
   { path: '/contractor-login', title: 'Contractor Login | LoomiHome Patios' },
@@ -90,7 +101,11 @@ function buildRedirectsFile(seoPaths) {
     lines.push(`${pathname} ${pathname}/ 301`);
   });
 
-  lines.push('/* /index.html 200');
+  EXTRA_REDIRECTS.forEach(({ source, destination }) => {
+    lines.push(`${source} ${destination} 301`);
+  });
+
+  lines.push('/* /404.html 404');
   return `${lines.join('\n')}\n`;
 }
 
@@ -124,13 +139,19 @@ function buildRenderRoutes(seoPaths) {
     });
   });
 
-  // Same source as Dashboard SPA catch-all — Blueprint sync should replace destination.
-  routes.push({
-    type: 'rewrite',
-    source: '/*',
-    destination: '/*/index.html',
+  EXTRA_REDIRECTS.forEach(({ source, destination }) => {
+    routes.push({
+      type: 'redirect',
+      source,
+      destination,
+    });
   });
 
+  // No catch-all rewrite: it mapped every unknown path to /<path>/index.html, which
+  // does not exist for non-SEO paths and Render answered with a blank 200. Without it,
+  // known paths resolve to their static shells and anything else falls through to
+  // Render's native 404 handling, which serves dist/404.html (the SPA shell), so the
+  // client router boots and renders NotFound instead of a white page.
   return routes;
 }
 
@@ -185,6 +206,7 @@ async function collectAllSeoPaths() {
 
 module.exports = {
   NOINDEX_SHELL_PATHS,
+  EXTRA_REDIRECTS,
   loadCityServiceData,
   collectSeoPaths,
   collectAllSeoPaths,

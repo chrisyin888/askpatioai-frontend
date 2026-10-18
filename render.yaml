@@ -598,9 +598,21 @@ services:
       - type: redirect
         source: /instant-quote
         destination: /instant-quote/
-      - type: rewrite
-        source: /*
-        destination: /*/index.html
+      - type: redirect
+        source: /lp/patio-cover
+        destination: /lp/patio-cover/
+      - type: redirect
+        source: /quote
+        destination: /instant-quote/
+      - type: redirect
+        source: /quote/
+        destination: /instant-quote/
+      - type: redirect
+        source: /lead
+        destination: /instant-quote/
+      - type: redirect
+        source: /lead/
+        destination: /instant-quote/
     # END GENERATED SEO ROUTES
 
     autoDeploy: true
