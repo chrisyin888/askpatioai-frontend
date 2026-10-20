@@ -147,8 +147,8 @@ export function setPageMeta({ title, description, path = '/', robots = 'index,fo
   upsertLlmsAlternateLink();
   upsertMetaByName('geo.region', 'CA-BC');
   upsertMetaByName('geo.placename', 'Metro Vancouver');
-  upsertMetaByName('geo.position', '49.2827;-123.1207');
-  upsertMetaByName('ICBM', '49.2827, -123.1207');
+  upsertMetaByName('geo.position', '49.2488;-122.9805');
+  upsertMetaByName('ICBM', '49.2488, -122.9805');
 
   upsertMetaProperty('og:type', 'website');
   upsertMetaProperty('og:site_name', 'LoomiHome Patios');
@@ -232,12 +232,12 @@ export function localBusinessNode() {
     image: `${SITE_ORIGIN}/house/Aluminum/aluminum-hero.png`,
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 49.2827,
-      longitude: -123.1207,
+      latitude: 49.2488,
+      longitude: -122.9805,
     },
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Vancouver',
+      addressLocality: 'Burnaby',
       addressRegion: 'BC',
       addressCountry: 'CA',
     },
