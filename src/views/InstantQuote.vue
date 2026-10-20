@@ -293,6 +293,7 @@ function formatAddressFeature(feature) {
   return { main: street, sub, label: `${street}, ${sub}`, city, lat, lon };
 }
 import { publicAssetUrl } from '../utils/publicAssetUrl';
+import { fireAdsConversion } from '../utils/adsConversion.js';
 import siteData from '../data/siteData.json';
 
 /** Stripe Payment Link for the $100 booking deposit — set after creating it in the Stripe dashboard. */
@@ -569,6 +570,7 @@ export default {
         });
         if (!res.ok) throw new Error(`Request failed (${res.status})`);
         this.leadSent = true;
+        fireAdsConversion();
       } catch (e) {
         this.leadError = 'Something went wrong. Please try again or contact us directly.';
       } finally {

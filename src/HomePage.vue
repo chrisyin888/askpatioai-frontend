@@ -1235,6 +1235,7 @@ const PATIO_PRICE_REPLY =
 const SUNROOM_PRICE_REPLY =
   'Sunroom pricing depends on your layout, glass, and foundation, so we price every sunroom after a free on-site measurement. You can also see our all-glass sunroom display at the Burnaby showroom.';
 import { publicAssetUrl } from './utils/publicAssetUrl';
+import { fireAdsConversion } from './utils/adsConversion';
 import SiteHeader from './components/home/SiteHeader.vue';
 import HeroSection from './components/home/HeroSection.vue';
 import SeoLinkHub from './components/home/SeoLinkHub.vue';
@@ -2389,6 +2390,7 @@ export default {
 
         this.chatBookingForm.success = true;
         this.chatBookingForm.visible = false;
+        fireAdsConversion();
 
         const leadThanks =
           'Got it 👍 Request received. A follow-up will be arranged shortly to confirm your free on-site measurement.';
@@ -2699,6 +2701,7 @@ export default {
         }
 
         this.formSuccess = true;
+        fireAdsConversion();
         this.clearAppointmentPhotos();
         this.form = {
           name: '',
