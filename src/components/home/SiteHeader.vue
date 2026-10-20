@@ -30,6 +30,7 @@
       </nav>
 
       <div class="site-header__actions">
+        <a href="tel:+17787435577" class="site-header__phone">(778) 743-5577</a>
         <router-link to="/instant-quote" class="site-header__cta">
           Design &amp; Price
         </router-link>
@@ -60,6 +61,10 @@
           class="site-header__mobile-link"
           @click.prevent="go(link.selector)"
         >{{ link.label }}</a>
+        <a
+          href="tel:+17787435577"
+          class="site-header__mobile-link"
+        >Call (778) 743-5577</a>
         <router-link
           to="/instant-quote"
           class="site-header__cta site-header__cta--mobile"
@@ -193,6 +198,18 @@ export default {
   flex-shrink: 0;
 }
 
+.site-header__phone {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-header__phone:hover {
+  color: #b45309;
+}
+
 .site-header__cta {
   appearance: none;
   border: none;
@@ -290,6 +307,10 @@ export default {
 @media (max-width: 1180px) {
   .site-header__link {
     padding: 10px 10px;
+  }
+
+  .site-header__phone {
+    display: none;
   }
 
   .site-header__cta {

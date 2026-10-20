@@ -92,6 +92,10 @@
           <h3 class="site-footer__heading">Contact</h3>
           <a
             class="site-footer__email"
+            href="tel:+17787435577"
+          >(778) 743-5577</a>
+          <a
+            class="site-footer__email"
             :href="'mailto:' + (email || 'info@loomihomepatios.ca')"
           >{{ email || 'info@loomihomepatios.ca' }}</a>
           <p class="site-footer__area">

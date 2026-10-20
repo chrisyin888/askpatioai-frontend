@@ -273,10 +273,12 @@ export function localBusinessNode() {
     ],
     priceRange: '$$',
     email: 'mailto:info@loomihomepatios.ca',
+    telephone: '+1-778-743-5577',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
       email: 'info@loomihomepatios.ca',
+      telephone: '+1-778-743-5577',
       areaServed: 'CA-BC',
       availableLanguage: ['en'],
     },

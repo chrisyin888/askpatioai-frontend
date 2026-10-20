@@ -2,6 +2,7 @@
   <div class="instant-quote">
     <nav class="iq-topbar">
       <router-link to="/" class="iq-brand">LoomiHome <span>Patios</span></router-link>
+      <a href="tel:+17787435577" class="iq-call">Call (778) 743-5577</a>
       <router-link to="/" class="iq-back">← Back to home</router-link>
     </nav>
 
@@ -617,6 +618,16 @@ export default {
 }
 .iq-back:hover {
   color: #0f172a;
+}
+.iq-call {
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.iq-call:hover {
+  color: #b45309;
 }
 
 .iq-hero {
