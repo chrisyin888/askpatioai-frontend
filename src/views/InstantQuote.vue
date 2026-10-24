@@ -13,7 +13,32 @@
         Pick a roof style, set your size, and get a planning total right now.
         No waiting for a callback. Final quote confirmed after a free on-site measurement.
       </p>
+      <div class="iq-progress" aria-label="Quote steps">
+        <span class="iq-progress-step">1 · Roof style</span>
+        <span class="iq-progress-step">2 · Size</span>
+        <span class="iq-progress-step">3 · Location</span>
+        <span class="iq-progress-step">4 · Your price</span>
+        <span class="iq-progress-time">About 30 seconds</span>
+      </div>
     </header>
+
+    <section class="iq-trust">
+      <img
+        :src="assetUrl('/house/before-after/burnaby-aluminum-after.png')"
+        alt="Real LoomiHome aluminum patio cover project in Burnaby"
+        loading="lazy"
+      />
+      <div class="iq-trust-body">
+        <p class="iq-trust-line"><strong>Burnaby showroom:</strong> 4075 Myrtle Street</p>
+        <p class="iq-trust-line">10+ years · hundreds of projects across Metro Vancouver</p>
+        <a
+          class="iq-trust-review"
+          href="https://g.page/r/CR7NXdM0DwJFEBM/review"
+          target="_blank"
+          rel="noopener"
+        >★★★★★ Leave a Google Review</a>
+      </div>
+    </section>
 
     <section class="iq-panel">
       <h2 class="iq-step-title"><span class="iq-step-num">1</span> Choose your roof style</h2>
@@ -40,6 +65,20 @@
 
     <section class="iq-panel">
       <h2 class="iq-step-title"><span class="iq-step-num">2</span> Set your size</h2>
+      <p class="iq-rough">
+        Rough numbers are fine — we confirm the final size at your free on-site measurement.
+      </p>
+      <div class="iq-presets">
+        <span class="iq-presets-label">Common sizes:</span>
+        <button
+          v-for="p in sizePresets"
+          :key="p.label"
+          type="button"
+          :class="['iq-preset', { active: length === p.length && width === p.width }]"
+          :aria-pressed="length === p.length && width === p.width"
+          @click="applyPreset(p)"
+        >{{ p.label }}</button>
+      </div>
       <div class="iq-size-grid">
       <div class="iq-size-main">
       <div class="iq-measure">
@@ -109,6 +148,9 @@
           </p>
         </div>
         <p class="iq-sqft">{{ length }} × {{ width }} ft = <strong>{{ sqft }} sq ft</strong></p>
+        <p class="iq-hint">
+          The measurement boxes above and these sliders set the same cover size — change either one and the other follows.
+        </p>
       </div>
       </div>
 
@@ -156,6 +198,7 @@
         <select id="iq-city" v-model="city" class="iq-select">
           <option value="" disabled>Select your city</option>
           <option v-for="c in cityOptions" :key="c" :value="c">{{ c }}</option>
+          <option value="Other">Other</option>
         </select>
       </div>
       <p class="iq-field-label">Where will the cover be installed?</p>
@@ -203,6 +246,7 @@
               {{ priceLabel }}
               <span class="iq-price-note">CAD, before GST</span>
             </div>
+            <p class="iq-price-includes">Includes materials and standard installation. Plus GST.</p>
             <p v-if="quote.isMinimum" class="iq-minimum">
               Minimum charge of ${{ minimumCharge.toLocaleString() }} applies to covers under {{ minimumSqft }} sq ft.
             </p>
@@ -215,18 +259,17 @@
 
           <form class="iq-form" @submit.prevent="submitLead">
             <input v-model="name" type="text" placeholder="Your name" autocomplete="name" required />
-            <input v-model="email" type="email" placeholder="Email address" autocomplete="email" required />
+            <input v-model="email" type="email" placeholder="Email address (optional)" autocomplete="email" />
             <input v-model="phone" type="tel" placeholder="Phone number" autocomplete="tel" required />
             <div class="iq-address">
               <input
                 v-model="address"
                 type="text"
-                placeholder="Project address (start typing)"
+                placeholder="Project address (optional)"
                 autocomplete="off"
                 role="combobox"
                 aria-autocomplete="list"
                 :aria-expanded="addressOpen && addressSuggestions.length > 0"
-                required
                 @input="onAddressInput"
                 @keydown.down.prevent="moveAddressHighlight(1)"
                 @keydown.up.prevent="moveAddressHighlight(-1)"
@@ -258,6 +301,9 @@
             <button class="iq-submit" type="submit" :disabled="leadSent || leadSending">
               {{ leadSent ? 'Quote Sent — Check Your Inbox' : (leadSending ? 'Sending…' : 'Email Me This Quote') }}
             </button>
+            <p class="iq-form-note">
+              We'll email you this quote and call once to arrange your free measurement. No spam, no obligation.
+            </p>
             <p v-if="leadError" class="iq-error">{{ leadError }}</p>
           </form>
         </div>
@@ -339,6 +385,12 @@ export default {
           alt: 'Single 2 ft wide tempered glass roof panel',
         },
       },
+      sizePresets: [
+        { label: '10 × 12 ft', length: 10, width: 12 },
+        { label: '12 × 12 ft', length: 12, width: 12 },
+        { label: '12 × 16 ft', length: 12, width: 16 },
+        { label: '12 × 20 ft', length: 12, width: 20 },
+      ],
       cityOptions: CITY_TRAVEL_TIERS.flatMap((t) => t.cities),
       floorOptions: [
         {
@@ -473,6 +525,15 @@ export default {
     measuredWidth(v) {
       if (v) this.width = v;
     },
+    // Keep the deck measurement boxes in sync when the sliders (or presets)
+    // change the cover size directly: cover length = deck depth + 1 ft
+    // overhang, cover width = deck width + 1 ft on each side.
+    length(v) {
+      if (this.measuredLength !== v) this.deckDepth = Math.max(1, v - 1);
+    },
+    width(v) {
+      if (this.measuredWidth !== v) this.deckWidth = Math.max(1, v - 2);
+    },
   },
   beforeUnmount() {
     clearTimeout(this.addressTimer);
@@ -484,6 +545,12 @@ export default {
     goToStep3() {
       const el = this.$refs.step3;
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    },
+    applyPreset(p) {
+      this.length = p.length;
+      this.width = p.width;
+      this.deckDepth = Math.max(1, p.length - 1);
+      this.deckWidth = Math.max(1, p.width - 2);
     },
     onAddressInput() {
       this.addressPoint = null;
@@ -655,6 +722,71 @@ export default {
   font-size: 17px;
   line-height: 1.6;
 }
+.iq-progress {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.iq-progress-step {
+  padding: 5px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+.iq-progress-time {
+  font-size: 13px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.iq-trust {
+  max-width: 1040px;
+  margin: 0 auto 20px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+  box-sizing: border-box;
+}
+.iq-trust img {
+  width: 168px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: block;
+}
+.iq-trust-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+.iq-trust-line {
+  margin: 0;
+  font-size: 15px;
+  color: #334155;
+}
+.iq-trust-review {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #b45309;
+  text-decoration: none;
+}
+.iq-trust-review:hover {
+  text-decoration: underline;
+}
 
 .iq-panel {
   max-width: 1040px;
@@ -759,6 +891,44 @@ export default {
   color: #64748b;
   margin-top: 4px;
   line-height: 1.45;
+}
+
+.iq-rough {
+  margin: -6px 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #065f46;
+}
+.iq-presets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.iq-presets-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+.iq-preset {
+  padding: 8px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.iq-preset:hover {
+  border-color: #94a3b8;
+}
+.iq-preset.active {
+  border-color: #059669;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.18);
 }
 
 .iq-sliders {
@@ -1090,6 +1260,12 @@ export default {
   color: #64748b;
   margin-top: 4px;
 }
+.iq-price-includes {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
 .iq-disclaimer {
   color: #64748b;
   font-size: 14px;
@@ -1190,6 +1366,13 @@ export default {
   font-size: 14px;
   margin: 0;
 }
+.iq-form-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+  text-align: center;
+}
 
 .iq-deposit {
   margin-top: 28px;
@@ -1217,6 +1400,15 @@ export default {
   }
   .iq-panel {
     padding: 22px 16px;
+  }
+  .iq-trust {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .iq-trust img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
   }
   .iq-price {
     font-size: 32px;
