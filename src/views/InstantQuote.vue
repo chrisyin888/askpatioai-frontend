@@ -252,7 +252,7 @@
             </p>
             <p class="iq-disclaimer">
               Planning total for {{ roofArticle }} {{ roofLabel }} patio cover, {{ length }}×{{ width }} ft, {{ coverHeight }} ft high,
-              {{ selectedFloor.name.toLowerCase() }} in {{ city }}.
+              {{ selectedFloor.name.toLowerCase() }} in {{ city === 'Other' ? 'your area' : city }}.
               Final pricing is confirmed after a free on-site measurement.
             </p>
           </template>
