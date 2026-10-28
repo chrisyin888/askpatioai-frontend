@@ -66,6 +66,7 @@ export const PRIORITY_SEO_PAGE_LINKS = [
   { path: '/patio-cover-contractor-port-moody', label: 'Patio cover contractor — Port Moody' },
   { path: '/patio-cover-contractor-abbotsford', label: 'Patio cover contractor — Abbotsford' },
   { path: '/patio-cover-contractor-white-rock', label: 'Patio cover contractor — White Rock' },
+  { path: '/aluminum-carports-vancouver', label: 'Aluminum carports — Metro Vancouver' },
   { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers — Vancouver' },
   { path: '/aluminum-patio-covers-burnaby', label: 'Aluminum patio covers — Burnaby' },
   { path: '/aluminum-patio-covers-richmond', label: 'Aluminum patio covers — Richmond' },

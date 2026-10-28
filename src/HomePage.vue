@@ -1446,6 +1446,7 @@ export default {
         glass: 'Glass patio covers',
         skyline: 'Skyline combo',
         sunrooms: 'Sunrooms',
+        carport: 'Aluminum carports',
       };
       return SERVICE_PAGE_ORDER.map((k) => ({
         to: canonicalizePath(SERVICE_PAGES[k].path),

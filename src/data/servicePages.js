@@ -259,6 +259,75 @@ export const SERVICE_PAGES = {
       { path: '/patio-cover-cost-vancouver', label: 'Patio cover cost in Vancouver' },
     ],
   },
+  carport: {
+    path: '/aluminum-carports-vancouver',
+    heroImage: '/house/before-after/richmond-carport-after.png',
+    areaServed: 'Metro Vancouver, British Columbia',
+    metaTitle: 'Aluminum Carports Vancouver | LoomiHome Patios',
+    metaDescription:
+      'Aluminum carport covers in Metro Vancouver — freestanding or attached, with solid aluminum, glass, or polycarbonate roof options. Fast ballpark with our Design & Price tool, free on-site measurement, and full-size displays at our Burnaby showroom.',
+    h1: 'Aluminum Carports in Metro Vancouver',
+    intro:
+      'An aluminum carport cover keeps vehicles, boats, and side-driveway storage dry through Metro Vancouver rain — without the cost or footprint of a full garage build. LoomiHome installs freestanding and house-attached carports on the same aluminum system as our patio covers, and you can see a fast ballpark price online before booking a free measurement.',
+    benefits: [
+      'Freestanding or attached to the house — layouts built around your driveway',
+      'Powder-coated aluminum frame that will not rot, peel, or need repainting',
+      'Solid aluminum, glass, or polycarbonate roof options',
+      'Dry parking and covered side-driveway storage year-round',
+      'Fast ballpark with our Design & Price tool — no waiting days for a first number',
+    ],
+    sections: [
+      {
+        h2: 'Freestanding or attached — planned around your driveway',
+        body: 'Some carports attach to the house along a side driveway; others stand on their own posts over a parking pad. During the free measurement we confirm vehicle clearance, span, post placement so doors and walkways stay clear, gutter direction, and drainage — the details that decide whether a carport feels easy to use every day.',
+      },
+      {
+        h2: 'See cover systems in person at the Burnaby showroom',
+        body: 'Our Burnaby showroom at 4075 Myrtle Street has full-size patio cover and sunroom displays, so you can compare aluminum frames and roof panels in person before deciding. If a carport is the right fit, we book a free on-site measurement anywhere in Metro Vancouver to confirm the layout and give you firm pricing.',
+      },
+    ],
+    pricingLine:
+      'Carport pricing depends on span, roof style, attachment, and post placement — our Design & Price tool gives you a planning total for your driveway size first, and the free measurement confirms the formal quote.',
+    ctaTitle: 'Get a fast rough estimate',
+    ctaBody:
+      'Use our 60-second Design & Price tool for a ballpark on your carport size, then book a free on-site measurement when the range works for you. Prefer to look first? Visit the Burnaby showroom at 4075 Myrtle Street to see the systems up close.',
+    faqs: [
+      {
+        q: 'Can a carport be freestanding, or does it have to attach to the house?',
+        a: 'Both work. Attached carports run along the house — common for side driveways — while freestanding carports stand on their own posts over a driveway or parking pad. We confirm which layout suits your lot during the free measurement.',
+      },
+      {
+        q: 'What roof options are available for an aluminum carport?',
+        a: 'Solid aluminum panels for maximum rain protection and shade, glass for a brighter, more open look, or polycarbonate panels as a lighter-weight translucent option. All three run on the same aluminum frame system.',
+      },
+      {
+        q: 'How much does an aluminum carport cost in Metro Vancouver?',
+        a: 'It depends on span, roof style, and post placement. Our Design & Price tool gives a planning total for your size in about a minute, and your formal quote is confirmed after a free on-site measurement.',
+      },
+      {
+        q: 'Do I need a permit for a carport cover?',
+        a: 'Requirements vary by city and by the size and placement of the structure. We flag the likely requirements during measurement, and you should confirm with your municipality before building.',
+      },
+      {
+        q: 'Can I see a carport before ordering?',
+        a: 'You can see full-size cover systems at our Burnaby showroom (4075 Myrtle Street, Burnaby), and our Richmond carport project page shows a completed side-driveway installation.',
+      },
+    ],
+    caseStudy: {
+      image: '/house/before-after/richmond-carport-after.png',
+      alt: 'Aluminum carport cover over a Richmond side driveway with aluminum frame and solid roof panels',
+      caption:
+        'Richmond aluminum carport cover — a side-driveway installation that turned open parking into dry, covered space. See the full project for before-and-after photos.',
+      projectPath: '/projects/richmond-aluminum-carport-cover',
+    },
+    relatedPageLinks: [
+      { path: '/instant-quote', label: 'Design & Price It Yourself — instant quote tool' },
+      { path: '/aluminum-patio-covers-vancouver', label: 'Aluminum patio covers in Vancouver' },
+      { path: '/patio-covers-vancouver', label: 'Patio covers in Vancouver' },
+      { path: '/projects/richmond-aluminum-carport-cover', label: 'Richmond aluminum carport project' },
+      { path: '/patio-cover-showroom-burnaby', label: 'Patio cover showroom in Burnaby' },
+    ],
+  },
 };
 
-export const SERVICE_PAGE_ORDER = ['aluminum', 'glass', 'skyline', 'sunrooms'];
+export const SERVICE_PAGE_ORDER = ['aluminum', 'glass', 'skyline', 'sunrooms', 'carport'];

@@ -302,6 +302,7 @@ const SERVICE_LABELS = {
   glass: 'Glass patio covers',
   skyline: 'Skyline combo',
   sunrooms: 'Sunrooms',
+  carport: 'Aluminum carports',
 };
 
 export default {

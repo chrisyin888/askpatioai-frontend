@@ -198,6 +198,7 @@ const SERVICE_SCHEMA_TYPE = {
   glass: 'Glass patio cover installation',
   skyline: 'Skyline combo patio cover installation',
   sunrooms: 'Sunroom installation',
+  carport: 'Aluminum carport installation',
 };
 
 const LABELS = {
@@ -205,6 +206,7 @@ const LABELS = {
   glass: 'Glass patio covers',
   skyline: 'Skyline combo covers',
   sunrooms: 'Sunrooms',
+  carport: 'Aluminum carports',
 };
 
 export default {

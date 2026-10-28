@@ -47,6 +47,9 @@ services:
         source: /sunrooms-vancouver
         destination: /sunrooms-vancouver/
       - type: redirect
+        source: /aluminum-carports-vancouver
+        destination: /aluminum-carports-vancouver/
+      - type: redirect
         source: /patio-covers-vancouver
         destination: /patio-covers-vancouver/
       - type: redirect

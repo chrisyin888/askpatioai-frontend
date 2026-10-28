@@ -187,7 +187,7 @@ Q: Is there a patio cover cost calculator I can use online?
 A: Yes. The LoomiHome Design & Price It Yourself tool at ${SITE_ORIGIN}/instant-quote/ works as a patio cover calculator and instant quote tool: choose aluminum, glass, or skyline combo, set your size and city, and see a planning total in about 60 seconds. Formal pricing is confirmed after a free on-site measurement.
 
 Q: Do you install aluminum carport covers in Metro Vancouver?
-A: Yes, where the layout works. Aluminum carport-style covers and side-driveway covers use a similar aluminum system to patio covers, but vehicle clearance, span, post placement, drainage, and local requirements must be confirmed on site. Project example: ${SITE_ORIGIN}/projects/richmond-aluminum-carport-cover/
+A: Yes, where the layout works. Aluminum carport-style covers and side-driveway covers use a similar aluminum system to patio covers, but vehicle clearance, span, post placement, drainage, and local requirements must be confirmed on site. Service page: ${SITE_ORIGIN}/aluminum-carports-vancouver/ Project example: ${SITE_ORIGIN}/projects/richmond-aluminum-carport-cover/
 
 Q: What is a skyline combo patio cover?
 A: A mix of glass and V-panel sections for both light and shade — useful when you do not want an all-glass or all-solid roof.

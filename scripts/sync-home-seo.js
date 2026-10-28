@@ -28,6 +28,7 @@ const SERVICE_LINK_LABELS = {
   glass: 'Glass patio covers Vancouver',
   skyline: 'Skyline combo patio covers Vancouver',
   sunrooms: 'Sunrooms Vancouver',
+  carport: 'Aluminum carports Vancouver',
 };
 
 const { canonicalizePath } = require('../src/utils/seoHead');
