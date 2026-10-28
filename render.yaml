@@ -596,11 +596,11 @@ services:
         source: /admin-leads
         destination: /admin-leads/
       - type: redirect
-        source: /instant-quote
-        destination: /instant-quote/
-      - type: redirect
         source: /lp/patio-cover
         destination: /lp/patio-cover/
+      - type: redirect
+        source: /instant-quote
+        destination: /instant-quote/
       - type: redirect
         source: /quote
         destination: /instant-quote/

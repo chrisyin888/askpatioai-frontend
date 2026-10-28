@@ -34,6 +34,7 @@ async function loadCityServiceData() {
 function priorityFor(pathname, cityService, priorityPaths) {
   const { CITY_SERVICE_PAGES, CITY_SERVICE_PAGE_ORDER } = cityService;
   if (pathname === '/') return '1';
+  if (pathname === '/instant-quote') return '0.95';
   if (pathname === '/llms.txt') return '0.95';
   if (priorityPaths.has(pathname)) return '0.88';
   if (SERVICE_PAGE_ORDER.some((key) => SERVICE_PAGES[key].path === pathname)) return '0.9';
@@ -53,6 +54,7 @@ function collectPaths(cityService) {
   CITY_SERVICE_PAGE_ORDER.forEach((id) => paths.push(CITY_SERVICE_PAGES[id].path));
   GUIDE_PAGE_ORDER.forEach((id) => paths.push(GUIDE_PAGES[id].path));
   PROJECT_PAGE_ORDER.forEach((id) => paths.push(PROJECT_PAGES[id].path));
+  paths.push('/instant-quote');
   paths.push('/llms.txt');
   return [...new Set(paths)];
 }

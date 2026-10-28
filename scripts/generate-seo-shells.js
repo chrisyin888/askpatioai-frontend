@@ -21,6 +21,7 @@ const { PROJECT_PAGES, PROJECT_PAGE_ORDER } = require('../src/data/projectPages'
 const { PRICING_COPY } = require('../src/data/pricingCopy.js');
 const {
   NOINDEX_SHELL_PATHS,
+  INDEXABLE_TOOL_SHELL_PATHS,
   loadCityServiceData,
   collectSeoPaths,
   buildRedirectsFile,
@@ -633,6 +634,60 @@ function buildNoindexShell(template, entry) {
   return html;
 }
 
+function buildToolShell(template, entry) {
+  const { path: pathname, title, description, ogTitle, ogDescription, ogImage } = entry;
+  const pageUrl = pageAbsoluteUrl(pathname);
+  let html = template;
+  html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="index,follow">`);
+  html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
+  html = html.replace(
+    /<meta name="description" content="[^"]*">/,
+    `<meta name="description" content="${esc(description)}">`,
+  );
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*">/,
+    `<link rel="canonical" href="${esc(pageUrl)}">`,
+  );
+  html = html.replace(
+    /<link rel="alternate" hreflang="en-CA" href="[^"]*">/,
+    `<link rel="alternate" hreflang="en-CA" href="${esc(pageUrl)}">`,
+  );
+  html = html.replace(
+    /<link rel="alternate" hreflang="x-default" href="[^"]*">/,
+    `<link rel="alternate" hreflang="x-default" href="${esc(pageUrl)}">`,
+  );
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*">/,
+    `<meta property="og:url" content="${esc(pageUrl)}">`,
+  );
+  if (ogTitle) {
+    html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(ogTitle)}">`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(ogTitle)}">`);
+  }
+  if (ogDescription) {
+    html = html.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(ogDescription)}">`);
+    html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(ogDescription)}">`);
+  }
+  if (ogImage) {
+    html = html.replace(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${esc(ogImage)}">`);
+    html = html.replace(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${esc(ogImage)}">`);
+  }
+  html = html.replace(
+    /<main id="static-home-seo">[\s\S]*?<\/main>/,
+    `<main id="static-home-seo">
+      <h1>Patio Cover Cost Calculator — Instant Quote</h1>
+      <p>${esc(description)}</p>
+      <p>Choose an aluminum patio cover, a glass patio cover, or a skyline combo cover, set your size and city in Metro Vancouver, and see a planning total before booking a free on-site measurement. LoomiHome Patios also installs sunroom enclosures and aluminum carport-style covers. Visit the Burnaby showroom at 4075 Myrtle Street to see full-size displays.</p>
+      <ul>
+        <li><a href="/patio-cover-showroom-burnaby/">Patio cover showroom in Burnaby</a></li>
+        <li><a href="/aluminum-patio-covers-burnaby/">Aluminum patio covers in Burnaby</a></li>
+        <li><a href="/sunrooms-burnaby/">Sunrooms in Burnaby</a></li>
+      </ul>
+    </main>`,
+  );
+  return html;
+}
+
 async function main() {
   const distIndex = path.join(__dirname, '..', 'dist', 'index.html');
   if (!fs.existsSync(distIndex)) {
@@ -671,6 +726,16 @@ async function main() {
     noindexWritten += 1;
   }
 
+  let toolWritten = 0;
+  for (const entry of INDEXABLE_TOOL_SHELL_PATHS) {
+    const { path: pathname } = entry;
+    const html = buildToolShell(template, entry);
+    const outDir = path.join(__dirname, '..', 'dist', pathname.replace(/^\//, ''));
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+    toolWritten += 1;
+  }
+
   const redirectLines = buildRedirectsFile(allPaths);
   fs.writeFileSync(path.join(__dirname, '..', 'dist', '_redirects'), redirectLines, 'utf8');
 
@@ -679,7 +744,7 @@ async function main() {
   fs.writeFileSync(path.join(__dirname, '..', 'dist', '404.html'), template, 'utf8');
 
   console.log(`Wrote ${written} SEO HTML shells under dist/`);
-  console.log(`Wrote ${noindexWritten} noindex shells, 404.html SPA fallback, and ${redirectLines.trim().split('\n').length} redirect rules to dist/_redirects`);
+  console.log(`Wrote ${noindexWritten} noindex shells, ${toolWritten} indexable tool shells, 404.html SPA fallback, and ${redirectLines.trim().split('\n').length} redirect rules to dist/_redirects`);
 }
 
 main().catch((err) => {

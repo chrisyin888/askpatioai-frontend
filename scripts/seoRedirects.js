@@ -22,6 +22,24 @@ const EXTRA_REDIRECTS = [
   { source: '/lead/', destination: '/instant-quote/' },
 ];
 
+/**
+ * Public tool routes — INDEXABLE shells (not private pages).
+ * /instant-quote is the patio cover cost calculator promoted in llms.txt and
+ * linked from every cost page; it must not ship a noindex "private" shell.
+ */
+const INDEXABLE_TOOL_SHELL_PATHS = [
+  {
+    path: '/instant-quote',
+    title: 'Patio Cover Cost Calculator — Instant Quote | LoomiHome Patios',
+    description:
+      'Use the LoomiHome patio cover calculator to design your cover online and see an instant quote. Choose aluminum, glass, or skyline combo, set your size, and get a planning total before a free on-site measurement in Metro Vancouver.',
+    ogTitle: 'Patio Cover Cost Calculator — See Your Price Instantly',
+    ogDescription:
+      'Pick a roof style, set your size, and get your planning total in about 60 seconds. Free on-site measurement across Metro Vancouver.',
+    ogImage: 'https://loomihomepatios.ca/house/instant-quote/tool-preview.jpg',
+  },
+];
+
 /** Marketplace routes — noindex shells; still get slashless → slash redirects. */
 const NOINDEX_SHELL_PATHS = [
   { path: '/contractor-login', title: 'Contractor Login | LoomiHome Patios' },
@@ -29,7 +47,6 @@ const NOINDEX_SHELL_PATHS = [
   { path: '/lobby', title: 'Lead Lobby | LoomiHome Patios' },
   { path: '/account', title: 'Account | LoomiHome Patios' },
   { path: '/admin-leads', title: 'Admin | LoomiHome Patios' },
-  { path: '/instant-quote', title: 'Instant Patio Cover Quote | LoomiHome Patios' },
   {
     path: '/lp/patio-cover',
     title: 'Design Your Patio Cover — Free Instant Quote | LoomiHome Patios',
@@ -101,6 +118,10 @@ function buildRedirectsFile(seoPaths) {
     lines.push(`${pathname} ${pathname}/ 301`);
   });
 
+  INDEXABLE_TOOL_SHELL_PATHS.forEach(({ path: pathname }) => {
+    lines.push(`${pathname} ${pathname}/ 301`);
+  });
+
   EXTRA_REDIRECTS.forEach(({ source, destination }) => {
     lines.push(`${source} ${destination} 301`);
   });
@@ -132,6 +153,14 @@ function buildRenderRoutes(seoPaths) {
     });
 
   NOINDEX_SHELL_PATHS.forEach(({ path: pathname }) => {
+    routes.push({
+      type: 'redirect',
+      source: pathname,
+      destination: pathname + '/',
+    });
+  });
+
+  INDEXABLE_TOOL_SHELL_PATHS.forEach(({ path: pathname }) => {
     routes.push({
       type: 'redirect',
       source: pathname,
@@ -206,6 +235,7 @@ async function collectAllSeoPaths() {
 
 module.exports = {
   NOINDEX_SHELL_PATHS,
+  INDEXABLE_TOOL_SHELL_PATHS,
   EXTRA_REDIRECTS,
   loadCityServiceData,
   collectSeoPaths,

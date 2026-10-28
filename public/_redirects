@@ -199,8 +199,8 @@
 /lobby /lobby/ 301
 /account /account/ 301
 /admin-leads /admin-leads/ 301
-/instant-quote /instant-quote/ 301
 /lp/patio-cover /lp/patio-cover/ 301
+/instant-quote /instant-quote/ 301
 /quote /instant-quote/ 301
 /quote/ /instant-quote/ 301
 /lead /instant-quote/ 301
