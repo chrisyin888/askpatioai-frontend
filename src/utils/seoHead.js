@@ -237,6 +237,7 @@ export function localBusinessNode() {
     },
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '4075 Myrtle Street',
       addressLocality: 'Burnaby',
       addressRegion: 'BC',
       addressCountry: 'CA',
@@ -246,9 +247,11 @@ export function localBusinessNode() {
       'Glass patio covers',
       'Skyline combo patio covers',
       'Sunroom enclosures',
+      'Aluminum carport covers',
       'Patio cover installation',
       'Metro Vancouver patio covers',
       'Online patio cover design and instant quote tool',
+      'Patio cover cost calculator',
       'Patio cover showroom in Burnaby',
     ],
     areaServed: [
