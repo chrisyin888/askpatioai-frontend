@@ -68,6 +68,42 @@
             </figure>
             <figure class="showroom-photo">
               <img
+                :src="publicAssetUrl('/house/showroom/sunroom-finished-corner.jpg')"
+                alt="Finished glass sunroom at the LoomiHome Burnaby showroom — corner view"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Sunroom display — corner view</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/sunroom-finished-interior.jpg')"
+                alt="Inside the finished glass sunroom at the LoomiHome Burnaby showroom — sliding door"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Sunroom display — sliding door</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/sunroom-finished-view.jpg')"
+                alt="Inside the finished glass sunroom at the LoomiHome Burnaby showroom — looking across the showroom"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Inside the sunroom — looking out</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
+                :src="publicAssetUrl('/house/showroom/sunroom-finished-glass-roof.jpg')"
+                alt="Glass roof of the finished sunroom at the LoomiHome Burnaby showroom — from inside"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Sunroom glass roof — from inside</figcaption>
+            </figure>
+            <figure class="showroom-photo">
+              <img
                 :src="publicAssetUrl('/house/showroom/showroom-space.jpg')"
                 alt="Inside the LoomiHome Burnaby showroom"
                 loading="lazy"
